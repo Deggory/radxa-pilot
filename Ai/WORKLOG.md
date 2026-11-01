@@ -1,5 +1,10 @@
 # Sunnypilot work history
 
+2026-11-01 — Owner requested end-of-day audit and PC/VS Code shutdown. Fresh
+11identity tests pass; clean Git/reference/controller, notebook and journal
+checked. Saved tomorrow's H1 thermal starting point in both memories. No
+hardware implementation. [Session](Sessions/2026-11-01-shutdown-audit.md).
+
 2026-11-01 — Saved proposed non-camera implementation order from existing Q8B,
 MM-X and Jetson evidence. Start with read-only thermal reporting and meaningful
 failure/readback/schema tests; power, physical IMU and cooling follow. All

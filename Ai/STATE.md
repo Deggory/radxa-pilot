@@ -1,5 +1,13 @@
 # Current Sunnypilot state
 
+## End-of-day checkpoint — 2026-11-01
+
+Owner finishing work and requested shutdown after audit. Resume2026-11-02 with
+H1 real read-only thermal provider, following [handoff](HANDOFF.md) and
+[hardware checklist](../tasks/todo.md). Planning baseline2963025 clean; fresh
+11identity tests and notebook/index checks passed. Hardware implementation
+remains pending; camera work deferred. See shutdown session for exact limits.
+
 ## Current focus — non-camera hardware, 2026-11-01
 
 Owner deferred cameras. Read [hardware/sensor map](Knowledge/NONCAMERA_HARDWARE.md)

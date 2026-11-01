@@ -1,5 +1,27 @@
 # Resume Sunnypilot here
 
+## Shutdown checkpoint — 2026-11-01; resume 2026-11-02
+
+Owner requested end-of-work audit, then close VS Code and power off. Tomorrow
+resume H1 in [hardware checklist](../tasks/todo.md): qualified read-only Q8B
+temperature reporting first. No hardware implementation today. Cameras stay
+deferred. Read teacher resume/inbox and inspect live Git before continuing.
+
+Audit baseline29630251976104c71dd72f18de53f64adcc70864, clean radxa/q8b.
+All application changes since identity12e44fee remain absent: later commits
+document project layout, evidence and plans. Fresh11identity tests and notebook
+checks pass; no full build, managed stack or hardware-driver test claimed.
+Upstream reference a86979d2 and maintenance60f799a are clean. No missing
+validation/pending upstream reviews; two corrected historical failures retained.
+Daily reference timer remains active/persistent; next Nov2 15:30UTC. Check its
+actual state after boot. Last service result success; project is never auto-merged.
+
+VS Code autoSave setting was afterDelay and its Backups directory contained no
+files at audit. Normal system shutdown uses VS Code's registered cleanup delay
+inhibitor. Power-off is requested only after saved checkpoint/commit/validation;
+check the teacher shutdown evidence for the accepted schedule. Saving this
+handoff does not prove the later physical power-off completed.
+
 Saved 2026-11-01. Read this after reopening, then check actual files and Git.
 This is the current handoff; older session paths and next-task advice may be
 historical. Update it after each completed increment and before task closeout.
@@ -24,8 +46,8 @@ use; documentation changes do not imply binary or runtime verification.
   policy. Power/thermal/sensor hardware operations still use generic defaults.
 - Canonical project migration:7c208a33747d4ce279131649f2ca3434ad3b3fc3.
   Ai is a real tracked directory without nested Git. Branch is radxa/q8b.
-- Most recent project HEAD observed before this workflow task:
-  99d38e4ca26ca95b7474b3ed5f50e5d207c73f6f, clean. The commit containing this
+- Most recent project HEAD observed before this shutdown audit:
+  29630251976104c71dd72f18de53f64adcc70864, clean. The commit containing this
   handoff is a later documentation checkpoint; get latest HEAD from Git.
 - Source headers:Sunny2026.003.000/COMMA0.11.3. Upstream base6f7a2c94;
   separately updated reference was a86979d2. No newer upstream merge applied.

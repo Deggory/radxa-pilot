@@ -1,5 +1,16 @@
 # Validation: what is actually established
 
+## Shutdown audit — 2026-11-01
+
+At source2963025, all11Python hardware identity tests freshly pass. Notebook
+layout/links/eight repository pins/4252index entries pass. Project, upstream
+reference and maintenance worktrees clean; later application diff from identity
+12e44fee is empty. Journal has no missing validation or pending upstream review;
+two corrected historical failure records retained. Timer active/persistent,
+service last result success. These checks do not qualify thermal/power/IMU/fan
+providers or a full managed runtime. Native wire/build-profile results remain
+prior scoped evidence and were not rerun for this documentation-only checkpoint.
+
 ## 2026-11-01 — Working project is sunnypilot; notebook is inside it
 
 Owner clarified that `sunnypilot/` is the actual project and other workspace

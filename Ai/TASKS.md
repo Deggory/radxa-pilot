@@ -1,5 +1,9 @@
 # Work status and next task
 
+End-of-day2026-11-01: owner resumes tomorrow2026-11-02. Next technical work H1
+read-only thermal reporting. Audit/checkpoint only today; no driver started.
+See [shutdown session](Sessions/2026-11-01-shutdown-audit.md).
+
 ## Proposed implementation sequence — 2026-11-01
 
 See [hardware plan](../tasks/plan.md) and [checklist](../tasks/todo.md).
