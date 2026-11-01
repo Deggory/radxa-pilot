@@ -145,3 +145,66 @@ Primary local sources: `openpilot/common/hardware/base.py` and radxa/hardware.py
 log.capnp; `openpilot/system/manager/process_config.py`. Full hashes/source pins
 and host snapshots are in the optional workspace report directory
 `Ai/Reports/sunnypilot-noncamera-hardware-20261101/`.
+
+## Complete non-camera hardware checklist — 2026-11-01
+
+Source snapshot:a80afa88ea5ed141684c2e8a83901c042a99322a, application12e44fee.
+This lists inputs, outputs and diagnostics across the current hardware API,
+active schema and service consumers. **Not every field is mandatory on every
+board/car.** Unsupported/absent and measured-zero are different facts. PWM is
+an output, fan RPM is feedback, and battery capacity/energy may be estimates.
+
+| Area | Readings / controls / state | Scope |
+| --- | --- | --- |
+| CPU thermals | Per-core CPU temperatures | Q8B health provider needed |
+| GPU thermals | GPU temperature channels | Q8B health provider needed |
+| Other thermals | RAM/memory, DSP and power-management chip temperatures | Use actual board zones; avoid inventing equivalent sensor locations |
+| Board-specific thermals | Intake, exhaust, GNSS receiver, bottom-SoC and modem temperatures | Optional/layout-specific; current comma schema fields do not prove Q8B has each sensor |
+| Cooling output | Desired fan percentage, actual board fan/PWM command and control mode | A PWM interface is exposed; correct controller/ownership still needed |
+| Cooling feedback | Fan RPM/tachometer, cooling fault detection where supported | peripheralState supports RPM; no Q8B tach feedback established |
+| Electrical input | Input voltage/current, power consumption, supply presence | Map actual power domains and units; USB/adapter/car supply are distinct |
+| Compute power | Whole-device and SoM power reports, offroad energy use | Whole-board/SoM must be verified; energy/capacity reporting includes estimates |
+| Vehicle power | Vehicle battery voltage, ignition from bridge/CAN, offroad battery-capacity/shutdown policy | Comes from the correct vehicle interface; never infer ignition from USB online |
+| Compute load | Per-core CPU load, GPU utilization, RAM usage | Existing Linux/common paths plus Q8B-specific GPU telemetry |
+| Storage | Available disk space and recording/storage readiness | Software/OS checks; current nvmeTempC field is deprecated, not a mandatory active DeviceState input |
+| IMU acceleration | Three-axis acceleration in m/s², timestamp/source/validity | Known Adafruit LSM6DS3TR-C on I²C9/0x6a; service nominal104Hz |
+| IMU rotation | Three-axis angular velocity in rad/s, timestamp/source/validity | Same IMU, nominal104Hz; mounting/gyro bias/current managed delivery still unqualified |
+| IMU diagnostic | Sensor-chip temperature | Separate from CPU thermals; nominal2Hz temperatureSensor |
+| Position/GNSS | Latitude/longitude/altitude, speed/course, fix, accuracy, satellites and receiver time | gpsLocation nominal1Hz or external nominal10Hz; no purchased/tested receiver in the last teacher record |
+| Clocking/health | Monotonic sample/message time, wall-clock/UTC where needed, uptime, freshness/rate/validity | Must validate real timestamps; no synthetic timing to hide missing/stale data |
+| Network | Connected transport (Wi-Fi/Ethernet/cellular), signal, metering, connection/operator state, data counters | Optional cellular fields only if a modem is actually used |
+| Display/input | Screen brightness read/set, display on/off; host UI input/touch | Match actual Q8B display/input, not comma backlight sysfs paths |
+| Audio output | Speaker/audio-device playback, alert volume and fault/availability | Actual alert output must be integrated/tested; no camera dependency assumed |
+| Audio input | Microphone/raw audio and ambient sound-pressure estimate for adaptive alert volume | Existing micd/soundd consumer; depends on enabled feature/audio hardware |
+| Identity/lifecycle | Board/device ID, OS version, serial/init metadata, boot readiness, initialization, power-save, shutdown/reboot/reset behavior | Identity implemented; real platform operations remain separate; IMEI/SIM/eSIM only for applicable cellular hardware |
+| USB/peripherals | Attached devices, connection/link speed/errors and optional accessory state | Chestnut-specific GPU/USB/power/thermal contract only if that accessory is used |
+| CAN/bridge health | Connection, firmware/type, CAN RX/TX health, counters/errors, heartbeat, ignition, safety checks/controls state | Vehicle-interface boundary, not HardwareRadxa temperature/IMU methods |
+| Vehicle motion/steering | Ego/wheel speed, standstill, steering angle, optional steering rate and yaw rate, relevant driver/EPS torque, driver override and steering faults | Exact signals depend on selected car/actuator design; native CAN torque units are not automatically Nm |
+| Vehicle controls/state | Accelerator/brake/regen/parking brake where used, gear, cruise/buttons, blinkers, doors/seatbelt | Required/optional behavior determined by actual car interface, not a new generic retrofit protocol |
+| Conditional ADAS | Radar/object tracks, blindspot and OEM safety/assist status | Only for applicable enabled longitudinal/OEM features; not universally required for the selected lateral focus |
+
+Magnetometer, barometer, proximity and light variants occur in broad historical
+sensor schema, but current sensord creates accel/gyro/temp only. Do not buy or
+emulate every old schema sensor. Camera/IR hardware and its driver monitoring
+are intentionally deferred under current owner scope. GPU/NPU model execution
+is a separate compute-backend integration, not supplied by temperature/load
+readings or board identity.
+
+Relevant ownership split: HardwareRadxa handles board/platform methods;
+sensord/provider publishes IMU; a GNSS provider publishes position; common OS
+code supplies resource statistics; audio/UI manage user I/O; vehicle/bridge
+services supply CAN/vehicle/actuator feedback. Some requests only occur when
+the feature/process is enabled, and some values are computed rather than sensed.
+
+Q8B evidence already available: named thermal zones, power monitors and PWM
+interface, plus the existing raw-I²C Adafruit IMU. These are not all connected
+to current managed Sunnypilot yet. Planned first bounded change stays real
+read-only thermal reporting, then explicit power mapping and the actual IMU
+provider. Existing teacher raw/schema IMU tests are historical proof, not new
+IPC/locationd acceptance. No camera or vehicle action is included.
+
+Primary current sources: common/hardware/base.py, base.h and comma/hardware.py;
+cereal/log.capnp DeviceState/PandaState/PeripheralState/UsbState and services.py;
+system/hardware/hardwared.py, micd.py; selfdrive/ui/soundd.py and ui_state.py;
+opendbc_repo/opendbc/car/car.capnp. Canonical RetroPilot DBC policy remains
+unchanged; this checklist is not proof of any physical bus/protocol compatibility.

@@ -78,3 +78,9 @@ Adafruit LSM6DS3TR-C/I²C9/0x6a, wiring and prior raw/schema tests from central
 IMU/GPS notes and actual retained reports. Corrected model-pending/IIO inference
 in current handoffs/map. Initialb62481cc factual-completeness failure retained;
 current follow-up rechecks records. No new live I²C sampling or driver changes.
+
+2026-11-01 — Expanded non-camera hardware checklist from current APIs, active
+schemas and service consumers: thermals/cooling/power/utilization/IMU/GNSS/time,
+network/UI/audio/lifecycle/peripherals and conditional vehicle/CAN/radar signals.
+Distinguished outputs/estimates/optional fields and known Q8B evidence; no driver
+or runtime change. [Session](Sessions/2026-11-01-hardware-checklist.md).

@@ -43,7 +43,9 @@ code. This workflow task verifies documentation links/layout only.
 
 ## Where we stopped and next technical step
 
-Owner now selected **non-camera hardware/sensors** and deferred cameras. We
+Owner now selected **non-camera hardware/sensors** and deferred cameras. A complete
+input/output/status checklist is now included in the non-camera hardware map,
+covering board, UI/audio/network, timing, bridge and vehicle-dependent inputs. We
 completed a read-only map of motion-sensor messages and board-health APIs plus
 this host's exposed devices. See [non-camera hardware](Knowledge/NONCAMERA_HARDWARE.md).
 This source/inventory checkpoint started at5bcc0028, clean; no application or
