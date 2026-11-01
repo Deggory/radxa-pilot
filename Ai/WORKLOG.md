@@ -53,3 +53,7 @@ into sunnypilot, clean upstream moved to q8b/sunnypilot-upstream. Real tracked
 Ai replaces external link; old notebook history retained. Daily config/hook
 retargeted; README and agent rules corrected. See
 [session](Sessions/2026-11-01-project-location.md) for verification.
+
+2026-11-01 — Explained existing board identity/build/schema/camera safeguards,
+project memory and tested limits at b7fff536. No new application changes or
+runtime launch. [Session](Sessions/2026-11-01-changes-explained.md).
