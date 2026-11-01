@@ -1,0 +1,70 @@
+# Decisions and rationale
+
+## 2026-11-01 — Working project is sunnypilot; notebook is inside it
+
+Owner clarified that `sunnypilot/` is the actual project and other workspace
+folders are references/support. The existing radxa/q8b repository was moved
+from q8b/sunnypilot-radxa into sunnypilot, preserving identity commit12e44fee,
+all Git history, assets, submodule pins and IDE files. The clean upstream copy
+is now q8b/sunnypilot-upstream and remains the only daily-updated checkout.
+No upstream code was merged. The former project path is a compatibility link.
+
+`Ai/` is now a real directory versioned with the project, copied from notebook
+ed8afade without nested Git. The old notebook repository retains history only.
+Active code, README and knowledge belong here; external references are optional
+context and do not supply the new identity implementation at runtime.
+
+See [README](../readme_wat_we_did.md) from this Ai directory, or
+[location session](Sessions/2026-11-01-project-location.md). Earlier recorded
+paths/roles below are historical and must be interpreted using their source
+pins. This move does not qualify camera/model/UI/sensors or vehicle actuation.
+
+
+## 2026-11-01 — Board identity authorized; generic Linux policy retained
+
+The owner explicitly said "lets do this" for Ubuntu Linux, ARM64 and Radxa
+Dragon Q8B and requested a README. Implement the proposed identity slice in the
+protected clone, without auto-merging vendor. Keep PC policy true to preserve
+existing Linux paths/services; add real board identity separately. Append enum8
+without renumbering existing readers, and explicitly reject unconfigured Q8B
+camera geometry. Hardware defaults are not health measurements. Camera/model/
+sensor/actuator integration remains separate later work.
+
+## 2026-11-01 — Workspace knowledge plus repository specialist memory
+
+The owner asked for a folder inside Sunnypilot that remembers what we do and
+learn here. Main `/home/radxa/comma/Ai/` remains the workspace coordinator.
+`sunnypilot/Ai/` and protected-port `Ai/` expose one specialist notebook backed
+by independent Git at `q8b/sunnypilot-memory`, branch `main`. Local links are
+excluded from upstream Git; exact-path collision checks protect them during
+daily updates. This preserves one history without placing port code in vendor.
+
+Agents read and maintain the notebook using task-relevant skills. No separate
+running AI, automatic knowledge completeness or background semantic review is
+claimed. Source pins, evidence, coverage and uncertainty travel with each fact.
+
+## Existing owner selections, retained
+
+- Sunnypilot is the selected source for Q8B + custom steering; lateral is the
+  main eventual goal. Fork recommendations were research, not road validation.
+- Fresh stock source/assets are the new integration base; the previous custom
+  Q8B model/runtime are separate preserved references.
+- Daily updates advance only vendor; upstream integration into protected port
+  requires discussion, including conflict-free merges. Notifications: next chat.
+- Initial implementation milestone is camera/model/messages/native UI. Shared
+  CAN interfaces use `/home/radxa/comma/retropilot/dbc/`; no repository audit or
+  memory setup establishes actuator/vehicle compatibility.
+
+Sources: [upstream policy](/home/radxa/comma/Ai/Knowledge/SUNNYPILOT_UPSTREAM_POLICY.md),
+[workspace decisions](/home/radxa/comma/Ai/DECISIONS.md).
+
+2026-11-01 — Owner requested a Linux-platform explanation before changes.
+Generic Linux/ARM64 is already selected without /AGNOS. Record an explicit Q8B
+hardware/backend design as future work; no flag, hardware class, launch profile,
+dependency install or OS modification was authorized by this question.
+
+2026-11-01 — MM-X is a reference, not an adopted patch set. Owner's new request
+continues the explanation-before-change scope. Inspected backend/camera/process/
+localization choices; implement only after owner instruction. Keep Linux/Q8B
+runtime and real sensor contracts; no approval inferred for sensor bypasses,
+fork switching, old schemas or MM-X delay/driver assumptions.

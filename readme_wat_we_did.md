@@ -1,9 +1,31 @@
 # What we did: Radxa Dragon Q8B identity
 
 Owner-authorized scope, 2026-11-01: let Sunnypilot identify Ubuntu/Linux, ARM64
-and the Radxa Dragon Q8B board. Implementation lives in this protected
-`radxa/q8b` checkout. The daily-updated `/home/radxa/comma/sunnypilot` remains
-the upstream vendor copy; its `Ai/` link opens our shared specialist notebook.
+and Radxa Dragon Q8B. The owner clarified that **this `sunnypilot/` directory is
+the actual project** and is the folder intended for use when ready.
+
+## Project location correction
+
+The initial identity work was saved in `q8b/sunnypilot-radxa`. We moved that
+existing Git repository into `/home/radxa/comma/sunnypilot`, preserving its full
+history, branch, source/assets, submodules and IDE files. No application patch
+was dropped or silently combined with newer upstream source.
+
+- Work here, on `radxa/q8b`. Identity implementation commit: `12e44fee`.
+- `Ai/` is now a **real directory tracked in this project**, copied from the
+  specialist notebook without its nested `.git`. It travels with this folder.
+- The clean upstream copy moved to `q8b/sunnypilot-upstream` as a reference.
+  Daily updates target that copy; they never overwrite this project's branch.
+- The old `q8b/sunnypilot-radxa` path is only a compatibility link. Other
+  workspace folders retain references, earlier experiments and development
+  tools. Active Radxa implementation belongs here.
+- The former independent notebook Git history remains archived under q8b.
+  New knowledge and code changes are committed together in this project.
+
+The application identity implementation has no runtime dependency on those
+outside reference folders. A working deployment still needs the usual Python,
+C++ and hardware dependencies and the remaining camera/model integration.
+Historical evidence links outside this folder are optional research context.
 
 ## Contract
 
@@ -32,7 +54,7 @@ No manager, model, camera, firmware or vehicle service is started by this work.
 ## Changes and validation
 
 Implemented 2026-11-01 on `radxa/q8b`, from protected HEAD `dfb86f6a` atop
-upstream `6f7a2c94`. Vendor `master` remains `a86979d2`; that later upstream
+upstream `6f7a2c94`. The upstream reference was `a86979d2` at migration; that later upstream
 commit has not been merged into this port.
 
 | Files | What changed |
@@ -45,12 +67,13 @@ commit has not been merged into this port.
 | Both modeld implementations, camera-offset helper and both augmented-road views | Use the checked camera lookup for device-dependent geometry. |
 | `openpilot/common/hardware/__main__.py`, hardware `tests/` | Read-only identity command, Python contracts and actual C++/Python schema checks. |
 
-From this checkout, print the detected identity without starting services:
+From this checkout, using a Python environment with the project dependencies
+installed, print the detected identity without starting services:
 
 ```bash
-cd /home/radxa/comma/q8b/sunnypilot-radxa
+cd /home/radxa/comma/sunnypilot
 export PYTHONPATH="$PWD:$PWD/opendbc_repo:$PWD/msgq_repo"
-/home/radxa/comma/q8b/experiments/msm-venv/bin/python -m openpilot.common.hardware
+python3 -m openpilot.common.hardware
 ```
 
 Actual output on this board:
@@ -84,13 +107,15 @@ Verification completed:
 Reproduce the Python and native checks after setting `PYTHONPATH` above:
 
 ```bash
-/home/radxa/comma/q8b/experiments/msm-venv/bin/python -m unittest -v openpilot.common.hardware.tests.test_radxa
-/home/radxa/comma/q8b/experiments/msm-venv/bin/python openpilot/common/hardware/tests/check_native_identity.py \
-  --capnproto-root /home/radxa/comma/q8b/tools/radxa-identity-capnproto-1.0.1.post103/comma_deps_capnproto-1.0.1.post103.data/purelib/capnproto/install \
-  --build-dir /home/radxa/comma/q8b/experiments/radxa-identity-native
+python3 -m unittest -v openpilot.common.hardware.tests.test_radxa
+python3 openpilot/common/hardware/tests/check_native_identity.py \
+  --capnproto-root "$CAPNPROTO_ROOT" \
+  --build-dir /tmp/sunnypilot-radxa-identity-native
 ```
 
-The test tools were unpacked separately under `q8b/tools` from wheels already
+`CAPNPROTO_ROOT` is a Cap'n Proto installation with bin/include/lib. The original
+validation used the existing workspace test environment and test tools
+unpacked separately under `q8b/tools` from wheels already
 pinned in `uv.lock`, after SHA256 verification. No system packages or existing
 runtime environments were changed. Detailed logs and tool hashes are in
 `/home/radxa/comma/Ai/Reports/radxa-board-identity-20261101/`.
@@ -101,5 +126,5 @@ conflicts. Camera/model/UI services have not been run or qualified here.
 Real camera calibration, stock-model/runtime integration and hardware providers
 are still required for a working driving stack.
 
-The specialist notebook in `Ai/` and workspace Ai keep the dated evidence and
-Git commit/validation journal. No upstream merge or remote push was performed.
+The tracked specialist notebook in `Ai/` and optional workspace Ai keep the
+dated evidence and Git commit/validation journal. No upstream merge or remote push was performed.

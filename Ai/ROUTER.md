@@ -1,0 +1,46 @@
+# Start here: Sunnypilot repository memory
+
+Current location: this `sunnypilot/` is the project, branch `radxa/q8b`.
+`Ai/` is a real tracked directory. Other workspace folders are references or
+development tools. See [location correction](Sessions/2026-11-01-project-location.md).
+Historical entries below may describe the superseded external notebook layout.
+
+Current implemented identity and checks: [what we did](../readme_wat_we_did.md),
+[2026-11-01 session](Sessions/2026-11-01-radxa-board-identity.md).
+
+1. When working in the Comma workspace, read its [ROUTER](/home/radxa/comma/Ai/ROUTER.md) and
+   [live update inbox](/home/radxa/comma/Ai/SUNNYPILOT_UPDATE_INBOX.md).
+2. Read [STATE.md](STATE.md) and [TASKS.md](TASKS.md). Check actual Git HEAD,
+   branch and dirty state in the checkout being discussed. Vendor and Radxa
+   port are separate repositories with different purposes.
+3. Pick a topic below; inspect its referenced source before changing behavior.
+4. Before finishing, update this notebook and promote durable cross-project
+   facts plus a concise session record to the workspace Ai memory.
+
+| Question | Read |
+| --- | --- |
+| What is this repository and where is each subsystem? | [Architecture](Knowledge/ARCHITECTURE.md), [module map](Knowledge/MODULE_MAP.md) |
+| What does system code do, file by file? | [System review](Knowledge/SYSTEM.md) |
+| What changes for Radxa and what already works? | [Q8B port](Knowledge/RADXA_PORT.md) |
+| How does Ubuntu/Linux differ from AGNOS platform selection? | [Linux detection and Q8B plan](Knowledge/LINUX_PLATFORM.md) |
+| How does MM-X adapt Sunny to PC/Linux? | [Pinned MM-X reference](Knowledge/MM_X_LINUX_REFERENCE.md) |
+| Which branch/model/runtime/version are we using? | [Versions and update workflow](Knowledge/UPSTREAM_AND_VERSIONS.md), STATE |
+| What did we change, test or decide? | [Worklog](WORKLOG.md), [validation](VALIDATION.md), [decisions](DECISIONS.md), Sessions |
+| What is unfinished or uncertain? | [Tasks](TASKS.md), [questions](QUESTIONS.md), [coverage](Knowledge/COVERAGE.md) |
+| Which skill applies? | [Skill workflow](Knowledge/SKILLS.md) |
+| Where is a tracked source file? | [Pinned source index](Evidence/source-index.json); search a matching entry, not the whole JSON |
+| Where are deeper historical symbols/message traces? | [Existing brain index](/home/radxa/comma/Ai/AI_BRAIN/00_MASTER_INDEX.md); verify freshness first |
+
+Useful checks:
+
+```bash
+git -C /home/radxa/comma/sunnypilot status --short --ignore-submodules=none
+git -C /home/radxa/comma/sunnypilot rev-parse HEAD
+git -C /home/radxa/comma/q8b/sunnypilot-upstream status --short --ignore-submodules=none
+git -C /home/radxa/comma/q8b/sunnypilot-upstream rev-parse HEAD
+git -C /home/radxa/comma/sunnypilot log -5 --oneline
+```
+
+If source HEAD differs from a topic's recorded pin, its findings are historical
+until the relevant diff is checked. Preserve old evidence and date the new
+finding. Do not silently rewrite an old test into a claim about the new source.

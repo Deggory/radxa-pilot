@@ -1,0 +1,20 @@
+{
+  "date": "2026-11-01",
+  "vendor_head": "a86979d2b2b176413a7f3e5cccf8c807596a7def",
+  "port_head": "12e44feeff241334e184c86dc9daccdc7f9e4fa1",
+  "visible_locations": [
+    "/home/radxa/comma/sunnypilot/Ai",
+    "/home/radxa/comma/q8b/sunnypilot-upstream/Ai"
+  ],
+  "source_repositories": 8,
+  "indexed_entries": 4252,
+  "system_review_source": "/home/radxa/comma/q8b/SUNNYPILOT_SYSTEM_REVIEW.md",
+  "coverage": "Navigation index plus selected existing source reviews. Not complete algorithm or runtime qualification.",
+  "controller_guard_commit": "fac3b93a1ee9cd3f6c21dc775c0dc1256d411d2f",
+  "initial_vendor_head": "6f7a2c94c10dffcf9a83b120ab1e6985e4496868",
+  "port_path": "/home/radxa/comma/sunnypilot",
+  "vendor_path": "/home/radxa/comma/q8b/sunnypilot-upstream",
+  "memory_layout": "Tracked regular Ai directory inside the project; independent notebook history retained under q8b/sunnypilot-memory",
+  "archived_memory_head": "ed8afadef6d8d47722f7d66a16e25bbe7a56c813",
+  "port_head_meaning": "Last application implementation when this migration was recorded; docs-only descendants may follow. Live Git is authoritative."
+}

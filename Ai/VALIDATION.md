@@ -1,0 +1,93 @@
+# Validation: what is actually established
+
+## 2026-11-01 — Working project is sunnypilot; notebook is inside it
+
+Owner clarified that `sunnypilot/` is the actual project and other workspace
+folders are references/support. The existing radxa/q8b repository was moved
+from q8b/sunnypilot-radxa into sunnypilot, preserving identity commit12e44fee,
+all Git history, assets, submodule pins and IDE files. The clean upstream copy
+is now q8b/sunnypilot-upstream and remains the only daily-updated checkout.
+No upstream code was merged. The former project path is a compatibility link.
+
+`Ai/` is now a real directory versioned with the project, copied from notebook
+ed8afade without nested Git. The old notebook repository retains history only.
+Active code, README and knowledge belong here; external references are optional
+context and do not supply the new identity implementation at runtime.
+
+See [README](../readme_wat_we_did.md) from this Ai directory, or
+[location session](Sessions/2026-11-01-project-location.md). Earlier recorded
+paths/roles below are historical and must be interpreted using their source
+pins. This move does not qualify camera/model/UI/sensors or vehicle actuation.
+
+
+## 2026-11-01 — Q8B identity implemented and checked
+
+Owner authorized Ubuntu/Linux, ARM64 and Radxa Dragon Q8B identification.
+Protected `radxa/q8b` commit `12e44feeff241334e184c86dc9daccdc7f9e4fa1` implements exact device-tree detection,
+Python/C++ HardwareRadxa and local cereal enum `radxaQ8b @8`, preserving existing
+ordinals and generic Linux `aarch64`, `COMMA_HARDWARE=False`, `PC=True` policy.
+The read-only command reports actual Ubuntu24.04.5/ARM64/RadxaDragonQ8B. Dynamic
+camera consumers explicitly reject missing Radxa calibration. No comma camera
+calibration is claimed for this board.
+
+11 Python tests, 4 actual C++→Python deviceState/initData message checks, SCons
+profile detection, Ruff, syntax and diff checks passed. A detection mutation
+was rejected by the tests. No full Sunnypilot build, camera/model/UI launch,
+MSM runtime integration, hardware-health measurement or vehicle actuation was
+performed. Generic hardware defaults remain unimplemented health providers.
+Vendor stays clean at a86979d2; no upstream merge/push.
+
+[What we did](/home/radxa/comma/q8b/sunnypilot-radxa/readme_wat_we_did.md) ·
+[Evidence](/home/radxa/comma/Ai/Reports/radxa-board-identity-20261101/REPORT.md).
+
+| Evidence | What passed | What it does not establish |
+| --- | --- | --- |
+| Fresh stock checkout | Prior verification of 286 LFS payloads, stock model hash and seven dependency pins | Build, inference or Q8B integration |
+| System source review | 193 Git/content checks, 139 Python AST parses, documented local-link checks | Every line/register/firmware audited or runtime tests passed |
+| Daily controller with memory protection | 31 real-Git unit tests; 3 new collision regressions failed before the fix | Semantic compatibility of upstream changes |
+| Legacy standalone worker | Prior 15 CPU regression tests after helper-import isolation | Fresh stock model or managed Sunny runtime qualification |
+| Notebook installation | Source-index completeness, document links, local mounts/exclusions and Git/journal readback recorded in bootstrap report | Complete knowledge of all algorithms or a running background AI |
+
+Current evidence: [memory setup report](/home/radxa/comma/Ai/Reports/sunnypilot-repo-memory-20261101/REPORT.md),
+[system review](/home/radxa/comma/Ai/Reports/sunnypilot-system-review-20261101/REPORT.md).
+
+Deployment check: the actual user update service succeeded on 2026-11-01 at
+17:10:53 UTC, Result=success / ExecMainStatus=0. The timer remained active with
+next run 2026-11-02 15:30 UTC. It advanced vendor from6f7a2c94 to a86979d2 while
+preserving the local links and protected port/notebook. This checks maintenance behavior,
+not Sunnypilot runtime or hardware compatibility.
+
+The first post-service notebook check failed because its original vendor pin
+was stale. That failure is retained as notebook-stale-pin.log and recorded
+against documentation commit02bf09e8. Its premature no-advance statement is
+corrected here without rewriting Git history. The source index/current-state
+pins were refreshed before repeating the same verification command.
+
+Every future session records the exact command, source identity, outcome and
+saved log. Mark an unavailable dependency as blocked; do not substitute syntax
+checks for a build/runtime claim. The post-commit hook records commits, not
+invented test success. Attach validation explicitly through the controller:
+
+```bash
+python3 /home/radxa/comma/q8b/sunnypilot-maintenance/updater.py \
+  --config /home/radxa/comma/q8b/sunnypilot-maintenance/config.json \
+  validation --sha FULL_SHA --command 'EXACT CHECK COMMAND' \
+  --result pass --evidence '/absolute/path/to/saved-log'
+```
+
+## Relocation verification completed
+
+From the canonical sunnypilot path:11 Python identity tests,4 native C++→Python
+message checks and the actual SCons platform probe passed. Application/build
+source is unchanged from12e44fee and both IDE files are byte-identical. The
+31-test updater suite passed. Project-local notebook verification passed24docs,
+51 relative links and the eight-repository/4252-entry vendor index. A temporary
+standalone copy of Ai plus project documentation passed without the workspace.
+Verifier Ruff/AST and Git diff checks passed.
+
+The actual retargeted daily service succeeded2026-11-01 20:39:22UTC with exit0,
+observing upstreama86979d2. Project HEAD/status and selected source/notebook
+hashes stayed identical through the service. Persistent daily timer is enabled,
+active/waiting, next run2026-11-02 15:30UTC. No new pending related upstream
+commit was discovered. Historical02bf09e8 notebook failure remains retained in
+the ledger; it is not a current relocation or application failure.
