@@ -56,6 +56,11 @@ radxa_svc_glink PWM interface. Two IIO devices exposed no accel/gyro/magnetic
 channels. No /dev/gnss* node; existing CH341 USB Serial is not identified as
 GNSS/IMU. No ports were opened or device/bus configuration written.
 
+Jetson teacher studies read back: DragonPilot has explicit board-health/fan
+providers; Feiyang overlay has a physical IMU publisher. See JETSON_HARDWARE_REFERENCE
+for pinned evidence/limits. No implementation adopted; Q8B native I²C9 and actual
+board telemetry remain our path, camera work deferred.
+
 MM-X hardware review complete at b9b7f488: PC thermal/power/fan defaults and
 carState-derived IMU policies are documented in the reference note; no code
 adopted. Retain actual Q8B telemetry and physical sensor path. Next bounded

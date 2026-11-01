@@ -89,3 +89,8 @@ or runtime change. [Session](Sessions/2026-11-01-hardware-checklist.md).
 b9b7f488:9 blob matches/8 AST parses. Compared empty thermal/zero power/GPU,
 TICI-only fan/GNSS, real OS resource stats and carState-derived IMU policy.
 Source-only, no implementation copied. [Session](Sessions/2026-11-01-mm-x-hardware.md).
+
+2026-11-01 — Consulted teacher Jetson studies first; compared dedicated DP
+hardware backend and separate overlay physical-IMU design with Q8B needs.
+Fresh6source IDs/4blob/3AST checks; reused prior REA receipts with frozen file
+integrity readback, no runtime re-execution. [Session](Sessions/2026-11-01-jetson-hardware.md).

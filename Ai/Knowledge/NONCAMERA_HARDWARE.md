@@ -214,3 +214,9 @@ MM-X follow-up: the [non-camera comparison](MM_X_LINUX_REFERENCE.md) shows
 empty PC thermal config, zero power/GPU usage, TICI-only fan control and
 carState-derived IMU observations. Real OS CPU/RAM/disk statistics remain.
 These are reference policies, not Q8B sensor/health implementations; none copied.
+
+
+Jetson follow-up: [teacher-derived hardware comparison](JETSON_HARDWARE_REFERENCE.md)
+separates DragonPilot's actual thermal/INA-power/GPU/fan backend from Feiyang's
+external LSM6DS3/CH347 publisher overlay. Keep Q8B's own providers/native I²C9;
+no NVIDIA profile, calibration constants or sensor shortcut copied.

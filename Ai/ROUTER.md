@@ -1,5 +1,7 @@
 # Start here: Sunnypilot repository memory
 
+Jetson hardware reference: [two teacher studies compared](Knowledge/JETSON_HARDWARE_REFERENCE.md).
+
 Current owner focus: [non-camera hardware/sensors](Knowledge/NONCAMERA_HARDWARE.md);
 camera work deferred. Known IMU:Adafruit LSM6DS3TR-C/I²C9/0x6a from teacher
 evidence; see HANDOFF and the map for prior tests/current integration gaps.
