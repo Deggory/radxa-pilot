@@ -1,5 +1,15 @@
 # Decisions and rationale
 
+## 2026-11-01 — Prioritize non-camera hardware explanation/inventory
+
+Owner said work on hardware and asked which sensor details Sunnypilot needs,
+explicitly leaving cameras for later. First explain motion vs board-health vs
+vehicle-feedback boundaries and inventory host interfaces read-only. Do not
+start camera work, enable comma I²C/GPIO drivers unchanged, simulate missing
+sensor health, open unidentified serial ports or change fan mode. Actual IMU
+model/interface is unconfirmed; read-only thermal reporting is the first bounded
+implementation candidate. This source study is not a tested sensor integration.
+
 ## 2026-11-01 — Persistent teacher/student workflow is the default
 
 Owner explicitly asked for Agent Skills and REA on project changes and for

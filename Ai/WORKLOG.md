@@ -66,3 +66,9 @@ Audit closeout is documentation only.
 explicit defaults. Added tracked HANDOFF, startup/recovery/closeout instructions,
 updated rules and session template; retained T0 as next candidate. Documentation
 only; [session](Sessions/2026-11-01-default-workflow-and-resume.md).
+
+2026-11-01 — Owner selected hardware/sensors and deferred cameras. Mapped
+accel/gyro/temp/GNSS and board-health API contracts; read-only host inventory
+found thermal/power/PWM interfaces but no exposed IIO motion channels. Actual
+IMU identity remains pending owner input. No hardware driver/setting/service
+change. [Session](Sessions/2026-11-01-noncamera-hardware.md).

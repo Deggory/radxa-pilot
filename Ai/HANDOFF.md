@@ -43,22 +43,28 @@ code. This workflow task verifies documentation links/layout only.
 
 ## Where we stopped and next technical step
 
-Identity and project-location work are complete. This task only makes the
-workflow/restart rules durable. No application implementation is in progress
-and there was no uncommitted owner work at its start. At closeout, inspect Git
-status and record any newly unfinished work instead of assuming a clean tree.
+Owner now selected **non-camera hardware/sensors** and deferred cameras. We
+completed a read-only map of motion-sensor messages and board-health APIs plus
+this host's exposed devices. See [non-camera hardware](Knowledge/NONCAMERA_HARDWARE.md).
+This source/inventory checkpoint started at5bcc0028, clean; no application or
+hardware configuration changed. Exact Git HEAD must be checked on reopening.
 
-Next candidate is T0 stock-contract preflight from [TASKS.md](TASKS.md): inspect
-current dependencies/build extensions and actual stock model input/output/parser,
-selected runtime and camera buffer/time/calibration contracts. Start with
-read-only checks; this default-workflow instruction does not launch that task.
-Then establish a bounded recorded-input camera/model/messages/native-UI slice.
-Do not silently adopt the older model/runtime or MM-X assumptions.
+Findings:55 readable thermal zones, system_power/USB/ADC hwmon telemetry and a
+radxa_svc_glink PWM interface. Two IIO devices exposed no accel/gyro/magnetic
+channels. No /dev/gnss* node; existing CH341 USB Serial is not identified as
+GNSS/IMU. No ports were opened or device/bus configuration written.
 
-Actual camera calibration/capture, Adreno/MSM integration, sensors, thermal/power,
-full build/managed runtime and steering integration remain unqualified. No
-firmware/CAN/vehicle actuation is authorized. Discuss upstream integration before
-changing this branch; the daily job updates only the separate reference copy.
+Pending owner input: actual external IMU model/interface, if any. First bounded
+implementation candidate is real read-only Q8B thermal reporting with tests;
+then validate power domains/units and implement those separately. IMU provider
+needs actual model, axes, acquisition timestamps and live sample/fault tests.
+Stock comma sensord remains disabled under PC=True; do not turn on its hardcoded
+I²C/GPIO wiring. No runtime/hardware driver was implemented by this explanation.
+
+Camera/model-contract work remains future work, deferred by this scope. Real
+thermal/power/fan, IMU/GNSS, full managed runtime and steering remain unqualified.
+No firmware/CAN/vehicle actuation is authorized. Discuss upstream integration
+before changing this branch; daily updates only advance the reference copy.
 
 ## Startup and interrupted-session recovery
 

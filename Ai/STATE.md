@@ -1,5 +1,14 @@
 # Current Sunnypilot state
 
+## Current focus — non-camera hardware, 2026-11-01
+
+Owner deferred cameras. Read [hardware/sensor map](Knowledge/NONCAMERA_HARDWARE.md)
+and [HANDOFF](HANDOFF.md). Board thermal/power/PWM interfaces are exposed; no
+IIO motion channels found. Actual IMU model is pending owner input. Inventory
+only, no driver/config/runtime change. Next candidate: read-only thermal mapping,
+then verified power reporting and actual IMU provider. Earlier camera/model
+T0next-task advice below is deferred by the current scope.
+
 Current restart checkpoint and next step: [HANDOFF.md](HANDOFF.md). Agent Skills
 + REA and both-memory closeout are standing defaults, including after reopening.
 No additional hardware/runtime implementation was made by this workflow task.

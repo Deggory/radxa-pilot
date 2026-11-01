@@ -1,5 +1,8 @@
 # Start here: Sunnypilot repository memory
 
+Current owner focus: [non-camera hardware/sensors](Knowledge/NONCAMERA_HARDWARE.md);
+camera work deferred. See HANDOFF for actual host findings and pending IMU model.
+
 After reopening, start with [HANDOFF.md](HANDOFF.md). It records where we left
 off, what is verified and the next step. Check live Git/files before resuming.
 The default Agent Skills + REA workflow and both-memory closeout are standing

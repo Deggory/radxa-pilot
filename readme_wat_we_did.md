@@ -128,3 +128,12 @@ are still required for a working driving stack.
 
 The tracked specialist notebook in `Ai/` and optional workspace Ai keep the
 dated evidence and Git commit/validation journal. No upstream merge or remote push was performed.
+
+
+## Non-camera hardware assessment — 2026-11-01
+
+The current owner focus is hardware/sensors; camera work is deferred. Read the
+[hardware and sensor map](Ai/Knowledge/NONCAMERA_HARDWARE.md). A read-only host
+inventory found thermal, power and PWM interfaces; no motion channels appeared
+in exposed IIO devices. This assessment adds documentation, not a sensor driver.
+IMU model/connection and power-domain mappings remain to be established.
