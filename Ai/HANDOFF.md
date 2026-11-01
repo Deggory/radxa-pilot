@@ -54,10 +54,14 @@ radxa_svc_glink PWM interface. Two IIO devices exposed no accel/gyro/magnetic
 channels. No /dev/gnss* node; existing CH341 USB Serial is not identified as
 GNSS/IMU. No ports were opened or device/bus configuration written.
 
-Pending owner input: actual external IMU model/interface, if any. First bounded
-implementation candidate is real read-only Q8B thermal reporting with tests;
+Known from teacher: Adafruit LSM6DS3TR-C on I²C9/address0x6a, VIN1/GND6/SDA3/
+SCL5; prior102Hz polling and1040 in-memory schema round trips at olda5f44653.
+No new live bus test here. Model/interface are known; no need to ask again.
+Fixed mounting/bias, current-source IPC/provider and locationd acceptance remain
+open. First bounded implementation candidate is read-only thermal reporting;
 then validate power domains/units and implement those separately. IMU provider
-needs actual model, axes, acquisition timestamps and live sample/fault tests.
+needs verified installed axes, acquisition timestamps and live sample/fault tests.
+Use existing teacher IMU reports first; raw I²C need not expose IIO channels.
 Stock comma sensord remains disabled under PC=True; do not turn on its hardcoded
 I²C/GPIO wiring. No runtime/hardware driver was implemented by this explanation.
 

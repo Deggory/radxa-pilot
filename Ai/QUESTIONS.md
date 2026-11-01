@@ -7,7 +7,8 @@ These remain open; the notebook must not silently fill them in.
   model identity and runtime contract.
 - Identity is implemented at12e44fee; actual Q8B camera calibration and external
   reader/future-upstream compatibility for local enum ordinal8 remain open.
-- Actual IMU/GNSS devices or providers, mounting axes, units, rates and clock
+- IMU model/connection are known:Adafruit LSM6DS3TR-C/I²C9/0x6a. Current
+  managed IMU/GNSS providers, installed mounting axes, units, rates and clock
   alignment; comma I²C/GPIO paths are not compatibility evidence.
 - VisionIPC layout/stride/UV offset, ownership and frame-time pairing across
   capture, inference, recording and the native UI.

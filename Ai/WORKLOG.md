@@ -72,3 +72,9 @@ accel/gyro/temp/GNSS and board-health API contracts; read-only host inventory
 found thermal/power/PWM interfaces but no exposed IIO motion channels. Actual
 IMU identity remains pending owner input. No hardware driver/setting/service
 change. [Session](Sessions/2026-11-01-noncamera-hardware.md).
+
+2026-11-01 correction — Owner required teacher-first lookup. Recovered known
+Adafruit LSM6DS3TR-C/I²C9/0x6a, wiring and prior raw/schema tests from central
+IMU/GPS notes and actual retained reports. Corrected model-pending/IIO inference
+in current handoffs/map. Initialb62481cc factual-completeness failure retained;
+current follow-up rechecks records. No new live I²C sampling or driver changes.

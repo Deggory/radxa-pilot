@@ -136,4 +136,7 @@ The current owner focus is hardware/sensors; camera work is deferred. Read the
 [hardware and sensor map](Ai/Knowledge/NONCAMERA_HARDWARE.md). A read-only host
 inventory found thermal, power and PWM interfaces; no motion channels appeared
 in exposed IIO devices. This assessment adds documentation, not a sensor driver.
-IMU model/connection and power-domain mappings remain to be established.
+Teacher memory identifies the existing Adafruit LSM6DS3TR-C on I²C9/address
+0x6a, with prior raw/~102Hz and in-memory schema tests. Absence of IIO motion
+channels does not negate its raw-I²C path. Current managed integration/mount
+calibration and power-domain mappings remain to be established.

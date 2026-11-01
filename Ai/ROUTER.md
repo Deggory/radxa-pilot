@@ -1,7 +1,8 @@
 # Start here: Sunnypilot repository memory
 
 Current owner focus: [non-camera hardware/sensors](Knowledge/NONCAMERA_HARDWARE.md);
-camera work deferred. See HANDOFF for actual host findings and pending IMU model.
+camera work deferred. Known IMU:Adafruit LSM6DS3TR-C/I²C9/0x6a from teacher
+evidence; see HANDOFF and the map for prior tests/current integration gaps.
 
 After reopening, start with [HANDOFF.md](HANDOFF.md). It records where we left
 off, what is verified and the next step. Check live Git/files before resuming.

@@ -5,6 +5,38 @@ branchradxa/q8b, headersSunny2026.003.000/COMMA0.11.3. Owner selected hardware
 work and explicitly deferred cameras. This is a source/read-only host inventory,
 not an implemented sensor adapter or a qualified running stack.
 
+## Known IMU recovered from teacher memory — 2026-11-01 correction
+
+Teacher [IMU record](/home/radxa/comma/Ai/Knowledge/Repos/imu.md) and retained
+`imu/README.md`, `imu/SUNNYPILOT_IMU_TEST.md` and capture reports establish:
+
+| Item | Recorded hardware/evidence |
+| --- | --- |
+| Module | Adafruit LSM6DS3TR-C six-axis IMU: accelerometer, gyroscope and temperature |
+| Connection | Q8B I²C9, `/dev/i2c-9`, address `0x6a`; prior WHO_AM_I=`0x6a` |
+| Wiring | VIN→header1, GND→6, SDA→3, SCL→5; four wires, no interrupt wire recorded |
+| Bus setting | Prior live device-tree check:400kHz |
+| Prior rate test |2026-10-16 uncapped fresh reads:3120 over30.555s,102.08Hz observed, maximum gap32.93ms |
+| Prior message test |520 live samples/1040 in-memory Cereal round trips at102.26Hz; maximum message-creation age7.26ms |
+| Integration limit |Tests used old sourcea5f44653; no IPC delivery, managed sensord/locationd acceptance or rigid-mount/vehicle-axis calibration demonstrated |
+
+The standalone reader uses raw userspace I²C. No exposed IIO accel/gyro channel
+is therefore consistent with this known sensor; the earlier IIO-only inventory
+was insufficient to ask the owner for its model. This task also observes
+`/dev/i2c-9` exists, but does not open it or repeat a live chip-ID/sample test.
+The historical loose-board gyro bias and37.3° gravity tilt must not be applied
+as installed vehicle calibration. Teacher evidence is the starting point for
+current-source integration, not proof the newer runtime is already integrated.
+
+The teacher's [GPS record](/home/radxa/comma/Ai/Knowledge/Repos/gps.md) says
+receiver candidates were researched but none purchased/connected/tested in that
+record. Do not infer GNSS from the CH341 USB Serial adapter. No buying advice
+or new hardware absence/presence claim is made in this correction.
+
+Owner reaffirmed: search teacher notes/reports before asking for project facts;
+ask only about remaining missing/conflicting/stale details. These recovered
+facts are copied into student knowledge so it can retain the hardware context.
+
 ## Motion sensors: a separate service from HardwareRadxa
 
 | Input | Meaning / use | Current source contract |
@@ -89,8 +121,9 @@ no CAN IDs, bus routing, DBC, firmware or actuator behavior changed here.
 
 ## Next non-camera steps
 
-1. Identify the actual IMU model/connection. An asynchronous question was sent
-   to the owner; no model was confirmed at this checkpoint. Do not substitute
+1. Use the known Adafruit LSM6DS3TR-C/I²C9/address0x6a and existing raw reader
+   reports as the starting point; search teacher evidence before asking. Recheck
+   transport/current-source compatibility in a bounded scope. Do not substitute
    car yaw-rate or synthetic readings for a physical sensor without a separate,
    explicitly validated design.
 2. First bounded board-health implementation candidate: read-only Q8B thermal

@@ -13,6 +13,14 @@ Default for every change: use relevant Agent Skills and the source-first REA
 workflow for artifact/runtime evidence. Record actual tool use and limits;
 do not claim REA verification for ordinary source/documentation checks.
 
+Before asking the owner for hardware/project information, search the teacher
+Ai router and relevant Knowledge/Repos notes and follow their reports/source.
+Ask only for gaps/conflicts/stale physical details that saved evidence or safe
+read-only checks cannot resolve. A missing IIO device is not proof a known
+userspace I²C sensor is absent. Promote recovered facts and test limits into
+the local notebook. Known IMU: Adafruit LSM6DS3TR-C, I²C9/address0x6a; see
+`Ai/Knowledge/NONCAMERA_HARDWARE.md` for evidence and remaining integration gaps.
+
 On every new session or reopening, read `Ai/HANDOFF.md`, `Ai/STATE.md` and
 `Ai/TASKS.md`, then inspect actual Git branch/HEAD, status and validation. In
 the Comma workspace also read the teacher's `Ai/RESUME_HERE.md` and update inbox.

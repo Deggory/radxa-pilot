@@ -4,7 +4,8 @@
 
 Owner deferred cameras. Read [hardware/sensor map](Knowledge/NONCAMERA_HARDWARE.md)
 and [HANDOFF](HANDOFF.md). Board thermal/power/PWM interfaces are exposed; no
-IIO motion channels found. Actual IMU model is pending owner input. Inventory
+IIO motion channels found. Teacher records Adafruit LSM6DS3TR-C/I²C9/0x6a,
+prior102Hz raw polling and1040 schema round trips; this uses raw I²C, not IIO. Inventory
 only, no driver/config/runtime change. Next candidate: read-only thermal mapping,
 then verified power reporting and actual IMU provider. Earlier camera/model
 T0next-task advice below is deferred by the current scope.

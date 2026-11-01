@@ -16,6 +16,11 @@ with preserving dirty work, not resetting to the last recorded checkpoint.
 
 - Read `ROUTER.md`, `STATE.md`, `TASKS.md` and relevant topic notes. Check live
   Git and actual source rather than treating a historical note as current.
+- Before asking the owner, search teacher Knowledge/Repos and its reports for
+  existing hardware/project details. Resolve what can be resolved read-only;
+  ask only about remaining gaps/conflicts/stale physical details. Record the
+  recovered fact, source date and scope in the student notebook. Known raw-I²C
+  IMU evidence must not be rejected solely because an IIO scan is empty.
 - Keep active application changes, required assets and specialist knowledge in
   this project. Use relative paths for project instructions. Optional workspace
   references and archived evidence may remain outside; runtime code must not

@@ -36,3 +36,29 @@ repositories/4252 indexed entries. Standalone copied-notebook check passed.
 All13 recorded source hashes match readback; application/build source unchanged.
 `git diff --check` passed. These verify documentation/evidence integrity, not
 working sensor/GNSS/fan integration. Host snapshots are read-only observations.
+
+## Teacher-memory correction — owner steering during this task
+
+Owner said consult teacher first and only ask if details cannot be found. Found
+Ai/Knowledge/Repos/imu.md, retained reader/README, schema smoke JSON and dated
+capture reports:Adafruit LSM6DS3TR-C on I²C9/0x6a, physical1VIN/6GND/3SDA/5SCL,
+400kHz prior bus,102.08Hz raw/3120samples and102.26Hz/520samples/1040 in-memory
+schema round trips. These were2026-10-16/a5f44653 tests, not a new managed test.
+Mount/offset/FIFO/current-source IPC/locationd remain unqualified. Known raw-I²C
+path explains absent IIO motion channels; /dev/i2c-9 exists today, not opened.
+GPS teacher record has unpurchased/untested candidates, no confirmed receiver.
+
+Initial model-pending handoff/question was incomplete because teacher lookup
+was missed. Recorded factual cross-check failure againstb62481cc separately from
+its passing document-link checks; preserve history. Corrected current map,
+HANDOFF/state/tasks/router/README/questions and both agent-rule layers. New
+standing rule: search teacher/reports/read-only sources before asking; ask only
+about a remaining material gap/conflict/stale detail. No hardware changes or
+new runtime integration tests. Source/report hashes recorded in
+teacher-hardware-recovery.json. Camera scope stays deferred.
+
+Corrected verification: documentation links/layout/index and standalone copy
+passed; preserved raw JSON cross-check matches520samples/1040roundtrips at
+102.2621Hz. Thirteen current-source hashes unchanged. This is evidence readback,
+not new live hardware/managed runtime tests. Teacher-first correction resolves
+the IMU-model question; future questions are reserved for actual remaining gaps.

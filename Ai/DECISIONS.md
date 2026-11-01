@@ -1,5 +1,14 @@
 # Decisions and rationale
 
+## 2026-11-01 — Search teacher evidence before asking the owner
+
+Owner corrected the unnecessary IMU-model question: teacher already records
+Adafruit LSM6DS3TR-C/I²C9/0x6a, prior ~102Hz raw testing and in-memory schema
+smoke. Promote these facts/limits to student. Empty IIO scan is not evidence
+against a userspace raw-I²C device. Ask only for unresolved/stale/conflicting
+physical details after reading teacher sources. Keep initialb62481cc historical
+factual finding and this correction; do not erase ledger history.
+
 ## 2026-11-01 — Prioritize non-camera hardware explanation/inventory
 
 Owner said work on hardware and asked which sensor details Sunnypilot needs,
