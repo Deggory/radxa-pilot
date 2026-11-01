@@ -24,3 +24,18 @@ sources, tests and limits; user scope and higher-priority rules take precedence.
 For ordinary source use rg and selected ranges. Use REA when binary/artifact
 parsing or runtime evidence answers the question. Availability does not require
 an irrelevant binary analysis or authorize executing firmware/hardware actions.
+
+## Default workflow and restart persistence — 2026-11-01
+
+Owner reaffirmed Agent Skills + REA for every project change, without repeated
+reminders. Select relevant skills on demand and use source-first checks plus
+REA artifact/runtime evidence when applicable. Explicitly record used skills,
+evidence, exact tests and limits; record when REA is not applicable to a
+source/documentation task. This instruction does not require irrelevant binary
+analysis, install tools or authorize hardware operations.
+
+At startup/reopen read [HANDOFF](../HANDOFF.md), STATE/TASKS and current Git.
+At completed increments/closeout save accepted scope, changed paths, source/
+model/runtime identities, verification, dirty work, decisions and exact next
+step in student and teacher notes. Unexpected shutdown recovery compares notes
+with actual files; do not discard work or assume missing checks passed.

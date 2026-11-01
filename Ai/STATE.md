@@ -1,5 +1,9 @@
 # Current Sunnypilot state
 
+Current restart checkpoint and next step: [HANDOFF.md](HANDOFF.md). Agent Skills
++ REA and both-memory closeout are standing defaults, including after reopening.
+No additional hardware/runtime implementation was made by this workflow task.
+
 ## 2026-11-01 — Working project is sunnypilot; notebook is inside it
 
 Owner clarified that `sunnypilot/` is the actual project and other workspace

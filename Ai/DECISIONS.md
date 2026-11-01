@@ -1,5 +1,15 @@
 # Decisions and rationale
 
+## 2026-11-01 — Persistent teacher/student workflow is the default
+
+Owner explicitly asked for Agent Skills and REA on project changes and for
+both memories to know where work stopped after shutdown/reopening. Store the
+policy in project/workspace AGENTS, read HANDOFF at startup, reconcile live Git,
+and update both memories at completed increments and closeout. Keep source-first
+routing and actual evidence limits. This authorizes workflow/documentation, not
+new runtime/hardware actions or upstream merges. Saved checkpoints do not claim
+to recover unsaved work or complete knowledge of uninspected code.
+
 ## 2026-11-01 — Working project is sunnypilot; notebook is inside it
 
 Owner clarified that `sunnypilot/` is the actual project and other workspace

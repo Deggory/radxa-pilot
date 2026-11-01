@@ -1,5 +1,10 @@
 # Start here: Sunnypilot repository memory
 
+After reopening, start with [HANDOFF.md](HANDOFF.md). It records where we left
+off, what is verified and the next step. Check live Git/files before resuming.
+The default Agent Skills + REA workflow and both-memory closeout are standing
+owner instructions; see [skills](Knowledge/SKILLS.md) and REPO_RULES.
+
 Current location: this `sunnypilot/` is the project, branch `radxa/q8b`.
 `Ai/` is a real tracked directory. Other workspace folders are references or
 development tools. See [location correction](Sessions/2026-11-01-project-location.md).

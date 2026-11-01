@@ -61,3 +61,8 @@ runtime launch. [Session](Sessions/2026-11-01-changes-explained.md).
 2026-11-01 — Confirmed Git tracking to owner: source520d7f2 clean, journal
 hook targets canonical project; all17managed local commits had validation.
 Audit closeout is documentation only.
+
+2026-11-01 — Owner made Agent Skills + REA and teacher/student restart continuity
+explicit defaults. Added tracked HANDOFF, startup/recovery/closeout instructions,
+updated rules and session template; retained T0 as next candidate. Documentation
+only; [session](Sessions/2026-11-01-default-workflow-and-resume.md).

@@ -9,6 +9,20 @@ Read `Ai/ROUTER.md` and `Ai/REPO_RULES.md`. `Ai/` is a regular, tracked project
 directory; it must not depend on an outside notebook mount. Use relative paths
 for project instructions and distinguish optional workspace references.
 
+Default for every change: use relevant Agent Skills and the source-first REA
+workflow for artifact/runtime evidence. Record actual tool use and limits;
+do not claim REA verification for ordinary source/documentation checks.
+
+On every new session or reopening, read `Ai/HANDOFF.md`, `Ai/STATE.md` and
+`Ai/TASKS.md`, then inspect actual Git branch/HEAD, status and validation. In
+the Comma workspace also read the teacher's `Ai/RESUME_HERE.md` and update inbox.
+After each completed increment and before finishing, update student handoff,
+relevant topic/session/worklog and teacher resume/current-state notes with
+what changed, exact tests, dirty work, decisions and next step. Commit verified
+changes and journal validation. This is standing policy, without repeat prompts.
+After an unexpected shutdown, preserve and reconcile dirty files and missing
+checks; do not assume the last saved checkpoint includes unfinished work.
+
 While in the Comma workspace, also read its central `Ai/ROUTER.md`, live
 `Ai/SUNNYPILOT_UPDATE_INBOX.md` and upstream policy; update central memory plus
 the project notebook at task closeout. Use task-relevant installed agent skills.

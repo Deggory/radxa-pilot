@@ -5,6 +5,15 @@ will be the folder retained for use when ready. `Ai/` is a regular directory
 tracked in this same repository. Earlier notes describing outside notebook
 backing or q8b as the working project are historical and superseded.
 
+Standing default reaffirmed by the owner: use relevant Agent Skills with REA's
+artifact/runtime evidence workflow for changes. Keep readable-source checks
+source-first; record when REA analysis is not applicable rather than inventing
+tool use. Read `HANDOFF.md` at startup/reopen and reconcile its saved scope,
+checkpoint, tests, unfinished work and next step with actual Git/files. Update
+it and the teacher's resume/current-state notes at completed increments and
+closeout. No repeated reminder is needed. Unexpected shutdown recovery starts
+with preserving dirty work, not resetting to the last recorded checkpoint.
+
 - Read `ROUTER.md`, `STATE.md`, `TASKS.md` and relevant topic notes. Check live
   Git and actual source rather than treating a historical note as current.
 - Keep active application changes, required assets and specialist knowledge in
