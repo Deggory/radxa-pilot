@@ -84,3 +84,8 @@ schemas and service consumers: thermals/cooling/power/utilization/IMU/GNSS/time,
 network/UI/audio/lifecycle/peripherals and conditional vehicle/CAN/radar signals.
 Distinguished outputs/estimates/optional fields and known Q8B evidence; no driver
 or runtime change. [Session](Sessions/2026-11-01-hardware-checklist.md).
+
+2026-11-01 — Reviewed MM-X non-camera hardware handling at freshly checked
+b9b7f488:9 blob matches/8 AST parses. Compared empty thermal/zero power/GPU,
+TICI-only fan/GNSS, real OS resource stats and carState-derived IMU policy.
+Source-only, no implementation copied. [Session](Sessions/2026-11-01-mm-x-hardware.md).

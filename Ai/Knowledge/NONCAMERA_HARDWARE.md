@@ -208,3 +208,9 @@ cereal/log.capnp DeviceState/PandaState/PeripheralState/UsbState and services.py
 system/hardware/hardwared.py, micd.py; selfdrive/ui/soundd.py and ui_state.py;
 opendbc_repo/opendbc/car/car.capnp. Canonical RetroPilot DBC policy remains
 unchanged; this checklist is not proof of any physical bus/protocol compatibility.
+
+
+MM-X follow-up: the [non-camera comparison](MM_X_LINUX_REFERENCE.md) shows
+empty PC thermal config, zero power/GPU usage, TICI-only fan control and
+carState-derived IMU observations. Real OS CPU/RAM/disk statistics remain.
+These are reference policies, not Q8B sensor/health implementations; none copied.

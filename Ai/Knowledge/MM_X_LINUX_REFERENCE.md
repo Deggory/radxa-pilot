@@ -1,5 +1,67 @@
 # MM-X's PC/Linux approach: reference for Q8B
 
+## Non-camera hardware comparison — 2026-11-01
+
+Owner asked what MM-X did for the hardware/sensor checklist. Rechecked the
+master-tici branch through GitHub: still `b9b7f4885662f9d8a2bfc984e23bcda412399e4a`,
+commit2026-08-20. Verified9 selected Git blob identities and parsed8 Python
+files:5 newly fetched source files plus4 exact cached bodies from this pin.
+Local project at review start:f12882e96c6388dc72dcd434a4de33955595e5b4. Camera
+work remains excluded. This describes behavior in the branch, not authorship
+of every line or a measured working/safe PC/Q8B deployment.
+
+| Topic | What the inspected MM-X PC path does | Consequence for our Q8B |
+| --- | --- | --- |
+| CPU/GPU/RAM/PMIC temperatures | Pc inherits base get_thermal_config returning an empty ThermalConfig | No real PC/Q8B thermal-zone mapping supplied here |
+| CPU/RAM/disk usage | hardwared uses psutil.cpu_percent/percpu, psutil.virtual_memory and free-disk helper | Real OS statistics, separate from chip temperature/power telemetry |
+| GPU utilization | Pc.get_gpu_usage_percent returns0 | Placeholder telemetry; does not mean GPU inference itself cannot execute |
+| Device/SoM power | Pc power methods return0; normal power-monitor code otherwise remains | No measured PC input-rail/SoM power implementation; zero is not calibrated0W |
+| Fan/PWM | hardwared creates TiciFanController only for TICI with a peripheral present | No Q8B PWM/control-mode/tach adapter on normal PC path |
+| IMU | PC localizer creates accel[aEgo,0,-9.81] and gyro[0,0,-yawRate] from carState | Derived planar observations; not our physical3-axis accel/gyro measurement |
+| Sensor health | PC skips physical accel/gyro subscriptions/critical checks and sets sensor validation true | A policy shortcut, not proof actual motion sensors are healthy |
+| GPS | qcomgpsd/ubloxd/pigeond enabled only for TICI | No general external-PC/Q8B GNSS provider established by this registry |
+| Network/modem | Pc reports Wi-Fi, unknown signal/no network info, absent SIM and empty modem temperatures | Assumed/default state, not complete host network/modem discovery |
+| Display/lifecycle | Brightness/power-save/init methods are no-ops; reboot/shutdown print messages | Does not implement Q8B backlight, power policy or real shutdown controls |
+| Process selection | micd/timed/sensord/torqued/lagd and several hardware functions gated away from PC | Each disabled service's consumers/fallbacks need deliberate review |
+| Audio/interface | soundd runs on ordinary PC but not RK; native UI selected and raylib UI disabled | Different branch/interface policy; not our current Python raylib adaptation |
+| Vehicle interface | Existing card/pandad supplies carState/CAN; pandad disabled in FILLBACK mode | Valid speed/yaw feedback still depends on actual car/bridge, not PC identity |
+
+Physical IMU replacement details are in his locationd.handle_log carState branch.
+He also avoids physical sensor sockets on PC and treats sensor_all_checks as
+true; these are substantive estimator assumptions. Our custom steering-angle
+sensor does not by itself supply a measured yaw rate or complete3D motion. Our
+known Adafruit LSM6DS3TR-C/I²C9/0x6a has prior raw/schema evidence; retain its
+real sensor path and qualify current-source publication/mount/bias instead of
+copying this shortcut. No sensor bypass or car-derived IMU was adopted.
+
+His hardwared still exists and publishes generic device status; it does not
+make every hardware reading real. Inherited empty thermal configuration and
+zero methods can still produce default-looking state. Existing CPU/RAM/disk
+statistics should not be described as fake merely because other fields are
+placeholders. Likewise GPU-usage telemetry is separate from the chosen model
+execution backend. No Rockchip/PC thermal monitoring was proven elsewhere by
+this focused file review; do not infer OS-level cooling is disabled either.
+
+Useful pattern: isolate generic Linux and board/feature-specific services.
+For Q8B we still need actual thermal/power reads, deliberate fan ownership,
+physical IMU publisher and supported network/display/GNSS providers as required.
+No fork switch, copied patch, upstream merge, camera/GPU/model/sensor/CAN/vehicle
+run or hardware configuration change was made by this study.
+
+Primary source links:
+
+- [PC backend](https://github.com/MM-X/sunnypilot-pc/blob/b9b7f4885662f9d8a2bfc984e23bcda412399e4a/system/hardware/pc/hardware.py) and
+  [base thermal configuration](https://github.com/MM-X/sunnypilot-pc/blob/b9b7f4885662f9d8a2bfc984e23bcda412399e4a/system/hardware/base.py).
+- [Hardware monitor and fan selection](https://github.com/MM-X/sunnypilot-pc/blob/b9b7f4885662f9d8a2bfc984e23bcda412399e4a/system/hardware/hardwared.py).
+- [PC IMU observations and validation](https://github.com/MM-X/sunnypilot-pc/blob/b9b7f4885662f9d8a2bfc984e23bcda412399e4a/selfdrive/locationd/locationd.py).
+- [Process and GNSS policy](https://github.com/MM-X/sunnypilot-pc/blob/b9b7f4885662f9d8a2bfc984e23bcda412399e4a/system/manager/process_config.py).
+
+Evidence: optional workspace q8b/research/mm-x-hardware-20261101 and central
+Ai/Reports/mm-x-hardware-20261101. Source-only checks are not runtime integration.
+
+Earlier study below retains the recorded local checkout state at its date.
+
+
 2026-11-01. Owner asked to inspect MM-X before making changes. This is reference
 research only; implementation waits for the owner's instruction. The standing
 daily vendor update policy remains separate. No application code/configuration,

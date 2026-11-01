@@ -56,6 +56,11 @@ radxa_svc_glink PWM interface. Two IIO devices exposed no accel/gyro/magnetic
 channels. No /dev/gnss* node; existing CH341 USB Serial is not identified as
 GNSS/IMU. No ports were opened or device/bus configuration written.
 
+MM-X hardware review complete at b9b7f488: PC thermal/power/fan defaults and
+carState-derived IMU policies are documented in the reference note; no code
+adopted. Retain actual Q8B telemetry and physical sensor path. Next bounded
+implementation remains read-only thermal mapping with tests.
+
 Known from teacher: Adafruit LSM6DS3TR-C on I²C9/address0x6a, VIN1/GND6/SDA3/
 SCL5; prior102Hz polling and1040 in-memory schema round trips at olda5f44653.
 No new live bus test here. Model/interface are known; no need to ask again.
