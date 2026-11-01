@@ -1,5 +1,10 @@
 # Sunnypilot work history
 
+2026-11-01 — Saved proposed non-camera implementation order from existing Q8B,
+MM-X and Jetson evidence. Start with read-only thermal reporting and meaningful
+failure/readback/schema tests; power, physical IMU and cooling follow. All
+implementation remains pending. [Session](Sessions/2026-11-01-hardware-plan.md).
+
 This is a curated history of work already recorded in workspace Ai. A historical
 result stays tied to its original source/model/runtime and test scope.
 

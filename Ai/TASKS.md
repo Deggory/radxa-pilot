@@ -1,5 +1,12 @@
 # Work status and next task
 
+## Proposed implementation sequence — 2026-11-01
+
+See [hardware plan](../tasks/plan.md) and [checklist](../tasks/todo.md).
+Start H1 with real read-only thermal mapping/tests; then qualified power,
+physical IMU, cooling and needed platform services. All implementation tasks
+remain pending. This response saves guidance, not new drivers or runtime tests.
+
 ## Current focus — non-camera hardware, 2026-11-01
 
 Owner deferred cameras. Read [hardware/sensor map](Knowledge/NONCAMERA_HARDWARE.md)

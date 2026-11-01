@@ -43,6 +43,12 @@ code. This workflow task verifies documentation links/layout only.
 
 ## Where we stopped and next technical step
 
+Owner asked what to do with the collected evidence. Saved proposed ordered
+[hardware plan](../tasks/plan.md) and [checklist](../tasks/todo.md): H1 read-only
+temperatures first, then power, physical IMU, cooling and remaining services.
+No immediate purchase/rewiring for H1; qualify fixed IMU mounting before final
+axis/bias calibration. Plan only, all implementation tasks remain pending.
+
 Owner now selected **non-camera hardware/sensors** and deferred cameras. A complete
 input/output/status checklist is now included in the non-camera hardware map,
 covering board, UI/audio/network, timing, bridge and vehicle-dependent inputs. We
