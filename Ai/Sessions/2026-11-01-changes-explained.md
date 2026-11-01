@@ -21,3 +21,14 @@ Next implementation remains stock-contract/runtime preflight. Source headers
 2026.003.000/COMMA0.11.3; main identity application source unchanged. Used the
 documentation-and-adrs workflow to keep the explanation and limits consistent
 with actual source. This task changes memory documentation only.
+
+## 2026-11-01 — Git tracking confirmation
+
+Owner asked whether changes are committed. Read-only audit at project520d7f2
+confirmed clean radxa/q8b working tree, implementation12e44fee, relocation7c208a33,
+notebookb7fff536/520d7f2 and correctly retargeted post-commit journal hook.
+Controller60f799a was clean. Ledger had17local commits, none missing validation,
+no pending related upstream reviews. Historical02bf09e8 notebook stale-pin
+failure remains retained; this is not a new current test failure. No new
+application changes, tests, upstream integration or remote push in this audit.
+Continue committing scoped verified work plus actual validation records.
