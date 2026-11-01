@@ -11,16 +11,18 @@ done; a file index is navigation, not proof we understand every algorithm.
 
 | Location | Purpose |
 | --- | --- |
-| `/home/radxa/comma/sunnypilot/Ai/` | Visible notebook inside the daily-updated vendor checkout |
-| `/home/radxa/comma/q8b/sunnypilot-radxa/Ai/` | The same notebook inside the protected Radxa development clone |
-| `/home/radxa/comma/q8b/sunnypilot-memory/` | Actual independently versioned backing folder, branch `main` |
+| `sunnypilot/Ai/` | Real knowledge directory tracked inside the actual project |
+| `q8b/sunnypilot-upstream/` | Clean daily-updated upstream reference, outside the project |
+| `q8b/sunnypilot-memory/` | Retained historical notebook Git repository; no active backing role |
 | `/home/radxa/comma/Ai/` | Workspace-wide knowledge, policy and shared evidence |
 
-Both visible folders are local directory links. This keeps one specialist
-memory while preserving upstream source. The vendor's AGENTS.md points to
-[REPO_RULES.md](REPO_RULES.md). Neither link is an upstream code modification.
-The maintenance controller reserves these vendor paths and blocks conflicting
-upstream updates. It only reads this notebook; agents maintain its prose.
+Owner clarification, 2026-11-01: `sunnypilot/` is the working project and the
+folder intended for use when ready. This `Ai/` folder travels with it; there is
+no external notebook symlink or nested Git repository. New notebook changes
+share project Git history. [REPO_RULES.md](REPO_RULES.md) records the workflow.
+The upstream reference's ignored links are preserved and protected against
+incoming path collisions. Daily jobs only read the project notebook; agents
+maintain its prose. Outside evidence links are optional research context.
 
 Keep current facts in STATE, next work in TASKS, rationale in DECISIONS, unknowns
 in QUESTIONS, outcomes in WORKLOG and dated Sessions. Knowledge holds topic
