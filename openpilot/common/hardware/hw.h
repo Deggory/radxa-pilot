@@ -8,6 +8,9 @@
 #if __COMMA_HARDWARE__
 #include "common/hardware/comma/hardware.h"
 #define Hardware HardwareComma
+#elif defined(__RADXA_Q8B__)
+#include "common/hardware/radxa/hardware.h"
+#define Hardware HardwareRadxa
 #else
 #include "common/hardware/pc/hardware.h"
 #define Hardware HardwarePC

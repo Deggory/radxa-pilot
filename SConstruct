@@ -10,7 +10,8 @@ import numpy as np
 import SCons.Errors
 from SCons.Defaults import _stripixes
 
-COMMA_HARDWARE = os.path.isfile('/AGNOS')
+sys.path.insert(0, Dir("#").abspath)
+from openpilot.common.platform import COMMA_HARDWARE, RADXA_Q8B
 
 SCons.Warnings.warningAsException(True)
 
@@ -195,6 +196,10 @@ elif arch == "Darwin":
 _extra_cc = shlex.split(GetOption('ccflags') or '')
 if _extra_cc:
   env.Append(CCFLAGS=_extra_cc)
+
+if RADXA_Q8B:
+  # Board identity only: keep arch=aarch64 and all generic Linux build paths.
+  env.Append(CCFLAGS=['-D__RADXA_Q8B__'])
 
 # no --as-needed on mac linker
 if arch != "Darwin":

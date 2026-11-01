@@ -183,6 +183,7 @@ struct InitData {
     pc @5;
     tizi @6;  # comma 3X
     mici @7;  # comma four
+    radxaQ8b @8;  # Radxa Dragon Q8B (local port; existing ordinals unchanged)
   }
 
   deprecated :group {

@@ -10,7 +10,7 @@ from openpilot.selfdrive.ui.onroad.hud_renderer import HudRenderer
 from openpilot.selfdrive.ui.onroad.model_renderer import ModelRenderer
 from openpilot.selfdrive.ui.onroad.cameraview import CameraView
 from openpilot.system.ui.lib.application import gui_app
-from openpilot.common.transformations.camera import DEVICE_CAMERAS, DeviceCameraConfig, view_frame_from_device_frame
+from openpilot.common.transformations.camera import DEVICE_CAMERAS, DeviceCameraConfig, get_device_camera_config, view_frame_from_device_frame
 from openpilot.common.transformations.orientation import rot_from_euler
 
 if gui_app.sunnypilot_ui():
@@ -139,7 +139,7 @@ class AugmentedRoadView(CameraView, AugmentedRoadViewSP):
     # Update device camera if not already set
     sm = ui_state.sm
     if not self.device_camera and sm.seen['narrowRoadCameraState'] and sm.seen['deviceState']:
-      self.device_camera = DEVICE_CAMERAS[(str(sm['deviceState'].deviceType), str(sm['narrowRoadCameraState'].sensor))]
+      self.device_camera = get_device_camera_config(str(sm['deviceState'].deviceType), str(sm['narrowRoadCameraState'].sensor))
 
     # Check if camera calibration data is available and valid
     if not (sm.updated["extrinsicsCalibration"] and sm.valid['extrinsicsCalibration']):

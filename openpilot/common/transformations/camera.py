@@ -66,9 +66,19 @@ DEVICE_CAMERAS: dict[tuple[str, str], DeviceCameraConfig] = {
 
   # simulator (emulates a tici)
   ("pc", "unknown"): _ar_ox_config,
+
+  # Identity is supported; actual Q8B camera calibration is not configured yet.
+  ("radxaQ8b", "unknown"): DeviceCameraConfig(_NoneCameraConfig(), _NoneCameraConfig(), _NoneCameraConfig()),
 }
 prods = itertools.product(('tici', 'tizi', 'mici'), (('ar0231', _ar_ox_config), ('ox03c10', _ar_ox_config), ('os04c10', _os_config)))
 DEVICE_CAMERAS.update({(d, c[0]): c[1] for d, c in prods})
+
+
+def get_device_camera_config(device_type: str, sensor: str) -> DeviceCameraConfig:
+  key = (device_type, sensor)
+  if device_type == 'radxaQ8b' and (key not in DEVICE_CAMERAS or DEVICE_CAMERAS[key].narrow_road.width <= 0):
+    raise ValueError('Radxa Dragon Q8B camera calibration is not configured')
+  return DEVICE_CAMERAS[key]
 
 # device/mesh : x->forward, y-> right, z->down
 # view : x->right, y->down, z->forward
