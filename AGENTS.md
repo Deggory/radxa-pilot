@@ -3,6 +3,12 @@
 Read /home/radxa/comma/Ai/ROUTER.md and
 /home/radxa/comma/Ai/Knowledge/SUNNYPILOT_UPSTREAM_POLICY.md first.
 
+Then read Ai/ROUTER.md in this checkout: it is the shared Sunnypilot specialist
+notebook backed by /home/radxa/comma/q8b/sunnypilot-memory. Maintain its relevant
+topic/state/worklog/session after Sunnypilot work, alongside workspace Ai
+closeout. Use task-relevant installed agent skills. Record exact source pins,
+actual tests and unknowns; the notebook is context, not runtime validation.
+
 - This independent repository on radxa/q8b is our Radxa/Linux port workspace.
   /home/radxa/comma/sunnypilot is the daily-updated clean upstream mirror.
 - Put new Radxa-specific code here, not in that vendor mirror. Preserve existing
