@@ -1,3 +1,16 @@
+## 2026-11-02 — Current owner focus: BeamNG bridge discovery
+
+Owner moved from NPU research to running this Sunnypilot with PC BeamNG.drive.
+Identified Caleb-J773/beampilot-drive at5435d674 (same as teacherOct28 pin).
+Its same-host camera/telemetry/Lua path needs a PC↔Q8B adapter; current local
+openpilot/tools/sim implements MetaDrive only. README successor steerpilot
+publicURL/API return404. Saved source hashes, concrete API/image-size/freshness
+gaps and staged camera→state→shadow→game-lateral plan in
+[BeamNG notes](Knowledge/BEAMNG_BRIDGE.md). Research/docs only; no game, mod,
+network listener, managed stack or model launched. CD210GPU stays selected;
+failed W8A8 NPU baseline retained, precision experiment deferred. Next: prove a
+recorded PC frame through sim-only VisionIPC/UI before a live game connection.
+
 Checkpoint: conversion/replay safeguards committed as
 `43678a671237bae095c1eb6fea95d78ff69d4261`,29focused tests and software checks
 pass in maintenance ledger. All local research DLC/context/runtime assets are

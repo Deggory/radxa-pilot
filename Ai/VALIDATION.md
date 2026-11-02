@@ -1,3 +1,12 @@
+## 2026-11-02 — BeamNG source-reference checkpoint
+
+Fresh GitHub pin5435d674 matches savedOct28 source.3external/7local Python AST
+checks, sim-launcher bash syntax, retained source/hash/compatibility assertions,
+notebook66docs/211relative links and staged whitespace pass. Research/docs only:
+no mod install, BeamNG/game-control/network/manager/model test. Public steerpilot
+successor404 recorded; same-host source is not a ready PC↔Q8B adapter.
+[Source receipt](Evidence/beamng-reference-20261102.json).
+
 ## 2026-11-02 — Fresh INT8 device baseline complete; accuracy rejected
 
 Owner approved research continuation while retaining the failed strict FP16

@@ -1,3 +1,12 @@
+## 2026-11-02 — Use Caleb BeamNG source as a reference for a two-host sim adapter
+
+Keep our current Sunnypilot/Radxa project and CD210 runtime. Study pinned
+beampilot-drive5435d674 rather than replacing the port with that fork. Begin
+with recorded/live PC frames to Q8B VisionIPC, then state/shadow planning and
+game-only lateral feedback. Same-host source is not a tested network bridge;
+steerpilot successor is presently unavailable via public404. No runtime mode,
+physical protocol or control policy changed by this source-review decision.
+
 ## 2026-11-02 — Continue INT8 research with strict failure retained; reject W8A8 candidate
 
 Owner explicitly approved retaining failed FP16 precision checks while proceeding

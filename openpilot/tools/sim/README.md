@@ -3,6 +3,8 @@ openpilot in simulator
 
 openpilot implements a [bridge](run_bridge.py) that allows it to run in the [MetaDrive simulator](https://github.com/metadriverse/metadrive).
 
+For the PC BeamNG.drive → Radxa Q8B project, see [BeamNG reference and adaptation plan](BEAMNG_RADXA.md). This checkout currently implements MetaDrive only.
+
 ## Launching openpilot
 First, start openpilot.
 ``` bash

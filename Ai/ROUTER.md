@@ -1,3 +1,5 @@
+Current owner task: [BeamNG bridge](Knowledge/BEAMNG_BRIDGE.md); source review complete, adapter not implemented. NPU research paused at rejected baseline.
+
 2026-11-02 fresh NPU baseline: actual200+3 Q8B calls pass execution,
 W8A8 accuracy fails;400MB DLC/444MB context, no default switch. Student
 `Ai/Knowledge/NPU_CONVERSION.md` and `openpilot/selfdrive/modeld/npu/RESULTS.md`

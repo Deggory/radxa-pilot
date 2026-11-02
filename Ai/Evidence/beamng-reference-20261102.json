@@ -1,0 +1,56 @@
+{
+  "date_utc": "2026-11-02",
+  "scope": "read-only source/evidence research and documentation; no game/mod/manager/network/model execution",
+  "project_base": "dc71be58fa3acad1d8ac5462630ce31ec8a8c593",
+  "reference": {
+    "repo": "Caleb-J773/beampilot-drive",
+    "branch": "master",
+    "commit": "5435d67499f66eca58f95882cbe35e9c577e874c",
+    "commit_date": "2026-09-14T15:00:32Z",
+    "same_as_saved_20261028_pin": true,
+    "readme_sha256": "ed99b57664d517185f36ad13e739fdd4d17162641db73627443c8c620fdafebe",
+    "files": {
+      "openpilot/selfdrive/beamngd/beamngd.py": "2235e8261958bc446456190e0146c333ec97f014da81b93943ed78b7e44f7539",
+      "openpilot/selfdrive/beamcamd/beamcamd.py": "bc6fb86d6ac2ad0299093a315421ed64f6025b7ba87bc180f69fad23bdce859e",
+      "launch_beampilot.sh": "b739a19dc1780c18bafdc87233a9d629696b666072d11939e95a8455910a8ae4",
+      "tools/beamng_mod/beampilot_bridge/lua/vehicle/protocols/beampilot.lua": "44e823ba13af4868c494de31a0dacd87e129b6258efb5804b441c071b8287bd7",
+      "openpilot/common/beampilot_camera.py": "c705285e3861675fdbe1b448cdf7e2057925b0a18dec1e6de7245ff76d0f5ea1"
+    }
+  },
+  "successor": {
+    "readme_points_to": "Caleb-J773/steerpilot",
+    "public_github_api_result": "404",
+    "public_web_result": "404",
+    "not_assumed_deleted_or_private": true
+  },
+  "local_source_sha256": {
+    "openpilot/tools/sim/README.md": "ef4ad4138fec10d11dbc8712e90e0aa34fc469d2fcdd19a0a6ba1a2d194d81e8",
+    "openpilot/tools/sim/run_bridge.py": "2321183cf458b78bfe6940dcc468899f7555ee1db0297fbb0a2c68f7203235d8",
+    "openpilot/tools/sim/launch_openpilot.sh": "192b15e069ff27354dd2e239bde9e3ed3c304ac893f892a2ee460a9317fa61c7",
+    "openpilot/tools/sim/bridge/common.py": "8abc2593a2fc9622a0ec02cd8a0cb3f0d6b4c4a1f097cf61f13895908da9be61",
+    "openpilot/tools/sim/lib/common.py": "d5eb39286d13bde3d374122dd157f0393c048958d6d999d4f2cdce2562a89098",
+    "openpilot/tools/sim/lib/camerad.py": "8b437c809435411e543e9ea0308bfee6f7d4c9fc10a78ddcf06d936c69eb0f77",
+    "openpilot/tools/sim/lib/simulated_car.py": "f2ec2cacac97b011d4ce95f6275416677e28296f744c3819bc6445baffe935ec",
+    "openpilot/tools/sim/lib/simulated_sensors.py": "ac4d94b848c0ec3400c31fbc7a0368afbf91ef6de6f0405f769e1690ab2fea24",
+    "openpilot/selfdrive/modeld/thneed_q8b/state.py": "3467b9ac055d8d3c1dca259c27225a7bfd698249c27232d1b2f63fc42022e1b1"
+  },
+  "skills": [
+    "using-agent-skills",
+    "source-driven-development",
+    "documentation-and-adrs",
+    "git-workflow-and-versioning"
+  ],
+  "REA": "not applicable to this readable-source review; no binary/runtime claim",
+  "limits": [
+    "configured external rates not tested locally",
+    "existing PC-Q8B transport evidence is historical",
+    "new managed Sunnypilot BeamNG integration not implemented",
+    "game camera geometry differs from AK-camera provisional profile",
+    "simulation Honda CAN is not canonical RetroPilot hardware CAN"
+  ],
+  "syntax": {
+    "external_python_files": 3,
+    "local_python_files": 7,
+    "result": "pass; AST only, not imports/runtime"
+  }
+}
