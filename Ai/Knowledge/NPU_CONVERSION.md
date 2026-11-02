@@ -1,3 +1,17 @@
+## 2026-11-02 — Owner asks fresh versus old comparison
+
+Old big-model NPU experiment: original6fee5937, W8A16 (already8-bit weights,
+16-bit integer activations). New fresh Mountain Dewv3 source35976b11 uses W8A8;
+both source version and activation precision differ, so this is not a controlled
+precision-only A/B. New DLC400.35MB/context444.20MB is not200MB. Old optimized
+O3/shared afef0f87 measured38.196ms graph/41.515ms host, excluding camera;
+all480 recurrent outputs equaled its existing quantized baseline, not a proof
+of unquantized accuracy. New standalone200-frame run has no comparable isolated
+latency benchmark and fails warm teacher-forced per-head tensor checks. Current
+selected CD210GPU model eb741641/ce7b047 is different again (~11–12ms inference,
+~37ms camera→output in accepted prior tests). No new benchmark/backend change.
+Evidence: fresh NPU RESULTS.md and teacher jetlink-o3-shared-test-20261031 report.
+
 Checkpoint: conversion/replay safeguards committed as
 `43678a671237bae095c1eb6fea95d78ff69d4261`,29focused tests and software checks
 pass in maintenance ledger. All local research DLC/context/runtime assets are
