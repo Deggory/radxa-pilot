@@ -1,5 +1,17 @@
 # Validation: what is actually established
 
+## Road-only camera patch — 2026-11-02
+
+21focused tests(10camera+11identity); strict C compilation and actual new SCons
+helper target; current pinned msgq e7396e76 Python/VisionIPC bindings built.
+140real720pNV12 IPC/Cereal frame pairs, one road stream, timestamp/ID pairing,
+~20Hzpublication/~59.64Hzsource sequence, exit0 and full prior format/rate/
+dynamic-framerate restoration observed. Driver timestamp→receiver40.244ms median
+and62.580ms max is not inference/optical latency. Initial dynamic-rate1 test
+delivered~24sourceHz; retained as a failed cadence check and corrected with
+temporary control0. No camera owner remains. No full build/manager/model/UI/
+calibration/vehicle test; prior standalone model benchmarks remain separate.
+
 ## Shutdown audit — 2026-11-01
 
 At source2963025, all11Python hardware identity tests freshly pass. Notebook

@@ -1,5 +1,25 @@
 # What we did: Radxa Dragon Q8B identity
 
+## 2026-11-02 — Approved single road-camera capture
+
+After teacher-first lookup and owner approval, added opt-in
+`USE_WEBCAM=1 Q8B_ROAD_ONLY=1` support for our SunplusIT AK-Camera JV.
+Capture requests MJPEG1280×720/60FPS from its stable by-id device and publishes
+the newest decoded NV12 frame at20Hz. Real V4L2 timestamps and source sequence
+are paired with IPC/messages. Rotation defaults off and is configurable.
+Only the road stream is opened; driver-camera processes are deferred in this
+mode. Native capture/build source is inside this repository; no outside Q8B
+source import is required. See [camera instructions](openpilot/system/camerad/webcam/README.md).
+
+Camera's dynamic-framerate control is temporarily disabled, like earlier tests,
+and restored with prior format/rate on normal close. No shutter/gain/clock/fan
+policy changes. New check:140real IPC/Cereal frame pairs,~19.973Hz publication,
+~59.642Hz source sequence, correct720pNV12 layout, one stream, exit0 and matching
+before/after camera settings.21focused tests and native builds pass.
+This does not validate the model, UI, calibration or vehicle stack. Existing
+Q8B calibration guard and model/runtime remain unchanged; next qualify actual
+camera geometry and model-input contracts. [Session](Ai/Sessions/2026-11-02-road-camera-patch.md).
+
 Owner-authorized scope, 2026-11-01: let Sunnypilot identify Ubuntu/Linux, ARM64
 and Radxa Dragon Q8B. The owner clarified that **this `sunnypilot/` directory is
 the actual project** and is the folder intended for use when ready.

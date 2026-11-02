@@ -1,5 +1,10 @@
 # Sunnypilot work history
 
+2026-11-02 — Teacher recovered AK-Camera60capture/20Hzmodel evidence; owner
+approved road-only patch. Added self-contained UVC capture/latest NV12 publisher,
+real timestamps, scoped driver-camera deferral and fixed-rate restoration.
+21tests/140real IPC pairs pass. [Session](Sessions/2026-11-02-road-camera-patch.md).
+
 2026-11-02 — Owner selected camera work and deferred hardware settings. Mapped
 OpenCV capture, webcam publisher, process selection and Q8B geometry guard.
 No application change/capture run. [Session](Sessions/2026-11-02-camera-entry.md).

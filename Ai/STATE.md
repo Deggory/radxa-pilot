@@ -1,5 +1,11 @@
 # Current Sunnypilot state
 
+2026-11-02 accepted camera increment: opt-in Q8B road-only AK720pMJPG60capture,
+latest20HzNV12/IPC/messages, real driver timestamps and source sequence, optional
+rotation(defaultoff), deferred driver camera.21tests plus140actual frame pairs
+pass, helper/msgq build and settings restoration verified. Model/calibration
+unchanged; full managed stack unqualified. See HANDOFF and latest session.
+
 Current scope2026-11-02: camera work selected, hardware settings deferred.
 Webcam source path identified; no capture/model run or application edit.
 See [HANDOFF](HANDOFF.md) and [camera path](Knowledge/CAMERA_PATH.md). Older

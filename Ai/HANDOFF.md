@@ -1,5 +1,24 @@
 # Resume Sunnypilot here
 
+## Approved camera patch completed — 2026-11-02
+
+Owner approved AK-Camera720pMJPG60capture/20Hzlatest publication, only road camera,
+optional rotation defaultoff, real timestamps, self-contained capture helper
+and opt-in driver-camera deferral. Implemented in webcam camera.py/camerad.py,
+config.py/native_capture.py/native_capture.c, camerad/SConscript and manager
+registry; tests/docs updated. Enable USE_WEBCAM=1 Q8B_ROAD_ONLY=1 only for this
+experimental capture path. Normal close restores previous mode/rate and saved
+dynamic-framerate control (temporarily0to actually sustain60FPS).
+
+21focused tests pass; real140frame IPC/Cereal check:19.973Hz publish,59.642Hz
+source estimate, one stream/correctNV12 layout/timestamp pairs, exit0/settings
+restored. Native helper actual SConscript target and pinned msgq bindings build.
+Read session for exact scope/provenance. No model/managed UI/vehicle execution;
+Q8B geometry remains unconfigured and its guard active. Driver-monitoring
+consumers are not bypassed or supplied invented data. Next camera geometry and
+current model-input/runtime contract qualification. Hardware settings still
+deferred. Older no-camera-change statements below are historical.
+
 ## Current scope — camera work, 2026-11-02
 
 Owner explicitly deferred hardware-setting changes and selected cameras.

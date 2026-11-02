@@ -1,5 +1,10 @@
 # Work status and next task
 
+2026-11-02 first road-camera patch implemented and tested after explicit owner
+approval. See [session](Sessions/2026-11-02-road-camera-patch.md). Next: qualify
+actual camera geometry and current model-input/runtime contract. Keep hardware
+plan deferred. Do not claim the new capture/IPC check is a full model/UI run.
+
 ## Scope supersedes hardware-first order — 2026-11-02
 
 Owner now defers hardware-setting changes and requests camera work. Current
