@@ -8,7 +8,7 @@ import subprocess
 import time
 
 from openpilot.selfdrive.modeld.npu.contracts import DERIVATIVE_SHA, REFERENCE_SHA, verify_native_inputs
-from openpilot.selfdrive.modeld.npu.evaluate_outputs import output_contract
+from openpilot.selfdrive.modeld.npu.evaluate_outputs import IO_MODE, output_contract
 from openpilot.selfdrive.modeld.npu.prepare_road_inputs import digest
 
 
@@ -59,10 +59,15 @@ def main():
   context = context_dir / 'mountain_dew_v3_w8a8_research.bin'
   metadata = context_dir / 'context-info.json'
   receipt = json.loads((context_dir / 'context-receipt.json').read_text())
+  proof_path = context_dir / 'integer-io-proof.json'
+  proof = json.loads(proof_path.read_text())
   if (receipt['source_sha256'] != DERIVATIVE_SHA or receipt['context_sha256'] != digest(context) or
-      receipt['context_info_sha256'] != digest(metadata)):
+      receipt['context_info_sha256'] != digest(metadata) or receipt['integer_io_receipt_sha256'] != digest(proof_path) or
+      receipt['dlc_sha256'] != proof['dlc_sha256'] or not proof.get('roundtrip_encodings_unchanged')):
     raise ValueError('context provenance changed')
-  output_contract(json.loads(metadata.read_text()))
+  if receipt.get('io_mode') != IO_MODE or not receipt.get('io_encodings'):
+    raise ValueError('requires calibrated integer IO with explicit host float-file conversion')
+  output_contract(json.loads(metadata.read_text()), receipt['io_encodings'])
   reference = json.loads((dataset / 'reference-report.json').read_text())
   if (reference['start_frame'] != 500 or reference['frames'] != 200 or reference['reference_sha256'] != REFERENCE_SHA or
       reference['derivative_sha256'] != DERIVATIVE_SHA):
@@ -74,7 +79,7 @@ def main():
     raise RuntimeError('cDSP is not running; no recovery or retry is attempted')
   output.mkdir(parents=True)
   command = [str(runtime / 'qnn-net-run'), '--backend', str(runtime / 'libQnnHtp.so'), '--retrieve_context', str(context),
-             '--input_list', str(input_list), '--output_dir', str(output), '--use_native_input_files',
+             '--input_list', str(input_list), '--output_dir', str(output),
              '--perf_profile', 'burst', '--profiling_level', 'basic', '--log_level', 'info']
   environment = os.environ | {'LD_LIBRARY_PATH': str(runtime), 'ADSP_LIBRARY_PATH': str(runtime)}
   pin_q8b_worker()
@@ -89,6 +94,7 @@ def main():
     raise
   result = {'context_sha256': digest(context), 'context_info_sha256': digest(metadata),
             'input_list_sha256': digest(input_list), 'command': command, 'exit_code': exit_code,
+            'io_mode': IO_MODE, 'io_encodings': receipt['io_encodings'],
             'elapsed_s': time.monotonic() - started, 'cdsp_after': (cdsp[0] / 'state').read_text().strip(),
             'clock_guard_closed': True, 'qualification': 'unqualified teacher-forced research replay',
             'qnn_output_files': [{'file': str(p.relative_to(output)), 'sha256': digest(p)}

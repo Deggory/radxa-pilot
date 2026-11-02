@@ -14,7 +14,27 @@ INPUT_SHAPES = {'desire': [8], 'traffic_convention': [1, 2], 'action_t': [1, 2],
                 'state_desire_q': [132, 1, 8], 'state_feat_q': [128, 1, 16384], 'updated_state_img_q': [2, 5, 6, 128, 256]}
 
 
-def output_contract(metadata):
+IO_MODE = 'float_files_host_quantize_dequantize'
+
+
+def tensor_contract(tensor, shape, encodings):
+  if tensor['dimensions'] != shape:
+    raise ValueError('compiled tensor shape changed')
+  if encodings is None:
+    if tensor['dataType'] != 'QNN_DATATYPE_FLOAT_32':
+      raise ValueError('compiled tensor dtype changed')
+    return
+  expected = encodings[tensor['name']]
+  quantization = tensor['quantizeParams']
+  if (tensor['dataType'] != 'QNN_DATATYPE_UFIXED_POINT_8' or expected['bitwidth'] != 8 or
+      quantization['definition'] != 'QNN_DEFINITION_DEFINED' or
+      quantization['quantizationEncoding'] != 'QNN_QUANTIZATION_ENCODING_SCALE_OFFSET' or
+      quantization['scaleOffset'] != {'scale': expected['scale'], 'offset': expected['offset']} or
+      not np.isfinite(expected['scale']) or expected['scale'] <= 0 or not -255 <= expected['offset'] <= 0):
+    raise ValueError('compiled integer IO encoding differs from calibrated boundary')
+
+
+def output_contract(metadata, io_encodings=None):
   info = metadata['info']
   if (info['numGraphs'] != 1 or info['socModel'] != 37 or info['contextMetadata']['info']['dspArch'] != 68 or
       not info['buildId'].startswith('v2.37.1.250807')):
@@ -24,8 +44,7 @@ def output_contract(metadata):
   if set(inputs) != set(INPUT_SHAPES) or len(inputs) != len(graph['graphInputs']):
     raise ValueError('compiled input names do not match this model')
   for name, shape in INPUT_SHAPES.items():
-    if inputs[name]['dimensions'] != shape or inputs[name]['dataType'] != 'QNN_DATATYPE_FLOAT_32':
-      raise ValueError(f'compiled input contract changed: {name}')
+    tensor_contract(inputs[name], shape, io_encodings)
   actual = {item['info']['name']: item['info'] for item in graph['graphOutputs']}
   if len(actual) != len(graph['graphOutputs']):
     raise ValueError('duplicate compiled output names')
@@ -33,8 +52,9 @@ def output_contract(metadata):
   if set(actual) not in (set(expected), set(expected) | {'q8b_pad'}):
     raise ValueError('compiled output names do not match this model')
   for name, size in expected.items():
-    if actual[name]['dimensions'] != [1, size] or actual[name]['dataType'] != 'QNN_DATATYPE_FLOAT_32':
-      raise ValueError(f'compiled output contract changed: {name}')
+    tensor_contract(actual[name], [1, size], io_encodings)
+  if io_encodings is not None and set(io_encodings) != set(inputs) | set(actual):
+    raise ValueError('calibrated IO encoding coverage changed')
   if 'q8b_pad' in actual and (actual['q8b_pad']['dimensions'] != [1, 2] or
                             actual['q8b_pad']['dataType'] != 'QNN_DATATYPE_FLOAT_32'):
     raise ValueError('compiled padding contract changed')
@@ -55,8 +75,11 @@ def read_outputs(folder, contract):
 
 
 def verify_run(run, context, metadata, input_list, output_files):
+  if (not run.get('command') or any(arg.split('=', 1)[0] in ['--use_native_input_files', '--use_native_output_files']
+                                   for arg in run['command'])):
+    raise ValueError('execution did not use the reviewed host float-file IO mode')
   expected = {'context_sha256': digest(context), 'context_info_sha256': digest(metadata),
-              'input_list_sha256': digest(input_list), 'qnn_output_files': output_files, 'exit_code': 0}
+              'input_list_sha256': digest(input_list), 'qnn_output_files': output_files, 'exit_code': 0, 'io_mode': IO_MODE}
   if any(run.get(key) != value for key, value in expected.items()):
     raise ValueError('execution receipt does not bind the context, inputs and outputs')
 
@@ -83,7 +106,8 @@ def main():
   files = reference['reference_outputs']
   if len(files) != reference['frames']:
     raise ValueError('incomplete floating output receipt')
-  contract = output_contract(json.loads(args.context_info.read_text()))
+  run = json.loads(args.run_receipt.read_text())
+  contract = output_contract(json.loads(args.context_info.read_text()), run.get('io_encodings'))
   expected, actual, outputs = [], [], []
   for index, entry in enumerate(files):
     path = (root / entry['file']).resolve()
@@ -99,7 +123,7 @@ def main():
     if index >= 132:
       expected.append(golden)
       actual.append(candidate)
-  verify_run(json.loads(args.run_receipt.read_text()), args.context, args.context_info, input_list, outputs)
+  verify_run(run, args.context, args.context_info, input_list, outputs)
   expected, actual = np.concatenate(expected), np.concatenate(actual)
   offset, heads = 0, {}
   for head, size in zip(HEADS, SIZES, strict=True):

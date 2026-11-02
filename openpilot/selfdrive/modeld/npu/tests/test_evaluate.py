@@ -4,7 +4,7 @@ import unittest
 
 import numpy as np
 
-from openpilot.selfdrive.modeld.npu.evaluate_outputs import INPUT_SHAPES, output_contract, read_outputs, verify_run
+from openpilot.selfdrive.modeld.npu.evaluate_outputs import INPUT_SHAPES, IO_MODE, output_contract, read_outputs, verify_run
 from openpilot.selfdrive.modeld.npu.contracts import HEADS, SIZES
 from openpilot.selfdrive.modeld.npu.prepare_road_inputs import digest
 
@@ -17,7 +17,10 @@ class TestCompiledOutputs(unittest.TestCase):
         path.write_bytes(path.name.encode())
       run = dict(zip(['context_sha256', 'context_info_sha256', 'input_list_sha256'], map(digest, paths), strict=True))
       run.update(exit_code=0, qnn_output_files=[{'file': 'Result_0/head.raw', 'sha256': 'abc'}])
+      run.update(io_mode=IO_MODE, command=['private-qnn'])
       verify_run(run, *paths, run['qnn_output_files'])
+      with self.assertRaises(ValueError):
+        verify_run(run | {'command': ['private-qnn', '--use_native_input_files']}, *paths, run['qnn_output_files'])
       with self.assertRaises(ValueError):
         verify_run(run, *paths, [])
       paths[0].write_bytes(b'wrong context')
@@ -60,6 +63,22 @@ class TestCompiledOutputs(unittest.TestCase):
     metadata['info']['socModel'] = 39
     with self.assertRaises(ValueError):
       output_contract(metadata)
+
+  def test_integer_io_must_match_original_calibrated_encodings(self):
+    metadata = self.metadata()
+    graph = metadata['info']['graphs'][0]['info']
+    encodings = {}
+    for item in graph['graphInputs'] + graph['graphOutputs']:
+      tensor = item['info']
+      tensor['dataType'] = 'QNN_DATATYPE_UFIXED_POINT_8'
+      tensor['quantizeParams'] = {'definition': 'QNN_DEFINITION_DEFINED',
+                                 'quantizationEncoding': 'QNN_QUANTIZATION_ENCODING_SCALE_OFFSET',
+                                 'scaleOffset': {'scale': .125, 'offset': -128}}
+      encodings[tensor['name']] = {'bitwidth': 8, 'scale': .125, 'offset': -128}
+    output_contract(metadata, encodings)
+    graph['graphInputs'][0]['info']['quantizeParams']['scaleOffset']['scale'] = .126
+    with self.assertRaisesRegex(ValueError, 'differs from calibrated boundary'):
+      output_contract(metadata, encodings)
     metadata = self.metadata()
     metadata['info']['graphs'][0]['info']['graphInputs'][0]['info']['dataType'] = 'QNN_DATATYPE_UFIXED_POINT_8'
     with self.assertRaises(ValueError):
