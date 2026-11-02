@@ -1,5 +1,12 @@
 # Resume Sunnypilot here
 
+Live preview reopened in persistent terminal session21631: controller12790,
+camera12793,UI12794; prefixq8b_preview_97ce0a9e4384. Actual screenshot
+owner-persistent.png verified and child PIDs alive. Logs:workspace
+Ai/Reports/sunnypilot-ui-preview-20261102/owner-persistent. This supersedes the
+previous closed-session state. Window intentionally open; close it to stop
+camera/restore settings. Check current PIDs before later camera work.
+
 ## Owner preview closed normally — 2026-11-02
 
 UI implementation536470bd4fe9ab9abb68f9af9320ee8b315aecd2 is committed.

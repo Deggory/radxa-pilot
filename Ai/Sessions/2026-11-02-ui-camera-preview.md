@@ -74,3 +74,11 @@ No model/vehicle processes started; automatic calibration remains deferred.
 Validation manifest creation initially stopped on the now-closed process check;
 regenerated against actual completed-session logs/restoration and attached to
 the implementation journal. Do not claim the UI is still running.
+
+Live preview reopened in persistent terminal session21631: controller12790,
+camera12793,UI12794; prefixq8b_preview_97ce0a9e4384. Actual screenshot
+owner-persistent.png verified and child PIDs alive. Logs:workspace
+Ai/Reports/sunnypilot-ui-preview-20261102/owner-persistent. This supersedes the
+previous closed-session state. Window intentionally open; close it to stop
+camera/restore settings. Check current PIDs before later camera work.
+
