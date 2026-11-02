@@ -206,3 +206,8 @@ the ledger; it is not a current relocation or application failure.
 2026-11-02 resident final closeout:68tests/Ruff/native/accuracy gates pass;
 notebook59docs/171relative links, regular tracked layout and diff whitespace
 checks pass. Portable evidence is Ai/Evidence/q8b-resident-20261102.json.
+
+2026-11-02 hardware-support mapping: documentation/source and saved-evidence
+review only; notebook links/layout/index and diff whitespace pass. No runtime
+tests rerun. See Sessions/2026-11-02-q8b-hardware-support.md and teacher report
+sunnypilot-hardware-support-20261102 for actual output. Runtime ce7b047 unchanged.

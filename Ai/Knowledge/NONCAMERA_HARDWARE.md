@@ -1,9 +1,75 @@
-# Non-camera hardware and sensor map
+# Q8B hardware data and integration map
 
-Inspected 2026-11-01 at source5bcc0028c494e248e5d77f7f0cbea8877407415c,
-branchradxa/q8b, headersSunny2026.003.000/COMMA0.11.3. Owner selected hardware
-work and explicitly deferred cameras. This is a source/read-only host inventory,
-not an implemented sensor adapter or a qualified running stack.
+## Current needs versus Q8B support — 2026-11-02
+
+This updates the earlier complete checklist with what our Q8B actually supplies.
+Project branch: `radxa/q8b`; reviewed HEAD `d88a72c6968e46e93090a7a5bbfb9bab340ab3f3`;
+latest runtime implementation `ce7b0477c99f501e0393b54efb04d72f00107ddf`.
+Sunny headers remain 2026.003.000 / COMMA 0.11.3. Camera/model/UI preview now works;
+the older camera-deferral statements below describe their dated scopes.
+
+**Available** means an OS interface or recorded physical device exists.
+**Integrated** below names the particular tested consumer. Preview diagnostics
+are separate from managed `hardwared`/`deviceState`, localization and vehicle
+integration. Unsupported data must not be described as a measured zero. Some
+inputs are conditional on the selected feature, vehicle or fitted peripheral.
+
+| What Sunnypilot needs | What the Q8B can supply / evidence | Current integration and remaining work |
+| --- | --- | --- |
+| CPU temperature | 18 CPU/core/cluster channels in the Nov 2 inventory | Hottest readable value integrated into preview panel; managed ThermalConfig still empty |
+| GPU temperature | Eight `gpuss` channels | Hottest readable value integrated into preview panel; managed thermal mapping pending |
+| Memory/DSP/PMIC and other temperatures | 55 thermal zones overall: memory-, NSP-, AOSS-, SMSS-, PMIC-, CAMSS-, PCIe-, audio/video- and board-labelled channels; NVMe Composite plus two additional SMB2351 hwmon channels | Readable inventory; outside CPU/GPU, not added to panel or hardwared. Qualify physical meanings before mapping to comma fields; memory label does not prove DRAM-die temperature |
+| Intake/exhaust, GNSS and modem temperatures | No verified one-to-one Q8B equivalent for every comma location | Optional/device-specific; do not rename unrelated zones to fill fields |
+| Cooling command and actual PWM/mode | `radxa_svc_glink` exposes `pwm1` (0–255) and `pwm1_enable`; automatic mode 2 observed | Actual duty/raw/percentage/mode integrated read-only into preview. Fan remains firmware-controlled; hardwared's desired percent is not a physical Q8B command |
+| Fan RPM and cooling fault feedback | No `fan1_input` exposed in the inspected fan interface | RPM unavailable in panel; do not convert PWM percentage into RPM. Tachometer/fault support unqualified |
+| Supply voltage/current/power | Readable `system_power`, `typec_port0/1` and `adp12v_hwmon` attributes plus PMIC/adapter ADC interfaces in Nov 1 inventory | Physical rail, units, sign and calibration mapping pending; not published as Q8B managed power measurements |
+| Device/SoM energy accounting | Power-monitor candidates above; no qualified separation of whole-board and SoM domains | Inherited power methods return zero placeholders. Offroad energy estimates require mapped measurements and policy |
+| Vehicle battery, ignition and shutdown policy | Must come from the actual vehicle/bridge, not the Q8B USB online flag or `vbat` temperature label | No current vehicle integration established; board input power is not automatically car-battery voltage |
+| Per-core CPU load and RAM usage | Linux `/proc` statistics; existing `LinuxSystemStats` used by hardwared | Reusable OS code exists; not added to our diagnostics panel or qualified in a full managed run |
+| GPU utilization | Generic backend returns zero; GPU temperature, clock and inference duration are separate quantities | Real Q8B busy/total counter mapping and managed utilization provider pending; zero is not measured idle |
+| CPU/GPU performance policy | Scoped helper verified at CPU policy maxima 2,438,400 / 2,995,200 kHz and GPU 690 MHz | Model-enabled preview automatically acquires max-clock lease, with kernel protections/cutoff retained and restoration on exit. Camera-only preview does not acquire it |
+| Disk space and recording readiness | Linux filesystem free-space checks; preview report writing already works | Existing free-space code reusable; complete logger/storage readiness under manager not qualified. NVMe temperature is readable but not a mandatory active deviceState field |
+| Accelerometer and gyroscope | External Adafruit LSM6DS3TR-C on I²C9, address `0x6a`; Oct 16 raw test about 102 Hz | Physical path historically tested, including old-schema in-memory messages; no current IPC/provider/locationd integration or fixed-mount axis/bias qualification |
+| IMU temperature | Same external LSM6DS3TR-C, historically read with motion samples | Current `temperatureSensor` publication pending; this is separate from SoC thermal zones |
+| GPS/GNSS fix, position, speed, course, satellites, accuracy and UTC | Teacher records receiver research only; no purchased/connected/tested GNSS in that record | Receiver presence remains unconfirmed, not proven absent by a device scan. No current GNSS provider; unidentified CH341 serial is not evidence of GPS |
+| Monotonic capture/model/UI timing and freshness | Real V4L2 capture timestamp/sequence, host monotonic clock, model output and UI first-draw timestamps | Integrated in preview diagnostics, with rolling medians and stale-data handling. Physical display latency unmeasured; IMU/GNSS acquisition time and UTC quality still need provider validation |
+| Network transport, signal, metering and usage | Linux networking is available on this working host | HardwarePc currently assumes Wi-Fi; this is not detected transport. Accurate Ethernet/Wi-Fi/cellular status and optional modem/SIM data need platform mapping |
+| Display and input | Actual Sunny onroad view has run on the desktop/display | Preview rendering verified; Q8B brightness/display-power methods remain inherited no-ops/defaults. Touch/input and backlight control not qualified |
+| Audio alerts, output device and volume | Depends on the fitted/selected Linux audio output | Sunny soundd/alert playback not qualified by camera/UI tests; output routing and audible alert checks remain |
+| Microphone and ambient noise | No qualified microphone path in this current Sunny integration | micd/noise-derived volume remains pending if enabled; do not infer microphone capability from the camera name |
+| Board identity and OS | Implemented `radxaQ8b`, Radxa Dragon Q8B, Ubuntu Linux / ARM64 | Identity tested in Python/C++ messages. Serial/init metadata, boot health, power-saving, reboot/shutdown need separate platform integration; inherited lifecycle methods include stubs |
+| USB/peripheral health | AK-Camera identified by stable USB by-id and used successfully; Linux enumeration available | Camera path qualified for this preview; general link errors/accessories/firmware readiness not qualified. Comma accessory contracts apply only when fitted |
+| Road camera | SunplusIT AK-Camera JV, 1280×720 MJPEG at 60 FPS, NV12 publication at 20 Hz | Integrated into current camera/model/UI preview; real timestamps. Borrowed MM-X intrinsics and mounting remain provisional; driver camera/monitoring deferred |
+| Model output and compute timing | Existing CD210 Thneed on Adreno 690/OpenCL, resident GPU preparation | Integrated at about 20 Hz: latest 65 s UI run inference median 10.933 ms, capture→model median 36.832 ms. No reconversion; no new 20-minute soak, complete manager or driving qualification |
+| CAN/vehicle bridge health | Requires selected bridge firmware, bus routing, heartbeats, errors, ignition and safety status | Not supplied by CPU/IMU sensors; current preview starts no vehicle/control processes. Follow canonical shared RetroPilot DBC for later integration |
+| Vehicle motion/steering | Vehicle/actuator speed, steering angle, relevant torque, driver override and faults | Not established by this Q8B preview. Actual signals, units, feedback and actuator interface still need qualification |
+| Vehicle controls/state | Pedals, gear, cruise/buttons, indicators, doors and seatbelt as required by car interface | Separate vehicle integration pending |
+| Conditional ADAS | Radar tracks, blindspot and OEM assist state when selected features use them | Vehicle/feature-dependent; not universally required for the lateral project |
+
+The Q8B supplies computing, OS interfaces and board health channels; the external
+IMU supplies motion measurements, and the vehicle/bridge must supply vehicle
+state. CPU/GPU temperatures, actual PWM, model timing and camera timing already
+reach our preview panel. This does not mean the managed health/sensor services
+have been ported.
+
+Sources and limits: current `common/hardware/{base,pc/hardware,radxa/hardware}.py`,
+`common/hardware/radxa/telemetry.py`, `system/hardware/hardwared.py`, manager
+process configuration and [UI telemetry](UI_TELEMETRY.md) /
+[portable run receipt](../Evidence/q8b-ui-telemetry-20261102.json).
+The unchanged model SHA-256 is
+`eb74164116723b2601730a19e2f2060a25bfdc3814bf7912ce991798df176068`.
+Thermal channels use the Nov 2 snapshot described at the end of this note;
+power-interface availability uses the retained Nov 1 read-only inventory.
+IMU uses Oct 16 teacher reports at source `a5f44653`; GNSS is the last saved
+teacher status, not a new hardware presence check. No runtime was launched for
+this documentation update. Next bounded hardware step remains read-only managed
+thermal mapping; power-domain mapping and IMU delivery are separate increments.
+
+## Historical source audit — 2026-11-01
+
+Inspected at source `5bcc0028c494e248e5d77f7f0cbea8877407415c`, branch
+`radxa/q8b`. The sections below retain their original evidence and task scopes;
+the current support table above supersedes their camera-deferral and UI status.
 
 ## Known IMU recovered from teacher memory — 2026-11-01 correction
 

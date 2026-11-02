@@ -1,5 +1,19 @@
 # Current Sunnypilot state
 
+## 2026-11-02 — Hardware needs mapped to current Q8B support
+
+Owner asked to update the complete requirements list with what Radxa supplies.
+Updated NONCAMERA_HARDWARE with available interfaces, historical tests, actual
+preview integration and remaining managed/vehicle work; corrected RADXA_PORT's
+stale camera/model/UI-future statement. Read-only source/documentation task,
+base d88a72c; runtime remains ce7b047, CD210 eb741641 unchanged. CPU/GPU/PWM and
+timing already reach preview; other thermals/power, IMU/GNSS and platform/vehicle
+providers remain distinct pending work. No driver, fan, model or runtime change.
+Validation/limits and exact next step are in the linked session. Next candidate:
+read-only managed thermal mapping; do not start a broader hardware port implicitly.
+
+[Session](Sessions/2026-11-02-q8b-hardware-support.md).
+
 ## 2026-11-02 — Q8B live onroad statistics complete
 
 Owner-requested panel is on the actual Sunny AugmentedRoadView, enabled by
