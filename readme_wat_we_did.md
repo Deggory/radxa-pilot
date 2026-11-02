@@ -208,3 +208,12 @@ OpenCL replay/source/build, validation fixtures and current-history adapter.
 Fresh GPU checks and42focused tests pass; no reconversion or camera changes.
 See [build/run instructions](openpilot/selfdrive/modeld/thneed_q8b/README.md).
 The full modeld/camera integration remains the next qualification step.
+
+## 2026-11-02 — Camera → Thneed → stock modeld → Sunny UI
+
+Connected existingCD210 without reconversion through Q8B_THNEED opt-in. Actual
+UI shows live33point model path. Clean65s test reached19.998model messages/s;
+51tests and synthetic/liveCPU checks pass. Uses temporary unmeasured geometry,
+so model/calibration validity stays false. No vehicle controls started.
+Open with `.venv/bin/python -m openpilot.system.camerad.webcam.preview --model`.
+[Details and limits](Ai/Sessions/2026-11-02-thneed-modeld.md).

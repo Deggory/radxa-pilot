@@ -41,6 +41,7 @@ from openpilot.selfdrive.modeld.parse_model_outputs import Parser
 from openpilot.selfdrive.modeld.fill_model_msg import fill_model_msg, fill_driving_model_data, fill_pose_msg, PublishState
 from openpilot.selfdrive.modeld.constants import ModelConstants, Plan
 from openpilot.selfdrive.modeld.helpers import MODELS_DIR, chestnut_present, chestnut_compiled, modeld_pkl_path, load_oob, wait_for_chestnut
+from openpilot.selfdrive.modeld.thneed_q8b.state import thneed_enabled, select_small_model, provisional_transforms
 from openpilot.sunnypilot.livedelay.helpers import get_lat_delay
 from openpilot.sunnypilot.modeld_v2.modeld_base import ModelStateBase
 from openpilot.sunnypilot.selfdrive.controls.lib.relc import RoadEdgeLaneChangeController
@@ -236,7 +237,8 @@ class ModelState(ModelStateBase):
 def main(demo=False):
   cloudlog.warning("modeld init")
 
-  CHESTNUT = chestnut_compiled() and (chestnut_present() or cable_connected())
+  Q8B_THNEED = thneed_enabled()
+  CHESTNUT = not Q8B_THNEED and chestnut_compiled() and (chestnut_present() or cable_connected())
   if CHESTNUT:
     from tinygrad.runtime.ops_amd import AMDDevice
     AMDDevice.wait_timeout_ms = 3000
@@ -295,7 +297,7 @@ def main(demo=False):
     else:
       params.put_bool("ChestnutActive", model is not None)
 
-  small_model = ModelState(vipc_client_main.width, vipc_client_main.height, False) if model is None or CHESTNUT else None
+  small_model = select_small_model(vipc_client_main.width, vipc_client_main.height, ModelState) if model is None or CHESTNUT else None
   if model is None:
     model = small_model
   assert model is not None
@@ -322,6 +324,9 @@ def main(demo=False):
 
   model_transform_main = np.zeros((3, 3), dtype=np.float32)
   model_transform_extra = np.zeros((3, 3), dtype=np.float32)
+  if Q8B_THNEED:
+    # Explicit temporary MM-X geometry; predictions remain uncalibrated until real calibration is valid.
+    model_transform_main, model_transform_extra = provisional_transforms()
   extrinsics_calibration_seen = False
   buf_main, buf_extra = None, None
   meta_main = FrameMeta()
@@ -390,6 +395,9 @@ def main(demo=False):
       extra_intrinsics = dc.wide_road.intrinsics if has_wide_camera else dc.narrow_road.intrinsics
       model_transform_extra = get_warp_matrix(device_from_calib_euler, extra_intrinsics, True).astype(np.float32)
       extrinsics_calibration_seen = True
+      if Q8B_THNEED:
+        # This opt-in profile still borrows MM-X intrinsics. Extrinsics alone cannot qualify its geometry.
+        extrinsics_calibration_seen = False
 
     traffic_convention = np.zeros(2)
     traffic_convention[int(is_rhd)] = 1
@@ -476,6 +484,9 @@ def main(demo=False):
 
 if __name__ == "__main__":
   try:
+    if thneed_enabled():
+      import signal
+      signal.signal(signal.SIGTERM, signal.default_int_handler)
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument('--demo', action='store_true', help='A boolean for demo mode.')

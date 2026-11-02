@@ -212,3 +212,8 @@ match. Corrected earlier different-weights claim in current notes.
 packaged native replay/vendor/build and new NumPy/ctypes GPU runner/history
 adapter/verification. No converter invoked. Fresh actual GPU12saved/12adapter
 checks pass;42tests/lint. [Session](Sessions/2026-11-02-thneed-import.md).
+
+2026-11-02 — Connected existingCD210 Thneed to stock modeld/current history/parser
+with opt-in real-Q8B guards and native-only build selection; added isolated
+camera/model/UI preview.51tests,32synthetic+6liveCPU checks and20Hz cleanUI bench
+pass. All raw tails/restoration/build limits saved. [Session](Sessions/2026-11-02-thneed-modeld.md).

@@ -1,5 +1,26 @@
 # Resume Sunnypilot here
 
+## 2026-11-02 — Thneed modeld/camera/UI integration verified
+
+ExistingCD210 artifacteb741641 unchanged, no reconversion. Q8B_THNEED=1 selects
+new ModelState-compatible GPU replay/current history/parser in stock modeld;
+requires real Q8B/road-only webcam. Uses pinnedCPU:LLVM NV12 warp, two views,
+zeroed warmup/reset and copied output-slice metadata. Alternate model warmup and
+Tinygrad NN compilation bypassed only in this mode. Defaults unchanged.
+Launch from project: `.venv/bin/python -m openpilot.system.camerad.webcam.preview --model`.
+Private camera/modeld--demo/actualUI session; no vehicle/control/DM processes.
+Temporary MM-X/zero-mount assumption stays uncalibrated; model validity false.
+51tests/lint pass;5exact warp checks,32synthetic recurrent CPU checks and6actual
+live CPU-reference samples pass all2576values at rtol.001/atol.005.
+Clean65s run:1201steady model receipts/19.998Hz; full model call36.656/46.326ms
+p50/p95; source→model receipt at UI94.754/115.031ms. Includes prep/queues/GPU/parser,
+not inference-only.23calls>50ms,max54.214,one receipt ID gap retained.33point overlay
+visually verified. Diagnostic run with6snapshot writes19.632Hz/max267.672ms;
+kept separately. All children exit0; camera/policies restored,GPU faults0→0.
+Targeted native SConscript passes; whole build stops at missingacados, other
+build dependencies unchecked. Camera optimisation/vehicle/soak qualification
+remain open; no automatic hardware-plan resume. [Session](Sessions/2026-11-02-thneed-modeld.md).
+
 ## 2026-11-02 — Existing CD210 Thneed imported and replay verified
 
 Owner says reuse converted model; do not reconvert. Copied accepted99641029byte

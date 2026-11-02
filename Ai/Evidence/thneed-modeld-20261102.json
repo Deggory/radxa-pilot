@@ -1,0 +1,812 @@
+{
+  "status": "pass",
+  "scope": "Opt-in Q8B Thneed integration with actual stock modeld/camera/UI in isolated bench namespace",
+  "source_start": "31aa29b77fca1a9eed216b8bceaf38e041fc3232",
+  "branch": "radxa/q8b",
+  "model_name": "CD210",
+  "model_ref": "5b6436a90cf6902b8aaa71c2b6f3d7164d8ae391",
+  "model_sha256": "eb74164116723b2601730a19e2f2060a25bfdc3814bf7912ce991798df176068",
+  "model_reconverted": false,
+  "tinygrad_pin": "92b742f711c7d216fd3ed7a46a30a959e3c43bd4",
+  "msgq_pin": "e7396e76dadbb49e374d4b664ff6bbb43a39bcb0",
+  "tests_passed": 51,
+  "ruff": "pass",
+  "synthetic_state_reference": {
+    "status": "pass",
+    "warps": [
+      {
+        "transform": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "elements": 196608,
+        "exact_pinned_tinygrad_cpu": true
+      },
+      {
+        "transform": [
+          [
+            1.0,
+            0.0,
+            256.0
+          ],
+          [
+            0.0,
+            1.0,
+            128.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "elements": 196608,
+        "exact_pinned_tinygrad_cpu": true
+      },
+      {
+        "transform": [
+          [
+            0.9890109896659851,
+            1.804407182481524e-15,
+            386.8132019042969
+          ],
+          [
+            -1.907224878971473e-17,
+            0.9890109896659851,
+            312.9230651855469
+          ],
+          [
+            3.3881317890172014e-21,
+            4.6648027600218505e-18,
+            1.0
+          ]
+        ],
+        "elements": 196608,
+        "exact_pinned_tinygrad_cpu": true
+      },
+      {
+        "transform": [
+          [
+            1.9780219793319702,
+            0.0,
+            133.62637329101562
+          ],
+          [
+            -5.874716781434898e-17,
+            1.9780219793319702,
+            59.736263275146484
+          ],
+          [
+            3.3881317890172014e-21,
+            0.0,
+            1.0
+          ]
+        ],
+        "elements": 196608,
+        "exact_pinned_tinygrad_cpu": true
+      },
+      {
+        "transform": [
+          [
+            1.0099999904632568,
+            0.019999999552965164,
+            3.25
+          ],
+          [
+            -0.019999999552965164,
+            0.9700000286102295,
+            8.5
+          ],
+          [
+            9.999999747378752e-06,
+            -9.999999747378752e-06,
+            1.0
+          ]
+        ],
+        "elements": 196608,
+        "exact_pinned_tinygrad_cpu": true
+      }
+    ],
+    "recurrent_steps": [
+      {
+        "frame": 0,
+        "max_abs_cpu": 0.02947998046875,
+        "all_2576_pass": true,
+        "parsed_plan_shape": [
+          1,
+          33,
+          15
+        ],
+        "model_state_ms": 31.996314999560127
+      },
+      {
+        "frame": 1,
+        "max_abs_cpu": 0.03057098388671875,
+        "all_2576_pass": true,
+        "parsed_plan_shape": [
+          1,
+          33,
+          15
+        ],
+        "model_state_ms": 34.6434830025828
+      },
+      {
+        "frame": 2,
+        "max_abs_cpu": 0.02838134765625,
+        "all_2576_pass": true,
+        "parsed_plan_shape": [
+          1,
+          33,
+          15
+        ],
+        "model_state_ms": 33.981702999881236
+      },
+      {
+        "frame": 3,
+        "max_abs_cpu": 0.02588653564453125,
+        "all_2576_pass": true,
+        "parsed_plan_shape": [
+          1,
+          33,
+          15
+        ],
+        "model_state_ms": 32.264079000015045
+      },
+      {
+        "frame": 4,
+        "max_abs_cpu": 0.01403045654296875,
+        "all_2576_pass": true,
+        "parsed_plan_shape": [
+          1,
+          33,
+          15
+        ],
+        "model_state_ms": 32.72622000076808
+      },
+      {
+        "frame": 5,
+        "max_abs_cpu": 0.0072689056396484375,
+        "all_2576_pass": true,
+        "parsed_plan_shape": [
+          1,
+          33,
+          15
+        ],
+        "model_state_ms": 32.80710599938175
+      },
+      {
+        "frame": 6,
+        "max_abs_cpu": 0.01531219482421875,
+        "all_2576_pass": true,
+        "parsed_plan_shape": [
+          1,
+          33,
+          15
+        ],
+        "model_state_ms": 22.439119002228836
+      },
+      {
+        "frame": 7,
+        "max_abs_cpu": 0.0070934295654296875,
+        "all_2576_pass": true,
+        "parsed_plan_shape": [
+          1,
+          33,
+          15
+        ],
+        "model_state_ms": 31.733759999042377
+      },
+      {
+        "frame": 8,
+        "max_abs_cpu": 0.008106231689453125,
+        "all_2576_pass": true,
+        "parsed_plan_shape": [
+          1,
+          33,
+          15
+        ],
+        "model_state_ms": 32.17110900004627
+      },
+      {
+        "frame": 9,
+        "max_abs_cpu": 0.007808685302734375,
+        "all_2576_pass": true,
+        "parsed_plan_shape": [
+          1,
+          33,
+          15
+        ],
+        "model_state_ms": 31.93912699862267
+      },
+      {
+        "frame": 10,
+        "max_abs_cpu": 0.007415771484375,
+        "all_2576_pass": true,
+        "parsed_plan_shape": [
+          1,
+          33,
+          15
+        ],
+        "model_state_ms": 32.12918099961826
+      },
+      {
+        "frame": 11,
+        "max_abs_cpu": 0.0071811676025390625,
+        "all_2576_pass": true,
+        "parsed_plan_shape": [
+          1,
+          33,
+          15
+        ],
+        "model_state_ms": 32.63475999847287
+      },
+      {
+        "frame": 12,
+        "max_abs_cpu": 0.007007598876953125,
+        "all_2576_pass": true,
+        "parsed_plan_shape": [
+          1,
+          33,
+          15
+        ],
+        "model_state_ms": 32.522362998861354
+      },
+      {
+        "frame": 13,
+        "max_abs_cpu": 0.0074367523193359375,
+        "all_2576_pass": true,
+        "parsed_plan_shape": [
+          1,
+          33,
+          15
+        ],
+        "model_state_ms": 32.95669100043597
+      },
+      {
+        "frame": 14,
+        "max_abs_cpu": 0.0076198577880859375,
+        "all_2576_pass": true,
+        "parsed_plan_shape": [
+          1,
+          33,
+          15
+        ],
+        "model_state_ms": 32.72314599962556
+      },
+      {
+        "frame": 15,
+        "max_abs_cpu": 0.0076618194580078125,
+        "all_2576_pass": true,
+        "parsed_plan_shape": [
+          1,
+          33,
+          15
+        ],
+        "model_state_ms": 34.05139100141241
+      },
+      {
+        "frame": 16,
+        "max_abs_cpu": 0.006908416748046875,
+        "all_2576_pass": true,
+        "parsed_plan_shape": [
+          1,
+          33,
+          15
+        ],
+        "model_state_ms": 32.08803499728674
+      },
+      {
+        "frame": 17,
+        "max_abs_cpu": 0.007335662841796875,
+        "all_2576_pass": true,
+        "parsed_plan_shape": [
+          1,
+          33,
+          15
+        ],
+        "model_state_ms": 35.75328599981731
+      },
+      {
+        "frame": 18,
+        "max_abs_cpu": 0.0074634552001953125,
+        "all_2576_pass": true,
+        "parsed_plan_shape": [
+          1,
+          33,
+          15
+        ],
+        "model_state_ms": 35.925944001064636
+      },
+      {
+        "frame": 19,
+        "max_abs_cpu": 0.007568359375,
+        "all_2576_pass": true,
+        "parsed_plan_shape": [
+          1,
+          33,
+          15
+        ],
+        "model_state_ms": 33.80211799958488
+      },
+      {
+        "frame": 20,
+        "max_abs_cpu": 0.0076732635498046875,
+        "all_2576_pass": true,
+        "parsed_plan_shape": [
+          1,
+          33,
+          15
+        ],
+        "model_state_ms": 33.24388100008946
+      },
+      {
+        "frame": 21,
+        "max_abs_cpu": 0.011020660400390625,
+        "all_2576_pass": true,
+        "parsed_plan_shape": [
+          1,
+          33,
+          15
+        ],
+        "model_state_ms": 33.604301999730524
+      },
+      {
+        "frame": 22,
+        "max_abs_cpu": 0.011280059814453125,
+        "all_2576_pass": true,
+        "parsed_plan_shape": [
+          1,
+          33,
+          15
+        ],
+        "model_state_ms": 34.001703999820165
+      },
+      {
+        "frame": 23,
+        "max_abs_cpu": 0.015323638916015625,
+        "all_2576_pass": true,
+        "parsed_plan_shape": [
+          1,
+          33,
+          15
+        ],
+        "model_state_ms": 32.567050999205094
+      },
+      {
+        "frame": 24,
+        "max_abs_cpu": 0.00772857666015625,
+        "all_2576_pass": true,
+        "parsed_plan_shape": [
+          1,
+          33,
+          15
+        ],
+        "model_state_ms": 32.63361399876885
+      },
+      {
+        "frame": 25,
+        "max_abs_cpu": 0.010730743408203125,
+        "all_2576_pass": true,
+        "parsed_plan_shape": [
+          1,
+          33,
+          15
+        ],
+        "model_state_ms": 32.168191002710955
+      },
+      {
+        "frame": 26,
+        "max_abs_cpu": 0.0132293701171875,
+        "all_2576_pass": true,
+        "parsed_plan_shape": [
+          1,
+          33,
+          15
+        ],
+        "model_state_ms": 31.938189000356942
+      },
+      {
+        "frame": 27,
+        "max_abs_cpu": 0.007747650146484375,
+        "all_2576_pass": true,
+        "parsed_plan_shape": [
+          1,
+          33,
+          15
+        ],
+        "model_state_ms": 32.69074900163105
+      },
+      {
+        "frame": 28,
+        "max_abs_cpu": 0.0148468017578125,
+        "all_2576_pass": true,
+        "parsed_plan_shape": [
+          1,
+          33,
+          15
+        ],
+        "model_state_ms": 35.40140699988115
+      },
+      {
+        "frame": 29,
+        "max_abs_cpu": 0.007602691650390625,
+        "all_2576_pass": true,
+        "parsed_plan_shape": [
+          1,
+          33,
+          15
+        ],
+        "model_state_ms": 32.419600000139326
+      },
+      {
+        "frame": 30,
+        "max_abs_cpu": 0.013248443603515625,
+        "all_2576_pass": true,
+        "parsed_plan_shape": [
+          1,
+          33,
+          15
+        ],
+        "model_state_ms": 33.753106003132416
+      },
+      {
+        "frame": 31,
+        "max_abs_cpu": 0.015338897705078125,
+        "all_2576_pass": true,
+        "parsed_plan_shape": [
+          1,
+          33,
+          15
+        ],
+        "model_state_ms": 32.95158600303694
+      }
+    ],
+    "new_model_conversion": false,
+    "reference_existing_sha256": "fa07c7abecc7d662ec37d284fb5f862d6910aaa006137b3da88836dc8647e549",
+    "rtol": 0.001,
+    "atol": 0.005,
+    "scope": "Changing synthetic frames/ModelState with same-input CPU checks at every state; not two independently free-running histories/live camera"
+  },
+  "live_cpu_reference": {
+    "status": "pass",
+    "rtol": 0.001,
+    "atol": 0.005,
+    "samples": [
+      {
+        "sample": "frame-000020.npz",
+        "sha256": "de853f63da79c4cd32454096d49f48e9277a3b10c3a6249c2aed37b463ea2df9",
+        "outputs": 2576,
+        "finite": true,
+        "max_abs_cpu": 0.015411376953125,
+        "cpu_pass": true,
+        "nonzero_feature_history": true,
+        "image_sha256": "642f7535d9ef7556b677e437cd4a3106f86dee571b0577a12168d7146c81f8b9"
+      },
+      {
+        "sample": "frame-000200.npz",
+        "sha256": "15dedb3aeb9dc6002f50020a9174ab495b3ca31b8d3b5abf0138d63bb1efc17b",
+        "outputs": 2576,
+        "finite": true,
+        "max_abs_cpu": 0.00390625,
+        "cpu_pass": true,
+        "nonzero_feature_history": true,
+        "image_sha256": "939d9364d02462dda97c304c9888428e3a1c1f0fc41386b4c51ab59d6c35fed1"
+      },
+      {
+        "sample": "frame-000400.npz",
+        "sha256": "df007b697669c097a01f11e6456403b67feb3a9501adc87b485055ff19ecc735",
+        "outputs": 2576,
+        "finite": true,
+        "max_abs_cpu": 0.0035963058471679688,
+        "cpu_pass": true,
+        "nonzero_feature_history": true,
+        "image_sha256": "8002609deb9f5d0c35309812cfef3df6dfc3ee5cdde6bcf5beda343875daf245"
+      },
+      {
+        "sample": "frame-000600.npz",
+        "sha256": "efb9208439f68da0491386d492f3b3216cd77b0a5a52c899bc075fd6927759a8",
+        "outputs": 2576,
+        "finite": true,
+        "max_abs_cpu": 0.0069103240966796875,
+        "cpu_pass": true,
+        "nonzero_feature_history": true,
+        "image_sha256": "1ea938dac8ab9323b27b4ac65ac0bf053d5ed5e9acc7c77be1eeb45f45baa35b"
+      },
+      {
+        "sample": "frame-000800.npz",
+        "sha256": "745ec5c204fdd12d81cfeea9b2d52a8fcb337535500d8872c1703e7fdf4511bf",
+        "outputs": 2576,
+        "finite": true,
+        "max_abs_cpu": 0.0037813186645507812,
+        "cpu_pass": true,
+        "nonzero_feature_history": true,
+        "image_sha256": "4455a0c2f4427ea59251602828f7ce073f86eeb4dc2b634f0e9ff6b5a05e98d6"
+      },
+      {
+        "sample": "frame-001000.npz",
+        "sha256": "8bb89c7575473ef08166729494e69a69de4df0f614f206f160dc33b7df846870",
+        "outputs": 2576,
+        "finite": true,
+        "max_abs_cpu": 0.004413604736328125,
+        "cpu_pass": true,
+        "nonzero_feature_history": true,
+        "image_sha256": "ccea7712596152bafbac0958922f6f110f5b5d1a48a98403f59f37ce51b4bb86"
+      }
+    ],
+    "new_conversion": false,
+    "camera_restored": true,
+    "policies_restored": true,
+    "gpu_faults_before_after": [
+      0,
+      0
+    ]
+  },
+  "live": {
+    "status": "pass",
+    "diagnostic_run": {
+      "status": "pass",
+      "model_messages": 1250,
+      "steady_model_messages": 1179,
+      "receipt_Hz": 19.63247367082994,
+      "model_call_including_prep_ms": {
+        "n": 1179,
+        "median_ms": 36.5469828248024,
+        "p95_ms": 47.10803031921386,
+        "p99_ms": 51.5706617385149,
+        "max_ms": 267.67241954803467
+      },
+      "model_calls_over50ms": 28,
+      "capture_to_ui_model_receipt_ms": {
+        "n": 1179,
+        "median_ms": 94.976088,
+        "p95_ms": 118.50497459999998,
+        "p99_ms": 130.00459776000005,
+        "max_ms": 329.158748
+      },
+      "receipt_gap_ms": {
+        "n": 1178,
+        "median_ms": 39.8412645,
+        "p95_ms": 70.52565229999999,
+        "p99_ms": 97.77147293,
+        "max_ms": 266.537293
+      },
+      "model_frame_id_gaps": 22,
+      "camera_ui": {
+        "status": "complete",
+        "samples": 1201,
+        "warmup_samples": 91,
+        "warmup_seconds": 5.0,
+        "elapsed_seconds": 65.03581329200097,
+        "requested_seconds": 65.0,
+        "repeated_ui_frames": 645,
+        "skipped_publication_ids": 1,
+        "displayed_unique_fps": 19.99128001489869,
+        "capture_to_draw_ready_ms": {
+          "median": 59.083161,
+          "p95": 79.625433,
+          "p99": 88.670873,
+          "mean": 59.49928341548709,
+          "min": 30.791993,
+          "max": 94.897928
+        },
+        "capture_to_frame_complete_ms": {
+          "median": 88.141155,
+          "p95": 108.183807,
+          "p99": 117.212513,
+          "mean": 88.11594572439634,
+          "min": 59.045261,
+          "max": 125.49504
+        },
+        "end_drawing_ms": {
+          "median": 29.148685,
+          "p95": 31.117531,
+          "p99": 31.671096,
+          "mean": 28.61666230890924,
+          "min": 17.508987,
+          "max": 34.116397
+        },
+        "quantile_method": "numpy percentile linear",
+        "endpoint": "host Raylib EndDrawing return, including its normal frame pacing; not optical presentation",
+        "capture_clock": "V4L2 driver monotonic timestamp carried by VisionIPC",
+        "environment": {
+          "vendor": "freedreno",
+          "renderer": "FD690",
+          "version": "4.6 (Core Profile) Mesa 25.2.8-0ubuntu0.24.04.2",
+          "window_size": [
+            1824,
+            912
+          ],
+          "render_size": [
+            1824,
+            912
+          ],
+          "ui_target_fps": 30,
+          "capture_fps": 60,
+          "publication_fps": 20
+        }
+      },
+      "ui": {
+        "unique_camera_frames": 1292,
+        "first_frame": 10,
+        "last_frame": 1308,
+        "screenshot_saved": true,
+        "seconds": 65.06293866399938,
+        "model_processes_started": true,
+        "vehicle_processes_started": false,
+        "model_messages": 1250,
+        "model_path_render_points": 33
+      },
+      "children_exited": [
+        0,
+        0,
+        0
+      ],
+      "owned_processes_and_ipc_removed": true,
+      "raw_model_sha256": "19f7bd02da349790cd4a8178838dc106ffe259896a1c7585464a8f60196f072d",
+      "raw_camera_sha256": "5d83d6f9b1d28af1abccc57d837b0895667d9c082ce0002608f236dbe58397db"
+    },
+    "clean_run": {
+      "status": "pass",
+      "model_messages": 1274,
+      "steady_model_messages": 1201,
+      "receipt_Hz": 19.9980633902077,
+      "model_call_including_prep_ms": {
+        "n": 1201,
+        "median_ms": 36.65611147880554,
+        "p95_ms": 46.325672417879105,
+        "p99_ms": 51.03767663240433,
+        "max_ms": 54.213885217905045
+      },
+      "model_calls_over50ms": 23,
+      "capture_to_ui_model_receipt_ms": {
+        "n": 1201,
+        "median_ms": 94.754403,
+        "p95_ms": 115.031215,
+        "p99_ms": 123.775144,
+        "max_ms": 143.267439
+      },
+      "receipt_gap_ms": {
+        "n": 1200,
+        "median_ms": 40.569958,
+        "p95_ms": 69.5865257,
+        "p99_ms": 73.91743048000001,
+        "max_ms": 99.817531
+      },
+      "model_frame_id_gaps": 1,
+      "camera_ui": {
+        "status": "complete",
+        "samples": 1201,
+        "warmup_samples": 92,
+        "warmup_seconds": 5.0,
+        "elapsed_seconds": 65.04550243400081,
+        "requested_seconds": 65.0,
+        "repeated_ui_frames": 644,
+        "skipped_publication_ids": 0,
+        "displayed_unique_fps": 19.99890528958949,
+        "capture_to_draw_ready_ms": {
+          "median": 60.071425,
+          "p95": 78.442747,
+          "p99": 85.864706,
+          "mean": 59.73827360366361,
+          "min": 29.44055,
+          "max": 98.129413
+        },
+        "capture_to_frame_complete_ms": {
+          "median": 88.613569,
+          "p95": 106.861388,
+          "p99": 114.350864,
+          "mean": 88.42563141798502,
+          "min": 58.009065,
+          "max": 127.283063
+        },
+        "end_drawing_ms": {
+          "median": 29.270275,
+          "p95": 31.148733,
+          "p99": 31.687743,
+          "mean": 28.6873578143214,
+          "min": 18.931033,
+          "max": 33.202559
+        },
+        "quantile_method": "numpy percentile linear",
+        "endpoint": "host Raylib EndDrawing return, including its normal frame pacing; not optical presentation",
+        "capture_clock": "V4L2 driver monotonic timestamp carried by VisionIPC",
+        "environment": {
+          "vendor": "freedreno",
+          "renderer": "FD690",
+          "version": "4.6 (Core Profile) Mesa 25.2.8-0ubuntu0.24.04.2",
+          "window_size": [
+            1824,
+            912
+          ],
+          "render_size": [
+            1824,
+            912
+          ],
+          "ui_target_fps": 30,
+          "capture_fps": 60,
+          "publication_fps": 20
+        }
+      },
+      "ui": {
+        "unique_camera_frames": 1293,
+        "first_frame": 9,
+        "last_frame": 1306,
+        "screenshot_saved": true,
+        "seconds": 65.07033600100112,
+        "model_processes_started": true,
+        "vehicle_processes_started": false,
+        "model_messages": 1274,
+        "model_path_render_points": 33
+      },
+      "children_exited": [
+        0,
+        0,
+        0
+      ],
+      "owned_processes_and_ipc_removed": true,
+      "raw_model_sha256": "4459cdfcba2c0bec78260aa2811f96df66c1505fa5e49fadb6bc5fc1e902f2a3",
+      "raw_camera_sha256": "e12eeae6a18dd36928c7aba850965b72d3e2ee719ae762bb53b3fca44cd4658d"
+    },
+    "camera_restored": true,
+    "gpu_faults_before_after": [
+      0,
+      0
+    ],
+    "limitations": [
+      "Short indoor tests; geometry unmeasured and validity false",
+      "UI receipt includes subscriber pacing; not GPU-only/publisher/optical latency",
+      "Six snapshot writes included only in diagnostic run; runs are not matched randomized A/B",
+      "Average20Hz is not every frame under50ms; all tails/gaps retained"
+    ]
+  },
+  "restoration": {
+    "policy": {
+      "/sys/devices/system/cpu/cpufreq/policy4/scaling_governor": "schedutil",
+      "/sys/devices/system/cpu/cpufreq/policy0/scaling_governor": "schedutil",
+      "/sys/class/devfreq/3d00000.gpu/governor": "simple_ondemand",
+      "/sys/class/devfreq/3d00000.gpu/min_freq": "270000000",
+      "/sys/class/devfreq/3d00000.gpu/max_freq": "690000000"
+    },
+    "faults": 0,
+    "camera_restored": true,
+    "no_owned_processes_or_ipc": true,
+    "all_children_exit_zero": true,
+    "model_unchanged": true
+  },
+  "build": {
+    "native_binary": "existing tested5f83b4ad6d1b083cfe336571d06c8f3b280a307aeaaf7b5f5b1ddecef349adec reused; C++ source unchanged",
+    "targeted_sconscript_dry_run": "pass; native wrapper only, no compile_onnx commands",
+    "whole_project_scons": "blocked before target evaluation by missing acados package; remaining build deps not evaluated"
+  },
+  "review": "correctness/default-off selection, buffer/queue ownership, safe hash-pinned loading, isolated process/Params lifecycle, honest calibration validity and performance endpoints reviewed",
+  "source_sha256": {
+    "openpilot/selfdrive/modeld/modeld.py": "7d1714485a211b132fb66893453d6b722ffe9323a4ba309ccf0070bacbe45cc6",
+    "openpilot/selfdrive/modeld/SConscript": "a3d887421f337e400733bf836e713055bd76b0d696c6da00f3bf8ee2aae48f7a",
+    "openpilot/selfdrive/modeld/thneed_q8b/state.py": "2086f788bac99736c60021e441a5756c35df513788b3a1eb0c124102551a2198",
+    "openpilot/selfdrive/modeld/thneed_q8b/output_slices.json": "50e312f1793570f52223e9cf7b22612e6ec8e828821ca2db66bf743d9a1e97b8",
+    "openpilot/selfdrive/modeld/thneed_q8b/test_state.py": "1b8e1587e7f57f9d2d9f4df0129160a596ba91f5d10c68671ae468070a63eb32",
+    "openpilot/system/manager/process_config.py": "2cf97193f3dc425ba8c66568ed1501ca6489763e5a37e75dfa7fdc332f566f62",
+    "openpilot/system/camerad/webcam/preview.py": "38992883f412a92ed1ba70ff529bff748148e30a0655fc18ae936236a775cea3",
+    "openpilot/system/camerad/webcam/test_preview.py": "b8c868c65682fdfd543205c8e6b7bf75108f85f6d2f242c22fc8309e14ecfc14"
+  },
+  "unknowns": [
+    "Borrowed camera intrinsics/zero mounting assumption; model validity remains false",
+    "Indoor short bench only; no road/vehicle/thermal-soak qualification",
+    "Some model calls exceed50ms; average20Hz is not a hard deadline proof",
+    "Six live CPU checks use same GPU-supplied state, not two independently free-running reference histories",
+    "Camera optimisation, hardware telemetry, IMU/CAN/steering integration remain deferred"
+  ]
+}

@@ -1,5 +1,14 @@
 # Teacher's tested Q8B Thneed GPU pipeline
 
+## Latest: modeld and actual UI connected — 2026-11-02
+
+Q8B_THNEED opt-in/`preview --model` now uses copiedCD210 in stock modeld with
+pinnedCPU warp/current queues/parser and actualUI overlay.51tests plus32synthetic
+and6live CPU checks pass; clean65s20Hz/fullcall36.656msp50/46.326p95.
+Calibration validity stays false for borrowed geometry. No model conversion.
+[Session](../Sessions/2026-11-02-thneed-modeld.md), [instructions](../../openpilot/selfdrive/modeld/thneed_q8b/README.md).
+Earlier import-only statements below describe the previous increment.
+
 ## Current implementation — 2026-11-02
 
 Owner instructed reuse/no reconversion. [In-project replay README](../../openpilot/selfdrive/modeld/thneed_q8b/README.md)

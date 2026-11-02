@@ -13,8 +13,11 @@ licenses, a Python runner, a current-history adapter and bounded verification.
 `provenance.json` records the copied source/asset hashes; `vendor-manifest.json`
 records upstream versions/adaptations. Required code and model assets live in
 this Sunnypilot project. No runtime import or asset lookup uses external teacher
-experiments. The Python runner requires NumPy and uses ctypes for OpenCL; it does
-not import Tinygrad, ONNX, an exporter or a converter.
+experiments. The low-level `runtime.py` requires NumPy and uses ctypes for OpenCL;
+it does not import Tinygrad, ONNX, an exporter or a converter. The optional
+`state.py` modeld adapter reuses this repository's pinned Tinygrad **CPU:LLVM
+camera warp**. Driving-model inference still uses saved Thneed GPU instructions.
+It does not import the older, modified Tinygrad experiment tree.
 
 ## Build and verify
 
@@ -65,7 +68,34 @@ The instance is synchronous and belongs to one caller; close it when finished.
 Output precision preserves the accepted stored model's FP16 output/FP32
 arithmetic policy, rather than changing the already-compiled model.
 
-## Qualification and next integration
+## Live modeld and UI integration
+
+```bash
+.venv/bin/python -m openpilot.system.camerad.webcam.preview --model
+```
+
+This opt-in preview starts camera, actual stock `modeld --demo` with Thneed, and
+the actual Sunnypilot onroad UI. Closing the window stops all three. Messages and
+Params use a private namespace; vehicle/planner/control/driver-monitoring
+processes are not started. The window labels the temporary geometry uncalibrated.
+Predictions are displayed while model/calibration validity remains false for
+the borrowed MM-X profile. Measured geometry needs a separate qualification.
+
+For a bounded qualification session, add `--seconds 65 --benchmark --model-checks`
+and a new `--log-dir`. `--model-checks` saves at most six input/output snapshots
+for offline CPU checks; it adds occasional compression/disk cost to those calls.
+Model receipt records and camera/UI timing have separate endpoints. The preview
+sets numeric `DEBUG=0` and CPU-warp target in its child environment; it does not
+modify the calling shell or clock/fan/driver policies.
+
+Stock process integration is selected with
+`USE_WEBCAM=1 Q8B_ROAD_ONLY=1 Q8B_THNEED=1 DEBUG=0`. It requires real Q8B and the
+accepted720p road-only profile, keeps stock parser/messages, disables alternate
+model warmup/compiler selection and bypasses Chestnut. SCons in this mode builds
+only the native replay wrapper in modeld's subtree, without regenerating model
+artifacts. Full manager/vehicle operation is outside this bench qualification.
+
+## Qualification
 
 Fresh November2 verification: the copied model runs on the matching Q8B GPU;
 12 saved-case checks and all12 queue-adapter checks pass. A40-sample short check
@@ -80,11 +110,16 @@ CPU/GPU690MHz, partial JPEG, CPU calibrated preparation and EGL display.
 Its timing scope/configuration differs from this verification. The learned
 CD210 core matches current stock weights; the older ONNX interface differs.
 
-This increment supplies the copied asset and a runnable, checked inference
-backend. Stock manager/modeld selection and camera preview remain unchanged.
-Connecting this backend to live modeld/camera publication and Sunny overlays,
-then checking recurrent timing/accuracy, is the next integration step. Camera
-latency optimisation and clock-policy changes remain deferred. No vehicle or
-full driving-stack qualification follows from fixture replay.
+The opt-in modeld adapter supplies padded NV12 preparation, two distinct views,
+rising-edge desires, current history queues and the normal parser. Warmup resets
+all queues. Five packed-view comparisons match pinned CPU warp exactly;32changing
+synthetic recurrent steps pass same-input CPU-reference checks across all2576
+outputs at unchanged tolerances. First12second live test received216predictions
+and rendered33path points; all three children exited0 and camera settings were
+restored. See project handoff for later results.
+
+Without `Q8B_THNEED=1`/`--model`, existing stock selection and camera-only preview
+behavior remain. Camera optimisation and clock changes stay deferred. This is
+bench inference/UI qualification, not vehicle or road testing.
 
 Project memory: [Thneed reference](../../../../Ai/Knowledge/THNEED_GPU_REFERENCE.md).

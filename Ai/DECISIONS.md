@@ -152,3 +152,9 @@ real data, distortion mapping and optical-state consistency are reviewed.
 Reuse/copy acceptedeb741641; do not convert again. Package required replay code
 and assets inside Sunny; preserve original model and defaults while qualifying
 backend. Current-history adapter reuses existing graph. [Session](Sessions/2026-11-02-thneed-import.md).
+
+2026-11-02 — Use Q8B_THNEED=1 in road-only webcam mode for the copiedCD210 GPU
+backend. Keep normal stock selection when off. Reuse pinnedCPU:LLVM warp after
+NumPy rewrite failed one exact rounding-boundary pixel; keep exact gate.
+Borrowed MM-X geometry remains invalid for model messages, even if extrinsics
+alone appear calibrated. [Session](Sessions/2026-11-02-thneed-modeld.md).

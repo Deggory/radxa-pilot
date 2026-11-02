@@ -1,3 +1,6 @@
+2026-11-02 latest: [live Thneed modeld integration](Sessions/2026-11-02-thneed-modeld.md)
+verified camera→stock modeld→actual Sunny overlay at20Hz bench. Start HANDOFF for limits/launch.
+
 2026-11-02 latest: [existing Thneed import](Sessions/2026-11-02-thneed-import.md)
 provides copied CD210 plus in-project native GPU replay/current-queue adapter. No reconversion.
 

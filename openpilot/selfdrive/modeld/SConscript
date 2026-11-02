@@ -11,6 +11,19 @@ from openpilot.system.camerad.webcam.config import ROAD_WIDTH, ROAD_HEIGHT
 
 Import('env', 'arch')
 
+q8b_thneed = os.getenv('Q8B_THNEED', '0')
+if q8b_thneed not in ('0', '1'):
+  raise ValueError('Q8B_THNEED must be 0 or 1')
+if q8b_thneed == '1':
+  if not RADXA_Q8B:
+    raise ValueError('Q8B_THNEED build requires Radxa Q8B')
+  # Reuse the already-converted model; build only its native replay wrapper.
+  thneed_dir = Dir('thneed_q8b').abspath
+  thneed_deps = glob.glob(thneed_dir + '/vendor/**/*', recursive=True)
+  thneed_deps = [path for path in thneed_deps if os.path.isfile(path)] + [thneed_dir + '/bridge.cc', thneed_dir + '/build.sh']
+  env.Command('thneed_q8b/build/libq8b_thneed.so', thneed_deps, Action(f'bash "{thneed_dir}/build.sh"', '  [THNEED] $TARGET'))
+  Return()
+
 # TODO: add GCC support to tinygrad?
 # tinygrad's CPU:LLVM backend requires libLLVM, skip the build on PC if it's not available
 if arch not in ('comma_arm64', 'Darwin') and ctypes.util.find_library('LLVM') is None:

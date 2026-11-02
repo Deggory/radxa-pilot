@@ -1,13 +1,34 @@
 import os
 from pathlib import Path
 import subprocess
+from types import SimpleNamespace
 import unittest
 from unittest.mock import MagicMock, patch
 
-from openpilot.system.camerad.webcam.preview import preview_environment, stop_children
+from openpilot.system.camerad.webcam.preview import preview_environment, preview_commands, stop_children
 
 
 class TestPreviewIsolation(unittest.TestCase):
+  def test_model_preview_adds_only_modeld_and_sanitizes_child_environment(self):
+    with patch.dict(os.environ, {'DEBUG': 'release', 'Q8B_THNEED': '1'}):
+      env = preview_environment(Path('/tmp/preview'), 'q8b_preview_test', model=True)
+      self.assertEqual(env['DEBUG'], '0')
+      self.assertEqual(env['DEV'], 'CPU:LLVM')
+      self.assertEqual(env['Q8B_THNEED'], '1')
+      self.assertNotIn('Q8B_THNEED', preview_environment(Path('/tmp/preview'), 'q8b_preview_test'))
+      self.assertEqual(os.environ['DEBUG'], 'release')
+    args = SimpleNamespace(model=True, log_dir=Path('/tmp/report'), seconds=20, screenshot=None,
+                           benchmark=False, warmup_seconds=5)
+    commands, names = preview_commands(args)
+    self.assertEqual(names, ['camera', 'model', 'ui'])
+    self.assertEqual(commands[1][-2:], ['openpilot.selfdrive.modeld.modeld', '--demo'])
+    self.assertIn('--model', commands[-1])
+    self.assertTrue(all('manager' not in ' '.join(command) for command in commands))
+    args.model = False
+    commands, names = preview_commands(args)
+    self.assertEqual(names, ['camera', 'ui'])
+    self.assertNotIn('--model', commands[-1])
+
   def test_uses_private_messages_and_params_without_modifying_parent_environment(self):
     with patch.dict(os.environ, {'OPENPILOT_PREFIX': 'existing', 'PARAMS_ROOT': '/existing', 'DISPLAY': ':7'}):
       env = preview_environment(Path('/tmp/private-preview'), 'q8b_preview_test')
