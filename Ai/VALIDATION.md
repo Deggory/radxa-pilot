@@ -1,5 +1,13 @@
 # Validation: what is actually established
 
+## MM-X RK camera-calibration source review — 2026-11-02
+
+Fresh5full GitHub blobs match exact Git identities at3ad69b20;4Python files
+parse. README calibration instruction and matching road/UI focal900/720p
+constants checked. No camera/model/runtime run or physical lens calibration;
+prior29focused tests are not repeated or newly claimed. See source manifest
+and verification in optional workspace q8b/research/mm-x-camera-20261102.
+
 ## Model boundary and calibration preparation — 2026-11-02
 
 Model-facing allocation now2220032bytes/UVoffset942080,copy1413120bytes for720p;

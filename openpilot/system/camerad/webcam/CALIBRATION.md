@@ -1,5 +1,11 @@
 # AK-Camera lens calibration
 
+The checkerboard below is this tool's measurement method. Sunnypilot does not
+require a particular printed target: verified manufacturer intrinsics matching
+the camera mode and focus, or another suitable calibration method, can also
+supply lens parameters. MM-X's RK branch asks for externally obtained intrinsics
+and stores fixed values; its online mounting calibration does not solve the lens.
+
 This tool measures a lens-calibration candidate, not vehicle mounting angles or
 camera height. The saved70°FOV/zero-angle/1.22msettings were a visual estimate.
 They are not installed as measured Q8B intrinsics. The Q8B calibration guard

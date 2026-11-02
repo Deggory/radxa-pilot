@@ -1,5 +1,12 @@
 # Decisions and rationale
 
+## 2026-11-02 — Separate lens-parameter source from mounting calibration
+
+Checkerboard is the prepared tool's method, not a mandatory Sunnypilot target.
+MM-X RK explicitly asks for external intrinsics; online pitch/yaw calibration
+does not replace lens calibration. His900px focal value is not adopted for AK.
+Alternative verified parameters/method remain open; no runtime choice made.
+
 ## 2026-11-01 — Search teacher evidence before asking the owner
 
 Owner corrected the unnecessary IMU-model question: teacher already records

@@ -1,5 +1,10 @@
 # Sunnypilot work history
 
+2026-11-02 — Inspected actual MM-X RK camera/geometry/UI/calibration source.
+External intrinsics required by README; focal900/720p hardcoded, mounting
+calibration separate. Clarified checkerboard is optional measurement method.
+5blob/4AST checks pass; docs only. [Session](Sessions/2026-11-02-mmx-camera-calibration.md).
+
 2026-11-02 — Model layout fixed/qualified in6fea7ecf; owner chose printable
 calibration target/tool. Added physical-size vector PDF/SVG, guided full-frame
 collector and gated candidate solver.29focused tests, PDF/grid checks and real

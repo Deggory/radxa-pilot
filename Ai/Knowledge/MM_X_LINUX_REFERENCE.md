@@ -1,5 +1,46 @@
 # MM-X's PC/Linux approach: reference for Q8B
 
+## 2026-11-02 — RK camera intrinsics versus automatic mounting calibration
+
+Owner asked how MM-X configured cameras without our checkerboard step. Inspected
+the actual master-rk3588 pin3ad69b20b2c38172ea24c8388354ee95eca8412a, rather
+than assuming default master-tici describes RK. Its README camera section says
+to obtain intrinsics with software such as GMLCCalibration, then edit geometry
+and UI constants. It does not document the author's physical target/procedure
+or prove that he avoided a checkerboard.
+
+| File at the RK pin | Observed behavior |
+| --- | --- |
+| common/transformations/camera.py | Road CameraConfig(1280,720,900.0); K has fx=fy=900,cx=640,cy=360; PC maps to this configuration |
+| selfdrive/ui/ui.h | FCAM_INTRINSIC_MATRIX repeats the same road K for UI projection |
+| tools/webcam/camera.py | CameraMJPG requests MJPG1280x720/20FPS; not an intrinsic-calibration solver |
+| tools/webcam/camerad.py | Uses CameraMJPG and a20Hz publisher loop; no lens calibration performed here |
+| selfdrive/locationd/calibrationd.py | Uses cameraOdometry/carState to estimate mounting pitch/yaw and other alignment/height state; roll assumed zero; does not estimate K or lens distortion |
+
+The intrinsic class represents a centered pinhole with equal focal lengths;
+these camera/geometry paths do not supply a measured distortion profile for
+our AK lens. Provenance/accuracy of his focal900 is not established by these
+files. His camera constants cannot be treated as measurements of our camera.
+
+Our printable target is one supported measurement method, not a mandatory
+Sunnypilot mechanism. Verified manufacturer calibration matching resolution,
+crop and focus, or a suitable alternative calibration method, could supply
+intrinsics. An FOV-derived K is only an estimate unless independently verified.
+The saved70degree visual estimate is not promoted to measured calibration.
+No selection of an alternative or activation of estimated geometry was requested.
+Next resolve the AK lens-parameter source before capture/installation; the
+prepared target/tool remains available if the owner chooses that route.
+
+Sources: [RK README](https://github.com/MM-X/sunnypilot-pc/blob/3ad69b20b2c38172ea24c8388354ee95eca8412a/README.md),
+[geometry](https://github.com/MM-X/sunnypilot-pc/blob/3ad69b20b2c38172ea24c8388354ee95eca8412a/common/transformations/camera.py),
+[UI](https://github.com/MM-X/sunnypilot-pc/blob/3ad69b20b2c38172ea24c8388354ee95eca8412a/selfdrive/ui/ui.h),
+[online calibration](https://github.com/MM-X/sunnypilot-pc/blob/3ad69b20b2c38172ea24c8388354ee95eca8412a/selfdrive/locationd/calibrationd.py).
+Fresh GitHub retrieval:5 exact Git blobs,4 Python AST parses; source-only.
+Optional evidence:q8b/research/mm-x-camera-20261102/verification.json in the
+workspace. No REA binary analysis needed for readable source. Runtime remains
+d273823b4ae08eb51cce8042eea424b9dea062d9; stock model65a08adc/current runtime
+unchanged, Q8B calibration guard active, no hardware or vehicle action.
+
 ## 2026-11-02 — Webcam bring-up is a smaller scope than complete hardware support
 
 Owner specifically asked whether the full hardware checklist must be implemented

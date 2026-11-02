@@ -1,5 +1,17 @@
 # Current Sunnypilot state
 
+## 2026-11-02 — MM-X RK lens-parameter check
+
+Owner questioned the checkerboard step. RK3ad69b20 README requests external
+intrinsics (example:GMLCCalibration); geometry/UI store720p focal900,centre640/360.
+Online calibration estimates mounting alignment, assumes zero roll, and does
+not solve lens K/distortion. His actual measurement procedure is undocumented.
+Checkerboard is an available method, not a Sunnypilot requirement. Next resolve
+an appropriate AK lens-parameter source; printing/capture is optional pending
+method choice. No runtime edits or geometry activation; guard stays active.
+Fresh5Git blobs/4Python AST checks pass; see dated mmx-camera-calibration session.
+Prior29runtime/tool tests remain historical, not rerun for this source review.
+
 2026-11-02 latest: padded model-facing NV12 fixed in6fea7ecf; real140frames and
 synthetic current CPU-warp input parity qualified, not full inference. Printable
 A4target and target/capture/solve calibration tool ready. Real lens/focus/mount
