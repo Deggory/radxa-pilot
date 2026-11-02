@@ -1,5 +1,9 @@
 # Resume Sunnypilot here
 
+2026-11-02 timing answer: latest preview19.87new camera frames/s (~50.33ms
+interval), not measured camera-to-screen latency. Older standalone42.186ms
+median/56.996msp95 is separate. No runtime change or camera relaunch.
+
 2026-11-02 intrinsics assessment: temporary900px/720p implies70.834deg
 horizontal FOV under a pinhole assumption; old70deg was only visual. Camera/UI
 video is verified, lens geometry is not. Keep owner-selected temporary profile;

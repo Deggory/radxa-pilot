@@ -1,5 +1,9 @@
 # Sunnypilot work history
 
+2026-11-02 — Recovered actual preview cadence19.87FPS; current camera-to-UI
+latency was not logged. Separated Oct31 standalone42msmedian/57msp95 timings.
+Documentation only; no camera/clock/runtime changes.
+
 2026-11-02 — Assessed temporary900px intrinsics: calculated70.834degree
 HFOV agrees with old visual estimate only; capture/display is not lens proof.
 No runtime change; owner calibration deferral retained. See latest UI session.

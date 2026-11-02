@@ -105,3 +105,22 @@ Source-driven/documentation/Git skills; source-first inspection and primary
 OpenCV docs. No unrelated REA binary analysis needed. New checks: FOV arithmetic
 and notebook/diff validation only; no runtime tests rerun. Runtime/model pins
 unchanged from91ded2e.
+
+## 2026-11-02 — Camera-to-UI timing: cadence versus latency
+
+Latest actual Sunnypilot dashboard rendered1514distinct frames in76.200078s:
+19.868746new frames/s, mean50.3303ms/new frame. These are application display
+cadence statistics, not camera-to-screen delay. preview.py saves frame count/
+IDs/duration, not paired capture/render/swap timestamps, so latest-run latency
+cannot be recovered from its saved summary. No new runtime measurement made.
+
+Separate Oct31 standalone Thneed/EGL/max-clock source db5b0da reported driver
+stamp to host EGL draw/swap return median42.186ms,p9556.996ms. It includes an
+older model/runtime/UI and does not qualify current Sunnypilot latency or true
+optical capture-to-monitor-light latency. Exact current delay needs per-frame
+paired capture/render/presentation evidence. Keep this distinction in replies;
+no optimisation or new camera launch requested by the timing question.
+
+Performance skill: measure before claiming optimisation. Source-first saved
+JSON/report/current preview source only; no unrelated REA binary analysis.
+Runtime/model/temporary intrinsics unchanged at6c834514; preview stays closed.
