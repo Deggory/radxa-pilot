@@ -247,3 +247,6 @@ singleCPU7 trial regressed to40.512ms. Fast cores4–7 default instead measured
 2026-11-02 — Owner requested all work committed. Verified clean source49d2f07
 and57local commit records with none missing validation; saved documentation
 checkpoint. No new runtime tests, upstream integration or remote push.
+
+2026-11-02 — Started owner-requested live onroad telemetry panel. Read-only
+sensor and bounded timing/window helpers pass5tests/Ruff; UI integration next.

@@ -1,3 +1,5 @@
+Current task: [live Q8B UI telemetry](Knowledge/UI_TELEMETRY.md).
+
 Current performance result: [maximum mode and resident GPU baseline](Knowledge/MAX_PERFORMANCE.md).
 
 2026-11-02 latest: [installation](Knowledge/INSTALLATION.md) now documents a clean
