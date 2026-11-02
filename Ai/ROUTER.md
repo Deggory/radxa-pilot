@@ -1,3 +1,5 @@
+Current performance work: [max baseline and GPU input plan](Knowledge/MAX_PERFORMANCE.md).
+
 2026-11-02 latest: [installation](Knowledge/INSTALLATION.md) now documents a clean
 locked environment and passing minimal root build; start HANDOFF for checks/limits.
 

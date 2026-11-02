@@ -1,5 +1,17 @@
 # Work status and next task
 
+## 2026-11-02 — Maximum-mode lease and measured baseline; GPU prep in progress
+
+Owner requests teacher max clocks/resident GPU inputs before feature splitting.
+One-time root helper installed by owner; future model/verify starts use scoped
+sudo-n guard automatically. Normal and killed-client clock restoration pass.
+Current65s private camera/model baseline:20.0008Hz, inference11.834msp50,
+source→output58.989ms, CPUprep14.693ms. Target<38ms not yet met. Two early-closed
+UI benchmarks retained incomplete. Model/schema/artifact unchanged, no feature
+splitting. Native GPU-prep bridge draft is dirty, not yet built/activated/tested.
+Next finish exact resident NV12 gather/history path, qualify and compare.
+[Details](Knowledge/MAX_PERFORMANCE.md); raw central max-baseline report.
+
 ## 2026-11-02 — Full locked dependencies installed; minimal build passes
 
 New [install guide](../install.md) covers setup/build/tests/preview for newcomers.

@@ -228,3 +228,7 @@ actual import/distribution checks; ARM64 wheel is locked but untested. No instal
 2026-11-02 — Added newcomer install.md and Q8B declared dependencies; installed
 clean locked Python environment, preserved recovery copies, passed minimal root
 build/51tests/MPC/GPU and10sUI smoke. [Session](Sessions/2026-11-02-installation.md).
+
+2026-11-02 — Implemented/reviewed/installed scoped max-clock lease; measured
+65sbaseline20Hz/11.834ms inference/58.989ms capture-output. GPU input path remains
+in progress. [Session](Sessions/2026-11-02-max-performance.md).

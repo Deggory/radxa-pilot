@@ -2,6 +2,7 @@
 import ctypes as C
 import hashlib
 import json
+import time
 from pathlib import Path
 
 import numpy as np
@@ -186,14 +187,23 @@ class ThneedModel:
       raise RuntimeError(self.lib.q8b_thneed_error().decode())
 
   def run(self, inputs: dict[str, np.ndarray]) -> np.ndarray:
+    started = time.monotonic_ns()
     validate_inputs(inputs, LEGACY_SPECS)
+    validated = time.monotonic_ns()
     if not self.handle:
       raise RuntimeError('Thneed model is closed')
     for index, name in enumerate(LEGACY_SPECS):
       value = inputs[name]
       self.native_check(self.lib.q8b_thneed_upload(self.handle, index, value.ctypes.data, value.nbytes))
     output = np.empty((1, 2576), dtype=np.float16)
+    uploaded = time.monotonic_ns()
     self.native_check(self.lib.q8b_thneed_run(self.handle, output.ctypes.data))
+    finished = time.monotonic_ns()
+    self.last_timing = {
+      'input_validation_ms': (validated - started) / 1e6,
+      'upload_ms': (uploaded - validated) / 1e6,
+      'inference_readback_ms': (finished - uploaded) / 1e6,
+    }
     if not np.isfinite(output).all():
       raise RuntimeError('nonfinite Thneed output')
     return output.astype(np.float32)

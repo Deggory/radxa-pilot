@@ -176,6 +176,9 @@ def run_preview(args):
   with tempfile.TemporaryDirectory(prefix=prefix + '_') as state:
     env = preview_environment(Path(state), prefix, model=args.model)
     env.pop('Q8B_THNEED_SNAPSHOT_DIR', None)
+    env.pop('Q8B_MODEL_TIMINGS', None)
+    if args.model and args.benchmark:
+      env['Q8B_MODEL_TIMINGS'] = str(args.log_dir.resolve() / 'model-timings.jsonl')
     if args.model_checks:
       env['Q8B_THNEED_SNAPSHOT_DIR'] = str(args.log_dir.resolve() / 'model-inputs')
     shm = Path('/dev/shm') / ('msgq_' + prefix)

@@ -95,7 +95,7 @@ class TestStateBoundary(unittest.TestCase):
     with patch.dict(os.environ, {'Q8B_THNEED': '1', 'Q8B_ROAD_ONLY': '1', 'USE_WEBCAM': '1'}):
       with patch('openpilot.system.camerad.webcam.config.RADXA_Q8B', True):
         with patch('openpilot.sunnypilot.modeld_v2.modeld_base.ModelStateBase.__init__', return_value=None):
-          state = ThneedModelState(1280, 720, backend_factory=Backend)
+          state = ThneedModelState(1280, 720, backend_factory=Backend, performance_factory=Mock)
     backend = state.backend
     try:
       data = np.zeros(get_nv12_info(1280, 720)[3], dtype=np.uint8)

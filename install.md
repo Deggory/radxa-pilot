@@ -109,6 +109,29 @@ Create it again after moving the checkout or rebuilding its environment.
 keep a recovery copy of its environment before syncing: exact sync can remove
 packages that are not declared in the project.
 
+## One-time maximum-performance access for Q8B
+
+The Q8B Thneed modeld and GPU-verification command now require the tested CPU
+maximum/GPU690MHz profile. Before using them on a fresh installation, run this
+single command in a local terminal from the project root:
+
+```bash
+sudo /usr/bin/python3 -I tools/q8b/install_performance.py
+```
+
+Enter the administrator password in the terminal. No password is stored.
+The installer copies a standalone helper to a root-owned system location and
+adds a sudoers rule for only that helper's fixed `guard` action. Later model
+launches use `sudo -n` and need no further prompt. The installer refuses to
+replace an existing helper; do not rerun it on the already-configured board.
+
+While modeld owns the lease, CPU performance governors and GPU690MHz are checked.
+The helper restores prior settings on lease EOF, process death or handled stop
+signals, and stops at85°C. Kernel thermal protections stay active. It refuses
+an unsupported board or reduced configured maximum rather than raising limits.
+Normal and killed-client restoration have been checked on this Q8B. There is no
+boot-wide maximum-mode policy and no unrestricted password-free sudo.
+
 ## 5. Build and verify
 
 Activate the environment above so SCons subprocesses find its Python and

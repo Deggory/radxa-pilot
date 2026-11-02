@@ -6,6 +6,7 @@ import time
 
 import numpy as np
 
+from openpilot.common.hardware.radxa.performance import MaxPerformanceLease
 from openpilot.selfdrive.modeld.thneed_q8b.runtime import HERE, MODEL, MODEL_SHA256, ThneedModel, verify_file
 
 
@@ -91,7 +92,10 @@ def main() -> None:
   # Reserve the receipt before device access so concurrent checks cannot overwrite it.
   with args.output.open('x') as receipt:
     try:
-      result = verify(args.frames, args.warmup)
+      with MaxPerformanceLease() as performance:
+        result = verify(args.frames, args.warmup)
+        performance.check()
+        result['maximum_profile'] = performance.last_telemetry
     except BaseException as error:
       json.dump({'status': 'fail', 'error': repr(error)}, receipt, indent=2)
       receipt.write('\n')

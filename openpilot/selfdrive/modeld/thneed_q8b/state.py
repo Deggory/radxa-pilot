@@ -3,10 +3,12 @@ import atexit
 from functools import lru_cache
 import json
 import os
+import time
 from pathlib import Path
 
 import numpy as np
 
+from openpilot.common.hardware.radxa.performance import MaxPerformanceLease
 from openpilot.selfdrive.modeld.parse_model_outputs import Parser
 from openpilot.selfdrive.modeld.thneed_q8b.runtime import HERE, CURRENT_SPECS, ThneedModel
 from openpilot.sunnypilot.modeld_v2.modeld_base import ModelStateBase
@@ -74,7 +76,7 @@ class ThneedModelState(ModelStateBase):
   vision_input_names = ('img', 'big_img')
   chestnut = False
 
-  def __init__(self, cam_w, cam_h, *, backend_factory=ThneedModel):
+  def __init__(self, cam_w, cam_h, *, backend_factory=ThneedModel, performance_factory=MaxPerformanceLease):
     if not thneed_enabled():
       raise ValueError('Thneed ModelState requires explicit Q8B_THNEED=1')
     if (cam_w, cam_h) != (ROAD_WIDTH, ROAD_HEIGHT):
@@ -89,8 +91,17 @@ class ThneedModelState(ModelStateBase):
     self.width, self.height = cam_w, cam_h
     self.output_slices = {k: slice(*v) for k, v in json.loads((HERE / 'output_slices.json').read_text()).items()}
     self.parser = Parser()
-    self.backend = backend_factory()
-    self.reset()
+    self.backend = self.performance = None
+    try:
+      self.performance = performance_factory()
+      self.backend = backend_factory()
+      self.reset()
+    except BaseException as e:
+      try:
+        self.close()
+      except Exception as close_error:
+        e.add_note(str(close_error))
+      raise
     atexit.register(self.close)
 
   def reset(self):
@@ -101,8 +112,11 @@ class ThneedModelState(ModelStateBase):
     self.run_count = 0
 
   def run(self, bufs, transforms, inputs, after_enqueue=None):
+    self.performance.check()
+    started = time.monotonic_ns()
     views = np.stack([prepare_nv12(getattr(bufs[k], 'data', bufs[k]), transforms[k], self.width, self.height)
                       for k in self.vision_input_names])
+    prepared = time.monotonic_ns()
     desire = np.asarray(inputs['desire_pulse'], dtype=np.float32).copy()
     desire[0] = 0
     current = {
@@ -119,6 +133,8 @@ class ThneedModelState(ModelStateBase):
     parsed = self.parser.parse_outputs({k: raw[None, v].copy() for k, v in self.output_slices.items()})
     self.queues = {k: result[f'next_{k}'] for k in self.queues}
     self.prev_desire = desire
+    self.last_timing = {'cpu_prepare_ms': (prepared - started) / 1e6, **getattr(self.backend, 'last_timing', {}),
+                        'performance': self.performance.last_telemetry}
     self.last_inputs, self.last_raw = current, raw
     self.run_count += 1
     if self.sample_directory and self.run_count in (20, 200, 400, 600, 800, 1000):
@@ -136,7 +152,12 @@ class ThneedModelState(ModelStateBase):
     self.reset()
 
   def close(self):
-    if self.backend is not None:
-      self.backend.close()
-      self.backend = None
-    atexit.unregister(self.close)
+    try:
+      if self.backend is not None:
+        backend, self.backend = self.backend, None
+        backend.close()
+    finally:
+      if self.performance is not None:
+        performance, self.performance = self.performance, None
+        performance.close()
+      atexit.unregister(self.close)

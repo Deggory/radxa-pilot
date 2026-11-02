@@ -99,6 +99,33 @@ model warmup/compiler selection and bypasses Chestnut. SCons in this mode builds
 only the native replay wrapper in modeld's subtree, without regenerating model
 artifacts. Full manager/vehicle operation is outside this bench qualification.
 
+## Required maximum-performance lease
+
+Q8B modeld and the verification CLI require the root-owned fixed clock guard.
+Perform the [one-time setup](../../../../install.md) from a local terminal.
+Later launches acquire the lease without a password and restore prior clocks
+on exit or model-process death; modeld refuses to run if the lease is absent.
+The accepted profile uses CPU2438.4/2995.2MHz and GPU690MHz with thermal limits
+retained. The root helper never imports project code from its writable checkout.
+
+For camera-to-model measurements without opening a desktop window:
+
+```bash
+.venv/bin/python -m openpilot.selfdrive.modeld.thneed_q8b.bench \
+  --seconds 65 --log-dir /tmp/q8b-model-max-baseline
+```
+
+Choose a new directory. This starts only private camera/modeld workers, keeps
+geometry invalid, and records actual model completion independently of UI
+polling. `preview --model --benchmark` records the same model timer alongside
+UI timings. Output includes CPU preparation, validation, upload, inference/
+readback, clock samples, cadence and whether the12ms/38ms median targets were met.
+The first complete current-port maximum-clock baseline is20.0008Hz,
+11.834ms inference/readback and58.989ms source→output medians; preparation14.693ms.
+Thus the current end-to-end target remains unmet. The teacher's35.417ms result
+uses its retained different preparation/partial-JPEG pipeline; do not conflate.
+GPU-resident image preparation is the next increment; no feature tensor splitting.
+
 ## Timing boundaries
 
 The clean65second integrated run measured **36.656ms median /46.326ms p95**

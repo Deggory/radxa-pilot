@@ -2,7 +2,7 @@ import hashlib
 from pathlib import Path
 import tempfile
 import unittest
-from unittest.mock import patch
+from unittest.mock import patch, Mock
 
 import numpy as np
 
@@ -45,6 +45,21 @@ class TestContract(unittest.TestCase):
         bad['state_feat_q'] = bad['state_feat_q'][::-1]
       with self.subTest(mutation=mutation), self.assertRaises(ValueError):
         validate_inputs(bad, CURRENT_SPECS)
+
+  def test_run_reports_upload_separately_from_execution_and_readback(self):
+    model = ThneedModel.__new__(ThneedModel)
+    model.handle = 1
+    model.lib = Mock()
+    model.lib.q8b_thneed_upload.return_value = 0
+    model.lib.q8b_thneed_run.return_value = 0
+    inputs = {name: np.zeros(shape, dtype=dtype) for name, (shape, dtype) in LEGACY_SPECS.items()}
+    with patch('openpilot.selfdrive.modeld.thneed_q8b.runtime.np.empty', return_value=np.zeros((1, 2576), dtype=np.float16)):
+      output = model.run(inputs)
+    self.assertEqual(output.shape, (1, 2576))
+    self.assertEqual(model.lib.q8b_thneed_upload.call_count, 6)
+    self.assertGreaterEqual(model.last_timing['inference_readback_ms'], 0)
+    self.assertGreaterEqual(model.last_timing['upload_ms'], 0)
+    self.assertGreaterEqual(model.last_timing['input_validation_ms'], 0)
 
   def test_bad_artifact_refused_before_gpu_or_native_loading(self):
     with tempfile.TemporaryDirectory() as directory:

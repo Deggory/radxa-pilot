@@ -41,6 +41,7 @@ from openpilot.selfdrive.modeld.parse_model_outputs import Parser
 from openpilot.selfdrive.modeld.fill_model_msg import fill_model_msg, fill_driving_model_data, fill_pose_msg, PublishState
 from openpilot.selfdrive.modeld.constants import ModelConstants, Plan
 from openpilot.selfdrive.modeld.helpers import MODELS_DIR, chestnut_present, chestnut_compiled, modeld_pkl_path, load_oob, wait_for_chestnut
+from openpilot.selfdrive.modeld.thneed_q8b.benchmark import ModelTimingRecorder
 from openpilot.selfdrive.modeld.thneed_q8b.state import thneed_enabled, select_small_model, provisional_transforms
 from openpilot.sunnypilot.livedelay.helpers import get_lat_delay
 from openpilot.sunnypilot.modeld_v2.modeld_base import ModelStateBase
@@ -238,6 +239,8 @@ def main(demo=False):
   cloudlog.warning("modeld init")
 
   Q8B_THNEED = thneed_enabled()
+  timing_path = os.getenv('Q8B_MODEL_TIMINGS')
+  model_timings = ModelTimingRecorder(timing_path) if Q8B_THNEED and timing_path else None
   CHESTNUT = not Q8B_THNEED and chestnut_compiled() and (chestnut_present() or cable_connected())
   if CHESTNUT:
     from tinygrad.runtime.ops_amd import AMDDevice
@@ -447,6 +450,9 @@ def main(demo=False):
       model_output = None
     mt2 = time.perf_counter()
     model_execution_time = mt2 - mt1
+    if model_timings is not None and model_output is not None:
+      model_timings.record(meta_main.frame_id, meta_main.timestamp_eof, time.monotonic_ns(),
+                           model_execution_time * 1000, model.last_timing)
 
     if model_output is not None:
       modelv2_send = messaging.new_message('modelV2')
