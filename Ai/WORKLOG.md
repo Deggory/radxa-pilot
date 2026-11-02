@@ -1,5 +1,9 @@
 # Sunnypilot work history
 
+2026-11-02 — Recommended current model/Adreno qualification next, using teacher
+reference and CPU parity before live model/UI overlay. No implementation started.
+Camera deferral and existing hardware plan preserved.
+
 2026-11-02 — Owner accepts camera milestone for now; delay optimisation
 and calibration stay deferred. Saved benchmark baseline and teacher-first
 reference pointers for later. No runtime change or new engineering task.

@@ -1,5 +1,29 @@
 # Resume Sunnypilot here
 
+## 2026-11-02 — Recommended next step: current model on Q8B Adreno
+
+Owner asks what comes next after accepted camera milestone. Recommendation,
+not started: qualify current Sunnypilot stock driving model on Q8B Adreno,
+using teacher's earlier MSM/Thneed work as reference while retaining Linux/Q8B
+identity. Current helpers.load_oob selects CPU:LLVM on non-AGNOS Linux; simply
+opening camera UI does not activate GPU model inference. Do not fake AGNOS.
+
+First increment: map current model inputs/history/state/output parser and run
+one isolated correct GPU inference against a CPU reference. Then qualify
+bounded camera→model publication at target20Hz, and finally show model path/
+road predictions in actual Sunny UI. Validate numerical agreement, real timing,
+message freshness and clean restart/stop. Earlier20Hz standalone evidence is
+for different model/runtime; it is not proof current weights will meet20Hz.
+Source base679bf8d; current stock model65a08adc,tinygrad92b742f7,msgqe7396e76.
+Model input uint8[2,6,128,256] and padded camera boundary were previously checked;
+full inference, state/history/runtime integration remain open. Teacher first:
+Ai/Knowledge/Repos/sunnypilot.md, camera.md and Oct31 soak source db5b0da.
+
+Keep camera optimisation/calibration deferred. Hardware plan tasks/plan.md is
+preserved, not automatically resumed or replaced. Known physical IMU/vehicle
+feedback/hardware providers remain later integration work. No new runtime,
+model conversion/launch, GPU driver or vehicle action by this recommendation.
+
 ## 2026-11-02 — Camera bring-up accepted for now; optimisation deferred
 
 Owner says camera work is done for now and will return to teacher knowledge

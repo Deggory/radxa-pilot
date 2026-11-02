@@ -1,5 +1,9 @@
 # Current Sunnypilot state
 
+2026-11-02 next-step advice: recommend current stock model/Adreno
+qualification, first one isolated inference/CPU parity, then camera20Hz/modelV2
+and UI overlay. Planning only, not started; camera optimisation remains deferred.
+
 ## 2026-11-02 — Camera bring-up accepted for now; optimisation deferred
 
 Owner says camera work is done for now and will return to teacher knowledge
