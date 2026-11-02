@@ -1,0 +1,2665 @@
+{
+  "reference_sha256": "da9506a64143b0bfd535db8901671170e385451c9f68790f29ebf1114f457b38",
+  "derivative_sha256": "eceadb809ada5462481cb343e643850e45c72cc4fdf55db0deb74b5718b9411d",
+  "semantic_reference_sha256": "135d27f95df49447a8509dc0cd422e7bbf4359149a71d07c342f426fee88be3d",
+  "road_manifest_sha256": "352f12997ffb495da30f0366137edb9460abe47c0d6b89fb69f01a6d590ea90f",
+  "frames": 500,
+  "input_list_sha256": "55b06aaa8cc7b06957a0ed55673ca2a993d35f12655254d245321f10b2bb729c",
+  "strict_fp16_gate": "fail",
+  "reference_recurrence_verified_frames": 500,
+  "outside_fp16_tolerance": 1,
+  "generator": "completed calibration500-v2 followed by independent post-failure audit",
+  "limits": "Same-precision equivalence does not erase FP16 precision failures or qualify INT8. No threshold is changed.",
+  "native_files": 3000,
+  "comparisons": [
+    {
+      "index": 0,
+      "packed": {
+        "bitwise_equal": false,
+        "mae": 0.0009504245260083284,
+        "max_abs": 0.1312255859375,
+        "relative_rms": 0.00027765686272680713,
+        "outside_atol_0p01_rtol_0p01": 0
+      },
+      "heads": {
+        "lane_lines": {
+          "bitwise_equal": false,
+          "mae": 0.00045122132834159965,
+          "max_abs": 0.005127906799316406,
+          "relative_rms": 0.00024554357931248685,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lane_line_probs": {
+          "bitwise_equal": false,
+          "mae": 0.0013362690806388855,
+          "max_abs": 0.0027284622192382812,
+          "relative_rms": 0.00036151300624319134,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "road_edges": {
+          "bitwise_equal": false,
+          "mae": 0.0007673872239661939,
+          "max_abs": 0.005414009094238281,
+          "relative_rms": 0.0002722571452058897,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "meta": {
+          "bitwise_equal": false,
+          "mae": 0.0007997119968587702,
+          "max_abs": 0.0031862258911132812,
+          "relative_rms": 0.00023069651708538996,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "desire_pred": {
+          "bitwise_equal": false,
+          "mae": 0.0007570525631308556,
+          "max_abs": 0.0028934478759765625,
+          "relative_rms": 0.00020875179534835466,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "pose": {
+          "bitwise_equal": false,
+          "mae": 0.0009127158361176649,
+          "max_abs": 0.0053119659423828125,
+          "relative_rms": 0.00024361579334218698,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "wide_from_device_euler": {
+          "bitwise_equal": false,
+          "mae": 0.0006826170640579221,
+          "max_abs": 0.0022802352905273438,
+          "relative_rms": 0.00026005530816660983,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "road_transform": {
+          "bitwise_equal": false,
+          "mae": 0.0005595645700206356,
+          "max_abs": 0.002048015594482422,
+          "relative_rms": 0.00021479329770379398,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "plan": {
+          "bitwise_equal": false,
+          "mae": 0.0010391814223131993,
+          "max_abs": 0.074188232421875,
+          "relative_rms": 0.0002666647781948403,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lead": {
+          "bitwise_equal": false,
+          "mae": 0.004941432840294308,
+          "max_abs": 0.1312255859375,
+          "relative_rms": 0.00022998947000663279,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lead_prob": {
+          "bitwise_equal": false,
+          "mae": 0.0015042622884114583,
+          "max_abs": 0.0017619132995605469,
+          "relative_rms": 0.0006968394772792973,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "desire_state": {
+          "bitwise_equal": false,
+          "mae": 0.003447890281677246,
+          "max_abs": 0.0063533782958984375,
+          "relative_rms": 0.0002899647234336645,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "action": {
+          "bitwise_equal": false,
+          "mae": 0.0003969925455749035,
+          "max_abs": 0.0008018016815185547,
+          "relative_rms": 0.00034173061606924726,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "hidden_state": {
+          "bitwise_equal": false,
+          "mae": 0.0009290585563519471,
+          "max_abs": 0.0087738037109375,
+          "relative_rms": 0.0007504671878664196,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "pad": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": null,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        }
+      }
+    },
+    {
+      "index": 55,
+      "packed": {
+        "bitwise_equal": false,
+        "mae": 0.0009585713381869868,
+        "max_abs": 0.117950439453125,
+        "relative_rms": 0.0002546366729552294,
+        "outside_atol_0p01_rtol_0p01": 0
+      },
+      "heads": {
+        "lane_lines": {
+          "bitwise_equal": false,
+          "mae": 0.0005897625039021174,
+          "max_abs": 0.0111846923828125,
+          "relative_rms": 0.00022521862657677702,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lane_line_probs": {
+          "bitwise_equal": false,
+          "mae": 0.0011682063341140747,
+          "max_abs": 0.002666473388671875,
+          "relative_rms": 0.0003071217895757992,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "road_edges": {
+          "bitwise_equal": false,
+          "mae": 0.0008996139760270263,
+          "max_abs": 0.009870529174804688,
+          "relative_rms": 0.00022237703796546484,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "meta": {
+          "bitwise_equal": false,
+          "mae": 0.0011131584644317627,
+          "max_abs": 0.0025243759155273438,
+          "relative_rms": 0.00025590146658706895,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "desire_pred": {
+          "bitwise_equal": false,
+          "mae": 0.0012630708515644073,
+          "max_abs": 0.005002021789550781,
+          "relative_rms": 0.0003548064519286934,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "pose": {
+          "bitwise_equal": false,
+          "mae": 0.0004517408572913458,
+          "max_abs": 0.0016379356384277344,
+          "relative_rms": 8.509805468324635e-05,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "wide_from_device_euler": {
+          "bitwise_equal": false,
+          "mae": 0.0005397813383751782,
+          "max_abs": 0.0016651153564453125,
+          "relative_rms": 0.00019445463194295718,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "road_transform": {
+          "bitwise_equal": false,
+          "mae": 0.00046199467230205,
+          "max_abs": 0.0016684532165527344,
+          "relative_rms": 0.0001666385371402344,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "plan": {
+          "bitwise_equal": false,
+          "mae": 0.0011448562973618121,
+          "max_abs": 0.0704345703125,
+          "relative_rms": 0.0002091490144250085,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lead": {
+          "bitwise_equal": false,
+          "mae": 0.006901113111073048,
+          "max_abs": 0.117950439453125,
+          "relative_rms": 0.00023396212121438404,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lead_prob": {
+          "bitwise_equal": false,
+          "mae": 0.0015691121419270833,
+          "max_abs": 0.0021080970764160156,
+          "relative_rms": 0.0006292477319127567,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "desire_state": {
+          "bitwise_equal": false,
+          "mae": 0.002911508083343506,
+          "max_abs": 0.0051097869873046875,
+          "relative_rms": 0.00025464066460083166,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "action": {
+          "bitwise_equal": false,
+          "mae": 0.0003581792116165161,
+          "max_abs": 0.0009524822235107422,
+          "relative_rms": 0.0003499574422076769,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "hidden_state": {
+          "bitwise_equal": false,
+          "mae": 0.0009067916474805315,
+          "max_abs": 0.012990951538085938,
+          "relative_rms": 0.0007402596724356937,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "pad": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": null,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        }
+      }
+    },
+    {
+      "index": 110,
+      "packed": {
+        "bitwise_equal": false,
+        "mae": 0.000937020349733528,
+        "max_abs": 0.143890380859375,
+        "relative_rms": 0.0002541111484440314,
+        "outside_atol_0p01_rtol_0p01": 0
+      },
+      "heads": {
+        "lane_lines": {
+          "bitwise_equal": false,
+          "mae": 0.0006704533641988581,
+          "max_abs": 0.010532379150390625,
+          "relative_rms": 0.00021978761658276967,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lane_line_probs": {
+          "bitwise_equal": false,
+          "mae": 0.0018329322338104248,
+          "max_abs": 0.0038862228393554688,
+          "relative_rms": 0.00046734017603030004,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "road_edges": {
+          "bitwise_equal": false,
+          "mae": 0.0009912834361647115,
+          "max_abs": 0.01859283447265625,
+          "relative_rms": 0.0003105153056017214,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "meta": {
+          "bitwise_equal": false,
+          "mae": 0.0008735488761555065,
+          "max_abs": 0.0031328201293945312,
+          "relative_rms": 0.00021188882241378426,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "desire_pred": {
+          "bitwise_equal": false,
+          "mae": 0.0011296365410089493,
+          "max_abs": 0.004123687744140625,
+          "relative_rms": 0.00030919863088536305,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "pose": {
+          "bitwise_equal": false,
+          "mae": 0.00046729428383211297,
+          "max_abs": 0.0022325515747070312,
+          "relative_rms": 0.00010796333246652084,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "wide_from_device_euler": {
+          "bitwise_equal": false,
+          "mae": 0.0005118158721112801,
+          "max_abs": 0.0017223358154296875,
+          "relative_rms": 0.0001773455131177163,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "road_transform": {
+          "bitwise_equal": false,
+          "mae": 0.0004923066255742015,
+          "max_abs": 0.0019845962524414062,
+          "relative_rms": 0.00019660211726982684,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "plan": {
+          "bitwise_equal": false,
+          "mae": 0.001389739025983108,
+          "max_abs": 0.077880859375,
+          "relative_rms": 0.00022396421978392427,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lead": {
+          "bitwise_equal": false,
+          "mae": 0.007410512525691754,
+          "max_abs": 0.143890380859375,
+          "relative_rms": 0.00023694502158426212,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lead_prob": {
+          "bitwise_equal": false,
+          "mae": 0.0017923514048258464,
+          "max_abs": 0.002593994140625,
+          "relative_rms": 0.0006705411912574239,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "desire_state": {
+          "bitwise_equal": false,
+          "mae": 0.0035924315452575684,
+          "max_abs": 0.011755943298339844,
+          "relative_rms": 0.0004081720728403014,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "action": {
+          "bitwise_equal": false,
+          "mae": 0.00036370381712913513,
+          "max_abs": 0.000934600830078125,
+          "relative_rms": 0.0003283528730675591,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "hidden_state": {
+          "bitwise_equal": false,
+          "mae": 0.0008595111942781841,
+          "max_abs": 0.010110855102539062,
+          "relative_rms": 0.0006293298674813714,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "pad": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": null,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        }
+      }
+    },
+    {
+      "index": 166,
+      "packed": {
+        "bitwise_equal": false,
+        "mae": 0.0009099817006158747,
+        "max_abs": 0.181671142578125,
+        "relative_rms": 0.0003014008574401257,
+        "outside_atol_0p01_rtol_0p01": 0
+      },
+      "heads": {
+        "lane_lines": {
+          "bitwise_equal": false,
+          "mae": 0.0005951101581255595,
+          "max_abs": 0.0099639892578125,
+          "relative_rms": 0.00020377604164598548,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lane_line_probs": {
+          "bitwise_equal": false,
+          "mae": 0.0015150606632232666,
+          "max_abs": 0.0030584335327148438,
+          "relative_rms": 0.0003828394613671055,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "road_edges": {
+          "bitwise_equal": false,
+          "mae": 0.001004800313349926,
+          "max_abs": 0.0100555419921875,
+          "relative_rms": 0.00022901515710981585,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "meta": {
+          "bitwise_equal": false,
+          "mae": 0.0009577339345758611,
+          "max_abs": 0.0025014877319335938,
+          "relative_rms": 0.00023052374584676467,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "desire_pred": {
+          "bitwise_equal": false,
+          "mae": 0.0010022111237049103,
+          "max_abs": 0.0034332275390625,
+          "relative_rms": 0.0002772483271109094,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "pose": {
+          "bitwise_equal": false,
+          "mae": 0.0008042070306449508,
+          "max_abs": 0.0054607391357421875,
+          "relative_rms": 0.00019468748318403036,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "wide_from_device_euler": {
+          "bitwise_equal": false,
+          "mae": 0.0004328093506652901,
+          "max_abs": 0.001148223876953125,
+          "relative_rms": 0.00014329935392944461,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "road_transform": {
+          "bitwise_equal": false,
+          "mae": 0.0005752095154700024,
+          "max_abs": 0.0017762184143066406,
+          "relative_rms": 0.00019422782735747474,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "plan": {
+          "bitwise_equal": false,
+          "mae": 0.0013348674635703633,
+          "max_abs": 0.0526123046875,
+          "relative_rms": 0.00016675482571799932,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lead": {
+          "bitwise_equal": false,
+          "mae": 0.009302068931800831,
+          "max_abs": 0.181671142578125,
+          "relative_rms": 0.0003389837840550709,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lead_prob": {
+          "bitwise_equal": false,
+          "mae": 0.000690986712773641,
+          "max_abs": 0.0009614229202270508,
+          "relative_rms": 0.0009178020912931501,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "desire_state": {
+          "bitwise_equal": false,
+          "mae": 0.0029556453227996826,
+          "max_abs": 0.007171630859375,
+          "relative_rms": 0.0003360075308916187,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "action": {
+          "bitwise_equal": false,
+          "mae": 0.000482805073261261,
+          "max_abs": 0.0009186267852783203,
+          "relative_rms": 0.0004086048954775965,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "hidden_state": {
+          "bitwise_equal": false,
+          "mae": 0.0008182870100768014,
+          "max_abs": 0.009296417236328125,
+          "relative_rms": 0.0005993212346501812,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "pad": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": null,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        }
+      }
+    },
+    {
+      "index": 221,
+      "packed": {
+        "bitwise_equal": false,
+        "mae": 0.0009125618413923471,
+        "max_abs": 0.126922607421875,
+        "relative_rms": 0.0002865513532373543,
+        "outside_atol_0p01_rtol_0p01": 0
+      },
+      "heads": {
+        "lane_lines": {
+          "bitwise_equal": false,
+          "mae": 0.0006127517783280575,
+          "max_abs": 0.0096588134765625,
+          "relative_rms": 0.0002615517248836814,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lane_line_probs": {
+          "bitwise_equal": false,
+          "mae": 0.002280980348587036,
+          "max_abs": 0.0046367645263671875,
+          "relative_rms": 0.0005692890526722126,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "road_edges": {
+          "bitwise_equal": false,
+          "mae": 0.0007977792710968943,
+          "max_abs": 0.009288787841796875,
+          "relative_rms": 0.00025338735685153025,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "meta": {
+          "bitwise_equal": false,
+          "mae": 0.0015707525339993564,
+          "max_abs": 0.004763603210449219,
+          "relative_rms": 0.00039598145653444046,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "desire_pred": {
+          "bitwise_equal": false,
+          "mae": 0.0011078380048274994,
+          "max_abs": 0.0033559799194335938,
+          "relative_rms": 0.0002868172805137689,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "pose": {
+          "bitwise_equal": false,
+          "mae": 0.0007898313439606378,
+          "max_abs": 0.0041599273681640625,
+          "relative_rms": 0.00015426170021768393,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "wide_from_device_euler": {
+          "bitwise_equal": false,
+          "mae": 0.000496631934765901,
+          "max_abs": 0.00160980224609375,
+          "relative_rms": 0.00017429756129128777,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "road_transform": {
+          "bitwise_equal": false,
+          "mae": 0.0005391443681522409,
+          "max_abs": 0.0021371841430664062,
+          "relative_rms": 0.0001856295145220477,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "plan": {
+          "bitwise_equal": false,
+          "mae": 0.00126372483327803,
+          "max_abs": 0.095367431640625,
+          "relative_rms": 0.00024313140569053797,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lead": {
+          "bitwise_equal": false,
+          "mae": 0.008048793074623164,
+          "max_abs": 0.126922607421875,
+          "relative_rms": 0.00028349203839635916,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lead_prob": {
+          "bitwise_equal": false,
+          "mae": 0.00047198931376139325,
+          "max_abs": 0.0007531642913818359,
+          "relative_rms": 0.0002447050602547235,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "desire_state": {
+          "bitwise_equal": false,
+          "mae": 0.0027023404836654663,
+          "max_abs": 0.0056438446044921875,
+          "relative_rms": 0.0002526459504353168,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "action": {
+          "bitwise_equal": false,
+          "mae": 0.00023278780281543732,
+          "max_abs": 0.0006196498870849609,
+          "relative_rms": 0.0002755800694044784,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "hidden_state": {
+          "bitwise_equal": false,
+          "mae": 0.000836874221903372,
+          "max_abs": 0.01068115234375,
+          "relative_rms": 0.0006041011922670227,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "pad": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": null,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        }
+      }
+    },
+    {
+      "index": 277,
+      "packed": {
+        "bitwise_equal": false,
+        "mae": 0.0007898239786896892,
+        "max_abs": 0.1748046875,
+        "relative_rms": 0.00029462191955206894,
+        "outside_atol_0p01_rtol_0p01": 0
+      },
+      "heads": {
+        "lane_lines": {
+          "bitwise_equal": false,
+          "mae": 0.0005796533924612132,
+          "max_abs": 0.0089263916015625,
+          "relative_rms": 0.0002423937753074109,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lane_line_probs": {
+          "bitwise_equal": false,
+          "mae": 0.0016215220093727112,
+          "max_abs": 0.004651069641113281,
+          "relative_rms": 0.0004370429757369674,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "road_edges": {
+          "bitwise_equal": false,
+          "mae": 0.001021863158905145,
+          "max_abs": 0.008581161499023438,
+          "relative_rms": 0.0003179796259078739,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "meta": {
+          "bitwise_equal": false,
+          "mae": 0.0011353568597273394,
+          "max_abs": 0.0030035972595214844,
+          "relative_rms": 0.00032886455798637656,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "desire_pred": {
+          "bitwise_equal": false,
+          "mae": 0.0008224081248044968,
+          "max_abs": 0.0038909912109375,
+          "relative_rms": 0.0002642875002269691,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "pose": {
+          "bitwise_equal": false,
+          "mae": 0.0004294996227448185,
+          "max_abs": 0.0016293525695800781,
+          "relative_rms": 7.741014531592281e-05,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "wide_from_device_euler": {
+          "bitwise_equal": false,
+          "mae": 0.0010004678028963099,
+          "max_abs": 0.002396106719970703,
+          "relative_rms": 0.00031784801906886056,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "road_transform": {
+          "bitwise_equal": false,
+          "mae": 0.0005237599030654868,
+          "max_abs": 0.0016298294067382812,
+          "relative_rms": 0.00017531061173623068,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "plan": {
+          "bitwise_equal": false,
+          "mae": 0.0011947782898024208,
+          "max_abs": 0.0968475341796875,
+          "relative_rms": 0.0002562844392635932,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lead": {
+          "bitwise_equal": false,
+          "mae": 0.006780338214917315,
+          "max_abs": 0.1748046875,
+          "relative_rms": 0.0002941715124842687,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lead_prob": {
+          "bitwise_equal": false,
+          "mae": 0.0007975896199544271,
+          "max_abs": 0.00130462646484375,
+          "relative_rms": 0.0002935756814803288,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "desire_state": {
+          "bitwise_equal": false,
+          "mae": 0.004173725843429565,
+          "max_abs": 0.01265716552734375,
+          "relative_rms": 0.00038605294634972933,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "action": {
+          "bitwise_equal": false,
+          "mae": 0.0001578405499458313,
+          "max_abs": 0.00026667118072509766,
+          "relative_rms": 0.00013212927577722585,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "hidden_state": {
+          "bitwise_equal": false,
+          "mae": 0.0007130868077069863,
+          "max_abs": 0.01055908203125,
+          "relative_rms": 0.0005315976387997659,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "pad": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": null,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        }
+      }
+    },
+    {
+      "index": 332,
+      "packed": {
+        "bitwise_equal": false,
+        "mae": 0.0009467983771341955,
+        "max_abs": 0.10430908203125,
+        "relative_rms": 0.0002549086004036438,
+        "outside_atol_0p01_rtol_0p01": 0
+      },
+      "heads": {
+        "lane_lines": {
+          "bitwise_equal": false,
+          "mae": 0.000787470807236704,
+          "max_abs": 0.0036745071411132812,
+          "relative_rms": 0.000364395125354603,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lane_line_probs": {
+          "bitwise_equal": false,
+          "mae": 0.0015520378947257996,
+          "max_abs": 0.0030260086059570312,
+          "relative_rms": 0.0003933862025021857,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "road_edges": {
+          "bitwise_equal": false,
+          "mae": 0.0010653180634659348,
+          "max_abs": 0.0047397613525390625,
+          "relative_rms": 0.00029865999776810436,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "meta": {
+          "bitwise_equal": false,
+          "mae": 0.0013233304023742675,
+          "max_abs": 0.004595756530761719,
+          "relative_rms": 0.0003657803225009166,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "desire_pred": {
+          "bitwise_equal": false,
+          "mae": 0.0009905323386192322,
+          "max_abs": 0.0033941268920898438,
+          "relative_rms": 0.00027478165985644453,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "pose": {
+          "bitwise_equal": false,
+          "mae": 0.0007752850651741028,
+          "max_abs": 0.002604961395263672,
+          "relative_rms": 0.00012744930246722454,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "wide_from_device_euler": {
+          "bitwise_equal": false,
+          "mae": 0.0006166260548070568,
+          "max_abs": 0.00223541259765625,
+          "relative_rms": 0.00024346367040718172,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "road_transform": {
+          "bitwise_equal": false,
+          "mae": 0.0005962671679829631,
+          "max_abs": 0.0023670196533203125,
+          "relative_rms": 0.00023000251715083597,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "plan": {
+          "bitwise_equal": false,
+          "mae": 0.001268053271524572,
+          "max_abs": 0.086151123046875,
+          "relative_rms": 0.00024813913184232973,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lead": {
+          "bitwise_equal": false,
+          "mae": 0.0065576306078583,
+          "max_abs": 0.10430908203125,
+          "relative_rms": 0.00021200972359094585,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lead_prob": {
+          "bitwise_equal": false,
+          "mae": 0.002559711535771688,
+          "max_abs": 0.0028222501277923584,
+          "relative_rms": 0.006413231680352166,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "desire_state": {
+          "bitwise_equal": false,
+          "mae": 0.0028803646564483643,
+          "max_abs": 0.005665779113769531,
+          "relative_rms": 0.0002771991955487023,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "action": {
+          "bitwise_equal": false,
+          "mae": 0.00017055869102478027,
+          "max_abs": 0.00039827823638916016,
+          "relative_rms": 0.00019294513826735091,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "hidden_state": {
+          "bitwise_equal": false,
+          "mae": 0.0008792214583550617,
+          "max_abs": 0.014562606811523438,
+          "relative_rms": 0.0007493663315002331,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "pad": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": null,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        }
+      }
+    },
+    {
+      "index": 388,
+      "packed": {
+        "bitwise_equal": false,
+        "mae": 0.0007193939781324333,
+        "max_abs": 0.136444091796875,
+        "relative_rms": 0.0002519173248000442,
+        "outside_atol_0p01_rtol_0p01": 0
+      },
+      "heads": {
+        "lane_lines": {
+          "bitwise_equal": false,
+          "mae": 0.0004337175438801448,
+          "max_abs": 0.002327442169189453,
+          "relative_rms": 0.00022932211501222642,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lane_line_probs": {
+          "bitwise_equal": false,
+          "mae": 0.0011086463928222656,
+          "max_abs": 0.002038240432739258,
+          "relative_rms": 0.0003169329633527816,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "road_edges": {
+          "bitwise_equal": false,
+          "mae": 0.0009045405595591574,
+          "max_abs": 0.0062007904052734375,
+          "relative_rms": 0.00035361190931995856,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "meta": {
+          "bitwise_equal": false,
+          "mae": 0.0011340574784712359,
+          "max_abs": 0.0034694671630859375,
+          "relative_rms": 0.0002756529862286675,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "desire_pred": {
+          "bitwise_equal": false,
+          "mae": 0.00123517494648695,
+          "max_abs": 0.003678560256958008,
+          "relative_rms": 0.00034438019886641507,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "pose": {
+          "bitwise_equal": false,
+          "mae": 0.0003487961560798188,
+          "max_abs": 0.0019092559814453125,
+          "relative_rms": 7.01784295749987e-05,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "wide_from_device_euler": {
+          "bitwise_equal": false,
+          "mae": 0.0002921292785534509,
+          "max_abs": 0.001071929931640625,
+          "relative_rms": 0.00011020131104670006,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "road_transform": {
+          "bitwise_equal": false,
+          "mae": 0.0006188648323283511,
+          "max_abs": 0.0013952255249023438,
+          "relative_rms": 0.0001856164679505518,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "plan": {
+          "bitwise_equal": false,
+          "mae": 0.0011737343003444768,
+          "max_abs": 0.10009765625,
+          "relative_rms": 0.0002265236308409308,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lead": {
+          "bitwise_equal": false,
+          "mae": 0.007365303983937742,
+          "max_abs": 0.136444091796875,
+          "relative_rms": 0.0002469654566665083,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lead_prob": {
+          "bitwise_equal": false,
+          "mae": 0.00041786829630533856,
+          "max_abs": 0.0006442070007324219,
+          "relative_rms": 0.0002477398337559951,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "desire_state": {
+          "bitwise_equal": false,
+          "mae": 0.0010805130004882812,
+          "max_abs": 0.0041713714599609375,
+          "relative_rms": 0.0001094453041855049,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "action": {
+          "bitwise_equal": false,
+          "mae": 0.00028179585933685303,
+          "max_abs": 0.0009293556213378906,
+          "relative_rms": 0.0003256613724573976,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "hidden_state": {
+          "bitwise_equal": false,
+          "mae": 0.0006377379060040766,
+          "max_abs": 0.008096694946289062,
+          "relative_rms": 0.0005864304208780108,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "pad": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": null,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        }
+      }
+    },
+    {
+      "index": 443,
+      "packed": {
+        "bitwise_equal": false,
+        "mae": 0.00093794923671275,
+        "max_abs": 0.114990234375,
+        "relative_rms": 0.00022077285616359783,
+        "outside_atol_0p01_rtol_0p01": 1
+      },
+      "heads": {
+        "lane_lines": {
+          "bitwise_equal": false,
+          "mae": 0.0009418057320131497,
+          "max_abs": 0.0030031204223632812,
+          "relative_rms": 0.0004620512499964295,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lane_line_probs": {
+          "bitwise_equal": false,
+          "mae": 0.002076759934425354,
+          "max_abs": 0.0032874345779418945,
+          "relative_rms": 0.000490020013875262,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "road_edges": {
+          "bitwise_equal": false,
+          "mae": 0.0009260234056097088,
+          "max_abs": 0.005157470703125,
+          "relative_rms": 0.00030271852232265745,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "meta": {
+          "bitwise_equal": false,
+          "mae": 0.0012503970753062856,
+          "max_abs": 0.0027627944946289062,
+          "relative_rms": 0.00027581038901461027,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "desire_pred": {
+          "bitwise_equal": false,
+          "mae": 0.0010323021560907364,
+          "max_abs": 0.0030465126037597656,
+          "relative_rms": 0.0002729092551048638,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "pose": {
+          "bitwise_equal": false,
+          "mae": 0.0010465357311962482,
+          "max_abs": 0.0030956268310546875,
+          "relative_rms": 0.00017446115516684416,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "wide_from_device_euler": {
+          "bitwise_equal": false,
+          "mae": 0.0006243061441940275,
+          "max_abs": 0.0018601417541503906,
+          "relative_rms": 0.00020571099469280597,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "road_transform": {
+          "bitwise_equal": false,
+          "mae": 0.000640361786243678,
+          "max_abs": 0.001983642578125,
+          "relative_rms": 0.00021524720546659654,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "plan": {
+          "bitwise_equal": false,
+          "mae": 0.0010749625382948497,
+          "max_abs": 0.0522613525390625,
+          "relative_rms": 0.0001616436666260669,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lead": {
+          "bitwise_equal": false,
+          "mae": 0.006548526548512099,
+          "max_abs": 0.114990234375,
+          "relative_rms": 0.00019893313121512675,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lead_prob": {
+          "bitwise_equal": false,
+          "mae": 0.0017971197764078777,
+          "max_abs": 0.0020608901977539062,
+          "relative_rms": 0.0005789562924482923,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "desire_state": {
+          "bitwise_equal": false,
+          "mae": 0.002637028694152832,
+          "max_abs": 0.0057697296142578125,
+          "relative_rms": 0.00021383314948606691,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "action": {
+          "bitwise_equal": false,
+          "mae": 0.000469692749902606,
+          "max_abs": 0.0011336803436279297,
+          "relative_rms": 0.0003691001556044176,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "hidden_state": {
+          "bitwise_equal": false,
+          "mae": 0.0008781323498396887,
+          "max_abs": 0.015001296997070312,
+          "relative_rms": 0.0008444209040736663,
+          "outside_atol_0p01_rtol_0p01": 1,
+          "failures": [
+            {
+              "index": 2218,
+              "reference": 0.0017442703247070312,
+              "actual": -0.009832412004470825,
+              "fp16_rounded_actual": -0.00983428955078125
+            }
+          ]
+        },
+        "pad": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": null,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        }
+      }
+    },
+    {
+      "index": 499,
+      "packed": {
+        "bitwise_equal": false,
+        "mae": 0.0008224747520052955,
+        "max_abs": 0.131011962890625,
+        "relative_rms": 0.00023850842895469272,
+        "outside_atol_0p01_rtol_0p01": 0
+      },
+      "heads": {
+        "lane_lines": {
+          "bitwise_equal": false,
+          "mae": 0.0005763045540361693,
+          "max_abs": 0.0031900405883789062,
+          "relative_rms": 0.00026976683552654173,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lane_line_probs": {
+          "bitwise_equal": false,
+          "mae": 0.001757606863975525,
+          "max_abs": 0.004728555679321289,
+          "relative_rms": 0.0004532753473817523,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "road_edges": {
+          "bitwise_equal": false,
+          "mae": 0.0007588928283163996,
+          "max_abs": 0.006001472473144531,
+          "relative_rms": 0.0002722000412316871,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "meta": {
+          "bitwise_equal": false,
+          "mae": 0.001228918812491677,
+          "max_abs": 0.0028514862060546875,
+          "relative_rms": 0.00025533100321543717,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "desire_pred": {
+          "bitwise_equal": false,
+          "mae": 0.0010387878865003586,
+          "max_abs": 0.0035371780395507812,
+          "relative_rms": 0.00028227132348939245,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "pose": {
+          "bitwise_equal": false,
+          "mae": 0.0007696688019980987,
+          "max_abs": 0.0039310455322265625,
+          "relative_rms": 0.00014961980201304645,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "wide_from_device_euler": {
+          "bitwise_equal": false,
+          "mae": 0.0004867337100525522,
+          "max_abs": 0.0022177696228027344,
+          "relative_rms": 0.00020001295018854312,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "road_transform": {
+          "bitwise_equal": false,
+          "mae": 0.0007029655323549377,
+          "max_abs": 0.0023212432861328125,
+          "relative_rms": 0.0002357774168687838,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "plan": {
+          "bitwise_equal": false,
+          "mae": 0.0017855670879016218,
+          "max_abs": 0.0859222412109375,
+          "relative_rms": 0.00021488420585472846,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lead": {
+          "bitwise_equal": false,
+          "mae": 0.007331876517532187,
+          "max_abs": 0.131011962890625,
+          "relative_rms": 0.0002272204479259132,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lead_prob": {
+          "bitwise_equal": false,
+          "mae": 0.0008010466893513998,
+          "max_abs": 0.0015785694122314453,
+          "relative_rms": 0.00045381757677473406,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "desire_state": {
+          "bitwise_equal": false,
+          "mae": 0.0053105950355529785,
+          "max_abs": 0.01729583740234375,
+          "relative_rms": 0.0005128465691700908,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "action": {
+          "bitwise_equal": false,
+          "mae": 0.0005317926406860352,
+          "max_abs": 0.0016827583312988281,
+          "relative_rms": 0.0005129697974843711,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "hidden_state": {
+          "bitwise_equal": false,
+          "mae": 0.0007120157647761971,
+          "max_abs": 0.009134292602539062,
+          "relative_rms": 0.0006368355261123226,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "pad": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": null,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        }
+      }
+    }
+  ],
+  "same_precision_comparisons": [
+    {
+      "index": 0,
+      "packed": {
+        "bitwise_equal": true,
+        "mae": 0.0,
+        "max_abs": 0.0,
+        "relative_rms": 0.0,
+        "outside_atol_0p01_rtol_0p01": 0
+      },
+      "heads": {
+        "lane_lines": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lane_line_probs": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "road_edges": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "meta": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "desire_pred": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "pose": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "wide_from_device_euler": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "road_transform": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "plan": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lead": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lead_prob": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "desire_state": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "action": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "hidden_state": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "pad": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": null,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        }
+      }
+    },
+    {
+      "index": 55,
+      "packed": {
+        "bitwise_equal": true,
+        "mae": 0.0,
+        "max_abs": 0.0,
+        "relative_rms": 0.0,
+        "outside_atol_0p01_rtol_0p01": 0
+      },
+      "heads": {
+        "lane_lines": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lane_line_probs": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "road_edges": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "meta": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "desire_pred": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "pose": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "wide_from_device_euler": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "road_transform": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "plan": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lead": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lead_prob": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "desire_state": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "action": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "hidden_state": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "pad": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": null,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        }
+      }
+    },
+    {
+      "index": 110,
+      "packed": {
+        "bitwise_equal": true,
+        "mae": 0.0,
+        "max_abs": 0.0,
+        "relative_rms": 0.0,
+        "outside_atol_0p01_rtol_0p01": 0
+      },
+      "heads": {
+        "lane_lines": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lane_line_probs": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "road_edges": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "meta": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "desire_pred": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "pose": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "wide_from_device_euler": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "road_transform": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "plan": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lead": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lead_prob": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "desire_state": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "action": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "hidden_state": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "pad": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": null,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        }
+      }
+    },
+    {
+      "index": 166,
+      "packed": {
+        "bitwise_equal": true,
+        "mae": 0.0,
+        "max_abs": 0.0,
+        "relative_rms": 0.0,
+        "outside_atol_0p01_rtol_0p01": 0
+      },
+      "heads": {
+        "lane_lines": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lane_line_probs": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "road_edges": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "meta": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "desire_pred": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "pose": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "wide_from_device_euler": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "road_transform": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "plan": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lead": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lead_prob": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "desire_state": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "action": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "hidden_state": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "pad": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": null,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        }
+      }
+    },
+    {
+      "index": 221,
+      "packed": {
+        "bitwise_equal": true,
+        "mae": 0.0,
+        "max_abs": 0.0,
+        "relative_rms": 0.0,
+        "outside_atol_0p01_rtol_0p01": 0
+      },
+      "heads": {
+        "lane_lines": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lane_line_probs": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "road_edges": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "meta": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "desire_pred": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "pose": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "wide_from_device_euler": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "road_transform": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "plan": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lead": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lead_prob": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "desire_state": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "action": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "hidden_state": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "pad": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": null,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        }
+      }
+    },
+    {
+      "index": 277,
+      "packed": {
+        "bitwise_equal": true,
+        "mae": 0.0,
+        "max_abs": 0.0,
+        "relative_rms": 0.0,
+        "outside_atol_0p01_rtol_0p01": 0
+      },
+      "heads": {
+        "lane_lines": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lane_line_probs": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "road_edges": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "meta": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "desire_pred": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "pose": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "wide_from_device_euler": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "road_transform": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "plan": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lead": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lead_prob": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "desire_state": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "action": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "hidden_state": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "pad": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": null,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        }
+      }
+    },
+    {
+      "index": 332,
+      "packed": {
+        "bitwise_equal": true,
+        "mae": 0.0,
+        "max_abs": 0.0,
+        "relative_rms": 0.0,
+        "outside_atol_0p01_rtol_0p01": 0
+      },
+      "heads": {
+        "lane_lines": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lane_line_probs": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "road_edges": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "meta": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "desire_pred": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "pose": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "wide_from_device_euler": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "road_transform": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "plan": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lead": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lead_prob": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "desire_state": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "action": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "hidden_state": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "pad": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": null,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        }
+      }
+    },
+    {
+      "index": 388,
+      "packed": {
+        "bitwise_equal": true,
+        "mae": 0.0,
+        "max_abs": 0.0,
+        "relative_rms": 0.0,
+        "outside_atol_0p01_rtol_0p01": 0
+      },
+      "heads": {
+        "lane_lines": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lane_line_probs": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "road_edges": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "meta": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "desire_pred": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "pose": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "wide_from_device_euler": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "road_transform": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "plan": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lead": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lead_prob": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "desire_state": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "action": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "hidden_state": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "pad": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": null,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        }
+      }
+    },
+    {
+      "index": 443,
+      "packed": {
+        "bitwise_equal": true,
+        "mae": 0.0,
+        "max_abs": 0.0,
+        "relative_rms": 0.0,
+        "outside_atol_0p01_rtol_0p01": 0
+      },
+      "heads": {
+        "lane_lines": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lane_line_probs": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "road_edges": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "meta": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "desire_pred": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "pose": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "wide_from_device_euler": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "road_transform": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "plan": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lead": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lead_prob": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "desire_state": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "action": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "hidden_state": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "pad": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": null,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        }
+      }
+    },
+    {
+      "index": 499,
+      "packed": {
+        "bitwise_equal": true,
+        "mae": 0.0,
+        "max_abs": 0.0,
+        "relative_rms": 0.0,
+        "outside_atol_0p01_rtol_0p01": 0
+      },
+      "heads": {
+        "lane_lines": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lane_line_probs": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "road_edges": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "meta": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "desire_pred": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "pose": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "wide_from_device_euler": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "road_transform": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "plan": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lead": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "lead_prob": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "desire_state": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "action": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "hidden_state": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": 0.0,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        },
+        "pad": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": null,
+          "outside_atol_0p01_rtol_0p01": 0,
+          "failures": []
+        }
+      }
+    }
+  ]
+}

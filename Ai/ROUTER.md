@@ -1,3 +1,8 @@
+2026-11-02 fresh NPU baseline: actual200+3 Q8B calls pass execution,
+W8A8 accuracy fails;400MB DLC/444MB context, no default switch. Student
+`Ai/Knowledge/NPU_CONVERSION.md` and `openpilot/selfdrive/modeld/npu/RESULTS.md`
+contain measured per-head errors, retained FP16 failure and proposed next step.
+
 Current NPU work: [fresh conversion](Knowledge/NPU_CONVERSION.md). Read the dated session before resuming; the first dataset is rejected and corrected v2 calibration is in progress.
 
 Current result: [live Q8B UI telemetry](Knowledge/UI_TELEMETRY.md).

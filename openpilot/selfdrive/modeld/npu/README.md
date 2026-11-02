@@ -1,172 +1,147 @@
 # Mountain Dew v3 on the Q8B NPU
 
-Fresh conversion experiment started 2026-11-02 at Sunny `fd3e0c0`, branch
-`radxa/q8b`. This folder contains the active NPU work. The accepted CD210/OpenCL
-camera/model/UI path is unchanged; no NPU backend is selected in modeld.
+Fresh conversion research, started 2026-11-02 on `radxa/q8b` at `fd3e0c0`.
+The calibrated W8A8 model executes on the real Q8B NPU, but **fails numerical
+acceptance and remains unselected**. The accepted CD210/OpenCL camera/model/UI
+path is unchanged. Read [measured results](RESULTS.md) before using these tools.
 
 ## Source and size
 
-Bundled `../models/big_driving_tinygrad.pkl`: 799,941,965 bytes, SHA-256
+`../models/big_driving_tinygrad.pkl` is compiled Tinygrad, not an ONNX graph:
+799,941,965 bytes, SHA-256
 `d4c7a3fcfc95813826ca871a80bea18df833aacb2eb6f5333e25a01e65b1a422`.
-It is compiled Tinygrad, not an ONNX graph to feed directly into QAIRT.
-Jetlink's release-ref lookup found the original Mountain Dew v3 ONNX for
-configured ref `1e219d7785cfb7b7343c7f2366347fc86e7ce5f2`. Downloaded afresh into
+Jetlink's release lookup located the matching Mountain Dew v3 original ONNX
+for ref `1e219d7785cfb7b7343c7f2366347fc86e7ce5f2`. Downloaded afresh:
 `artifacts/mountain_dew_v3.onnx`, 768,750,198 bytes, SHA-256
 `35976b11be3904eb78e32f7dc55a6abf8e9433ac5aa391a1998f1e9ce001b199`.
-[Source receipt](source.json) / [IO and initializer inventory](inventory.json).
-Matching release provenance does not itself establish compiled-pickle parity.
+[Source](source.json), [inventory](inventory.json), [rewrites](graph-rewrites.json).
+Release/checkpoint provenance alone does not prove compiled-pickle parity.
 
-There are 382,904,774 FP16 initializer values (765,809,548 bytes). At one byte
-per value the estimated INT8 payload alone is approximately 383 MB, excluding
-scales, bias precision and compiled graph overhead. Includes floating constants;
-not a measured compiled size or peak RAM. **The 200 MB target is unmet by plain
-INT8.** Historical approximately 443 MB Q8B contexts were W8A16, not FP16:
-8-bit weights with 16-bit integer activations. They are not reused here.
+The source has 382,904,774 FP16 initializer values. One byte per value is
+approximately 383 MB before scales, biases and graph overhead. The measured
+W8A8 DLC is 400,356,844 bytes; its integer-boundary derivative is 400,346,268
+bytes and compiled context is 444,203,008 bytes. **Plain INT8 has not met the
+200 MB target.** File sizes are not peak RAM. Historical approximately443 MB
+contexts used W8A16 (8-bit weights, 16-bit integer activations), a different
+model, and are not reused here.
 
-## Conversion tools and current progress
+## Conversion and evidence
 
-1. `prepare_road_inputs.py` runs this project's pinned CPU:LLVM warp on paired
-   narrow/wide HEVC road video. Requires versioned road format 2. Frame IDs map through the logged fullHEVC
-   encoder `segmentId`; message ordinals are not video positions. Capture
-   alignment, actual backend and file/image hashes are recorded. Physical
-   camera is not opened. Condition inputs reconstruct rising-edge lane-change
-   pulses from logged metadata, driver-side traffic convention and delays.
-2. `prepare_graph.py` requires the exact original SHA and a fresh destination.
-   FP16 CPU reference replaces only `org.tinygrad::Contiguous` with Identity.
-   FP32 quantization graph hosts image/history updates, safely rewrites static
-   Reshape/negative GatherND, and exports independent heads. Compiler may omit
-   the constant two-value padding output; it must be reconstructed as zeros on
-   the host. Never infer compiled output order from ONNX positions alone.
-   [Exact derivative hashes and rewrite manifest](graph-rewrites.json).
-3. `reference_dataset.py` generates this release's own recurrent states from
-   zero, verifies model/source/data/cadence, and compares FP32 versus FP16 at
-   spread-out frames. Its receipt hashes every native file and the input list.
-   Requires at least min(10, frame count) comparisons. Compatibility diagnostic
-   gate: no values outside absolute 0.01 plus 1% relative tolerance.
-4. `qairt_host.sh` uses the existing QAIRT 2.37.1.250807 x86 compiler environment
-   in an isolated experiment work directory. Floating DLC conversion succeeded.
-   Before W8A8 PTQ it verifies the floating DLC/source receipt and calibration
-   receipt, including native files and numerical gate. Weights/activations 8,
-   bias 32, per-channel/per-row quantization. No NPU context is loaded by it.
+1. `prepare_road_inputs.py`: this project's pinned CPU:LLVM camera warp on
+   paired narrow/wide HEVC road video. Format2 maps each logged frameId through
+   `fullHEVCEncodeIdx.segmentId`. The initial ordinal-based extraction and
+   incomplete calibration500-v1 were rejected after review exposed a one-frame
+   offset. Corrected road700-v2 contains700 unique frames at20Hz. Traffic,
+   delays and lane-change rising edges come from the log; no physical camera
+   is opened. One daytime route is feasibility material, not broad coverage.
+2. `prepare_graph.py`: exact original hash required. FP16 CPU reference only
+   replaces Tinygrad Contiguous with Identity. FP32 quantization source hosts
+   image FIFO updates, rewrites static Reshape/negative GatherND, and splits
+   outputs by head. The compiler removes two constant padding values; the
+   evaluator reconstructs zero padding and maps outputs by name.
+3. `reference_dataset.py` and `audit_reference.py`: new source-model states,
+   zero initialized and advanced using the FP16 reference's own feedback.
+   All500 calibration states and3000 native input files independently audited.
+   Ten spread-out rewritten FP32 outputs match the independently promoted
+   original FP32 graph bit-for-bit. Fresh heldout200 starts at sourceframe500,
+   resets independently and warms for132 frames before68 evaluated frames.
+4. `qairt_host.sh`: QAIRT2.37.1.250807, W8A8, bias32, per-channel/per-row
+   calibration with all500 frames. Generic HTP PTQ succeeds; that SDK rejects
+   SC8280XP/SC8280X quantizer target strings. Actual context compilation uses
+   explicit **v68/SoC37**, recognized as SC8280X. No SoC39 substitution.
+5. `integer_io.py`: SoC37 compilation initially failed on floating boundary
+   Converts. Remove exactly6 input and14 output adapters, keeping all597
+   static buffers, retained operations/attributes/edges/shapes and calibrated
+   encodings unchanged. Independently reload the saved DLC and compare actual
+   encodings with sidecars. No second quantization or weight conversion.
+6. `compile_integer_context.py`: verify that proof, compile v68/SoC37, inspect
+   metadata and validate every native IO scale/offset/name/shape. It has no
+   device execution side effect. [Proof](integer-io-receipt.json),
+   [context receipt](context-receipt-integer.json), [metadata](context-info-integer.json).
+7. `run_qnn.py`: bounded private SDK replay,200 real device calls completed.
+   Uses existing scoped max CPU/GPU lease, fast cores4–7 and QNN burst; no
+   camera or vehicle process. Exact runtime/context/data hashes checked.
+   Float files are quantized/dequantized by the SDK around native U8 graph IO.
+   Three extra native-byte cases match all42 heads bit-for-bit. This check
+   does not establish FP16 accuracy. cDSP/adsp remain running; clocks restored.
+8. `evaluate_outputs.py`: verify execution/output hashes, skip132 warmup
+   frames and report per-head and packed FP16-vs-INT8 errors. The teacher-forced
+   result fails badly. Candidate self-feedback and parsed driving metrics
+   remain unperformed. QNN CPU crosscheck fails on quantized FullyConnected
+   validation; PTQ and backend error contributions are not fully isolated.
 
-Initial ordinal-based 700-frame extraction was rejected: review exposed a
-one-frame source-video offset. Its pixel agreement with the older teacher
-extractor was not timestamp/alignment proof. The partially generated native
-`calibration500-v1` is explicitly rejected and its worker was stopped; never
-quantize it. Corrected `road700-v2` uses encoder indices; fresh native state
-will use `calibration500-v2`. Existing original/FP32 graph and floating DLC
-are unaffected by that dataset error. Exact status and commands are saved in
-the project notebook/session; do not assume the full list below has completed.
+## Retained failed FP16 check
 
-## FP16 diagnostic and explicitly approved research
+Strict prequant tolerance remains absolute0.01 plus1% relative. Calibration
+frame443 fails one hidden value: .00174427 becomes -.00983241; hidden-state
+relative RMS .084442% on that frame. [Diagnostic](diagnostic-443.json),
+[independent source](semantic-reference.json), [ten FP32 cases](bitwise-semantic-validation.json),
+[500-state audit](calibration500-audit-summary.json).
 
-Corrected calibration500-v2 completed all 500 frames. The strict prequant gate
-**fails** one hidden-state value at frame443 (.00174427 versus -.00983241).
-Hidden-state relative RMS is .084442% on that frame; this is not a driving
-accuracy score. All ten spread-out cases match an independently promoted
-original FP32 graph bit-for-bit. See [diagnostic](diagnostic-443.json),
-[semantic source](semantic-reference.json), and [ten-case comparison](bitwise-semantic-validation.json).
+Owner explicitly approved continuing INT8 research with this failure retained.
+`quantize` still rejects it. `quantize-research` requires the pinned independent
+FP32 checks and audited input provenance, then labels the artifact research.
+Heldout prewarm comparisons also retain96 failed hidden values, with independent
+original FP32 bitwise agreement on both affected cases; see
+[heldout summary](heldout-reference-summary.json). No tolerance was relaxed.
 
-Owner approved continuing INT8 research with that failure retained on2026-11-02.
-`quantize` still blocks on it. `quantize-research` explicitly permits this
-precision failure, requires exact pinned same-precision checks and independently
-replayed own-state provenance, and labels the artifact `w8a8-research.dlc`.
-`audit_reference.py` verifies zero initialization and every saved recurrent
-transition using the FP16 reference. A research artifact remains unqualified.
-No tolerance is relaxed and no under0.5% accuracy claim is established.
+## Reproduce tooling and host stages
 
-QAIRT2.37 rejects target strings SC8280XP/SC8280X before calibration. Generic
-HTP PTQ is supported and used instead. Actual v68/SoC37 context compilation is
-a separate pending requirement; historical SoC39 is not substituted.
+Graph conversion uses the trusted x86 PC with32 GB RAM, not the8 GB Q8B.
+Workspace: `/home/pc/sunnypilot-npu-20261102`. Installed toolchain:
+`/home/pc/q8b-npu-conversion/qairt237-big-model-conversion`, SDK2.37.1.250807,
+Python3.10, NumPy1.26.4, ONNX1.16.1, ORT1.22.1. The PC is a build host;
+runtime assets and code are kept inside this Sunnypilot project.
 
-## Reproduce locally and on the conversion PC
-
-Keep the normal project environment for media/camera preprocessing. It needs
-its own `.venv/bin` on PATH for ffmpeg/ffprobe:
+Use the normal project environment for road preprocessing (ffmpeg/ffprobe on
+its PATH). Conversion/tests use the isolated environment:
 
 ```bash
 cd ~/comma/sunnypilot
-PATH="$PWD/.venv/bin:$PATH" DEBUG=0 .venv/bin/python -m openpilot.selfdrive.modeld.npu.prepare_road_inputs --source /path/to/paired-route-segment --output openpilot/selfdrive/modeld/npu/data/road700-v2 --frames 700
-```
-
-Large graph transformation and QAIRT compilation run on the x86 PC with 32 GB
-RAM, not this 8 GB Q8B. Current temporary compiler workspace is
-`pc@10.43.0.216:/home/pc/sunnypilot-npu-20261102`; strict trusted-key connection
-comes from teacher converter.json. Scripts remain owned here and are copied
-there for execution. This is a build host, not a required runtime service.
-Existing QAIRT work is separate and never overwritten:
-`/home/pc/q8b-npu-conversion/qairt237-big-model-conversion`.
-The compiler's Python 3.10/NumPy 1.26.4/ONNX 1.16.1/ORT 1.22.1 are retained.
-Graph artifact hashes are tied to the recorded tool versions.
-
-For local tooling tests, use a separate conversion environment; the Sunny
-runtime lock/environment is not modified:
-
-```bash
 uv venv --python .venv/bin/python openpilot/selfdrive/modeld/npu/.venv
 uv pip install --python openpilot/selfdrive/modeld/npu/.venv/bin/python -r openpilot/selfdrive/modeld/npu/requirements-conversion.txt
 openpilot/selfdrive/modeld/npu/.venv/bin/python -m unittest discover -s openpilot/selfdrive/modeld/npu/tests -v
 ```
 
-The research sequence on the x86 host is:
+`qairt_host.sh help` lists floating/strict/research stages. Stage an immutable,
+hash-named, read-only script before a long host command. Replacing the first
+live wrapper caused shell exit127 after the quantizer had already succeeded
+(exit0,15m53s); both outcomes are preserved and calibration was not repeated.
+The floating-IO `context-research` stage fails on this target; use the checked
+integer-IO route instead. With source staged in `$work/source`, SDK environment
+wrapper staged there, and variables pointing to the installed toolchain/work:
 
 ```bash
-bash source/qairt_host.sh quantize-research /path/to/existing-toolchain "$PWD" "$PWD/data/calibration500-v2/input_list.txt"
-bash source/qairt_host.sh context-research /path/to/existing-toolchain "$PWD" "$PWD/data/calibration500-v2/input_list.txt"
+PYTHONPATH="$work/source" bash "$work/source/sdk_python.sh" "$toolchain" -m openpilot.selfdrive.modeld.npu.integer_io "$work/artifacts/dlc-v1/w8a8-research.dlc" "$work/artifacts/dlc-v1/w8a8-integer-io-v2.dlc"
+PYTHONPATH="$work/source" bash "$work/source/sdk_python.sh" "$toolchain" -m openpilot.selfdrive.modeld.npu.compile_integer_context "$toolchain/qairt/2.37.1.250807" "$work/artifacts/dlc-v1/w8a8-integer-io-v2.dlc" "$work/artifacts/context-integer-v68-soc37-v1"
 ```
 
-The first command creates a provenance receipt only after quantizer success.
-The second verifies it and compiles offline with explicit v68/SoC37 config into
-a fresh directory; successful compilation alone does not qualify device loading.
-For the already-running pre-receipt experiment only, `contracts record-research`
-can attach the audited receipt after independently confirming quantizer exit0.
+Destinations must be fresh; never overwrite retained results. `--audit-existing`
+reinspects an artifact only with a fresh proof/receipt path, preserving prior
+receipts separately. Conversion modes pin this experiment's source/calibration;
+they are not general-purpose arbitrary-model deployment commands.
 
-## Acceptance and unresolved limits
+The normal Sunny environment can run `run_qnn --help` and
+`evaluate_outputs --help` without ONNX/ORT. Actual replay requires private
+`artifacts/runtime-2.37` files matching [runtime manifest](runtime-2.37.json),
+context receipt/proof, and relocated heldout inputs with verified provenance.
+The runner limits its own child to120s and stops it on SIGTERM/lease failure
+before restoring clocks. Do not automatically rerun a failed device context.
 
-Reserve separate road ranges for calibration and held-out testing. Held-out
-sequences must reset independently and warm up all state queues (up to 132
-steps here); evaluate with reference states and with each candidate's own
-feedback. Global cosine alone can hide failed small heads. Report per-head
-absolute/relative errors, parsed road/path/controls, saturation and recurrent
-drift against floating reference. These are numerical diagnostics, not a
-single driving-accuracy percentage. Under 0.5% loss is not guaranteed.
+## Acceptance and next experiment
 
-700 frames of one daytime route are feasibility material, not broad road/
-weather/night/maneuver coverage. Ordinary PTQ calibrates quantization ranges;
-[AIMET](https://github.com/qualcomm/aimet) SeqMSE/AdaRound are additional
-optimization techniques to investigate against measured loss, not already-run
-accuracy recovery.
+The under0.5% goal requires a defined task metric and representative evaluation;
+raw tensor error is not driving accuracy. One route, teacher-forced recurrence
+and no parsed road/controls test cannot establish it. This W8A8 candidate is
+rejected before live integration. Next investigate **W8A16 or mixed activation/
+output precision while retaining8-bit weights**, and broader calibration data.
+Output-grid diagnostics already show coarse8-bit ranges on sensitive heads.
+This is a proposed experiment, not measured accuracy recovery. AIMET SeqMSE/
+AdaRound are additional techniques, not already-run calibration magic.
 
-Current [Radxa guide](https://docs.radxa.com/en/dragon/q8b/app-dev/npu-dev/qairt-sdk)
-reports SC8280XP/v68/SoC37, whereas historical QAIRT2.37 experiments used SoC39
-(SA8295). Resolve selected-SDK mapping and pin backend/System/stub/skeleton plus
-context metadata before loading a new context. Do not copy current online
-settings blindly onto the older working runtime. Historical DSP failures and
-unidentified System-library release remain evidence limits. No firmware,
-recovery/reboot, clocks/helper, camera calibration, vehicle or actuation change
-is part of this conversion. INT8 context execution and accuracy remain pending.
-
-Large artifacts, data, logs and local virtual environments are ignored; source,
-receipts and small results are tracked. Keep successful deployment assets inside
-this project when qualified. [Plan](tasks/plan.md) / [checklist](tasks/todo.md).
-
-## Bounded held-out replay tooling
-
-`run_qnn.py` requires a verified SDK2.37/v68/SoC37 context receipt, exact private
-runtime files and the separately reset heldout200-v2 input hashes. It checks
-model source pins and cDSP readiness before launch, uses the existing scoped
-maximum CPU/GPU clock lease and QNN burst profile, limits its own child to120s,
-and records the actual context/input/output hashes after execution. SIGTERM,
-timeout or lease failure stops the child before releasing the clock lease.
-It opens no camera and starts no vehicle processes. Context loading is still
-pending; CLI help/tests are not a device inference claim.
-
-`evaluate_outputs.py` requires the matching execution receipt and validates
-native inputs, golden outputs, compiled input/output names/types/shapes and
-hardware metadata. Compiler ordering never determines head mapping. It skips
-132reference warmup frames and evaluates68held-out frames against the FP16
-reference. This first evaluation is teacher-forced; candidate self-feedback
-remains a separate unperformed check. The normal Sunny environment can run
-these tools without installing ONNX/ORT; graph conversion uses the isolated
-conversion environment. [Held-out reference summary](heldout-reference-summary.json)
-retains failed early FP16 comparisons and exact independent FP32 checks.
+Large models/data/logs/venvs are ignored. Source, small receipts and results are
+tracked. Source-first review and actual SDK runtime/context inspection were
+used; REA established HTP ELF identity only, not model accuracy. Agent reviews
+and the owner-selected Codex CLI review are preserved in teacher evidence.
+No modeld/backend default, firmware, calibration or vehicle actuation change.
+[Plan](tasks/plan.md) / [checklist](tasks/todo.md) / [results](RESULTS.md).

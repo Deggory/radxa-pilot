@@ -1,0 +1,14 @@
+{
+  "sdk": "2.37.1.250807",
+  "precision": "W8A8/bias32",
+  "backend": "generic HTP; target-specific context pending",
+  "source_sha256": "eceadb809ada5462481cb343e643850e45c72cc4fdf55db0deb74b5718b9411d",
+  "float_receipt_sha256": "af39bb752a883161aadcc3f6af6f549ddcc359ef0fa2c8e652926f0414229ab9",
+  "dlc_sha256": "6cca7b518b6aa7d557727833d589de8a93dfe253a13a0a14f55fa81a3d7e3343",
+  "dlc_bytes": 400356844,
+  "calibration_receipt_sha256": "77a3a166b42cfef4fe1aa5a5649a6a7555b8a52c55b6ad86c40269fd884c84a4",
+  "input_list_sha256": "55b06aaa8cc7b06957a0ed55673ca2a993d35f12655254d245321f10b2bb729c",
+  "frames": 500,
+  "retained_fp16_failure_count": 1,
+  "qualification": "unqualified research; owner permits retained FP16 diagnostic failure"
+}

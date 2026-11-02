@@ -1,0 +1,95 @@
+{
+  "context_sha256": "71e62a7e184db4a6cf590d117703fe8b2ce729d3474b15c7517fe37ce68ce64a",
+  "frames": 68,
+  "source_indices": [
+    632,
+    699
+  ],
+  "heads": {
+    "lane_lines": {
+      "scale": 0.1906360536813736,
+      "mae_nearest_grid": 0.0462392373097672,
+      "relative_rms_nearest_grid": 0.019526069366745977,
+      "outside_calibrated_output_range": 0
+    },
+    "lane_line_probs": {
+      "scale": 0.07273241877555847,
+      "mae_nearest_grid": 0.01874512423049001,
+      "relative_rms_nearest_grid": 0.004363251756036773,
+      "outside_calibrated_output_range": 4
+    },
+    "road_edges": {
+      "scale": 0.22363422811031342,
+      "mae_nearest_grid": 0.05456973678546953,
+      "relative_rms_nearest_grid": 0.012372480592978557,
+      "outside_calibrated_output_range": 0
+    },
+    "meta": {
+      "scale": 0.05950291082262993,
+      "mae_nearest_grid": 0.014969818891688464,
+      "relative_rms_nearest_grid": 0.003048196826200923,
+      "outside_calibrated_output_range": 1
+    },
+    "desire_pred": {
+      "scale": 0.07175654172897339,
+      "mae_nearest_grid": 0.01823780335047666,
+      "relative_rms_nearest_grid": 0.0043679907290505825,
+      "outside_calibrated_output_range": 0
+    },
+    "pose": {
+      "scale": 0.14977753162384033,
+      "mae_nearest_grid": 0.0786187729853041,
+      "relative_rms_nearest_grid": 0.02051875281358945,
+      "outside_calibrated_output_range": 68
+    },
+    "wide_from_device_euler": {
+      "scale": 0.027861731126904488,
+      "mae_nearest_grid": 0.005156135506124473,
+      "relative_rms_nearest_grid": 0.0014257961879473372,
+      "outside_calibrated_output_range": 68
+    },
+    "road_transform": {
+      "scale": 0.03328874707221985,
+      "mae_nearest_grid": 0.005122771157937891,
+      "relative_rms_nearest_grid": 0.001605142643281172,
+      "outside_calibrated_output_range": 0
+    },
+    "plan": {
+      "scale": 1.2761321067810059,
+      "mae_nearest_grid": 0.22714017926407087,
+      "relative_rms_nearest_grid": 0.016164939319827765,
+      "outside_calibrated_output_range": 68
+    },
+    "lead": {
+      "scale": 1.6546236276626587,
+      "mae_nearest_grid": 0.4943701870605544,
+      "relative_rms_nearest_grid": 0.01261831035113076,
+      "outside_calibrated_output_range": 171
+    },
+    "lead_prob": {
+      "scale": 0.038887180387973785,
+      "mae_nearest_grid": 0.6124867282661737,
+      "relative_rms_nearest_grid": 0.1570494452575442,
+      "outside_calibrated_output_range": 127
+    },
+    "desire_state": {
+      "scale": 0.2244049310684204,
+      "mae_nearest_grid": 0.05662816762924194,
+      "relative_rms_nearest_grid": 0.004749480466422699,
+      "outside_calibrated_output_range": 0
+    },
+    "action": {
+      "scale": 0.019167568534612656,
+      "mae_nearest_grid": 0.011511366430889158,
+      "relative_rms_nearest_grid": 0.015989013850777556,
+      "outside_calibrated_output_range": 26
+    },
+    "hidden_state": {
+      "scale": 0.2784692645072937,
+      "mae_nearest_grid": 0.06958804776829364,
+      "relative_rms_nearest_grid": 0.05273812192871825,
+      "outside_calibrated_output_range": 0
+    }
+  },
+  "meaning": "Nearest representable output-grid diagnostic with ideal core predictions; tensor errors, not driving-accuracy loss. Does not localize internal quantization or backend errors."
+}

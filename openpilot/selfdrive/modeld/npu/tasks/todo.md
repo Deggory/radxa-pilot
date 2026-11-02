@@ -1,17 +1,23 @@
-# Conversion progress
+# Fresh NPU baseline checkpoint — 2026-11-02
 
-- [x] Fresh matching source downloaded/hash/checkpoint verified.
-- [x] Jetlink clones updated and relevant changes recorded.
-- [x] Parameter/size/IO inventory completed.
-- [x] Initial floating/FP32 diagnostics and fresh floating DLC conversion pass; full spread-out checks continue with fresh states.
-- [ ] Fresh recurrent calibration and held-out data built.
-- [ ] Fresh INT8 PTQ conversion completed with preserved logs.
-- [ ] Per-head and recurrent accuracy measured.
-- [ ] Target/runtime verified, context compiled and inspected.
-- [ ] Isolated NPU execution passes accuracy/health checks.
-- [ ] Teacher/student closeout and verified commits recorded.
+- [x] Fresh matching source downloaded, hash/checkpoint verified.
+- [x] Jetlink reference clones updated; relevant changes/pins saved.
+- [x] Parameter/size/IO inventory completed;200 MB plain-INT8 target unmet.
+- [x] Corrected encoder-index road700-v2; ordinal v1 rejected.
+- [x]500 fresh source-state calibration frames independently replayed/audited.
+- [x]200 heldout frames built with separate reset;132 warmup/68 evaluation.
+- [x] Retain failed strict FP16 check; explicit owner-approved research gate.
+- [x] Fresh W8A8 PTQ completed,400356844-byte DLC retained.
+- [x] Prove integer-IO adapter removal preserves weights/graph/encodings.
+- [x] Compile and inspect actual SDK2.37/v68/SoC37 context (444203008bytes).
+- [x]200-call device replay and3-call native-byte conversion check exit0.
+- [x] Measure per-head teacher-forced errors: **numerical acceptance FAIL**.
+- [ ] Candidate self-feedback / parsed driving metrics (deferred after failure).
+- [ ] Broad representative scene/night/weather/maneuver evaluation.
+- [ ] Accuracy recovery with W8A16/mixed activation precision (next experiment).
+- [ ] Qualify any candidate for modeld integration (not authorized by this test).
 
-Corrected road700-v2 is complete:700unique images, encode-index frame mapping,
-20Hz continuity checked. Initial ordinal-based data/native v1 are rejected.
-Fresh calibration500-v2 is running on the x86 host; no quantization yet.
-12focused tests/Ruff/shell/notebook checks pass. Scoped checkpoint is in Git.
+Current candidate remains unselected. Tooling checks do not override model
+failure. See [results](../RESULTS.md). Teacher/student closeout, review evidence
+and verified scoped commits accompany this checkpoint. Current CD210 GPU path
+and camera calibration are unchanged; no vehicle actuation.

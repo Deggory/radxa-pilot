@@ -1,3 +1,14 @@
+## 2026-11-02 — Continue INT8 research with strict failure retained; reject W8A8 candidate
+
+Owner explicitly approved retaining failed FP16 precision checks while proceeding
+with research. Keep default strict gate unchanged; research path requires source,
+independent same-precision checks and all500 own-state transitions. Fresh W8A8
+executes on truev68/SoC37 but fails per-head heldout numerical acceptance. Do not
+select it in modeld or call successful execution accuracy acceptance. Preserve
+all artifacts/results and propose mixed activation/output precision with8-bit
+weights; no guaranteed under0.5% recovery,200MB or latency claim. Historical
+SoC39/model6fee results and accepted CD210GPU runtime remain distinct.
+
 # Decisions and rationale
 
 ## 2026-11-02 — Stop camera work at accepted milestone

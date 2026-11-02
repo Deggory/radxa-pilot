@@ -1,0 +1,173 @@
+{
+  "source_sha256": "eceadb809ada5462481cb343e643850e45c72cc4fdf55db0deb74b5718b9411d",
+  "context_sha256": "71e62a7e184db4a6cf590d117703fe8b2ce729d3474b15c7517fe37ce68ce64a",
+  "context_info_sha256": "2aa98048d03e8aa2e7f8c5883af2c65ce6e85180cc2de68b9c45ff01ea14eeb4",
+  "context_bytes": 444203008,
+  "dlc_sha256": "8b110ab1242ced81c3bf4d5b4f263cb6908f0a8ed9b6acdcaf1c49035773fa79",
+  "integer_io_receipt_sha256": "256356b984db4d91f3203376992f5d5f1ada20dd0efef93519f0c4abe2609cf1",
+  "io_mode": "float_files_host_quantize_dequantize",
+  "io_encodings": {
+    "desire": {
+      "bitwidth": 8,
+      "is_symmetric": "false",
+      "max": 1.0,
+      "min": 0.0,
+      "offset": 0.0,
+      "scale": 0.003921568859368563
+    },
+    "traffic_convention": {
+      "bitwidth": 8,
+      "is_symmetric": "false",
+      "max": 1.0,
+      "min": 0.0,
+      "offset": 0.0,
+      "scale": 0.003921568859368563
+    },
+    "action_t": {
+      "bitwidth": 8,
+      "is_symmetric": "false",
+      "max": 0.5249999761581421,
+      "min": 0.0,
+      "offset": 0.0,
+      "scale": 0.002058823360130191
+    },
+    "state_desire_q": {
+      "bitwidth": 8,
+      "is_symmetric": "false",
+      "max": 1.0,
+      "min": 0.0,
+      "offset": 0.0,
+      "scale": 0.003921568859368563
+    },
+    "state_feat_q": {
+      "bitwidth": 8,
+      "is_symmetric": "false",
+      "max": 38.974510192871094,
+      "min": -32.525489807128906,
+      "offset": -116.0,
+      "scale": 0.2803921699523926
+    },
+    "updated_state_img_q": {
+      "bitwidth": 8,
+      "is_symmetric": "false",
+      "max": 248.0,
+      "min": 0.0,
+      "offset": 0.0,
+      "scale": 0.9725490212440491
+    },
+    "q8b_lane_lines": {
+      "bitwidth": 8,
+      "is_symmetric": "false",
+      "max": 41.36802673339844,
+      "min": -7.244170188903809,
+      "offset": -38.0,
+      "scale": 0.1906360536813736
+    },
+    "q8b_lane_line_probs": {
+      "bitwidth": 8,
+      "is_symmetric": "false",
+      "max": 9.964341163635254,
+      "min": -8.582425117492676,
+      "offset": -118.0,
+      "scale": 0.07273241877555847
+    },
+    "q8b_road_edges": {
+      "bitwidth": 8,
+      "is_symmetric": "false",
+      "max": 44.950477600097656,
+      "min": -12.076248168945312,
+      "offset": -54.0,
+      "scale": 0.22363422811031342
+    },
+    "q8b_meta": {
+      "bitwidth": 8,
+      "is_symmetric": "false",
+      "max": 5.176753044128418,
+      "min": -9.996488571166992,
+      "offset": -168.0,
+      "scale": 0.05950291082262993
+    },
+    "q8b_desire_pred": {
+      "bitwidth": 8,
+      "is_symmetric": "false",
+      "max": 7.5344367027282715,
+      "min": -10.763481140136719,
+      "offset": -150.0,
+      "scale": 0.07175654172897339
+    },
+    "q8b_pose": {
+      "bitwidth": 8,
+      "is_symmetric": "false",
+      "max": 31.303503036499023,
+      "min": -6.889766216278076,
+      "offset": -46.0,
+      "scale": 0.14977753162384033
+    },
+    "q8b_wide_from_device_euler": {
+      "bitwidth": 8,
+      "is_symmetric": "false",
+      "max": 0.0,
+      "min": -7.10474157333374,
+      "offset": -255.0,
+      "scale": 0.027861731126904488
+    },
+    "q8b_road_transform": {
+      "bitwidth": 8,
+      "is_symmetric": "false",
+      "max": 1.3648386001586914,
+      "min": -7.123791694641113,
+      "offset": -214.0,
+      "scale": 0.03328874707221985
+    },
+    "q8b_plan": {
+      "bitwidth": 8,
+      "is_symmetric": "false",
+      "max": 313.9284973144531,
+      "min": -11.485189437866211,
+      "offset": -9.0,
+      "scale": 1.2761321067810059
+    },
+    "q8b_lead": {
+      "bitwidth": 8,
+      "is_symmetric": "false",
+      "max": 415.3105163574219,
+      "min": -6.618494510650635,
+      "offset": -4.0,
+      "scale": 1.6546236276626587
+    },
+    "q8b_lead_prob": {
+      "bitwidth": 8,
+      "is_symmetric": "false",
+      "max": 4.66646146774292,
+      "min": -5.24976921081543,
+      "offset": -135.0,
+      "scale": 0.038887180387973785
+    },
+    "q8b_desire_state": {
+      "bitwidth": 8,
+      "is_symmetric": "false",
+      "max": 20.869657516479492,
+      "min": -36.353599548339844,
+      "offset": -162.0,
+      "scale": 0.2244049310684204
+    },
+    "q8b_action": {
+      "bitwidth": 8,
+      "is_symmetric": "false",
+      "max": 2.1275999546051025,
+      "min": -2.760129928588867,
+      "offset": -144.0,
+      "scale": 0.019167568534612656
+    },
+    "q8b_hidden_state": {
+      "bitwidth": 8,
+      "is_symmetric": "false",
+      "max": 38.70722961425781,
+      "min": -32.302433013916016,
+      "offset": -116.0,
+      "scale": 0.2784692645072937
+    }
+  },
+  "target": "SDK2.37/v68/SoC37 and exact calibrated IO scales verified",
+  "qualification": "unqualified research; device execution and INT8 accuracy unmeasured"
+}

@@ -1,3 +1,12 @@
+## 2026-11-02 — Fresh big-model NPU research baseline
+
+Converted matching Mountain Dew v3 source, calibrated500frames and ran200heldout
+Q8B inferences plus3IO checks on SDK2.37/v68/SoC37.400MB W8A8 DLC/444MB context;
+200MB target unmet. Execution succeeds but raw tensor errors are too large:
+**candidate rejected and GPU model stays selected**. Failed FP16 gate retained
+under explicit owner approval.29tool tests pass; this does not qualify driving.
+[Results and next experiment](openpilot/selfdrive/modeld/npu/RESULTS.md).
+
 # What we did: Radxa Dragon Q8B identity
 
 ## 2026-11-02 — Actual camera-to-UI benchmark

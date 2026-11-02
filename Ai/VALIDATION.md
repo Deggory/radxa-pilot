@@ -1,3 +1,28 @@
+## 2026-11-02 — Fresh INT8 device baseline complete; accuracy rejected
+
+Owner approved research continuation while retaining the failed strict FP16
+check. Fresh Mountain Dew v3 W8A8 runs on actual Q8B SDK2.37/v68/SoC37:
+200heldout calls exit0 plus3native-byte cases (all42heads bitwise equal).
+Calibrated DLC400356844bytes; integer-IO DLC400346268bytes; context444203008bytes.
+200MB goal unmet. After132warmup,68teacher-forced frames have normalized RMS
+errors29.65% packed,46.16% lane_lines,16.78% plan,43.31% action and189.26%
+hidden_state. These are raw tensor errors, not driving-accuracy loss. Candidate
+remains unselected; current CD210/OpenCL preview ce7b047/eb741641 unchanged.
+
+29focused tests/Ruff/two shell syntax checks and normal-venv CLI help pass.
+Model numerical acceptance FAIL; strict calibration1value and heldout96prewarm
+FP16 checks remain visible. Independent original FP32 agrees bitwise on ten
+calibration cases and both failed heldout cases. All500 source-state transitions
+were independently replayed. CPU backend crosscheck is unsupported at quantized
+FullyConnected; PTQ/backend error contributions remain unresolved. No candidate
+self-feedback or parsed driving metric after this failure. DSPs running, scoped
+clock lease closed/restored, no owned workers. Entire15.6387s run is not a model
+latency benchmark. Next: W8A16/mixed activation/output precision experiment with
+8-bit weights, then matched heldout comparison and broader calibration; no
+modeld selection or vehicle actuation. Actual commits/validation in Git/ledger.
+
+[Measured results](../openpilot/selfdrive/modeld/npu/RESULTS.md).
+
 # Validation: what is actually established
 
 ## 2026-11-02 — Q8B live onroad statistics complete

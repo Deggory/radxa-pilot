@@ -34,4 +34,6 @@ INT8, roughly 200 MB target and minimal measured error. No CD210/default switch.
 The requested under-0.5% loss is an aspiration until an explicit dataset/task
 metric exists; per-output numeric agreement is not a driving-accuracy percentage.
 A single route cannot establish scene/weather/maneuver coverage. No vehicle
-controls, camera calibration, clocks/helper or accepted replay model changes.
+controls, camera calibration, root-helper installation or accepted replay model
+changes. Bounded device replay used the already-installed scoped max-clock
+lease, then restored clocks. See RESULTS.md for actual completed/failed checks.

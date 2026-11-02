@@ -1,0 +1,357 @@
+{
+  "context_sha256": "71e62a7e184db4a6cf590d117703fe8b2ce729d3474b15c7517fe37ce68ce64a",
+  "indices": [
+    132,
+    166,
+    199
+  ],
+  "exit_code": 0,
+  "source_native_files": [
+    {
+      "file": "000132/desire.raw",
+      "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc",
+      "source_sha256": "66687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925"
+    },
+    {
+      "file": "000132/traffic_convention.raw",
+      "sha256": "ea5dbf9596d187e9500f23e9a680109475341cf4e81f7e043f7d97152c10772f",
+      "source_sha256": "434b26042aff3fb844a4c4c6be0d81a079b0ce84cfb8190679024404e5dc4822"
+    },
+    {
+      "file": "000132/action_t.raw",
+      "sha256": "acea303c9441d711346fde926b7fa39603397d9e99cd39cc52d7aaf3fd6bcb63",
+      "source_sha256": "2da6f294fddc07be806c7a79f4089bbc47de79094a70f13920be09538cf92628"
+    },
+    {
+      "file": "000132/state_desire_q.raw",
+      "sha256": "10e2103ee73921931a7828ebdf325d3a3a64c7a90cc1da5c0ca6fe17b1e3dd78",
+      "source_sha256": "0d71643bfaa0cd6f10b638daa12819f01a0f6a53a07835eb11532b45ed90a244"
+    },
+    {
+      "file": "000132/state_feat_q.raw",
+      "sha256": "4dc3ac9d5cd00e5b53dee652e542158a598a09a2ba81730ce91aebc14ccadb93",
+      "source_sha256": "f1e4f03a302ecd07ff486eca39e3832ea3fbbcbb43095872ab72df079b3eb251"
+    },
+    {
+      "file": "000132/updated_state_img_q.raw",
+      "sha256": "240964c45a1a1cde6fc3bbf2ad2cc37eaaa866b316e7b2b4c20c112cfd0c5d24",
+      "source_sha256": "8e2e99f7bb8004cd4283386c93ad4379758649c555419d67eef0c0580515821f"
+    },
+    {
+      "file": "000166/desire.raw",
+      "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc",
+      "source_sha256": "66687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925"
+    },
+    {
+      "file": "000166/traffic_convention.raw",
+      "sha256": "ea5dbf9596d187e9500f23e9a680109475341cf4e81f7e043f7d97152c10772f",
+      "source_sha256": "434b26042aff3fb844a4c4c6be0d81a079b0ce84cfb8190679024404e5dc4822"
+    },
+    {
+      "file": "000166/action_t.raw",
+      "sha256": "acea303c9441d711346fde926b7fa39603397d9e99cd39cc52d7aaf3fd6bcb63",
+      "source_sha256": "2da6f294fddc07be806c7a79f4089bbc47de79094a70f13920be09538cf92628"
+    },
+    {
+      "file": "000166/state_desire_q.raw",
+      "sha256": "10e2103ee73921931a7828ebdf325d3a3a64c7a90cc1da5c0ca6fe17b1e3dd78",
+      "source_sha256": "0d71643bfaa0cd6f10b638daa12819f01a0f6a53a07835eb11532b45ed90a244"
+    },
+    {
+      "file": "000166/state_feat_q.raw",
+      "sha256": "92d4cd5cf339c78679afa013c6edd12d54f7f4423d9aa5f9c88ef29d03078a88",
+      "source_sha256": "85f8217c27d8c2f5863a0dc7417138af7941193fef4f9f84a859a37f764e648e"
+    },
+    {
+      "file": "000166/updated_state_img_q.raw",
+      "sha256": "e0d7fccc348a2955708087bab11fc2ec41e0b56f43f0ff1422e2918df44808ab",
+      "source_sha256": "41f5f7201f39e5e8db95b2232017354068e5ab5a72a6118047077e429d51c659"
+    },
+    {
+      "file": "000199/desire.raw",
+      "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc",
+      "source_sha256": "66687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925"
+    },
+    {
+      "file": "000199/traffic_convention.raw",
+      "sha256": "ea5dbf9596d187e9500f23e9a680109475341cf4e81f7e043f7d97152c10772f",
+      "source_sha256": "434b26042aff3fb844a4c4c6be0d81a079b0ce84cfb8190679024404e5dc4822"
+    },
+    {
+      "file": "000199/action_t.raw",
+      "sha256": "acea303c9441d711346fde926b7fa39603397d9e99cd39cc52d7aaf3fd6bcb63",
+      "source_sha256": "2da6f294fddc07be806c7a79f4089bbc47de79094a70f13920be09538cf92628"
+    },
+    {
+      "file": "000199/state_desire_q.raw",
+      "sha256": "10e2103ee73921931a7828ebdf325d3a3a64c7a90cc1da5c0ca6fe17b1e3dd78",
+      "source_sha256": "0d71643bfaa0cd6f10b638daa12819f01a0f6a53a07835eb11532b45ed90a244"
+    },
+    {
+      "file": "000199/state_feat_q.raw",
+      "sha256": "305c5277e5fe98df1f643cd7afc3d513ca5c8cbec675312c593ed418048b319e",
+      "source_sha256": "828fac186d6a857157fe8b9f222ca1deee49e0c16640fb63850e8b5c17010987"
+    },
+    {
+      "file": "000199/updated_state_img_q.raw",
+      "sha256": "3f70dae19bbe87fecae7fb1ceeb0fb2103c43586fd2c42b61cd8333736bde0be",
+      "source_sha256": "133adbcba5f46c028b0e0feae20935e32b4e3eb87a66fd5504416133ba386c16"
+    }
+  ],
+  "comparisons": [
+    {
+      "index": 132,
+      "head": "q8b_action",
+      "bitwise_equal": true,
+      "max_abs": 0.0
+    },
+    {
+      "index": 132,
+      "head": "q8b_desire_pred",
+      "bitwise_equal": true,
+      "max_abs": 0.0
+    },
+    {
+      "index": 132,
+      "head": "q8b_desire_state",
+      "bitwise_equal": true,
+      "max_abs": 0.0
+    },
+    {
+      "index": 132,
+      "head": "q8b_hidden_state",
+      "bitwise_equal": true,
+      "max_abs": 0.0
+    },
+    {
+      "index": 132,
+      "head": "q8b_lane_line_probs",
+      "bitwise_equal": true,
+      "max_abs": 0.0
+    },
+    {
+      "index": 132,
+      "head": "q8b_lane_lines",
+      "bitwise_equal": true,
+      "max_abs": 0.0
+    },
+    {
+      "index": 132,
+      "head": "q8b_lead",
+      "bitwise_equal": true,
+      "max_abs": 0.0
+    },
+    {
+      "index": 132,
+      "head": "q8b_lead_prob",
+      "bitwise_equal": true,
+      "max_abs": 0.0
+    },
+    {
+      "index": 132,
+      "head": "q8b_meta",
+      "bitwise_equal": true,
+      "max_abs": 0.0
+    },
+    {
+      "index": 132,
+      "head": "q8b_plan",
+      "bitwise_equal": true,
+      "max_abs": 0.0
+    },
+    {
+      "index": 132,
+      "head": "q8b_pose",
+      "bitwise_equal": true,
+      "max_abs": 0.0
+    },
+    {
+      "index": 132,
+      "head": "q8b_road_edges",
+      "bitwise_equal": true,
+      "max_abs": 0.0
+    },
+    {
+      "index": 132,
+      "head": "q8b_road_transform",
+      "bitwise_equal": true,
+      "max_abs": 0.0
+    },
+    {
+      "index": 132,
+      "head": "q8b_wide_from_device_euler",
+      "bitwise_equal": true,
+      "max_abs": 0.0
+    },
+    {
+      "index": 166,
+      "head": "q8b_action",
+      "bitwise_equal": true,
+      "max_abs": 0.0
+    },
+    {
+      "index": 166,
+      "head": "q8b_desire_pred",
+      "bitwise_equal": true,
+      "max_abs": 0.0
+    },
+    {
+      "index": 166,
+      "head": "q8b_desire_state",
+      "bitwise_equal": true,
+      "max_abs": 0.0
+    },
+    {
+      "index": 166,
+      "head": "q8b_hidden_state",
+      "bitwise_equal": true,
+      "max_abs": 0.0
+    },
+    {
+      "index": 166,
+      "head": "q8b_lane_line_probs",
+      "bitwise_equal": true,
+      "max_abs": 0.0
+    },
+    {
+      "index": 166,
+      "head": "q8b_lane_lines",
+      "bitwise_equal": true,
+      "max_abs": 0.0
+    },
+    {
+      "index": 166,
+      "head": "q8b_lead",
+      "bitwise_equal": true,
+      "max_abs": 0.0
+    },
+    {
+      "index": 166,
+      "head": "q8b_lead_prob",
+      "bitwise_equal": true,
+      "max_abs": 0.0
+    },
+    {
+      "index": 166,
+      "head": "q8b_meta",
+      "bitwise_equal": true,
+      "max_abs": 0.0
+    },
+    {
+      "index": 166,
+      "head": "q8b_plan",
+      "bitwise_equal": true,
+      "max_abs": 0.0
+    },
+    {
+      "index": 166,
+      "head": "q8b_pose",
+      "bitwise_equal": true,
+      "max_abs": 0.0
+    },
+    {
+      "index": 166,
+      "head": "q8b_road_edges",
+      "bitwise_equal": true,
+      "max_abs": 0.0
+    },
+    {
+      "index": 166,
+      "head": "q8b_road_transform",
+      "bitwise_equal": true,
+      "max_abs": 0.0
+    },
+    {
+      "index": 166,
+      "head": "q8b_wide_from_device_euler",
+      "bitwise_equal": true,
+      "max_abs": 0.0
+    },
+    {
+      "index": 199,
+      "head": "q8b_action",
+      "bitwise_equal": true,
+      "max_abs": 0.0
+    },
+    {
+      "index": 199,
+      "head": "q8b_desire_pred",
+      "bitwise_equal": true,
+      "max_abs": 0.0
+    },
+    {
+      "index": 199,
+      "head": "q8b_desire_state",
+      "bitwise_equal": true,
+      "max_abs": 0.0
+    },
+    {
+      "index": 199,
+      "head": "q8b_hidden_state",
+      "bitwise_equal": true,
+      "max_abs": 0.0
+    },
+    {
+      "index": 199,
+      "head": "q8b_lane_line_probs",
+      "bitwise_equal": true,
+      "max_abs": 0.0
+    },
+    {
+      "index": 199,
+      "head": "q8b_lane_lines",
+      "bitwise_equal": true,
+      "max_abs": 0.0
+    },
+    {
+      "index": 199,
+      "head": "q8b_lead",
+      "bitwise_equal": true,
+      "max_abs": 0.0
+    },
+    {
+      "index": 199,
+      "head": "q8b_lead_prob",
+      "bitwise_equal": true,
+      "max_abs": 0.0
+    },
+    {
+      "index": 199,
+      "head": "q8b_meta",
+      "bitwise_equal": true,
+      "max_abs": 0.0
+    },
+    {
+      "index": 199,
+      "head": "q8b_plan",
+      "bitwise_equal": true,
+      "max_abs": 0.0
+    },
+    {
+      "index": 199,
+      "head": "q8b_pose",
+      "bitwise_equal": true,
+      "max_abs": 0.0
+    },
+    {
+      "index": 199,
+      "head": "q8b_road_edges",
+      "bitwise_equal": true,
+      "max_abs": 0.0
+    },
+    {
+      "index": 199,
+      "head": "q8b_road_transform",
+      "bitwise_equal": true,
+      "max_abs": 0.0
+    },
+    {
+      "index": 199,
+      "head": "q8b_wide_from_device_euler",
+      "bitwise_equal": true,
+      "max_abs": 0.0
+    }
+  ],
+  "all42heads_bitwise_equal": true,
+  "qualification": "Three-case native-byte versus SDK float-file boundary check; not FP16 accuracy or self-recurrent proof"
+}
