@@ -1,5 +1,9 @@
 # Sunnypilot work history
 
+2026-11-02 — Owner selected camera work and deferred hardware settings. Mapped
+OpenCV capture, webcam publisher, process selection and Q8B geometry guard.
+No application change/capture run. [Session](Sessions/2026-11-02-camera-entry.md).
+
 2026-11-02 — Freshly inspected literal MM-X master and master-rk3588:11matched
 blobs/9AST parses. Corrected broad answer: full board telemetry is not required
 before webcam bring-up; MM-X leaves defaults/disables selected services. No

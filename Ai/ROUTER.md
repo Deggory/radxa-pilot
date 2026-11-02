@@ -1,5 +1,9 @@
 # Start here: Sunnypilot repository memory
 
+Current scope2026-11-02: owner deferred hardware-setting changes and selected
+camera work. Start [camera path](Knowledge/CAMERA_PATH.md), then HANDOFF. This
+supersedes the older camera-deferred/hardware-first statements below.
+
 Jetson hardware reference: [two teacher studies compared](Knowledge/JETSON_HARDWARE_REFERENCE.md).
 
 Current owner focus: [non-camera hardware/sensors](Knowledge/NONCAMERA_HARDWARE.md);

@@ -1,5 +1,18 @@
 # Resume Sunnypilot here
 
+## Current scope — camera work, 2026-11-02
+
+Owner explicitly deferred hardware-setting changes and selected cameras.
+Explained current webcam files; see [camera path](Knowledge/CAMERA_PATH.md).
+Start openpilot/system/camerad/webcam/camera.py (actual OpenCV capture), then
+webcam/camerad.py (device selection, NV12/IPC/messages), manager process selection
+and common/transformations/camera.py geometry. Existing source requests720p25fps,
+rotates180degrees; publisher loop20Hz with synthetic timestamps. Q8B geometry
+remains explicitly unconfigured. No source fix/camera launch yet. Next: recover
+teacher's actual camera/capture evidence and compare it to these contracts
+before a bounded implementation. H1 thermal plan remains pending/deferred;
+do not automatically resume it from older notes. No vehicle action authorized.
+
 2026-11-02 owner narrowed question to webcam-mode prerequisites and requested
 MM-X master/RK3588 evidence. Full hardware checklist is NOT required before
 initial webcam demonstration: RK3ad69b20 uses generic PC empty/zero/default

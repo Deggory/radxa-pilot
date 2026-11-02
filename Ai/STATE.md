@@ -1,5 +1,10 @@
 # Current Sunnypilot state
 
+Current scope2026-11-02: camera work selected, hardware settings deferred.
+Webcam source path identified; no capture/model run or application edit.
+See [HANDOFF](HANDOFF.md) and [camera path](Knowledge/CAMERA_PATH.md). Older
+camera-deferred/H1-next statements below are superseded for current work.
+
 ## End-of-day checkpoint — 2026-11-01
 
 Owner finishing work and requested shutdown after audit. Resume2026-11-02 with
