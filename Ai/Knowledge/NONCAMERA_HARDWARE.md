@@ -220,3 +220,22 @@ Jetson follow-up: [teacher-derived hardware comparison](JETSON_HARDWARE_REFERENC
 separates DragonPilot's actual thermal/INA-power/GPU/fan backend from Feiyang's
 external LSM6DS3/CH347 publisher overlay. Keep Q8B's own providers/native I²C9;
 no NVIDIA profile, calibration constants or sensor shortcut copied.
+
+## 2026-11-02 — Available temperature channels, read-only inventory
+
+Fresh inventory confirms55readable thermal zones and58hwmon temperature
+attributes;55hwmon names mirror thermal-zone names. Additional hwmon readings:
+NVMe Composite and smb2351_0_temp/smb2351_1_temp. This is channel availability,
+not58independent physical sensors or qualified physical placements.
+CPU0..7 each have2channels pluscluster0/1(18total); gpuss0..7(8); mem0/1(2);
+aoss0..3(4); nsp0 channels0..2(3); smss0/1(2); camss0/1(2); pcie0/1(2);
+audio/video(1each); PMIC-labelled pm8280-1/-2,pmc8280c,pmr735a(4); smb2351(1);
+eeprom,led,vbat(1each); top-left/top-right/left-edge/left-edge-2(4).
+Current UI shows hottest readable CPU/cluster and GPU values only. Other
+channels are readable but not added to UI/hardwared. Do not equate mem-labelled
+SoC channels with measured RAM-die temperature, CAMSS with the USB-camera
+sensor, or VBAT with car-battery temperature without board mapping evidence.
+Snapshot values change with workload and were read sequentially. No thermal
+stress test, new model/UI run, PWM write or application change performed.
+Sourcece7b047; raw snapshot: central ui-telemetry report/temperature-inventory.json.
+Git/source-first workflow used; REA binary analysis not applicable.

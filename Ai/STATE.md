@@ -364,3 +364,7 @@ to hide the Steering Arc toggle on `mici` (comma four). It does not change the
 lateral model/controller. Inspected and explained; not merged into the protected
 port. The notebook's original source-index pin became stale after the real
 update and was refreshed; the historical system review remains pinned to6f7.
+
+2026-11-02 read-only follow-up:55thermal zones/58hwmon temperature attributes
+confirmed, including NVMe and SMB2351 extras; UI/sourcece7b047 unchanged.
+See NONCAMERA_HARDWARE temperature inventory. No runtime test rerun.
