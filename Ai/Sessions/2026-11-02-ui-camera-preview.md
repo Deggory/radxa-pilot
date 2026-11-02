@@ -60,3 +60,17 @@ local actual UI/process/msgq/native Params source and exact package artifacts;
 real runtime/screenshot evidence collected. No unrelated REA binary analysis
 was needed or claimed. Next use live preview; current model/Adreno integration
 remains next engineering task, automatic calibration remains deferred.
+
+## Owner preview closed normally — 2026-11-02
+
+UI implementation536470bd4fe9ab9abb68f9af9320ee8b315aecd2 is committed.
+Owner-facing session controller12416/camera12417/UI12418 displayed849distinct
+camera frames over42.917s, then exited normally0/0; closure cause unconfirmed.
+No preview process remains. Prior1080p30MJPG/dynamic-framerate1 restored exactly.
+Reopen from Sunnypilot root with
+`.venv/bin/python -m openpilot.system.camerad.webcam.preview`.
+No model/vehicle processes started; automatic calibration remains deferred.
+
+Validation manifest creation initially stopped on the now-closed process check;
+regenerated against actual completed-session logs/restoration and attached to
+the implementation journal. Do not claim the UI is still running.

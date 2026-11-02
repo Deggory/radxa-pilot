@@ -1,5 +1,15 @@
 # Current Sunnypilot state
 
+## Owner preview closed normally — 2026-11-02
+
+UI implementation536470bd4fe9ab9abb68f9af9320ee8b315aecd2 is committed.
+Owner-facing session controller12416/camera12417/UI12418 displayed849distinct
+camera frames over42.917s, then exited normally0/0; closure cause unconfirmed.
+No preview process remains. Prior1080p30MJPG/dynamic-framerate1 restored exactly.
+Reopen from Sunnypilot root with
+`.venv/bin/python -m openpilot.system.camerad.webcam.preview`.
+No model/vehicle processes started; automatic calibration remains deferred.
+
 ## 2026-11-02 — Live Sunnypilot camera dashboard verified
 
 Owner requested opening the UI to view road-camera output. Added webcam/preview.py
