@@ -197,3 +197,8 @@ RED until tool implementation; do not mistake it for a failure of this slice.
 conversion/timing and separated it from small W8A8 failure. Model identity and
 floating-reference accuracy remain open; no runtime change.
 [Review](Sessions/2026-11-02-big-model-npu.md).
+
+2026-11-02 — Teacher-first Thneed lookup recovered actual exporter/native replay,
+matched comparison and20min-soak evidence. Fresh artifact hash passes; no inference
+rerun. Promoted old/current model difference and reusable approach.
+[Session](Sessions/2026-11-02-teacher-thneed.md).

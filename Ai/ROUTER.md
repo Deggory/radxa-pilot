@@ -1,3 +1,6 @@
+2026-11-02 GPU reference: [teacher Thneed pipeline](Knowledge/THNEED_GPU_REFERENCE.md)
+records tested exporter/replay, exact artifacts and sustained timings; old model differs from current CD210.
+
 # Start here: Sunnypilot repository memory
 
 2026-11-02 latest: actual Sunnypilot onroad camera preview now verified;

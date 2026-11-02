@@ -1,5 +1,16 @@
 # Resume Sunnypilot here
 
+## 2026-11-02 — Teacher Thneed pipeline recovered
+
+Prior portable OpenCL Thneed small-model pipeline is already implemented and
+bench-tested:20min/24101steady frames at20Hz, model11.724msmedian/12.348msp95,
+camera→output35.417/39.721ms under maxCPU/GPU690/EGL/partial-JPEG profile.
+Fresh existing driving-02 artifact hash matcheseb741641. Old659727c4 weights
+are different from currentCD21065a08adc. Reuse exporter/replay design after
+current-contract/parity qualification; no new runtime port/run in this task.
+[Reusable methods, files, pins and limits](Knowledge/THNEED_GPU_REFERENCE.md).
+[Session](Sessions/2026-11-02-teacher-thneed.md). Camera optimisation stays deferred.
+
 ## 2026-11-02 — Big model NPU feasibility reviewed
 
 Bundled big Tinygrad artifact targets Chestnut/AMD, not direct QNN loading.
