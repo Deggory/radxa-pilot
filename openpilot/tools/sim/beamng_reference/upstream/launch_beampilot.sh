@@ -1,0 +1,111 @@
+#!/usr/bin/env bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+source "$DIR/config_beampilot.sh"
+
+# One beampilot manager per user. msgq allows a later publisher to evict an
+# earlier one, so accidentally launching this script in a second terminal does
+# not fail cleanly on its own -- it leaves the two stacks fighting over named
+# services. Keep this fd open across the final exec so the lock lives exactly
+# as long as manager does.
+exec 9>"/tmp/beampilot-${UID}.lock"
+if ! flock -n 9; then
+  echo "beampilot is already running for user ${USER:-$UID}; stop the existing stack before launching another" >&2
+  exit 1
+fi
+
+# msgq applies OPENPILOT_PREFIX as a subdirectory but does not create that
+# subdirectory itself (the test-only OpenpilotPrefix helper normally does).
+# Every publisher would otherwise fail its first connect.
+mkdir -p "/dev/shm/msgq_${OPENPILOT_PREFIX}" || {
+  echo "could not create beampilot's isolated msgq directory" >&2
+  exit 1
+}
+
+# FINGERPRINT is BEAMPILOT by default, which lives in this repo rather than in
+# the opendbc submodule (see tools/install_beampilot_car.py). A `git submodule
+# update` silently reverts the two lines that register it, and the symptom is
+# openpilot failing to start on a car it cannot find -- so repair it here rather
+# than only at setup time. Silent and instant when nothing is wrong.
+python3 "$DIR/tools/install_beampilot_car.py" --quiet || {
+  echo "could not install the BEAMPILOT opendbc platform; falling back to HONDA_CIVIC_2022"
+  export FINGERPRINT="HONDA_CIVIC_2022"
+}
+
+# BEAMPILOT_COMFORT_BRAKE_SCALE is compiled straight into the acados MPC
+# solver's C code (long_mpc.py's gen_long_ocp()), unlike every other BEAMPILOT_*
+# limit, which is read live. There used to be a touch-the-source-file + sentinel
+# hack here to force the rebuild; it never worked -- SConstruct sets
+# Decider('MD5-timestamp'), so a touch with unchanged content is still "up to
+# date". The rebuild is now driven properly, by an env.Value() dependency in
+# longitudinal_mpc_lib/SConscript, and SConstruct passes BEAMPILOT_* into the
+# build environment so the codegen can actually see the value. Nothing to do
+# here beyond having sourced config_beampilot.sh above.
+
+# Seeds CalibrationParams (validBlocks=20, rpyCalib=[0,0,0]) only when there
+# is no learned calibration yet, so calibrationd starts "calibrated" instead
+# of requiring minutes of sustained 15+mph
+# straight-line driving to converge on its own (see calibrationd.py's
+# MIN_SPEED_FILTER/INPUTS_NEEDED gating) -- reasonable here since
+# openpilot_cam is a rigidly-mounted, always-level virtual camera, not a
+# real one whose pose is actually unknown at startup. Also sets
+# HasAcceptedTerms/OpenpilotEnabledToggle so onboarding doesn't block
+# engagement. This mutates only the one-off python subprocess's own
+# environment, not this shell's -- FINGERPRINT stays whatever
+# config_beampilot.sh already exported. Preserving an existing value is what
+# makes an in-game reset followed by live convergence survive the next launch.
+python3 -c "from openpilot.common.params import Params; from openpilot.selfdrive.test.helpers import set_params_enabled; p=Params(); saved=p.get('CalibrationParams'); set_params_enabled(); p.put('CalibrationParams', saved, block=True) if saved else None"
+
+# BEAMPILOT_CALIBRATION controls what the above did to CalibrationParams.
+#   instant (default) -- keep a learned calibration, or the level zero seed on
+#                        the first launch, usable from the first second.
+#   live              -- clear it: calibrationd converges from real driving, and
+#                        openpilot will NOT engage until it has (minutes of
+#                        sustained straight driving above 15mph -- see
+#                        MIN_SPEED_FILTER / INPUTS_NEEDED in calibrationd.py).
+# Note calibrationd keeps refining either way; the seed only decides the
+# starting point. "live" is more honest on a car whose camera pose genuinely
+# isn't level, where a zero seed is a wrong answer rather than a head start.
+if [ "${BEAMPILOT_CALIBRATION:-instant}" = "live" ]; then
+  python3 -c "from openpilot.common.params import Params; Params().remove('CalibrationParams')"
+  echo "calibration: live -- openpilot will not engage until calibrationd converges"
+fi
+
+# Hand LONGITUDINAL (speed) control to openpilot. Without this, honda's
+# interface.py sets openpilotLongitudinalControl=False / pcmCruise=True, meaning
+# openpilot steers but expects the CAR's own ACC to manage speed -- and BeamNG
+# has no ACC, so nothing accelerates or holds speed at all. The MetaDrive/CARLA
+# bridges set this same param for the same reason (tools/sim/bridge/common.py).
+# Must be set before card.py reads it during fingerprinting, hence here.
+python3 -c "from openpilot.common.params import Params; Params().put_bool('AlphaLongitudinalEnabled', True, block=True)"
+
+# Following distance / how late it brakes for the car ahead. This is a stored
+# param, not an env var, so it persists between runs -- set it explicitly here
+# rather than leaving whatever a previous session left behind.
+#   0 = aggressive (T_FOLLOW 1.25s, jerk factor 0.5 -- brakes latest)
+#   1 = standard   (T_FOLLOW 1.45s)
+#   2 = relaxed    (T_FOLLOW 1.75s -- brakes earliest)
+# See get_T_FOLLOW/get_jerk_factor in longitudinal_mpc_lib/long_mpc.py.
+python3 -c "
+from openpilot.common.params import Params
+import os
+Params().put('LongitudinalPersonality', int(os.environ.get('BEAMPILOT_PERSONALITY', '1')), block=True)
+"
+
+# Optional countdown before handing off, to give you time to tab into BeamNG.
+# Off by default: the build and process startup take long enough on their own
+# that there's no window to miss. Set BEAMPILOT_LAUNCH_DELAY to a number of
+# seconds if you want one.
+delay="${BEAMPILOT_LAUNCH_DELAY:-0}"
+if [ "$delay" -gt 0 ] 2>/dev/null; then
+  echo ""
+  echo ">>> Switch to the BeamNG.drive window now -- starting in ${delay}s <<<"
+  while [ "$delay" -gt 0 ]; do
+    echo "  $delay..."
+    sleep 1
+    delay=$((delay - 1))
+  done
+fi
+
+echo "Starting..."
+exec ./launch_chffrplus.sh

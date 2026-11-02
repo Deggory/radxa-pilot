@@ -1,0 +1,760 @@
+{
+  "repository": "https://github.com/Caleb-J773/beampilot-drive",
+  "requested_directory": "https://github.com/Caleb-J773/beampilot-drive/tree/master/tools",
+  "source_commit": "5435d67499f66eca58f95882cbe35e9c577e874c",
+  "collected_utc_date": "2026-11-02",
+  "kind": "unmodified reference source; not installed into runtime",
+  "files": [
+    {
+      "path": "upstream/tools/beamng_mod/beampilot_bridge/info.json",
+      "source_path": "tools/beamng_mod/beampilot_bridge/info.json",
+      "category": "tools",
+      "source_mode": "100644",
+      "git_blob_sha1": "2f4244f38932a24624b4c65e372f962dfcfa5a30",
+      "sha256": "8ec47d587187193b64cdc8698d6999b304d17f4627b6041717aec9eb3faeba31",
+      "bytes": 217
+    },
+    {
+      "path": "upstream/tools/beamng_mod/beampilot_bridge/lua/vehicle/protocols/beampilot.lua",
+      "source_path": "tools/beamng_mod/beampilot_bridge/lua/vehicle/protocols/beampilot.lua",
+      "category": "tools",
+      "source_mode": "100644",
+      "git_blob_sha1": "dd4386a52911853aaf4252a7359a40a059b66606",
+      "sha256": "44e823ba13af4868c494de31a0dacd87e129b6258efb5804b441c071b8287bd7",
+      "bytes": 63268
+    },
+    {
+      "path": "upstream/tools/beamng_mod/openpilot_cam/info.json",
+      "source_path": "tools/beamng_mod/openpilot_cam/info.json",
+      "category": "tools",
+      "source_mode": "100644",
+      "git_blob_sha1": "0403466524ce3ef4231e873297a5b91a44aaed3b",
+      "sha256": "d453fefa7fb2ffb8b98e36595a523bcc85e27b6ec17dc3f307f85b5acf227e23",
+      "bytes": 198
+    },
+    {
+      "path": "upstream/tools/beamng_mod/openpilot_cam/lua/ge/extensions/beampilotCameraTuner.lua",
+      "source_path": "tools/beamng_mod/openpilot_cam/lua/ge/extensions/beampilotCameraTuner.lua",
+      "category": "tools",
+      "source_mode": "100644",
+      "git_blob_sha1": "1e8cfc7a2c41eb3e03cea08ad0151f4a0883d29a",
+      "sha256": "83d99415155ff0958a7e03eaad09022ca2f05c9e95d398c0d00e3f77673758b6",
+      "bytes": 13570
+    },
+    {
+      "path": "upstream/tools/beamng_mod/openpilot_cam/lua/ge/extensions/core/cameraModes/openpilot.lua",
+      "source_path": "tools/beamng_mod/openpilot_cam/lua/ge/extensions/core/cameraModes/openpilot.lua",
+      "category": "tools",
+      "source_mode": "100644",
+      "git_blob_sha1": "187ffd03b4929a62e4666b9dbd8b365f8df2ff9f",
+      "sha256": "6ce5d606d8b25ed2b7211b9b33d01bc0db0d0aeee82decd0b909e443e376f05a",
+      "bytes": 10076
+    },
+    {
+      "path": "upstream/tools/beamng_mod/openpilot_cam/ui/ui-vue/mods/beampilot_camera/CameraTuner.vue",
+      "source_path": "tools/beamng_mod/openpilot_cam/ui/ui-vue/mods/beampilot_camera/CameraTuner.vue",
+      "category": "tools",
+      "source_mode": "100644",
+      "git_blob_sha1": "9b7e0689b05a097617032e4c50d32e4c52ba3ccb",
+      "sha256": "73844a02a65e755dc8609f47fb226bfc893316f52acebb75d8ca15fa6cf388a9",
+      "bytes": 6853
+    },
+    {
+      "path": "upstream/tools/beamng_mod/openpilot_cam/ui/ui-vue/mods/beampilot_camera/index.js",
+      "source_path": "tools/beamng_mod/openpilot_cam/ui/ui-vue/mods/beampilot_camera/index.js",
+      "category": "tools",
+      "source_mode": "100644",
+      "git_blob_sha1": "ef48bd2b563342975e1a8efdc8ae5becd4269243",
+      "sha256": "3915d666e491f9c3357c16b727616eeea3e9cbaec715d95f03fb739cb533c0d1",
+      "bytes": 497
+    },
+    {
+      "path": "upstream/tools/beamng_mod/test_beampilot_bsm.lua",
+      "source_path": "tools/beamng_mod/test_beampilot_bsm.lua",
+      "category": "tools",
+      "source_mode": "100644",
+      "git_blob_sha1": "43869fd1229ef2ce85cb0ac49edaa0ad945e9998",
+      "sha256": "3fa71985a08cf41f9985077c556245842a7dd87e00ec644b70909c19386bec08",
+      "bytes": 19736
+    },
+    {
+      "path": "upstream/tools/beamng_mod/test_beampilot_camera_tuner.lua",
+      "source_path": "tools/beamng_mod/test_beampilot_camera_tuner.lua",
+      "category": "tools",
+      "source_mode": "100644",
+      "git_blob_sha1": "78ec0f3b6d6adffda27747030a222fe56d00f64d",
+      "sha256": "e0b9c2ebee7e126acdd1b7fe479283b4dfd5a365e8986301ac66da50ff8efff7",
+      "bytes": 7892
+    },
+    {
+      "path": "upstream/tools/beamng_mod/test_beampilot_recovery.lua",
+      "source_path": "tools/beamng_mod/test_beampilot_recovery.lua",
+      "category": "tools",
+      "source_mode": "100644",
+      "git_blob_sha1": "8af6b0ccfd938ac806d4a7e6f0ff2faedd298a63",
+      "sha256": "e033334be527e5f28213f24e837b5e7a04ca9123a631bf563b17ff3e4e7abfe5",
+      "bytes": 7403
+    },
+    {
+      "path": "upstream/tools/beampilot_diag.py",
+      "source_path": "tools/beampilot_diag.py",
+      "category": "tools",
+      "source_mode": "100644",
+      "git_blob_sha1": "01075bd6bf099a7e8692f8a013219a93f954ffdf",
+      "sha256": "0d269dd3b7ac533f16a323e15e2a821c0dbdca767134b20ef4476d5d8e943cc4",
+      "bytes": 5564
+    },
+    {
+      "path": "upstream/tools/beampilot_monitor.py",
+      "source_path": "tools/beampilot_monitor.py",
+      "category": "tools",
+      "source_mode": "100644",
+      "git_blob_sha1": "487acbafda3bca817b18568c9d379e541ff55e01",
+      "sha256": "5c87be76f4d2ca3855e34bb67bc77e0b3d1e6235dcebcf05782ab045e908a8ee",
+      "bytes": 16662
+    },
+    {
+      "path": "upstream/tools/beampilot_setup.py",
+      "source_path": "tools/beampilot_setup.py",
+      "category": "tools",
+      "source_mode": "100644",
+      "git_blob_sha1": "cb0d9c71288b2e38fdf488c8f160128bdc2bc862",
+      "sha256": "cbedee3e4d4f3bbb11596e7420b7e936f141136da7049069a9f52729655a9e5b",
+      "bytes": 23821
+    },
+    {
+      "path": "upstream/tools/beampilot_tui.py",
+      "source_path": "tools/beampilot_tui.py",
+      "category": "tools",
+      "source_mode": "100644",
+      "git_blob_sha1": "8423e1b27ab91f83b5d948061294af9d86e8e7d2",
+      "sha256": "53f570f2d16fb3352eb8f67a7a6c1e081f8f99ba2d2b2ed10c0300e3610c9a20",
+      "bytes": 58699
+    },
+    {
+      "path": "upstream/tools/install_beampilot_car.py",
+      "source_path": "tools/install_beampilot_car.py",
+      "category": "tools",
+      "source_mode": "100755",
+      "git_blob_sha1": "2341a5700c947d9937783ded6388c752738abf51",
+      "sha256": "0adb7b5dfa578edaaba25bf258efea4ba666ef1f41c4553299984232c5081c47",
+      "bytes": 6497
+    },
+    {
+      "path": "upstream/tools/opendbc_beampilot_car/__init__.py",
+      "source_path": "tools/opendbc_beampilot_car/__init__.py",
+      "category": "tools",
+      "source_mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "upstream/tools/opendbc_beampilot_car/carcontroller.py",
+      "source_path": "tools/opendbc_beampilot_car/carcontroller.py",
+      "category": "tools",
+      "source_mode": "100644",
+      "git_blob_sha1": "9ab2437f706abd183cd47737dcd0e7b5d2c97a5b",
+      "sha256": "6d33cbf9be59513b50b5380b1f71d7d7ba0edcca8f9a862769d6f7326b37ac69",
+      "bytes": 487
+    },
+    {
+      "path": "upstream/tools/opendbc_beampilot_car/carstate.py",
+      "source_path": "tools/opendbc_beampilot_car/carstate.py",
+      "category": "tools",
+      "source_mode": "100644",
+      "git_blob_sha1": "325b977698a7e783556fe91c27d17a6c81e8ad38",
+      "sha256": "49e4a2dbcbc58aaad925d6b9b8a475ea1f7b69af7c0fe0815643346e66c85a26",
+      "bytes": 300
+    },
+    {
+      "path": "upstream/tools/opendbc_beampilot_car/interface.py",
+      "source_path": "tools/opendbc_beampilot_car/interface.py",
+      "category": "tools",
+      "source_mode": "100644",
+      "git_blob_sha1": "3b0b9ac9ca1cd360d537396e2ce6eeb72467d557",
+      "sha256": "ca04ae4b1ef1360b1973ed7fa38ad141b6cfc3ac50fa3ce3d30e19e630082384",
+      "bytes": 6978
+    },
+    {
+      "path": "upstream/tools/opendbc_beampilot_car/radar_interface.py",
+      "source_path": "tools/opendbc_beampilot_car/radar_interface.py",
+      "category": "tools",
+      "source_mode": "100644",
+      "git_blob_sha1": "f6be5320de0780386e21d49b4a524616d7988f60",
+      "sha256": "c76bc6de9fa6d6761b2dec0a96f31fa3bceb4fdb92c87c1748bb3c11014ff8a8",
+      "bytes": 337
+    },
+    {
+      "path": "upstream/tools/opendbc_beampilot_car/values.py",
+      "source_path": "tools/opendbc_beampilot_car/values.py",
+      "category": "tools",
+      "source_mode": "100644",
+      "git_blob_sha1": "edc4bd27c28636e80fc84328b9400ed7dfb2a2fa",
+      "sha256": "2305bd187d179b8c40fc58d6fd80c709251de2d874e774c9f78b6d90794753de",
+      "bytes": 3652
+    },
+    {
+      "path": "upstream/tools/setup.sh",
+      "source_path": "tools/setup.sh",
+      "category": "tools",
+      "source_mode": "100755",
+      "git_blob_sha1": "ced451ab11adfc83bd6b8797745c95c44dee3143",
+      "sha256": "12f1f8a977fef352af6d07b03fd4d35ea50911413185e022655e178033dc18cc",
+      "bytes": 4176
+    },
+    {
+      "path": "upstream/tools/setup_dependencies.sh",
+      "source_path": "tools/setup_dependencies.sh",
+      "category": "tools",
+      "source_mode": "100755",
+      "git_blob_sha1": "5ad833a5cae0eca12bfef1b6d1c07276cca6994f",
+      "sha256": "4dd67c20772f12945e9350af404c81d07dbcf0508cd4ce3ca14e2f654898138b",
+      "bytes": 5106
+    },
+    {
+      "path": "upstream/tools/test_beampilot_tui.py",
+      "source_path": "tools/test_beampilot_tui.py",
+      "category": "tools",
+      "source_mode": "100644",
+      "git_blob_sha1": "9b774988825eb53c9d5549420965c9e0f3d294c4",
+      "sha256": "310e2addb5bbc69e08cf48b3a770dd5ad790da4b335c19d2b57dcb56a064f85d",
+      "bytes": 17113
+    },
+    {
+      "path": "upstream/openpilot/common/beampilot_bsm.py",
+      "source_path": "openpilot/common/beampilot_bsm.py",
+      "category": "runtime_support",
+      "source_mode": "100644",
+      "git_blob_sha1": "da36307d4997679d209741e3d5cff2118688cac1",
+      "sha256": "8c61710cc23f2f0264eefe0d2a7055256cfda9a1fac3f1bc4eca7c49ebfb8b16",
+      "bytes": 9473
+    },
+    {
+      "path": "upstream/openpilot/common/beampilot_camera.py",
+      "source_path": "openpilot/common/beampilot_camera.py",
+      "category": "runtime_support",
+      "source_mode": "100644",
+      "git_blob_sha1": "bf1f9a83a8e4efdd70e0977d1e735a42e38cc0de",
+      "sha256": "c705285e3861675fdbe1b448cdf7e2057925b0a18dec1e6de7245ff76d0f5ea1",
+      "bytes": 3947
+    },
+    {
+      "path": "upstream/openpilot/common/beampilot_env.py",
+      "source_path": "openpilot/common/beampilot_env.py",
+      "category": "runtime_support",
+      "source_mode": "100644",
+      "git_blob_sha1": "8b4f55201facc70f54c2d07d63385467cab9e8ef",
+      "sha256": "945ab128a61a2c7eb19fa50569f061c3ed7eacc213cfcbd50700e5b077a44e1c",
+      "bytes": 1411
+    },
+    {
+      "path": "upstream/openpilot/common/beampilot_limits.py",
+      "source_path": "openpilot/common/beampilot_limits.py",
+      "category": "runtime_support",
+      "source_mode": "100644",
+      "git_blob_sha1": "61b8460e8a89eafeaffa0633cc29105fbd423ac8",
+      "sha256": "37d9dd7e629f955913036d3851e2d8199f83d5ee8afbf5978c60303d03931dfd",
+      "bytes": 7256
+    },
+    {
+      "path": "upstream/openpilot/common/beampilot_radar.py",
+      "source_path": "openpilot/common/beampilot_radar.py",
+      "category": "runtime_support",
+      "source_mode": "100644",
+      "git_blob_sha1": "3308728345971c91dd5e6c904f9499759f213099",
+      "sha256": "0bf4c844234fe2f6c3cec3481f2cf49e9e93a7a55b14562af67ccfe34c1719ff",
+      "bytes": 8891
+    },
+    {
+      "path": "upstream/openpilot/common/beampilot_vehicle.py",
+      "source_path": "openpilot/common/beampilot_vehicle.py",
+      "category": "runtime_support",
+      "source_mode": "100644",
+      "git_blob_sha1": "bb5f0f8e34e72489ab4e37962e7af68e9ddcd301",
+      "sha256": "ec9f110587bf67900c7212c8593b0a56979a5b38be0b42b0d0ce222640ee71d7",
+      "bytes": 22406
+    },
+    {
+      "path": "upstream/openpilot/selfdrive/beamcamd/__init__.py",
+      "source_path": "openpilot/selfdrive/beamcamd/__init__.py",
+      "category": "runtime_support",
+      "source_mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "upstream/openpilot/selfdrive/beamcamd/beamcamd.py",
+      "source_path": "openpilot/selfdrive/beamcamd/beamcamd.py",
+      "category": "runtime_support",
+      "source_mode": "100644",
+      "git_blob_sha1": "b051b514dc7a5ffcabfdfad4c1473675818ea25a",
+      "sha256": "bc6fb86d6ac2ad0299093a315421ed64f6025b7ba87bc180f69fad23bdce859e",
+      "bytes": 33545
+    },
+    {
+      "path": "upstream/openpilot/selfdrive/beamcamd/portal_capture.py",
+      "source_path": "openpilot/selfdrive/beamcamd/portal_capture.py",
+      "category": "runtime_support",
+      "source_mode": "100644",
+      "git_blob_sha1": "ee534f829ef8e6d5993d2f3678806467d98096ad",
+      "sha256": "ce3d9a1095d5e5bc984217a0381cefbb132a2ddc5ac18b19aa76c9e9c4ecf5e8",
+      "bytes": 13420
+    },
+    {
+      "path": "upstream/openpilot/selfdrive/beamcamd/test_capture_geometry.py",
+      "source_path": "openpilot/selfdrive/beamcamd/test_capture_geometry.py",
+      "category": "runtime_support",
+      "source_mode": "100644",
+      "git_blob_sha1": "2bc794bbe2353ba42a08047f72e8659168b4838c",
+      "sha256": "89ec1458863a2827e450c11f82cc54d1b8d7e3e61d5647d520c56f28e987da69",
+      "bytes": 9801
+    },
+    {
+      "path": "upstream/openpilot/selfdrive/beamcamd/test_window_capture.py",
+      "source_path": "openpilot/selfdrive/beamcamd/test_window_capture.py",
+      "category": "runtime_support",
+      "source_mode": "100644",
+      "git_blob_sha1": "e70fa61b89a5137dde80d3d3ffa19a698a859fcf",
+      "sha256": "7960200642b43f4bcd4b62cfdbfa07bd7afeb947846aae689f778fb1ba2aaf88",
+      "bytes": 5248
+    },
+    {
+      "path": "upstream/openpilot/selfdrive/beamcamd/window_capture.py",
+      "source_path": "openpilot/selfdrive/beamcamd/window_capture.py",
+      "category": "runtime_support",
+      "source_mode": "100644",
+      "git_blob_sha1": "32bbda819f64d888c1fab45606a54d758777b5c2",
+      "sha256": "932092aa479ce2d69c275b73b12e0d89d6e57173db551ed2aaa01c691da3c107",
+      "bytes": 18825
+    },
+    {
+      "path": "upstream/openpilot/selfdrive/beamngd/__init__.py",
+      "source_path": "openpilot/selfdrive/beamngd/__init__.py",
+      "category": "runtime_support",
+      "source_mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "upstream/openpilot/selfdrive/beamngd/beamngd.py",
+      "source_path": "openpilot/selfdrive/beamngd/beamngd.py",
+      "category": "runtime_support",
+      "source_mode": "100644",
+      "git_blob_sha1": "1dc9f503a726fd15b0f22edb1a1a910a8e1cd960",
+      "sha256": "2235e8261958bc446456190e0146c333ec97f014da81b93943ed78b7e44f7539",
+      "bytes": 54521
+    },
+    {
+      "path": "upstream/openpilot/selfdrive/beamngd/test_bsm.py",
+      "source_path": "openpilot/selfdrive/beamngd/test_bsm.py",
+      "category": "runtime_support",
+      "source_mode": "100644",
+      "git_blob_sha1": "c3456b1ae55d1a7214ecb001cb0abc5852f45133",
+      "sha256": "b779b16a2fe96037be7fd5c0905a328cddbad2fcb58d40ab1b54dd4d0fb350f5",
+      "bytes": 9017
+    },
+    {
+      "path": "upstream/openpilot/selfdrive/beamngd/test_camera_calibration.py",
+      "source_path": "openpilot/selfdrive/beamngd/test_camera_calibration.py",
+      "category": "runtime_support",
+      "source_mode": "100644",
+      "git_blob_sha1": "09511cadfcd4dbc462c14fc5b62770915f71846e",
+      "sha256": "412bf0317569dc83e5855cfd9915ca9556b34b5d896d81caf98ad196706ce771",
+      "bytes": 1874
+    },
+    {
+      "path": "upstream/openpilot/selfdrive/beamngd/test_carstate_signals.py",
+      "source_path": "openpilot/selfdrive/beamngd/test_carstate_signals.py",
+      "category": "runtime_support",
+      "source_mode": "100644",
+      "git_blob_sha1": "6d1b78c8e5561fe924db24a4c08f02df615faf37",
+      "sha256": "acb5d994b6b7100ebeb9cce3c4d3891530018302ea78e1ede84ffd8422ca3f23",
+      "bytes": 8759
+    },
+    {
+      "path": "upstream/openpilot/selfdrive/beamngd/test_radar.py",
+      "source_path": "openpilot/selfdrive/beamngd/test_radar.py",
+      "category": "runtime_support",
+      "source_mode": "100644",
+      "git_blob_sha1": "95d24c4eebf1cfeac15d5d8cddab5cfc29a5dcd8",
+      "sha256": "f4ec8515d717d438e0f8f1d38349d660a8d141718a774a9940fb003090be2e23",
+      "bytes": 6545
+    },
+    {
+      "path": "upstream/openpilot/selfdrive/beamngd/test_vehicle_geometry.py",
+      "source_path": "openpilot/selfdrive/beamngd/test_vehicle_geometry.py",
+      "category": "runtime_support",
+      "source_mode": "100644",
+      "git_blob_sha1": "b56dcc69a3949d55b107a85d2780dbb3fd9e8321",
+      "sha256": "b97b838b0afb622b5191db8db137ae19f12cc2077ad645aa0731d9b37019c985",
+      "bytes": 3601
+    },
+    {
+      "path": "upstream/openpilot/selfdrive/beamngd/virtual_joystick.py",
+      "source_path": "openpilot/selfdrive/beamngd/virtual_joystick.py",
+      "category": "runtime_support",
+      "source_mode": "100644",
+      "git_blob_sha1": "07a1a5a40d6dbc1ce77ae938ac8e70c28fbbd22f",
+      "sha256": "e8215aeb6563216c7c5c7e89bb5cbe8e59d075b61be481aff8a597feefbfc1e0",
+      "bytes": 2926
+    },
+    {
+      "path": "upstream/openpilot/selfdrive/controls/controlsd.py",
+      "source_path": "openpilot/selfdrive/controls/controlsd.py",
+      "category": "integration_snapshot",
+      "source_mode": "100755",
+      "git_blob_sha1": "aef92fb7abd71ac582eea7d62237b00afef5923b",
+      "sha256": "cce4689f8942472cf89ce22dfd5a787859a76168475b00821fa547d889939914",
+      "bytes": 10816
+    },
+    {
+      "path": "upstream/openpilot/selfdrive/controls/lib/beampilot_curve.py",
+      "source_path": "openpilot/selfdrive/controls/lib/beampilot_curve.py",
+      "category": "runtime_support",
+      "source_mode": "100644",
+      "git_blob_sha1": "9dc55aea2edadf41d6eec982e43dfcd7cd3df7d1",
+      "sha256": "058667947cac8e864282afdf8c4010c3fb47a41fe5a5bf1284c2f89a41a23f10",
+      "bytes": 7499
+    },
+    {
+      "path": "upstream/openpilot/selfdrive/controls/lib/desire_helper.py",
+      "source_path": "openpilot/selfdrive/controls/lib/desire_helper.py",
+      "category": "integration_snapshot",
+      "source_mode": "100644",
+      "git_blob_sha1": "4e96c8e8f7e83c9180f427f1af16ca7e373dd3ba",
+      "sha256": "cef5b21163e3a8cda24da4fe45545c79ccfb62467210d4c72a3c67c111859b4a",
+      "bytes": 8475
+    },
+    {
+      "path": "upstream/openpilot/selfdrive/controls/lib/drive_helpers.py",
+      "source_path": "openpilot/selfdrive/controls/lib/drive_helpers.py",
+      "category": "integration_snapshot",
+      "source_mode": "100644",
+      "git_blob_sha1": "b218523a204ae847dfdc64680a9c49fee89836ba",
+      "sha256": "dbc78958d78a34f173ef1e357087b2c7cff30082e5163f02ed56cbd7293512da",
+      "bytes": 3082
+    },
+    {
+      "path": "upstream/openpilot/selfdrive/controls/lib/latcontrol.py",
+      "source_path": "openpilot/selfdrive/controls/lib/latcontrol.py",
+      "category": "integration_snapshot",
+      "source_mode": "100644",
+      "git_blob_sha1": "d69796738f35f1c80d869480e0a83238bb9d8e9a",
+      "sha256": "7c373878846854f6964015e07d1eb105477fadaccaecd451e7f08073a103ad20",
+      "bytes": 1040
+    },
+    {
+      "path": "upstream/openpilot/selfdrive/controls/lib/longitudinal_planner.py",
+      "source_path": "openpilot/selfdrive/controls/lib/longitudinal_planner.py",
+      "category": "integration_snapshot",
+      "source_mode": "100755",
+      "git_blob_sha1": "114f32691e8ff5a5e4d5b5e85400d91884f29a96",
+      "sha256": "397332d301c22ed0072fa50d3966ebf3bda948bb099ec0011a5246187983e67a",
+      "bytes": 10292
+    },
+    {
+      "path": "upstream/openpilot/selfdrive/controls/radard.py",
+      "source_path": "openpilot/selfdrive/controls/radard.py",
+      "category": "integration_snapshot",
+      "source_mode": "100755",
+      "git_blob_sha1": "0ae20b94f936be7c19c1a7ad9aee43c557ca1062",
+      "sha256": "58df2cc64fff768262d3b5a2a4f6d34873863c2def8a993a7d4f4adb9e340460",
+      "bytes": 14460
+    },
+    {
+      "path": "upstream/openpilot/selfdrive/controls/test_beampilot_curve.py",
+      "source_path": "openpilot/selfdrive/controls/test_beampilot_curve.py",
+      "category": "runtime_support",
+      "source_mode": "100644",
+      "git_blob_sha1": "17b5716b25ba7f1a38d20dca68a0693e9fd979fa",
+      "sha256": "fbdb966cd8c3e2274f78f0f0eabc8f518df41d8106461514bbbf53120f246c6d",
+      "bytes": 9007
+    },
+    {
+      "path": "upstream/openpilot/selfdrive/controls/test_beampilot_limits.py",
+      "source_path": "openpilot/selfdrive/controls/test_beampilot_limits.py",
+      "category": "runtime_support",
+      "source_mode": "100644",
+      "git_blob_sha1": "d70c8bea8ebf2ba3453d9be5cbcfa02e90ee7032",
+      "sha256": "34c626e2867f156d2280593aeed0bb8e771a22692b6c25bfd318affc8ab90445",
+      "bytes": 8121
+    },
+    {
+      "path": "upstream/openpilot/selfdrive/controls/test_radard_beampilot.py",
+      "source_path": "openpilot/selfdrive/controls/test_radard_beampilot.py",
+      "category": "runtime_support",
+      "source_mode": "100644",
+      "git_blob_sha1": "e6704248976f89a2eb759b053e261276d3fac3f9",
+      "sha256": "b2180353def526c34fa70a5b29974cc0e9e0658c1de265643dd413b1edbd99e5",
+      "bytes": 8857
+    },
+    {
+      "path": "upstream/openpilot/selfdrive/modeld/SConscript",
+      "source_path": "openpilot/selfdrive/modeld/SConscript",
+      "category": "integration_snapshot",
+      "source_mode": "100644",
+      "git_blob_sha1": "bbb698bc2ad099f3ea31d21e16636207e9d84762",
+      "sha256": "b6755b7604e4f1fcb16d0a2dd36e988777f8087941e0b999d7c5dab4a85eecf0",
+      "bytes": 8788
+    },
+    {
+      "path": "upstream/openpilot/selfdrive/modeld/beampilot_build.py",
+      "source_path": "openpilot/selfdrive/modeld/beampilot_build.py",
+      "category": "runtime_support",
+      "source_mode": "100644",
+      "git_blob_sha1": "fce11cb79058488c193be778199f3754848e049a",
+      "sha256": "9c4ebcf6eb235beec1cee4350cbc3c0354caebf9777666a28352211f8bbb4d02",
+      "bytes": 750
+    },
+    {
+      "path": "upstream/openpilot/selfdrive/modeld/helpers.py",
+      "source_path": "openpilot/selfdrive/modeld/helpers.py",
+      "category": "integration_snapshot",
+      "source_mode": "100644",
+      "git_blob_sha1": "4498bf23d6803730e0e1427965381c909f92e9e5",
+      "sha256": "6811ee844eafb25f7024495ed6805f4f4417c351f76be3916e77e85794c17682",
+      "bytes": 1961
+    },
+    {
+      "path": "upstream/openpilot/selfdrive/modeld/modeld.py",
+      "source_path": "openpilot/selfdrive/modeld/modeld.py",
+      "category": "integration_snapshot",
+      "source_mode": "100755",
+      "git_blob_sha1": "e859d31e15fb53ba4ebf72f81a121a9dc1910173",
+      "sha256": "5cd7e24527766199451bb0dc31cbdeddea53c58abe520a3ab9b0638b680bb6a0",
+      "bytes": 20343
+    },
+    {
+      "path": "upstream/openpilot/selfdrive/modeld/test_beampilot_build.py",
+      "source_path": "openpilot/selfdrive/modeld/test_beampilot_build.py",
+      "category": "runtime_support",
+      "source_mode": "100644",
+      "git_blob_sha1": "d9fb20c34a9a6620f2872a0341c2d3758d4b7072",
+      "sha256": "5b4dd2923e50a2f948fbdee52775fcb3e08d21a507e039035d4d1e578550dbbb",
+      "bytes": 1510
+    },
+    {
+      "path": "upstream/openpilot/system/manager/process_config.py",
+      "source_path": "openpilot/system/manager/process_config.py",
+      "category": "integration_snapshot",
+      "source_mode": "100644",
+      "git_blob_sha1": "250a7b6fd68f63f9987c411a0193ac68e6b3a572",
+      "sha256": "97808d7aa8d6a2dfddb0e8d85054f625622d335eca893f027cdd1e1bc525292c",
+      "bytes": 6816
+    },
+    {
+      "path": "upstream/openpilot/tools/sim/lib/__init__.py",
+      "source_path": "openpilot/tools/sim/lib/__init__.py",
+      "category": "runtime_support",
+      "source_mode": "100644",
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "upstream/openpilot/tools/sim/lib/camerad.py",
+      "source_path": "openpilot/tools/sim/lib/camerad.py",
+      "category": "runtime_support",
+      "source_mode": "100644",
+      "git_blob_sha1": "206e4fdf90baba1a9e995ec148c213dab45e5aa6",
+      "sha256": "9e0b3f9b66b33d78f4718351a6ea46a1b60d2235b14630b908732010a99616cd",
+      "bytes": 2756
+    },
+    {
+      "path": "upstream/openpilot/tools/sim/lib/common.py",
+      "source_path": "openpilot/tools/sim/lib/common.py",
+      "category": "runtime_support",
+      "source_mode": "100644",
+      "git_blob_sha1": "b97a4591be210df6f3f7affb7eb2de2f2471a866",
+      "sha256": "2e86b231bab9d8fc13d424c2934b5804ff5017c7af7962c256c7368a9e876b10",
+      "bytes": 3184
+    },
+    {
+      "path": "upstream/openpilot/tools/sim/lib/keyboard_ctrl.py",
+      "source_path": "openpilot/tools/sim/lib/keyboard_ctrl.py",
+      "category": "runtime_support",
+      "source_mode": "100644",
+      "git_blob_sha1": "0a17f0ee8510862e6f17939355b5e6bac1faa209",
+      "sha256": "bd9a275a1f54e7ee17cf8d9e7992e822df7246ad124d82a46b38be93bfcf7405",
+      "bytes": 2639
+    },
+    {
+      "path": "upstream/openpilot/tools/sim/lib/manual_ctrl.py",
+      "source_path": "openpilot/tools/sim/lib/manual_ctrl.py",
+      "category": "runtime_support",
+      "source_mode": "100755",
+      "git_blob_sha1": "c2be0d0458eb623aa70a171f54a9d5e2681d5cce",
+      "sha256": "888f481eec0f0a5e01a20017b4572e5ee134bce8c312583e04cd347514f30c6f",
+      "bytes": 4714
+    },
+    {
+      "path": "upstream/openpilot/tools/sim/lib/simulated_car.py",
+      "source_path": "openpilot/tools/sim/lib/simulated_car.py",
+      "category": "runtime_support",
+      "source_mode": "100644",
+      "git_blob_sha1": "a8964e675d6a5040e070712c4d228ada4f7fd1b6",
+      "sha256": "e5e0344b6ddd4d465ed83ebc9f7d14a208ea2e16664260b05245d224291060a5",
+      "bytes": 6946
+    },
+    {
+      "path": "upstream/openpilot/tools/sim/lib/simulated_sensors.py",
+      "source_path": "openpilot/tools/sim/lib/simulated_sensors.py",
+      "category": "runtime_support",
+      "source_mode": "100644",
+      "git_blob_sha1": "2cf6bae8ed3b766635124ff514c7aff31c61cfab",
+      "sha256": "a2276a3c0b55213b938e0b922b57c70cf5f2718be76e27e9f2acc01c24ea3935",
+      "bytes": 5711
+    },
+    {
+      "path": "upstream/.gitmodules",
+      "source_path": ".gitmodules",
+      "category": "root_support",
+      "source_mode": "100644",
+      "git_blob_sha1": "ad6530de9ac9101b0b40f3ae27f29c1e83195236",
+      "sha256": "e698dcdcb3353cc882c9db61c163d33d52256b8c6ad1183a4054f74bea13840b",
+      "bytes": 477
+    },
+    {
+      "path": "upstream/.python-version",
+      "source_path": ".python-version",
+      "category": "root_support",
+      "source_mode": "100644",
+      "git_blob_sha1": "28d9a01b1faabb66c0b96a3a32018cf52f6bc077",
+      "sha256": "aa0d6581054e6e4ff3f91839deca7a854ad37221b8784d060b42d0f847ff1a3b",
+      "bytes": 8
+    },
+    {
+      "path": "upstream/LICENSE",
+      "source_path": "LICENSE",
+      "category": "root_support",
+      "source_mode": "100644",
+      "git_blob_sha1": "7dafa9443b1545980b261dddd4184a8daec16758",
+      "sha256": "716ce815a0467219c59ec2433e6bce7f32efc45240725c6d3141a52b111d2558",
+      "bytes": 1059
+    },
+    {
+      "path": "upstream/README.md",
+      "source_path": "README.md",
+      "category": "root_support",
+      "source_mode": "100644",
+      "git_blob_sha1": "de054298d0a4941659134e136ace98942870c1d3",
+      "sha256": "ed99b57664d517185f36ad13e739fdd4d17162641db73627443c8c620fdafebe",
+      "bytes": 93227
+    },
+    {
+      "path": "upstream/SConstruct",
+      "source_path": "SConstruct",
+      "category": "root_support",
+      "source_mode": "100644",
+      "git_blob_sha1": "cea83404370bb6517f0b96712ad5a84961b5117b",
+      "sha256": "fa6a5c5c1851e5882e53cacd5be73d35f286847f4c43cc0a4bd068c64e02d5c0",
+      "bytes": 12465
+    },
+    {
+      "path": "upstream/config_beampilot.sh",
+      "source_path": "config_beampilot.sh",
+      "category": "root_support",
+      "source_mode": "100755",
+      "git_blob_sha1": "a9fe6933498dda28cbc450ec16231cd3de8037c4",
+      "sha256": "650f92aaca1e054257753fd1a41d1ca88dac27e1e4a49c0cf2e0d1216b3ef3c8",
+      "bytes": 44912
+    },
+    {
+      "path": "upstream/launch_beampilot.sh",
+      "source_path": "launch_beampilot.sh",
+      "category": "root_support",
+      "source_mode": "100755",
+      "git_blob_sha1": "42b611ee2b4b68af36b3ecd3563e24e478accd83",
+      "sha256": "b739a19dc1780c18bafdc87233a9d629696b666072d11939e95a8455910a8ae4",
+      "bytes": 6106
+    },
+    {
+      "path": "upstream/launch_chffrplus.sh",
+      "source_path": "launch_chffrplus.sh",
+      "category": "root_support",
+      "source_mode": "100755",
+      "git_blob_sha1": "f30e03ca6204dada370eb47db74885db3b3c79ea",
+      "sha256": "b1b7618c0d84d9969b39cadd785dbba9591fe2a3b7f4f959965a71833456c262",
+      "bytes": 3189
+    },
+    {
+      "path": "upstream/launch_env.sh",
+      "source_path": "launch_env.sh",
+      "category": "root_support",
+      "source_mode": "100755",
+      "git_blob_sha1": "094622005aa86a3a6349fb4122c23bda1d8ccb7c",
+      "sha256": "d982d43ffb8d351a51a4ad7f3c44784afb3e3314d56e5e229c715050bc37d5e4",
+      "bytes": 541
+    },
+    {
+      "path": "upstream/pyproject.toml",
+      "source_path": "pyproject.toml",
+      "category": "root_support",
+      "source_mode": "100644",
+      "git_blob_sha1": "75fc430af90263e3aebf8eb30cf676d418441f24",
+      "sha256": "15f30e984929612e56215b6f6d628a2f77c9ba980f4d794486aabd32c0ef71fb",
+      "bytes": 5084
+    },
+    {
+      "path": "upstream/setup_beampilot.sh",
+      "source_path": "setup_beampilot.sh",
+      "category": "root_support",
+      "source_mode": "100755",
+      "git_blob_sha1": "d714d3d448baa94b24de09996bfaec9e947f0c99",
+      "sha256": "b72a9a1cd1e2e6490cbb287ef6e7357ef5d52ee11673c864cac0aac3bcc39c50",
+      "bytes": 2488
+    },
+    {
+      "path": "upstream/openpilot/selfdrive/car/card.py",
+      "source_path": "openpilot/selfdrive/car/card.py",
+      "category": "integration_snapshot",
+      "source_mode": "100755",
+      "git_blob_sha1": "c94224ee6bc3478da802a39ded75d4ccbe10cdc0",
+      "sha256": "6c2201be4f7d526cec605b9c8aa5247ba1af6ec1bb13fa64a19e621092cecf3c",
+      "bytes": 12089
+    },
+    {
+      "path": "upstream/openpilot/selfdrive/selfdrived/selfdrived.py",
+      "source_path": "openpilot/selfdrive/selfdrived/selfdrived.py",
+      "category": "integration_snapshot",
+      "source_mode": "100755",
+      "git_blob_sha1": "24f9655d1e11ae197aad970262482f772a7d35c2",
+      "sha256": "8574f878b61c1a2065cc9f269cc328df682511be8b36a6f65dc99dc46f669aba",
+      "bytes": 31685
+    },
+    {
+      "path": "upstream/tools/op.sh",
+      "source_path": "tools/op.sh",
+      "category": "tools",
+      "source_mode": "100755",
+      "git_blob_sha1": "f186863d00ffb48da11ad9403ddb218ba9c00783",
+      "sha256": "5ad164d3345af313a9d260dae606905dc25c07e49b66fbdc111e7c6bc686ce5f",
+      "bytes": 14766
+    },
+    {
+      "path": "upstream/uv.lock",
+      "source_path": "uv.lock",
+      "category": "root_support",
+      "source_mode": "100644",
+      "git_blob_sha1": "f09d4d8fbda7d26b2764ce751438ebd88533cd0a",
+      "sha256": "de7175a50462c0e3f12aac5d4e9cf0d095c9dd39c9c9d7b42881f786dd52d53d",
+      "bytes": 148641
+    }
+  ],
+  "known_limits": [
+    "full base openpilot and submodule/model binaries not copied",
+    "same-host code still requires PC/Q8B adaptation",
+    "no foreign behavioral tests or BeamNG runtime executed"
+  ],
+  "source_submodule_pins": {
+    "msgq_repo": "0e266c1dbcf7328beee3e57b4a8688555387c877",
+    "opendbc_repo": "b4ef5e1cf406ff143fa67bdbfb154739d43279c9",
+    "panda": "dd8a5b3df77706337a11555377e7180c5adc8726",
+    "rednose_repo": "28d4a7f69e80e1c3e0d24ca0733d7daeaeade3d0",
+    "teleoprtc_repo": "1aa8fc433bef1519a95c0700c96258c3be6dfb34",
+    "tinygrad_repo": "138fb4a783d82f4e877ad2fe3692aaf8d1de2e46"
+  }
+}

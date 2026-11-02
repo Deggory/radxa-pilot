@@ -1,3 +1,12 @@
+## 2026-11-02 — Preserve the upstream BeamNG bundle before adaptation
+
+Owner requested a folder with the needed BeamNG source. Keep it inside sim/
+beamng_reference/upstream with source paths/bytes/modes, license and hash
+manifest. Include supporting daemons/helpers/integration snapshots outside
+upstream tools so the reference is useful. Shared base dependencies are mapped
+rather than duplicating an entire fork. No active code/environment replacement;
+foreign tests remain references, not current Sunnypilot behavior tests.
+
 ## 2026-11-02 — Use Caleb BeamNG source as a reference for a two-host sim adapter
 
 Keep our current Sunnypilot/Radxa project and CD210 runtime. Study pinned

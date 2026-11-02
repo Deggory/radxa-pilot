@@ -1,0 +1,183 @@
+import glob
+import json
+import os
+import time
+from SCons.Script import Action, Value
+from openpilot.common.file_chunker import chunk_file, get_chunk_targets, get_existing_chunks
+from openpilot.common.transformations.camera import _ar_ox_fisheye, _os_fisheye
+from openpilot.common.transformations.model import MEDMODEL_INPUT_SIZE, DM_INPUT_SIZE
+from openpilot.selfdrive.modeld.beampilot_build import usbgpu_build_config
+from openpilot.selfdrive.modeld.constants import ModelConstants
+from openpilot.selfdrive.modeld.helpers import TG_INPUT_DEVICES_PATH, usbgpu_present, modeld_pkl_path
+
+
+CAMERA_CONFIGS = [
+  (_ar_ox_fisheye.width, _ar_ox_fisheye.height),  # tici: 1928x1208
+  (_os_fisheye.width, _os_fisheye.height),        # mici: 1344x760
+]
+
+Import('env', 'arch')
+chunker_file = File("#openpilot/common/file_chunker.py")
+lenv = env.Clone()
+
+tinygrad_root = env.Dir("#").abspath
+tinygrad_files = ["#"+x for x in glob.glob(env.Dir("#tinygrad_repo").relpath + "/**", recursive=True, root_dir=tinygrad_root)
+                  if 'pycache' not in x and os.path.isfile(os.path.join(tinygrad_root, x))]
+
+def estimate_pickle_max_size(onnx_size):
+  return 1.2 * onnx_size  + 10 * 1024 * 1024  # 20% + 10MB is plenty
+
+if arch == 'comma_arm64':
+  tg_backend = 'QCOM'
+  tg_device = tg_backend
+  tg_flags = f'DEV={tg_backend} IMAGE=1 FLOAT16=1 NOLOCALS=1 JIT_BATCH_SIZE=0 OPENPILOT_HACKS=1'
+else:
+  # beampilot: which tinygrad backend, and which physical GPU, the model is
+  # compiled for. Both are BUILD-time -- the .pkl holds programs compiled for
+  # one backend -- so changing either means re-running setup.
+  #
+  # config_beampilot.sh has already worked all of this out (it has to, for the
+  # runtime DEV), so prefer its answer over re-deriving it here: build and
+  # runtime disagreeing about which card the .pkl targets is a silent way to
+  # end up with a model that will not load.
+  # CUDA and CL take no device index in DEV at all; the card is chosen by hiding
+  # the others. Carried in the command string rather than left in os.environ,
+  # because SCons hands subprocesses env['ENV'], not the interpreter's
+  # environment, so an os.environ change here would not reach the compiler.
+  # PCI_BUS_ID because the default CUDA ordering is fastest-first -- the reverse
+  # of nvidia-smi's, which is what BEAMPILOT_GPU_INDEX means everywhere else.
+  def _visible(idx):
+    return f'CUDA_DEVICE_ORDER=PCI_BUS_ID CUDA_VISIBLE_DEVICES={idx} ' if idx else ''
+
+  tg_backend = os.getenv('BEAMPILOT_TG_BACKEND', '')
+  tg_dev = os.getenv('BEAMPILOT_TG_DEV', '')
+  if tg_backend and tg_dev:
+    tg_device = tg_dev
+    tg_flags = _visible(os.getenv('CUDA_VISIBLE_DEVICES', '')) + f'DEV={tg_dev}'
+  else:
+    # Standalone build with nothing sourced. USE_NV/USE_AMD are the upstream
+    # spelling; BEAMPILOT_BACKEND is ours and wins.
+    _backend = (os.getenv('BEAMPILOT_BACKEND')
+                or ('amd' if os.getenv('USE_AMD') == '1' else 'nv' if os.getenv('USE_NV') == '1' else '')).lower()
+    tg_backend = {'nv': 'NV', 'amd': 'AMD', 'cuda': 'CUDA', 'cl': 'CL', 'opencl': 'CL'}.get(_backend, '')
+    _gpu_idx = os.getenv('BEAMPILOT_GPU_INDEX', '')
+    if tg_backend in ('NV', 'AMD') and _gpu_idx.isdigit():
+      # NV and AMD are HCQ backends: the index is a visibility filter and goes
+      # BEFORE the '+'. "DEV=NV:1" -- which is what this used to emit -- parses
+      # as renderer "1" (Target.parse in tinygrad/helpers.py) and opens GPU 0
+      # anyway, so a multi-GPU build was quietly compiled for the wrong card.
+      tg_device = f':{_gpu_idx}+{tg_backend}'
+      tg_flags = f'DEV={tg_device}'
+    elif tg_backend in ('CUDA', 'CL') and _gpu_idx.isdigit():
+      tg_device = tg_backend
+      tg_flags = _visible(_gpu_idx) + f'DEV={tg_backend}'
+    elif tg_backend:
+      tg_device = tg_backend
+      tg_flags = f'DEV={tg_backend}'
+    else:
+      tg_backend = 'CPU'
+      tg_device = 'CPU' if arch == 'Darwin' else 'CPU:LLVM'
+      tg_flags = 'DEV=CPU' if arch == 'Darwin' else 'DEV=CPU:LLVM'
+
+usbgpu_tg_flags, usbgpu_queue_device = usbgpu_build_config(arch, tg_device, tg_flags)
+
+tg_devices = { # which device to put jit inputs to at runtime
+  'openpilot.selfdrive.modeld.modeld': {
+    'default': {'WARP_DEV': tg_device, 'QUEUE_DEV': tg_device},
+    'usbgpu': {'WARP_DEV': tg_device, 'QUEUE_DEV': usbgpu_queue_device}
+  },
+  'openpilot.selfdrive.modeld.dmonitoringmodeld': {
+    'default': {'DEV': tg_device}
+  },
+}
+
+USBGPU = usbgpu_present()
+if USBGPU:
+  # the USB+AMD GPU takes an exclusive flock; serialize all targets that touch it
+  usbgpu_lock = File("models/.usb_gpu.lock").abspath
+
+def write_tg_devices(target, source, env):
+  with open(str(target[0]), "w") as f:
+    json.dump(tg_devices, f)
+    f.write("\n")
+
+tg_devices_node = lenv.Command(
+  str(TG_INPUT_DEVICES_PATH),
+  [Value(tg_devices)],
+  write_tg_devices,
+)
+
+# tinygrad calls brew which needs a $HOME in the env
+mac_brew_string = f'HOME={os.path.expanduser("~")}' if arch == 'Darwin' else ''
+
+modeld_dir = Dir("#openpilot/selfdrive/modeld").abspath
+compile_modeld_script = [
+  File(f"{modeld_dir}/compile_modeld.py"),
+  File(f"{modeld_dir}/get_model_metadata.py"),
+  File("#openpilot/system/camerad/cameras/nv12_info.py"),
+  File("#openpilot/common/hardware/hw.py"),
+]
+model_w, model_h = MEDMODEL_INPUT_SIZE
+frame_skip = ModelConstants.MODEL_RUN_FREQ // ModelConstants.MODEL_CONTEXT_FREQ
+
+for usbgpu in [False, True] if USBGPU else [False]:
+  target_pkl_path = File(modeld_pkl_path(usbgpu)).abspath
+  # BIG_INTO_SMALL=1 builds the default target from the big model, e.g. to test it without a USB GPU
+  file_prefix, cmd_flags = ('big_', usbgpu_tg_flags) if usbgpu else ('big_' if os.getenv('BIG_INTO_SMALL') else '', tg_flags)
+  driving_onnx_deps = get_existing_chunks(File(f"models/{file_prefix}driving_supercombo.onnx").abspath)
+  camera_res_args = ' '.join(f'{cw}x{ch}' for cw, ch in CAMERA_CONFIGS)
+  # CPU 7 is isolated with isolcpus on AGNOS, so explicitly pin the compiler to it.
+  taskset = 'taskset -c 7 ' if arch == 'comma_arm64' else ''
+  cmd = (f'{cmd_flags} {mac_brew_string} {taskset}python3 {modeld_dir}/compile_modeld.py '
+        f'--model-size {model_w}x{model_h} '
+        f'--camera-resolutions {camera_res_args} '
+        f'--onnx {File(f"models/{file_prefix}driving_supercombo.onnx").abspath} '
+        f'--output {target_pkl_path} --frame-skip {frame_skip}')
+  onnx_sizes_sum = sum(os.path.getsize(f) for f in driving_onnx_deps)
+  chunk_targets = get_chunk_targets(target_pkl_path, estimate_pickle_max_size(onnx_sizes_sum))
+  def do_compile(target, source, env, command=cmd, pkl=target_pkl_path, chunks=chunk_targets):
+    if ret := env.Execute(command):
+      return ret
+    chunk_file(pkl, chunks)
+  def do_chunk(target, source, env, pkl=target_pkl_path, chunks=chunk_targets):
+    chunk_file(pkl, chunks)
+  actions = Action(do_compile, "  [USBGPU] $TARGET") if usbgpu else [cmd, Action(do_chunk, "  [CHUNK] $TARGET")]
+  node = lenv.Command(
+    chunk_targets,
+    tinygrad_files + compile_modeld_script + driving_onnx_deps + [Value(chunk_targets), chunker_file],
+    actions,
+  )
+  if usbgpu:
+    lenv.SideEffect(usbgpu_lock, node)
+
+# get model metadata
+fn = File(f"models/dmonitoring_model").abspath
+script_files = [File(Dir("#openpilot/selfdrive/modeld").File("get_model_metadata.py").abspath)]
+cmd = f'{tg_flags} {mac_brew_string} python3 {Dir("#openpilot/selfdrive/modeld").abspath}/get_model_metadata.py {fn}.onnx'
+lenv.Command(fn + "_metadata.pkl", [fn + ".onnx"] + tinygrad_files + script_files + [tg_devices_node], cmd)
+
+dm_w, dm_h = DM_INPUT_SIZE
+compile_dm_warp_script = [File(f"{modeld_dir}/compile_dm_warp.py")]
+for cam_w, cam_h in CAMERA_CONFIGS:
+  dm_pkl_path = File(f"models/dm_warp_{cam_w}x{cam_h}_tinygrad.pkl").abspath
+  cmd = (f'{tg_flags} {mac_brew_string} python3 {modeld_dir}/compile_dm_warp.py '
+         f'--camera-resolution {cam_w}x{cam_h} --warp-to {dm_w}x{dm_h} '
+         f'--output {dm_pkl_path}')
+  lenv.Command(dm_pkl_path, tinygrad_files + compile_dm_warp_script + compile_modeld_script + [tg_devices_node], cmd)
+
+def tg_compile(flags, model_name):
+  pythonpath_string = 'PYTHONPATH="${PYTHONPATH}:' + env.Dir("#tinygrad_repo").abspath + '"'
+  fn = File(f"models/{model_name}").abspath
+  pkl = fn + "_tinygrad.pkl"
+  onnx_path = fn + ".onnx"
+  chunk_targets = get_chunk_targets(pkl, estimate_pickle_max_size(os.path.getsize(onnx_path)))
+  def do_chunk(target, source, env):
+    chunk_file(pkl, chunk_targets)
+  return lenv.Command(
+    chunk_targets,
+    [onnx_path] + tinygrad_files + [Value(chunk_targets), chunker_file, tg_devices_node],
+    [f'{pythonpath_string} {flags} python3 {Dir("#tinygrad_repo").abspath}/examples/openpilot/compile3.py {fn}.onnx {pkl}',
+     Action(do_chunk, "  [CHUNK] $TARGET")],
+  )
+
+tg_compile(tg_flags, 'dmonitoring_model')

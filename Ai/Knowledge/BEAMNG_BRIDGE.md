@@ -1,3 +1,27 @@
+Collection validation: all82Git blobs and SHA256 checks pass,56Python AST,
+8shell syntax and2JSON parses pass. Ruff passes for our verifier/discovery guard;
+notebook66docs/213relative links pass. Using existing isolated pytest9.1.1,
+reference-folder collect-only reports no tests collected (expected exit5),
+confirming the new foreign snapshot is excluded. Active Sunny venv lacks pytest;
+no package installed to change that. No game/model or foreign behavioral test.
+
+## 2026-11-02 — BeamNG source bundle collected
+
+Owner requested all needed BeamNG files from Caleb's tools in a folder. Created
+openpilot/tools/sim/beamng_reference/:82byte-identical upstream files,1025072bytes,
+from commit5435d67499f66eca58f95882cbe35e9c577e874c. Both complete game mods,
+setup/TUI/monitor/diagnostic, car installer/platform, camera/telemetry daemons,
+common modules, sim helpers, relevant integration source/tests and root launch/
+config/build/dependency metadata retained under upstream/ with original paths.
+MIT license, original submodule pins, MANIFEST/SHA256SUMS and dependency guide
+included. verify_bundle.py checks file coverage/bytes/SHA256/Git blobs/modes.
+56Python AST/8shell syntax/2JSON source checks pass; original behavioral and
+Lua/JS/Vue/game tests not run. Foreign snapshot tests excluded from automatic
+parent pytest discovery only; existing project tests are unchanged. No installer,
+mod, manager, model or game executed; no dependency/environment/DBC changes.
+Next remains sim-only recorded PC frames→VisionIPC/UI; bundle is reference,
+not a runnable standalone checkout or qualified PC↔Q8B backend.
+
 # BeamNG bridge — current research checkpoint
 
 Owner selected BeamNG/Sunnypilot simulation on2026-11-02; NPU precision work is

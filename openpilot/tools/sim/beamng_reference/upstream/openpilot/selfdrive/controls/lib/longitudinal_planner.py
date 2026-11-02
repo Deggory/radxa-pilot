@@ -1,0 +1,207 @@
+#!/usr/bin/env python3
+import math
+import numpy as np
+
+import openpilot.cereal.messaging as messaging
+# ACCEL_MIN/ACCEL_MAX come from beampilot_limits rather than straight from
+# opendbc: they are the SCALED pair, and long_mpc.py has to agree with them or
+# the MPC's own bound silently wins.
+from openpilot.common.beampilot_limits import A_TOTAL_MAX_SCALE, ACCEL_MAX, ACCEL_MIN
+from openpilot.selfdrive.controls.lib.beampilot_curve import CurveSpeedLimiter
+from openpilot.common.constants import CV
+from openpilot.common.filter_simple import FirstOrderFilter
+from openpilot.common.realtime import DT_MDL
+from openpilot.selfdrive.modeld.constants import ModelConstants
+from openpilot.selfdrive.controls.lib.longcontrol import LongCtrlState
+from openpilot.selfdrive.controls.lib.longitudinal_mpc_lib.long_mpc import LongitudinalMpc, LongitudinalPlanSource
+from openpilot.selfdrive.controls.lib.longitudinal_mpc_lib.long_mpc import T_IDXS as T_IDXS_MPC
+from openpilot.common.beampilot_env import env_float
+from openpilot.selfdrive.controls.lib.drive_helpers import CONTROL_N, get_accel_from_plan, should_stop
+from openpilot.selfdrive.car.cruise import V_CRUISE_MAX, V_CRUISE_UNSET
+from openpilot.common.swaglog import cloudlog
+
+# beampilot: scale the whole cruise acceleration/jerk envelope. 1.0 == stock
+# openpilot. A_CRUISE_MAX_VALS is the speed-dependent comfort limit on how hard
+# cruise will accelerate (1.6 m/s^2 from a stop, tapering to 0.6 above 40 m/s);
+# raising it makes the car actually get up to the set speed instead of crawling.
+# ACCEL_MAX/ACCEL_MIN (from opendbc) are the hard clips applied on top, so they
+# scale too or they'd just re-clamp everything back down.
+_ACCEL_SCALE = env_float("BEAMPILOT_ACCEL_SCALE", 1.0)
+_DECEL_SCALE = env_float("BEAMPILOT_DECEL_SCALE", 1.0)
+
+A_CRUISE_MAX_VALS = [v * _ACCEL_SCALE for v in (1.6, 1.2, 0.8, 0.6)]
+A_CRUISE_MAX_BP = [0., 10.0, 25., 40.]
+J_CRUISE_VALS = [v * _ACCEL_SCALE for v in (1.6, 1.2, 0.8, 0.6)]
+A_CRUISE_MIN = -1.2 * _DECEL_SCALE
+CONTROL_N_T_IDX = ModelConstants.T_IDXS[:CONTROL_N]
+ALLOW_THROTTLE_THRESHOLD = 0.4
+MIN_ALLOW_THROTTLE_SPEED = 2.5
+
+# Lookup table for turns
+# The combined lateral+longitudinal envelope: a_x_allowed = sqrt(total^2 - a_y^2).
+# beampilot scales it, because grip is shared -- leave it at stock while raising
+# the lateral limit and the car cannot accelerate THROUGH a corner. At 20 m/s the
+# stock envelope is 1.7, so 2 m/s^2 of cornering leaves nothing at all for the
+# throttle.
+_A_TOTAL_MAX_V = [1.7 * A_TOTAL_MAX_SCALE, 3.2 * A_TOTAL_MAX_SCALE]
+_A_TOTAL_MAX_BP = [20., 40.]
+
+def get_max_accel(v_ego):
+  return np.interp(v_ego, A_CRUISE_MAX_BP, A_CRUISE_MAX_VALS)
+
+def get_coast_accel(pitch):
+  return np.sin(pitch) * -5.65 - 0.3  # fitted from data using xx/projects/allow_throttle/compute_coast_accel.py
+
+def get_cruise_accel(e2e, v_cruise, v_ego, a_cruise_prev, angle_steers, CP, dt, accel_coast, allow_throttle):
+  max_accel = ACCEL_MAX if e2e else get_max_accel(v_ego)
+
+  if not e2e:
+    a_total_max = np.interp(v_ego, _A_TOTAL_MAX_BP, _A_TOTAL_MAX_V)
+    a_y = v_ego ** 2 * angle_steers * CV.DEG_TO_RAD / (CP.steerRatio * CP.wheelbase)
+    a_x_allowed = math.sqrt(max(a_total_max ** 2 - a_y ** 2, 0.))
+    max_accel = min(max_accel, a_x_allowed)
+    if not allow_throttle:
+      clipped_accel_coast = max(accel_coast, ACCEL_MIN)
+      coast_limit = np.interp(v_ego, [MIN_ALLOW_THROTTLE_SPEED, MIN_ALLOW_THROTTLE_SPEED*2], [max_accel, clipped_accel_coast])
+      max_accel = min(max_accel, coast_limit)
+
+  target_accel = np.clip(v_cruise - v_ego, A_CRUISE_MIN, max_accel)
+  j_cruise = np.interp(v_ego, A_CRUISE_MAX_BP, J_CRUISE_VALS)
+  target_accel = float(np.clip(target_accel, a_cruise_prev - j_cruise * dt, a_cruise_prev + j_cruise * dt))
+
+  return target_accel
+
+
+class LongitudinalPlanner:
+  def __init__(self, CP, init_v=0.0, init_a=0.0, dt=DT_MDL):
+    self.CP = CP
+    self.mpc = LongitudinalMpc(dt=dt)
+    # beampilot: brake for a corner before reaching it. Stock openpilot only
+    # caps acceleration once already cornering; nothing slows down for a bend
+    # ahead, which the narrow camera makes worse -- the model sees the corner
+    # late, so arriving too fast shows up as running wide at the entry.
+    self.curve_limiter = CurveSpeedLimiter(dt)
+    self.fcw = False
+    self.dt = dt
+    self.allow_throttle = True
+
+    self.v_desired_filter = FirstOrderFilter(init_v, 2.0, self.dt)
+    self.a_cruise = init_a
+    self.output_a_target = init_a
+    self.output_should_stop = False
+
+    self.v_desired_trajectory = np.zeros(CONTROL_N)
+    self.a_desired_trajectory = np.zeros(CONTROL_N)
+    self.j_desired_trajectory = np.zeros(CONTROL_N)
+
+  def update(self, sm):
+    if len(sm['carControl'].orientationNED) == 3:
+      accel_coast = get_coast_accel(sm['carControl'].orientationNED[1])
+    else:
+      accel_coast = ACCEL_MAX
+
+    v_ego = sm['carState'].vEgo
+    v_cruise_kph = min(sm['carState'].vCruise, V_CRUISE_MAX)
+    v_cruise = v_cruise_kph * CV.KPH_TO_MS
+    if sm['controlsState'].forceDecel:
+      v_cruise = 0.0
+
+    long_control_off = sm['controlsState'].longControlState == LongCtrlState.off
+
+    # Reset current state when not engaged, or user is controlling the speed
+    reset_state = long_control_off if self.CP.openpilotLongitudinalControl else not sm['selfdriveState'].enabled
+    # PCM cruise speed may be updated a few cycles later, check if initialized
+    v_cruise_initialized = sm['carState'].vCruise != V_CRUISE_UNSET
+    reset_state = reset_state or not v_cruise_initialized
+
+    throttle_probs = sm['modelV2'].meta.disengagePredictions.gasPressProbs
+    throttle_prob = throttle_probs[1] if len(throttle_probs) > 1 else 1.0
+    self.allow_throttle = throttle_prob > ALLOW_THROTTLE_THRESHOLD or v_ego <= MIN_ALLOW_THROTTLE_SPEED
+
+    steer_angle_without_offset = sm['carState'].steeringAngleDeg - sm['vehicleParameters'].angleOffsetDeg
+
+    if reset_state:
+      self.v_desired_filter.x = v_ego
+      self.output_a_target = np.clip(sm['carState'].aEgo, ACCEL_MIN, ACCEL_MAX)
+      self.a_cruise = self.output_a_target
+
+    # Prevent divergence, smooth in current v_ego
+    self.v_desired_filter.x = max(0.0, self.v_desired_filter.update(v_ego))
+
+    # No change cost when user is controlling the speed, or when standstill
+    prev_accel_constraint = not (reset_state or sm['carState'].standstill)
+
+    self.mpc.set_weights(prev_accel_constraint, personality=sm['selfdriveState'].personality)
+    self.mpc.set_cur_state(self.v_desired_filter.x, self.output_a_target)
+    self.mpc.update(sm['radarState'], personality=sm['selfdriveState'].personality)
+
+    self.v_desired_trajectory = np.interp(CONTROL_N_T_IDX, T_IDXS_MPC, self.mpc.v_solution)
+    self.a_desired_trajectory = np.interp(CONTROL_N_T_IDX, T_IDXS_MPC, self.mpc.a_solution)
+    self.j_desired_trajectory = np.interp(CONTROL_N_T_IDX, T_IDXS_MPC[:-1], self.mpc.j_solution)
+
+    # TODO counter is only needed because radar is glitchy, remove once radar is gone
+    self.fcw = self.mpc.crash_cnt > 2 and not sm['carState'].standstill
+    if self.fcw:
+      cloudlog.info("FCW triggered")
+
+    # Save starting point for next iteration
+    a_prev = self.output_a_target
+
+    action_t =  self.CP.longitudinalActuatorDelay + DT_MDL
+    output_a_target_mpc = get_accel_from_plan(self.v_desired_trajectory, self.a_desired_trajectory, CONTROL_N_T_IDX,
+                                              action_t=action_t)
+    output_should_stop_mpc = should_stop(v_ego, output_a_target_mpc)
+    model_v2 = sm['modelV2']
+    output_a_target_e2e = model_v2.action.desiredAcceleration
+    output_should_stop_e2e = model_v2.action.shouldStop
+
+    self.a_cruise = get_cruise_accel(sm['selfdriveState'].experimentalMode, v_cruise, v_ego,
+                                     self.a_cruise, steer_angle_without_offset, self.CP, self.dt,
+                                     accel_coast, self.allow_throttle)
+    cruise_should_stop = should_stop(v_ego, self.a_cruise)
+
+    candidates = [(output_a_target_mpc, self.mpc.source, output_should_stop_mpc),
+                  (self.a_cruise, LongitudinalPlanSource.cruise, cruise_should_stop)]
+    if sm['selfdriveState'].experimentalMode:
+      candidates.append((output_a_target_e2e, LongitudinalPlanSource.e2e, output_should_stop_e2e))
+
+    # beampilot: one more candidate, from the curvature the model has already
+    # predicted along its own path. Offered rather than imposed -- min() below
+    # means it only wins when it is the most restrictive, so a lead car or the
+    # cruise setpoint still take precedence when they are.
+    curve_accel = self.curve_limiter.update(v_ego, model_v2.position.x, model_v2.velocity.x,
+                                            model_v2.orientationRate.z, ModelConstants.T_IDXS,
+                                            accel_min=ACCEL_MIN)
+    if curve_accel is not None:
+      candidates.append((curve_accel, LongitudinalPlanSource.cruise, False))
+
+    output_a_target, self.mpc.source, _ = min(candidates, key=lambda c: c[0])
+    self.output_should_stop = any(should_stop for _, _, should_stop in candidates)
+    self.output_a_target = np.clip(output_a_target, ACCEL_MIN, ACCEL_MAX)
+
+    self.v_desired_filter.x = self.v_desired_filter.x + self.dt * (self.output_a_target + a_prev) / 2.0
+
+  def publish(self, sm, pm):
+    plan_send = messaging.new_message('longitudinalPlan')
+
+    plan_send.valid = sm.all_checks()
+
+    longitudinalPlan = plan_send.longitudinalPlan
+    longitudinalPlan.modelMonoTime = sm.logMonoTime['modelV2']
+    longitudinalPlan.processingDelay = (plan_send.logMonoTime / 1e9) - sm.logMonoTime['modelV2']
+    longitudinalPlan.solverExecutionTime = self.mpc.solve_time
+
+    longitudinalPlan.speeds = self.v_desired_trajectory.tolist()
+    longitudinalPlan.accels = self.a_desired_trajectory.tolist()
+    longitudinalPlan.jerks = self.j_desired_trajectory.tolist()
+
+    longitudinalPlan.hasLead = sm['radarState'].leadOne.present
+    longitudinalPlan.longitudinalPlanSource = self.mpc.source
+    longitudinalPlan.fcw = self.fcw
+
+    longitudinalPlan.aTarget = float(self.output_a_target)
+    longitudinalPlan.shouldStop = bool(self.output_should_stop)
+    longitudinalPlan.allowBrake = True
+    longitudinalPlan.allowThrottle = bool(self.allow_throttle)
+
+    pm.send('longitudinalPlan', plan_send)

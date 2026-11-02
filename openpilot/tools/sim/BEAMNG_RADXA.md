@@ -5,6 +5,10 @@ Source review, 2026-11-02. This describes the reference and proposed integration
 The existing camera/CD210 GPU preview remains the selected working bench path.
 The rejected W8A8 NPU candidate is not part of this simulator plan.
 
+The [downloaded reference bundle](beamng_reference/README.md) now contains82
+original files from this pin, including all BeamNG-specific tools and both
+complete mods. They are collected for adaptation, not applied to runtime.
+
 ## Repository found
 
 [Caleb-J773/beampilot-drive](https://github.com/Caleb-J773/beampilot-drive)

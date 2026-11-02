@@ -1,3 +1,18 @@
+Collection validation: all82Git blobs and SHA256 checks pass,56Python AST,
+8shell syntax and2JSON parses pass. Ruff passes for our verifier/discovery guard;
+notebook66docs/213relative links pass. Using existing isolated pytest9.1.1,
+reference-folder collect-only reports no tests collected (expected exit5),
+confirming the new foreign snapshot is excluded. Active Sunny venv lacks pytest;
+no package installed to change that. No game/model or foreign behavioral test.
+
+## 2026-11-02 — BeamNG reference bundle integrity
+
+82source files/1025072bytes match the pinned5435d674 Git blobs, SHA256 and modes;
+56Python AST/8bash syntax/2JSON checks pass. Portable verifier and checksum list
+are inside the bundle. These validate collection only; no original behavioral,
+Lua/Vue/JS/game or managed integration test. Parent pytest discovery excludes
+only the new foreign snapshot. Notebook/staged whitespace checked at commit.
+
 ## 2026-11-02 — BeamNG source-reference checkpoint
 
 Fresh GitHub pin5435d674 matches savedOct28 source.3external/7local Python AST
