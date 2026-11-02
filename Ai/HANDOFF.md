@@ -1,5 +1,13 @@
 # Resume Sunnypilot here
 
+Saved implementation commit: `d0d654a66c04f57a39cb3dddb8516c6309e992e6`
+(`feat: use temporary MM-X geometry in Q8B road-only mode`). Owner requested
+commit update2026-11-02; verified project clean and this commit's validation
+journal attached, with no missing local validation or pending upstream review.
+Its30tests/lint results are retained evidence, not a new runtime run. This
+checkpoint update changes documentation only; next work remains model/Adreno
+qualification with provisional geometry and calibration work deferred.
+
 ## 2026-11-02 — Temporary MM-X geometry selected and implemented
 
 Owner: keep MM-X method for now, change later. get_device_camera_config now
