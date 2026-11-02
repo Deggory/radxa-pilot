@@ -93,3 +93,17 @@ ELF46c18dc8; model/driver/source pins and review reconciliation in MAX_PERFORMAN
 No upstream merge/push or dependency/precision changes in this increment.
 
 2026-11-02 accepted closeout: Final repeat: 1164steady outputs/20.0027Hz; inference11.070/12.258ms, fullcall13.574/15.314ms and capture→output37.355/41.790ms median/p95. All clock samples max; target medians pass. Prior fast run36.829ms also passes.68tests/lint/native/exactGPU/CPU checks pass. Final UI194frames/176models/33points, children0/0/0. All reported workers/private IPC removed, camera and clocks restored, GPUfaults0, model/helper hashes unchanged.
+
+## 2026-11-02 — All project work committed
+
+Owner requested a complete commit checkpoint. Git audit found a clean
+radxa/q8b tree at49d2f07432541d9456acb60369a8f959db4c5611. All57tracked local
+commits had validation records; latest GPU increment has a passing receipt.
+This documentation checkpoint records that audit. Runtime/source/model are
+unchanged; previous68tests and hardware benchmarks were not rerun. Next task
+remains owner-selected calibration/hardware or optimisation, with controls off.
+
+Checks: Git status/branch/log, latest ledger pass and all local validation
+record files. Agent Skill: git-workflow-and-versioning. Source/Git audit only;
+REA artifact analysis is not applicable. Memory/link and whitespace checks
+validate this documentation increment; application evidence stays pinned49d2f07.

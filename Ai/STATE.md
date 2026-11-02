@@ -1,5 +1,15 @@
 # Current Sunnypilot state
 
+## 2026-11-02 — All project work committed
+
+Owner requested a complete commit checkpoint. Git audit found a clean
+radxa/q8b tree at49d2f07432541d9456acb60369a8f959db4c5611. All57tracked local
+commits had validation records; latest GPU increment has a passing receipt.
+This documentation checkpoint records that audit. Runtime/source/model are
+unchanged; previous68tests and hardware benchmarks were not rerun. Next task
+remains owner-selected calibration/hardware or optimisation, with controls off.
+
+
 ## 2026-11-02 — Resident GPU baseline complete
 
 Q8B Thneed defaults to resident exact NV12 crop/packing/lag4 history, fresh60FPS

@@ -243,3 +243,7 @@ singleCPU7 trial regressed to40.512ms. Fast cores4–7 default instead measured
 36.829/41.592ms camera→output and10.817/11.790ms inference median/p95 at20Hz.
 
 2026-11-02 accepted closeout: Final repeat: 1164steady outputs/20.0027Hz; inference11.070/12.258ms, fullcall13.574/15.314ms and capture→output37.355/41.790ms median/p95. All clock samples max; target medians pass. Prior fast run36.829ms also passes.68tests/lint/native/exactGPU/CPU checks pass. Final UI194frames/176models/33points, children0/0/0. All reported workers/private IPC removed, camera and clocks restored, GPUfaults0, model/helper hashes unchanged.
+
+2026-11-02 — Owner requested all work committed. Verified clean source49d2f07
+and57local commit records with none missing validation; saved documentation
+checkpoint. No new runtime tests, upstream integration or remote push.
