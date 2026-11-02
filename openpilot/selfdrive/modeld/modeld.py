@@ -239,9 +239,14 @@ def main(demo=False):
   cloudlog.warning("modeld init")
 
   Q8B_THNEED = thneed_enabled()
+  model_diagnostics = None
   if Q8B_THNEED:
     from openpilot.common.hardware.radxa.performance import pin_q8b_worker
+    from openpilot.system.camerad.webcam.config import stats_enabled
+    from openpilot.selfdrive.modeld.thneed_q8b.telemetry import ModelTimingPublisher
     pin_q8b_worker()
+    if stats_enabled():
+      model_diagnostics = ModelTimingPublisher()
   timing_path = os.getenv('Q8B_MODEL_TIMINGS')
   model_timings = ModelTimingRecorder(timing_path) if Q8B_THNEED and timing_path else None
   CHESTNUT = not Q8B_THNEED and chestnut_compiled() and (chestnut_present() or cable_connected())
@@ -452,10 +457,15 @@ def main(demo=False):
       run_count = 0
       model_output = None
     mt2 = time.perf_counter()
+    model_output_ns = time.monotonic_ns()
     model_execution_time = mt2 - mt1
     if model_timings is not None and model_output is not None:
-      model_timings.record(meta_main.frame_id, meta_main.timestamp_eof, time.monotonic_ns(),
+      model_timings.record(meta_main.frame_id, meta_main.timestamp_eof, model_output_ns,
                            model_execution_time * 1000, model.last_timing)
+
+    if model_diagnostics is not None and model_output is not None:
+      model_diagnostics.record(meta_main.frame_id, meta_main.timestamp_eof, model_output_ns,
+                               model_execution_time * 1000, model.last_timing)
 
     if model_output is not None:
       modelv2_send = messaging.new_message('modelV2')

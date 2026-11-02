@@ -1,0 +1,351 @@
+{
+  "date_utc": "2026-11-02",
+  "result": "pass",
+  "source_base": "c744d99f2bed9004bfde493f2c4bd224ffca4516",
+  "data_helpers_commit": "5e01a48d98b2abd62d52add22a05bd8ab2a70dc1",
+  "branch": "radxa/q8b",
+  "source_sha256": {
+    "openpilot/common/hardware/radxa/telemetry.py": "a6eea8cfc2dc3fa66b2a023b468e4677463dfd23d17f0407ff277ec9269faec4",
+    "openpilot/selfdrive/modeld/thneed_q8b/telemetry.py": "5736f166d851d0a30347e787f688df1b21057881dd1aab2e513dd6724bcc1cd7",
+    "openpilot/selfdrive/modeld/modeld.py": "37d7fda426b03fd5c97b003332432a50f46d439050ef0926dbfab9e61f3ee9ed",
+    "openpilot/selfdrive/ui/onroad/q8b_stats.py": "f2ad3862a25e9b1b9daeccb6ace849c231230817b65d6dae16c2c69d48b62f8b",
+    "openpilot/selfdrive/ui/onroad/augmented_road_view.py": "8d988d2dfe00be895c86df45224537dca9a197bfa2d286845e9c3ce2b70c238f",
+    "openpilot/system/camerad/webcam/config.py": "42a5096c32f60930f00cdc4763bfa8c17a6a7bc408c6632a0a8fa40e226ad584",
+    "openpilot/system/camerad/webcam/preview.py": "8c9da92191880c48fc9461fef8325ea4667c0082ba4825b88302a0710777569e"
+  },
+  "teacher_reference_sha256": "ec79c31df908d6aebb1c76c261ea867b4fd8186d97c8e8d1b523a3fdc4d1e4e5",
+  "runtime_sha256_unchanged": {
+    "model": "eb74164116723b2601730a19e2f2060a25bfdc3814bf7912ce991798df176068",
+    "native": "46c18dc88e507daf5efdbdde848ba70c3e7431850d802775edf048fa6eb8591d",
+    "helper_source": "57aa1f992afd018a1d7f30fbf07067b24f2c75530d062461f087e66198392056",
+    "installed_helper": "57aa1f992afd018a1d7f30fbf07067b24f2c75530d062461f087e66198392056"
+  },
+  "tests": {
+    "count": 76,
+    "result": "pass",
+    "log": "all-tests-final.log",
+    "ruff": "pass",
+    "red_regressions": [
+      "missing data helpers",
+      "missing UI helpers",
+      "primitive Data initializer regression"
+    ],
+    "memory": {
+      "result": "pass",
+      "memory_layout": "regular project directory",
+      "documents": 61,
+      "relative_links": 183,
+      "optional_workspace_links": 238,
+      "source_repositories": 8,
+      "indexed_entries": 4252
+    },
+    "git_diff_check": "pass"
+  },
+  "live65": {
+    "result": "pass",
+    "run": "ui65",
+    "display_values": {
+      "inference_ms": 10.847079,
+      "model_ms": 13.16296399818384,
+      "camera_model_ms": 36.587627,
+      "model_hz": 19.88366463402905,
+      "camera_ui_ms": 43.639304,
+      "health": {
+        "sample_ns": 26976551908435,
+        "cpu_c": 42.3,
+        "gpu_c": 39.4,
+        "pwm": 133,
+        "pwm_percent": 52.156862745098046,
+        "fan_mode": 2,
+        "fan_rpm": null
+      },
+      "display_ns": 26976810510672
+    },
+    "matched_model_samples": 39,
+    "matched_ui_samples": 41,
+    "overlay_to_benchmark_draw_ready_ms_median": 0.780937,
+    "received_packets": 1274,
+    "rejected_packets": 0,
+    "model_benchmark": {
+      "samples": 1183,
+      "output_hz": 20.004824542548477,
+      "camera_to_output_ms": {
+        "median": 36.831579,
+        "p95": 41.043257499999996,
+        "p99": 42.37770384000001,
+        "max": 46.426102
+      },
+      "full_model_call_ms": {
+        "median": 13.273241998831509,
+        "p95": 14.993274401786035,
+        "p99": 15.951805001823233,
+        "max": 19.929062997107394
+      },
+      "stages_ms": {
+        "cpu_prepare_ms": {
+          "median": 0.0,
+          "p95": 0.0,
+          "p99": 0.0,
+          "max": 0.0
+        },
+        "gpu_prepare_ms": {
+          "median": 1.642711,
+          "p95": 2.4174935,
+          "p99": 3.139261220000002,
+          "max": 5.436525
+        },
+        "map_configuration_ms": {
+          "median": 0.130989,
+          "p95": 0.1621299,
+          "p99": 0.22759422000000035,
+          "max": 0.445678
+        },
+        "input_validation_ms": {
+          "median": 0.011146,
+          "p95": 0.012442799999999993,
+          "p99": 0.02034108000000001,
+          "max": 0.246356
+        },
+        "upload_ms": {
+          "median": 0.044323,
+          "p95": 0.057604,
+          "p99": 0.0969670600000001,
+          "max": 0.255938
+        },
+        "inference_readback_ms": {
+          "median": 10.932599,
+          "p95": 12.132907099999999,
+          "p99": 12.812460300000001,
+          "max": 13.815996
+        }
+      },
+      "all_clock_samples_at_tested_max": true,
+      "timestamp_endpoint": "V4L2 monotonic source timestamp to model.run return; excludes UI receipt and drawing"
+    },
+    "ui_benchmark": {
+      "status": "complete",
+      "samples": 1201,
+      "warmup_samples": 92,
+      "warmup_seconds": 5.0,
+      "elapsed_seconds": 65.05342670800019,
+      "requested_seconds": 65.0,
+      "repeated_ui_frames": 646,
+      "skipped_publication_ids": 0,
+      "displayed_unique_fps": 19.999394065025083,
+      "capture_to_draw_ready_ms": {
+        "median": 45.389968,
+        "p95": 58.292098,
+        "p99": 61.29506,
+        "mean": 44.78631561365528,
+        "min": 24.119535,
+        "max": 62.724654
+      },
+      "capture_to_frame_complete_ms": {
+        "median": 74.590069,
+        "p95": 88.903643,
+        "p99": 92.121677,
+        "mean": 74.7386152489592,
+        "min": 54.985691,
+        "max": 93.108509
+      },
+      "end_drawing_ms": {
+        "median": 29.753018,
+        "p95": 31.074653,
+        "p99": 31.604846,
+        "mean": 29.95229963530391,
+        "min": 27.859762,
+        "max": 31.812497
+      },
+      "quantile_method": "numpy percentile linear",
+      "endpoint": "host Raylib EndDrawing return, including its normal frame pacing; not optical presentation",
+      "capture_clock": "V4L2 driver monotonic timestamp carried by VisionIPC",
+      "environment": {
+        "vendor": "freedreno",
+        "renderer": "FD690",
+        "version": "4.6 (Core Profile) Mesa 25.2.8-0ubuntu0.24.04.2",
+        "window_size": [
+          1824,
+          912
+        ],
+        "render_size": [
+          1824,
+          912
+        ],
+        "ui_target_fps": 30,
+        "capture_fps": 60,
+        "publication_fps": 20
+      }
+    },
+    "children": [
+      0,
+      0,
+      0
+    ],
+    "limits": "Overlay uses2s rolling medians; benchmark excludes warmup. UI first-draw endpoint precedes EndDrawing and physical presentation."
+  },
+  "final10": {
+    "result": "pass",
+    "run": "ui10-final",
+    "display_values": {
+      "inference_ms": 10.543858,
+      "model_ms": 12.955741998666781,
+      "camera_model_ms": 36.5941775,
+      "model_hz": 20.05971319875029,
+      "camera_ui_ms": 40.650061,
+      "health": {
+        "sample_ns": 27060024712473,
+        "cpu_c": 40.3,
+        "gpu_c": 38.0,
+        "pwm": 221,
+        "pwm_percent": 86.66666666666667,
+        "fan_mode": 2,
+        "fan_rpm": null
+      },
+      "display_ns": 27060819411857
+    },
+    "matched_model_samples": 40,
+    "matched_ui_samples": 40,
+    "overlay_to_benchmark_draw_ready_ms_median": 0.7378595,
+    "received_packets": 179,
+    "rejected_packets": 0,
+    "model_benchmark": {
+      "samples": 147,
+      "output_hz": 20.024043675689185,
+      "camera_to_output_ms": {
+        "median": 36.905619,
+        "p95": 41.7152726,
+        "p99": 42.63430262,
+        "max": 43.396331
+      },
+      "full_model_call_ms": {
+        "median": 13.396782000199892,
+        "p95": 15.438344300491735,
+        "p99": 16.589023199558138,
+        "max": 17.145089001132874
+      },
+      "stages_ms": {
+        "cpu_prepare_ms": {
+          "median": 0.0,
+          "p95": 0.0,
+          "p99": 0.0,
+          "max": 0.0
+        },
+        "gpu_prepare_ms": {
+          "median": 1.643426,
+          "p95": 2.6231691999999995,
+          "p99": 2.9476358599999983,
+          "max": 3.191072
+        },
+        "map_configuration_ms": {
+          "median": 0.136926,
+          "p95": 0.1724983999999999,
+          "p99": 0.3088876799999997,
+          "max": 0.335415
+        },
+        "input_validation_ms": {
+          "median": 0.011667,
+          "p95": 0.015073499999999993,
+          "p99": 0.024025179999999986,
+          "max": 0.047188
+        },
+        "upload_ms": {
+          "median": 0.044739,
+          "p95": 0.06438489999999997,
+          "p99": 0.09651089999999996,
+          "max": 0.190207
+        },
+        "inference_readback_ms": {
+          "median": 11.055239,
+          "p95": 12.587855399999997,
+          "p99": 13.406529839999997,
+          "max": 13.766468
+        }
+      },
+      "all_clock_samples_at_tested_max": true,
+      "timestamp_endpoint": "V4L2 monotonic source timestamp to model.run return; excludes UI receipt and drawing"
+    },
+    "ui_benchmark": {
+      "status": "complete",
+      "samples": 156,
+      "warmup_samples": 37,
+      "warmup_seconds": 2.0,
+      "elapsed_seconds": 10.054185671000596,
+      "requested_seconds": 10.0,
+      "repeated_ui_frames": 96,
+      "skipped_publication_ids": 5,
+      "displayed_unique_fps": 19.325382242941323,
+      "capture_to_draw_ready_ms": {
+        "median": 41.2217945,
+        "p95": 56.68442025,
+        "p99": 60.803066149999964,
+        "mean": 43.98778525,
+        "min": 25.202173,
+        "max": 345.12865
+      },
+      "capture_to_frame_complete_ms": {
+        "median": 71.0963515,
+        "p95": 86.856306,
+        "p99": 91.58278984999995,
+        "mean": 73.86504515384615,
+        "min": 55.843627,
+        "max": 345.458127
+      },
+      "end_drawing_ms": {
+        "median": 29.867107,
+        "p95": 31.0860685,
+        "p99": 31.2760294,
+        "mean": 29.877259903846152,
+        "min": 0.329477,
+        "max": 31.530461
+      },
+      "quantile_method": "numpy percentile linear",
+      "endpoint": "host Raylib EndDrawing return, including its normal frame pacing; not optical presentation",
+      "capture_clock": "V4L2 driver monotonic timestamp carried by VisionIPC",
+      "environment": {
+        "vendor": "freedreno",
+        "renderer": "FD690",
+        "version": "4.6 (Core Profile) Mesa 25.2.8-0ubuntu0.24.04.2",
+        "window_size": [
+          1824,
+          912
+        ],
+        "render_size": [
+          1824,
+          912
+        ],
+        "ui_target_fps": 30,
+        "capture_fps": 60,
+        "publication_fps": 20
+      }
+    },
+    "children": [
+      0,
+      0,
+      0
+    ],
+    "limits": "Overlay uses2s rolling medians; benchmark excludes warmup. UI first-draw endpoint precedes EndDrawing and physical presentation."
+  },
+  "cleanup": {
+    "owned_workers_stopped": true,
+    "private_ipc_removed": true,
+    "checked_sessions": [
+      "ui10-final",
+      "ui15",
+      "ui15-fixed",
+      "ui65"
+    ],
+    "camera_and_clocks_restored": true,
+    "gpu_faults": 0,
+    "fan_mode": 2,
+    "pwm_not_written": true
+  },
+  "limits": [
+    "One65s outer command returned143 after complete UI/child0/0/0 results; signal origin unknown. Independent cleanup passes and final10s command exits0.",
+    "Initial15s run lacked model telemetry due primitive Data initialization; regression fixed, failed run retained.",
+    "UI timing is host first draw, not exposure-to-screen/display presentation.",
+    "Timing2s medians refreshed4Hz; sensors1Hz, stale timing1s/sensors3s become unavailable.",
+    "Hottest readable CPU/GPU channels; PWM duty is not RPM. This board exposes no RPM feedback.",
+    "No model/native/root helper, lens calibration, fan control or vehicle-control change. Numerical NN reference qualification remains prior evidence."
+  ],
+  "raw_workspace_report": "Ai/Reports/sunnypilot-ui-telemetry-20261102"
+}

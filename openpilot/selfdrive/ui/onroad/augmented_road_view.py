@@ -56,6 +56,11 @@ class AugmentedRoadView(CameraView, AugmentedRoadViewSP):
     self._hud_renderer = HudRenderer()
     self.alert_renderer = AlertRenderer()
     self.driver_state_renderer = DriverStateRenderer()
+    from openpilot.system.camerad.webcam.config import stats_enabled
+    self.q8b_stats = None
+    if stats_enabled():
+      from openpilot.selfdrive.ui.onroad.q8b_stats import Q8bStatsPanel
+      self.q8b_stats = Q8bStatsPanel()
 
   def _render(self, rect):
     # Only render when system is started to avoid invalid data access
@@ -91,6 +96,8 @@ class AugmentedRoadView(CameraView, AugmentedRoadViewSP):
     self.model_renderer.render(self._content_rect)
     AugmentedRoadViewSP.update_fade_out_bottom_overlay(self, self._content_rect)
     self._hud_renderer.render(self._content_rect)
+    if self.q8b_stats is not None:
+      self.q8b_stats.render(self._content_rect, self)
     self.alert_renderer.render(self._content_rect)
     self.driver_state_renderer.render(self._content_rect)
 
@@ -102,6 +109,13 @@ class AugmentedRoadView(CameraView, AugmentedRoadViewSP):
 
     # Draw colored border based on driving state
     self._draw_border(rect)
+
+  def close(self):
+    panel = getattr(self, 'q8b_stats', None)
+    if panel is not None:
+      self.q8b_stats = None
+      panel.close()
+    super().close()
 
   def _handle_mouse_press(self, _):
     if self._click_callback is not None:

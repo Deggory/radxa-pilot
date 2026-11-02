@@ -33,6 +33,21 @@ The default preview does not install calibration or start inference. Add
 [model launch guide and timing boundaries](../../../selfdrive/modeld/thneed_q8b/README.md).
 Measured optics remain unqualified.
 
+### Live Q8B performance panel
+
+The actual onroad view shows CPU/GPU temperatures, fan PWM percent/raw duty and
+mode, GPU inference/readback time, full model time, model Hz, camera-to-model
+completion and camera-to-UI first draw. It is enabled in Q8B road-only mode;
+`--model` supplies model readings. Camera-only mode leaves those readings as
+`--`. Use `Q8B_SHOW_STATS=0` to hide the panel.
+
+Sensors are read once per second on a background thread. Timing values are
+rolling two-second medians, refreshed four times per second. Missing/stale
+measurements show dashes. PWM describes duty, with RPM shown only if the board
+exposes feedback. UI first draw is a host rendering point before EndDrawing,
+not physical display latency. The panel does not control cooling or vehicle
+functions. No new sudo setup is required.
+
 To benchmark capture-to-UI timing with normal system clock governors:
 
 ```bash

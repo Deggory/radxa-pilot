@@ -207,6 +207,14 @@ Thneed-backed modeld and the actual Sunnypilot UI in a private namespace. Close
 the window or press Ctrl+C to stop. Vehicle/control/driver-monitoring processes
 are not started. Geometry remains provisional and the UI labels it uncalibrated.
 
+The Q8B onroad view now includes a live performance panel: CPU/GPU temperatures,
+fan PWM duty and mode, inference/full-model time and model Hz, camera-to-model,
+and camera-to-UI first-draw time. Values refresh automatically; missing or stale
+data shows `--`. Temperatures are the hottest readable CPU/GPU channels. PWM is
+not fan RPM. Timings are rolling two-second medians; UI timing excludes screen
+presentation. `Q8B_SHOW_STATS=0` hides the panel. No additional installation or
+sudo permission is required. See [telemetry details](Ai/Knowledge/UI_TELEMETRY.md).
+
 For launch options without opening the camera:
 
 ```bash

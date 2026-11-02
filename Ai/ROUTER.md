@@ -1,4 +1,4 @@
-Current task: [live Q8B UI telemetry](Knowledge/UI_TELEMETRY.md).
+Current result: [live Q8B UI telemetry](Knowledge/UI_TELEMETRY.md).
 
 Current performance result: [maximum mode and resident GPU baseline](Knowledge/MAX_PERFORMANCE.md).
 

@@ -29,3 +29,10 @@ def rotate_180() -> bool:
   if value not in ('0', '1'):
     raise ValueError('ROAD_CAM_ROTATE_180 must be 0 or 1')
   return value == '1'
+
+
+def stats_enabled() -> bool:
+  value = os.getenv('Q8B_SHOW_STATS', '1')
+  if value not in ('0', '1'):
+    raise ValueError('Q8B_SHOW_STATS must be 0 or 1')
+  return road_only_enabled() and value == '1'

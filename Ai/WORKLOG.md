@@ -250,3 +250,8 @@ checkpoint. No new runtime tests, upstream integration or remote push.
 
 2026-11-02 — Started owner-requested live onroad telemetry panel. Read-only
 sensor and bounded timing/window helpers pass5tests/Ruff; UI integration next.
+
+2026-11-02 — Completed live onroad CPU/GPU/PWM/model/latency panel.76tests,
+real15/65/10s UI and independent packet/frame/timer checks pass;65s20.0048Hz.
+Controls remainoff; root/native/model unchanged. Outer65s143 anomaly retained,
+independent restoration and final10s launcher0 verified. See UI_TELEMETRY.

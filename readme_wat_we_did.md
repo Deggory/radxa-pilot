@@ -233,3 +233,11 @@ singleCPU7 trial regressed to40.512ms. Fast cores4–7 default instead measured
 36.829/41.592ms camera→output and10.817/11.790ms inference median/p95 at20Hz.
 
 2026-11-02 accepted closeout: Final repeat: 1164steady outputs/20.0027Hz; inference11.070/12.258ms, fullcall13.574/15.314ms and capture→output37.355/41.790ms median/p95. All clock samples max; target medians pass. Prior fast run36.829ms also passes.68tests/lint/native/exactGPU/CPU checks pass. Final UI194frames/176models/33points, children0/0/0. All reported workers/private IPC removed, camera and clocks restored, GPUfaults0, model/helper hashes unchanged.
+
+## 2026-11-02 — Live performance panel in Sunnypilot UI
+
+Added actual onroad CPU/GPU temperatures, fan PWM duty/mode, GPU and full-model
+latency, model Hz, camera-to-model and camera-to-UI first-draw time. Read-only
+sensors, rolling timing medians and explicit unavailable/stale states.76tests
+and real65s20Hz UI/independent frame checks pass; standard --model preview
+shows it automatically. [Details](Ai/Knowledge/UI_TELEMETRY.md).

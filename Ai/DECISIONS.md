@@ -169,3 +169,10 @@ Rejected controls cannot advance image history; post-mutation errors require res
 intersecting caller restrictions; retain Q8B_FAST_CPU=0 for comparison. SingleCPU7
 regressed this pipeline and is rejected. Keep saved failed timing results and
 both passing fast-profile runs; do not extrapolate bench medians to all frames.
+
+2026-11-02 — Put read-only Q8B diagnostic panel in the actual onroad view,
+with alert overlays taking priority and Q8B_SHOW_STATS=0 opt-out. Reuse existing
+customReservedRawData0 for namespaced/versioned Q8B timing packets only; review
+allocation before another producer/fork uses it. UI timing means host first
+draw, PWM means duty rather than RPM; unavailable/stale values stay unavailable.
+Diagnostics never drive controls and send failure does not interrupt the model.

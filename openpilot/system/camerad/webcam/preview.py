@@ -149,6 +149,8 @@ def run_ui(args):
               'last_frame': last_frame, 'screenshot_saved': screenshot_saved,
               'seconds': time.monotonic() - start, 'model_processes_started': args.model, 'vehicle_processes_started': False,
               'model_messages': len(model_rows), 'model_path_render_points': len(view.model_renderer._path.raw_points)}
+    if view.q8b_stats is not None:
+      result['q8b_stats'] = view.q8b_stats.diagnostics()
     if args.model:
       (args.log_dir / 'model-received.jsonl').write_text(''.join(json.dumps(row) + '\n' for row in model_rows))
     (args.log_dir / 'ui-result.json').write_text(json.dumps(result, indent=2) + '\n')
