@@ -1,5 +1,10 @@
 # Sunnypilot work history
 
+2026-11-02 — Added camera-only onroad dashboard launcher with private
+messages/Params and owned-process cleanup.32tests/lint pass; live screenshot
+viewed,173frames/9.06s, settings restored on close. Model not started.
+[Session](Sessions/2026-11-02-ui-camera-preview.md).
+
 2026-11-02 — Owner selected temporary MM-X camera method. Added scoped
 720p/focal900 road geometry shared by model/UI; default guard and other
 profiles preserved.30tests/lint pass; no model/camera run.

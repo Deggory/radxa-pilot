@@ -7,6 +7,37 @@ packed camera-only test is historical; model-facing layout is checked separately
 
 ## Radxa Q8B: one road-facing AK-Camera (experimental capture only)
 
+### Open the Sunnypilot camera dashboard
+
+With the native helper/Params library and Python UI dependencies available,
+run from the Sunnypilot project root:
+
+```bash
+.venv/bin/python -m openpilot.system.camerad.webcam.preview
+```
+
+This opens Sunnypilot's actual onroad view/HUD with live road-camera video.
+It starts only the camera publisher and UI, with private messaging/temporary
+parameters and synthetic UI-only started/ignition state. No vehicle interface,
+model, planners, driver-monitoring, control or recording processes are started.
+Speed readouts are demonstration defaults, not measured vehicle data. Close
+the window or press Ctrl+C in its launcher to stop; camera settings are restored.
+Logs/process IDs/results are saved in the printed session directory under /tmp.
+The standard full manager and legacy tools/scripts/uiview.py are separate paths.
+
+For a bounded check, add `--seconds 10 --log-dir /tmp/q8b-ui-check`.
+Optional `--screenshot /tmp/q8b-ui-check.png` saves after40distinct camera frames.
+The preview does not install calibration or start inference; measured optics
+and the current model/Adreno integration remain separate work.
+
+The current development .venv uses the pinned raylib6.0.0.1.post103 desktop
+wheel and freshly compiled libparams_c.so. Its .pth also reuses existing bench
+Python dependencies and matching project submodules; it is not a standalone
+deployment environment. Normal build/installation of project dependencies
+is still required when deploying this folder elsewhere.
+
+### Capture profile
+
 Temporary geometry, selected by the owner2026-11-02: this mode uses MM-X's RK
 road profile,1280x720 with fx=fy=900pixels and centre(640,360). It is borrowed
 from master-rk3588 at3ad69b20, not measured AK-Camera calibration. Current model

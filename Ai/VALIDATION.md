@@ -1,5 +1,15 @@
 # Validation: what is actually established
 
+## Camera dashboard — 2026-11-02
+
+32focused tests pass, including private environment and owned-child cleanup.
+Fresh native Params build and pinned raylib6.0.0.1.post103 wheel SHA verified.
+Live9.06s native onroad window rendered173distinct camera frames; screenshot
+viewed. Later4s lifecycle exits camera/UI0/0; camera prior1080p30MJPG and
+dynamic-framerate1 restored exactly. First screenshot attempt used an absolute
+path unsupported by TakeScreenshot; retained log, corrected to relative path
+and verified actual file. No model/vehicle/full-manager/recording test.
+
 ## Temporary MM-X camera profile — 2026-11-02
 
 30focused calibration/camera/identity tests pass; lint passes. Added test

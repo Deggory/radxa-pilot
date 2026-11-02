@@ -1,5 +1,14 @@
 # Decisions and rationale
 
+## 2026-11-02 — Preview camera through real onroad UI without manager
+
+Owner wants live camera dashboard. Standard uiview starts model/DM/planner
+processes, so provide camera-only launcher with existing onroad widget/HUD.
+Synthetic ignition/started state stays in a unique private namespace. No
+vehicle/control/model processes or fake calibrated geometry state. Closing
+UI stops camera and restores settings. This is a preview, not dashcam recording
+or a qualified full manager/model run.
+
 ## 2026-11-02 — Use temporary MM-X fixed intrinsics; defer calibration
 
 Owner explicitly chose MM-X method now/change later. Use his720p/focal900

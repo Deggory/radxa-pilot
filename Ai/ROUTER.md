@@ -1,5 +1,8 @@
 # Start here: Sunnypilot repository memory
 
+2026-11-02 latest: actual Sunnypilot onroad camera preview now verified;
+see HANDOFF/resume for launch/active-session state. Model integration pending.
+
 2026-11-02 latest: owner chose temporary MM-X720p/focal900 geometry in Q8B
 road-only mode; automatic/checkerboard work deferred. Start HANDOFF/resume.
 

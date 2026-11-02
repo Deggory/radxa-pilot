@@ -1,5 +1,13 @@
 # What we did: Radxa Dragon Q8B identity
 
+## 2026-11-02 — Open live camera in Sunnypilot dashboard
+
+Run `.venv/bin/python -m openpilot.system.camerad.webcam.preview` from this
+project root. Uses the real onroad dashboard, camera publisher and private
+demo state. Close window to stop/restore camera.32tests and live screenshot
+verified; inference and vehicle controls are not started. See webcam README
+for development environment dependencies and current limitations.
+
 ## 2026-11-02 — Temporary MM-X road-camera geometry
 
 Owner chose fixed MM-X geometry for now:1280x720,900pixel focal length,

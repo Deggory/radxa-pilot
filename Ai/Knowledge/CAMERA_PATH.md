@@ -1,5 +1,18 @@
 # Current webcam camera path
 
+## 2026-11-02 — Live Sunnypilot camera dashboard verified
+
+Owner requested opening the UI to view road-camera output. Added webcam/preview.py
+camera-only launcher using the actual Sunnypilot onroad widget/HUD. Private
+message prefix/temporary Params; UI-only demo started/ignition data. Starts
+camera+UI only, no model/planners/vehicle/controls/recording.32focused tests/lint
+pass; live9.06s check rendered173distinct frames, actual screenshot viewed.
+Final4s lifecycle check passes; child exit0/0 and prior1080p30/dynamic-rate1
+restored. Stock model and temporary MM-X intrinsics unchanged. UI speed is a
+demo default, not car telemetry; no AI prediction/vehicle integration claim.
+Next: use camera preview; model/Adreno qualification still pending. Automatic
+calibration remains deferred. See ui-camera-preview session and webcam README.
+
 ## 2026-11-02 — Temporary MM-X geometry selected and implemented
 
 Owner: keep MM-X method for now, change later. get_device_camera_config now
