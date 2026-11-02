@@ -70,7 +70,11 @@ arithmetic policy, rather than changing the already-compiled model.
 
 ## Live modeld and UI integration
 
+The virtual environment lives inside `sunnypilot/`, not the parent workspace.
+From a terminal in `~/comma`, first enter the project:
+
 ```bash
+cd ~/comma/sunnypilot
 .venv/bin/python -m openpilot.system.camerad.webcam.preview --model
 ```
 
@@ -94,6 +98,27 @@ accepted720p road-only profile, keeps stock parser/messages, disables alternate
 model warmup/compiler selection and bypasses Chestnut. SCons in this mode builds
 only the native replay wrapper in modeld's subtree, without regenerating model
 artifacts. Full manager/vehicle operation is outside this bench qualification.
+
+## Timing boundaries
+
+The clean65second integrated run measured **36.656ms median /46.326ms p95**
+around the complete `model.run()` call: two CPU image warps/packing, history
+adaptation/copies, input validation/uploads, Thneed GPU execution/readback and
+output parsing. Camera capture, JPEG decode and BGR→NV12 conversion happen in
+`camerad` before this call; UI drawing happens afterward. Both are outside this
+model-call timer. Capture timestamp→model receipt at UI was separately
+94.754/115.031ms median/p95; this endpoint includes UI receipt scheduling and
+is not physical display latency.
+
+The historical11.724/12.348ms GPU execution/readback result used a different
+max-clock standalone profile. It does not establish the GPU-only time in this
+integrated run, which has not been measured separately. Subtracting11.724 from
+36.656 cannot identify current camera or preparation cost. Even the historical
+run was not always under12ms: its p95 was12.348ms.
+
+The whole-project SCons build currently stops at missing `acados`; the existing
+preview/native replay was tested independently and does not need that full
+build to launch. Other full-build dependencies remain unchecked.
 
 ## Qualification
 

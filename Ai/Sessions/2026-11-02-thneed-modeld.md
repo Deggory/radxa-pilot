@@ -83,3 +83,23 @@ actuator, thermal-soak or full-stack readiness claim. No upstream merge/rebase.
 Skills: incremental/TDD/API/performance/source/debugging/review/documentation/Git;
 REA fast path uses pinned readable source, existing format pins and fresh runtime
 outputs. No unrelated REA decompilation or fabricated provider result.
+
+## 2026-11-02 follow-up — Parent-directory launch and timing interpretation
+
+Owner ran `.venv/bin/python` from `~/comma`; the environment exists inside
+`~/comma/sunnypilot`. Both launch READMEs now explicitly enter the project.
+Source at07bc78e: modeld brackets the complete model.run; state.py prepares both
+views/history and parses outputs; runtime.py validates/uploads/replays/readbacks;
+camera.py decodes JPEG/converts NV12 before publication. Thus36.656/46.326ms is
+not GPU-only and does not include camera capture/decode or UI rendering. Current
+GPU-only time remains unmeasured. Historical11.724/12.348ms uses another profile
+and cannot be subtracted to infer current camera cost. No artifact conversion,
+runtime edits, clock changes or fresh camera/GPU session.
+
+Validation: project `.venv/bin/python -m openpilot.system.camerad.webcam.preview
+--help` exits0, lists --model; notebook verifier and git diff --check pass.
+Skills: documentation/Git/performance and source-first REA routing; existing
+reports plus readable timer/implementation evidence suffice, no unrelated REA
+binary analysis. Runtime/model/driver pins and earlier qualification remain
+unchanged. Exact next step: retry the documented launch from project root;
+separate per-stage instrumentation is needed before assigning current GPU cost.

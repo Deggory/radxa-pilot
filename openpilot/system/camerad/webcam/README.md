@@ -13,6 +13,7 @@ With the native helper/Params library and Python UI dependencies available,
 run from the Sunnypilot project root:
 
 ```bash
+cd ~/comma/sunnypilot
 .venv/bin/python -m openpilot.system.camerad.webcam.preview
 ```
 
@@ -27,8 +28,10 @@ The standard full manager and legacy tools/scripts/uiview.py are separate paths.
 
 For a bounded check, add `--seconds 10 --log-dir /tmp/q8b-ui-check`.
 Optional `--screenshot /tmp/q8b-ui-check.png` saves after40distinct camera frames.
-The preview does not install calibration or start inference; measured optics
-and the current model/Adreno integration remain separate work.
+The default preview does not install calibration or start inference. Add
+`--model` for the opt-in existing CD210 Thneed predictions; see the
+[model launch guide and timing boundaries](../../../selfdrive/modeld/thneed_q8b/README.md).
+Measured optics remain unqualified.
 
 To benchmark capture-to-UI timing with normal system clock governors:
 

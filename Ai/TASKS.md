@@ -1,5 +1,17 @@
 # Work status and next task
 
+## 2026-11-02 — Launch directory and timing clarified
+
+Enter `~/comma/sunnypilot` before `.venv/bin/python -m openpilot.system.camerad.webcam.preview --model`;
+the parent `~/comma` has no project virtual environment. Help/import checked
+from the correct directory; no new camera/model run. Current36.656/46.326ms
+model-call timer includes CPU warp/history/uploads/GPU/readback/parser, excludes
+camera capture/JPEG decode/NV12 and UI drawing. Current GPU-only split remains
+unmeasured; historical11.724ms cannot be subtracted to infer camera cost.
+Runtime/model unchanged at07bc78e; docs-only follow-up, provisional geometry and
+controls-off scope retained. Next: owner retries launch; per-stage timing needs
+a separate measurement if requested. See modeld session follow-up.
+
 ## 2026-11-02 — Thneed modeld/camera/UI integration verified
 
 ExistingCD210 artifacteb741641 unchanged, no reconversion. Q8B_THNEED=1 selects

@@ -217,3 +217,7 @@ checks pass;42tests/lint. [Session](Sessions/2026-11-02-thneed-import.md).
 with opt-in real-Q8B guards and native-only build selection; added isolated
 camera/model/UI preview.51tests,32synthetic+6liveCPU checks and20Hz cleanUI bench
 pass. All raw tails/restoration/build limits saved. [Session](Sessions/2026-11-02-thneed-modeld.md).
+
+2026-11-02 — Corrected workspace-vs-project launch command and documented model-call
+timing boundaries; no new inference benchmark. Help/import and memory/diff checks
+pass. [Follow-up](Sessions/2026-11-02-thneed-modeld.md).
