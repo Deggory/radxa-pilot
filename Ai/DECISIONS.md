@@ -1,3 +1,12 @@
+## 2026-11-02 — Accept reference audit, keep runtime blocked
+
+Preserve exact upstream source while fixing our inventory/verifier. Record
+foreign test failures instead of changing current opendbc or loosening tests.
+Curvature-to-position game control cannot validate the actual torque/custom
+actuator chain; choose an explicit lateral validation contract before feedback.
+Continue first with a sim-only camera/UI adapter. No installer, manager, model,
+physical CAN or vehicle action is part of this audit.
+
 ## 2026-11-02 — Preserve the upstream BeamNG bundle before adaptation
 
 Owner requested a folder with the needed BeamNG source. Keep it inside sim/

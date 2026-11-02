@@ -1,0 +1,67 @@
+test_changed_mode_is_rejected (test_verify_bundle.TestVerifyBundle.test_changed_mode_is_rejected) ... ok
+test_changed_source_is_rejected (test_verify_bundle.TestVerifyBundle.test_changed_source_is_rejected) ... ok
+test_duplicate_source_is_rejected (test_verify_bundle.TestVerifyBundle.test_duplicate_source_is_rejected) ... ok
+test_empty_snapshot_is_rejected (test_verify_bundle.TestVerifyBundle.test_empty_snapshot_is_rejected) ... FAIL
+test_escaped_manifest_path_is_rejected (test_verify_bundle.TestVerifyBundle.test_escaped_manifest_path_is_rejected) ... ok
+test_extra_source_is_rejected (test_verify_bundle.TestVerifyBundle.test_extra_source_is_rejected) ... ok
+test_mismatched_checksum_list_is_rejected (test_verify_bundle.TestVerifyBundle.test_mismatched_checksum_list_is_rejected) ... FAIL
+test_missing_directory_is_rejected (test_verify_bundle.TestVerifyBundle.test_missing_directory_is_rejected) ... FAIL
+test_pristine_fixture_passes (test_verify_bundle.TestVerifyBundle.test_pristine_fixture_passes) ... ok
+test_source_symlink_is_rejected (test_verify_bundle.TestVerifyBundle.test_source_symlink_is_rejected) ... ok
+test_wrong_origin_is_rejected (test_verify_bundle.TestVerifyBundle.test_wrong_origin_is_rejected) ... FAIL
+test_wrong_pin_is_rejected (test_verify_bundle.TestVerifyBundle.test_wrong_pin_is_rejected) ... FAIL
+
+======================================================================
+FAIL: test_empty_snapshot_is_rejected (test_verify_bundle.TestVerifyBundle.test_empty_snapshot_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/radxa/comma/sunnypilot/openpilot/tools/sim/beamng_reference/test_verify_bundle.py", line 49, in test_empty_snapshot_is_rejected
+    self.rejected()
+  File "/home/radxa/comma/sunnypilot/openpilot/tools/sim/beamng_reference/test_verify_bundle.py", line 37, in rejected
+    self.assertNotEqual(self.result().returncode, 0)
+AssertionError: 0 == 0
+
+======================================================================
+FAIL: test_mismatched_checksum_list_is_rejected (test_verify_bundle.TestVerifyBundle.test_mismatched_checksum_list_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/radxa/comma/sunnypilot/openpilot/tools/sim/beamng_reference/test_verify_bundle.py", line 70, in test_mismatched_checksum_list_is_rejected
+    self.rejected()
+  File "/home/radxa/comma/sunnypilot/openpilot/tools/sim/beamng_reference/test_verify_bundle.py", line 37, in rejected
+    self.assertNotEqual(self.result().returncode, 0)
+AssertionError: 0 == 0
+
+======================================================================
+FAIL: test_missing_directory_is_rejected (test_verify_bundle.TestVerifyBundle.test_missing_directory_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/radxa/comma/sunnypilot/openpilot/tools/sim/beamng_reference/test_verify_bundle.py", line 56, in test_missing_directory_is_rejected
+    self.rejected()
+  File "/home/radxa/comma/sunnypilot/openpilot/tools/sim/beamng_reference/test_verify_bundle.py", line 37, in rejected
+    self.assertNotEqual(self.result().returncode, 0)
+AssertionError: 0 == 0
+
+======================================================================
+FAIL: test_wrong_origin_is_rejected (test_verify_bundle.TestVerifyBundle.test_wrong_origin_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/radxa/comma/sunnypilot/openpilot/tools/sim/beamng_reference/test_verify_bundle.py", line 61, in test_wrong_origin_is_rejected
+    self.rejected()
+  File "/home/radxa/comma/sunnypilot/openpilot/tools/sim/beamng_reference/test_verify_bundle.py", line 37, in rejected
+    self.assertNotEqual(self.result().returncode, 0)
+AssertionError: 0 == 0
+
+======================================================================
+FAIL: test_wrong_pin_is_rejected (test_verify_bundle.TestVerifyBundle.test_wrong_pin_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/radxa/comma/sunnypilot/openpilot/tools/sim/beamng_reference/test_verify_bundle.py", line 66, in test_wrong_pin_is_rejected
+    self.rejected()
+  File "/home/radxa/comma/sunnypilot/openpilot/tools/sim/beamng_reference/test_verify_bundle.py", line 37, in rejected
+    self.assertNotEqual(self.result().returncode, 0)
+AssertionError: 0 == 0
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.506s
+
+FAILED (failures=5)

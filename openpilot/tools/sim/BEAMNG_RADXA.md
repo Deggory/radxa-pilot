@@ -5,7 +5,7 @@ Source review, 2026-11-02. This describes the reference and proposed integration
 The existing camera/CD210 GPU preview remains the selected working bench path.
 The rejected W8A8 NPU candidate is not part of this simulator plan.
 
-The [downloaded reference bundle](beamng_reference/README.md) now contains82
+The [downloaded reference bundle](beamng_reference/README.md) now contains96
 original files from this pin, including all BeamNG-specific tools and both
 complete mods. They are collected for adaptation, not applied to runtime.
 
@@ -91,6 +91,10 @@ Concrete compatibility gaps in the inspected source:
    angle, yaw rate and curvature have different units. Match the actual spawned
    car and compare requested/achieved curvature before closing a lateral loop.
    Do not import this fork's driving-limit/alert changes wholesale.
+
+See the [complete bundle audit](beamng_reference/AUDIT.md) for current API
+blockers, stale/nonfinite telemetry probes and the curvature-versus-torque
+validation boundary. The reference is not directly runnable on this port.
 
 ## First implementation slice
 

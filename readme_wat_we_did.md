@@ -1,3 +1,11 @@
+## 2026-11-02 — BeamNG reference audited
+
+Reference bundle expanded to96verified upstream files. Fixed our verifier and
+added12corruption regressions. Actual snapshot compatibility tests retain
+6failures/2import-blocked modules; direct bridge integration remains blocked.
+[Complete audit and next gate](openpilot/tools/sim/beamng_reference/AUDIT.md).
+No game/model/manager or physical vehicle action.
+
 ## 2026-11-02 — Fresh big-model NPU research baseline
 
 Converted matching Mountain Dew v3 source, calibrated500frames and ran200heldout

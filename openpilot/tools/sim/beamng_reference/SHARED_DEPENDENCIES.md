@@ -8,6 +8,9 @@ Outside tools, the bundle includes both daemons, every named beampilot module/
 test, modified simulator helpers, selected integration snapshots, root launch/
 config/setup/build/dependency metadata, README and MIT license.
 
+The audit added14missing integration/import references, including MPC/event/UI
+source, file_chunker and compile_modeld. No upstream snapshot replaces active code.
+
 ## Included references that need adaptation
 
 - `upstream/openpilot/selfdrive/beamcamd`: local game capture, not a network
@@ -44,10 +47,12 @@ unchanged core source are excluded from this BeamNG-focused source bundle.
 
 `python3 verify_bundle.py` checks exact file coverage, SHA-256, Git blob IDs,
 byte sizes and original permissions without importing upstream modules.
-`sha256sum -c SHA256SUMS` is a second portable byte check. All82source files
-were checked;56Python AST parses,8shell syntax checks and2JSON parses pass.
-These are source checks, not behavioral or game compatibility tests. Lua/Vue/
-JavaScript execution and original fork tests were not run during collection.
+`sha256sum -c SHA256SUMS` is a second portable byte check. All 96 source files
+were checked;69 Python AST parses,8 shell syntax checks and2 JSON parses pass.
+Collection originally used source checks only. The later [audit](AUDIT.md) also
+ran selected upstream Python tests with current dependencies:164pass/6fail/1skip,
+2 collection-blocked modules and1 UI module not run. Lua/Vue/JavaScript/game
+execution remains untested.
 
 Do not run the copied setup launcher against the active port as an integration
 step: it expects its full upstream project and installs that fork's simulated

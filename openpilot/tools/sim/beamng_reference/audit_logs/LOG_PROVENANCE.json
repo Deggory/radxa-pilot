@@ -1,0 +1,98 @@
+[
+  {
+    "file": "test_capture_geometry.log",
+    "original_sha256": "8e4b3699497ab4b7f7b6d603078754b8492b75fa505b7dd3e456c07790c9cd74",
+    "portable_sha256": "8e4b3699497ab4b7f7b6d603078754b8492b75fa505b7dd3e456c07790c9cd74",
+    "normalization": "trailing whitespace removed; original teacher log preserved"
+  },
+  {
+    "file": "test_beampilot_tui.log",
+    "original_sha256": "638605c91b0dff9646edb42808ec702c3af1a59d7e44245ea59755e1c4fd619c",
+    "portable_sha256": "638605c91b0dff9646edb42808ec702c3af1a59d7e44245ea59755e1c4fd619c",
+    "normalization": "trailing whitespace removed; original teacher log preserved"
+  },
+  {
+    "file": "test_beampilot_curve.log",
+    "original_sha256": "251e9a2c95ee9153fa08b2da8a77c93c75d6cdbbe246980eaf42bdd0c7652c97",
+    "portable_sha256": "251e9a2c95ee9153fa08b2da8a77c93c75d6cdbbe246980eaf42bdd0c7652c97",
+    "normalization": "trailing whitespace removed; original teacher log preserved"
+  },
+  {
+    "file": "test_radar.log",
+    "original_sha256": "11c1457f5abdec5c50e9bdef04a5db3dd9e0649fb5c2b97048e2786013ebe5ed",
+    "portable_sha256": "11c1457f5abdec5c50e9bdef04a5db3dd9e0649fb5c2b97048e2786013ebe5ed",
+    "normalization": "trailing whitespace removed; original teacher log preserved"
+  },
+  {
+    "file": "verifier-mutation.log",
+    "original_sha256": "aa1dba025cd7973ed502a16898d82f4e5a8ad7e804be48436616fa64045d60c0",
+    "portable_sha256": "aa1dba025cd7973ed502a16898d82f4e5a8ad7e804be48436616fa64045d60c0",
+    "normalization": "trailing whitespace removed; original teacher log preserved"
+  },
+  {
+    "file": "test_beampilot_limits.log",
+    "original_sha256": "938df73ec908e07e713ebd3399e9a6d51d0ef84655fb3b7540a7a9d8dd8a640a",
+    "portable_sha256": "938df73ec908e07e713ebd3399e9a6d51d0ef84655fb3b7540a7a9d8dd8a640a",
+    "normalization": "trailing whitespace removed; original teacher log preserved"
+  },
+  {
+    "file": "verifier-red.log",
+    "original_sha256": "9a3fc32db8ce63db248925fc948c8298515afc0374945458dcb4f4bc73ba5d6d",
+    "portable_sha256": "9a3fc32db8ce63db248925fc948c8298515afc0374945458dcb4f4bc73ba5d6d",
+    "normalization": "trailing whitespace removed; original teacher log preserved"
+  },
+  {
+    "file": "test_camera_calibration.log",
+    "original_sha256": "46728db926088041e8698c5b981aab0dcb38ac6dadc68c3586c958d77236dd5e",
+    "portable_sha256": "46728db926088041e8698c5b981aab0dcb38ac6dadc68c3586c958d77236dd5e",
+    "normalization": "trailing whitespace removed; original teacher log preserved"
+  },
+  {
+    "file": "test_radard_beampilot.log",
+    "original_sha256": "15bc76da47bdf8218f18fc8a7da65fafd841677d5f754b71a0c9f56e07d84c1b",
+    "portable_sha256": "15bc76da47bdf8218f18fc8a7da65fafd841677d5f754b71a0c9f56e07d84c1b",
+    "normalization": "trailing whitespace removed; original teacher log preserved"
+  },
+  {
+    "file": "test_window_capture.log",
+    "original_sha256": "5d3500ff132ce95280ffc20306a39e1f187f46ad6315995b2fe5b416ada91a9a",
+    "portable_sha256": "5d3500ff132ce95280ffc20306a39e1f187f46ad6315995b2fe5b416ada91a9a",
+    "normalization": "trailing whitespace removed; original teacher log preserved"
+  },
+  {
+    "file": "test_carstate_signals.log",
+    "original_sha256": "aafe4d41c0fd47bb55fe880d5ab8597c437f3efc1ca6d14ab8bf176e32fcfd20",
+    "portable_sha256": "08a6e28a08dd0be52c7c2a3a3cffff2126e578e6df7f86505d312c84cea45292",
+    "normalization": "trailing whitespace removed; original teacher log preserved"
+  },
+  {
+    "file": "verifier-final.log",
+    "original_sha256": "4d326f2439feb562ad700acd210d09b7a90dcf2f172ee0af3842db6c4650576a",
+    "portable_sha256": "4d326f2439feb562ad700acd210d09b7a90dcf2f172ee0af3842db6c4650576a",
+    "normalization": "trailing whitespace removed; original teacher log preserved"
+  },
+  {
+    "file": "test_bsm.log",
+    "original_sha256": "a5a8e50428dd51beca60a9faee1e9cdb36be1af6b63437e31998e55fa3e14181",
+    "portable_sha256": "681cdf14467e17f641e1ce81e2af81fdf4a43e9ada65816da746391544743211",
+    "normalization": "trailing whitespace removed; original teacher log preserved"
+  },
+  {
+    "file": "test_desire_helper_bsm.log",
+    "original_sha256": "5c43ccb17d01d15e44fb57e7ee67d619e9ad4bc8ffd57457c1427152d78eb341",
+    "portable_sha256": "5c43ccb17d01d15e44fb57e7ee67d619e9ad4bc8ffd57457c1427152d78eb341",
+    "normalization": "trailing whitespace removed; original teacher log preserved"
+  },
+  {
+    "file": "test_beampilot_build.log",
+    "original_sha256": "f805bf70b312b54eca19641a411d14f3254397f23fa0e6d5aa13f3a97682bf05",
+    "portable_sha256": "f805bf70b312b54eca19641a411d14f3254397f23fa0e6d5aa13f3a97682bf05",
+    "normalization": "trailing whitespace removed; original teacher log preserved"
+  },
+  {
+    "file": "test_vehicle_geometry.log",
+    "original_sha256": "f74b761a2d3550fcedde75301042039e1aeebfafb9e01c9469611a67c3d24ef9",
+    "portable_sha256": "f74b761a2d3550fcedde75301042039e1aeebfafb9e01c9469611a67c3d24ef9",
+    "normalization": "trailing whitespace removed; original teacher log preserved"
+  }
+]

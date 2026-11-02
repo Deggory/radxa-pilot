@@ -1,0 +1,119 @@
+{
+  "scope": "unmodified snapshot tests using process-local import routing plus existing Sunnypilot dependencies; no full upstream environment or game",
+  "totals": {
+    "passed": 164,
+    "failed": 6,
+    "skipped": 1,
+    "collection_error_modules": 2,
+    "not_run_modules": 1
+  },
+  "temporary_test_dependencies": {
+    "evdev": "2.0.0",
+    "mss": "10.2.0",
+    "source": "upstream uv.lock SDist hashes enforced; installed to /tmp only"
+  },
+  "results": [
+    {
+      "file": "openpilot/selfdrive/beamcamd/test_capture_geometry.py",
+      "result": "pass",
+      "exit": 0,
+      "elapsed_s": 0.516562687997066,
+      "log": "audit_logs/test_capture_geometry.log"
+    },
+    {
+      "file": "openpilot/selfdrive/beamcamd/test_window_capture.py",
+      "result": "fail_or_unavailable",
+      "exit": 1,
+      "elapsed_s": 0.31666089999635005,
+      "log": "audit_logs/test_window_capture.log"
+    },
+    {
+      "file": "openpilot/selfdrive/beamngd/test_bsm.py",
+      "result": "fail_or_unavailable",
+      "exit": 1,
+      "elapsed_s": 1.7221766760048922,
+      "log": "audit_logs/test_bsm.log"
+    },
+    {
+      "file": "openpilot/selfdrive/beamngd/test_camera_calibration.py",
+      "result": "fail_or_unavailable",
+      "exit": 2,
+      "elapsed_s": 0.516669032003847,
+      "log": "audit_logs/test_camera_calibration.log"
+    },
+    {
+      "file": "openpilot/selfdrive/beamngd/test_carstate_signals.py",
+      "result": "fail_or_unavailable",
+      "exit": 1,
+      "elapsed_s": 0.6183949679980287,
+      "log": "audit_logs/test_carstate_signals.log"
+    },
+    {
+      "file": "openpilot/selfdrive/beamngd/test_radar.py",
+      "result": "pass",
+      "exit": 0,
+      "elapsed_s": 0.516443607994006,
+      "log": "audit_logs/test_radar.log"
+    },
+    {
+      "file": "openpilot/selfdrive/beamngd/test_vehicle_geometry.py",
+      "result": "fail_or_unavailable",
+      "exit": 2,
+      "elapsed_s": 0.5173773610003991,
+      "log": "audit_logs/test_vehicle_geometry.log"
+    },
+    {
+      "file": "openpilot/selfdrive/controls/lib/test_desire_helper_bsm.py",
+      "result": "pass",
+      "exit": 0,
+      "elapsed_s": 0.4160589700040873,
+      "log": "audit_logs/test_desire_helper_bsm.log"
+    },
+    {
+      "file": "openpilot/selfdrive/controls/test_beampilot_curve.py",
+      "result": "pass",
+      "exit": 0,
+      "elapsed_s": 0.5664109680001275,
+      "log": "audit_logs/test_beampilot_curve.log"
+    },
+    {
+      "file": "openpilot/selfdrive/controls/test_beampilot_limits.py",
+      "result": "pass",
+      "exit": 0,
+      "elapsed_s": 1.5228733309995732,
+      "log": "audit_logs/test_beampilot_limits.log"
+    },
+    {
+      "file": "openpilot/selfdrive/controls/test_radard_beampilot.py",
+      "result": "pass",
+      "exit": 0,
+      "elapsed_s": 0.4688088599941693,
+      "log": "audit_logs/test_radard_beampilot.log"
+    },
+    {
+      "file": "openpilot/selfdrive/modeld/test_beampilot_build.py",
+      "result": "pass",
+      "exit": 0,
+      "elapsed_s": 0.3665797349967761,
+      "log": "audit_logs/test_beampilot_build.log"
+    },
+    {
+      "file": "openpilot/selfdrive/ui/onroad/test_blindspot_renderer.py",
+      "result": "not_run",
+      "reason": "UI global objects may touch display/hardware; source review only"
+    },
+    {
+      "file": "tools/test_beampilot_tui.py",
+      "result": "pass",
+      "exit": 0,
+      "elapsed_s": 0.7675757329998305,
+      "log": "audit_logs/test_beampilot_tui.log"
+    }
+  ],
+  "unresolved_failures": [
+    "scale_tire_stiffness unavailable in current opendbc:5failed cases/2collection modules",
+    "xdotool missing:1desktop diagnostic assertion"
+  ],
+  "skips": "radar LuaJIT/game-fixture test skipped by upstream; UI module intentionally not executed",
+  "not_full_upstream_or_game_qualification": true
+}

@@ -1,0 +1,73 @@
+{
+  "date_utc": "2026-11-02",
+  "base_commit": "f72a1eaf118f422e1aa166e36ddb97dd847ce1d2",
+  "scope": "complete collected BeamNG source/reference audit; not full project/runtime certification",
+  "source_commit": "5435d67499f66eca58f95882cbe35e9c577e874c",
+  "project_checks": {
+    "result": "pass",
+    "source_files": 96,
+    "source_bytes": 1160682,
+    "disk_and_index_Git_blob_mode_path_SHA256": "pass",
+    "syntax": {
+      "python_AST": 69,
+      "shell_syntax": 8,
+      "json": 2
+    },
+    "verifier_regressions": 12,
+    "red_before_fix_failures": 5,
+    "checksum_guard_mutation_caught": true,
+    "ruff": "verifier/test/conftest pass",
+    "parent_pytest_collection": "only12own tests collected; foreign snapshot excluded",
+    "notebook": {
+      "result": "pass",
+      "memory_layout": "regular project directory",
+      "documents": 66,
+      "relative_links": 214,
+      "optional_workspace_links": 238,
+      "source_repositories": 8,
+      "indexed_entries": 4252
+    },
+    "staged_whitespace": "pass",
+    "active_sim_model_source_pins_unchanged": 8
+  },
+  "upstream_compatibility": {
+    "result": "fail",
+    "tests": {
+      "passed": 164,
+      "failed": 6,
+      "skipped": 1,
+      "collection_error_modules": 2,
+      "not_run_modules": 1
+    },
+    "scope": "unmodified snapshot tests using process-local import routing plus existing Sunnypilot dependencies; no full upstream environment or game",
+    "reasons": [
+      "scale_tire_stiffness unavailable in current opendbc:5failed cases/2collection modules",
+      "xdotool missing:1desktop diagnostic assertion"
+    ],
+    "skip_limits": "radar LuaJIT/game-fixture test skipped by upstream; UI module intentionally not executed"
+  },
+  "contract_probes": {
+    "packet_bytes": 96,
+    "parser_accepts_nan_speed": true,
+    "tick_without_fresh_telemetry": [
+      [
+        "state_published",
+        true
+      ],
+      [
+        "control_send_called",
+        true
+      ]
+    ],
+    "NaN_clamp_diagnostic": {
+      "min_1_nan": 1.0
+    },
+    "scope": "exact AST-extracted source bodies only; no sockets, model, game or hardware access; not full bridge behavior proof"
+  },
+  "source_search_results": 71,
+  "added_original_files": 14,
+  "manifest_sha256": "0bc5f842340de49fa18ef190dbac85281840878252d85458f7770fe0a658dcdf",
+  "verdict": "reference bundle accepted for adaptation; direct runtime integration blocked",
+  "no_live_game_manager_model_or_physical_CAN": true,
+  "active_environment_not_modified": true
+}

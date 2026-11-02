@@ -2,7 +2,7 @@
 
 Collected from [Caleb-J773/beampilot-drive](https://github.com/Caleb-J773/beampilot-drive)
 on2026-11-02, commit **5435d67499f66eca58f95882cbe35e9c577e874c**.
-Contains **82 original files / 1,025,072 bytes**, plus this guide and verification metadata.
+Contains **96 original files / 1,160,682 bytes**, plus this guide and verification metadata.
 This folder contains the BeamNG-specific tools, both complete game mods, camera/
 vehicle daemons and supporting source needed to study and adapt the bridge.
 
@@ -10,6 +10,8 @@ vehicle daemons and supporting source needed to study and adapt the bridge.
 bundle inside our Sunnypilot project, not an installed or runnable standalone
 fork. The active Radxa camera, model, process configuration and opendbc are
 unchanged. No installer, game, daemon or model was executed to collect it.
+
+[Complete audit](AUDIT.md) · [per-file coverage](FILE_AUDIT.json) · [upstream test results](UPSTREAM_TEST_RESULTS.json).
 
 ## Contents
 
@@ -25,7 +27,7 @@ unchanged. No installer, game, daemon or model was executed to collect it.
 | `openpilot/selfdrive/beamngd/` | Telemetry, game controls, optional virtual joystick and tests. |
 | `openpilot/common/beampilot_*.py` | Camera geometry, environment options, vehicle geometry, limits, blindspot and radar support. |
 | `openpilot/tools/sim/lib/` | Fork's simulator camera/car/sensor/input helpers. |
-| `openpilot/selfdrive/controls/`, `modeld/`, `car/`, `selfdrived/`, `openpilot/system/manager/` | Original integration snapshots and relevant tests; these have not been applied to Sunnypilot. |
+| `openpilot/selfdrive/{controls,modeld,car,selfdrived}/`, `openpilot/system/manager/` | Original integration snapshots and relevant tests; these have not been applied to Sunnypilot. |
 | Root configuration/launch/setup scripts, `SConstruct`, `pyproject.toml`, `uv.lock`, `.gitmodules` | Original configuration and build/dependency pins. |
 | `README.md`, `LICENSE` | Upstream instructions and MIT license. |
 
@@ -48,7 +50,7 @@ sha256sum -c SHA256SUMS
 Verification reads bytes only. Foreign-fork tests are retained under `upstream`
 but excluded from automatic parent-project pytest discovery by `conftest.py`;
 they import their original fork's APIs and are not Sunnypilot integration tests.
-All copied source bytes remain unchanged.
+All copied source bytes remain unchanged. Our verifier has12 corruption regressions; the separate upstream compatibility experiment has unresolved failures detailed in AUDIT.md.
 
 ## Use for our port
 

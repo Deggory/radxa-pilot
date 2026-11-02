@@ -7,13 +7,21 @@ from pathlib import Path
 def main():
   root = Path(__file__).resolve().parent
   manifest = json.loads((root / 'MANIFEST.json').read_text())
+  if (manifest['repository'] != 'https://github.com/Caleb-J773/beampilot-drive' or
+      manifest['source_commit'] != '5435d67499f66eca58f95882cbe35e9c577e874c'):
+    raise ValueError('unexpected source repository or commit')
   files = manifest['files']
+  if not files or not (root / 'upstream').is_dir() or (root / 'upstream').is_symlink():
+    raise ValueError('missing or empty source snapshot')
   expected = {item['path'] for item in files}
   if len(expected) != len(files):
     raise ValueError('duplicate manifest paths')
   actual = {str(path.relative_to(root)) for path in (root / 'upstream').rglob('*') if path.is_file() or path.is_symlink()}
   if actual != expected:
     raise ValueError(f'snapshot coverage differs: missing={expected - actual}, extra={actual - expected}')
+  sums = ''.join(f"{item['sha256']}  {item['path']}\n" for item in files)
+  if (root / 'SHA256SUMS').read_text() != sums:
+    raise ValueError('checksum list does not match manifest')
   total = 0
   for item in files:
     path = root / item['path']

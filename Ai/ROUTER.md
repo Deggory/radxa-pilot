@@ -1,3 +1,5 @@
+Current BeamNG checkpoint: [complete audit](../openpilot/tools/sim/beamng_reference/AUDIT.md),96source files verified; current opendbc API and simulator contracts block direct integration.
+
 BeamNG files are collected in [sim/beamng_reference](../openpilot/tools/sim/beamng_reference/README.md), exact source pin/verification included.
 
 Current owner task: [BeamNG bridge](Knowledge/BEAMNG_BRIDGE.md); source review complete, adapter not implemented. NPU research paused at rejected baseline.

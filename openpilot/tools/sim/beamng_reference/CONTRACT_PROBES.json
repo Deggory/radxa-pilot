@@ -1,0 +1,18 @@
+{
+  "packet_bytes": 96,
+  "parser_accepts_nan_speed": true,
+  "tick_without_fresh_telemetry": [
+    [
+      "state_published",
+      true
+    ],
+    [
+      "control_send_called",
+      true
+    ]
+  ],
+  "NaN_clamp_diagnostic": {
+    "min_1_nan": 1.0
+  },
+  "scope": "exact AST-extracted source bodies only; no sockets, model, game or hardware access; not full bridge behavior proof"
+}

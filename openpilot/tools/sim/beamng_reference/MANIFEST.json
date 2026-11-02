@@ -742,12 +742,138 @@
       "git_blob_sha1": "f09d4d8fbda7d26b2764ce751438ebd88533cd0a",
       "sha256": "de7175a50462c0e3f12aac5d4e9cf0d095c9dd39c9c9d7b42881f786dd52d53d",
       "bytes": 148641
+    },
+    {
+      "path": "upstream/openpilot/selfdrive/car/cruise.py",
+      "source_path": "openpilot/selfdrive/car/cruise.py",
+      "category": "integration_snapshot",
+      "source_mode": "100644",
+      "git_blob_sha1": "2db52cd30a7dd75621322038ec161437f8fbc5a8",
+      "sha256": "efaf7dcc3ed985958f1a68b04a2a036c1a85cffdca4ccfadf861e9865d3c1627",
+      "bytes": 5751
+    },
+    {
+      "path": "upstream/openpilot/selfdrive/selfdrived/helpers.py",
+      "source_path": "openpilot/selfdrive/selfdrived/helpers.py",
+      "category": "integration_snapshot",
+      "source_mode": "100644",
+      "git_blob_sha1": "834d7cfb739a86a69997085867ecdb117d5b3446",
+      "sha256": "709e1f0888fcdcf34412a59f524d2e2ca8058ad1298cf9bb430df22070e62631",
+      "bytes": 2771
+    },
+    {
+      "path": "upstream/openpilot/selfdrive/ui/onroad/radar_renderer.py",
+      "source_path": "openpilot/selfdrive/ui/onroad/radar_renderer.py",
+      "category": "integration_snapshot",
+      "source_mode": "100644",
+      "git_blob_sha1": "d204c89cc7c009f678013374561614f05d5d1946",
+      "sha256": "05b987a943954a9228b9a8f91a5b4de65f8c21aac2000fe58eb1b36c7ecd5f82",
+      "bytes": 6174
+    },
+    {
+      "path": "upstream/openpilot/selfdrive/car/car_events.py",
+      "source_path": "openpilot/selfdrive/car/car_events.py",
+      "category": "integration_snapshot",
+      "source_mode": "100644",
+      "git_blob_sha1": "111e8a8ab11f8176f8b821b67772a0c975335109",
+      "sha256": "e174e77d69b93fce18588c73c6918c9e45e3b7af402128e1dce0d0eb210faa82",
+      "bytes": 8038
+    },
+    {
+      "path": "upstream/openpilot/selfdrive/ui/onroad/blindspot_renderer.py",
+      "source_path": "openpilot/selfdrive/ui/onroad/blindspot_renderer.py",
+      "category": "integration_snapshot",
+      "source_mode": "100644",
+      "git_blob_sha1": "6c1b05e4850deffde6bb9b2e9a12fbec9611d038",
+      "sha256": "f7e0a799cab22f9a7ec31f2db424580134ca87fedae477432e8698c512de941e",
+      "bytes": 7106
+    },
+    {
+      "path": "upstream/openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/SConscript",
+      "source_path": "openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/SConscript",
+      "category": "integration_snapshot",
+      "source_mode": "100644",
+      "git_blob_sha1": "68d702f5f6d8df2d21b3d96d67bdaa1127450683",
+      "sha256": "38c2fea1f040c381661062e37d7e4b4dcd57131fd596d1403bf51e40146ac80a",
+      "bytes": 5010
+    },
+    {
+      "path": "upstream/openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/long_mpc.py",
+      "source_path": "openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/long_mpc.py",
+      "category": "integration_snapshot",
+      "source_mode": "100755",
+      "git_blob_sha1": "fa83c070415d6808dde568a3469c441e5962ce26",
+      "sha256": "7c77eb1bd2752b0ef3722927872b3e034d0536642c0fc17d4d0ca5eba6869d8c",
+      "bytes": 13391
+    },
+    {
+      "path": "upstream/openpilot/selfdrive/ui/ui_state.py",
+      "source_path": "openpilot/selfdrive/ui/ui_state.py",
+      "category": "integration_snapshot",
+      "source_mode": "100644",
+      "git_blob_sha1": "0803e459fec2c13c2f071ad733e473a1d86eff0e",
+      "sha256": "922e6996e041d911403cdfcefa0df05f9f8ebb504033294548d188e202ba7cca",
+      "bytes": 12023
+    },
+    {
+      "path": "upstream/openpilot/selfdrive/ui/onroad/augmented_road_view.py",
+      "source_path": "openpilot/selfdrive/ui/onroad/augmented_road_view.py",
+      "category": "integration_snapshot",
+      "source_mode": "100644",
+      "git_blob_sha1": "373bbcc3b80b3309ebdb5d7bde55c1ce8e130043",
+      "sha256": "1e8007ded94b415c347ef079f9d1f35057480dde396ebf96fa3e4c61477f24a3",
+      "bytes": 9781
+    },
+    {
+      "path": "upstream/openpilot/system/ui/lib/application.py",
+      "source_path": "openpilot/system/ui/lib/application.py",
+      "category": "integration_snapshot",
+      "source_mode": "100644",
+      "git_blob_sha1": "b4adde68ee8ea2b4e5ab29859d5f47cb705bbae1",
+      "sha256": "8e4db7a9abaeedb66534275e3f004d20e8395856c643e295ff2de69841c54004",
+      "bytes": 35213
+    },
+    {
+      "path": "upstream/openpilot/selfdrive/controls/lib/test_desire_helper_bsm.py",
+      "source_path": "openpilot/selfdrive/controls/lib/test_desire_helper_bsm.py",
+      "category": "integration_snapshot",
+      "source_mode": "100644",
+      "git_blob_sha1": "b6560af92a3b7d5d3675fa6b001c3739ab4debba",
+      "sha256": "393ec57d8ebd3b670460e3b2c084fa2f99f881bbcc93788b360423d3de28d029",
+      "bytes": 10069
+    },
+    {
+      "path": "upstream/openpilot/selfdrive/ui/onroad/test_blindspot_renderer.py",
+      "source_path": "openpilot/selfdrive/ui/onroad/test_blindspot_renderer.py",
+      "category": "integration_snapshot",
+      "source_mode": "100644",
+      "git_blob_sha1": "42f0550dc6ad4107c7e06bd183d2681c5a31b22d",
+      "sha256": "c1c416208795ac9915ac899564a7a318b0c3080fe5bfc3a55f6b8ebe3ae8b048",
+      "bytes": 4858
+    },
+    {
+      "path": "upstream/openpilot/common/file_chunker.py",
+      "source_path": "openpilot/common/file_chunker.py",
+      "category": "runtime_support",
+      "source_mode": "100755",
+      "git_blob_sha1": "2d080c3fff54970ad251c3d6a05a44ed00c59901",
+      "sha256": "fa424c1549ee879e90117cd5ecf50c5101e5cf5e7a0df35347f1ff76b18b9533",
+      "bytes": 2411
+    },
+    {
+      "path": "upstream/openpilot/selfdrive/modeld/compile_modeld.py",
+      "source_path": "openpilot/selfdrive/modeld/compile_modeld.py",
+      "category": "integration_snapshot",
+      "source_mode": "100755",
+      "git_blob_sha1": "2d27a41496e8b4071ab8deeda286dde3804d6c74",
+      "sha256": "01d0a9f30fd136f9543be537d330c051dc83459fca7c4a36c03240c33a840214",
+      "bytes": 13014
     }
   ],
   "known_limits": [
     "full base openpilot and submodule/model binaries not copied",
     "same-host code still requires PC/Q8B adaptation",
-    "no foreign behavioral tests or BeamNG runtime executed"
+    "upstream Python compatibility tests retain failures; no BeamNG runtime qualified"
   ],
   "source_submodule_pins": {
     "msgq_repo": "0e266c1dbcf7328beee3e57b4a8688555387c877",

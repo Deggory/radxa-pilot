@@ -1,0 +1,1763 @@
+{
+  "files": [
+    {
+      "source": "tools/beamng_mod/beampilot_bridge/info.json",
+      "category": "tools",
+      "bytes": 217,
+      "sha256": "8ec47d587187193b64cdc8698d6999b304d17f4627b6041717aec9eb3faeba31",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "JSON parse"
+      ]
+    },
+    {
+      "source": "tools/beamng_mod/beampilot_bridge/lua/vehicle/protocols/beampilot.lua",
+      "category": "tools",
+      "bytes": 63268,
+      "sha256": "44e823ba13af4868c494de31a0dacd87e129b6258efb5804b441c071b8287bd7",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode"
+      ]
+    },
+    {
+      "source": "tools/beamng_mod/openpilot_cam/info.json",
+      "category": "tools",
+      "bytes": 198,
+      "sha256": "d453fefa7fb2ffb8b98e36595a523bcc85e27b6ec17dc3f307f85b5acf227e23",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "JSON parse"
+      ]
+    },
+    {
+      "source": "tools/beamng_mod/openpilot_cam/lua/ge/extensions/beampilotCameraTuner.lua",
+      "category": "tools",
+      "bytes": 13570,
+      "sha256": "83d99415155ff0958a7e03eaad09022ca2f05c9e95d398c0d00e3f77673758b6",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode"
+      ]
+    },
+    {
+      "source": "tools/beamng_mod/openpilot_cam/lua/ge/extensions/core/cameraModes/openpilot.lua",
+      "category": "tools",
+      "bytes": 10076,
+      "sha256": "6ce5d606d8b25ed2b7211b9b33d01bc0db0d0aeee82decd0b909e443e376f05a",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode"
+      ]
+    },
+    {
+      "source": "tools/beamng_mod/openpilot_cam/ui/ui-vue/mods/beampilot_camera/CameraTuner.vue",
+      "category": "tools",
+      "bytes": 6853,
+      "sha256": "73844a02a65e755dc8609f47fb226bfc893316f52acebb75d8ca15fa6cf388a9",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode"
+      ]
+    },
+    {
+      "source": "tools/beamng_mod/openpilot_cam/ui/ui-vue/mods/beampilot_camera/index.js",
+      "category": "tools",
+      "bytes": 497,
+      "sha256": "3915d666e491f9c3357c16b727616eeea3e9cbaec715d95f03fb739cb533c0d1",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode"
+      ]
+    },
+    {
+      "source": "tools/beamng_mod/test_beampilot_bsm.lua",
+      "category": "tools",
+      "bytes": 19736,
+      "sha256": "3fa71985a08cf41f9985077c556245842a7dd87e00ec644b70909c19386bec08",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode"
+      ]
+    },
+    {
+      "source": "tools/beamng_mod/test_beampilot_camera_tuner.lua",
+      "category": "tools",
+      "bytes": 7892,
+      "sha256": "e0b9c2ebee7e126acdd1b7fe479283b4dfd5a365e8986301ac66da50ff8efff7",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode"
+      ]
+    },
+    {
+      "source": "tools/beamng_mod/test_beampilot_recovery.lua",
+      "category": "tools",
+      "bytes": 7403,
+      "sha256": "e033334be527e5f28213f24e837b5e7a04ca9123a631bf563b17ff3e4e7abfe5",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode"
+      ]
+    },
+    {
+      "source": "tools/beampilot_diag.py",
+      "category": "tools",
+      "bytes": 5564,
+      "sha256": "0d269dd3b7ac533f16a323e15e2a821c0dbdca767134b20ef4476d5d8e943cc4",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [],
+      "tests": 0
+    },
+    {
+      "source": "tools/beampilot_monitor.py",
+      "category": "tools",
+      "bytes": 16662,
+      "sha256": "5c87be76f4d2ca3855e34bb67bc77e0b3d1e6235dcebcf05782ab045e908a8ee",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "fmt_rate",
+        "visible_len",
+        "draw",
+        "main"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "tools/beampilot_setup.py",
+      "category": "tools",
+      "bytes": 23821,
+      "sha256": "cbedee3e4d4f3bbb11596e7420b7e936f141136da7049069a9f52729655a9e5b",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "_mod_has",
+        "hr",
+        "run",
+        "ask",
+        "steam_roots",
+        "steam_libraries",
+        "find_beamng_install",
+        "find_beamng_userdir",
+        "check_os",
+        "check_display",
+        "_wrap",
+        "amd_gfx_targets",
+        "check_gpu",
+        "detect_package_manager",
+        "check_system_deps",
+        "check_python_deps",
+        "check_groups",
+        "check_beamng",
+        "install_mods",
+        "detect_window",
+        "main"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "tools/beampilot_tui.py",
+      "category": "tools",
+      "bytes": 58699,
+      "sha256": "53f570f2d16fb3352eb8f67a7a6c1e081f8f99ba2d2b2ed10c0300e3610c9a20",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "Setting",
+        "Section",
+        "_as_float",
+        "nvidia_compute_caps",
+        "gpu_options",
+        "gpu_list",
+        "gpu_detail",
+        "build_sections",
+        "read_config",
+        "write_config",
+        "_drop_empty_blocks",
+        "_fit",
+        "display_value",
+        "Tui",
+        "main"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "tools/install_beampilot_car.py",
+      "category": "tools",
+      "bytes": 6497,
+      "sha256": "0adb7b5dfa578edaaba25bf258efea4ba666ef1f41c4553299984232c5081c47",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "Problem",
+        "_read",
+        "install_package",
+        "install_values",
+        "install_torque",
+        "main"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "tools/opendbc_beampilot_car/__init__.py",
+      "category": "tools",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [],
+      "tests": 0
+    },
+    {
+      "source": "tools/opendbc_beampilot_car/carcontroller.py",
+      "category": "tools",
+      "bytes": 487,
+      "sha256": "6d33cbf9be59513b50b5380b1f71d7d7ba0edcca8f9a862769d6f7326b37ac69",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [],
+      "tests": 0
+    },
+    {
+      "source": "tools/opendbc_beampilot_car/carstate.py",
+      "category": "tools",
+      "bytes": 300,
+      "sha256": "49e4a2dbcbc58aaad925d6b9b8a475ea1f7b69af7c0fe0815643346e66c85a26",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [],
+      "tests": 0
+    },
+    {
+      "source": "tools/opendbc_beampilot_car/interface.py",
+      "category": "tools",
+      "bytes": 6978,
+      "sha256": "ca04ae4b1ef1360b1973ed7fa38ad141b6cfc3ac50fa3ce3d30e19e630082384",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "CarInterface"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "tools/opendbc_beampilot_car/radar_interface.py",
+      "category": "tools",
+      "bytes": 337,
+      "sha256": "c76bc6de9fa6d6761b2dec0a96f31fa3bceb4fdb92c87c1748bb3c11014ff8a8",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [],
+      "tests": 0
+    },
+    {
+      "source": "tools/opendbc_beampilot_car/values.py",
+      "category": "tools",
+      "bytes": 3652,
+      "sha256": "2305bd187d179b8c40fc58d6fd80c709251de2d874e774c9f78b6d90794753de",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "CAR"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "tools/setup.sh",
+      "category": "tools",
+      "bytes": 4176,
+      "sha256": "12f1f8a977fef352af6d07b03fd4d35ea50911413185e022655e178033dc18cc",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "bash -n"
+      ]
+    },
+    {
+      "source": "tools/setup_dependencies.sh",
+      "category": "tools",
+      "bytes": 5106,
+      "sha256": "4dd67c20772f12945e9350af404c81d07dbcf0508cd4ce3ca14e2f654898138b",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "bash -n"
+      ]
+    },
+    {
+      "source": "tools/test_beampilot_tui.py",
+      "category": "tools",
+      "bytes": 17113,
+      "sha256": "310e2addb5bbc69e08cf48b3a770dd5ad790da4b335c19d2b57dcb56a064f85d",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "code_defaults",
+        "DefaultsMatchTheCode",
+        "SavingDoesNotPinDefaults",
+        "TheShippedConfigAgreesWithItself",
+        "FakeScreen",
+        "layout_editor",
+        "LayoutAndNavigation",
+        "TheReadmeAgreesToo"
+      ],
+      "tests": 24
+    },
+    {
+      "source": "openpilot/common/beampilot_bsm.py",
+      "category": "runtime_support",
+      "bytes": 9473,
+      "sha256": "8c61710cc23f2f0264eefe0d2a7055256cfda9a1fac3f1bc4eca7c49ebfb8b16",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "flags_from_dash_lights",
+        "resolve",
+        "lua_config",
+        "BlindSpotSender",
+        "BlindSpotReceiver"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "openpilot/common/beampilot_camera.py",
+      "category": "runtime_support",
+      "bytes": 3947,
+      "sha256": "c705285e3861675fdbe1b448cdf7e2057925b0a18dec1e6de7245ff76d0f5ea1",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "lua_config",
+        "narrow_crop_bounds"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "openpilot/common/beampilot_env.py",
+      "category": "runtime_support",
+      "bytes": 1411,
+      "sha256": "945ab128a61a2c7eb19fa50569f061c3ed7eacc213cfcbd50700e5b077a44e1c",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "env_float",
+        "env_int",
+        "env_str",
+        "env_bool"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "openpilot/common/beampilot_limits.py",
+      "category": "runtime_support",
+      "bytes": 7256,
+      "sha256": "37d9dd7e629f955913036d3851e2d8199f83d5ee8afbf5978c60303d03931dfd",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "summary"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "openpilot/common/beampilot_radar.py",
+      "category": "runtime_support",
+      "bytes": 8891,
+      "sha256": "0bf4c844234fe2f6c3cec3481f2cf49e9e93a7a55b14562af67ccfe34c1719ff",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "lua_config",
+        "encode",
+        "decode",
+        "RadarReceiver"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "openpilot/common/beampilot_vehicle.py",
+      "category": "runtime_support",
+      "bytes": 22406,
+      "sha256": "ec9f110587bf67900c7212c8593b0a56979a5b38be0b42b0d0ce222640ee71d7",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "lua_config",
+        "encode",
+        "decode",
+        "env_overrides",
+        "seed_steer_ratio",
+        "SteerRatioCache",
+        "resolve",
+        "steer_ratio_source",
+        "VehicleGeometryReceiver"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "openpilot/selfdrive/beamcamd/__init__.py",
+      "category": "runtime_support",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [],
+      "tests": 0
+    },
+    {
+      "source": "openpilot/selfdrive/beamcamd/beamcamd.py",
+      "category": "runtime_support",
+      "bytes": 33545,
+      "sha256": "bc6fb86d6ac2ad0299093a315421ed64f6025b7ba87bc180f69fad23bdce859e",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "choose_capture_backend",
+        "crop_region_to_aspect",
+        "narrow_view_from_wide",
+        "clamp_region",
+        "get_capture_region",
+        "FrameEncoder",
+        "FramePacer",
+        "_publish",
+        "_warn_if_blank",
+        "main"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "openpilot/selfdrive/beamcamd/portal_capture.py",
+      "category": "runtime_support",
+      "bytes": 13420,
+      "sha256": "ce3d9a1095d5e5bc984217a0381cefbb132a2ddc5ac18b19aa76c9e9c4ecf5e8",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "restore_token_path",
+        "_unwrap",
+        "PortalError",
+        "PortalScreenCast",
+        "PipeWireNV12Source",
+        "aspect_ratio_fraction",
+        "have_aspectratiocrop",
+        "portal_available",
+        "open_portal_nv12"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "openpilot/selfdrive/beamcamd/test_capture_geometry.py",
+      "category": "runtime_support",
+      "bytes": 9801,
+      "sha256": "89ec1458863a2827e450c11f82cc54d1b8d7e3e61d5647d520c56f28e987da69",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "horizontal_fov",
+        "rect",
+        "TestCropToAspect",
+        "TestPortalPipelineRatio",
+        "TestWideCropGeometry",
+        "TestBeamNGCameraConfig"
+      ],
+      "tests": 19
+    },
+    {
+      "source": "openpilot/selfdrive/beamcamd/test_window_capture.py",
+      "category": "runtime_support",
+      "bytes": 5248,
+      "sha256": "7960200642b43f4bcd4b62cfdbfa07bd7afeb947846aae689f778fb1ba2aaf88",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "FakeKWin",
+        "_with",
+        "test_parses_windows_and_dedupes_double_emit",
+        "test_matching_is_case_insensitive_over_caption_class_and_name",
+        "test_uncertain_answers_are_none_never_a_guess",
+        "test_explains_a_native_wayland_window",
+        "test_explains_a_missing_xdotool_without_blaming_wayland"
+      ],
+      "tests": 5
+    },
+    {
+      "source": "openpilot/selfdrive/beamcamd/window_capture.py",
+      "category": "runtime_support",
+      "bytes": 18825,
+      "sha256": "932092aa479ce2d69c275b73b12e0d89d6e57173db551ed2aaa01c691da3c107",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "_run",
+        "have_xdotool",
+        "session_type",
+        "capture_support",
+        "window_geometry",
+        "window_name",
+        "window_class",
+        "_plausible",
+        "candidates",
+        "find_window",
+        "have_kwin",
+        "_kwin_run_script",
+        "_journal_lines",
+        "kwin_windows",
+        "_kwin_haystack",
+        "kwin_matches",
+        "explain_not_found",
+        "diagnose"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "openpilot/selfdrive/beamngd/__init__.py",
+      "category": "runtime_support",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [],
+      "tests": 0
+    },
+    {
+      "source": "openpilot/selfdrive/beamngd/beamngd.py",
+      "category": "runtime_support",
+      "bytes": 54521,
+      "sha256": "2235e8261958bc446456190e0146c333ec97f014da81b93943ed78b7e44f7539",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "gear_for",
+        "PhaseClock",
+        "_key_from_letter",
+        "Telemetry",
+        "parse_telemetry",
+        "handle_camera_command",
+        "find_keyboard_devices",
+        "read_cruise_button",
+        "BeamNGBridge",
+        "main"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "openpilot/selfdrive/beamngd/test_bsm.py",
+      "category": "runtime_support",
+      "bytes": 9017,
+      "sha256": "b779b16a2fe96037be7fd5c0905a328cddbad2fcb58d40ab1b54dd4d0fb350f5",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "TestDashLightBits",
+        "TestResolve",
+        "TestWire",
+        "TestTelemetryPacket",
+        "TestHold",
+        "TestLuaConfig"
+      ],
+      "tests": 20
+    },
+    {
+      "source": "openpilot/selfdrive/beamngd/test_camera_calibration.py",
+      "category": "runtime_support",
+      "bytes": 1874,
+      "sha256": "412bf0317569dc83e5855cfd9915ca9556b34b5d896d81caf98ad196706ce771",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "FakeParams",
+        "request",
+        "TestCameraCalibrationCommand"
+      ],
+      "tests": 3
+    },
+    {
+      "source": "openpilot/selfdrive/beamngd/test_carstate_signals.py",
+      "category": "runtime_support",
+      "bytes": 8759,
+      "sha256": "acb5d994b6b7100ebeb9cce3c4d3891530018302ea78e1ede84ffd8422ca3f23",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "SignalRoundTrip",
+        "ReportGearActuallyTurnsOff",
+        "TestSimulatedCarStillPacksEverything"
+      ],
+      "tests": 13
+    },
+    {
+      "source": "openpilot/selfdrive/beamngd/test_radar.py",
+      "category": "runtime_support",
+      "bytes": 6545,
+      "sha256": "f4ec8515d717d438e0f8f1d38349d660a8d141718a774a9940fb003090be2e23",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "TestWireFormat",
+        "TestReceiver",
+        "TestLuaConfig",
+        "TestAgainstTheRealLuaEncoder"
+      ],
+      "tests": 14
+    },
+    {
+      "source": "openpilot/selfdrive/beamngd/test_vehicle_geometry.py",
+      "category": "runtime_support",
+      "bytes": 3601,
+      "sha256": "b97b838b0afb622b5191db8db137ae19f12cc2077ad645aa0731d9b37019c985",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "FakeRatioCache",
+        "bridge_with_geometry",
+        "TestCalibrationHandshake",
+        "TestCacheThresholdDelivery"
+      ],
+      "tests": 7
+    },
+    {
+      "source": "openpilot/selfdrive/beamngd/virtual_joystick.py",
+      "category": "runtime_support",
+      "bytes": 2926,
+      "sha256": "e8215aeb6563216c7c5c7e89bb5cbe8e59d075b61be481aff8a597feefbfc1e0",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "BeamNGVirtualJoystick"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "openpilot/selfdrive/controls/controlsd.py",
+      "category": "integration_snapshot",
+      "bytes": 10816,
+      "sha256": "cce4689f8942472cf89ce22dfd5a787859a76168475b00821fa547d889939914",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "Controls",
+        "main"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "openpilot/selfdrive/controls/lib/beampilot_curve.py",
+      "category": "runtime_support",
+      "bytes": 7499,
+      "sha256": "058667947cac8e864282afdf8c4010c3fb47a41fe5a5bf1284c2f89a41a23f10",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "safe_speed",
+        "required_accel",
+        "path_curvatures",
+        "CurveSpeedLimiter"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "openpilot/selfdrive/controls/lib/desire_helper.py",
+      "category": "integration_snapshot",
+      "bytes": 8475,
+      "sha256": "cef5b21163e3a8cda24da4fe45545c79ccfb62467210d4c72a3c67c111859b4a",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "DesireHelper"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "openpilot/selfdrive/controls/lib/drive_helpers.py",
+      "category": "integration_snapshot",
+      "bytes": 3082,
+      "sha256": "dbc78958d78a34f173ef1e357087b2c7cff30082e5163f02ed56cbd7293512da",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "should_stop",
+        "clamp",
+        "smooth_value",
+        "clip_curvature",
+        "get_accel_from_plan",
+        "curv_from_psis",
+        "get_curvature_from_plan"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "openpilot/selfdrive/controls/lib/latcontrol.py",
+      "category": "integration_snapshot",
+      "bytes": 1040,
+      "sha256": "7c373878846854f6964015e07d1eb105477fadaccaecd451e7f08073a103ad20",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "LatControl"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "openpilot/selfdrive/controls/lib/longitudinal_planner.py",
+      "category": "integration_snapshot",
+      "bytes": 10292,
+      "sha256": "397332d301c22ed0072fa50d3966ebf3bda948bb099ec0011a5246187983e67a",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "get_max_accel",
+        "get_coast_accel",
+        "get_cruise_accel",
+        "LongitudinalPlanner"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "openpilot/selfdrive/controls/radard.py",
+      "category": "integration_snapshot",
+      "bytes": 14460,
+      "sha256": "58df2cc64fff768262d3b5a2a4f6d34873863c2def8a993a7d4f4adb9e340460",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "path_lateral_at",
+        "get_radar_only_lead",
+        "KalmanParams",
+        "Track",
+        "laplacian_pdf",
+        "match_vision_to_track",
+        "get_RadarState_from_vision",
+        "get_lead",
+        "RadarD",
+        "main"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "openpilot/selfdrive/controls/test_beampilot_curve.py",
+      "category": "runtime_support",
+      "bytes": 9007,
+      "sha256": "fbdb966cd8c3e2274f78f0f0eabc8f518df41d8106461514bbbf53120f246c6d",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "straight_path",
+        "corner_path",
+        "TestSafeSpeed",
+        "TestRequiredAccel",
+        "TestLimiter",
+        "TestAgainstRealModelData",
+        "TestDefaults"
+      ],
+      "tests": 26
+    },
+    {
+      "source": "openpilot/selfdrive/controls/test_beampilot_limits.py",
+      "category": "runtime_support",
+      "bytes": 8121,
+      "sha256": "34c626e2867f156d2280593aeed0bb8e771a22692b6c25bfd318affc8ab90445",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "limits_with",
+        "TestStockIsUntouched",
+        "TestScaling",
+        "TestTheNetIsAlwaysAboveTheLimit",
+        "TestEveryConsumerAgrees"
+      ],
+      "tests": 10
+    },
+    {
+      "source": "openpilot/selfdrive/controls/test_radard_beampilot.py",
+      "category": "runtime_support",
+      "bytes": 8857,
+      "sha256": "b2180353def526c34fa70a5b29974cc0e9e0658c1de265643dd413b1edbd99e5",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "track",
+        "tracks",
+        "straight_path",
+        "curving_path",
+        "lead_msg",
+        "TestPathLateral",
+        "TestRadarOnlyLead",
+        "TestVisionTrackMatch",
+        "TestGetLead"
+      ],
+      "tests": 19
+    },
+    {
+      "source": "openpilot/selfdrive/modeld/SConscript",
+      "category": "integration_snapshot",
+      "bytes": 8788,
+      "sha256": "b6755b7604e4f1fcb16d0a2dd36e988777f8087941e0b999d7c5dab4a85eecf0",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode"
+      ]
+    },
+    {
+      "source": "openpilot/selfdrive/modeld/beampilot_build.py",
+      "category": "runtime_support",
+      "bytes": 750,
+      "sha256": "9c4ebcf6eb235beec1cee4350cbc3c0354caebf9777666a28352211f8bbb4d02",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "usbgpu_build_config"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "openpilot/selfdrive/modeld/helpers.py",
+      "category": "integration_snapshot",
+      "bytes": 1961,
+      "sha256": "6811ee844eafb25f7024495ed6805f4f4417c351f76be3916e77e85794c17682",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "get_tg_input_devices",
+        "modeld_pkl_path",
+        "dump_oob",
+        "load_oob",
+        "usbgpu_present",
+        "usbgpu_available",
+        "usbgpu_compiled"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "openpilot/selfdrive/modeld/modeld.py",
+      "category": "integration_snapshot",
+      "bytes": 20343,
+      "sha256": "5cd7e24527766199451bb0dc31cbdeddea53c58abe520a3ab9b0638b680bb6a0",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "get_action_from_model",
+        "ChestnutState",
+        "FrameMeta",
+        "ModelState",
+        "main"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "openpilot/selfdrive/modeld/test_beampilot_build.py",
+      "category": "runtime_support",
+      "bytes": 1510,
+      "sha256": "5b4dd2923e50a2f948fbdee52775fcb3e08d21a507e039035d4d1e578550dbbb",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "TestChestnutBuildDevice"
+      ],
+      "tests": 5
+    },
+    {
+      "source": "openpilot/system/manager/process_config.py",
+      "category": "integration_snapshot",
+      "bytes": 6816,
+      "sha256": "97808d7aa8d6a2dfddb0e8d85054f625622d335eca893f027cdd1e1bc525292c",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "driverview",
+        "notcar",
+        "iscar",
+        "logging",
+        "ublox_available",
+        "ublox",
+        "joystick",
+        "not_joystick",
+        "long_maneuver",
+        "lat_maneuver",
+        "not_long_maneuver",
+        "qcomgps",
+        "always_run",
+        "only_onroad",
+        "only_offroad",
+        "livestream",
+        "or_",
+        "and_"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "openpilot/tools/sim/lib/__init__.py",
+      "category": "runtime_support",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [],
+      "tests": 0
+    },
+    {
+      "source": "openpilot/tools/sim/lib/camerad.py",
+      "category": "runtime_support",
+      "bytes": 2756,
+      "sha256": "9e0b3f9b66b33d78f4718351a6ea46a1b60d2235b14630b908732010a99616cd",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "rgb_to_nv12",
+        "Camerad"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "openpilot/tools/sim/lib/common.py",
+      "category": "runtime_support",
+      "bytes": 3184,
+      "sha256": "2e86b231bab9d8fc13d424c2934b5804ff5017c7af7962c256c7368a9e876b10",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "GPSState",
+        "IMUState",
+        "SimulatorState",
+        "World"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "openpilot/tools/sim/lib/keyboard_ctrl.py",
+      "category": "runtime_support",
+      "bytes": 2639,
+      "sha256": "bd9a275a1f54e7ee17cf8d9e7992e822df7246ad124d82a46b38be93bfcf7405",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "getch",
+        "print_keyboard_help",
+        "keyboard_poll_thread",
+        "test"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "openpilot/tools/sim/lib/manual_ctrl.py",
+      "category": "runtime_support",
+      "bytes": 4714,
+      "sha256": "888f481eec0f0a5e01a20017b4572e5ee134bce8c312583e04cd347514f30c6f",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "wheel_poll_thread"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "openpilot/tools/sim/lib/simulated_car.py",
+      "category": "runtime_support",
+      "bytes": 6946,
+      "sha256": "e5e0344b6ddd4d465ed83ebc9f7d14a208ea2e16664260b05245d224291060a5",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "SimulatedCar"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "openpilot/tools/sim/lib/simulated_sensors.py",
+      "category": "runtime_support",
+      "bytes": 5711,
+      "sha256": "a2276a3c0b55213b938e0b922b57c70cf5f2718be76e27e9f2acc01c24ea3935",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "SimulatedSensors"
+      ],
+      "tests": 0
+    },
+    {
+      "source": ".gitmodules",
+      "category": "root_support",
+      "bytes": 477,
+      "sha256": "e698dcdcb3353cc882c9db61c163d33d52256b8c6ad1183a4054f74bea13840b",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode"
+      ]
+    },
+    {
+      "source": ".python-version",
+      "category": "root_support",
+      "bytes": 8,
+      "sha256": "aa0d6581054e6e4ff3f91839deca7a854ad37221b8784d060b42d0f847ff1a3b",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode"
+      ]
+    },
+    {
+      "source": "LICENSE",
+      "category": "root_support",
+      "bytes": 1059,
+      "sha256": "716ce815a0467219c59ec2433e6bce7f32efc45240725c6d3141a52b111d2558",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode"
+      ]
+    },
+    {
+      "source": "README.md",
+      "category": "root_support",
+      "bytes": 93227,
+      "sha256": "ed99b57664d517185f36ad13e739fdd4d17162641db73627443c8c620fdafebe",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode"
+      ]
+    },
+    {
+      "source": "SConstruct",
+      "category": "root_support",
+      "bytes": 12465,
+      "sha256": "fa6a5c5c1851e5882e53cacd5be73d35f286847f4c43cc0a4bd068c64e02d5c0",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode"
+      ]
+    },
+    {
+      "source": "config_beampilot.sh",
+      "category": "root_support",
+      "bytes": 44912,
+      "sha256": "650f92aaca1e054257753fd1a41d1ca88dac27e1e4a49c0cf2e0d1216b3ef3c8",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "bash -n"
+      ]
+    },
+    {
+      "source": "launch_beampilot.sh",
+      "category": "root_support",
+      "bytes": 6106,
+      "sha256": "b739a19dc1780c18bafdc87233a9d629696b666072d11939e95a8455910a8ae4",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "bash -n"
+      ]
+    },
+    {
+      "source": "launch_chffrplus.sh",
+      "category": "root_support",
+      "bytes": 3189,
+      "sha256": "b1b7618c0d84d9969b39cadd785dbba9591fe2a3b7f4f959965a71833456c262",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "bash -n"
+      ]
+    },
+    {
+      "source": "launch_env.sh",
+      "category": "root_support",
+      "bytes": 541,
+      "sha256": "d982d43ffb8d351a51a4ad7f3c44784afb3e3314d56e5e229c715050bc37d5e4",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "bash -n"
+      ]
+    },
+    {
+      "source": "pyproject.toml",
+      "category": "root_support",
+      "bytes": 5084,
+      "sha256": "15f30e984929612e56215b6f6d628a2f77c9ba980f4d794486aabd32c0ef71fb",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode"
+      ]
+    },
+    {
+      "source": "setup_beampilot.sh",
+      "category": "root_support",
+      "bytes": 2488,
+      "sha256": "b72a9a1cd1e2e6490cbb287ef6e7357ef5d52ee11673c864cac0aac3bcc39c50",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "bash -n"
+      ]
+    },
+    {
+      "source": "openpilot/selfdrive/car/card.py",
+      "category": "integration_snapshot",
+      "bytes": 12089,
+      "sha256": "6c2201be4f7d526cec605b9c8aa5247ba1af6ec1bb13fa64a19e621092cecf3c",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "obd_callback",
+        "can_comm_callbacks",
+        "Car",
+        "main"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "openpilot/selfdrive/selfdrived/selfdrived.py",
+      "category": "integration_snapshot",
+      "bytes": 31685,
+      "sha256": "8574f878b61c1a2065cc9f269cc328df682511be8b36a6f65dc99dc46f669aba",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "SelfdriveD",
+        "main"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "tools/op.sh",
+      "category": "tools",
+      "bytes": 14766,
+      "sha256": "5ad164d3345af313a9d260dae606905dc25c07e49b66fbdc111e7c6bc686ce5f",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "bash -n"
+      ]
+    },
+    {
+      "source": "uv.lock",
+      "category": "root_support",
+      "bytes": 148641,
+      "sha256": "de7175a50462c0e3f12aac5d4e9cf0d095c9dd39c9c9d7b42881f786dd52d53d",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode"
+      ]
+    },
+    {
+      "source": "openpilot/selfdrive/car/cruise.py",
+      "category": "integration_snapshot",
+      "bytes": 5751,
+      "sha256": "efaf7dcc3ed985958f1a68b04a2a036c1a85cffdca4ccfadf861e9865d3c1627",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "VCruiseHelper"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "openpilot/selfdrive/selfdrived/helpers.py",
+      "category": "integration_snapshot",
+      "bytes": 2771,
+      "sha256": "709e1f0888fcdcf34412a59f524d2e2ca8058ad1298cf9bb430df22070e62631",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "ExcessiveActuationType",
+        "ExcessiveActuationCheck"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "openpilot/selfdrive/ui/onroad/radar_renderer.py",
+      "category": "integration_snapshot",
+      "bytes": 6174,
+      "sha256": "05b987a943954a9228b9a8f91a5b4de65f8c21aac2000fe58eb1b36c7ecd5f82",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "RadarRenderer"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "openpilot/selfdrive/car/car_events.py",
+      "category": "integration_snapshot",
+      "bytes": 8038,
+      "sha256": "e174e77d69b93fce18588c73c6918c9e45e3b7af402128e1dce0d0eb210faa82",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "CarEvents"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "openpilot/selfdrive/ui/onroad/blindspot_renderer.py",
+      "category": "integration_snapshot",
+      "bytes": 7106,
+      "sha256": "f7e0a799cab22f9a7ec31f2db424580134ca87fedae477432e8698c512de941e",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "BlindSpotRenderer"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/SConscript",
+      "category": "integration_snapshot",
+      "bytes": 5010,
+      "sha256": "38c2fea1f040c381661062e37d7e4b4dcd57131fd596d1403bf51e40146ac80a",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode"
+      ]
+    },
+    {
+      "source": "openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/long_mpc.py",
+      "category": "integration_snapshot",
+      "bytes": 13391,
+      "sha256": "7c77eb1bd2752b0ef3722927872b3e034d0536642c0fc17d4d0ca5eba6869d8c",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "get_jerk_factor",
+        "get_T_FOLLOW",
+        "get_stopped_equivalence_factor",
+        "get_safe_obstacle_distance",
+        "gen_long_model",
+        "gen_long_ocp",
+        "LongitudinalMpc"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "openpilot/selfdrive/ui/ui_state.py",
+      "category": "integration_snapshot",
+      "bytes": 12023,
+      "sha256": "922e6996e041d911403cdfcefa0df05f9f8ebb504033294548d188e202ba7cca",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "UIStatus",
+        "UIState",
+        "Device"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "openpilot/selfdrive/ui/onroad/augmented_road_view.py",
+      "category": "integration_snapshot",
+      "bytes": 9781,
+      "sha256": "1e8007ded94b415c347ef079f9d1f35057480dde396ebf96fa3e4c61477f24a3",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "AugmentedRoadView"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "openpilot/system/ui/lib/application.py",
+      "category": "integration_snapshot",
+      "bytes": 35213,
+      "sha256": "8e4db7a9abaeedb66534275e3f004d20e8395856c643e295ff2de69841c54004",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "FontWeight",
+        "font_fallback",
+        "MousePos",
+        "MousePosWithTime",
+        "MouseEvent",
+        "MouseState",
+        "GuiApplication"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "openpilot/selfdrive/controls/lib/test_desire_helper_bsm.py",
+      "category": "integration_snapshot",
+      "bytes": 10069,
+      "sha256": "393ec57d8ebd3b670460e3b2c084fa2f99f881bbcc93788b360423d3de28d029",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "carstate",
+        "LaneChangeTest",
+        "TestRefusingToStart",
+        "TestCancellingInFlight",
+        "TestStockPathIsUntouched"
+      ],
+      "tests": 16
+    },
+    {
+      "source": "openpilot/selfdrive/ui/onroad/test_blindspot_renderer.py",
+      "category": "integration_snapshot",
+      "bytes": 4858,
+      "sha256": "c1c416208795ac9915ac899564a7a318b0c3080fe5bfc3a55f6b8ebe3ae8b048",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "FakeSubMaster",
+        "FakeUIState",
+        "TestBlindSpotRenderer"
+      ],
+      "tests": 10
+    },
+    {
+      "source": "openpilot/common/file_chunker.py",
+      "category": "runtime_support",
+      "bytes": 2411,
+      "sha256": "fa424c1549ee879e90117cd5ecf50c5101e5cf5e7a0df35347f1ff76b18b9533",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "get_chunk_name",
+        "get_manifest_path",
+        "_chunk_paths",
+        "get_chunk_targets",
+        "chunk_file",
+        "get_existing_chunks",
+        "ChunkStream",
+        "open_file_chunked"
+      ],
+      "tests": 0
+    },
+    {
+      "source": "openpilot/selfdrive/modeld/compile_modeld.py",
+      "category": "integration_snapshot",
+      "bytes": 13014,
+      "sha256": "01d0a9f30fd136f9543be537d330c051dc83459fca7c4a36c03240c33a840214",
+      "checks": [
+        "source Git blob",
+        "SHA256",
+        "size",
+        "mode",
+        "AST"
+      ],
+      "definitions": [
+        "_patch_tinygrad_fetch_fw",
+        "make_random_images",
+        "warp_perspective_tinygrad",
+        "frames_to_tensor",
+        "make_frame_prepare",
+        "make_warp_input_queues",
+        "get_policy_npy_shapes",
+        "make_input_queues",
+        "shift_and_sample",
+        "sample_skip",
+        "sample_desire",
+        "make_warp",
+        "make_run_policy",
+        "compile_jit",
+        "_parse_size",
+        "read_file_chunked_to_disk"
+      ],
+      "tests": 0
+    }
+  ],
+  "counts": {
+    "python_AST": 69,
+    "shell_syntax": 8,
+    "json": 2
+  },
+  "source_commit": "5435d67499f66eca58f95882cbe35e9c577e874c",
+  "total_bytes": 1160682,
+  "remote_keyword_results": 71,
+  "unbundled_keyword_matches": "AGENTS.md/CLAUDE.md excluded intentionally if returned; no foreign agent rules installed",
+  "limits": "keyword search plus import tracing is not a formal proof of all dynamic runtime dependencies"
+}

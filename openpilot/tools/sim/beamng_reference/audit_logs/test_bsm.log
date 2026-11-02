@@ -1,0 +1,69 @@
+...........FF.......                                                     [100%]
+=================================== FAILURES ===================================
+____ TestTelemetryPacket.test_blinkers_and_ignition_still_decode_alongside _____
+
+self = <beamngd.test_bsm.TestTelemetryPacket testMethod=test_blinkers_and_ignition_still_decode_alongside>
+
+    def test_blinkers_and_ignition_still_decode_alongside(self):
+>     from openpilot.selfdrive.beamngd.beamngd import (DL_IGNITION_ON, DL_LEFT_BLINKER,
+                                                       parse_telemetry)
+
+/home/radxa/comma/sunnypilot/openpilot/tools/sim/beamng_reference/upstream/openpilot/selfdrive/beamngd/test_bsm.py:135:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    #!/usr/bin/env python3
+    import json
+    import math
+    import os
+    import socket
+    import struct
+    import time
+    import traceback
+    from dataclasses import dataclass
+
+    import evdev
+    from evdev import ecodes
+
+>   from opendbc.car import scale_tire_stiffness
+E   ImportError: cannot import name 'scale_tire_stiffness' from 'opendbc.car' (/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/__init__.py)
+
+/home/radxa/comma/sunnypilot/openpilot/tools/sim/beamng_reference/upstream/openpilot/selfdrive/beamngd/beamngd.py:14: ImportError
+----------------------------- Captured stderr call -----------------------------
+kj/filesystem-disk-unix.c++:1734: warning: PWD environment variable doesn't match current directory; pwd = /home/radxa/comma
+________________ TestTelemetryPacket.test_lua_dl_bsm_bit_values ________________
+
+self = <beamngd.test_bsm.TestTelemetryPacket testMethod=test_lua_dl_bsm_bit_values>
+
+    def test_lua_dl_bsm_bit_values(self):
+      # These four literals are DL_BSM_* in beampilot.lua. If they change there,
+      # they have to change here.
+>     self.assertEqual(self._decode(16), bsm.FLAG_LEFT)
+                       ^^^^^^^^^^^^^^^^
+
+/home/radxa/comma/sunnypilot/openpilot/tools/sim/beamng_reference/upstream/openpilot/selfdrive/beamngd/test_bsm.py:129:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+/home/radxa/comma/sunnypilot/openpilot/tools/sim/beamng_reference/upstream/openpilot/selfdrive/beamngd/test_bsm.py:121: in _decode
+    from openpilot.selfdrive.beamngd.beamngd import parse_telemetry
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    #!/usr/bin/env python3
+    import json
+    import math
+    import os
+    import socket
+    import struct
+    import time
+    import traceback
+    from dataclasses import dataclass
+
+    import evdev
+    from evdev import ecodes
+
+>   from opendbc.car import scale_tire_stiffness
+E   ImportError: cannot import name 'scale_tire_stiffness' from 'opendbc.car' (/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/__init__.py)
+
+/home/radxa/comma/sunnypilot/openpilot/tools/sim/beamng_reference/upstream/openpilot/selfdrive/beamngd/beamngd.py:14: ImportError
+=========================== short test summary info ============================
+FAILED ../dev::TestTelemetryPacket::test_blinkers_and_ignition_still_decode_alongside
+FAILED ../dev::TestTelemetryPacket::test_lua_dl_bsm_bit_values - ImportError:...
+2 failed, 18 passed in 1.39s

@@ -1,3 +1,27 @@
+## 2026-11-02 — BeamNG bundle audit complete; runtime adaptation still blocked
+
+Audited collected source at projectbase f72a1ea/upstream5435d674. Added14missing
+integration/import references; bundle now96files/1160682bytes, byte-identical
+upstream. Allfile Git/SHA/mode/size checks;69Python AST/8bash/2JSON checks pass.
+Fixed verifier accepting empty snapshots/wrong origin/pin/checksum list;12new
+regressions pass, checksum-guard mutation caught. Snapshot tests with process-
+local routing/current Sunny dependencies:164pass/6fail/1skip;2modules blocked
+on import,1UI module not run. Five failures and two import blocks stem from
+missing opendbc scale_tire_stiffness; onefailure assumes installed xdotool.
+Test-only evdev2/mss10.2 installed under /tmp with locked SDist hashes; active
+environment unchanged. UI/Lua/JS/Vue/game/model/manager tests not performed.
+
+Source probes reproduce NaN accepted in96byte BPL1 and control-send called after
+no new telemetry. Fork steering uses desiredCurvature→position, bypassing final
+lateral torque; cannot directly validate custom actuator/NNLC. Same-hostIP,
+camera1280vs1928, timing/freshness/session/finite and peripheral4vs2Hz require
+adaptation. No copied upstream fixes applied to active runtime/DBC. Verdict:
+reference bundle verified, direct runtime integration blocked. Next sim-only
+recorded PC frame→VisionIPC/UI, then state/shadow and explicit lateral contract.
+Detailed report: openpilot/tools/sim/beamng_reference/AUDIT.md; per-file/test
+receipts alongside it. Relevant skills: source-first/code review, TDD/debugging,
+git/docs. REA binary analysis not relevant to readable source/packet probes.
+
 ## 2026-11-02 — BeamNG source bundle collected
 
 Owner requested all needed BeamNG files from Caleb's tools in a folder. Created

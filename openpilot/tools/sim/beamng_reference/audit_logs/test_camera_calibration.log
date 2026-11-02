@@ -1,0 +1,17 @@
+
+==================================== ERRORS ====================================
+________________________ ERROR collecting test session _________________________
+ImportError while importing test module '/home/radxa/comma/sunnypilot/openpilot/tools/sim/beamng_reference/upstream/openpilot/selfdrive/beamngd/test_camera_calibration.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/home/radxa/comma/sunnypilot/openpilot/tools/sim/beamng_reference/upstream/openpilot/selfdrive/beamngd/test_camera_calibration.py:6: in <module>
+    from openpilot.selfdrive.beamngd.beamngd import (CAMERA_COMMAND_MAGIC, CAMERA_RESET_COMMAND,
+/home/radxa/comma/sunnypilot/openpilot/tools/sim/beamng_reference/upstream/openpilot/selfdrive/beamngd/beamngd.py:14: in <module>
+    from opendbc.car import scale_tire_stiffness
+E   ImportError: cannot import name 'scale_tire_stiffness' from 'opendbc.car' (/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/__init__.py)
+------------------------------- Captured stderr --------------------------------
+kj/filesystem-disk-unix.c++:1734: warning: PWD environment variable doesn't match current directory; pwd = /home/radxa/comma
+=========================== short test summary info ============================
+ERROR ../dev
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 0.21s

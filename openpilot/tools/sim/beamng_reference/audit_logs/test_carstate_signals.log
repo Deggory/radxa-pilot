@@ -1,0 +1,109 @@
+.......FFF...                                                            [100%]
+=================================== FAILURES ===================================
+_________ ReportGearActuallyTurnsOff.test_off_pins_every_gear_to_drive _________
+
+self = <beamngd.test_carstate_signals.ReportGearActuallyTurnsOff testMethod=test_off_pins_every_gear_to_drive>
+
+    def test_off_pins_every_gear_to_drive(self):
+      for index in (-2, -1, 0, 1, 6):
+>       self.assertEqual(self.gear_for(index, False), "drive", index)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/home/radxa/comma/sunnypilot/openpilot/tools/sim/beamng_reference/upstream/openpilot/selfdrive/beamngd/test_carstate_signals.py:153:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+/home/radxa/comma/sunnypilot/openpilot/tools/sim/beamng_reference/upstream/openpilot/selfdrive/beamngd/test_carstate_signals.py:142: in gear_for
+    from openpilot.selfdrive.beamngd.beamngd import gear_for
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    #!/usr/bin/env python3
+    import json
+    import math
+    import os
+    import socket
+    import struct
+    import time
+    import traceback
+    from dataclasses import dataclass
+
+    import evdev
+    from evdev import ecodes
+
+>   from opendbc.car import scale_tire_stiffness
+E   ImportError: cannot import name 'scale_tire_stiffness' from 'opendbc.car' (/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/__init__.py)
+
+/home/radxa/comma/sunnypilot/openpilot/tools/sim/beamng_reference/upstream/openpilot/selfdrive/beamngd/beamngd.py:14: ImportError
+_____ ReportGearActuallyTurnsOff.test_off_survives_the_can_round_trip_as_D _____
+
+self = <beamngd.test_carstate_signals.ReportGearActuallyTurnsOff testMethod=test_off_survives_the_can_round_trip_as_D>
+
+    def test_off_survives_the_can_round_trip_as_D(self):
+      # The end of the chain: what carstate.py will decode. D is 4, and anything
+      # else here is a reverseGear/wrongGear event.
+      packer = CANPacker(DBC)
+      parser = CANParser(DBC, [], 0)
+      _ = parser.vl["GEARBOX_AUTO"]
+      nanos = 0
+      for index in (-1, 0, 3):
+        state = SimulatorState()
+>       state.gear = self.gear_for(index, False)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/home/radxa/comma/sunnypilot/openpilot/tools/sim/beamng_reference/upstream/openpilot/selfdrive/beamngd/test_carstate_signals.py:164:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+/home/radxa/comma/sunnypilot/openpilot/tools/sim/beamng_reference/upstream/openpilot/selfdrive/beamngd/test_carstate_signals.py:142: in gear_for
+    from openpilot.selfdrive.beamngd.beamngd import gear_for
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    #!/usr/bin/env python3
+    import json
+    import math
+    import os
+    import socket
+    import struct
+    import time
+    import traceback
+    from dataclasses import dataclass
+
+    import evdev
+    from evdev import ecodes
+
+>   from opendbc.car import scale_tire_stiffness
+E   ImportError: cannot import name 'scale_tire_stiffness' from 'opendbc.car' (/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/__init__.py)
+
+/home/radxa/comma/sunnypilot/openpilot/tools/sim/beamng_reference/upstream/openpilot/selfdrive/beamngd/beamngd.py:14: ImportError
+_______ ReportGearActuallyTurnsOff.test_on_reports_what_the_game_reports _______
+
+self = <beamngd.test_carstate_signals.ReportGearActuallyTurnsOff testMethod=test_on_reports_what_the_game_reports>
+
+    def test_on_reports_what_the_game_reports(self):
+>     self.assertEqual(self.gear_for(-1, True), "reverse")
+                       ^^^^^^^^^^^^^^^^^^^^^^^
+
+/home/radxa/comma/sunnypilot/openpilot/tools/sim/beamng_reference/upstream/openpilot/selfdrive/beamngd/test_carstate_signals.py:146:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+/home/radxa/comma/sunnypilot/openpilot/tools/sim/beamng_reference/upstream/openpilot/selfdrive/beamngd/test_carstate_signals.py:142: in gear_for
+    from openpilot.selfdrive.beamngd.beamngd import gear_for
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    #!/usr/bin/env python3
+    import json
+    import math
+    import os
+    import socket
+    import struct
+    import time
+    import traceback
+    from dataclasses import dataclass
+
+    import evdev
+    from evdev import ecodes
+
+>   from opendbc.car import scale_tire_stiffness
+E   ImportError: cannot import name 'scale_tire_stiffness' from 'opendbc.car' (/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/__init__.py)
+
+/home/radxa/comma/sunnypilot/openpilot/tools/sim/beamng_reference/upstream/openpilot/selfdrive/beamngd/beamngd.py:14: ImportError
+=========================== short test summary info ============================
+FAILED ../dev::ReportGearActuallyTurnsOff::test_off_pins_every_gear_to_drive
+FAILED ../dev::ReportGearActuallyTurnsOff::test_off_survives_the_can_round_trip_as_D
+FAILED ../dev::ReportGearActuallyTurnsOff::test_on_reports_what_the_game_reports
+3 failed, 10 passed in 0.31s
