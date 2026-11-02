@@ -106,10 +106,11 @@ class LatestCapture:
     finally:
       self.source.close()
 
-  def read(self) -> RawFrame:
+  def read(self, *, fresh=False) -> RawFrame:
     with self.condition:
+      previous = self.latest.sequence if fresh and self.latest is not None else self.consumed
       ready = self.condition.wait_for(lambda: self.error is not None or
-                                     (self.latest is not None and self.latest.sequence != self.consumed), timeout=3.5)
+                                     (self.latest is not None and self.latest.sequence != previous), timeout=3.5)
       if self.error is not None:
         raise RuntimeError('Q8B camera capture stopped') from self.error
       if not ready:

@@ -15,8 +15,11 @@ records upstream versions/adaptations. Required code and model assets live in
 this Sunnypilot project. No runtime import or asset lookup uses external teacher
 experiments. The low-level `runtime.py` requires NumPy and uses ctypes for OpenCL;
 it does not import Tinygrad, ONNX, an exporter or a converter. The optional
-`state.py` modeld adapter reuses this repository's pinned Tinygrad **CPU:LLVM
-camera warp**. Driving-model inference still uses saved Thneed GPU instructions.
+`state.py` modeld adapter uses this repository's pinned Tinygrad **CPU:LLVM
+camera warp** once per geometry to generate exact GPU gather indices. Per-frame
+NV12 cropping/packing and four-frame image history stay in the loaded model's
+OpenCL context and resident buffers. Driving-model inference uses the existing
+saved Thneed GPU instructions.
 It does not import the older, modified Tinygrad experiment tree.
 
 ## Build and verify
@@ -46,7 +49,9 @@ Verification replays all six saved cases twice, checks exact saved OpenCL output
 and the preserved independent CPU references at rtol0.001/atol0.005, and exercises
 the newer queue interface for every case. It then performs a short timed check.
 Reports distinguish input upload/validation/replay time from inference-only and
-camera timings. The command does not open a camera or set clocks/fan/governors.
+camera timings. The verification CLI does not open a camera; it acquires the maximum-clock
+lease described below and restores prior policies afterward. The low-level
+Python runner leaves clock ownership to its caller.
 
 ## Python interface
 
@@ -85,12 +90,15 @@ processes are not started. The window labels the temporary geometry uncalibrated
 Predictions are displayed while model/calibration validity remains false for
 the borrowed MM-X profile. Measured geometry needs a separate qualification.
 
-For a bounded qualification session, add `--seconds 65 --benchmark --model-checks`
-and a new `--log-dir`. `--model-checks` saves at most six input/output snapshots
-for offline CPU checks; it adds occasional compression/disk cost to those calls.
-Model receipt records and camera/UI timing have separate endpoints. The preview
-sets numeric `DEBUG=0` and CPU-warp target in its child environment; it does not
-modify the calling shell or clock/fan/driver policies.
+For a bounded timing session, add `--seconds 65 --benchmark` and a new
+`--log-dir`. Model completion, model receipt at UI and camera/UI timings have
+separate endpoints. The preview sets numeric `DEBUG=0` in its children; modeld
+automatically holds a scoped maximum-clock lease.
+
+`--model-checks` explicitly selects the slower CPU-preparation reference path
+and saves at most six input/output snapshots for offline CPU checks. It adds
+compression/disk cost and is excluded from production latency qualification.
+Use `verify_resident` below to qualify GPU-resident images directly.
 
 Stock process integration is selected with
 `USE_WEBCAM=1 Q8B_ROAD_ONLY=1 Q8B_THNEED=1 DEBUG=0`. It requires real Q8B and the
@@ -120,32 +128,50 @@ geometry invalid, and records actual model completion independently of UI
 polling. `preview --model --benchmark` records the same model timer alongside
 UI timings. Output includes CPU preparation, validation, upload, inference/
 readback, clock samples, cadence and whether the12ms/38ms median targets were met.
-The first complete current-port maximum-clock baseline is20.0008Hz,
-11.834ms inference/readback and58.989ms source→output medians; preparation14.693ms.
-Thus the current end-to-end target remains unmet. The teacher's35.417ms result
-uses its retained different preparation/partial-JPEG pipeline; do not conflate.
-GPU-resident image preparation is the next increment; no feature tensor splitting.
+The first complete maximum-clock CPU-preparation baseline measured20.0008Hz,
+11.834ms inference/readback,14.693ms CPU preparation and58.989ms source→output
+medians. The resident-image run with fresh capture selection measured20.0011Hz,
+11.223ms inference/readback,1.833ms GPU preparation,13.805ms complete model call
+and37.643ms source→output medians over65seconds; source→output p95 was42.020ms.
+These are measured host endpoints, excluding UI receipt/drawing and physical
+exposure/display latency. They do not mean every frame takes less than38ms.
 
-## Timing boundaries
+## Resident images and reference checks
 
-The clean65second integrated run measured **36.656ms median /46.326ms p95**
-around the complete `model.run()` call: two CPU image warps/packing, history
-adaptation/copies, input validation/uploads, Thneed GPU execution/readback and
-output parsing. Camera capture, JPEG decode and BGR→NV12 conversion happen in
-`camerad` before this call; UI drawing happens afterward. Both are outside this
-model-call timer. Capture timestamp→model receipt at UI was separately
-94.754/115.031ms median/p95; this endpoint includes UI receipt scheduling and
-is not physical display latency.
+`Q8B_GPU_PREP=1` is the default inside the opt-in Q8B Thneed ModelState.
+The first frame or a geometry change builds a gather map by encoding source
+addresses through the exact pinned warp. It preserves FP32 rounding, chroma
+layout and clamping. An OpenCL kernel then uploads one padded NV12 source,
+gathers both views, maintains a five-slot ring for the current wrapper's
+four-frame lag, and writes directly into the saved model's image inputs.
+No per-frame CPU image warp, intermediate image readback or image reupload is
+performed. Final predictions are read back for the existing parser; features
+and desires keep their current validated wrapper. No feature tensor splitting,
+model conversion or precision change was made.
 
-The historical11.724/12.348ms GPU execution/readback result used a different
-max-clock standalone profile. It does not establish the GPU-only time in this
-integrated run, which has not been measured separately. Subtracting11.724 from
-36.656 cannot identify current camera or preparation cost. Even the historical
-run was not always under12ms: its p95 was12.348ms.
+`Q8B_FRESH_CAPTURE=1` is the default for the Q8B RoadCamera: at each20Hz
+publisher deadline, wait for the next60FPS camera arrival rather than consume
+an already-cached frame. Source timestamps/sequence IDs and stale-frame checks
+are preserved. `Q8B_GPU_PREP=0` and `Q8B_FRESH_CAPTURE=0` retain the respective
+CPU-preparation and cached-capture baselines for explicit comparisons.
 
-The whole-project SCons build currently stops at missing `acados`; the existing
-preview/native replay was tested independently and does not need that full
-build to launch. Other full-build dependencies remain unchecked.
+For bounded correctness qualification, use a new output directory:
+
+```bash
+USE_WEBCAM=1 Q8B_ROAD_ONLY=1 DEBUG=0 .venv/bin/python -m openpilot.selfdrive.modeld.thneed_q8b.verify_resident \
+  --output-dir /tmp/q8b-resident-checks
+```
+
+This diagnostic deliberately reads back model image inputs and uses CPU warps;
+those operations are absent from production. Twelve changing frames cover both
+views, startup/history, a geometry change and reset. All image bytes and2576
+model outputs must match the original CPU-prepared replay exactly. Six saved
+cases additionally passed an independent current-wrapper FP32 ONNX CPU
+reference at rtol0.001/atol0.005; no new conversion was required.
+
+The dependency installation resolved the earlier missing-acados block; the
+Q8B minimal root build passes. Full manager/planning/vehicle qualification is
+separate from the camera/model/UI checks.
 
 ## Qualification
 
@@ -171,7 +197,16 @@ and rendered33path points; all three children exited0 and camera settings were
 restored. See project handoff for later results.
 
 Without `Q8B_THNEED=1`/`--model`, existing stock selection and camera-only preview
-behavior remain. Camera optimisation and clock changes stay deferred. This is
-bench inference/UI qualification, not vehicle or road testing.
+behavior remain. The Q8B opt-in path uses the resident-image and scoped-clock defaults above.
+This remains bench inference/UI qualification, not vehicle or road testing.
 
 Project memory: [Thneed reference](../../../../Ai/Knowledge/THNEED_GPU_REFERENCE.md).
+
+Q8B camera/model daemons also default to `Q8B_FAST_CPU=1`, restricting their
+entry thread and future workers to allowed fast cores 4–7. Parent/UI affinity
+is unchanged and no real-time FIFO policy is enabled. Set 0 for scheduling
+comparisons. Pinning all work to CPU7 alone regressed this resident pipeline;
+the four-core setting measured 36.829 ms median / 41.592 ms p95 from source
+capture timestamp to model output at 20 Hz, with 10.817/11.790 ms inference.
+The final repeat is retained in the
+[portable qualification receipt](../../../../Ai/Evidence/q8b-resident-20261102.json).

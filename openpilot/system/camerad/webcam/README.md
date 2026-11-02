@@ -56,11 +56,16 @@ measurement. Only the first completion of each new camera frame is sampled;
 repeated redraws are counted separately. An early close is marked incomplete.
 Raw timings are written after the run to avoid per-frame disk writes.
 
-The current development .venv uses the pinned raylib6.0.0.1.post103 desktop
-wheel and freshly compiled libparams_c.so. Its .pth also reuses existing bench
-Python dependencies and matching project submodules; it is not a standalone
-deployment environment. Normal build/installation of project dependencies
-is still required when deploying this folder elsewhere.
+The project-local locked environment is now installed independently of teacher
+bench Python paths; see [installation](../../../../install.md).
+
+Q8B RoadCamera defaults to `Q8B_FRESH_CAPTURE=1`: wait for the next source
+arrival at each20Hz publisher deadline, preserving the real source timestamp
+and sequence. Set0 only to compare the older cached-frame selection. The
+opt-in Thneed model path additionally defaults to resident GPU preparation
+and a scoped maximum-clock lease; camera-only preview does not acquire it.
+The final fast-core65s camera→model completion median36.829ms/p9541.592ms is a model
+endpoint and must not be presented as camera→screen latency.
 
 ### Capture profile
 

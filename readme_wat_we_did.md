@@ -217,3 +217,19 @@ UI shows live33point model path. Clean65s test reached19.998model messages/s;
 so model/calibration validity stays false. No vehicle controls started.
 Open with `.venv/bin/python -m openpilot.system.camerad.webcam.preview --model`.
 [Details and limits](Ai/Sessions/2026-11-02-thneed-modeld.md).
+
+## 2026-11-02 — Maximum clocks and resident GPU images
+
+Model starts automatically acquire the fixed maximum-performance lease and
+restore clocks on exit. Image crop/packing/history now stay in the existing
+Thneed OpenCL context. Fresh camera selection reduces source age. Three-minute
+bench sustained20Hz:11.085ms inference and37.886ms camera→output medians,
+with p9512.068/42.690ms.68tests, exact/CPU checks and10sSunnyUI pass. Existing
+model unchanged; controls remain off and geometry provisional.
+[Details and limits](Ai/Knowledge/MAX_PERFORMANCE.md).
+
+2026-11-02 scheduling follow-up: unrestricted repeat38.204ms missed target;
+singleCPU7 trial regressed to40.512ms. Fast cores4–7 default instead measured
+36.829/41.592ms camera→output and10.817/11.790ms inference median/p95 at20Hz.
+
+2026-11-02 accepted closeout: Final repeat: 1164steady outputs/20.0027Hz; inference11.070/12.258ms, fullcall13.574/15.314ms and capture→output37.355/41.790ms median/p95. All clock samples max; target medians pass. Prior fast run36.829ms also passes.68tests/lint/native/exactGPU/CPU checks pass. Final UI194frames/176models/33points, children0/0/0. All reported workers/private IPC removed, camera and clocks restored, GPUfaults0, model/helper hashes unchanged.

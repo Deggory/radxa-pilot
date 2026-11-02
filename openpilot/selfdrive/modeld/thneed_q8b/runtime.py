@@ -19,6 +19,7 @@ LEGACY_SPECS = {
   'traffic_convention': ((1, 2), np.float32),
   'action_t': ((1, 2), np.float32),
 }
+CONTROL_SPECS = {k: v for k, v in LEGACY_SPECS.items() if k not in ('img', 'big_img')}
 CURRENT_SPECS = {
   'new_img': ((2, 6, 128, 256), np.uint8),
   'desire': ((8,), np.float32),
@@ -155,6 +156,7 @@ class ThneedModel:
     verify_file(artifact, MODEL_SHA256, MODEL_BYTES)
     self.handle = None
     self.device = None
+    self.images_ready = False
     manifest = json.loads((HERE / 'provenance.json').read_text())
     metadata_path = artifact.with_suffix('.metadata.json')
     pin = manifest['files']['models/q8b_cd210.metadata.json']
@@ -170,6 +172,12 @@ class ThneedModel:
     self.lib.q8b_thneed_upload.restype = C.c_int
     self.lib.q8b_thneed_run.argtypes = [C.c_void_p, C.c_void_p]
     self.lib.q8b_thneed_run.restype = C.c_int
+    for name in ('q8b_thneed_image_map', 'q8b_thneed_prepare_images', 'q8b_thneed_inspect_images'):
+      function = getattr(self.lib, name)
+      function.argtypes = [C.c_void_p, C.c_void_p, C.c_size_t]
+      function.restype = C.c_int
+    self.lib.q8b_thneed_reset_images.argtypes = [C.c_void_p]
+    self.lib.q8b_thneed_reset_images.restype = C.c_int
     self.lib.q8b_thneed_destroy.argtypes = [C.c_void_p]
     self.lib.q8b_thneed_destroy.restype = None
     try:
@@ -187,12 +195,17 @@ class ThneedModel:
       raise RuntimeError(self.lib.q8b_thneed_error().decode())
 
   def run(self, inputs: dict[str, np.ndarray]) -> np.ndarray:
+    return self._run(inputs, LEGACY_SPECS)
+
+  def _run(self, inputs: dict[str, np.ndarray], specs: dict) -> np.ndarray:
     started = time.monotonic_ns()
-    validate_inputs(inputs, LEGACY_SPECS)
+    validate_inputs(inputs, specs)
     validated = time.monotonic_ns()
     if not self.handle:
       raise RuntimeError('Thneed model is closed')
     for index, name in enumerate(LEGACY_SPECS):
+      if name not in inputs:
+        continue
       value = inputs[name]
       self.native_check(self.lib.q8b_thneed_upload(self.handle, index, value.ctypes.data, value.nbytes))
     output = np.empty((1, 2576), dtype=np.float16)
@@ -207,6 +220,45 @@ class ThneedModel:
     if not np.isfinite(output).all():
       raise RuntimeError('nonfinite Thneed output')
     return output.astype(np.float32)
+
+  def configure_images(self, indices: np.ndarray) -> None:
+    if indices.shape != (2, 6, 128, 256) or indices.dtype != np.uint32 or not indices.flags.c_contiguous:
+      raise ValueError('Expected contiguous uint32[2,6,128,256] image gather map')
+    self.native_check(self.lib.q8b_thneed_image_map(self.handle, indices.ctypes.data, indices.size))
+
+  def prepare_images(self, data) -> None:
+    self.images_ready = False
+    size = 1280 * (736 + 368)
+    frame = np.frombuffer(data, dtype=np.uint8)
+    if frame.size < size:
+      raise ValueError('Padded NV12 camera buffer is too short')
+    self.native_check(self.lib.q8b_thneed_prepare_images(self.handle, frame.ctypes.data, size))
+    self.images_ready = True
+
+  def reset_images(self) -> None:
+    self.native_check(self.lib.q8b_thneed_reset_images(self.handle))
+    self.images_ready = False
+
+  def inspect_images_for_verification(self) -> np.ndarray:
+    images = np.empty((2, 12, 128, 256), dtype=np.uint8)
+    self.native_check(self.lib.q8b_thneed_inspect_images(self.handle, images.ctypes.data, images.nbytes))
+    return images
+
+  def run_resident(self, inputs: dict[str, np.ndarray]) -> dict[str, np.ndarray]:
+    specs = {k: v for k, v in CURRENT_SPECS.items() if k not in ('new_img', 'state_img_q')}
+    validate_inputs(inputs, specs)
+    if not self.images_ready:
+      raise RuntimeError('Resident camera inputs are not ready')
+    desire = np.concatenate((inputs['state_desire_q'][1:], inputs['desire'][None, None]), axis=0)
+    controls = {
+      'features_buffer': np.ascontiguousarray(inputs['state_feat_q'][::4].transpose(1, 0, 2)),
+      'desire_pulse': np.ascontiguousarray(desire.reshape(25, 4, 1, 8).max(axis=1).transpose(1, 0, 2)),
+      'traffic_convention': inputs['traffic_convention'], 'action_t': inputs['action_t'],
+    }
+    output = self._run(controls, CONTROL_SPECS)
+    self.images_ready = False
+    return {'outputs': output, 'next_state_desire_q': desire,
+            'next_state_feat_q': np.concatenate((inputs['state_feat_q'][1:], output[:, 1064:1576][None]), axis=0)}
 
   def run_current(self, inputs: dict[str, np.ndarray]) -> dict[str, np.ndarray]:
     return next_states(inputs, self.run(to_legacy_inputs(inputs)))

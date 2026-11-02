@@ -180,7 +180,9 @@ def run_preview(args):
     if args.model and args.benchmark:
       env['Q8B_MODEL_TIMINGS'] = str(args.log_dir.resolve() / 'model-timings.jsonl')
     if args.model_checks:
+      env['Q8B_GPU_PREP'] = '0'
       env['Q8B_THNEED_SNAPSHOT_DIR'] = str(args.log_dir.resolve() / 'model-inputs')
+      print('Model snapshots use the CPU-preparation reference path; this is not a production latency test.', flush=True)
     shm = Path('/dev/shm') / ('msgq_' + prefix)
     shm.mkdir()
     try:
@@ -220,7 +222,8 @@ def main():
   parser.add_argument('--screenshot', help='Save a screenshot after 40 distinct camera frames')
   parser.add_argument('--benchmark', action='store_true', help='Record per-frame capture-to-UI timing; default run is 65 seconds')
   parser.add_argument('--model', action='store_true', help='Add isolated stock modeld using the existing Q8B Thneed model; no vehicle controls')
-  parser.add_argument('--model-checks', action='store_true', help='Save six bounded model-input samples for offline CPU verification; requires --model')
+  parser.add_argument('--model-checks', action='store_true',
+                      help='Use CPU preparation and save six reference samples; requires --model, excludes latency qualification')
   parser.add_argument('--warmup-seconds', type=float, default=5, help='Exclude this initial interval from benchmark statistics')
   parser.add_argument('--ui-child', action='store_true', help=argparse.SUPPRESS)
   args = parser.parse_args()

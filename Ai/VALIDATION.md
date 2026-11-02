@@ -1,5 +1,21 @@
 # Validation: what is actually established
 
+## 2026-11-02 — Resident GPU baseline complete
+
+Q8B Thneed defaults to resident exact NV12 crop/packing/lag4 history, fresh60FPS
+source selection at20Hz, and worker affinity on fast cores4–7. Scoped max clocks
+are automatic; owner already installed the helper, no routine password request.
+Existing CD210eb741641 remains unchanged; no conversion or feature splitting.
+Final repeat: 1164steady outputs/20.0027Hz; inference11.070/12.258ms, fullcall13.574/15.314ms and capture→output37.355/41.790ms median/p95. All clock samples max; target medians pass. Prior fast run36.829ms also passes.68tests/lint/native/exactGPU/CPU checks pass. Final UI194frames/176models/33points, children0/0/0. All reported workers/private IPC removed, camera and clocks restored, GPUfaults0, model/helper hashes unchanged.
+Calibration remains provisional/invalid, controls and DM off. No new20min soak,
+full-manager/vehicle test or physical-display-latency claim. Unrestricted38.204ms
+repeat and CPU7 regression40.512ms retained; adopted fast profile has two passes.
+Next: launch normal preview from project .venv; choose later calibration/hardware
+or optimisation separately. No active experiment or unfinished source edits.
+This verified increment is recorded by its Git commit and maintenance receipt;
+base623f728a, exact source/model/runtime hashes in the portable evidence.
+[Details](Knowledge/MAX_PERFORMANCE.md), [receipt](Evidence/q8b-resident-20261102.json).
+
 ## Per-frame camera-to-UI timing — 2026-11-02
 
 37focused tests/lint pass. Live65s/5swarmup:1200steady first-display rows,
@@ -164,3 +180,7 @@ hashes stayed identical through the service. Persistent daily timer is enabled,
 active/waiting, next run2026-11-02 15:30UTC. No new pending related upstream
 commit was discovered. Historical02bf09e8 notebook failure remains retained in
 the ledger; it is not a current relocation or application failure.
+
+2026-11-02 resident final closeout:68tests/Ruff/native/accuracy gates pass;
+notebook59docs/171relative links, regular tracked layout and diff whitespace
+checks pass. Portable evidence is Ai/Evidence/q8b-resident-20261102.json.

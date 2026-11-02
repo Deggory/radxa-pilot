@@ -1,0 +1,722 @@
+{
+  "date_utc": "2026-11-02",
+  "status": "pass",
+  "source_base": "623f728af43fc220bf432aa698126438b6c67942",
+  "branch": "radxa/q8b",
+  "source_sha256": {
+    "openpilot/selfdrive/modeld/thneed_q8b/bridge.cc": "e717e883bf3e8a3df3e179e9972ea220afed1852064025ffaaa4f4985cde49ff",
+    "openpilot/selfdrive/modeld/thneed_q8b/runtime.py": "0a2a63f0925c0bd8f1f3bba11a5acb3a924c319124ccfc0698779b4e96753f4c",
+    "openpilot/selfdrive/modeld/thneed_q8b/state.py": "3467b9ac055d8d3c1dca259c27225a7bfd698249c27232d1b2f63fc42022e1b1",
+    "openpilot/selfdrive/modeld/thneed_q8b/verify_resident.py": "a4042665e788cfcf055c8786f88d55e9958bc89709e2dd2c7220cd84e5e58791",
+    "openpilot/common/hardware/radxa/performance.py": "68250979aa8697b948082005f7165dadfcd4a25c0cc2c63d237ddb38faddca1b",
+    "openpilot/system/camerad/webcam/native_capture.py": "93657075c7b971ecf871a780d0967e291bf1f28d509ceb4591b3238d2d036d0e",
+    "openpilot/system/camerad/webcam/camera.py": "da0b6479de5ceb53e584930ce5ebffc968c1a628d9c8690ac47cc81c91bd9d6f",
+    "openpilot/system/camerad/webcam/camerad.py": "b6c261b6e8ceb495254dd1b877560f070fde0b0e46ca9ddda0a636c349bcf205",
+    "openpilot/selfdrive/modeld/modeld.py": "4f7ce028dd8af678c0af54d5ab599611b6a61613f6728930825bb239c120915f"
+  },
+  "runtime_sha256": {
+    "model": "eb74164116723b2601730a19e2f2060a25bfdc3814bf7912ce991798df176068",
+    "native": "46c18dc88e507daf5efdbdde848ba70c3e7431850d802775edf048fa6eb8591d",
+    "helper_source": "57aa1f992afd018a1d7f30fbf07067b24f2c75530d062461f087e66198392056",
+    "installed_helper": "57aa1f992afd018a1d7f30fbf07067b24f2c75530d062461f087e66198392056"
+  },
+  "submodules": {
+    "tinygrad": "92b742f711c7d216fd3ed7a46a30a959e3c43bd4",
+    "msgq": "e7396e76dadbb49e374d4b664ff6bbb43a39bcb0"
+  },
+  "scope": "Private real AK-Camera 1280x720 MJPEG60 source,20Hz camera/model workers; controls/driver monitoring off; calibration invalid.",
+  "defaults": {
+    "Q8B_GPU_PREP": "1",
+    "Q8B_FRESH_CAPTURE": "1",
+    "Q8B_FAST_CPU": "1"
+  },
+  "profile": {
+    "cpu_khz": [
+      2438400,
+      2995200
+    ],
+    "gpu_hz": 690000000,
+    "worker_cpu_affinity": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "temperature_guard_c": 85
+  },
+  "resident_checks": {
+    "status": "pass",
+    "rows": [
+      {
+        "frame": 0,
+        "image_bytes_exact": true,
+        "model_outputs_exact": 2576,
+        "geometry_changed_before_step": false,
+        "reset_before_step": false,
+        "gpu_prepare_host_ms": 2.270118
+      },
+      {
+        "frame": 1,
+        "image_bytes_exact": true,
+        "model_outputs_exact": 2576,
+        "geometry_changed_before_step": false,
+        "reset_before_step": false,
+        "gpu_prepare_host_ms": 1.414014
+      },
+      {
+        "frame": 2,
+        "image_bytes_exact": true,
+        "model_outputs_exact": 2576,
+        "geometry_changed_before_step": false,
+        "reset_before_step": false,
+        "gpu_prepare_host_ms": 1.084622
+      },
+      {
+        "frame": 3,
+        "image_bytes_exact": true,
+        "model_outputs_exact": 2576,
+        "geometry_changed_before_step": false,
+        "reset_before_step": false,
+        "gpu_prepare_host_ms": 1.96234
+      },
+      {
+        "frame": 4,
+        "image_bytes_exact": true,
+        "model_outputs_exact": 2576,
+        "geometry_changed_before_step": false,
+        "reset_before_step": false,
+        "gpu_prepare_host_ms": 1.343084
+      },
+      {
+        "frame": 5,
+        "image_bytes_exact": true,
+        "model_outputs_exact": 2576,
+        "geometry_changed_before_step": false,
+        "reset_before_step": false,
+        "gpu_prepare_host_ms": 1.872869
+      },
+      {
+        "frame": 6,
+        "image_bytes_exact": true,
+        "model_outputs_exact": 2576,
+        "geometry_changed_before_step": true,
+        "reset_before_step": false,
+        "gpu_prepare_host_ms": 1.120399
+      },
+      {
+        "frame": 7,
+        "image_bytes_exact": true,
+        "model_outputs_exact": 2576,
+        "geometry_changed_before_step": false,
+        "reset_before_step": false,
+        "gpu_prepare_host_ms": 1.636593
+      },
+      {
+        "frame": 8,
+        "image_bytes_exact": true,
+        "model_outputs_exact": 2576,
+        "geometry_changed_before_step": false,
+        "reset_before_step": true,
+        "gpu_prepare_host_ms": 1.250541
+      },
+      {
+        "frame": 9,
+        "image_bytes_exact": true,
+        "model_outputs_exact": 2576,
+        "geometry_changed_before_step": false,
+        "reset_before_step": false,
+        "gpu_prepare_host_ms": 1.236585
+      },
+      {
+        "frame": 10,
+        "image_bytes_exact": true,
+        "model_outputs_exact": 2576,
+        "geometry_changed_before_step": false,
+        "reset_before_step": false,
+        "gpu_prepare_host_ms": 1.294547
+      },
+      {
+        "frame": 11,
+        "image_bytes_exact": true,
+        "model_outputs_exact": 2576,
+        "geometry_changed_before_step": false,
+        "reset_before_step": false,
+        "gpu_prepare_host_ms": 1.268352
+      }
+    ],
+    "artifact_sha256": "eb74164116723b2601730a19e2f2060a25bfdc3814bf7912ce991798df176068",
+    "device": {
+      "name": "QUALCOMM Adreno(TM) 690",
+      "driver": "OpenCL 3.0 QUALCOMM build: 0855.3 Compiler E031.50.31.01"
+    },
+    "initial_gather_map_sha256": "af844fd2b2bdcd68c98bff5939082af4a61ed3be169401e04da7538d4648950e",
+    "production_image_readbacks": 0,
+    "history_lag_frames": 4,
+    "limits": "Qualification uses explicit image readbacks and CPU warps; these are absent from the production resident path."
+  },
+  "independent_cpu_checks": {
+    "status": "pass",
+    "existing_cpu_reference_sha256": "fa07c7abecc7d662ec37d284fb5f862d6910aaa006137b3da88836dc8647e549",
+    "rtol": 0.001,
+    "atol": 0.005,
+    "rows": [
+      {
+        "sample": "frame-000.npz",
+        "outputs": 2576,
+        "pass": true
+      },
+      {
+        "sample": "frame-002.npz",
+        "outputs": 2576,
+        "pass": true
+      },
+      {
+        "sample": "frame-004.npz",
+        "outputs": 2576,
+        "pass": true
+      },
+      {
+        "sample": "frame-006.npz",
+        "outputs": 2576,
+        "pass": true
+      },
+      {
+        "sample": "frame-008.npz",
+        "outputs": 2576,
+        "pass": true
+      },
+      {
+        "sample": "frame-011.npz",
+        "outputs": 2576,
+        "pass": true
+      }
+    ]
+  },
+  "saved_gpu_checks": 12,
+  "saved_adapter_checks": 12,
+  "tests": {
+    "count": 68,
+    "status": "pass",
+    "log": "resident-units-complete.log",
+    "ruff": "pass",
+    "native_build": "pass",
+    "memory": {
+      "result": "pass",
+      "memory_layout": "regular project directory",
+      "documents": 59,
+      "relative_links": 171,
+      "optional_workspace_links": 238,
+      "source_repositories": 8,
+      "indexed_entries": 4252
+    },
+    "git_diff_check": "pass"
+  },
+  "benchmarks": {
+    "camera-model65": {
+      "samples": 1163,
+      "output_hz": 20.000809638282124,
+      "camera_to_output_ms": {
+        "median": 58.988893,
+        "p95": 68.2442768,
+        "p99": 70.81713176,
+        "max": 74.218685
+      },
+      "full_model_call_ms": {
+        "median": 27.85679799853824,
+        "p95": 29.30901790205098,
+        "p99": 29.945285578651237,
+        "max": 30.686426998727256
+      },
+      "stages_ms": {
+        "cpu_prepare_ms": {
+          "median": 14.692767,
+          "p95": 14.9015935,
+          "p99": 15.04404664,
+          "max": 15.726645
+        },
+        "input_validation_ms": {
+          "median": 0.092759,
+          "p95": 0.10993559999999998,
+          "p99": 0.11707059999999994,
+          "max": 0.144528
+        },
+        "upload_ms": {
+          "median": 0.140778,
+          "p95": 0.1607728,
+          "p99": 0.18039531999999997,
+          "max": 0.202027
+        },
+        "inference_readback_ms": {
+          "median": 11.834344,
+          "p95": 13.026916299999996,
+          "p99": 13.609869159999999,
+          "max": 14.280916
+        }
+      },
+      "all_clock_samples_at_tested_max": true,
+      "timestamp_endpoint": "V4L2 monotonic source timestamp to model.run return; excludes UI receipt and drawing",
+      "baseline_targets_met": false,
+      "clock_sample_count": 57,
+      "hottest_logged_c": 51.939
+    },
+    "resident65": {
+      "samples": 1163,
+      "output_hz": 19.99978192458097,
+      "camera_to_output_ms": {
+        "median": 46.676378,
+        "p95": 55.98863269999999,
+        "p99": 57.65351413999996,
+        "max": 59.324787
+      },
+      "full_model_call_ms": {
+        "median": 13.81587699870579,
+        "p95": 15.128606600046622,
+        "p99": 15.710150820232224,
+        "max": 16.797161999420496
+      },
+      "stages_ms": {
+        "cpu_prepare_ms": {
+          "median": 0.0,
+          "p95": 0.0,
+          "p99": 0.0,
+          "max": 0.0
+        },
+        "input_validation_ms": {
+          "median": 0.019166,
+          "p95": 0.020572,
+          "p99": 0.030739199999999883,
+          "max": 0.090361
+        },
+        "upload_ms": {
+          "median": 0.057342,
+          "p95": 0.07170039999999998,
+          "p99": 0.10120131999999936,
+          "max": 0.272489
+        },
+        "inference_readback_ms": {
+          "median": 11.215244,
+          "p95": 11.874538,
+          "p99": 12.499450859999998,
+          "max": 13.251413
+        }
+      },
+      "all_clock_samples_at_tested_max": true,
+      "timestamp_endpoint": "V4L2 monotonic source timestamp to model.run return; excludes UI receipt and drawing",
+      "baseline_targets_met": false,
+      "clock_sample_count": 57,
+      "hottest_logged_c": 50.066
+    },
+    "resident-fresh65": {
+      "samples": 1164,
+      "output_hz": 20.001107878391263,
+      "camera_to_output_ms": {
+        "median": 37.6427185,
+        "p95": 42.0203153,
+        "p99": 43.94659837,
+        "max": 46.136743
+      },
+      "full_model_call_ms": {
+        "median": 13.805073500407161,
+        "p95": 15.299969601983321,
+        "p99": 16.03240633798123,
+        "max": 17.34567599851289
+      },
+      "stages_ms": {
+        "cpu_prepare_ms": {
+          "median": 0.0,
+          "p95": 0.0,
+          "p99": 0.0,
+          "max": 0.0
+        },
+        "gpu_prepare_ms": {
+          "median": 1.8326845,
+          "p95": 2.7370492499999997,
+          "p99": 3.113189469999998,
+          "max": 3.61063
+        },
+        "map_configuration_ms": {
+          "median": 0.042394,
+          "p95": 0.049321,
+          "p99": 0.06094643999999997,
+          "max": 0.109318
+        },
+        "input_validation_ms": {
+          "median": 0.018697,
+          "p95": 0.02020785,
+          "p99": 0.031666,
+          "max": 0.179628
+        },
+        "upload_ms": {
+          "median": 0.057706,
+          "p95": 0.071611,
+          "p99": 0.08947900999999994,
+          "max": 0.255562
+        },
+        "inference_readback_ms": {
+          "median": 11.222578500000001,
+          "p95": 12.3615932,
+          "p99": 12.907594229999997,
+          "max": 13.406468
+        }
+      },
+      "all_clock_samples_at_tested_max": true,
+      "timestamp_endpoint": "V4L2 monotonic source timestamp to model.run return; excludes UI receipt and drawing",
+      "baseline_targets_met": true,
+      "clock_sample_count": 56,
+      "hottest_logged_c": 50.584
+    },
+    "resident-default180": {
+      "samples": 3465,
+      "output_hz": 20.00076121684674,
+      "camera_to_output_ms": {
+        "median": 37.885713,
+        "p95": 42.6900936,
+        "p99": 44.249861040000006,
+        "max": 46.871161
+      },
+      "full_model_call_ms": {
+        "median": 13.644839000335196,
+        "p95": 15.273799801798303,
+        "p99": 16.07864364006673,
+        "max": 19.314359000418335
+      },
+      "stages_ms": {
+        "cpu_prepare_ms": {
+          "median": 0.0,
+          "p95": 0.0,
+          "p99": 0.0,
+          "max": 0.0
+        },
+        "gpu_prepare_ms": {
+          "median": 1.821951,
+          "p95": 2.7626769999999996,
+          "p99": 3.243251600000001,
+          "max": 5.44001
+        },
+        "map_configuration_ms": {
+          "median": 0.041561,
+          "p95": 0.049251599999999986,
+          "p99": 0.05922736000000001,
+          "max": 0.182156
+        },
+        "input_validation_ms": {
+          "median": 0.018489,
+          "p95": 0.020090199999999985,
+          "p99": 0.031062760000000047,
+          "max": 0.174033
+        },
+        "upload_ms": {
+          "median": 0.057855,
+          "p95": 0.072852,
+          "p99": 0.088121,
+          "max": 0.263913
+        },
+        "inference_readback_ms": {
+          "median": 11.084953,
+          "p95": 12.068081599999996,
+          "p99": 12.91360044,
+          "max": 14.437643
+        }
+      },
+      "all_clock_samples_at_tested_max": true,
+      "timestamp_endpoint": "V4L2 monotonic source timestamp to model.run return; excludes UI receipt and drawing",
+      "baseline_targets_met": true,
+      "clock_sample_count": 166,
+      "hottest_logged_c": 56.4
+    },
+    "resident-final65": {
+      "samples": 1163,
+      "output_hz": 20.004621353657313,
+      "camera_to_output_ms": {
+        "median": 38.203936,
+        "p95": 42.8023894,
+        "p99": 44.490503059999995,
+        "max": 45.675184
+      },
+      "full_model_call_ms": {
+        "median": 13.412706000963226,
+        "p95": 14.983621297506032,
+        "p99": 15.822103340688042,
+        "max": 19.07383000070695
+      },
+      "stages_ms": {
+        "cpu_prepare_ms": {
+          "median": 0.0,
+          "p95": 0.0,
+          "p99": 0.0,
+          "max": 0.0
+        },
+        "gpu_prepare_ms": {
+          "median": 1.795036,
+          "p95": 2.700204,
+          "p99": 3.1330791599999968,
+          "max": 5.418877
+        },
+        "map_configuration_ms": {
+          "median": 0.164038,
+          "p95": 0.1873618,
+          "p99": 0.2082172799999997,
+          "max": 0.321252
+        },
+        "input_validation_ms": {
+          "median": 0.019008,
+          "p95": 0.020668799999999994,
+          "p99": 0.031676559999999965,
+          "max": 0.071135
+        },
+        "upload_ms": {
+          "median": 0.056033,
+          "p95": 0.07081779999999999,
+          "p99": 0.10118203999999939,
+          "max": 0.21981
+        },
+        "inference_readback_ms": {
+          "median": 10.762707,
+          "p95": 11.788178499999999,
+          "p99": 12.607796739999998,
+          "max": 15.466209
+        }
+      },
+      "all_clock_samples_at_tested_max": true,
+      "timestamp_endpoint": "V4L2 monotonic source timestamp to model.run return; excludes UI receipt and drawing",
+      "baseline_targets_met": false,
+      "clock_sample_count": 56,
+      "hottest_logged_c": 52.25
+    },
+    "resident-cpu7-65": {
+      "samples": 1157,
+      "output_hz": 19.998552007609856,
+      "camera_to_output_ms": {
+        "median": 40.51203,
+        "p95": 44.8824424,
+        "p99": 46.05832328,
+        "max": 49.165166
+      },
+      "full_model_call_ms": {
+        "median": 17.19014800255536,
+        "p95": 18.499015999987023,
+        "p99": 19.001488879293902,
+        "max": 21.11750500262133
+      },
+      "stages_ms": {
+        "cpu_prepare_ms": {
+          "median": 0.0,
+          "p95": 0.0,
+          "p99": 0.0,
+          "max": 0.0
+        },
+        "gpu_prepare_ms": {
+          "median": 5.372654,
+          "p95": 5.4346932,
+          "p99": 5.736278600000003,
+          "max": 6.764049
+        },
+        "map_configuration_ms": {
+          "median": 0.145293,
+          "p95": 0.16908140000000002,
+          "p99": 0.18549644000000007,
+          "max": 0.328758
+        },
+        "input_validation_ms": {
+          "median": 0.011405,
+          "p95": 0.012186,
+          "p99": 0.017187520000000046,
+          "max": 0.131336
+        },
+        "upload_ms": {
+          "median": 0.039682,
+          "p95": 0.051868199999999996,
+          "p99": 0.06352052000000001,
+          "max": 0.173154
+        },
+        "inference_readback_ms": {
+          "median": 11.177695,
+          "p95": 12.4443776,
+          "p99": 12.89256676,
+          "max": 14.949143
+        }
+      },
+      "all_clock_samples_at_tested_max": true,
+      "timestamp_endpoint": "V4L2 monotonic source timestamp to model.run return; excludes UI receipt and drawing",
+      "baseline_targets_met": false,
+      "clock_sample_count": 56,
+      "hottest_logged_c": 51.857
+    },
+    "resident-fast65": {
+      "samples": 1164,
+      "output_hz": 20.00237343037839,
+      "camera_to_output_ms": {
+        "median": 36.8287265,
+        "p95": 41.59226059999999,
+        "p99": 42.736611929999995,
+        "max": 44.599194
+      },
+      "full_model_call_ms": {
+        "median": 13.24339650091133,
+        "p95": 14.884874650124402,
+        "p99": 15.810322831348458,
+        "max": 19.840004002617206
+      },
+      "stages_ms": {
+        "cpu_prepare_ms": {
+          "median": 0.0,
+          "p95": 0.0,
+          "p99": 0.0,
+          "max": 0.0
+        },
+        "gpu_prepare_ms": {
+          "median": 1.703156,
+          "p95": 2.6970566,
+          "p99": 3.094641099999998,
+          "max": 5.414764
+        },
+        "map_configuration_ms": {
+          "median": 0.1449045,
+          "p95": 0.1721956,
+          "p99": 0.23209982999999995,
+          "max": 0.470463
+        },
+        "input_validation_ms": {
+          "median": 0.011561,
+          "p95": 0.012447,
+          "p99": 0.021063959999999975,
+          "max": 0.381828
+        },
+        "upload_ms": {
+          "median": 0.047494,
+          "p95": 0.06079549999999998,
+          "p99": 0.09232021999999958,
+          "max": 0.293037
+        },
+        "inference_readback_ms": {
+          "median": 10.816961,
+          "p95": 11.78997635,
+          "p99": 12.675698689999997,
+          "max": 13.58154
+        }
+      },
+      "all_clock_samples_at_tested_max": true,
+      "timestamp_endpoint": "V4L2 monotonic source timestamp to model.run return; excludes UI receipt and drawing",
+      "baseline_targets_met": true,
+      "clock_sample_count": 56,
+      "hottest_logged_c": 58.7
+    },
+    "resident-fast-repeat65": {
+      "samples": 1164,
+      "output_hz": 20.002748714779063,
+      "camera_to_output_ms": {
+        "median": 37.355057,
+        "p95": 41.790369500000004,
+        "p99": 43.143607679999995,
+        "max": 48.227666
+      },
+      "full_model_call_ms": {
+        "median": 13.574048500231584,
+        "p95": 15.313517199865599,
+        "p99": 16.114481297809103,
+        "max": 17.792906997783575
+      },
+      "stages_ms": {
+        "cpu_prepare_ms": {
+          "median": 0.0,
+          "p95": 0.0,
+          "p99": 0.0,
+          "max": 0.0
+        },
+        "gpu_prepare_ms": {
+          "median": 1.865818,
+          "p95": 2.86667455,
+          "p99": 3.278469319999996,
+          "max": 5.424738
+        },
+        "map_configuration_ms": {
+          "median": 0.14701550000000002,
+          "p95": 0.16960744999999994,
+          "p99": 0.2074682299999995,
+          "max": 0.40475
+        },
+        "input_validation_ms": {
+          "median": 0.011561,
+          "p95": 0.012447,
+          "p99": 0.020884929999999892,
+          "max": 0.489167
+        },
+        "upload_ms": {
+          "median": 0.047234,
+          "p95": 0.060149850000000005,
+          "p99": 0.08956047999999998,
+          "max": 0.475106
+        },
+        "inference_readback_ms": {
+          "median": 11.0699775,
+          "p95": 12.257650949999999,
+          "p99": 12.780234769999998,
+          "max": 13.121622
+        }
+      },
+      "all_clock_samples_at_tested_max": true,
+      "timestamp_endpoint": "V4L2 monotonic source timestamp to model.run return; excludes UI receipt and drawing",
+      "baseline_targets_met": true,
+      "clock_sample_count": 56,
+      "hottest_logged_c": 54.7
+    }
+  },
+  "ui_smoke": {
+    "unique_camera_frames": 194,
+    "first_frame": 10,
+    "last_frame": 207,
+    "screenshot_saved": true,
+    "seconds": 10.068826668997644,
+    "model_processes_started": true,
+    "vehicle_processes_started": false,
+    "model_messages": 176,
+    "model_path_render_points": 33
+  },
+  "ui_exit_codes": [
+    0,
+    0,
+    0
+  ],
+  "cleanup": {
+    "all_reported_workers_stopped": true,
+    "private_ipc_removed": true,
+    "checked_sessions": [
+      "baseline65",
+      "baseline65-complete",
+      "camera-model65",
+      "resident-cpu7-65",
+      "resident-default180",
+      "resident-fast-repeat65",
+      "resident-fast-ui10",
+      "resident-fast65",
+      "resident-final65",
+      "resident-fresh65",
+      "resident-ui10",
+      "resident65"
+    ],
+    "camera_restored": true,
+    "clock_policies_restored": true,
+    "gpu_faults": 0,
+    "root_recovery_state_absent": true
+  },
+  "reviews": {
+    "fresh_context": "Fixed host upload lifetime and retry initialization; static follow-up found no further material issues.",
+    "codex_cli": "0.162.0-alpha.17.2 / gpt-6.1-sol / read-only",
+    "findings": "Controls validated before image mutation; failed resident call requires reset. Ring reset plus readiness gate makes stale input storage unobservable. Affinity review no material finding; scope boundaries inspected separately."
+  },
+  "retained_failed_or_incomplete_attempts": [
+    "baseline65 and baseline65-complete UI runs closed early; incomplete",
+    "CPU-preparation and unrestricted repeat/cpu7 latency targets failed; preserved",
+    "resident-checks-complete lacked road-only env flags; calibration guard refused before GPU; guide command corrected",
+    "CPU7 trial overlaps brief unit check; diagnostic only"
+  ],
+  "limits": [
+    "No model conversion,precision change or feature tensor splitting.",
+    "No new20minute soak or full manager/vehicle/road qualification.",
+    "Physical exposure-to-display latency is not measured; camera endpoint is V4L2 timestamp to model.run return.",
+    "Clock samples are periodic; logged samples at maxima, kernel thermal protections retained.",
+    "No per-frame CPU image warp/readback; JPEG decoding and final predictions remain on CPU.",
+    "Raw validation uses an existing optional CPU reference outside the deployable project, never a runtime import."
+  ],
+  "raw_workspace_report": "Ai/Reports/sunnypilot-max-baseline-20261102"
+}

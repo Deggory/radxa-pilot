@@ -111,6 +111,7 @@ class TestFrames(unittest.TestCase):
     timestamp = time.monotonic_ns()
     camera = RoadCamera.__new__(RoadCamera)
     camera.rotation = False
+    camera.fresh_capture = False
     camera.capture = MagicMock()
     camera.capture.read.return_value = RawFrame(jpeg.tobytes(), timestamp, 51, 0)
     frame = next(camera.read_frames())
@@ -124,6 +125,7 @@ class TestFrames(unittest.TestCase):
   def test_bad_and_stale_frames_are_not_published(self):
     camera = RoadCamera.__new__(RoadCamera)
     camera.rotation = False
+    camera.fresh_capture = False
     camera.capture = MagicMock()
     for payload, timestamp in [(b'not a JPEG', time.monotonic_ns()), (b'', 1), (b'', time.monotonic_ns() + 10**12)]:
       camera.capture.read.return_value = RawFrame(payload, timestamp, 3, 0)
@@ -176,6 +178,21 @@ class TestFrames(unittest.TestCase):
       released.set()
       capture.close()
     self.assertTrue(source.closed)
+
+  def test_fresh_deadline_discards_cached_frame_and_waits_for_next_arrival(self):
+    capture = LatestCapture.__new__(LatestCapture)
+    capture.condition = MagicMock()
+    capture.latest = RawFrame(b'old', 100, 4, 0)
+    capture.consumed, capture.error = 1, None
+    def wait_for(predicate, timeout):
+      self.assertFalse(predicate())
+      capture.latest = RawFrame(b'new', 200, 5, 0)
+      self.assertTrue(predicate())
+      return True
+    capture.condition.wait_for.side_effect = wait_for
+    frame = capture.read(fresh=True)
+    self.assertEqual((frame.sequence, frame.timestamp_ns, frame.payload), (5, 200, b'new'))
+    self.assertEqual(capture.consumed, 5)
 
   def test_publication_pairs_real_timestamp_sequence_and_payload(self):
     from openpilot.system.camerad.webcam.camerad import Camerad

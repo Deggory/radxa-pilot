@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+import os
 import time
 
 import cv2 as cv
@@ -41,6 +42,10 @@ class RoadCamera:
     self.cam_type_state, self.stream_type = cam_type_state, stream_type
     self.cur_frame_id = 0
     self.rotation = rotate_180()
+    fresh = os.getenv('Q8B_FRESH_CAPTURE', '1')
+    if fresh not in ('0', '1'):
+      raise ValueError('Q8B_FRESH_CAPTURE must be 0 or 1')
+    self.fresh_capture = fresh == '1'
     self.source = NativeCapture(camera_id)
     try:
       self.capture = LatestCapture(self.source)
@@ -51,7 +56,7 @@ class RoadCamera:
 
   def read_frames(self):
     while True:
-      raw = self.capture.read()
+      raw = self.capture.read(fresh=self.fresh_capture)
       # Bound age independently of queue depth; never relabel an old frame as new.
       if not 0 <= time.monotonic_ns() - raw.timestamp_ns <= 250_000_000:
         raise ValueError('Q8B camera frame is stale (over 250 ms) or from the future')

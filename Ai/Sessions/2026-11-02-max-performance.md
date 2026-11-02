@@ -63,3 +63,33 @@ Skills: performance/incremental/source/debug/TDD/documentation/Git/doubt reviews
 REA source-first uses actual pinned source and runtime evidence, no unrelated
 binary analysis. Root helper source frozen to installed hash; do not change its
 installed policy silently or request its password again for normal launches.
+
+## Resident increment completed
+
+## 2026-11-02 — Resident GPU camera baseline established
+
+Maximum mode is automatic through the already-installed scoped helper; no new
+password needed. Resident exact NV12 crop/packing/lag4 history and fresh-arrival
+capture are defaults inside Q8B Thneed/road-only mode. Existing CD210eb741641
+unchanged, no conversion/feature splitting.180s/3465steady outputs at20.0008Hz:
+inference11.085/12.068ms and capture→model return37.886/42.690ms median/p95;
+fullcall13.645/15.274ms. CPU-prep baseline was58.989ms capture→output median.
+All logged clocks at tested maxima.67tests, native build,12savedGPU/12adapter,
+12resident exact image/output/history/change/reset and6independentCPU cases pass.
+Read-only fresh-context/CodexCLI reviews reconciled; controls validate before
+GPU history mutation and failed frames require reset.10sactualUI:193frames,
+176model messages/33pathpoints, children0/0/0; camera/policies restored,faults0.
+Provisional geometry, controls/DM off; these timings exclude UI drawing.
+No new20minute/full-manager/vehicle qualification. Feature splitting deferred.
+Launch normal preview from project .venv. Next hardware/calibration or further
+optimisation is separate owner-selected work. Final repeated65s check/commit
+receipt follows below. [Details](../Knowledge/MAX_PERFORMANCE.md).
+
+
+Changed paths: thneed_q8b bridge/runtime/state/bench/verify_resident and tests;
+webcam camera/native_capture/preview/test_road_camera; install/model/camera guides
+and tracked Ai notebook. Root helper unchanged from installed source. Native
+ELF46c18dc8; model/driver/source pins and review reconciliation in MAX_PERFORMANCE.
+No upstream merge/push or dependency/precision changes in this increment.
+
+2026-11-02 accepted closeout: Final repeat: 1164steady outputs/20.0027Hz; inference11.070/12.258ms, fullcall13.574/15.314ms and capture→output37.355/41.790ms median/p95. All clock samples max; target medians pass. Prior fast run36.829ms also passes.68tests/lint/native/exactGPU/CPU checks pass. Final UI194frames/176models/33points, children0/0/0. All reported workers/private IPC removed, camera and clocks restored, GPUfaults0, model/helper hashes unchanged.

@@ -6,7 +6,7 @@ from unittest.mock import patch, Mock
 
 import numpy as np
 
-from openpilot.selfdrive.modeld.thneed_q8b.state import prepare_nv12, thneed_enabled, select_small_model, ThneedModelState
+from openpilot.selfdrive.modeld.thneed_q8b.state import prepare_nv12, thneed_enabled, select_small_model, ThneedModelState, exact_gather_map
 from openpilot.selfdrive.modeld.thneed_q8b.runtime import next_states
 from openpilot.system.camerad.cameras.nv12_info import get_nv12_info
 
@@ -78,6 +78,69 @@ class TestStateBoundary(unittest.TestCase):
     # A NumPy rewrite differed at a rounding boundary for this actual perspective transform.
     np.testing.assert_array_equal(actual, expected)
 
+  def test_gather_map_reconstructs_all_source_address_bytes_exactly(self):
+    matrices = np.stack([np.eye(3, dtype=np.float32), np.array([[1.01, .02, 3.25], [-.02, .97, 8.5], [.00001, -.00001, 1]],
+                                                              dtype=np.float32)])
+    indices = exact_gather_map(matrices)
+    source = np.random.default_rng(81).integers(0, 256, get_nv12_info(1280, 720)[3], dtype=np.uint8)
+    for view in range(2):
+      np.testing.assert_array_equal(source[indices[view]], prepare_nv12(source, matrices[view], 1280, 720))
+    with self.assertRaisesRegex(ValueError, 'Two finite'):
+      exact_gather_map(matrices[:1])
+
+  def test_maximum_lease_failure_prevents_gpu_model_creation(self):
+    backend = Mock()
+    with patch('openpilot.selfdrive.modeld.thneed_q8b.state.thneed_enabled', return_value=True), \
+         patch('openpilot.sunnypilot.modeld_v2.modeld_base.ModelStateBase.__init__', return_value=None):
+      with self.assertRaisesRegex(RuntimeError, 'no lease'):
+        ThneedModelState(1280, 720, backend_factory=backend, performance_factory=Mock(side_effect=RuntimeError('no lease')))
+    backend.assert_not_called()
+
+  def test_resident_mode_reuses_map_and_never_cpu_prepares_live_images(self):
+    from openpilot.selfdrive.modeld.thneed_q8b.runtime import CURRENT_SPECS
+    backend = Mock()
+    backend.last_timing = {}
+    def run(current):
+      return {'outputs': np.zeros((1, 2576), dtype=np.float32),
+              **{'next_' + key: np.zeros(shape, dtype=dtype) for key, (shape, dtype) in CURRENT_SPECS.items()
+                 if key in ('state_desire_q', 'state_feat_q')}}
+    backend.run_resident.side_effect = run
+    with patch.dict(os.environ, {}, clear=True), \
+         patch('openpilot.selfdrive.modeld.thneed_q8b.state.thneed_enabled', return_value=True), \
+         patch('openpilot.sunnypilot.modeld_v2.modeld_base.ModelStateBase.__init__', return_value=None), \
+         patch('openpilot.selfdrive.modeld.thneed_q8b.state.exact_gather_map', return_value=np.zeros((2, 6, 128, 256), np.uint32)) as maps, \
+         patch('openpilot.selfdrive.modeld.thneed_q8b.state.prepare_nv12', side_effect=AssertionError('per-frame CPU warp')):
+      state = ThneedModelState(1280, 720, backend_factory=lambda: backend, performance_factory=Mock)
+      try:
+        data = np.zeros(get_nv12_info(1280, 720)[3], dtype=np.uint8)
+        bufs = dict.fromkeys(state.vision_input_names, data)
+        transforms = {key: np.eye(3, dtype=np.float32) for key in state.vision_input_names}
+        inputs = {'desire_pulse': np.zeros(8), 'traffic_convention': np.array([1, 0]), 'action_t': np.zeros(2)}
+        for _ in range(2):
+          state.run(bufs, transforms, inputs)
+        self.assertEqual(maps.call_count, 1)
+        self.assertNotIn('state_img_q', state.queues)
+        backend.inspect_images_for_verification.assert_not_called()
+        self.assertEqual(backend.prepare_images.call_count, 2)
+        transforms['img'][0, 2] = 1
+        state.run(bufs, transforms, inputs)
+        self.assertEqual(maps.call_count, 2)
+        prepared_count = backend.prepare_images.call_count
+        with self.assertRaises(ValueError):
+          state.run(bufs, transforms, {**inputs, 'action_t': np.zeros(3)})
+        self.assertEqual(backend.prepare_images.call_count, prepared_count)
+        backend.run_resident.side_effect = RuntimeError('replay broke')
+        with self.assertRaisesRegex(RuntimeError, 'replay broke'):
+          state.run(bufs, transforms, inputs)
+        backend.run_resident.side_effect = run
+        with self.assertRaisesRegex(RuntimeError, 'reset'):
+          state.run(bufs, transforms, inputs)
+        state.reset()
+        state.run(bufs, transforms, inputs)
+      finally:
+        state.close()
+      backend.close.assert_called_once()
+
   def test_model_state_owns_recurrence_and_warmup_resets_it(self):
     class Backend:
       calls = 0
@@ -92,7 +155,7 @@ class TestStateBoundary(unittest.TestCase):
       def close(self):
         self.closed = True
 
-    with patch.dict(os.environ, {'Q8B_THNEED': '1', 'Q8B_ROAD_ONLY': '1', 'USE_WEBCAM': '1'}):
+    with patch.dict(os.environ, {'Q8B_THNEED': '1', 'Q8B_ROAD_ONLY': '1', 'USE_WEBCAM': '1', 'Q8B_GPU_PREP': '0'}):
       with patch('openpilot.system.camerad.webcam.config.RADXA_Q8B', True):
         with patch('openpilot.sunnypilot.modeld_v2.modeld_base.ModelStateBase.__init__', return_value=None):
           state = ThneedModelState(1280, 720, backend_factory=Backend, performance_factory=Mock)

@@ -61,6 +61,26 @@ class TestContract(unittest.TestCase):
     self.assertGreaterEqual(model.last_timing['upload_ms'], 0)
     self.assertGreaterEqual(model.last_timing['input_validation_ms'], 0)
 
+  def test_resident_controls_match_current_wrapper_without_image_uploads(self):
+    inputs = self.inputs()
+    inputs['state_feat_q'][:] = np.arange(96, dtype=np.float32)[:, None, None]
+    inputs['state_desire_q'][3, 0, 2] = 1
+    model = ThneedModel.__new__(ThneedModel)
+    model.images_ready = True
+    outputs = np.arange(2576, dtype=np.float32).reshape(1, -1)
+    model._run = Mock(return_value=outputs)
+    result = model.run_resident({k: v for k, v in inputs.items() if k not in ('new_img', 'state_img_q')})
+    controls = model._run.call_args.args[0]
+    expected = to_legacy_inputs(inputs)
+    self.assertEqual(set(controls), set(LEGACY_SPECS) - {'img', 'big_img'})
+    for key in controls:
+      np.testing.assert_array_equal(controls[key], expected[key])
+    np.testing.assert_array_equal(result['next_state_feat_q'], next_states(inputs, outputs)['next_state_feat_q'])
+    self.assertFalse(model.images_ready)
+    with self.assertRaisesRegex(RuntimeError, 'not ready'):
+      model.run_resident({k: v for k, v in inputs.items() if k not in ('new_img', 'state_img_q')})
+    self.assertEqual(model._run.call_count, 1)
+
   def test_bad_artifact_refused_before_gpu_or_native_loading(self):
     with tempfile.TemporaryDirectory() as directory:
       path = Path(directory) / 'bad.thneed'

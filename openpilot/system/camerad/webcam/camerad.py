@@ -106,6 +106,8 @@ class Camerad:
 
 def main():
   if road_only_enabled():
+    from openpilot.common.hardware.radxa.performance import pin_q8b_worker
+    pin_q8b_worker()
     def shutdown(_signum, _frame):
       raise KeyboardInterrupt
     signal.signal(signal.SIGTERM, shutdown)

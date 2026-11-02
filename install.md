@@ -164,11 +164,13 @@ Run the focused Q8B checks:
 DEBUG=0 .venv/bin/python -B -m unittest -v \
   openpilot.selfdrive.modeld.thneed_q8b.test_state \
   openpilot.selfdrive.modeld.thneed_q8b.test_runtime \
+  openpilot.selfdrive.modeld.thneed_q8b.test_benchmark \
   openpilot.system.camerad.webcam.test_benchmark \
   openpilot.system.camerad.webcam.test_preview \
   openpilot.system.camerad.webcam.test_calibration \
   openpilot.system.camerad.webcam.test_road_camera \
-  openpilot.common.hardware.tests.test_radxa
+  openpilot.common.hardware.tests.test_radxa \
+  openpilot.common.hardware.tests.test_q8b_performance
 ```
 
 An optional bounded native GPU verification uses the existing model and saved
@@ -179,7 +181,14 @@ validation samples, without opening the camera or reconverting anything:
   --frames 40 --warmup 10 --output /tmp/q8b-thneed-install-check.json
 ```
 
-Choose a new report path for each run.
+Choose a new report path for each run. For GPU-resident image/history checks:
+
+```bash
+USE_WEBCAM=1 Q8B_ROAD_ONLY=1 DEBUG=0 .venv/bin/python -m openpilot.selfdrive.modeld.thneed_q8b.verify_resident \
+  --output-dir /tmp/q8b-resident-install-check
+```
+
+This diagnostic uses explicit readbacks for correctness; production does not.
 
 ## 6. Open the isolated camera and model preview
 
@@ -191,7 +200,9 @@ cd ~/comma/sunnypilot
 ```
 
 Connect the SunplusIT AK-Camera JV to the Q8B. The selected capture profile is
-1280×720 MJPEG at 60 FPS, publishing newest frames at 20 Hz. The preview starts camera,
+1280×720 MJPEG at 60 FPS, selecting a fresh camera arrival at each 20 Hz deadline.
+The Q8B Thneed path defaults to resident GPU crop/packing/history and automatically
+holds the fixed maximum-clock lease installed in step 3; no later password prompt. The preview starts camera,
 Thneed-backed modeld and the actual Sunnypilot UI in a private namespace. Close
 the window or press Ctrl+C to stop. Vehicle/control/driver-monitoring processes
 are not started. Geometry remains provisional and the UI labels it uncalibrated.
@@ -264,3 +275,12 @@ Workspace-only raw evidence is retained under
 - Official uv: [installation](https://docs.astral.sh/uv/getting-started/installation/),
   [Python management](https://docs.astral.sh/uv/guides/install-python/),
   [locking and syncing](https://docs.astral.sh/uv/concepts/projects/sync/).
+
+Q8B camera/model daemons also default to `Q8B_FAST_CPU=1`, restricting their
+entry thread and future workers to allowed fast cores 4–7. Parent/UI affinity
+is unchanged and no real-time FIFO policy is enabled. Set 0 for scheduling
+comparisons. Pinning all work to CPU7 alone regressed this resident pipeline;
+the four-core setting measured 36.829 ms median / 41.592 ms p95 from source
+capture timestamp to model output at 20 Hz, with 10.817/11.790 ms inference.
+The final repeat is retained in the
+[portable qualification receipt](Ai/Evidence/q8b-resident-20261102.json).

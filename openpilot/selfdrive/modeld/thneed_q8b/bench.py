@@ -33,7 +33,7 @@ def summarize(rows, warmup_seconds):
           'camera_to_output_ms': stats([r['camera_to_output_ms'] for r in steady]),
           'full_model_call_ms': stats([r['full_model_call_ms'] for r in steady]),
           'stages_ms': {key: stats([r['stages'][key] for r in steady])
-                        for key in ('cpu_prepare_ms', 'input_validation_ms', 'upload_ms', 'inference_readback_ms')},
+                        for key in steady[0]['stages'] if key.endswith('_ms')},
           'clock_samples': list(clocks.values()),
           'all_clock_samples_at_tested_max': all(c['gpu_hz'] == 690000000 and
                                                   sorted(c['cpu_khz'].values()) == [2438400, 2995200] for c in clocks.values()),

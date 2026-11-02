@@ -239,6 +239,9 @@ def main(demo=False):
   cloudlog.warning("modeld init")
 
   Q8B_THNEED = thneed_enabled()
+  if Q8B_THNEED:
+    from openpilot.common.hardware.radxa.performance import pin_q8b_worker
+    pin_q8b_worker()
   timing_path = os.getenv('Q8B_MODEL_TIMINGS')
   model_timings = ModelTimingRecorder(timing_path) if Q8B_THNEED and timing_path else None
   CHESTNUT = not Q8B_THNEED and chestnut_compiled() and (chestnut_present() or cable_connected())

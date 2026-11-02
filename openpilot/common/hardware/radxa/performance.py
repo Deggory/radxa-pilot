@@ -1,5 +1,6 @@
 """User-side lease for the fixed, root-owned Q8B clock guard."""
 import json
+import os
 from pathlib import Path
 import select
 import subprocess
@@ -7,6 +8,24 @@ import time
 
 HELPER = '/usr/local/libexec/sunnypilot-q8b-performance'
 INSTALLER = 'sudo /usr/bin/python3 -I tools/q8b/install_performance.py'
+
+
+def pin_q8b_worker() -> None:
+  """Pin a Q8B camera/model daemon before it creates worker threads.
+
+  This affects only the daemon and its future threads, not the UI, parent shell
+  or system scheduler. Process exit ends the affinity; no privilege is required.
+  """
+  value = os.getenv('Q8B_FAST_CPU', '1')
+  if value not in ('0', '1'):
+    raise ValueError('Q8B_FAST_CPU must be 0 or 1')
+  if value == '0':
+    return
+  cores = {4, 5, 6, 7} & os.sched_getaffinity(0)
+  if not cores:
+    raise RuntimeError('Q8B fast CPUs are outside this process CPU restriction; use Q8B_FAST_CPU=0 for a baseline')
+  os.sched_setaffinity(0, cores)
+  print(f'Q8B worker CPU affinity: {sorted(cores)}', flush=True)
 
 
 class MaxPerformanceLease:

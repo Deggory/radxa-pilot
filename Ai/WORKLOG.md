@@ -232,3 +232,14 @@ build/51tests/MPC/GPU and10sUI smoke. [Session](Sessions/2026-11-02-installation
 2026-11-02 — Implemented/reviewed/installed scoped max-clock lease; measured
 65sbaseline20Hz/11.834ms inference/58.989ms capture-output. GPU input path remains
 in progress. [Session](Sessions/2026-11-02-max-performance.md).
+
+2026-11-02 — Completed resident GPU NV12 views/history and fresh capture defaults.
+180s20Hz/11.085ms inference/37.886ms camera→output median; exactGPU and independent
+CPU reference gates pass;68tests and live10sUI pass. Review-derived failure/reset
+regression fixed. No NN conversion or tensor splitting. See MAX_PERFORMANCE.
+
+2026-11-02 scheduling follow-up: unrestricted repeat38.204ms missed target;
+singleCPU7 trial regressed to40.512ms. Fast cores4–7 default instead measured
+36.829/41.592ms camera→output and10.817/11.790ms inference median/p95 at20Hz.
+
+2026-11-02 accepted closeout: Final repeat: 1164steady outputs/20.0027Hz; inference11.070/12.258ms, fullcall13.574/15.314ms and capture→output37.355/41.790ms median/p95. All clock samples max; target medians pass. Prior fast run36.829ms also passes.68tests/lint/native/exactGPU/CPU checks pass. Final UI194frames/176models/33points, children0/0/0. All reported workers/private IPC removed, camera and clocks restored, GPUfaults0, model/helper hashes unchanged.

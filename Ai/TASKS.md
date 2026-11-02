@@ -1,16 +1,20 @@
 # Work status and next task
 
-## 2026-11-02 — Maximum-mode lease and measured baseline; GPU prep in progress
+## 2026-11-02 — Resident GPU baseline complete
 
-Owner requests teacher max clocks/resident GPU inputs before feature splitting.
-One-time root helper installed by owner; future model/verify starts use scoped
-sudo-n guard automatically. Normal and killed-client clock restoration pass.
-Current65s private camera/model baseline:20.0008Hz, inference11.834msp50,
-source→output58.989ms, CPUprep14.693ms. Target<38ms not yet met. Two early-closed
-UI benchmarks retained incomplete. Model/schema/artifact unchanged, no feature
-splitting. Native GPU-prep bridge draft is dirty, not yet built/activated/tested.
-Next finish exact resident NV12 gather/history path, qualify and compare.
-[Details](Knowledge/MAX_PERFORMANCE.md); raw central max-baseline report.
+Q8B Thneed defaults to resident exact NV12 crop/packing/lag4 history, fresh60FPS
+source selection at20Hz, and worker affinity on fast cores4–7. Scoped max clocks
+are automatic; owner already installed the helper, no routine password request.
+Existing CD210eb741641 remains unchanged; no conversion or feature splitting.
+Final repeat: 1164steady outputs/20.0027Hz; inference11.070/12.258ms, fullcall13.574/15.314ms and capture→output37.355/41.790ms median/p95. All clock samples max; target medians pass. Prior fast run36.829ms also passes.68tests/lint/native/exactGPU/CPU checks pass. Final UI194frames/176models/33points, children0/0/0. All reported workers/private IPC removed, camera and clocks restored, GPUfaults0, model/helper hashes unchanged.
+Calibration remains provisional/invalid, controls and DM off. No new20min soak,
+full-manager/vehicle test or physical-display-latency claim. Unrestricted38.204ms
+repeat and CPU7 regression40.512ms retained; adopted fast profile has two passes.
+Next: launch normal preview from project .venv; choose later calibration/hardware
+or optimisation separately. No active experiment or unfinished source edits.
+This verified increment is recorded by its Git commit and maintenance receipt;
+base623f728a, exact source/model/runtime hashes in the portable evidence.
+[Details](Knowledge/MAX_PERFORMANCE.md), [receipt](Evidence/q8b-resident-20261102.json).
 
 ## 2026-11-02 — Full locked dependencies installed; minimal build passes
 

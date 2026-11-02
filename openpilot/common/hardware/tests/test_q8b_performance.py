@@ -1,3 +1,4 @@
+import os
 import tempfile
 import unittest
 from pathlib import Path
@@ -7,6 +8,23 @@ from tools.q8b.performance_guard import Profile
 
 
 class TestPerformanceProfile(unittest.TestCase):
+  def test_q8b_worker_affinity_preserves_explicit_cpu_restrictions(self):
+    from openpilot.common.hardware.radxa.performance import pin_q8b_worker
+    with patch.dict(os.environ, {}, clear=True), \
+         patch('os.sched_getaffinity', return_value=set(range(8))), patch('os.sched_setaffinity') as pin:
+      pin_q8b_worker()
+      pin.assert_called_once_with(0, {4, 5, 6, 7})
+    with patch.dict(os.environ, {'Q8B_FAST_CPU': '0'}), patch('os.sched_setaffinity') as pin:
+      pin_q8b_worker()
+      pin.assert_not_called()
+    with patch.dict(os.environ, {'Q8B_FAST_CPU': '1'}), patch('os.sched_getaffinity', return_value={0, 1}), \
+         patch('os.sched_setaffinity') as pin:
+      with self.assertRaisesRegex(RuntimeError, 'fast CPUs'):
+        pin_q8b_worker()
+      pin.assert_not_called()
+    with patch.dict(os.environ, {'Q8B_FAST_CPU': 'yes'}), self.assertRaises(ValueError):
+      pin_q8b_worker()
+
   def make_profile(self, root):
     files = {
       'proc/device-tree/compatible': 'radxa,dragon-q8b\0qcom,sc8280xp\0',

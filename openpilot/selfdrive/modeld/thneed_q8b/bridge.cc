@@ -29,12 +29,17 @@ struct Replay {
   Thneed model;
   std::vector<cl_mem> memory;
   std::vector<cl_program> programs;
+  cl_mem camera=nullptr, image_map=nullptr, image_ring=nullptr;
+  cl_kernel gather=nullptr;
+  unsigned image_slot=0;
+  bool map_ready=false, image_history_initialized=false;
   explicit Replay(cl_context context,cl_device_id device,cl_command_queue queue,cl_mem output):model(false,context) {
     model.device_id=device; model.command_queue=queue; model.output=output;
     if (clRetainContext(context)!=CL_SUCCESS || clRetainCommandQueue(queue)!=CL_SUCCESS)
       throw std::runtime_error("retain context/queue failed");
   }
   ~Replay() {
+    if(gather) clReleaseKernel(gather);
     for (auto &k:model.kq) if(k->kernel) clReleaseKernel(k->kernel);
     for (auto p:programs) clReleaseProgram(p);
     for (auto m:memory) clReleaseMemObject(m);
@@ -138,6 +143,89 @@ int q8b_thneed_upload(void *handle,unsigned index,const void *data,size_t size) 
     auto &r=*static_cast<Replay*>(handle);
     if(index>=r.model.input_clmem.size() || size!=r.model.input_sizes[index]) throw std::runtime_error("input size/index mismatch");
     check(clEnqueueWriteBuffer(r.model.command_queue,r.model.input_clmem[index],CL_TRUE,0,size,data,0,nullptr,nullptr));
+    return 0;
+  } catch(const std::exception &e) { error=e.what(); return -1; }
+}
+
+// Camera sampling/packing shares the loaded model's context and persistent inputs.
+// Maps are computed once with the pinned CPU warp, preserving its exact rounding.
+int q8b_thneed_image_map(void *handle,const uint32_t *indices,size_t count) {
+  try {
+    constexpr size_t plane=6*128*256, camera_bytes=1280*(736+368);
+    if(!handle || !indices || count!=2*plane) throw std::runtime_error("invalid camera map");
+    for(size_t i=0;i<count;i++) if(indices[i]>=camera_bytes) throw std::runtime_error("camera map out of bounds");
+    auto &r=*static_cast<Replay*>(handle);
+    if(r.model.input_sizes.size()!=6 || r.model.input_sizes[0]!=2*plane || r.model.input_sizes[1]!=2*plane)
+      throw std::runtime_error("unexpected model image inputs");
+    if(!r.gather) {
+      auto buffer=[&](size_t size) {
+        cl_int status; cl_mem memory=clCreateBuffer(r.model.context,CL_MEM_READ_WRITE,size,nullptr,&status);
+        check(status); r.memory.push_back(memory); return memory;
+      };
+      r.camera=buffer(camera_bytes); r.image_map=buffer(count*sizeof(uint32_t)); r.image_ring=buffer(5*2*plane);
+      auto program=cl_program_from_source(r.model.context,r.model.device_id,R"CLC(
+        __kernel void camera_gather(__global const uchar *camera,__global const uint *map,
+                                    __global uchar *ring,__global uchar *image,__global uchar *big,uint slot) {
+          uint i=get_global_id(0), plane=196608, view=i/plane, pixel=i%plane;
+          uchar current=camera[map[i]];
+          uchar previous=ring[(((slot+1)%5)*2+view)*plane+pixel];
+          ring[(slot*2+view)*plane+pixel]=current;
+          __global uchar *output=view?big:image;
+          output[pixel]=previous; output[plane+pixel]=current;
+        }
+      )CLC");
+      r.programs.push_back(program);
+      cl_int status; r.gather=clCreateKernel(program,"camera_gather",&status); check(status);
+    }
+    if(!r.image_history_initialized) {
+      unsigned char zero=0;
+      check(clEnqueueFillBuffer(r.model.command_queue,r.image_ring,&zero,sizeof(zero),0,5*2*plane,0,nullptr,nullptr));
+      r.image_slot=0; r.image_history_initialized=true;
+    }
+    check(clEnqueueWriteBuffer(r.model.command_queue,r.image_map,CL_TRUE,0,count*sizeof(uint32_t),indices,0,nullptr,nullptr));
+    r.map_ready=true;
+    return 0;
+  } catch(const std::exception &e) { error=e.what(); return -1; }
+}
+int q8b_thneed_prepare_images(void *handle,const void *frame,size_t size) {
+  try {
+    constexpr size_t camera_bytes=1280*(736+368);
+    if(!handle || !frame || size!=camera_bytes) throw std::runtime_error("invalid NV12 camera buffer");
+    auto &r=*static_cast<Replay*>(handle);
+    if(!r.map_ready) throw std::runtime_error("camera map not configured");
+    check(clEnqueueWriteBuffer(r.model.command_queue,r.camera,CL_TRUE,0,size,frame,0,nullptr,nullptr));
+    cl_mem buffers[]={r.camera,r.image_map,r.image_ring,r.model.input_clmem[0],r.model.input_clmem[1]};
+    for(unsigned i=0;i<5;i++) check(clSetKernelArg(r.gather,i,sizeof(cl_mem),&buffers[i]));
+    check(clSetKernelArg(r.gather,5,sizeof(r.image_slot),&r.image_slot));
+    size_t global=2*6*128*256,local=128;
+    check(clEnqueueNDRangeKernel(r.model.command_queue,r.gather,1,nullptr,&global,&local,0,nullptr,nullptr));
+    r.image_slot=(r.image_slot+1)%5;
+    // Fence gathering before returning; the blocking upload also protects error-path host lifetime.
+    // This fence performs no image readback. Model inputs and history stay on GPU.
+    check(clFinish(r.model.command_queue));
+    return 0;
+  } catch(const std::exception &e) { error=e.what(); return -1; }
+}
+int q8b_thneed_reset_images(void *handle) {
+  try {
+    if(!handle) throw std::runtime_error("invalid replay");
+    auto &r=*static_cast<Replay*>(handle);
+    if(r.image_ring) {
+      unsigned char zero=0;
+      check(clEnqueueFillBuffer(r.model.command_queue,r.image_ring,&zero,sizeof(zero),0,5*2*6*128*256,0,nullptr,nullptr));
+      check(clFinish(r.model.command_queue)); r.image_slot=0;
+    }
+    return 0;
+  } catch(const std::exception &e) { error=e.what(); return -1; }
+}
+int q8b_thneed_inspect_images(void *handle,void *images,size_t size) {
+  try {
+    constexpr size_t bytes=12*128*256;
+    if(!handle || !images || size!=2*bytes) throw std::runtime_error("invalid debug image output");
+    auto &r=*static_cast<Replay*>(handle);
+    for(unsigned view=0;view<2;view++)
+      check(clEnqueueReadBuffer(r.model.command_queue,r.model.input_clmem[view],CL_TRUE,0,bytes,
+                               static_cast<char*>(images)+view*bytes,0,nullptr,nullptr));
     return 0;
   } catch(const std::exception &e) { error=e.what(); return -1; }
 }

@@ -158,3 +158,14 @@ backend. Keep normal stock selection when off. Reuse pinnedCPU:LLVM warp after
 NumPy rewrite failed one exact rounding-boundary pixel; keep exact gate.
 Borrowed MM-X geometry remains invalid for model messages, even if extrinsics
 alone appear calibrated. [Session](Sessions/2026-11-02-thneed-modeld.md).
+
+2026-11-02 — Default Q8B Thneed to exact resident image preparation and road
+camera to next-arrival selection after measured20Hz baseline. Keep original
+CPU/cached flags0 for comparisons. Scoped max clocks mandatory for model starts;
+owner's one-time setup already complete. Feature tensor splitting not attempted.
+Rejected controls cannot advance image history; post-mutation errors require reset.
+
+2026-11-02 — Adopt Q8B fast-cluster affinity4–7 for camera/model daemon workers,
+intersecting caller restrictions; retain Q8B_FAST_CPU=0 for comparison. SingleCPU7
+regressed this pipeline and is rejected. Keep saved failed timing results and
+both passing fast-profile runs; do not extrapolate bench medians to all frames.
