@@ -1,5 +1,9 @@
 # Sunnypilot work history
 
+2026-11-02 — Explained PC/Linux policy versus optional webcam input using actual
+platform/factory/process source and read-only identity output. Full managed
+runtime remains unqualified. [Session](Sessions/2026-11-02-pc-webcam.md).
+
 2026-11-01 — Owner requested end-of-day audit and PC/VS Code shutdown. Fresh
 11identity tests pass; clean Git/reference/controller, notebook and journal
 checked. Saved tomorrow's H1 thermal starting point in both memories. No

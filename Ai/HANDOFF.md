@@ -1,5 +1,12 @@
 # Resume Sunnypilot here
 
+2026-11-02 clarification: current source73773e3 reports Ubuntu/ARM64,
+radxaQ8b and PC=True through the read-only identity command. PC denotes Linux
+development policy; USE_WEBCAM separately selects a camera process in the same
+repository. No separate webcam fork selected and no managed Q8B stack qualified.
+Earlier standalone q8b/gpu_webcam remains a reference/demo. H1 hardware work
+still next; cameras deferred. No runtime/config change from this explanation.
+
 ## Shutdown checkpoint — 2026-11-01; resume 2026-11-02
 
 Owner requested end-of-work audit, then close VS Code and power off. Tomorrow
