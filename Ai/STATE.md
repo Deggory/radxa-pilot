@@ -1,5 +1,11 @@
 # Current Sunnypilot state
 
+2026-11-02 acados diagnosis: limited preview .venv never received the full
+locked dependencies. acados/SCons plus several other native-package imports
+are absent; lockfile includes ARM64 comma-deps-acados0.2.2.post103. No install
+or runtime change. Full dependency qualification remains separate work.
+Details: Ai/Sessions/2026-11-02-thneed-modeld.md (student).
+
 ## 2026-11-02 — Launch directory and timing clarified
 
 Enter `~/comma/sunnypilot` before `.venv/bin/python -m openpilot.system.camerad.webcam.preview --model`;

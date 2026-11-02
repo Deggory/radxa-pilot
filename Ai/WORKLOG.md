@@ -221,3 +221,6 @@ pass. All raw tails/restoration/build limits saved. [Session](Sessions/2026-11-0
 2026-11-02 — Corrected workspace-vs-project launch command and documented model-call
 timing boundaries; no new inference benchmark. Help/import and memory/diff checks
 pass. [Follow-up](Sessions/2026-11-02-thneed-modeld.md).
+
+2026-11-02 — Explained missing acados via original limited bench-env setup and
+actual import/distribution checks; ARM64 wheel is locked but untested. No installs.

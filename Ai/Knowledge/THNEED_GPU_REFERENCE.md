@@ -120,3 +120,26 @@ Ai/Reports/q8b-20min-soak-20261031/REPORT.md plus result.json/protocol.json.
 Consult those archived sources/manifests before any implementation. Skills:
 performance-optimization, documentation and Git; source-first report/source
 inspection, no unrelated REA analysis or new inference claimed.
+
+## 2026-11-02 — Why acados is missing
+
+Read-only diagnosis at1de7f2f: current project .venv is the limited camera/UI
+bench environment, not a complete upstream dependency installation. Original
+UI-preview session records selected installs and q8b-bench-existing-deps.pth
+reuse. acados module and comma-deps-acados distribution are absent; SCons is
+also absent from this environment. Additional SConstruct imports capnproto,
+eigen,ncurses,zstd are absent (ffmpeg,json11,zeromq present). Root build stops
+at the first import, acados, not necessarily the only missing dependency.
+pyproject.toml declares comma-deps-acados; uv.lock pins0.2.2.post103 and includes
+a manylinux_2_28_aarch64 wheel. Package installation/runtime compatibility has
+not been tested here. tools/setup_dependencies.sh normally runs
+`uv sync --frozen --all-extras`; no installer/sync executed by this explanation.
+Current source explicitly uses acados for longitudinal MPC; the earlier general
+steering/acceleration explanation did not establish current lateral dependence.
+Source/model/runtime and existing preview unchanged. Next full-build work would
+complete/check locked dependencies while preserving the accepted bench setup;
+no automatic dependency changes requested in this question.
+Validation: project interpreter find_spec and distribution metadata checks,
+SConstruct/pyproject/lock/setup source reads and original preview session.
+Skills: debugging, documentation/Git; source-first REA routing, no binary
+analysis needed. No camera/GPU session or new full-build attempt.
