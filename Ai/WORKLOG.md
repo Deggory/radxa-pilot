@@ -1,5 +1,10 @@
 # Sunnypilot work history
 
+2026-11-02 — Freshly inspected literal MM-X master and master-rk3588:11matched
+blobs/9AST parses. Corrected broad answer: full board telemetry is not required
+before webcam bring-up; MM-X leaves defaults/disables selected services. No
+policy copied/runtime tested. [Session](Sessions/2026-11-02-mmx-rk-webcam.md).
+
 2026-11-02 — Explained PC/Linux policy versus optional webcam input using actual
 platform/factory/process source and read-only identity output. Full managed
 runtime remains unqualified. [Session](Sessions/2026-11-02-pc-webcam.md).

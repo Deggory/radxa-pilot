@@ -1,5 +1,55 @@
 # MM-X's PC/Linux approach: reference for Q8B
 
+## 2026-11-02 — Webcam bring-up is a smaller scope than complete hardware support
+
+Owner specifically asked whether the full hardware checklist must be implemented
+for webcam mode, using MM-X master and RK3588 as references. Earlier blanket
+yes was too broad for that scope. **No: complete board telemetry is not a
+prerequisite for an initial webcam demonstration.** This is distinct from a
+qualified full Q8B/vehicle integration.
+
+Fresh GitHub branch check distinguishes literal master db27a433fcbf5601a61aa7a03fbd5d0fa1ade036,
+default master-tici b9b7f4885662f9d8a2bfc984e23bcda412399e4a and
+master-rk3588 3ad69b20b2c38172ea24c8388354ee95eca8412a. The default is not
+literal master. Inspected11pinned full files,11Git blobs matched/9Python AST
+parses; existing master-tici review remains separately pinned evidence.
+
+| Area | What the RK3588 reference actually implements |
+| --- | --- |
+| Hardware selection | Non-/TICI systems use Pc; no dedicated RK thermal/fan backend in this selection |
+| Temperature reporting | Pc inherits empty ThermalConfig from base |
+| Power/GPU utilization | PC getters return0; these are defaults, not measurements |
+| Cooling | hardwared constructs the comma fan controller only under TICI; OS cooling is a separate responsibility |
+| CPU/RAM/disk | Actual psutil/free-space readings remain |
+| IMU | Stock sensord disabled on PC; localizer instead derives accel from carState.aEgo and optionally gyro from carState.yawRate; physical sensor ingestion commented and sensors_valid forced true |
+| GNSS | Inspected registry gates comma GNSS processes on TICI |
+| Webcam | USE_WEBCAM selects tools.webcam.camerad; README asks for camera configuration/calibration and compute setup |
+| Vehicle | README still requires a Panda/car connection; derived motion needs real carState data |
+
+Literal master also retains generic PC thermal/power/GPU defaults and switches
+camera services with USE_WEBCAM. Its modern manager registry still gates
+sensord on not PC and comma GNSS on COMMA_HARDWARE; not the same process policy
+or source layout as the older RK branch. RK README documents OpenCL/camera/UI
+adaptations, not a complete Rockchip hardware-health implementation.
+
+For an initial Q8B webcam demo, leave unsupported telemetry at current defaults,
+reuse OS resource stats and preserve existing OS automatic cooling. First qualify
+the camera/message/calibration contract, actual Qualcomm GPU/model backend and
+selected process dependencies. USE_WEBCAM alone does not supply those changes
+in current Sunnypilot. No need to port every temperature/modem/power/fan entry
+before that demonstration. Full real hardware reporting can be implemented
+separately. Do not copy MM-X's fabricated sensor-health acceptance or mistake
+carState-derived planar observations for our known physical IMU integration.
+
+Sources: [RK hardware](https://github.com/MM-X/sunnypilot-pc/blob/3ad69b20b2c38172ea24c8388354ee95eca8412a/system/hardware/pc/hardware.py),
+[RK base](https://github.com/MM-X/sunnypilot-pc/blob/3ad69b20b2c38172ea24c8388354ee95eca8412a/system/hardware/base.py),
+[RK registry](https://github.com/MM-X/sunnypilot-pc/blob/3ad69b20b2c38172ea24c8388354ee95eca8412a/system/manager/process_config.py),
+[RK localizer](https://github.com/MM-X/sunnypilot-pc/blob/3ad69b20b2c38172ea24c8388354ee95eca8412a/selfdrive/locationd/locationd.py),
+[literal-master base](https://github.com/MM-X/sunnypilot-pc/blob/db27a433fcbf5601a61aa7a03fbd5d0fa1ade036/openpilot/common/hardware/base.py).
+Readable source only; no build, runtime, camera, sensor or vehicle tests and no
+application changes. Camera work remains unimplemented. This answer clarifies
+prerequisites, not permission to launch/engage a vehicle stack.
+
 ## Non-camera hardware comparison — 2026-11-01
 
 Owner asked what MM-X did for the hardware/sensor checklist. Rechecked the

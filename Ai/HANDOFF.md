@@ -1,5 +1,15 @@
 # Resume Sunnypilot here
 
+2026-11-02 owner narrowed question to webcam-mode prerequisites and requested
+MM-X master/RK3588 evidence. Full hardware checklist is NOT required before
+initial webcam demonstration: RK3ad69b20 uses generic PC empty/zero/default
+telemetry and service exclusions. Literal masterdb27a433 differs from default
+master-ticib9b7f488. See updated MM_X_LINUX_REFERENCE for11blob/9AST source audit.
+Previous broad yes referred to full-port needs and was overbroad for this scope.
+Camera/model/process compatibility still needs qualification; no application
+changes or sensor-health bypass adopted. Hardware plan remains pending; this
+research has not implemented or launched camera work.
+
 2026-11-02 clarification: current source73773e3 reports Ubuntu/ARM64,
 radxaQ8b and PC=True through the read-only identity command. PC denotes Linux
 development policy; USE_WEBCAM separately selects a camera process in the same
