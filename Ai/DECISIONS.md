@@ -147,3 +147,8 @@ capture/solve. Do not silently register guessed intrinsics or activate a profile
 from lowRMSalone. Record optical/focus state and source images; current AF1and
 physical lens/mount measurement remain unresolved. Keep Q8B guard active until
 real data, distortion mapping and optical-state consistency are reviewed.
+
+2026-11-02 — Owner selected already-convertedCD210 Thneed for GPU work.
+Reuse/copy acceptedeb741641; do not convert again. Package required replay code
+and assets inside Sunny; preserve original model and defaults while qualifying
+backend. Current-history adapter reuses existing graph. [Session](Sessions/2026-11-02-thneed-import.md).

@@ -1,5 +1,14 @@
 # Teacher's tested Q8B Thneed GPU pipeline
 
+## Current implementation — 2026-11-02
+
+Owner instructed reuse/no reconversion. [In-project replay README](../../openpilot/selfdrive/modeld/thneed_q8b/README.md)
+now supplies copied artifact, vendor source/build, NumPy/ctypes runtime, current
+queue adapter and verification CLI.12saved-case exactCL/CPU checks and12adapter
+cases pass;42tests/lint pass. Native build does not rebuild the model.
+No dependency on external experiments at runtime; manager not switched yet.
+[Session and limits](../Sessions/2026-11-02-thneed-import.md).
+
 Recovered2026-11-02 at project b67031e3d6bc585fcba4123f188f070fca2ee1fb,
 radxa/q8b. Owner asks to consult teacher about the fast Thneed work. Read-only
 review and memory promotion; no runtime port or launch authorized by this review.

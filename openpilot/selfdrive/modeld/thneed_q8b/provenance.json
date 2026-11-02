@@ -1,0 +1,99 @@
+{
+  "name": "CD210",
+  "ref": "5b6436a90cf6902b8aaa71c2b6f3d7164d8ae391",
+  "origin": "existing accepted driving-02 artifact; copied without model conversion",
+  "original_model_sha256": "659727c4d4839adc4992a254409a54259a8756a743f2d567bf5fdc6579f8009b",
+  "executed_derivative_sha256": "ee8ca6b35e923c098f0840474cdf826dc6fb7771484048b9202604620420bbb2",
+  "current_wrapper_sha256": "65a08adc31d5c456219687d99b7bf5e44d61dae2d49ea67850e76105c7248cce",
+  "artifact_source_commit": "f987ab72f4ac4a6b09c13ea04a22dc695800f3a5",
+  "soak_source_commit": "db5b0da25ae599563705de2179d0fd8cb843630e",
+  "files": {
+    "models/q8b_cd210.fixtures.npz": {
+      "sha256": "ae51e3d9acb6feb1ab7f0dccac71e471838f0cb700fb4db615801f50987962b2",
+      "bytes": 5123782
+    },
+    "models/q8b_cd210.thneed": {
+      "sha256": "eb74164116723b2601730a19e2f2060a25bfdc3814bf7912ce991798df176068",
+      "bytes": 99641029
+    },
+    "models/q8b_cd210.metadata.json": {
+      "sha256": "7b3fb15a232796dc7217be74c1b6374425f53271f1b200629d845c0c07da3202",
+      "bytes": 1985
+    },
+    "thneed_q8b/build.sh": {
+      "sha256": "64d548820742f99ca0316ab6f930c5bcdd30850e38a81c9895c47ff44e33bda1",
+      "bytes": 443
+    },
+    "thneed_q8b/bridge.cc": {
+      "sha256": "bdb462e79c957303314f149c2d2e25d3544962aff2d952ffcc75b8aaa787e247",
+      "bytes": 7403
+    },
+    "thneed_q8b/vendor-manifest.json": {
+      "sha256": "45a8412e93f8fc13b3bea2fdb8bd7dc0baabca7f429e3c829b88dd936e23a42d",
+      "bytes": 3911,
+      "original_sha256": "33f61fbecae365181d7ca647bdce529e8f9fad719f8f313cee7ab272b892918b"
+    },
+    "thneed_q8b/vendor/OpenCL-Headers-LICENSE": {
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "bytes": 11358
+    },
+    "thneed_q8b/vendor/openpilot-LICENSE": {
+      "sha256": "716ce815a0467219c59ec2433e6bce7f32efc45240725c6d3141a52b111d2558",
+      "bytes": 1059
+    },
+    "thneed_q8b/vendor/common/timing.h": {
+      "sha256": "2f6ed26b3be52a30be3c2dbbb9630c25a528ddb384c598c89d92166bb92a8820",
+      "bytes": 199
+    },
+    "thneed_q8b/vendor/common/util.h": {
+      "sha256": "b1a45bbc0d73744fdb069e3f33ece7f20679dd34c936303fb668d6f5ed5af730",
+      "bytes": 334
+    },
+    "thneed_q8b/vendor/common/clutil.h": {
+      "sha256": "4ddabb63a8f16e37028821dcb4d98f7bb69800b03092999327157aff69f9b0ca",
+      "bytes": 638
+    },
+    "thneed_q8b/vendor/third_party/json11/json11.cpp": {
+      "sha256": "9fc9fcfbc5edd21d0bd6082b5ff324fba1050e4a0229a7e35124c99002f971b2",
+      "bytes": 24808
+    },
+    "thneed_q8b/vendor/third_party/json11/json11.hpp": {
+      "sha256": "2bc666c25fbeac541add5f97a92526360e49ff822ba003567f8ca6a29421bf6d",
+      "bytes": 9212
+    },
+    "thneed_q8b/vendor/selfdrive/modeld/thneed/thneed.h": {
+      "sha256": "eaaf56bc39eec52a328836a80d454c155544121f1676b2718482d2ea7c1419de",
+      "bytes": 2982,
+      "original_sha256": "700876bd67e96acd24c2502975bde9b69176c5c58568829d71dbcb5d75fc9741"
+    },
+    "thneed_q8b/vendor/selfdrive/modeld/thneed/thneed_common.cc": {
+      "sha256": "4be3da92dad11e22e4f8549ee48f56a79233ec903ca1a19db2318c01d41230c2",
+      "bytes": 8095
+    },
+    "thneed_q8b/vendor/selfdrive/modeld/thneed/thneed_pc.cc": {
+      "sha256": "593344effbd61768f2e8c7ec478a898c670bbabc6d80db3c1762727ed58007d0",
+      "bytes": 718
+    },
+    "thneed_q8b/vendor/selfdrive/modeld/thneed/serialize.cc": {
+      "sha256": "7bfe1c47b9b693e16902ba3a29acbfeeea95ed435e5b10a01cac7fa5f01e5479",
+      "bytes": 5794,
+      "original_sha256": "f5511f65704601464087fde1208e971db91d387103c972027fe8b2b7b8104394"
+    },
+    "thneed_q8b/vendor/include/CL/cl.h": {
+      "sha256": "a5558d666fa0ab4a0a337b89fe72d82591e088d5e8a5532c63c6988a6258ecca",
+      "bytes": 83361
+    },
+    "thneed_q8b/vendor/include/CL/cl_platform.h": {
+      "sha256": "4525bf75d1745114f384a88b49e7912b0d6b45f384e4d2e6f88ae96811a32bf0",
+      "bytes": 43932
+    },
+    "thneed_q8b/vendor/include/CL/cl_version.h": {
+      "sha256": "1e571dd68566330dd066cf778e07909a3cabeb2b969c5578c60f14baba7df1af",
+      "bytes": 3268
+    }
+  },
+  "in_project_whitespace_normalization": [
+    "vendor/selfdrive/modeld/thneed/serialize.cc",
+    "vendor/selfdrive/modeld/thneed/thneed.h"
+  ]
+}

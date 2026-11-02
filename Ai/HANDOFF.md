@@ -1,5 +1,21 @@
 # Resume Sunnypilot here
 
+## 2026-11-02 — Existing CD210 Thneed imported and replay verified
+
+Owner says reuse converted model; do not reconvert. Copied accepted99641029byte
+Thneedeb741641 unchanged to openpilot/selfdrive/modeld/models/q8b_cd210.thneed,
+plus metadata/fixtures. All replay source/vendor/licenses/build scripts now inside
+Sunny at openpilot/selfdrive/modeld/thneed_q8b. New NumPy/ctypes runner has no
+external-experiment/Tinygrad runtime import and checks hashes/matching GPU driver.
+Current history-queue adapter preserves old compiled model; no model conversion.
+Native ARM64 library built;12saved exactCL/CPU tolerance checks and12queue cases
+pass.42focused tests/lint pass.40same-input host calls12.114msmedian/15.851msp95
+includes upload/validation; repeat14.223/16.545ms also passes. Dynamic policies
+unchanged, no camera/maxclock/20min rerun.
+Current manager/modeld selection unchanged. Next connect checked backend to
+live modeld/publication/overlays, qualify current recurrence and20Hz timing.
+Camera optimisation remains deferred. [Session](Sessions/2026-11-02-thneed-import.md).
+
 ## 2026-11-02 — Confirmed: Thneed ran CD210 learned core
 
 Fresh ONNX checkpoint/tensor-content comparison confirms old659727c4 and

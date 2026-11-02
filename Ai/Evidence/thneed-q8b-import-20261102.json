@@ -1,0 +1,364 @@
+{
+  "source_start": "6df9a8f92626135b1d475a3ad6822f0edfa4d531",
+  "task": "copy and run already-converted CD210 Thneed inside Sunnypilot; no reconversion",
+  "artifact_sha256": "eb74164116723b2601730a19e2f2060a25bfdc3814bf7912ce991798df176068",
+  "new_conversion": false,
+  "native_library_sha256": "5f83b4ad6d1b083cfe336571d06c8f3b280a307aeaaf7b5f5b1ddecef349adec",
+  "native_identity": "ELF64 aarch64 shared library",
+  "tests": 42,
+  "lint": "pass",
+  "review": "hash-pinned artifact/metadata, GPU-only matching driver, explicit tensor contracts, native lifetimes and current queue mapping reviewed",
+  "gpu": {
+    "status": "pass",
+    "artifact_sha256": "eb74164116723b2601730a19e2f2060a25bfdc3814bf7912ce991798df176068",
+    "new_conversion": false,
+    "device": {
+      "name": "QUALCOMM Adreno(TM) 690",
+      "driver": "OpenCL 3.0 QUALCOMM build: 0855.3 Compiler E031.50.31.01"
+    },
+    "accuracy": [
+      {
+        "repeat": 0,
+        "case": 0,
+        "outputs": 2576,
+        "exact_saved_cl": true,
+        "saved_cpu_reference_pass": true,
+        "current_queue_adapter_pass": true
+      },
+      {
+        "repeat": 0,
+        "case": 1,
+        "outputs": 2576,
+        "exact_saved_cl": true,
+        "saved_cpu_reference_pass": true,
+        "current_queue_adapter_pass": true
+      },
+      {
+        "repeat": 0,
+        "case": 2,
+        "outputs": 2576,
+        "exact_saved_cl": true,
+        "saved_cpu_reference_pass": true,
+        "current_queue_adapter_pass": true
+      },
+      {
+        "repeat": 0,
+        "case": 3,
+        "outputs": 2576,
+        "exact_saved_cl": true,
+        "saved_cpu_reference_pass": true,
+        "current_queue_adapter_pass": true
+      },
+      {
+        "repeat": 0,
+        "case": 4,
+        "outputs": 2576,
+        "exact_saved_cl": true,
+        "saved_cpu_reference_pass": true,
+        "current_queue_adapter_pass": true
+      },
+      {
+        "repeat": 0,
+        "case": 5,
+        "outputs": 2576,
+        "exact_saved_cl": true,
+        "saved_cpu_reference_pass": true,
+        "current_queue_adapter_pass": true
+      },
+      {
+        "repeat": 1,
+        "case": 0,
+        "outputs": 2576,
+        "exact_saved_cl": true,
+        "saved_cpu_reference_pass": true,
+        "current_queue_adapter_pass": true
+      },
+      {
+        "repeat": 1,
+        "case": 1,
+        "outputs": 2576,
+        "exact_saved_cl": true,
+        "saved_cpu_reference_pass": true,
+        "current_queue_adapter_pass": true
+      },
+      {
+        "repeat": 1,
+        "case": 2,
+        "outputs": 2576,
+        "exact_saved_cl": true,
+        "saved_cpu_reference_pass": true,
+        "current_queue_adapter_pass": true
+      },
+      {
+        "repeat": 1,
+        "case": 3,
+        "outputs": 2576,
+        "exact_saved_cl": true,
+        "saved_cpu_reference_pass": true,
+        "current_queue_adapter_pass": true
+      },
+      {
+        "repeat": 1,
+        "case": 4,
+        "outputs": 2576,
+        "exact_saved_cl": true,
+        "saved_cpu_reference_pass": true,
+        "current_queue_adapter_pass": true
+      },
+      {
+        "repeat": 1,
+        "case": 5,
+        "outputs": 2576,
+        "exact_saved_cl": true,
+        "saved_cpu_reference_pass": true,
+        "current_queue_adapter_pass": true
+      }
+    ],
+    "rtol": 0.001,
+    "atol": 0.005,
+    "timing_scope": "input uploads + synchronized replay/readback + Python validation; no camera/UI",
+    "warmup": 10,
+    "frames": 40,
+    "samples_ms": [
+      12.060253,
+      10.83079,
+      10.505226,
+      11.512818,
+      11.063135,
+      10.82485,
+      11.370409,
+      10.681243,
+      10.9275,
+      11.278389,
+      10.992895,
+      12.246796,
+      15.863486,
+      15.614362,
+      16.286855,
+      15.373629,
+      15.849938,
+      15.092928,
+      14.714789,
+      14.129732,
+      13.415138,
+      13.771341,
+      13.646909,
+      13.662385,
+      14.946404,
+      15.610351,
+      15.766045,
+      14.176993,
+      12.770939,
+      12.75093,
+      11.308298,
+      11.145724,
+      12.167802,
+      10.651594,
+      10.709745,
+      11.231753,
+      10.774514,
+      10.685568,
+      10.110099,
+      10.675043
+    ],
+    "median_ms": 12.114027499999999,
+    "p95_ms": 15.8506154,
+    "policy_before": {
+      "/sys/devices/system/cpu/cpufreq/policy4/scaling_governor": "schedutil",
+      "/sys/devices/system/cpu/cpufreq/policy0/scaling_governor": "schedutil",
+      "/sys/class/devfreq/3d00000.gpu/governor": "simple_ondemand",
+      "/sys/class/devfreq/3d00000.gpu/min_freq": "270000000",
+      "/sys/class/devfreq/3d00000.gpu/max_freq": "690000000"
+    },
+    "policy_after": {
+      "/sys/devices/system/cpu/cpufreq/policy4/scaling_governor": "schedutil",
+      "/sys/devices/system/cpu/cpufreq/policy0/scaling_governor": "schedutil",
+      "/sys/class/devfreq/3d00000.gpu/governor": "simple_ondemand",
+      "/sys/class/devfreq/3d00000.gpu/min_freq": "270000000",
+      "/sys/class/devfreq/3d00000.gpu/max_freq": "690000000"
+    },
+    "limits": "Short same-input benchmark; not a new 20Hz camera run or full manager/recurrent qualification."
+  },
+  "limits": [
+    "No camera/manager/modelV2 publication test",
+    "No autonomous vehicle actuation",
+    "No new20minute/maximum-clock qualification",
+    "Current queue adapter checked against six saved independent CPU-reference cases twice; no free-running long recurrent test"
+  ],
+  "repeat_gpu_check": {
+    "status": "pass",
+    "artifact_sha256": "eb74164116723b2601730a19e2f2060a25bfdc3814bf7912ce991798df176068",
+    "new_conversion": false,
+    "device": {
+      "name": "QUALCOMM Adreno(TM) 690",
+      "driver": "OpenCL 3.0 QUALCOMM build: 0855.3 Compiler E031.50.31.01"
+    },
+    "accuracy": [
+      {
+        "repeat": 0,
+        "case": 0,
+        "outputs": 2576,
+        "exact_saved_cl": true,
+        "saved_cpu_reference_pass": true,
+        "current_queue_adapter_pass": true
+      },
+      {
+        "repeat": 0,
+        "case": 1,
+        "outputs": 2576,
+        "exact_saved_cl": true,
+        "saved_cpu_reference_pass": true,
+        "current_queue_adapter_pass": true
+      },
+      {
+        "repeat": 0,
+        "case": 2,
+        "outputs": 2576,
+        "exact_saved_cl": true,
+        "saved_cpu_reference_pass": true,
+        "current_queue_adapter_pass": true
+      },
+      {
+        "repeat": 0,
+        "case": 3,
+        "outputs": 2576,
+        "exact_saved_cl": true,
+        "saved_cpu_reference_pass": true,
+        "current_queue_adapter_pass": true
+      },
+      {
+        "repeat": 0,
+        "case": 4,
+        "outputs": 2576,
+        "exact_saved_cl": true,
+        "saved_cpu_reference_pass": true,
+        "current_queue_adapter_pass": true
+      },
+      {
+        "repeat": 0,
+        "case": 5,
+        "outputs": 2576,
+        "exact_saved_cl": true,
+        "saved_cpu_reference_pass": true,
+        "current_queue_adapter_pass": true
+      },
+      {
+        "repeat": 1,
+        "case": 0,
+        "outputs": 2576,
+        "exact_saved_cl": true,
+        "saved_cpu_reference_pass": true,
+        "current_queue_adapter_pass": true
+      },
+      {
+        "repeat": 1,
+        "case": 1,
+        "outputs": 2576,
+        "exact_saved_cl": true,
+        "saved_cpu_reference_pass": true,
+        "current_queue_adapter_pass": true
+      },
+      {
+        "repeat": 1,
+        "case": 2,
+        "outputs": 2576,
+        "exact_saved_cl": true,
+        "saved_cpu_reference_pass": true,
+        "current_queue_adapter_pass": true
+      },
+      {
+        "repeat": 1,
+        "case": 3,
+        "outputs": 2576,
+        "exact_saved_cl": true,
+        "saved_cpu_reference_pass": true,
+        "current_queue_adapter_pass": true
+      },
+      {
+        "repeat": 1,
+        "case": 4,
+        "outputs": 2576,
+        "exact_saved_cl": true,
+        "saved_cpu_reference_pass": true,
+        "current_queue_adapter_pass": true
+      },
+      {
+        "repeat": 1,
+        "case": 5,
+        "outputs": 2576,
+        "exact_saved_cl": true,
+        "saved_cpu_reference_pass": true,
+        "current_queue_adapter_pass": true
+      }
+    ],
+    "rtol": 0.001,
+    "atol": 0.005,
+    "timing_scope": "input uploads + synchronized replay/readback + Python validation; no camera/UI",
+    "warmup": 10,
+    "frames": 40,
+    "samples_ms": [
+      11.747159,
+      12.377254,
+      12.374077,
+      13.907489,
+      15.518255,
+      12.048506,
+      11.442269,
+      11.131596,
+      10.883433,
+      10.858533,
+      11.195564,
+      12.334384,
+      12.379807,
+      12.309588,
+      12.440389,
+      11.963597,
+      14.215869,
+      15.409437,
+      15.110016,
+      14.953169,
+      14.489817,
+      15.558887,
+      13.878109,
+      13.705895,
+      13.198474,
+      13.74038,
+      14.230871,
+      14.40048,
+      15.211593,
+      15.361252,
+      15.42647,
+      16.517523,
+      15.430742,
+      15.706877,
+      16.338484,
+      17.0749,
+      15.392819,
+      16.47637,
+      17.467407,
+      15.497627
+    ],
+    "median_ms": 14.22337,
+    "p95_ms": 16.545391849999998,
+    "policy_before": {
+      "/sys/devices/system/cpu/cpufreq/policy4/scaling_governor": "schedutil",
+      "/sys/devices/system/cpu/cpufreq/policy0/scaling_governor": "schedutil",
+      "/sys/class/devfreq/3d00000.gpu/governor": "simple_ondemand",
+      "/sys/class/devfreq/3d00000.gpu/min_freq": "270000000",
+      "/sys/class/devfreq/3d00000.gpu/max_freq": "690000000"
+    },
+    "policy_after": {
+      "/sys/devices/system/cpu/cpufreq/policy4/scaling_governor": "schedutil",
+      "/sys/devices/system/cpu/cpufreq/policy0/scaling_governor": "schedutil",
+      "/sys/class/devfreq/3d00000.gpu/governor": "simple_ondemand",
+      "/sys/class/devfreq/3d00000.gpu/min_freq": "270000000",
+      "/sys/class/devfreq/3d00000.gpu/max_freq": "690000000"
+    },
+    "limits": "Short same-input benchmark; not a new 20Hz camera run or full manager/recurrent qualification."
+  },
+  "review_notes": [
+    "All20copied source/assets match source hashes except documented whitespace-only normalization of two vendor EOF endings and updated provenance; model/metadata/fixtures remain byte-identical.",
+    "Native rebuild after formatting yields identical SHA256.",
+    "Repeated short GPU verification also passes; dynamic-policy host p50/p95 14.223/16.545ms, not a new model-only baseline."
+  ]
+}

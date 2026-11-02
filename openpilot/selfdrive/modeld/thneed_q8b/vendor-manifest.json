@@ -1,0 +1,92 @@
+{
+  "upstream": [
+    {
+      "repository": "KhronosGroup/OpenCL-Headers",
+      "path": "CL/cl.h",
+      "ref": "82f60316cc142e7b21dc1d8983b26de18858fbd9",
+      "blob_sha": "8d1dc98c16a2a0197939de98f7654c1d6a81314b",
+      "local": "vendor/include/CL/cl.h"
+    },
+    {
+      "repository": "KhronosGroup/OpenCL-Headers",
+      "path": "CL/cl_platform.h",
+      "ref": "82f60316cc142e7b21dc1d8983b26de18858fbd9",
+      "blob_sha": "fde528c2822aa03b5ee580d3c596029948debae0",
+      "local": "vendor/include/CL/cl_platform.h"
+    },
+    {
+      "repository": "KhronosGroup/OpenCL-Headers",
+      "path": "CL/cl_version.h",
+      "ref": "82f60316cc142e7b21dc1d8983b26de18858fbd9",
+      "blob_sha": "5d18e7f2269a19cc0a883b26d37fa6fef9f33765",
+      "local": "vendor/include/CL/cl_version.h"
+    },
+    {
+      "repository": "KhronosGroup/OpenCL-Headers",
+      "path": "LICENSE",
+      "ref": "82f60316cc142e7b21dc1d8983b26de18858fbd9",
+      "blob_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+      "local": "vendor/OpenCL-Headers-LICENSE"
+    },
+    {
+      "repository": "commaai/openpilot",
+      "path": "LICENSE",
+      "ref": "87fbeb8787e7a29fa190232f9117192824a193c1",
+      "blob_sha": "7dafa9443b1545980b261dddd4184a8daec16758",
+      "local": "vendor/openpilot-LICENSE"
+    },
+    {
+      "repository": "commaai/openpilot",
+      "path": "selfdrive/modeld/thneed/thneed.h",
+      "ref": "87fbeb8787e7a29fa190232f9117192824a193c1",
+      "blob_sha": "47e18e0be3bb30c98afe97426f1e60434d50124d",
+      "local": "vendor/selfdrive/modeld/thneed/thneed.h"
+    },
+    {
+      "repository": "commaai/openpilot",
+      "path": "selfdrive/modeld/thneed/thneed_common.cc",
+      "ref": "87fbeb8787e7a29fa190232f9117192824a193c1",
+      "blob_sha": "ecdf1237e384ffc9af6e742f5fafdbf924ceb337",
+      "local": "vendor/selfdrive/modeld/thneed/thneed_common.cc"
+    },
+    {
+      "repository": "commaai/openpilot",
+      "path": "selfdrive/modeld/thneed/thneed_pc.cc",
+      "ref": "87fbeb8787e7a29fa190232f9117192824a193c1",
+      "blob_sha": "8d0037628e2f3d39beadf1bc52d9b66e69b44f73",
+      "local": "vendor/selfdrive/modeld/thneed/thneed_pc.cc"
+    }
+  ],
+  "adaptations": {
+    "vendor/selfdrive/modeld/thneed/thneed.h": "Guard KGSL-only include and CachedSync/CachedCommand declarations with QCOM2; portable execution unchanged",
+    "vendor/common/clutil.h": "minimal OpenCL helper declarations/macros; not upstream",
+    "vendor/common/timing.h": "monotonic clock adapter; not upstream",
+    "vendor/selfdrive/modeld/thneed/serialize.cc": "Retain buffer-backed image aliases using advertised image2d_from_buffer; unmap PC input buffers before GPU execution",
+    "vendor/common/util.h": "Trusted local artifact read_file adapter, not upstream"
+  },
+  "additional_upstream": [
+    {
+      "repository": "commaai/openpilot",
+      "path": "third_party/json11/json11.hpp",
+      "local": "vendor/third_party/json11/json11.hpp",
+      "ref": "87fbeb8787e7a29fa190232f9117192824a193c1",
+      "blob_sha": "5202ef9323bb7930a7ecd48a02b48af0f9c20993"
+    },
+    {
+      "repository": "commaai/openpilot",
+      "path": "third_party/json11/json11.cpp",
+      "local": "vendor/third_party/json11/json11.cpp",
+      "ref": "87fbeb8787e7a29fa190232f9117192824a193c1",
+      "blob_sha": "bc4045f07d195484077f781744ac0762a68a65d8"
+    },
+    {
+      "repository": "commaai/openpilot",
+      "path": "selfdrive/modeld/thneed/serialize.cc",
+      "local": "vendor/selfdrive/modeld/thneed/serialize.cc",
+      "ref": "87fbeb8787e7a29fa190232f9117192824a193c1",
+      "blob_sha": "6ed5c08e811be32c42f3e91ddcd62988dab1c698"
+    }
+  ],
+  "scope": "portable upstream Thneed replay and saved-file loader, current Tinygrad CL capture; no KGSL fast-path claim",
+  "in_project_formatting": "Removed extra blank EOF lines only in serialize.cc and thneed.h for git diff --check; original identities retained in provenance.json."
+}

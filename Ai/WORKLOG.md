@@ -207,3 +207,8 @@ rerun. Promoted old/current model difference and reusable approach.
 ONNX checkpoint and learned-constant comparisons pass. Wrapper differs, weights
 match. Corrected earlier different-weights claim in current notes.
 [Confirmation](Sessions/2026-11-02-thneed-cd210-confirmation.md).
+
+2026-11-02 — Copied existingCD210 Thneed plus metadata/fixtures unchanged;
+packaged native replay/vendor/build and new NumPy/ctypes GPU runner/history
+adapter/verification. No converter invoked. Fresh actual GPU12saved/12adapter
+checks pass;42tests/lint. [Session](Sessions/2026-11-02-thneed-import.md).

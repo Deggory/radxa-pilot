@@ -1,0 +1,69 @@
+{
+  "scope": "portable Thneed saved-file trial; different compiler/backend from accepted MSM",
+  "artifact": {
+    "path": "artifacts/driving-02.thneed",
+    "bytes": 99641029,
+    "sha256": "eb74164116723b2601730a19e2f2060a25bfdc3814bf7912ce991798df176068",
+    "buffers": 482,
+    "images": 645,
+    "programs": 106,
+    "dispatches": 162
+  },
+  "fixture_sha256": "ae51e3d9acb6feb1ab7f0dccac71e471838f0cb700fb4db615801f50987962b2",
+  "output_shape": [
+    1,
+    2576
+  ],
+  "output_dtype": "float16",
+  "output_bytes": 5152,
+  "input_names": [
+    "img",
+    "big_img",
+    "features_buffer",
+    "desire_pulse",
+    "traffic_convention",
+    "action_t"
+  ],
+  "cases": 6,
+  "device": {
+    "name": "QUALCOMM Adreno(TM) 690",
+    "driver": "OpenCL 3.0 QUALCOMM build: 0855.3 Compiler E031.50.31.01",
+    "type": 4,
+    "backend": "CL",
+    "extensions": [
+      "cl_img_egl_image",
+      "cl_khr_3d_image_writes",
+      "cl_khr_byte_addressable_store",
+      "cl_khr_depth_images",
+      "cl_khr_egl_event",
+      "cl_khr_egl_image",
+      "cl_khr_fp16",
+      "cl_khr_global_int32_base_atomics",
+      "cl_khr_global_int32_extended_atomics",
+      "cl_khr_image2d_from_buffer",
+      "cl_khr_local_int32_base_atomics",
+      "cl_khr_local_int32_extended_atomics",
+      "cl_khr_mipmap_image",
+      "cl_khr_srgb_image_writes",
+      "cl_khr_subgroups",
+      "cl_qcom_accelerated_image_ops",
+      "cl_qcom_compressed_image",
+      "cl_qcom_compressed_yuv_image_read",
+      "cl_qcom_create_buffer_from_image",
+      "cl_qcom_dot_product8",
+      "cl_qcom_ext_host_ptr",
+      "cl_qcom_ext_host_ptr_iocoherent",
+      "cl_qcom_extract_image_plane",
+      "cl_qcom_dmabuf_host_ptr",
+      "cl_qcom_other_image",
+      "cl_qcom_perf_hint",
+      "cl_qcom_priority_hint",
+      "cl_qcom_protected_context",
+      "cl_qcom_recordable_queues",
+      "cl_qcom_reqd_sub_group_size",
+      "cl_qcom_subgroup_shuffle",
+      "cl_qcom_vector_image_ops"
+    ],
+    "context": 776534128
+  }
+}

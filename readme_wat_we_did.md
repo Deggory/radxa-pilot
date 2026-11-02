@@ -200,3 +200,11 @@ Teacher memory identifies the existing Adafruit LSM6DS3TR-C on I²C9/address
 0x6a, with prior raw/~102Hz and in-memory schema tests. Absence of IIO motion
 channels does not negate its raw-I²C path. Current managed integration/mount
 calibration and power-domain mappings remain to be established.
+
+## 2026-11-02 — Existing CD210 Thneed copied into Sunnypilot
+
+The model was already converted. We copied it unchanged and added its native
+OpenCL replay/source/build, validation fixtures and current-history adapter.
+Fresh GPU checks and42focused tests pass; no reconversion or camera changes.
+See [build/run instructions](openpilot/selfdrive/modeld/thneed_q8b/README.md).
+The full modeld/camera integration remains the next qualification step.
