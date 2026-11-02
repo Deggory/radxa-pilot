@@ -1,5 +1,13 @@
 # What we did: Radxa Dragon Q8B identity
 
+## 2026-11-02 — Temporary MM-X road-camera geometry
+
+Owner chose fixed MM-X geometry for now:1280x720,900pixel focal length,
+centre640/360. Q8B road-only mode supplies it to model/UI through their
+shared lookup. Borrowed/unmeasured for AK; no lens-distortion or vehicle
+mount calibration claimed. Capture60/publication20Hz unchanged. Automatic
+calibration deferred; target/tools kept.30tests/lint pass; no model/vehicle run.
+
 ## 2026-11-02 — Current model layout and lens-calibration tools
 
 Corrected the road-only publisher to match current modeld's padded NV12 layout;

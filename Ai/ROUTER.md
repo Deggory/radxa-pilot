@@ -1,5 +1,8 @@
 # Start here: Sunnypilot repository memory
 
+2026-11-02 latest: owner chose temporary MM-X720p/focal900 geometry in Q8B
+road-only mode; automatic/checkerboard work deferred. Start HANDOFF/resume.
+
 Latest camera checkpoint: padded model layout fixed; [printable target/tool guide](../openpilot/system/camerad/webcam/CALIBRATION.md)
 ready after owner choice. Actual lens data/focus/mount and model backend remain
 unqualified. Start HANDOFF for the physical print/capture step, not hardware H1.

@@ -51,6 +51,8 @@ _os_fisheye = CameraConfig(2688 // 2, 1520 // 2, 567.0 / 4 * 3)
 _ar_ox_config = DeviceCameraConfig(CameraConfig(1928, 1208, 2648.0), _ar_ox_fisheye, _ar_ox_fisheye)
 _os_config = DeviceCameraConfig(CameraConfig(2688 // 2, 1520 // 2, 1522.0 * 3 / 4), _os_fisheye, _os_fisheye)
 _neo_config = DeviceCameraConfig(CameraConfig(1164, 874, 910.0), CameraConfig(816, 612, 650.0), _NoneCameraConfig())
+# Temporary MM-X master-rk3588 (3ad69b20) road profile; not measured AK-Camera calibration.
+_q8b_mmx_config = DeviceCameraConfig(CameraConfig(1280, 720, 900.0), _NoneCameraConfig(), _NoneCameraConfig())
 
 DEVICE_CAMERAS: dict[tuple[str, str], DeviceCameraConfig] = {
   # A "device camera" is defined by a device type and sensor
@@ -75,6 +77,10 @@ DEVICE_CAMERAS.update({(d, c[0]): c[1] for d, c in prods})
 
 
 def get_device_camera_config(device_type: str, sensor: str) -> DeviceCameraConfig:
+  if device_type == 'radxaQ8b' and sensor == 'unknown':
+    from openpilot.system.camerad.webcam.config import road_only_enabled
+    if road_only_enabled():
+      return _q8b_mmx_config
   key = (device_type, sensor)
   if device_type == 'radxaQ8b' and (key not in DEVICE_CAMERAS or DEVICE_CAMERAS[key].narrow_road.width <= 0):
     raise ValueError('Radxa Dragon Q8B camera calibration is not configured')

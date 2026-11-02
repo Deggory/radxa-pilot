@@ -1,5 +1,10 @@
 # AK-Camera lens calibration
 
+Current owner choice2026-11-02: defer this measurement workflow and use the
+temporary MM-X720p/focal900 profile in Q8B road-only mode; see [README](README.md).
+That profile is unmeasured for AK and supplies no lens-distortion or vehicle-pose
+calibration. The steps below remain available for replacement later.
+
 The checkerboard below is this tool's measurement method. Sunnypilot does not
 require a particular printed target: verified manufacturer intrinsics matching
 the camera mode and focus, or another suitable calibration method, can also
@@ -9,8 +14,9 @@ and stores fixed values; its online mounting calibration does not solve the lens
 This tool measures a lens-calibration candidate, not vehicle mounting angles or
 camera height. The saved70°FOV/zero-angle/1.22msettings were a visual estimate.
 They are not installed as measured Q8B intrinsics. The Q8B calibration guard
-stays active until real data and the required distortion/warp integration are
-reviewed. No automatic installation or fabricated driver-monitoring data.
+stays active outside the owner-selected temporary road-only mode. Measured
+replacement needs real data and the required distortion/warp integration
+review. No automatic installation or fabricated driver-monitoring data.
 
 ## 1. Print and check the target
 

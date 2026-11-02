@@ -1,5 +1,14 @@
 # Decisions and rationale
 
+## 2026-11-02 — Use temporary MM-X fixed intrinsics; defer calibration
+
+Owner explicitly chose MM-X method now/change later. Use his720p/focal900
+centred pinhole profile only in existing Q8B road-only test mode. This
+supersedes prior no-runtime-choice/no-estimated-profile decisions for that
+mode. Values are borrowed, not measured AK lens calibration. No distortion
+profile, fabricated calibrated-status or vehicle-pose claim. Keep measurement
+tools for later; no new automatic calibration implementation.
+
 ## 2026-11-02 — Separate lens-parameter source from mounting calibration
 
 Checkerboard is the prepared tool's method, not a mandatory Sunnypilot target.

@@ -1,5 +1,14 @@
 # Validation: what is actually established
 
+## Temporary MM-X camera profile — 2026-11-02
+
+30focused calibration/camera/identity tests pass; lint passes. Added test
+first failed at the existing missing-geometry guard, then passed with scoped
+profile. Checks actual matrix projection/inverse, one camera, rejects other
+sensors/non-Q8B/missing USE_WEBCAM, preserves ordinary PC/comma and default
+unconfigured behavior. No physical capture, UI render, inference or vehicle
+test. Prior live140frame/CPU-warp evidence retains its original scope.
+
 ## MM-X RK camera-calibration source review — 2026-11-02
 
 Fresh5full GitHub blobs match exact Git identities at3ad69b20;4Python files

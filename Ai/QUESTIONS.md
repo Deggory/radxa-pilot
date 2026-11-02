@@ -1,6 +1,7 @@
 # Unknowns and limits
 
-Automatic-calibration method remains open: target-assisted collection/solve
+Owner deferred automatic calibration2026-11-02, choosing temporary MM-X
+fixed intrinsics in Q8B road-only mode. Future replacement options: target-assisted collection/solve
 and measured vehicle-frame target pose, or target-free estimation with
 independent validation/alignment. Existing guided capture is not autosave.
 

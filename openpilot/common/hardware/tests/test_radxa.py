@@ -1,9 +1,12 @@
 """Q8B identity contracts, using real schemas and read-only hardware classes."""
 import importlib
+import os
 from pathlib import Path
 import tempfile
 import unittest
 from unittest.mock import patch
+
+import numpy as np
 
 from openpilot.cereal import log
 
@@ -105,11 +108,33 @@ class TestRadxaIdentity(unittest.TestCase):
     camera = importlib.import_module('openpilot.common.transformations.camera')
     config = camera.DEVICE_CAMERAS['radxaQ8b', 'unknown']
     self.assertEqual(list(config.all_cams()), [])
-    for sensor in ('unknown', 'ox03c10', 'os04c10'):
-      with self.subTest(sensor=sensor), self.assertRaisesRegex(ValueError, 'Radxa Dragon Q8B.*calibration'):
-        camera.get_device_camera_config('radxaQ8b', sensor)
+    with patch.dict(os.environ, {'Q8B_ROAD_ONLY': '0'}):
+      for sensor in ('unknown', 'ox03c10', 'os04c10'):
+        with self.subTest(sensor=sensor), self.assertRaisesRegex(ValueError, 'Radxa Dragon Q8B.*calibration'):
+          camera.get_device_camera_config('radxaQ8b', sensor)
     self.assertIs(camera.get_device_camera_config('pc', 'unknown'), camera.DEVICE_CAMERAS['pc', 'unknown'])
     self.assertIs(camera.get_device_camera_config('mici', 'os04c10'), camera.DEVICE_CAMERAS['mici', 'os04c10'])
+
+  def test_mmx_profile_is_limited_to_q8b_road_only_mode(self):
+    camera = importlib.import_module('openpilot.common.transformations.camera')
+    config = importlib.import_module('openpilot.system.camerad.webcam.config')
+    with patch.dict(os.environ, {'Q8B_ROAD_ONLY': '1', 'USE_WEBCAM': '1'}), patch.object(config, 'RADXA_Q8B', True):
+      dc = camera.get_device_camera_config('radxaQ8b', 'unknown')
+      self.assertEqual([(name, cam.size) for name, cam in dc.all_cams()], [('narrow_road', (1280, 720))])
+      # Shared model/UI geometry projects the optical axis to the frame centre.
+      np.testing.assert_array_equal(dc.narrow_road.intrinsics @ [0, 0, 1], [640, 360, 1])
+      np.testing.assert_array_equal(dc.narrow_road.intrinsics @ [1, 0, 2], [2180, 720, 2])
+      np.testing.assert_allclose(dc.narrow_road.intrinsics @ dc.narrow_road.intrinsics_inv, np.eye(3), atol=1e-12)
+      self.assertIs(camera.get_device_camera_config('pc', 'unknown'), camera.DEVICE_CAMERAS['pc', 'unknown'])
+      for sensor in ('ox03c10', 'os04c10'):
+        with self.subTest(sensor=sensor), self.assertRaisesRegex(ValueError, 'Radxa Dragon Q8B.*calibration'):
+          camera.get_device_camera_config('radxaQ8b', sensor)
+    with patch.dict(os.environ, {'Q8B_ROAD_ONLY': '1', 'USE_WEBCAM': '1'}), patch.object(config, 'RADXA_Q8B', False):
+      with self.assertRaisesRegex(ValueError, 'requires Radxa Q8B'):
+        camera.get_device_camera_config('radxaQ8b', 'unknown')
+    with patch.dict(os.environ, {'Q8B_ROAD_ONLY': '1'}, clear=True), patch.object(config, 'RADXA_Q8B', True):
+      with self.assertRaisesRegex(ValueError, 'requires Radxa Q8B'):
+        camera.get_device_camera_config('radxaQ8b', 'unknown')
 
   def test_explicit_camera_configuration_can_be_registered_later(self):
     camera = importlib.import_module('openpilot.common.transformations.camera')

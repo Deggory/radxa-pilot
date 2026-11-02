@@ -1,5 +1,10 @@
 # Sunnypilot work history
 
+2026-11-02 — Owner selected temporary MM-X camera method. Added scoped
+720p/focal900 road geometry shared by model/UI; default guard and other
+profiles preserved.30tests/lint pass; no model/camera run.
+[Session](Sessions/2026-11-02-temporary-mmx-profile.md).
+
 2026-11-02 — Explained automatic lens calibration, target-to-camera versus
 vehicle-frame extrinsics, stock online-calibration limits and target-free
 COLMAP option. Primary docs/source checked; guidance only, no runtime patch.

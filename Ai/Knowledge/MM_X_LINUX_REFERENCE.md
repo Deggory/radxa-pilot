@@ -1,5 +1,13 @@
 # MM-X's PC/Linux approach: reference for Q8B
 
+## 2026-11-02 — Owner adopted temporary RK camera parameters
+
+Now selected for Q8B road-only mode: MM-X1280x720/focal900/centre640,360,
+from RK3ad69b20. Current Python model/UI use a common lookup, so no separate
+old Qt ui.h constants copied. Capture remains our60FPS/latest20Hz path.
+Borrowed settings are unmeasured; calibration work is deferred and its tools
+retained. This supersedes earlier no-profile-adoption statements below.
+
 ## 2026-11-02 — RK camera intrinsics versus automatic mounting calibration
 
 Owner asked how MM-X configured cameras without our checkerboard step. Inspected

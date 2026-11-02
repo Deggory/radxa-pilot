@@ -7,6 +7,16 @@ packed camera-only test is historical; model-facing layout is checked separately
 
 ## Radxa Q8B: one road-facing AK-Camera (experimental capture only)
 
+Temporary geometry, selected by the owner2026-11-02: this mode uses MM-X's RK
+road profile,1280x720 with fx=fy=900pixels and centre(640,360). It is borrowed
+from master-rk3588 at3ad69b20, not measured AK-Camera calibration. Current model
+and UI use the same get_device_camera_config lookup; no separate ui.h edit is
+needed in this source version. Only the narrow road camera is configured.
+Outside USE_WEBCAM=1 Q8B_ROAD_ONLY=1, Q8B geometry remains unconfigured.
+Automatic/checkerboard calibration work is deferred; prepared tools remain.
+No lens distortion correction or measured mounting pose is supplied by this
+temporary profile. Calibration status/online alignment logic are unchanged.
+
 Owner-approved profile: SunplusIT AK-Camera JV, MJPEG1280×720 at60FPS capture,
 latest-frame publication at20Hz. No driver/wide camera is opened. This is an
 opt-in capture/process adaptation; model runtime and Q8B calibration are separate
@@ -62,7 +72,8 @@ Native helper provenance: adapted from workspace q8b/gpu_webcam/capture.c and
 camera.py/latest_camera.py at legacy5a8fd13; the camera/model benchmark evidence
 predates this integration. Required runtime source stays inside this project.
 Earlier standalone720p60/20Hz results do not qualify this new publisher/model
-pipeline or establish measured intrinsics. The Q8B calibration guard stays active.
+pipeline or establish measured intrinsics. The Q8B calibration guard remains
+active outside the explicitly selected road-only test mode.
 
 ## Setup openpilot
 - Follow [this readme](/tools/README.md) to install and build the requirements

@@ -1,5 +1,19 @@
 # Current webcam camera path
 
+## 2026-11-02 — Temporary MM-X geometry selected and implemented
+
+Owner: keep MM-X method for now, change later. get_device_camera_config now
+returns borrowed720p/fx=fy900/centre640,360 for radxaQ8b/unknown only when the
+existing Q8B_ROAD_ONLY+USE_WEBCAM mode validates the actual board. Cabin/wide
+remain absent. Model/v2/UI share this lookup. Outside that opt-in mode, Q8B
+calibration remains unconfigured; comma/PC profiles unchanged. Profile is not
+measured AK calibration and supplies no distortion or mounting pose. Auto
+calibration/target capture deferred; tools retained. Capture60/latest20Hz and
+calibration-status/DM/vehicle policies unchanged. No camera/vehicle run.
+30focused tests and lint pass; see temporary-mmx-profile session. Next qualify
+current model/Adreno integration using this explicitly provisional geometry;
+replace intrinsics later, do not auto-resume target/autocalibration work.
+
 ## Implemented opt-in road capture — 2026-11-02
 
 Owner approved the explicit60FPS-capture/20Hz-publication road-only proposal.
