@@ -318,3 +318,8 @@ independent original FP32 matches rewritten FP32 bitwise on both failed cases.
 without conversion-only ONNX/ORT imports. New metadata/run linkage guards,
 bounded private QNN runner and SIGTERM cleanup are reviewed. No NPU context
 loaded yet; full500calibration/audit still running. Model defaults unchanged.
+
+2026-11-02 checkpoint6b16d69 has25passing behavior tests but its final staged
+whitespace check caught one extra blank EOF in metrics.py; shell continued
+and committed. Failure is retained in the maintenance ledger. Immediate
+follow-up removes that blank line; no behavior or threshold change.
