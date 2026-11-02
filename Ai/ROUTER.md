@@ -1,5 +1,9 @@
 # Start here: Sunnypilot repository memory
 
+Latest camera checkpoint: padded model layout fixed; [printable target/tool guide](../openpilot/system/camerad/webcam/CALIBRATION.md)
+ready after owner choice. Actual lens data/focus/mount and model backend remain
+unqualified. Start HANDOFF for the physical print/capture step, not hardware H1.
+
 Current scope2026-11-02: owner deferred hardware-setting changes and selected
 camera work. Start [camera path](Knowledge/CAMERA_PATH.md), then HANDOFF. This
 supersedes the older camera-deferred/hardware-first statements below.

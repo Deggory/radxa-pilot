@@ -1,5 +1,18 @@
 # Validation: what is actually established
 
+## Model boundary and calibration preparation — 2026-11-02
+
+Model-facing allocation now2220032bytes/UVoffset942080,copy1413120bytes for720p;
+old packed frame demonstrably failed.23camera/identity tests and140new actual
+IPC/Cereal pairs pass; pinned CPU warp exact two-view uint8[2,6,128,256] matches
+ONNX metadata. Source-only720pbuild registration tested; no full model run.
+6additional calibration tests verify physical target dimensions, detector,
+known-camera recovery, bad/repeated/high-error data rejection and no overwrite/
+changed-image protection. PDF A4checked, actual rasterized target grid detected;
+real Tk/Pillow GUI path tested with synthetic frames, duplicate save rejected,
+source closed. No physical checkerboard images/real lens solution collected.
+Q8B calibration guard and model weights/runtime remain unchanged.
+
 ## Road-only camera patch — 2026-11-02
 
 21focused tests(10camera+11identity); strict C compilation and actual new SCons

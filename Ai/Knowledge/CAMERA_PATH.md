@@ -73,3 +73,8 @@ model/GPU/managed run or measured geometry claim. Weights65a08adc unchanged.
 Owner selected printable target/tool; that next increment is in progress and
 calibration guard stays active. New unstaged test_calibration.py is expected
 RED until tool implementation; do not mistake it for a failure of this slice.
+
+2026-11-02 preparation complete: [calibration guide](../../openpilot/system/camerad/webcam/CALIBRATION.md)
+contains exact print/capture/solve workflow and fixed quality gates. Target PDF/
+SVG are checked in; candidate data never activate themselves.29focused tests
+and synthetic Tk/PDF checks pass; actual printed-target collection still pending.

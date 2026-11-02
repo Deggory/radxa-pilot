@@ -97,3 +97,12 @@ continues the explanation-before-change scope. Inspected backend/camera/process/
 localization choices; implement only after owner instruction. Keep Linux/Q8B
 runtime and real sensor contracts; no approval inferred for sensor bypasses,
 fork switching, old schemas or MM-X delay/driver assumptions.
+
+## 2026-11-02 — Measure AK lens; keep candidate separate from active geometry
+
+Owner chose printable target and calibration tool after teacher-first lookup
+found only a visual70degree estimate. Prepare exact-scale A4PDF/SVG and guided
+capture/solve. Do not silently register guessed intrinsics or activate a profile
+from lowRMSalone. Record optical/focus state and source images; current AF1and
+physical lens/mount measurement remain unresolved. Keep Q8B guard active until
+real data, distortion mapping and optical-state consistency are reviewed.

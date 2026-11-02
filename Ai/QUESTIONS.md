@@ -10,8 +10,12 @@ These remain open; the notebook must not silently fill them in.
 - IMU model/connection are known:Adafruit LSM6DS3TR-C/I²C9/0x6a. Current
   managed IMU/GNSS providers, installed mounting axes, units, rates and clock
   alignment; comma I²C/GPIO paths are not compatibility evidence.
-- VisionIPC layout/stride/UV offset, ownership and frame-time pairing across
-  capture, inference, recording and the native UI.
+- Q8B road-only720pVisionIPC layout/source IDs/timestamp pairing and model copy
+  now tested; current CPU-warp synthetic parity matches ONNX input. Remaining
+  inference/recording/native-UI buffer contracts and Adreno execution are open.
+- Actual lens K/distortion, stable optical/focus state and camera mount remain
+  unmeasured. Owner selected printable target/tool; candidates are never
+  automatically installed. Current continuous autofocus1needs explicit review.
 - Real thermal/power/fan behavior, host display/input and recording backend.
 - Managed startup, dead-child restart, stale-data and shutdown qualification.
 - Later custom steering feedback, car interface, bus routing and safety. A

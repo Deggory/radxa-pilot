@@ -1,5 +1,10 @@
 # Current Sunnypilot state
 
+2026-11-02 latest: padded model-facing NV12 fixed in6fea7ecf; real140frames and
+synthetic current CPU-warp input parity qualified, not full inference. Printable
+A4target and target/capture/solve calibration tool ready. Real lens/focus/mount
+measurements remain pending; no automatic geometry registration. See HANDOFF.
+
 2026-11-02 accepted camera increment: opt-in Q8B road-only AK720pMJPG60capture,
 latest20HzNV12/IPC/messages, real driver timestamps and source sequence, optional
 rotation(defaultoff), deferred driver camera.21tests plus140actual frame pairs

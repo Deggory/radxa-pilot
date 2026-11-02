@@ -1,5 +1,20 @@
 # What we did: Radxa Dragon Q8B identity
 
+## 2026-11-02 — Current model layout and lens-calibration tools
+
+Corrected the road-only publisher to match current modeld's padded NV12 layout;
+the old packed buffer failed its copy size.140real IPC pairs and23focused tests
+passed after the fix; the pinned current CPU warp matches two synthetic NumPy
+views exactly and produces current ONNX's uint8[2,6,128,256] input shape. This
+does not run the model or qualify the Adreno backend. Added Q8B720pwarp build
+configuration while retaining the existing runtime choice.
+
+Owner requested a printable target/tool. [Print this A4 landscape PDF](openpilot/system/camerad/webcam/calibration/ak-checkerboard-a4.pdf)
+at actual size; squares25mm,9×6internal corners. The
+[calibration guide](openpilot/system/camerad/webcam/CALIBRATION.md) explains image
+collection and offline solving. Candidate data are not installed automatically;
+actual lens/focus and mounted geometry remain to be measured/reviewed.
+
 ## 2026-11-02 — Approved single road-camera capture
 
 After teacher-first lookup and owner approval, added opt-in

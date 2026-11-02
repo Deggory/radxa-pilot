@@ -1,5 +1,28 @@
 # Resume Sunnypilot here
 
+## Current checkpoint — layout fixed; printable calibration tool ready, 2026-11-02
+
+Owner said proceed and selected printable target/tool. Layout fix6fea7ecf
+aligns actual Q8B NV12 with current modeld: stride1280,Yrows736,UVrows368,
+UVoffset942080,allocation2220032,modelcopy1413120.140real frame pairs still
+pass~20Hzpublish/~59.63Hzsource with settings restored. CPU-only pinned warp
+matches two synthetic independent NumPy views; current ONNX expects
+uint8[2,6,128,256] and carries its own image/desire/feature queues. Not model
+inference or Adreno qualification. Q8B720pwarp build config added; runtime kept.
+
+Printable A4 PDF/SVG and calibrate.py target/capture/solve tool now live under
+openpilot/system/camerad/webcam. See CALIBRATION.md for exact workflow. GUI
+uses Tk/Pillow; tested with synthetic frames only.6calibration tests plus prior
+23camera/identity tests pass; PDF verified A4 and rasterized grid detected.
+Real lens data remain uncollected: owner must print at100%,check25mm squares/
+100mmruler and mount flat before collecting24varied views. Current continuous
+autofocus is1; optical/focus consistency needs review before any activation.
+The solver preserves hashes/profile, rejects weak/high-error data and writes
+candidate_not_installed. No profile is installed, no estimated70°K substituted,
+and Q8B camera calibration guard stays active. Driver monitoring/hardware
+telemetry stay deferred. Next physical step is print/measure target, then guided
+capture/focus review; next runtime work remains current model/backend integration.
+
 ## Approved camera patch completed — 2026-11-02
 
 Owner approved AK-Camera720pMJPG60capture/20Hzlatest publication, only road camera,

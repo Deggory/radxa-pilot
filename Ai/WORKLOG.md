@@ -1,5 +1,10 @@
 # Sunnypilot work history
 
+2026-11-02 — Model layout fixed/qualified in6fea7ecf; owner chose printable
+calibration target/tool. Added physical-size vector PDF/SVG, guided full-frame
+collector and gated candidate solver.29focused tests, PDF/grid checks and real
+Tk synthetic smoke test pass; actual printed-target data remain pending.
+
 2026-11-02 — Teacher recovered AK-Camera60capture/20Hzmodel evidence; owner
 approved road-only patch. Added self-contained UVC capture/latest NV12 publisher,
 real timestamps, scoped driver-camera deferral and fixed-rate restoration.

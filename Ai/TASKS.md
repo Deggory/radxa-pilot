@@ -1,5 +1,11 @@
 # Work status and next task
 
+Current next physical action: print/measure flat A4target in webcam/calibration,
+then collect varied720pviews using calibrate.py; review fixed optical/focus state
+before trusting/activating a lens profile. Tool is ready; physical images are
+not yet collected.6fea7ecf fixed the current model NV12 boundary; model/GPU/UI
+operation still unqualified. Calibration guard remains active, no FOV guess.
+
 2026-11-02 first road-camera patch implemented and tested after explicit owner
 approval. See [session](Sessions/2026-11-02-road-camera-patch.md). Next: qualify
 actual camera geometry and current model-input/runtime contract. Keep hardware

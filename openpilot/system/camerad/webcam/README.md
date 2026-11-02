@@ -1,5 +1,10 @@
 # Run openpilot with webcam on PC
 
+For lens measurement, use the [printable target and calibration guide](CALIBRATION.md).
+The Q8B path now uses the current model's padded NV12 layout: stride1280,
+UVoffset942080,allocation2220032bytes for visible1280×720. The earlier tightly
+packed camera-only test is historical; model-facing layout is checked separately.
+
 ## Radxa Q8B: one road-facing AK-Camera (experimental capture only)
 
 Owner-approved profile: SunplusIT AK-Camera JV, MJPEG1280×720 at60FPS capture,
