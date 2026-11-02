@@ -108,3 +108,9 @@ Source-only, no implementation copied. [Session](Sessions/2026-11-01-mm-x-hardwa
 hardware backend and separate overlay physical-IMU design with Q8B needs.
 Fresh6source IDs/4blob/3AST checks; reused prior REA receipts with frozen file
 integrity readback, no runtime re-execution. [Session](Sessions/2026-11-01-jetson-hardware.md).
+
+2026-11-02 follow-up: webcam mode does not replace hardware support. hardwared
+still reads Q8B providers; PC-disabled IMU/comma-only GNSS do not become active.
+Adapt needed real board providers; reuse working OS stats, qualify optional
+fitted hardware, and treat CAN/vehicle integration separately. No implementation
+or runtime change; H1 thermal reporting remains next.

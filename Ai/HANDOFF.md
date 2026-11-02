@@ -137,3 +137,9 @@ project changes and attach actual validation through the workspace ledger.
 Latest workflow verification:27 notebook docs/61 relative links, workspace
 source index and a copied standalone notebook check passed. No application
 source changed or runtime service started. No actual reboot was performed.
+
+2026-11-02 follow-up: webcam mode does not replace hardware support. hardwared
+still reads Q8B providers; PC-disabled IMU/comma-only GNSS do not become active.
+Adapt needed real board providers; reuse working OS stats, qualify optional
+fitted hardware, and treat CAN/vehicle integration separately. No implementation
+or runtime change; H1 thermal reporting remains next.
