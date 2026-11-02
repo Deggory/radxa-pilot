@@ -1,5 +1,16 @@
 # Resume Sunnypilot here
 
+## 2026-11-02 — Automatic calibration requested: options explained
+
+Owner asks how to automate intrinsics and extrinsics. Proposed auto-selection/
+lens solve plus mounted camera/known vehicle-aligned target pose for R/t; target
+motion/placement remains physical input. Current capture still requires Space;
+no autosave or vehicle-pose export implemented. Online calibration assumes zero
+roll and does not solve K/distortion/full6DOF. COLMAP target-free estimates are
+an untested alternative, needing validation and vehicle-frame alignment.
+No runtime/settings changed; next resolve preferred measurement workflow before
+implementation. See automatic-calibration-options session for sources/limits.
+
 ## 2026-11-02 — MM-X RK lens-parameter check
 
 Owner questioned the checkerboard step. RK3ad69b20 README requests external

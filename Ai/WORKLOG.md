@@ -1,5 +1,10 @@
 # Sunnypilot work history
 
+2026-11-02 — Explained automatic lens calibration, target-to-camera versus
+vehicle-frame extrinsics, stock online-calibration limits and target-free
+COLMAP option. Primary docs/source checked; guidance only, no runtime patch.
+[Session](Sessions/2026-11-02-automatic-calibration-options.md).
+
 2026-11-02 — Inspected actual MM-X RK camera/geometry/UI/calibration source.
 External intrinsics required by README; focal900/720p hardcoded, mounting
 calibration separate. Clarified checkerboard is optional measurement method.

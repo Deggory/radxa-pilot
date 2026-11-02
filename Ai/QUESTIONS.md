@@ -1,5 +1,9 @@
 # Unknowns and limits
 
+Automatic-calibration method remains open: target-assisted collection/solve
+and measured vehicle-frame target pose, or target-free estimation with
+independent validation/alignment. Existing guided capture is not autosave.
+
 These remain open; the notebook must not silently fill them in.
 
 - Current stock model/runtime/parser compatibility with the preserved MSM

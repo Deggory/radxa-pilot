@@ -14,6 +14,12 @@ reviewed. No automatic installation or fabricated driver-monitoring data.
 
 ## 1. Print and check the target
 
+For automatic collection and vehicle extrinsics, see the proposed workflow in
+[the notebook session](../../../../Ai/Sessions/2026-11-02-automatic-calibration-options.md).
+Current capture still requires Space; automatic frame selection and vehicle-pose
+export are not implemented. OpenCV's per-image target poses are not automatically
+camera-to-vehicle extrinsics: the target's pose in the vehicle frame must be known.
+
 Print [the A4 landscape PDF](calibration/ak-checkerboard-a4.pdf) at **100% / actual
 size**, without fit-to-page. The [SVG](calibration/ak-checkerboard-a4.svg) is an
 editable vector alternative. Mount the sheet flat on a rigid backing. Measure
