@@ -6,17 +6,24 @@ import numpy as np
 
 from openpilot.system.camerad.webcam.config import ROAD_WIDTH, ROAD_HEIGHT, rotate_180
 from openpilot.system.camerad.webcam.native_capture import LatestCapture, NativeCapture
+from openpilot.system.camerad.cameras.nv12_info import get_nv12_info
 
 
 def bgr_to_nv12(bgr: np.ndarray) -> bytes:
+  """Use the same padded NV12 layout as current modeld/compile_warp."""
   height, width = bgr.shape[:2]
   i420 = cv.cvtColor(bgr, cv.COLOR_BGR2YUV_I420).ravel()
   y_size = height * width
   uv_size = y_size // 4
-  nv12 = np.empty_like(i420)
-  nv12[:y_size] = i420[:y_size]
-  nv12[y_size::2] = i420[y_size:y_size + uv_size]
-  nv12[y_size + 1::2] = i420[y_size + uv_size:]
+  stride, y_height, uv_height, size = get_nv12_info(width, height)
+  nv12 = np.zeros(size, dtype=np.uint8)
+  y = nv12[:stride * y_height].reshape(y_height, stride)
+  uv = nv12[stride * y_height:stride * (y_height + uv_height)].reshape(uv_height, stride)
+  y[:] = 16
+  uv[:] = 128
+  y[:height, :width] = i420[:y_size].reshape(height, width)
+  uv[:height // 2, :width:2] = i420[y_size:y_size + uv_size].reshape(height // 2, width // 2)
+  uv[:height // 2, 1:width:2] = i420[y_size + uv_size:].reshape(height // 2, width // 2)
   return nv12.tobytes()
 
 

@@ -3,6 +3,7 @@ import os
 from pathlib import Path
 import threading
 import time
+from types import SimpleNamespace
 import unittest
 from unittest.mock import MagicMock, patch
 
@@ -12,9 +13,24 @@ import numpy as np
 from openpilot.system.camerad.webcam import config
 from openpilot.system.camerad.webcam.camera import RoadCamera, bgr_to_nv12
 from openpilot.system.camerad.webcam.native_capture import LatestCapture, NativeCapture, RawFrame
+from openpilot.system.camerad.cameras.nv12_info import get_nv12_info
 
 
 class TestRoadConfiguration(unittest.TestCase):
+  def test_model_build_includes_720p_warp_only_for_q8b(self):
+    path = Path(__file__).resolve().parents[3] / 'selfdrive/modeld/SConscript'
+    tree = ast.parse(path.read_text())
+    nodes = [n for n in tree.body if (isinstance(n, ast.Assign) and
+             any(isinstance(t, ast.Name) and t.id == 'camera_configs' for t in n.targets)) or
+             (isinstance(n, ast.If) and isinstance(n.test, ast.Name) and n.test.id == 'RADXA_Q8B')]
+    self.assertEqual(len(nodes), 2)
+    for board in (False, True):
+      scope = {'RADXA_Q8B': board, 'ROAD_WIDTH': 1280, 'ROAD_HEIGHT': 720,
+               '_ar_ox_fisheye': SimpleNamespace(width=1928, height=1208),
+               '_os_fisheye': SimpleNamespace(width=1344, height=760)}
+      exec(compile(ast.Module(body=nodes, type_ignores=[]), str(path), 'exec'), scope)
+      self.assertEqual((1280, 720) in scope['camera_configs'], board)
+
   def test_explicit_board_and_webcam_scope(self):
     for board, env, expected in [
       (True, {}, False),
@@ -66,6 +82,14 @@ class TestRoadConfiguration(unittest.TestCase):
 
 
 class TestFrames(unittest.TestCase):
+  def test_current_model_can_copy_the_full_720p_frame(self):
+    data = bgr_to_nv12(np.zeros((720, 1280, 3), dtype=np.uint8))
+    stride, y_height, uv_height, allocation = get_nv12_info(1280, 720)
+    copied = np.frombuffer(data, dtype=np.uint8, count=stride * (y_height + uv_height))
+    self.assertEqual(copied.size, 1_413_120)
+    self.assertEqual(len(data), allocation)
+    self.assertEqual(allocation, 2_220_032)
+
   def test_negotiated_mode_rejection_closes_native_handle(self):
     for mode in [(1280, 720, int.from_bytes(b'MJPG', 'little'), 30, 1, 4, 4_147_200),
                  (1280, 720, int.from_bytes(b'MJPG', 'little'), 60, 0, 4, 4_147_200)]:
@@ -112,10 +136,15 @@ class TestFrames(unittest.TestCase):
     bgr[2:] = (255, 0, 0)
     i420 = cv.cvtColor(bgr, cv.COLOR_BGR2YUV_I420).ravel()
     data = np.frombuffer(bgr_to_nv12(bgr), dtype=np.uint8)
-    self.assertEqual(len(data), 24)
-    np.testing.assert_array_equal(data[:16], i420[:16])
-    np.testing.assert_array_equal(data[16::2], i420[16:20])
-    np.testing.assert_array_equal(data[17::2], i420[20:24])
+    stride, y_height, uv_height, size = get_nv12_info(4, 4)
+    self.assertEqual(len(data), size)
+    y = data[:stride * y_height].reshape(y_height, stride)
+    uv = data[stride * y_height:stride * (y_height + uv_height)].reshape(uv_height, stride)
+    np.testing.assert_array_equal(y[:4, :4].ravel(), i420[:16])
+    np.testing.assert_array_equal(uv[:2, :4:2].ravel(), i420[16:20])
+    np.testing.assert_array_equal(uv[:2, 1:4:2].ravel(), i420[20:24])
+    self.assertTrue(np.all(y[4:] == 16))
+    self.assertTrue(np.all(uv[2:] == 128))
 
   def test_latest_slot_owns_bytes_and_does_not_repeat_frames(self):
     released = threading.Event()

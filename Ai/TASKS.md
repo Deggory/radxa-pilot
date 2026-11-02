@@ -96,3 +96,16 @@ source pins, changed paths and validation. Record unknowns honestly. Promote
 cross-project facts to main Ai and commit the notebook with its journal hook.
 Do not turn an old completed task into the next task because it appears in
 an imported historical note.
+
+2026-11-02 model-input qualification: reproduced old packed720pbuffer failing
+current modeld's1,413,120byte copy. Road-only output now uses get_nv12_info:
+stride1280,Yrows736,UVrows368,UVoffset942080,allocation2,220,032bytes with neutral
+padding. Generic mode unchanged. Added Q8B-only720pwarp build configuration.
+23focused tests pass;140real frame pairs pass20.001Hz/59.628sourceHz with exact
+layout/copy/padding/timestamps and restored settings. Pinned tinygrad92b742f7
+CPU warp matches independent NumPy reference for two distinct synthetic views
+bitwise; outputuint8[2,6,128,256] matches current ONNXnew_img metadata. No full
+model/GPU/managed run or measured geometry claim. Weights65a08adc unchanged.
+Owner selected printable target/tool; that next increment is in progress and
+calibration guard stays active. New unstaged test_calibration.py is expected
+RED until tool implementation; do not mistake it for a failure of this slice.

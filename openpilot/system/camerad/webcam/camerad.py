@@ -12,6 +12,7 @@ from openpilot.cereal import messaging
 from openpilot.system.camerad.webcam.camera import Camera, RoadCamera
 from openpilot.system.camerad.webcam.config import PUBLISH_FPS, road_only_enabled, road_camera_device
 from openpilot.common.realtime import Ratekeeper
+from openpilot.system.camerad.cameras.nv12_info import get_nv12_info
 
 NARROW_ROAD_CAM = os.getenv("NARROW_ROAD_CAM", os.getenv("ROAD_CAM", "0"))
 WIDE_CAM = os.getenv("WIDE_CAM")
@@ -44,7 +45,11 @@ class Camerad:
           cam_device = f"/dev/video{c.cam_id}" if platform.system() != "Darwin" else c.cam_id
           cam = Camera(c.msg_name, c.stream_type, cam_device)
         self.cameras.append(cam)
-        self.vipc_server.create_buffers(c.stream_type, 20, int(cam.W), int(cam.H))
+        if self.road_only:
+          stride, y_height, _uv_height, size = get_nv12_info(cam.W, cam.H)
+          self.vipc_server.create_buffers_with_sizes(c.stream_type, 20, cam.W, cam.H, size, stride, stride * y_height)
+        else:
+          self.vipc_server.create_buffers(c.stream_type, 20, int(cam.W), int(cam.H))
       self.vipc_server.start_listener()
     except BaseException:
       if self.road_only:

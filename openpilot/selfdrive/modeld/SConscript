@@ -5,6 +5,8 @@ from SCons.Script import Action, Value
 from openpilot.common.transformations.camera import _ar_ox_fisheye, _os_fisheye
 from openpilot.common.transformations.model import MEDMODEL_INPUT_SIZE, DM_INPUT_SIZE
 from openpilot.system.camerad.cameras.nv12_info import get_nv12_info
+from openpilot.common.platform import RADXA_Q8B
+from openpilot.system.camerad.webcam.config import ROAD_WIDTH, ROAD_HEIGHT
 
 
 Import('env', 'arch')
@@ -23,6 +25,8 @@ tinygrad_files = ["#"+x for x in glob.glob(env.Dir("#tinygrad_repo").relpath + "
                   if 'pycache' not in x and os.path.isfile(os.path.join(tinygrad_root, x))]
 
 camera_configs = [(c.width, c.height) for c in (_ar_ox_fisheye, _os_fisheye)]
+if RADXA_Q8B:
+  camera_configs.append((ROAD_WIDTH, ROAD_HEIGHT))
 
 if arch == 'comma_arm64':
   tg_flags = 'DEV=QCOM IMAGE=1 FLOAT16=1 NOLOCALS=1 JIT_BATCH_SIZE=0 OPENPILOT_HACKS=1'
