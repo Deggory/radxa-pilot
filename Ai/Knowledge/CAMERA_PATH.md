@@ -1,5 +1,18 @@
 # Current webcam camera path
 
+## 2026-11-02 — Actual camera-to-UI timing benchmark completed
+
+Added opt-in native preview benchmark,37focused tests/lint pass.65.057srun,
+5swarmup,1200steady first-display samples at19.97562FPS. Driver timestamp to
+draw-ready59.398msmedian/78.755msp95; to EndDrawing return89.385/109.139ms,
+including normal30FPS pacing. Actual GLfreedreno FD690/Mesa25.2.8; default
+CPU schedutil/GPU simple_ondemand, no clock/fan overrides. Not optical latency
+or confirmed compositor presentation. Raw samples independently recomputed.
+Camera/UI exit0/0, previous1080p30/dynamic-rate1 restored; no active preview.
+No model/vehicle run or calibration change. See camera-ui-benchmark session
+and webcam README command. Model/Adreno integration still pending; automatic
+calibration deferred. No optimisation undertaken beyond measuring this baseline.
+
 ## 2026-11-02 — Camera-to-UI timing: cadence versus latency
 
 Latest actual Sunnypilot dashboard rendered1514distinct frames in76.200078s:

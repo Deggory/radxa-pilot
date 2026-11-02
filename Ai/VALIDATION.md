@@ -1,5 +1,15 @@
 # Validation: what is actually established
 
+## Per-frame camera-to-UI timing — 2026-11-02
+
+37focused tests/lint pass. Live65s/5swarmup:1200steady first-display rows,
+19.98FPS; driver→draw-ready59.398/78.755msmedian/p95 and driver→EndDrawing
+return89.385/109.139ms, normal pacing included. Actual freedreno FD690 renderer.
+Independent Python median/manual linear percentiles and raw time/ID identities
+match. Camera/UI exit0/0, camera format/rate/control and clock policies restored/
+preserved. No full manager/model/optical presentation test. Report contains
+all raw rows/warmup and hashes. Existing no-latency-logging note is historical.
+
 ## Camera dashboard — 2026-11-02
 
 32focused tests pass, including private environment and owned-child cleanup.

@@ -1,5 +1,14 @@
 # What we did: Radxa Dragon Q8B identity
 
+## 2026-11-02 — Actual camera-to-UI benchmark
+
+Added opt-in per-frame benchmark to the native Sunnypilot dashboard preview.
+65srun/5swarmup/1200steady frames: capture→draw-ready59.40msmedian/78.76msp95;
+capture→EndDrawing-return89.39msmedian/109.14msp95, including normal frame pacing.
+Fresh video19.98FPS;37focused tests pass, raw samples independently checked,
+camera settings restored. Host-call timing is not physical screen-light latency.
+See [benchmark session](Ai/Sessions/2026-11-02-camera-ui-benchmark.md).
+
 ## 2026-11-02 — Open live camera in Sunnypilot dashboard
 
 Run `.venv/bin/python -m openpilot.system.camerad.webcam.preview` from this

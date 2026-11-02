@@ -30,6 +30,29 @@ Optional `--screenshot /tmp/q8b-ui-check.png` saves after40distinct camera frame
 The preview does not install calibration or start inference; measured optics
 and the current model/Adreno integration remain separate work.
 
+To benchmark capture-to-UI timing with normal system clock governors:
+
+```bash
+.venv/bin/python -m openpilot.system.camerad.webcam.preview \
+  --benchmark --seconds 65 --warmup-seconds 5 --log-dir /tmp/q8b-ui-benchmark
+```
+
+Leave the window open until it closes automatically. The first5seconds are
+retained as warmup but excluded from statistics. Every newly displayed frame
+is matched by buffer/IPC frame ID to its actual monotonic V4L2 timestamp.
+`timings.jsonl` preserves raw timestamps; `benchmark.json` reports median,
+p95,p99,max, fresh-frame cadence, repeated draws and skipped publication IDs.
+It records the actual GL renderer and window size. No clock/fan changes, GPU
+fences, screenshot or video recording are added by the benchmark itself.
+
+Two endpoints are reported: capture to draw commands ready, and capture to
+host Raylib EndDrawing return. The latter includes the normal30FPS frame
+pacing and display submission path; it is not a GPU-completion fence, confirmed
+compositor presentation, monitor scanout or physical exposure-to-screen-light
+measurement. Only the first completion of each new camera frame is sampled;
+repeated redraws are counted separately. An early close is marked incomplete.
+Raw timings are written after the run to avoid per-frame disk writes.
+
 The current development .venv uses the pinned raylib6.0.0.1.post103 desktop
 wheel and freshly compiled libparams_c.so. Its .pth also reuses existing bench
 Python dependencies and matching project submodules; it is not a standalone

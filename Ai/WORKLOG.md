@@ -1,5 +1,10 @@
 # Sunnypilot work history
 
+2026-11-02 — Added and ran actual camera-to-UI benchmark:1200steady
+frames/19.98FPS,draw-ready59.40msmedian and host frame return89.39msmedian.
+37tests/lint and independent raw statistics/restoration pass.
+[Session](Sessions/2026-11-02-camera-ui-benchmark.md).
+
 2026-11-02 — Recovered actual preview cadence19.87FPS; current camera-to-UI
 latency was not logged. Separated Oct31 standalone42msmedian/57msp95 timings.
 Documentation only; no camera/clock/runtime changes.

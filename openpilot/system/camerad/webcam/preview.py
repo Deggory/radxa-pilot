@@ -1,6 +1,7 @@
 """Live Q8B camera in Sunnypilot's onroad UI, without vehicle/model processes."""
 import argparse
 import json
+import math
 import os
 from pathlib import Path
 import signal
@@ -64,6 +65,14 @@ def run_ui(args):
   frame_count = 0
   first_frame = last_frame = None
   screenshot_saved = False
+  benchmark = None
+  original_end_drawing = rl.end_drawing
+  benchmark_result = None
+  if args.benchmark:
+    from openpilot.system.camerad.webcam.benchmark import CameraUiBenchmark, graphics_metadata, timed_end_drawing
+    metadata = {**graphics_metadata(rl), 'ui_target_fps': gui_app.target_fps, 'capture_fps': 60, 'publication_fps': 20}
+    benchmark = CameraUiBenchmark(time.monotonic_ns(), args.warmup_seconds)
+    rl.end_drawing = timed_end_drawing(original_end_drawing, view, benchmark)
   try:
     for should_render, _frame_time, _cpu_time in gui_app.render():
       now = time.monotonic()
@@ -91,6 +100,9 @@ def run_ui(args):
       if args.seconds and now - start >= args.seconds:
         gui_app.request_close()
   finally:
+    rl.end_drawing = original_end_drawing
+    if benchmark is not None:
+      benchmark_result = benchmark.write(args.log_dir, time.monotonic() - start, args.seconds, metadata)
     result = {'unique_camera_frames': frame_count, 'first_frame': first_frame,
               'last_frame': last_frame, 'screenshot_saved': screenshot_saved,
               'seconds': time.monotonic() - start, 'model_processes_started': False, 'vehicle_processes_started': False}
@@ -98,6 +110,8 @@ def run_ui(args):
     view.close()
   if not frame_count:
     raise RuntimeError('No camera frames were rendered; inspect camera.log and ui.log')
+  if benchmark_result is not None and benchmark_result['status'] != 'complete':
+    raise RuntimeError('Camera-to-UI benchmark ended before sufficient steady measurements')
 
 
 def run_preview(args):
@@ -122,6 +136,8 @@ def run_preview(args):
                     [sys.executable, '-m', __spec__.name, '--ui-child', '--log-dir', str(args.log_dir), '--seconds', str(args.seconds)]]
         if args.screenshot:
           commands[1] += ['--screenshot', args.screenshot]
+        if args.benchmark:
+          commands[1] += ['--benchmark', '--warmup-seconds', str(args.warmup_seconds)]
         for command, log in zip(commands, [camera_log, ui_log], strict=True):
           children.append(subprocess.Popen(command, env=env, stdout=log, stderr=subprocess.STDOUT))
         (args.log_dir / 'processes.json').write_text(json.dumps({'prefix': prefix, 'pids': [c.pid for c in children],
@@ -152,10 +168,17 @@ def main():
   parser.add_argument('--log-dir', type=Path, default=Path('/tmp') / ('q8b-camera-view-' + time.strftime('%Y%m%d-%H%M%S')))
   parser.add_argument('--seconds', type=float, default=0, help='Close automatically after this many seconds; zero keeps window open')
   parser.add_argument('--screenshot', help='Save a screenshot after 40 distinct camera frames')
+  parser.add_argument('--benchmark', action='store_true', help='Record per-frame capture-to-UI timing; default run is 65 seconds')
+  parser.add_argument('--warmup-seconds', type=float, default=5, help='Exclude this initial interval from benchmark statistics')
   parser.add_argument('--ui-child', action='store_true', help=argparse.SUPPRESS)
   args = parser.parse_args()
-  if args.seconds < 0:
-    parser.error('--seconds must be nonnegative')
+  if not math.isfinite(args.seconds) or args.seconds < 0 or not math.isfinite(args.warmup_seconds) or args.warmup_seconds < 0:
+    parser.error('Duration and warmup must be finite and nonnegative')
+  if args.benchmark:
+    if args.seconds == 0:
+      args.seconds = 65
+    if args.seconds <= args.warmup_seconds:
+      parser.error('Benchmark duration must exceed warmup')
   from openpilot.common.platform import RADXA_Q8B
   if not RADXA_Q8B:
     parser.error('This preview is for the Radxa Dragon Q8B')

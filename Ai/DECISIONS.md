@@ -1,5 +1,14 @@
 # Decisions and rationale
 
+## 2026-11-02 — Benchmark current UI without changing its pacing
+
+Owner requested actual latency. Instrument EndDrawing only inside isolated
+preview --benchmark mode, preserve normal30FPS pacing/automatic clock policies
+and same-frame source metadata. Report draw-ready and host-call completion
+separately; neither proves physical monitor presentation. No GPU fence or
+FPS/clock optimisation introduced. Save raw first-display samples with warmup
+and count repeated draws/publication gaps explicitly.
+
 ## 2026-11-02 — Preview camera through real onroad UI without manager
 
 Owner wants live camera dashboard. Standard uiview starts model/DM/planner
