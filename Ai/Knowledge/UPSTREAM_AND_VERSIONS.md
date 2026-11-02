@@ -1,5 +1,11 @@
 # Source identity and update workflow
 
+## 2026-11-02 — Thneed confirmed as CD210 core
+
+Old tested659727c4 and currentCD21065a08adc share checkpoint/learned weights;
+ONNX wrapper differs. Thneedeb741641 traces to old graph via exporter provenance.
+[Direct tensor-content confirmation](../Sessions/2026-11-02-thneed-cd210-confirmation.md).
+
 ## 2026-11-02 — Big Tinygrad is an AMD artifact; historical NPU path exists
 
 Bundled big pickle799941965bytes/SHA256d4c7a3fc; bounded opcode inspection

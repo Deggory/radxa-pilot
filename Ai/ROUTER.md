@@ -1,5 +1,5 @@
 2026-11-02 GPU reference: [teacher Thneed pipeline](Knowledge/THNEED_GPU_REFERENCE.md)
-records tested exporter/replay, exact artifacts and sustained timings; old model differs from current CD210.
+records tested exporter/replay, exact artifacts and sustained timings; CD210 learned weights match; old/new history wrappers differ.
 
 # Start here: Sunnypilot repository memory
 

@@ -11,8 +11,9 @@ matches saved full hash. Read actual accepted result.json/protocol.json:
 100warmup,24101steady,19gates pass,20.000014Hz,11.724/12.348ms model p50/p95,
 35.417/39.721ms capture→output. Generic20-warmup summary is separate.
 No new inference/benchmark/driver/clocks/camera changes; archived results only.
-Old small-model659727c4 differs from currentCD21065a08adc; re-export/qualification
-needed. Portable OpenCL replay and resident buffers are reusable approach;
+Correction after direct comparison: oldCD210659727c4 and currentCD21065a08adc
+have identical learned weights/checkpoint; history wrapper differs. Current
+wrapper needs runtime integration/qualification. Portable OpenCL replay and resident buffers are reusable approach;
 HIGH priority had no proven speed gain and max-clock context must stay explicit.
 
 Recommendation remains bring current model into Sunny using teacher's proven

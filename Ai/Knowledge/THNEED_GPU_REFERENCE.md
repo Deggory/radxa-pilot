@@ -7,7 +7,7 @@ review and memory promotion; no runtime port or launch authorized by this review
 ## What was implemented
 
 Thneed is a saved GPU execution format/runtime, not another trained network.
-The earlier small driving ONNX659727c4d4839adc4992a254409a54259a8756a743f2d567bf5fdc6579f8009b
+The earlier CD210 small driving ONNX659727c4d4839adc4992a254409a54259a8756a743f2d567bf5fdc6579f8009b
 was adapted to FP32 ONNXee8ca6b35e923c098f0840474cdf826dc6fb7771484048b9202604620420bbb2,
 compiled with Tinygrad Qualcomm OpenCL and exported as kernels/buffers/launches.
 Native portable C++ Thneed execute/clexec replays saved work, keeping weights
@@ -71,7 +71,12 @@ Do not confuse generic TIMING_SUMMARY.json's20-warmup summary with the accepted
 
 ## Reuse in current Sunnypilot
 
-Current CD210 ONNX65a08adc differs from tested original659727c4; no11ms promise.
+Fresh November2 correction: current CD210 ONNX65a08adc and tested659727c4
+share checkpoint and all learned weight contents. New history wrapper changes
+ONNX bytes/interface, not the trained core. Earlier different-weights claim was
+incorrect. Both60Conv/82Gemm/8MatMul constant-RHS sequences match; all old
+constant content fingerprints retained. See [confirmation](../Sessions/2026-11-02-thneed-cd210-confirmation.md).
+Current-wrapper runtime still needs qualification; no automatic11ms promise.
 Recommended next work: adapt the proven exporter/replay approach to current
 weights and exact input/state/output contracts, verify CPU parity first, then
 qualify20Hz camera/model publication and Sunny UI. Keep necessary code/assets

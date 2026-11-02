@@ -202,3 +202,8 @@ floating-reference accuracy remain open; no runtime change.
 matched comparison and20min-soak evidence. Fresh artifact hash passes; no inference
 rerun. Promoted old/current model difference and reusable approach.
 [Session](Sessions/2026-11-02-teacher-thneed.md).
+
+2026-11-02 correction — Confirmed Thneed usedCD210 learned core: direct old/new
+ONNX checkpoint and learned-constant comparisons pass. Wrapper differs, weights
+match. Corrected earlier different-weights claim in current notes.
+[Confirmation](Sessions/2026-11-02-thneed-cd210-confirmation.md).

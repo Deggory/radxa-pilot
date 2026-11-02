@@ -1,12 +1,20 @@
 # Current Sunnypilot state
 
+## 2026-11-02 — Confirmed: Thneed ran CD210 learned core
+
+Fresh ONNX checkpoint/tensor-content comparison confirms old659727c4 and
+current65a08adc share learned weights; changed history wrapper explains file
+differences. Corrects earlier different-weights claim. Thneed artifacteb741641
+traces to oldCD210; current-wrapper runtime still needs integration qualification.
+[Confirmation](Sessions/2026-11-02-thneed-cd210-confirmation.md).
+
 ## 2026-11-02 — Teacher Thneed pipeline recovered
 
 Prior portable OpenCL Thneed small-model pipeline is already implemented and
 bench-tested:20min/24101steady frames at20Hz, model11.724msmedian/12.348msp95,
 camera→output35.417/39.721ms under maxCPU/GPU690/EGL/partial-JPEG profile.
-Fresh existing driving-02 artifact hash matcheseb741641. Old659727c4 weights
-are different from currentCD21065a08adc. Reuse exporter/replay design after
+Fresh existing driving-02 artifact hash matcheseb741641. Old659727c4 and currentCD21065a08adc have
+the same learned weights; the ONNX history wrapper differs. Reuse exporter/replay design after
 current-contract/parity qualification; no new runtime port/run in this task.
 [Reusable methods, files, pins and limits](Knowledge/THNEED_GPU_REFERENCE.md).
 [Session](Sessions/2026-11-02-teacher-thneed.md). Camera optimisation stays deferred.
