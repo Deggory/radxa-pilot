@@ -1,5 +1,17 @@
 # Resume Sunnypilot here
 
+## 2026-11-02 — Model identity recovered: CD210 default
+
+Bundled driving_supercombo.onnx is labelled CD210 with ref5b6436a90cf6902b8aaa71c2b6f3d7164d8ae391.
+Actual file SHA25665a08adc/name/ref fingerprint matches tracked model_hash and
+pinned official upstream name file. ONNX metadata/input/output schema inspected
+without executing pickle metadata. Separate big_driving_tinygrad.pkl is labelled
+Mountain Dew Model v3 for Chestnut; do not confuse the two. Parser supplies
+path/motion/lane/edge/lead/pose predictions; current source targets20Hz.
+Identity verification does not prove current GPU inference or driving behavior.
+Next recommendation remains CD210/Q8B Adreno qualification. No runtime change.
+See model-identity session and student UPSTREAM_AND_VERSIONS for exact evidence.
+
 ## 2026-11-02 — Recommended next step: current model on Q8B Adreno
 
 Owner asks what comes next after accepted camera milestone. Recommendation,

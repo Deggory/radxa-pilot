@@ -1,5 +1,10 @@
 # Sunnypilot work history
 
+2026-11-02 — Identified bundled driving model as CD210, verified actual ONNX
+SHA/name/ref fingerprint and pinned upstream name source. Read protobuf
+metadata/current parser; no inference or pickle execution.
+[Session](Sessions/2026-11-02-model-identity.md).
+
 2026-11-02 — Recommended current model/Adreno qualification next, using teacher
 reference and CPU parity before live model/UI overlay. No implementation started.
 Camera deferral and existing hardware plan preserved.

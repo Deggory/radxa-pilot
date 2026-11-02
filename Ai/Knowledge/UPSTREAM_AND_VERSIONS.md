@@ -1,5 +1,31 @@
 # Source identity and update workflow
 
+## 2026-11-02 — Bundled driving model identified as CD210
+
+Configured default:CD210, ref5b6436a90cf6902b8aaa71c2b6f3d7164d8ae391,
+openpilot/selfdrive/modeld/models/driving_supercombo.onnx,60918562bytes.
+Actual SHA25665a08adc31d5c456219687d99b7bf5e44d61dae2d49ea67850e76105c7248cce.
+Recomputed the tracked small-model identity fingerprint from ONNX SHA/name/ref:
+afa673add3ffdff2607c4968912a0183c5883fd0159d56218a3c22a508a2ebd5 matches
+models/tests/model_hash. Name/ref also match pinned official upstream model_name.py
+at6f7a2c94c10dffcf9a83b120ab1e6985e4496868 (blobbd8e9ac2). This establishes
+the bundled checkout identity, not a claim about newest online catalog entries
+or the exact historical training/release date.
+
+Protobuf metadata:PyTorch2.13.0+cu130 exporter; ONNX new_img uint8[2,6,128,256]
+plus desire,traffic_convention,action_t and image/desire/feature state queues.
+Output float[1,2576] plus next state queues. Parser/fill source describes path,
+velocity/acceleration, lanes, edges, leads and pose. Current model constants target
+20Hz. The two logical image views need not imply two physical cameras; existing
+single-road-camera path reuses its frame for distinct model view transforms.
+
+The separate big_driving_tinygrad.pkl is configured as Mountain Dew Model v3,
+ref1e219d7785cfb7b7343c7f2366347fc86e7ce5f2, for the Chestnut/big model path.
+Do not call it a larger copy of CD210. No big pickle was deserialized for this
+identification. Driver-monitoring ONNX is also a separate network, deferred here.
+No model inference or current Adreno compatibility is proven by identity checks.
+See [identity session](../Sessions/2026-11-02-model-identity.md).
+
 ## 2026-11-01 — Working project is sunnypilot; notebook is inside it
 
 Owner clarified that `sunnypilot/` is the actual project and other workspace
