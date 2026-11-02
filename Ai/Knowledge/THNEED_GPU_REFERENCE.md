@@ -1,5 +1,9 @@
 # Teacher's tested Q8B Thneed GPU pipeline
 
+2026-11-02 dependency follow-up: clean locked environment and minimal root build
+now pass; missing-acados block resolved. No new model conversion. See
+[installation](INSTALLATION.md) for51tests/GPU/10sUI smoke and recovery copies.
+
 ## 2026-11-02 — Launch directory and timing clarified
 
 Enter `~/comma/sunnypilot` before `.venv/bin/python -m openpilot.system.camerad.webcam.preview --model`;

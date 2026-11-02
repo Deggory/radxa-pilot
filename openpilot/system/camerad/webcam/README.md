@@ -80,14 +80,8 @@ opt-in capture/process adaptation; model runtime and Q8B calibration are separat
 and remain unqualified. Do not use the general driving instructions below as
 proof this Q8B port is ready to engage.
 
-Build the native UVC helper from the project root with the normal build:
-
-```bash
-scons openpilot/system/camerad/webcam/libuvc_capture.so
-```
-
-For isolated camera work without building the complete project, the same helper
-can be built with the system C compiler:
+Build the native UVC helper explicitly from the project root on Q8B.
+The generic Linux build does not visit comma's native camera subtree:
 
 ```bash
 cc -std=gnu11 -O2 -Wall -Wextra -Werror -fPIC -shared \

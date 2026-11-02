@@ -1,3 +1,6 @@
+2026-11-02 latest: [installation](Knowledge/INSTALLATION.md) now documents a clean
+locked environment and passing minimal root build; start HANDOFF for checks/limits.
+
 2026-11-02 latest: [live Thneed modeld integration](Sessions/2026-11-02-thneed-modeld.md)
 verified camera→stock modeld→actual Sunny overlay at20Hz bench. Start HANDOFF for limits/launch.
 

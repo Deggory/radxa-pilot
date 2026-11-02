@@ -224,3 +224,7 @@ pass. [Follow-up](Sessions/2026-11-02-thneed-modeld.md).
 
 2026-11-02 — Explained missing acados via original limited bench-env setup and
 actual import/distribution checks; ARM64 wheel is locked but untested. No installs.
+
+2026-11-02 — Added newcomer install.md and Q8B declared dependencies; installed
+clean locked Python environment, preserved recovery copies, passed minimal root
+build/51tests/MPC/GPU and10sUI smoke. [Session](Sessions/2026-11-02-installation.md).

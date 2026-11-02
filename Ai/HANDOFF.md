@@ -1,5 +1,19 @@
 # Resume Sunnypilot here
 
+## 2026-11-02 — Full locked dependencies installed; minimal build passes
+
+New [install guide](../install.md) covers setup/build/tests/preview for newcomers.
+Python3.12.13/uv0.13.6;85packages/all extras+standalone, no external bench paths.
+q8b OpenCV/Pillow extra; existing lock versions unchanged. Tinygrad examples
+local .pth documented. Default .venv replaced after staging51tests; old env and
+5native libraries retained as ignored backups. Root minimal Q8B/Thneed build
+now passes; previous missing-acados block is resolved. MPC solver constructs.
+Final51tests,12GPU/12adapter checks and10sactual camera/model/UI pass:
+193frames/183models/33pathpoints, allchildrenexit0, camera restored,faults0→0.
+No new conversion/driver/system/clock changes. Provisional geometry/controls off;
+full manager/vehicle/sustained performance unqualified. Next use install.md;
+hardware/geometry work remains separate. [Details](Knowledge/INSTALLATION.md).
+
 2026-11-02 acados diagnosis: limited preview .venv never received the full
 locked dependencies. acados/SCons plus several other native-package imports
 are absent; lockfile includes ARM64 comma-deps-acados0.2.2.post103. No install

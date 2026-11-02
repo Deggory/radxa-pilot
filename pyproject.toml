@@ -53,6 +53,11 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+q8b = [
+  "opencv-python-headless==4.13.0.92",  # AK-Camera JPEG decoding and calibration
+  "pillow",  # optional Tk calibration preview
+]
+
 docs = [
   "zensical",
 ]
