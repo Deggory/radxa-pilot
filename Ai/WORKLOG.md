@@ -1,5 +1,9 @@
 # Sunnypilot work history
 
+2026-11-02 — Owner accepts camera milestone for now; delay optimisation
+and calibration stay deferred. Saved benchmark baseline and teacher-first
+reference pointers for later. No runtime change or new engineering task.
+
 2026-11-02 — Added and ran actual camera-to-UI benchmark:1200steady
 frames/19.98FPS,draw-ready59.40msmedian and host frame return89.39msmedian.
 37tests/lint and independent raw statistics/restoration pass.

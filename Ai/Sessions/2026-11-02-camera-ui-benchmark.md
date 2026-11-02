@@ -56,3 +56,21 @@ Closeout verification:47notebook documents/100relative links/8source repos/
 source SHA256s still match the run; no implementation changes after measurement.
 37tests/lint and independent raw metrics pass. No uncommitted owner files at
 start; verified increment committed and validation attached to maintenance.
+
+## 2026-11-02 — Camera bring-up accepted for now; optimisation deferred
+
+Owner says camera work is done for now and will return to teacher knowledge
+later to reduce delay. Preserve current capture/UI and temporary MM-X geometry.
+Benchmark baseline7ac07b5:1200steady frames/19.97562FPS; driver→draw-ready
+59.398msmedian/78.755msp95; driver→EndDrawing return89.385/109.139ms including
+normal pacing. No further camera optimisation/calibration changes now.
+Future work starts from teacher camera/Sunnypilot notes and the Oct31 retained
+pipeline report/source db5b0da, with its different model/runtime/max-clock
+conditions kept explicit. Compare matching endpoints/profiles before porting.
+Current optics/mount and full model/vehicle qualification remain open; owner
+acceptance covers camera bring-up/preview/benchmark milestone only. No next
+engineering task selected in this message. No runtime changes or new tests.
+
+Documentation/Git skills used for owner-directed scope checkpoint. Source-first
+existing teacher evidence; no unrelated REA analysis or hardware access needed.
+Application source/model/runtime pins and existing37-test result unchanged.

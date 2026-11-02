@@ -1,5 +1,12 @@
 # Decisions and rationale
 
+## 2026-11-02 — Stop camera work at accepted milestone
+
+Owner accepts current camera bring-up/preview/benchmark. Keep temporary MM-X
+profile and defer optimisation; later consult teacher camera/runtime evidence
+to reduce latency with matched measurements. Do not automatically restart
+camera work. Model/optical/vehicle qualification is not implied by acceptance.
+
 ## 2026-11-02 — Benchmark current UI without changing its pacing
 
 Owner requested actual latency. Instrument EndDrawing only inside isolated
