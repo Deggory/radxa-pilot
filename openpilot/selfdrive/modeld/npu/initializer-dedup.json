@@ -1,0 +1,6 @@
+{
+  "floating_initializer_elements": 382904774,
+  "unique_fp16_initializer_elements_by_shape_and_raw_bytes": 382904774,
+  "unique_tensors": 586,
+  "limits": "Initializer deduplication estimate only; not learned-parameter truth or guaranteed compiler storage sharing."
+}

@@ -30,9 +30,16 @@ def errors(reference, actual):
     raise ValueError('nonfinite or mismatched output')
   difference = actual.astype(np.float64) - reference.astype(np.float64)
   scale = float(np.sqrt(np.mean(reference.astype(np.float64) ** 2)))
-  return {'mae': float(np.mean(np.abs(difference))), 'max_abs': float(np.max(np.abs(difference))),
+  return {'bitwise_equal': reference.dtype == actual.dtype and reference.tobytes() == actual.tobytes(),
+          'mae': float(np.mean(np.abs(difference))), 'max_abs': float(np.max(np.abs(difference))),
           'relative_rms': float(np.sqrt(np.mean(difference ** 2)) / scale) if scale > 1e-12 else None,
           'outside_atol_0p01_rtol_0p01': int(np.sum(np.abs(difference) > .01 + .01 * np.abs(reference)))}
+
+
+def save_report(path, report):
+  path.write_text(json.dumps(report, indent=2) + '\n')
+  if any(row['packed']['outside_atol_0p01_rtol_0p01'] for row in report['comparisons']):
+    raise ValueError('FP32 derivative compatibility diagnostic failed; quantization blocked')
 
 
 def main():
@@ -42,16 +49,18 @@ def main():
   parser.add_argument('--road', type=Path, required=True)
   parser.add_argument('--output', type=Path, required=True)
   parser.add_argument('--frames', type=int, default=500)
+  parser.add_argument('--start-frame', type=int, default=0)
   parser.add_argument('--compare-frames', type=int, default=10)
   args = parser.parse_args()
   if args.output.exists():
     parser.error('choose a fresh output directory')
   manifest = json.loads((args.road / 'manifest.json').read_text())
-  if not 1 <= args.frames <= len(manifest['records']):
+  if args.start_frame < 0 or not 1 <= args.frames <= len(manifest['records']) - args.start_frame:
     parser.error('insufficient unique road inputs')
   if not min(10, args.frames) <= args.compare_frames <= args.frames:
     parser.error('compare-frames must cover at least min(10, frames) and no greater than frames')
-  validate_road_manifest(manifest, args.frames)
+  selected_records = manifest['records'][args.start_frame:args.start_frame + args.frames]
+  validate_road_manifest(manifest | {'records': selected_records}, args.frames)
   verify_graphs(args.reference, args.derivative)
   reference = ort.InferenceSession(str(args.reference), sess_options=options(), providers=['CPUExecutionProvider'])
   derivative = ort.InferenceSession(str(args.derivative), sess_options=options(), providers=['CPUExecutionProvider'])
@@ -61,9 +70,9 @@ def main():
   if [item.name for item in derivative.get_outputs()] != expected_outputs:
     raise ValueError('derivative head order changed')
   compare_indices = set(np.linspace(0, args.frames - 1, args.compare_frames, dtype=int))
-  lines, comparisons, native_inputs = [], [], []
+  lines, comparisons, native_inputs, reference_outputs = [], [], [], []
   started = time.monotonic()
-  for index, record in enumerate(manifest['records'][:args.frames]):
+  for index, record in enumerate(selected_records):
     road_path = (args.road / record['file']).resolve()
     if not road_path.is_relative_to(args.road.resolve()) or digest(road_path) != record['sha256']:
       raise ValueError('road input file changed or outside dataset')
@@ -90,6 +99,9 @@ def main():
       print(f'compatibility frame {index}: {comparisons[-1]["packed"]}', flush=True)
     folder = args.output / f'{index:06d}'
     folder.mkdir()
+    packed_path = folder / 'reference-output.npy'
+    np.save(packed_path, result['outputs'])
+    reference_outputs.append({'file': str(packed_path.relative_to(args.output)), 'sha256': digest(packed_path)})
     entries = []
     for name, value in dfeeds.items():
       target = folder / (name + '.raw')
@@ -101,15 +113,13 @@ def main():
     if index % 25 == 0:
       print(f'fresh reference {index + 1}/{args.frames}', flush=True)
   (args.output / 'input_list.txt').write_text('\n'.join(lines) + '\n')
-  if any(row['packed']['outside_atol_0p01_rtol_0p01'] for row in comparisons):
-    raise ValueError('FP32 derivative compatibility diagnostic failed; quantization blocked')
-  (args.output / 'reference-report.json').write_text(json.dumps({'reference_sha256': REFERENCE_SHA, 'derivative_sha256': DERIVATIVE_SHA,
+  save_report(args.output / 'reference-report.json', {'reference_sha256': REFERENCE_SHA, 'derivative_sha256': DERIVATIVE_SHA,
     'input_list_sha256': digest(args.output / 'input_list.txt'), 'native_inputs': native_inputs,
-    'frames': args.frames, 'elapsed_s': time.monotonic() - started,
+    'reference_outputs': reference_outputs, 'start_frame': args.start_frame, 'frames': args.frames, 'elapsed_s': time.monotonic() - started,
     'road_manifest': str(args.road / 'manifest.json'), 'state_policy': ('Fresh zero initialization once, then this FP16 release own state outputs; ' +
                      'no historical model states.'),
     'comparisons': comparisons, 'limits': ('FP32 derivative comparison diagnostics, not INT8 accuracy or driving quality. ' +
-               'Calibration only; held-out evaluation must reset independently and use disjoint frames.')}, indent=2) + '\n')
+               'Calibration only; held-out evaluation must reset independently and use disjoint frames.')})
 
 
 if __name__ == '__main__':

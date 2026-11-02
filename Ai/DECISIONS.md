@@ -176,3 +176,11 @@ customReservedRawData0 for namespaced/versioned Q8B timing packets only; review
 allocation before another producer/fork uses it. UI timing means host first
 draw, PWM means duty rather than RPM; unavailable/stale values stay unavailable.
 Diagnostics never drive controls and send failure does not interrupt the model.
+
+2026-11-02 — Owner approved continuing INT8 research with the failed strict
+FP16 prequant diagnostic retained. Keep strict mode as the default. Separate
+research mode requires pinned bitwise same-precision graph comparisons, full
+native-input hashes and independently replayed recurrent provenance. This is
+permission for quantization research, not model/vehicle acceptance. QAIRT2.37
+PTQ uses generic HTP because SC8280XP/SC8280X strings are rejected; context
+compilation must separately establish target v68/SoC37 support.

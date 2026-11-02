@@ -1,0 +1,123 @@
+{
+  "index": 443,
+  "packed": {
+    "mae": 0.00093794923671275,
+    "max_abs": 0.114990234375,
+    "relative_rms": 0.00022077285616359783,
+    "outside_atol_0p01_rtol_0p01": 1
+  },
+  "heads": {
+    "lane_lines": {
+      "mae": 0.0009418057320131497,
+      "max_abs": 0.0030031204223632812,
+      "relative_rms": 0.0004620512499964295,
+      "outside_atol_0p01_rtol_0p01": 0,
+      "failures": []
+    },
+    "lane_line_probs": {
+      "mae": 0.002076759934425354,
+      "max_abs": 0.0032874345779418945,
+      "relative_rms": 0.000490020013875262,
+      "outside_atol_0p01_rtol_0p01": 0,
+      "failures": []
+    },
+    "road_edges": {
+      "mae": 0.0009260234056097088,
+      "max_abs": 0.005157470703125,
+      "relative_rms": 0.00030271852232265745,
+      "outside_atol_0p01_rtol_0p01": 0,
+      "failures": []
+    },
+    "meta": {
+      "mae": 0.0012503970753062856,
+      "max_abs": 0.0027627944946289062,
+      "relative_rms": 0.00027581038901461027,
+      "outside_atol_0p01_rtol_0p01": 0,
+      "failures": []
+    },
+    "desire_pred": {
+      "mae": 0.0010323021560907364,
+      "max_abs": 0.0030465126037597656,
+      "relative_rms": 0.0002729092551048638,
+      "outside_atol_0p01_rtol_0p01": 0,
+      "failures": []
+    },
+    "pose": {
+      "mae": 0.0010465357311962482,
+      "max_abs": 0.0030956268310546875,
+      "relative_rms": 0.00017446115516684416,
+      "outside_atol_0p01_rtol_0p01": 0,
+      "failures": []
+    },
+    "wide_from_device_euler": {
+      "mae": 0.0006243061441940275,
+      "max_abs": 0.0018601417541503906,
+      "relative_rms": 0.00020571099469280597,
+      "outside_atol_0p01_rtol_0p01": 0,
+      "failures": []
+    },
+    "road_transform": {
+      "mae": 0.000640361786243678,
+      "max_abs": 0.001983642578125,
+      "relative_rms": 0.00021524720546659654,
+      "outside_atol_0p01_rtol_0p01": 0,
+      "failures": []
+    },
+    "plan": {
+      "mae": 0.0010749625382948497,
+      "max_abs": 0.0522613525390625,
+      "relative_rms": 0.0001616436666260669,
+      "outside_atol_0p01_rtol_0p01": 0,
+      "failures": []
+    },
+    "lead": {
+      "mae": 0.006548526548512099,
+      "max_abs": 0.114990234375,
+      "relative_rms": 0.00019893313121512675,
+      "outside_atol_0p01_rtol_0p01": 0,
+      "failures": []
+    },
+    "lead_prob": {
+      "mae": 0.0017971197764078777,
+      "max_abs": 0.0020608901977539062,
+      "relative_rms": 0.0005789562924482923,
+      "outside_atol_0p01_rtol_0p01": 0,
+      "failures": []
+    },
+    "desire_state": {
+      "mae": 0.002637028694152832,
+      "max_abs": 0.0057697296142578125,
+      "relative_rms": 0.00021383314948606691,
+      "outside_atol_0p01_rtol_0p01": 0,
+      "failures": []
+    },
+    "action": {
+      "mae": 0.000469692749902606,
+      "max_abs": 0.0011336803436279297,
+      "relative_rms": 0.0003691001556044176,
+      "outside_atol_0p01_rtol_0p01": 0,
+      "failures": []
+    },
+    "hidden_state": {
+      "mae": 0.0008781323498396887,
+      "max_abs": 0.015001296997070312,
+      "relative_rms": 0.0008444209040736663,
+      "outside_atol_0p01_rtol_0p01": 1,
+      "failures": [
+        {
+          "index": 2218,
+          "reference": 0.0017442703247070312,
+          "actual": -0.009832412004470825,
+          "fp16_rounded_actual": -0.00983428955078125
+        }
+      ]
+    },
+    "pad": {
+      "mae": 0.0,
+      "max_abs": 0.0,
+      "relative_rms": null,
+      "outside_atol_0p01_rtol_0p01": 0,
+      "failures": []
+    }
+  }
+}

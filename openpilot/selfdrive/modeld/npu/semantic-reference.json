@@ -1,0 +1,8 @@
+{
+  "original_sha256": "35976b11be3904eb78e32f7dc55a6abf8e9433ac5aa391a1998f1e9ce001b199",
+  "semantic_reference_sha256": "135d27f95df49447a8509dc0cd422e7bbf4359149a71d07c342f426fee88be3d",
+  "promoted_initializers": 586,
+  "preserved": "original seven inputs/four outputs and all FIFO/head graph operations",
+  "changes": "Contiguous to Identity and FP16 to FP32 only; no safe-Reshape/negative-GatherND/head-split/host-FIFO rewrite",
+  "limit": "Same-precision graph check only; does not erase FP16 precision-drift failures or establish INT8 accuracy."
+}

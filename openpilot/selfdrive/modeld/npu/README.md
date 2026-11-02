@@ -58,6 +58,27 @@ will use `calibration500-v2`. Existing original/FP32 graph and floating DLC
 are unaffected by that dataset error. Exact status and commands are saved in
 the project notebook/session; do not assume the full list below has completed.
 
+## FP16 diagnostic and explicitly approved research
+
+Corrected calibration500-v2 completed all 500 frames. The strict prequant gate
+**fails** one hidden-state value at frame443 (.00174427 versus -.00983241).
+Hidden-state relative RMS is .084442% on that frame; this is not a driving
+accuracy score. All ten spread-out cases match an independently promoted
+original FP32 graph bit-for-bit. See [diagnostic](diagnostic-443.json),
+[semantic source](semantic-reference.json), and [ten-case comparison](bitwise-semantic-validation.json).
+
+Owner approved continuing INT8 research with that failure retained on2026-11-02.
+`quantize` still blocks on it. `quantize-research` explicitly permits this
+precision failure, requires exact pinned same-precision checks and independently
+replayed own-state provenance, and labels the artifact `w8a8-research.dlc`.
+`audit_reference.py` verifies zero initialization and every saved recurrent
+transition using the FP16 reference. A research artifact remains unqualified.
+No tolerance is relaxed and no under0.5% accuracy claim is established.
+
+QAIRT2.37 rejects target strings SC8280XP/SC8280X before calibration. Generic
+HTP PTQ is supported and used instead. Actual v68/SoC37 context compilation is
+a separate pending requirement; historical SoC39 is not substituted.
+
 ## Reproduce locally and on the conversion PC
 
 Keep the normal project environment for media/camera preprocessing. It needs
@@ -86,6 +107,19 @@ uv venv --python .venv/bin/python openpilot/selfdrive/modeld/npu/.venv
 uv pip install --python openpilot/selfdrive/modeld/npu/.venv/bin/python -r openpilot/selfdrive/modeld/npu/requirements-conversion.txt
 openpilot/selfdrive/modeld/npu/.venv/bin/python -m unittest discover -s openpilot/selfdrive/modeld/npu/tests -v
 ```
+
+The research sequence on the x86 host is:
+
+```bash
+bash source/qairt_host.sh quantize-research /path/to/existing-toolchain "$PWD" "$PWD/data/calibration500-v2/input_list.txt"
+bash source/qairt_host.sh context-research /path/to/existing-toolchain "$PWD" "$PWD/data/calibration500-v2/input_list.txt"
+```
+
+The first command creates a provenance receipt only after quantizer success.
+The second verifies it and compiles offline with explicit v68/SoC37 config into
+a fresh directory; successful compilation alone does not qualify device loading.
+For the already-running pre-receipt experiment only, `contracts record-research`
+can attach the audited receipt after independently confirming quantizer exit0.
 
 ## Acceptance and unresolved limits
 
