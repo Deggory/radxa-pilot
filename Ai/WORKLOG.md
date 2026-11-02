@@ -1,5 +1,9 @@
 # Sunnypilot work history
 
+2026-11-02 — Assessed temporary900px intrinsics: calculated70.834degree
+HFOV agrees with old visual estimate only; capture/display is not lens proof.
+No runtime change; owner calibration deferral retained. See latest UI session.
+
 2026-11-02 — Added camera-only onroad dashboard launcher with private
 messages/Params and owned-process cleanup.32tests/lint pass; live screenshot
 viewed,173frames/9.06s, settings restored on close. Model not started.

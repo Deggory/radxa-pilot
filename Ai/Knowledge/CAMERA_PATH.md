@@ -1,5 +1,18 @@
 # Current webcam camera path
 
+## 2026-11-02 — Assessment of temporary intrinsics
+
+Current borrowed K:fx=fy900,cx640,cy360 at1280x720. Pinhole calculation gives
+HFOV70.834deg/VFOV43.603deg, not a physical measurement. Consistent with old
+70deg visual estimate, but that estimate cannot validate K. Actual principal
+point, separate focal lengths and lens distortion remain unmeasured. Existing
+UI video success verifies capture/display, not geometric calibration or model
+warp/lateral accuracy. Keep provisional profile as owner chose; automatic
+calibration stays deferred. No runtime/optical changes or new camera test.
+Source:current camera.py, onroad camera projection and OpenCV4.13calib3d docs.
+Next model/runtime qualification can use this explicit estimate; actual lens
+validation remains required before judging lateral geometry/performance.
+
 ## 2026-11-02 — Live Sunnypilot camera dashboard verified
 
 Owner requested opening the UI to view road-camera output. Added webcam/preview.py

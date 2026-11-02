@@ -81,3 +81,27 @@ owner-persistent.png verified and child PIDs alive. Logs:workspace
 Ai/Reports/sunnypilot-ui-preview-20261102/owner-persistent. This supersedes the
 previous closed-session state. Window intentionally open; close it to stop
 camera/restore settings. Check current PIDs before later camera work.
+
+## 2026-11-02 — Assessment of temporary intrinsics
+
+Current borrowed K:fx=fy900,cx640,cy360 at1280x720. Pinhole calculation gives
+HFOV70.834deg/VFOV43.603deg, not a physical measurement. Consistent with old
+70deg visual estimate, but that estimate cannot validate K. Actual principal
+point, separate focal lengths and lens distortion remain unmeasured. Existing
+UI video success verifies capture/display, not geometric calibration or model
+warp/lateral accuracy. Keep provisional profile as owner chose; automatic
+calibration stays deferred. No runtime/optical changes or new camera test.
+Source:current camera.py, onroad camera projection and OpenCV4.13calib3d docs.
+Next model/runtime qualification can use this explicit estimate; actual lens
+validation remains required before judging lateral geometry/performance.
+
+2026-11-02 intrinsics assessment: temporary900px/720p implies70.834deg
+horizontal FOV under a pinhole assumption; old70deg was only visual. Camera/UI
+video is verified, lens geometry is not. Keep owner-selected temporary profile;
+no automatic calibration resumed. Persistent preview12790/12793/12794 has now
+closed normally:1514distinct frames/76.200s, child exits0/0; no relaunch requested.
+
+Source-driven/documentation/Git skills; source-first inspection and primary
+OpenCV docs. No unrelated REA binary analysis needed. New checks: FOV arithmetic
+and notebook/diff validation only; no runtime tests rerun. Runtime/model pins
+unchanged from91ded2e.

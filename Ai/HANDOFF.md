@@ -1,5 +1,11 @@
 # Resume Sunnypilot here
 
+2026-11-02 intrinsics assessment: temporary900px/720p implies70.834deg
+horizontal FOV under a pinhole assumption; old70deg was only visual. Camera/UI
+video is verified, lens geometry is not. Keep owner-selected temporary profile;
+no automatic calibration resumed. Persistent preview12790/12793/12794 has now
+closed normally:1514distinct frames/76.200s, child exits0/0; no relaunch requested.
+
 Live preview reopened in persistent terminal session21631: controller12790,
 camera12793,UI12794; prefixq8b_preview_97ce0a9e4384. Actual screenshot
 owner-persistent.png verified and child PIDs alive. Logs:workspace
