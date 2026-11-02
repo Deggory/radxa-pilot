@@ -1,0 +1,167 @@
+{
+  "graph_name": "main_graph",
+  "inputs": [
+    {
+      "name": "new_img",
+      "dtype": "UINT8",
+      "shape": [
+        2,
+        6,
+        128,
+        256
+      ]
+    },
+    {
+      "name": "desire",
+      "dtype": "FLOAT",
+      "shape": [
+        8
+      ]
+    },
+    {
+      "name": "traffic_convention",
+      "dtype": "FLOAT",
+      "shape": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "action_t",
+      "dtype": "FLOAT",
+      "shape": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "state_img_q",
+      "dtype": "UINT8",
+      "shape": [
+        2,
+        5,
+        6,
+        128,
+        256
+      ]
+    },
+    {
+      "name": "state_desire_q",
+      "dtype": "FLOAT",
+      "shape": [
+        132,
+        1,
+        8
+      ]
+    },
+    {
+      "name": "state_feat_q",
+      "dtype": "FLOAT",
+      "shape": [
+        128,
+        1,
+        16384
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "name": "outputs",
+      "dtype": "FLOAT",
+      "shape": [
+        1,
+        18452
+      ]
+    },
+    {
+      "name": "next_state_img_q",
+      "dtype": "UINT8",
+      "shape": [
+        2,
+        5,
+        6,
+        128,
+        256
+      ]
+    },
+    {
+      "name": "next_state_desire_q",
+      "dtype": "FLOAT",
+      "shape": [
+        132,
+        1,
+        8
+      ]
+    },
+    {
+      "name": "next_state_feat_q",
+      "dtype": "FLOAT",
+      "shape": [
+        128,
+        1,
+        16384
+      ]
+    }
+  ],
+  "initializer_types": {
+    "FLOAT16": {
+      "tensors": 586,
+      "elements": 382904774,
+      "storage_bytes": 765809548
+    },
+    "BOOL": {
+      "tensors": 8,
+      "elements": 663552,
+      "storage_bytes": 663552
+    },
+    "INT64": {
+      "tensors": 25,
+      "elements": 317,
+      "storage_bytes": 2536
+    }
+  },
+  "floating_initializer_elements": 382904774,
+  "floating_initializer_int8_payload_estimate_bytes": 382904774,
+  "estimate_limit": "One byte per floating initializer element, excluding scales, bias precision, alignment, graph/compiler overhead. Includes floating constants; not a measured compiled size or peak RAM.",
+  "operators": {
+    "ai.onnx::Slice": 9,
+    "ai.onnx::Unsqueeze": 9,
+    "ai.onnx::Concat": 7,
+    "ai.onnx::Reshape": 34,
+    "ai.onnx::Gather": 9,
+    "ai.onnx::ReduceMax": 1,
+    "ai.onnx::Transpose": 111,
+    "ai.onnx::Cast": 6,
+    "ai.onnx::Sub": 1,
+    "ai.onnx::Div": 1,
+    "ai.onnx::Conv": 41,
+    "ai.onnx::LayerNormalization": 86,
+    "ai.onnx::MatMul": 132,
+    "ai.onnx::Add": 183,
+    "ai.onnx::Gelu": 57,
+    "ai.onnx::Mul": 55,
+    "org.tinygrad::Contiguous": 1,
+    "ai.onnx::ReduceMean": 1,
+    "ai.onnx::Gemm": 42,
+    "ai.onnx::GatherND": 1,
+    "ai.onnx::Sigmoid": 7,
+    "ai.onnx::Expand": 2,
+    "ai.onnx::Split": 8,
+    "ai.onnx::Squeeze": 24,
+    "ai.onnx::Not": 8,
+    "ai.onnx::Where": 8,
+    "ai.onnx::Softmax": 8,
+    "ai.onnx::Tanh": 1
+  },
+  "metadata": {
+    "output_slices": "gASVkwEAAAAAAAB9lCiMCmxhbmVfbGluZXOUjAhidWlsdGluc5SMBXNsaWNllJOUSwBNEAJOh5RS\nlIwPbGFuZV9saW5lc19wcm9ilGgETRACTRgCToeUUpSMCnJvYWRfZWRnZXOUaARNGAJNIANOh5RS\nlIwEbWV0YZRoBE0gA01XA06HlFKUjAtkZXNpcmVfcHJlZJRoBE1XA013A06HlFKUjARwb3NllGgE\nTXcDTYMDToeUUpSMFndpZGVfZnJvbV9kZXZpY2VfZXVsZXKUaARNgwNNiQNOh5RSlIwOcm9hZF90\ncmFuc2Zvcm2UaARNiQNNlQNOh5RSlIwEcGxhbpRoBE2VA01zB06HlFKUjARsZWFklGgETXMHTQMI\nToeUUpSMCWxlYWRfcHJvYpRoBE0DCE0GCE6HlFKUjAxkZXNpcmVfc3RhdGWUaARNBghNDghOh5RS\nlIwGYWN0aW9ulGgETQ4ITRIIToeUUpSMDGhpZGRlbl9zdGF0ZZRoBE0SCE0SSE6HlFKUjANwYWSU\naARNEkhNFEhOh5RSlHUu\n",
+    "model_checkpoint": "f22e06e5-3b3f-48d2-a6b9-2f32dc20e707/56320/1365126a-e71e-4778-be00-8ab92dc82c09/12864"
+  },
+  "opsets": {
+    "ai.onnx": 20,
+    "org.tinygrad": 1
+  },
+  "path": "openpilot/selfdrive/modeld/npu/artifacts/mountain_dew_v3.onnx",
+  "sha256": "35976b11be3904eb78e32f7dc55a6abf8e9433ac5aa391a1998f1e9ce001b199",
+  "bytes": 768750198
+}

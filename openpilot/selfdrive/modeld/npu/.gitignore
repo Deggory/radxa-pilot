@@ -1,0 +1,7 @@
+/artifacts/
+/data/
+/logs/
+/work/
+__pycache__/
+
+/.venv/

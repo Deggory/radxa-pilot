@@ -1,3 +1,5 @@
+Current NPU work: [fresh conversion](Knowledge/NPU_CONVERSION.md). Read the dated session before resuming; the first dataset is rejected and corrected v2 calibration is in progress.
+
 Current result: [live Q8B UI telemetry](Knowledge/UI_TELEMETRY.md).
 
 Current performance result: [maximum mode and resident GPU baseline](Knowledge/MAX_PERFORMANCE.md).

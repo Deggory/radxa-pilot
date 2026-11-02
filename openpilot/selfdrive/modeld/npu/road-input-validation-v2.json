@@ -1,0 +1,40 @@
+{
+  "result": "pass",
+  "frames": 700,
+  "unique_image_hashes": 700,
+  "video_mapping": "frameId mapped through fullHEVC encode-index segmentId in segment4; camera ordinals are not video indices",
+  "first_frame": {
+    "index": 0,
+    "source_index": 2,
+    "narrow_video_index": 3,
+    "wide_video_index": 3,
+    "frame_id": 5915,
+    "capture_ns": 1084856409817,
+    "file": "000000.npz",
+    "sha256": "9df49529e04350860bfe668ce0d743e3bf6bea9755e8050fa5f804669fca2d4f",
+    "image_sha256": "e9ff9d8e37bc9d357ba607bae3e14b4f84be6a7382cccc1e35bce1e4496bc0f5",
+    "lane_change_state": "off",
+    "lane_change_direction": "none"
+  },
+  "last_frame": {
+    "index": 699,
+    "source_index": 701,
+    "narrow_video_index": 702,
+    "wide_video_index": 702,
+    "frame_id": 6614,
+    "capture_ns": 1119794638610,
+    "file": "000699.npz",
+    "sha256": "ce12aa74f2a2bb7ef40738bc9a10e07a36563697bfebbd00e3bc094d5aa2321f",
+    "image_sha256": "e3b57c2a6c04834b121b5efc14b89c2b4a47d38a45e14098366a21233bf334ff",
+    "lane_change_state": "off",
+    "lane_change_direction": "none"
+  },
+  "all_narrow_video_offsets": [
+    1
+  ],
+  "desire_pulses": {
+    "4": 1,
+    "3": 1
+  },
+  "scope": "Corrected encoded-frame mapping, measured continuity/unique hashes; no model states, quantization or NPU execution."
+}

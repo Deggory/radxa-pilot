@@ -1,0 +1,139 @@
+{
+  "original_sha256": "35976b11be3904eb78e32f7dc55a6abf8e9433ac5aa391a1998f1e9ce001b199",
+  "reference_sha256": "da9506a64143b0bfd535db8901671170e385451c9f68790f29ebf1114f457b38",
+  "quantization_source_sha256": "eceadb809ada5462481cb343e643850e45c72cc4fdf55db0deb74b5718b9411d",
+  "rewrites": {
+    "allowzero": [
+      "node_view",
+      "node__unsafe_view",
+      "node__unsafe_view_1",
+      "node_view_1",
+      "node_view_2",
+      "node_view_39",
+      "node_view_40",
+      "node_view_41",
+      "node_view_42",
+      "node_view_43",
+      "node_view_46",
+      "node__unsafe_view_2",
+      "node_view_47",
+      "node__unsafe_view_3",
+      "node_view_48",
+      "node__unsafe_view_4",
+      "node_view_49",
+      "node__unsafe_view_5",
+      "node_view_50",
+      "node_view_52",
+      "node_view_53",
+      "node_view_56",
+      "node__unsafe_view_6",
+      "node_view_57",
+      "node__unsafe_view_7",
+      "node_view_58",
+      "node__unsafe_view_8",
+      "node_view_59",
+      "node__unsafe_view_9",
+      "node_view_60"
+    ],
+    "gathernd": [
+      "node_GatherND_464"
+    ],
+    "float16_initializers": 586,
+    "host_image_fifo": true,
+    "head_outputs": {
+      "lane_lines": 528,
+      "lane_line_probs": 8,
+      "road_edges": 264,
+      "meta": 55,
+      "desire_pred": 32,
+      "pose": 12,
+      "wide_from_device_euler": 6,
+      "road_transform": 12,
+      "plan": 990,
+      "lead": 144,
+      "lead_prob": 3,
+      "desire_state": 8,
+      "action": 4,
+      "hidden_state": 16384,
+      "pad": 2
+    }
+  },
+  "heads": [
+    {
+      "name": "lane_lines",
+      "source": "linear_76",
+      "size": 528
+    },
+    {
+      "name": "lane_line_probs",
+      "source": "linear_77",
+      "size": 8
+    },
+    {
+      "name": "road_edges",
+      "source": "linear_78",
+      "size": 264
+    },
+    {
+      "name": "meta",
+      "source": "linear_79",
+      "size": 55
+    },
+    {
+      "name": "desire_pred",
+      "source": "linear_80",
+      "size": 32
+    },
+    {
+      "name": "pose",
+      "source": "mul_36",
+      "size": 12
+    },
+    {
+      "name": "wide_from_device_euler",
+      "source": "linear_82",
+      "size": 6
+    },
+    {
+      "name": "road_transform",
+      "source": "linear_81",
+      "size": 12
+    },
+    {
+      "name": "plan",
+      "source": "mul_41",
+      "size": 990
+    },
+    {
+      "name": "lead",
+      "source": "mul_42",
+      "size": 144
+    },
+    {
+      "name": "lead_prob",
+      "source": "linear_120",
+      "size": 3
+    },
+    {
+      "name": "desire_state",
+      "source": "linear_126",
+      "size": 8
+    },
+    {
+      "name": "action",
+      "source": "cat_4",
+      "size": 4
+    },
+    {
+      "name": "hidden_state",
+      "source": "view_60",
+      "size": 16384
+    },
+    {
+      "name": "pad",
+      "source": "model.pad",
+      "size": 2
+    }
+  ],
+  "limit": "FP32 derivative removes FP16 arithmetic rounding; must compare against FP16 reference. No accuracy acceptance from checker success."
+}

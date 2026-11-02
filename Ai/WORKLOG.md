@@ -1,5 +1,12 @@
 # Sunnypilot work history
 
+2026-11-02 — Started fresh Mountain Dew v3 NPU conversion in modeld/npu.
+Updated Jetlink references; original/hash/IO/size inventory, new FP16/FP32
+graphs and floatingDLC succeed. Review caught source video offset; initialdata
+rejected, corrected700inputs validated, calibration500-v2 running.12focused
+tests/Ruff/shell checks pass. No new NPU context loaded or CD210 change.
+[Session](Sessions/2026-11-02-fresh-big-model-npu.md).
+
 ## 2026-11-02 — Hardware needs mapped to current Q8B support
 
 Owner asked to update the complete requirements list with what Radxa supplies.

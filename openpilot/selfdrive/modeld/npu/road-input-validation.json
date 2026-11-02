@@ -1,0 +1,14 @@
+{
+  "frames": 700,
+  "unique_image_hashes": 700,
+  "matching_existing_preprocessor_samples": 58,
+  "compared_samples": 58,
+  "source_first_index": 2,
+  "pulse_counts": {
+    "4": 1,
+    "3": 1
+  },
+  "limit": "Pixel/preprocessor parity only; old neural states/outputs were not used. One daytime route, reconstructed controls.",
+  "status": "rejected_for_frame_alignment",
+  "correction": "Both ordinal-based extractors matched pixels but used video frame one earlier than metadata. Replaced by encoder-index mapping in road700-v2; historical pixel parity is not alignment proof."
+}
