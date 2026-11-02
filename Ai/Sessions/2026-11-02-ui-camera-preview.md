@@ -81,4 +81,3 @@ owner-persistent.png verified and child PIDs alive. Logs:workspace
 Ai/Reports/sunnypilot-ui-preview-20261102/owner-persistent. This supersedes the
 previous closed-session state. Window intentionally open; close it to stop
 camera/restore settings. Check current PIDs before later camera work.
-
