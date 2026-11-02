@@ -73,3 +73,13 @@ HTP PTQ, record actual size/encodings, then resolve target37 context support.
 notebook64documents/196relative links and whitespace pass. Fresh reviewer
 findings resolved; independent recurrence audit and PTQ remain in progress.
 Strict FP16 failure is preserved and research artifacts remain unqualified.
+
+2026-11-02 held-out/tooling increment in progress:200independently-reset
+FP16 frames500-699 complete; all1200native+200golden file hashes and relocated
+local list verified inside Sunny. FP32-vs-FP16 diagnostic fails94hidden values
+at22 and2at66; all sampled warm cases pass. These failures remain visible;
+independent original FP32 matches rewritten FP32 bitwise on both failed cases.
+25tests/Ruff/bash pass; runtime/evaluator CLI help works in normal Sunny .venv
+without conversion-only ONNX/ORT imports. New metadata/run linkage guards,
+bounded private QNN runner and SIGTERM cleanup are reviewed. No NPU context
+loaded yet; full500calibration/audit still running. Model defaults unchanged.

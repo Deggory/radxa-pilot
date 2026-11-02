@@ -9,13 +9,12 @@ import onnx
 from onnx import TensorProto, helper, numpy_helper
 
 from openpilot.selfdrive.modeld.npu.prepare_road_inputs import digest
+from openpilot.selfdrive.modeld.npu.contracts import HEADS, SIZES
 
 SOURCE_SHA = '35976b11be3904eb78e32f7dc55a6abf8e9433ac5aa391a1998f1e9ce001b199'
 PARTS = ['linear_76', 'linear_77', 'linear_78', 'linear_79', 'linear_80', 'mul_36', 'linear_82', 'linear_81',
          'mul_41', 'mul_42', 'linear_120', 'linear_126', 'cat_4', 'view_60', 'model.pad']
-HEADS = ['lane_lines', 'lane_line_probs', 'road_edges', 'meta', 'desire_pred', 'pose', 'wide_from_device_euler',
-         'road_transform', 'plan', 'lead', 'lead_prob', 'desire_state', 'action', 'hidden_state', 'pad']
-SIZES = [528, 8, 264, 55, 32, 12, 6, 12, 990, 144, 3, 8, 4, 16384, 2]
+
 
 
 def make_reference(model):

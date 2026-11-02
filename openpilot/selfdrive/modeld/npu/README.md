@@ -149,3 +149,24 @@ is part of this conversion. INT8 context execution and accuracy remain pending.
 Large artifacts, data, logs and local virtual environments are ignored; source,
 receipts and small results are tracked. Keep successful deployment assets inside
 this project when qualified. [Plan](tasks/plan.md) / [checklist](tasks/todo.md).
+
+## Bounded held-out replay tooling
+
+`run_qnn.py` requires a verified SDK2.37/v68/SoC37 context receipt, exact private
+runtime files and the separately reset heldout200-v2 input hashes. It checks
+model source pins and cDSP readiness before launch, uses the existing scoped
+maximum CPU/GPU clock lease and QNN burst profile, limits its own child to120s,
+and records the actual context/input/output hashes after execution. SIGTERM,
+timeout or lease failure stops the child before releasing the clock lease.
+It opens no camera and starts no vehicle processes. Context loading is still
+pending; CLI help/tests are not a device inference claim.
+
+`evaluate_outputs.py` requires the matching execution receipt and validates
+native inputs, golden outputs, compiled input/output names/types/shapes and
+hardware metadata. Compiler ordering never determines head mapping. It skips
+132reference warmup frames and evaluates68held-out frames against the FP16
+reference. This first evaluation is teacher-forced; candidate self-feedback
+remains a separate unperformed check. The normal Sunny environment can run
+these tools without installing ONNX/ORT; graph conversion uses the isolated
+conversion environment. [Held-out reference summary](heldout-reference-summary.json)
+retains failed early FP16 comparisons and exact independent FP32 checks.

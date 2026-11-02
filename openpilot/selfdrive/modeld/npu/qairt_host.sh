@@ -75,6 +75,25 @@ PY
       --config_file "$output/context.json" --binary_file mountain_dew_v3_w8a8_research --output_dir "$output" \
       --log_level info 2>&1 | tee "$work/logs/context-v68-soc37-v1.log"
     sha256sum "$output/mountain_dew_v3_w8a8_research.bin" > "$output/context.sha256"
+    qnn-context-binary-utility --context_binary "$output/mountain_dew_v3_w8a8_research.bin" \
+      --json_file "$output/context-info.json" > "$work/logs/context-inspection-v1.log" 2>&1
+    python - "$work" "$output" <<'PY'
+import json
+import sys
+from pathlib import Path
+from openpilot.selfdrive.modeld.npu.evaluate_outputs import output_contract
+from openpilot.selfdrive.modeld.npu.contracts import DERIVATIVE_SHA
+from openpilot.selfdrive.modeld.npu.prepare_road_inputs import digest
+work, output = map(Path, sys.argv[1:])
+metadata = output / 'context-info.json'
+output_contract(json.loads(metadata.read_text()))
+receipt = {'context_sha256': digest(output / 'mountain_dew_v3_w8a8_research.bin'),
+           'context_info_sha256': digest(metadata),
+           'source_sha256': DERIVATIVE_SHA,
+           'quantization_receipt_sha256': digest(work / 'artifacts/dlc-v1/w8a8-research.json'),
+           'target': 'SDK2.37/v68/SoC37 metadata checked; device execution untested', 'qualification': 'unqualified research'}
+(output / 'context-receipt.json').write_text(json.dumps(receipt, indent=2) + '\n')
+PY
     ;;
   *) echo 'Host stages are float or quantize.' >&2; exit 2 ;;
 esac

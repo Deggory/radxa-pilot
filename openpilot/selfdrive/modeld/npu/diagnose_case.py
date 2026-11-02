@@ -12,9 +12,9 @@ from openpilot.selfdrive.modeld.npu.prepare_road_inputs import digest
 from openpilot.selfdrive.modeld.npu.reference_dataset import errors, options
 
 
-def compare_saved(work, index, reference, derivative):
-  dataset = work / 'data/calibration500-v2'
-  with np.load(work / 'data/road700-v2' / f'{index:06d}.npz') as raw:
+def compare_saved(work, index, reference, derivative, dataset=None, road_offset=0):
+  dataset = dataset or work / 'data/calibration500-v2'
+  with np.load(work / 'data/road700-v2' / f'{road_offset + index:06d}.npz') as raw:
     controls = {name: raw[name] for name in raw.files}
   feeds = {item.name: np.fromfile(dataset / f'{index:06d}' / (item.name + '.raw'), dtype=np.float32).reshape(item.shape)
            for item in derivative.get_inputs()}
@@ -34,7 +34,7 @@ def compare_saved(work, index, reference, derivative):
                                                      'actual': float(output.flat[i]), 'fp16_rounded_actual': float(np.float16(output.flat[i]))}
                                                     for i in bad]}
     offset += output.shape[1]
-  result = {'index': index, 'packed': errors(expected, packed), 'heads': detail}
+  result = {'index': index, 'road_index': road_offset + index, 'dataset': str(dataset), 'packed': errors(expected, packed), 'heads': detail}
   return result
 
 
@@ -43,6 +43,8 @@ def main():
   parser.add_argument('work', type=Path)
   parser.add_argument('--index', type=int, required=True)
   parser.add_argument('--same-precision', action='store_true')
+  parser.add_argument('--dataset', type=Path)
+  parser.add_argument('--road-offset', type=int, default=0)
   args = parser.parse_args()
   work, index = args.work, args.index
   graph = work / 'artifacts/graph-v1'
@@ -55,7 +57,7 @@ def main():
       raise ValueError('wrong same-precision semantic reference')
   reference = ort.InferenceSession(str(reference_path), sess_options=options(), providers=['CPUExecutionProvider'])
   derivative = ort.InferenceSession(str(derivative_path), sess_options=options(), providers=['CPUExecutionProvider'])
-  result = compare_saved(work, index, reference, derivative)
+  result = compare_saved(work, index, reference, derivative, dataset=args.dataset, road_offset=args.road_offset)
   result['precision'] = 'fp32' if args.same_precision else 'fp16'
   destination = work / 'artifacts' / f'diagnostic-{index}{"-fp32" if args.same_precision else ""}.json'
   destination.write_text(json.dumps(result, indent=2) + '\n')

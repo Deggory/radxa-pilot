@@ -10,7 +10,8 @@ import onnxruntime as ort
 
 from openpilot.selfdrive.modeld.npu.contracts import DERIVATIVE_SHA, REFERENCE_SHA, validate_road_manifest, verify_graphs
 from openpilot.selfdrive.modeld.npu.prepare_road_inputs import digest
-from openpilot.selfdrive.modeld.npu.prepare_graph import HEADS
+from openpilot.selfdrive.modeld.npu.contracts import HEADS
+from openpilot.selfdrive.modeld.npu.metrics import errors
 
 
 def options():
@@ -25,15 +26,6 @@ def initial_states(session):
   return {item.name: np.zeros(item.shape, types[item.type]) for item in session.get_inputs() if item.name.startswith('state_')}
 
 
-def errors(reference, actual):
-  if reference.shape != actual.shape or not np.isfinite(reference).all() or not np.isfinite(actual).all():
-    raise ValueError('nonfinite or mismatched output')
-  difference = actual.astype(np.float64) - reference.astype(np.float64)
-  scale = float(np.sqrt(np.mean(reference.astype(np.float64) ** 2)))
-  return {'bitwise_equal': reference.dtype == actual.dtype and reference.tobytes() == actual.tobytes(),
-          'mae': float(np.mean(np.abs(difference))), 'max_abs': float(np.max(np.abs(difference))),
-          'relative_rms': float(np.sqrt(np.mean(difference ** 2)) / scale) if scale > 1e-12 else None,
-          'outside_atol_0p01_rtol_0p01': int(np.sum(np.abs(difference) > .01 + .01 * np.abs(reference)))}
 
 
 def save_report(path, report):

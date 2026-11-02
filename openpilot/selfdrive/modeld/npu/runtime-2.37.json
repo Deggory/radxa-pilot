@@ -1,0 +1,32 @@
+{
+  "sdk": "2.37.1.250807",
+  "abi": "aarch64-ubuntu-gcc9.4 + hexagon-v68 unsigned skeleton",
+  "files": {
+    "libQnnHtp.so": {
+      "sha256": "e33be7a29d55d9f644cac2f8582cc775cb50ada603755a7dc42aa0f837c3d12e",
+      "bytes": 2366112
+    },
+    "libQnnHtpNetRunExtensions.so": {
+      "sha256": "0db52ebeb71d068548a4b5fb777c5130d1e1c28af03a4b38c4837dc88f13e050",
+      "bytes": 587728
+    },
+    "libQnnHtpV68Skel.so": {
+      "sha256": "96358d3be411b3681863a55d9aa33b3c474375ecc3de6af1890b1bbdcd6237ee",
+      "bytes": 8100444
+    },
+    "libQnnHtpV68Stub.so": {
+      "sha256": "d8ea1e8e06da5bcfe82f2390750eb8d0e1c48de2d447623ceae95557bdd1e216",
+      "bytes": 251840
+    },
+    "libQnnSystem.so": {
+      "sha256": "c256bb397bf920fcee7abf67d39f45c6a3115cb82884c4f624862e8324edbd8b",
+      "bytes": 4299512
+    },
+    "qnn-net-run": {
+      "sha256": "a4ff37e7e53f629b2e8fd070d9c9973c55e4967d32b47e47277b3973e772da8f",
+      "bytes": 6130560
+    }
+  },
+  "validation": "qnn-net-run --help exits0; read-only cdsp running; no new context or inference loaded",
+  "limits": "Private candidate bundle, not deployment or on-device neural validation. Historical unidentified System library not reused."
+}

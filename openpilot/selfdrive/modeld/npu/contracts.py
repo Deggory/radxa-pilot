@@ -7,6 +7,9 @@ from openpilot.selfdrive.modeld.npu.prepare_road_inputs import digest
 REFERENCE_SHA = 'da9506a64143b0bfd535db8901671170e385451c9f68790f29ebf1114f457b38'
 DERIVATIVE_SHA = 'eceadb809ada5462481cb343e643850e45c72cc4fdf55db0deb74b5718b9411d'
 SEMANTIC_SHA = '135d27f95df49447a8509dc0cd422e7bbf4359149a71d07c342f426fee88be3d'
+HEADS = ['lane_lines', 'lane_line_probs', 'road_edges', 'meta', 'desire_pred', 'pose', 'wide_from_device_euler',
+         'road_transform', 'plan', 'lead', 'lead_prob', 'desire_state', 'action', 'hidden_state', 'pad']
+SIZES = [528, 8, 264, 55, 32, 12, 6, 12, 990, 144, 3, 8, 4, 16384, 2]
 
 
 def validate_road_metadata(records):
@@ -70,6 +73,11 @@ def verify_calibration(input_list, research=False):
         any(r['packed']['max_abs'] != 0 or not r['packed'].get('bitwise_equal') for r in semantic)):
       raise ValueError('research requires exact same-precision graph comparisons')
     print(f'RESEARCH ONLY: retaining {failures} failed FP16 diagnostic values; no accuracy acceptance')
+  verify_native_inputs(input_list, report)
+
+
+def verify_native_inputs(input_list, report):
+  input_list = Path(input_list).resolve()
   if digest(input_list) != report.get('input_list_sha256'):
     raise ValueError('calibration input list changed')
   if len(input_list.read_text().splitlines()) != report['frames']:

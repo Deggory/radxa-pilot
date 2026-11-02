@@ -1,0 +1,1216 @@
+{
+  "reference_sha256": "da9506a64143b0bfd535db8901671170e385451c9f68790f29ebf1114f457b38",
+  "derivative_sha256": "eceadb809ada5462481cb343e643850e45c72cc4fdf55db0deb74b5718b9411d",
+  "input_list_sha256": "ffa0bd3f0f6185c79f2446611c20e52bff77b3f56e8c60f74fb07c1356aef7a1",
+  "start_frame": 500,
+  "frames": 200,
+  "elapsed_s": 395.5173668539992,
+  "road_manifest": "/home/pc/sunnypilot-npu-20261102/data/road700-v2/manifest.json",
+  "state_policy": "Fresh zero initialization once, then this FP16 release own state outputs; no historical model states.",
+  "limits": "FP16 reference diagnostics, not INT8 quality. Failed pre-warmup cases22/66 retained. Original FP32 graph independently matches rewritten FP32 bitwise for22/66.",
+  "comparisons": [
+    {
+      "index": 0,
+      "packed": {
+        "bitwise_equal": false,
+        "mae": 0.0009053378206805464,
+        "max_abs": 0.113037109375,
+        "relative_rms": 0.00024779898414103166,
+        "outside_atol_0p01_rtol_0p01": 0
+      },
+      "heads": {
+        "q8b_lane_lines": {
+          "bitwise_equal": false,
+          "mae": 0.0004691182438171271,
+          "max_abs": 0.0027942657470703125,
+          "relative_rms": 0.00023437774919603499,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_lane_line_probs": {
+          "bitwise_equal": false,
+          "mae": 0.0019810497760772705,
+          "max_abs": 0.0025196075439453125,
+          "relative_rms": 0.0003884085206715455,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_road_edges": {
+          "bitwise_equal": false,
+          "mae": 0.0007103808562863957,
+          "max_abs": 0.005145072937011719,
+          "relative_rms": 0.0002696268091096469,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_meta": {
+          "bitwise_equal": false,
+          "mae": 0.0009358091787858443,
+          "max_abs": 0.0025920867919921875,
+          "relative_rms": 0.00021947852144138844,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_desire_pred": {
+          "bitwise_equal": false,
+          "mae": 0.0011409632861614227,
+          "max_abs": 0.0038890838623046875,
+          "relative_rms": 0.00031655022594160334,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_pose": {
+          "bitwise_equal": false,
+          "mae": 0.0011778270539556008,
+          "max_abs": 0.00812530517578125,
+          "relative_rms": 0.00029769219806872625,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_wide_from_device_euler": {
+          "bitwise_equal": false,
+          "mae": 0.00045873134975712065,
+          "max_abs": 0.0012507438659667969,
+          "relative_rms": 0.00015940567281497457,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_road_transform": {
+          "bitwise_equal": false,
+          "mae": 0.0007496727653422871,
+          "max_abs": 0.002277851104736328,
+          "relative_rms": 0.00026786842821617464,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_plan": {
+          "bitwise_equal": false,
+          "mae": 0.0009535135542746136,
+          "max_abs": 0.0568389892578125,
+          "relative_rms": 0.00018478093058626379,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_lead": {
+          "bitwise_equal": false,
+          "mae": 0.0061527581613821285,
+          "max_abs": 0.113037109375,
+          "relative_rms": 0.00022369489791241494,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_lead_prob": {
+          "bitwise_equal": false,
+          "mae": 0.0029228528340657554,
+          "max_abs": 0.0037708282470703125,
+          "relative_rms": 0.0013162199881154638,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_desire_state": {
+          "bitwise_equal": false,
+          "mae": 0.002931922674179077,
+          "max_abs": 0.006465911865234375,
+          "relative_rms": 0.0002570886272278989,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_action": {
+          "bitwise_equal": false,
+          "mae": 0.000240192748606205,
+          "max_abs": 0.00046753883361816406,
+          "relative_rms": 0.00019871713643594666,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_hidden_state": {
+          "bitwise_equal": false,
+          "mae": 0.0008714103435920606,
+          "max_abs": 0.0095367431640625,
+          "relative_rms": 0.0007251575867524252,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_pad": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": null,
+          "outside_atol_0p01_rtol_0p01": 0
+        }
+      }
+    },
+    {
+      "index": 22,
+      "packed": {
+        "bitwise_equal": false,
+        "mae": 0.0016537221226599827,
+        "max_abs": 0.13922119140625,
+        "relative_rms": 0.0003386044158743407,
+        "outside_atol_0p01_rtol_0p01": 94
+      },
+      "heads": {
+        "q8b_lane_lines": {
+          "bitwise_equal": false,
+          "mae": 0.0007166981019757011,
+          "max_abs": 0.0037870407104492188,
+          "relative_rms": 0.0003347521730518385,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_lane_line_probs": {
+          "bitwise_equal": false,
+          "mae": 0.0018488690257072449,
+          "max_abs": 0.004014015197753906,
+          "relative_rms": 0.00041859528325412687,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_road_edges": {
+          "bitwise_equal": false,
+          "mae": 0.0012620205454754107,
+          "max_abs": 0.006276130676269531,
+          "relative_rms": 0.00038774031961760004,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_meta": {
+          "bitwise_equal": false,
+          "mae": 0.0013672969558022239,
+          "max_abs": 0.004638195037841797,
+          "relative_rms": 0.00031841549977984306,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_desire_pred": {
+          "bitwise_equal": false,
+          "mae": 0.001453060656785965,
+          "max_abs": 0.0039653778076171875,
+          "relative_rms": 0.00038607919773127005,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_pose": {
+          "bitwise_equal": false,
+          "mae": 0.000983783354361852,
+          "max_abs": 0.00421142578125,
+          "relative_rms": 0.00018703214539775545,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_wide_from_device_euler": {
+          "bitwise_equal": false,
+          "mae": 0.0007168769223729518,
+          "max_abs": 0.0024809837341308594,
+          "relative_rms": 0.00024722556032489315,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_road_transform": {
+          "bitwise_equal": false,
+          "mae": 0.0006890655757085066,
+          "max_abs": 0.0051784515380859375,
+          "relative_rms": 0.00034310653840452103,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_plan": {
+          "bitwise_equal": false,
+          "mae": 0.0011884370404586094,
+          "max_abs": 0.128753662109375,
+          "relative_rms": 0.0002129380233552242,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_lead": {
+          "bitwise_equal": false,
+          "mae": 0.007718630416396384,
+          "max_abs": 0.13922119140625,
+          "relative_rms": 0.00022765967685223283,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_lead_prob": {
+          "bitwise_equal": false,
+          "mae": 0.0017388661702473958,
+          "max_abs": 0.002925872802734375,
+          "relative_rms": 0.0006437580657276631,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_desire_state": {
+          "bitwise_equal": false,
+          "mae": 0.002692878246307373,
+          "max_abs": 0.0069427490234375,
+          "relative_rms": 0.00020002446544021635,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_action": {
+          "bitwise_equal": false,
+          "mae": 0.0006674174219369888,
+          "max_abs": 0.0018835067749023438,
+          "relative_rms": 0.0008597555632869502,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_hidden_state": {
+          "bitwise_equal": false,
+          "mae": 0.0016677587992433018,
+          "max_abs": 0.051175594329833984,
+          "relative_rms": 0.0019507429947683275,
+          "outside_atol_0p01_rtol_0p01": 94
+        },
+        "q8b_pad": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": null,
+          "outside_atol_0p01_rtol_0p01": 0
+        }
+      }
+    },
+    {
+      "index": 44,
+      "packed": {
+        "bitwise_equal": false,
+        "mae": 0.0008102178314131852,
+        "max_abs": 0.101409912109375,
+        "relative_rms": 0.00019786870085116098,
+        "outside_atol_0p01_rtol_0p01": 0
+      },
+      "heads": {
+        "q8b_lane_lines": {
+          "bitwise_equal": false,
+          "mae": 0.0005100392030947136,
+          "max_abs": 0.001990795135498047,
+          "relative_rms": 0.00023406689655544315,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_lane_line_probs": {
+          "bitwise_equal": false,
+          "mae": 0.0008010417222976685,
+          "max_abs": 0.0015683174133300781,
+          "relative_rms": 0.00019952023000077425,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_road_edges": {
+          "bitwise_equal": false,
+          "mae": 0.0006698257092273597,
+          "max_abs": 0.004420280456542969,
+          "relative_rms": 0.0002320393847443116,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_meta": {
+          "bitwise_equal": false,
+          "mae": 0.0008755066178061746,
+          "max_abs": 0.0028095245361328125,
+          "relative_rms": 0.0002143287830259765,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_desire_pred": {
+          "bitwise_equal": false,
+          "mae": 0.0009053107351064682,
+          "max_abs": 0.00286102294921875,
+          "relative_rms": 0.00024022931015341438,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_pose": {
+          "bitwise_equal": false,
+          "mae": 0.0008553915734713277,
+          "max_abs": 0.005344390869140625,
+          "relative_rms": 0.00017557857491607557,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_wide_from_device_euler": {
+          "bitwise_equal": false,
+          "mae": 0.0005391524150581972,
+          "max_abs": 0.0017957687377929688,
+          "relative_rms": 0.0001855252652872344,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_road_transform": {
+          "bitwise_equal": false,
+          "mae": 0.0004769234928971855,
+          "max_abs": 0.0017485618591308594,
+          "relative_rms": 0.00017641990947910122,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_plan": {
+          "bitwise_equal": false,
+          "mae": 0.0012813179345518312,
+          "max_abs": 0.0786895751953125,
+          "relative_rms": 0.00021564587964761458,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_lead": {
+          "bitwise_equal": false,
+          "mae": 0.005522440384892333,
+          "max_abs": 0.101409912109375,
+          "relative_rms": 0.00015297085193368304,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_lead_prob": {
+          "bitwise_equal": false,
+          "mae": 0.0013113021850585938,
+          "max_abs": 0.0020215511322021484,
+          "relative_rms": 0.000657011127025136,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_desire_state": {
+          "bitwise_equal": false,
+          "mae": 0.0032838284969329834,
+          "max_abs": 0.00830841064453125,
+          "relative_rms": 0.0002633397881598152,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_action": {
+          "bitwise_equal": false,
+          "mae": 4.380755126476288e-05,
+          "max_abs": 0.0001481771469116211,
+          "relative_rms": 5.5185995728098066e-05,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_hidden_state": {
+          "bitwise_equal": false,
+          "mae": 0.0007511679056904086,
+          "max_abs": 0.011696338653564453,
+          "relative_rms": 0.000677331276453821,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_pad": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": null,
+          "outside_atol_0p01_rtol_0p01": 0
+        }
+      }
+    },
+    {
+      "index": 66,
+      "packed": {
+        "bitwise_equal": false,
+        "mae": 0.001068031675229552,
+        "max_abs": 0.13775634765625,
+        "relative_rms": 0.0002702088206167494,
+        "outside_atol_0p01_rtol_0p01": 2
+      },
+      "heads": {
+        "q8b_lane_lines": {
+          "bitwise_equal": false,
+          "mae": 0.0005706948312846097,
+          "max_abs": 0.0030546188354492188,
+          "relative_rms": 0.0002746311372851963,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_lane_line_probs": {
+          "bitwise_equal": false,
+          "mae": 0.0015934444963932037,
+          "max_abs": 0.0029952824115753174,
+          "relative_rms": 0.00035926899265945435,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_road_edges": {
+          "bitwise_equal": false,
+          "mae": 0.0007861411819855372,
+          "max_abs": 0.005616188049316406,
+          "relative_rms": 0.0002806404868337756,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_meta": {
+          "bitwise_equal": false,
+          "mae": 0.0014533904465762052,
+          "max_abs": 0.004584312438964844,
+          "relative_rms": 0.0003353514373291662,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_desire_pred": {
+          "bitwise_equal": false,
+          "mae": 0.0007412489503622055,
+          "max_abs": 0.00231170654296875,
+          "relative_rms": 0.0002137334961015663,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_pose": {
+          "bitwise_equal": false,
+          "mae": 0.0010957635240629315,
+          "max_abs": 0.003726959228515625,
+          "relative_rms": 0.000169559201475826,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_wide_from_device_euler": {
+          "bitwise_equal": false,
+          "mae": 0.000576286810428428,
+          "max_abs": 0.0015549659729003906,
+          "relative_rms": 0.00018824742643053973,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_road_transform": {
+          "bitwise_equal": false,
+          "mae": 0.0009760513138038126,
+          "max_abs": 0.0031633377075195312,
+          "relative_rms": 0.0003171730144010742,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_plan": {
+          "bitwise_equal": false,
+          "mae": 0.00135287324647255,
+          "max_abs": 0.124481201171875,
+          "relative_rms": 0.0002615264271489786,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_lead": {
+          "bitwise_equal": false,
+          "mae": 0.007875838557487845,
+          "max_abs": 0.13775634765625,
+          "relative_rms": 0.00022703858999045177,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_lead_prob": {
+          "bitwise_equal": false,
+          "mae": 0.001157999038696289,
+          "max_abs": 0.002019166946411133,
+          "relative_rms": 0.00039434671269082997,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_desire_state": {
+          "bitwise_equal": false,
+          "mae": 0.003387928009033203,
+          "max_abs": 0.009113311767578125,
+          "relative_rms": 0.00028643688475586394,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_action": {
+          "bitwise_equal": false,
+          "mae": 0.00018006935715675354,
+          "max_abs": 0.00042366981506347656,
+          "relative_rms": 0.00016042426548376916,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_hidden_state": {
+          "bitwise_equal": false,
+          "mae": 0.001010068717505419,
+          "max_abs": 0.015101492404937744,
+          "relative_rms": 0.0009839225902500085,
+          "outside_atol_0p01_rtol_0p01": 2
+        },
+        "q8b_pad": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": null,
+          "outside_atol_0p01_rtol_0p01": 0
+        }
+      }
+    },
+    {
+      "index": 88,
+      "packed": {
+        "bitwise_equal": false,
+        "mae": 0.0008616697105381615,
+        "max_abs": 0.176239013671875,
+        "relative_rms": 0.0003144846720784148,
+        "outside_atol_0p01_rtol_0p01": 0
+      },
+      "heads": {
+        "q8b_lane_lines": {
+          "bitwise_equal": false,
+          "mae": 0.0005357593975283883,
+          "max_abs": 0.0024580955505371094,
+          "relative_rms": 0.00024758819359085036,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_lane_line_probs": {
+          "bitwise_equal": false,
+          "mae": 0.00179387629032135,
+          "max_abs": 0.004395008087158203,
+          "relative_rms": 0.000409193062098459,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_road_edges": {
+          "bitwise_equal": false,
+          "mae": 0.000830287988664526,
+          "max_abs": 0.004328727722167969,
+          "relative_rms": 0.0002510423026370697,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_meta": {
+          "bitwise_equal": false,
+          "mae": 0.0011857487938620828,
+          "max_abs": 0.0050449371337890625,
+          "relative_rms": 0.0002702047298496726,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_desire_pred": {
+          "bitwise_equal": false,
+          "mae": 0.0010265447199344635,
+          "max_abs": 0.004687309265136719,
+          "relative_rms": 0.0003289334803851414,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_pose": {
+          "bitwise_equal": false,
+          "mae": 0.0006498543322474385,
+          "max_abs": 0.003337860107421875,
+          "relative_rms": 0.00011613252937281954,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_wide_from_device_euler": {
+          "bitwise_equal": false,
+          "mae": 0.000523637419064471,
+          "max_abs": 0.0023446083068847656,
+          "relative_rms": 0.0002169996915436818,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_road_transform": {
+          "bitwise_equal": false,
+          "mae": 0.0004881692537613465,
+          "max_abs": 0.0018186569213867188,
+          "relative_rms": 0.0001708745303314382,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_plan": {
+          "bitwise_equal": false,
+          "mae": 0.0022206778527063004,
+          "max_abs": 0.176239013671875,
+          "relative_rms": 0.00040258278877008187,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_lead": {
+          "bitwise_equal": false,
+          "mae": 0.009190513623050518,
+          "max_abs": 0.12506103515625,
+          "relative_rms": 0.00024279130880112135,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_lead_prob": {
+          "bitwise_equal": false,
+          "mae": 0.0018739700317382812,
+          "max_abs": 0.002777099609375,
+          "relative_rms": 0.00042281461444041986,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_desire_state": {
+          "bitwise_equal": false,
+          "mae": 0.004174351692199707,
+          "max_abs": 0.00942230224609375,
+          "relative_rms": 0.00034811129748959753,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_action": {
+          "bitwise_equal": false,
+          "mae": 0.00012762472033500671,
+          "max_abs": 0.00037097930908203125,
+          "relative_rms": 0.0001245936438683307,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_hidden_state": {
+          "bitwise_equal": false,
+          "mae": 0.0007145267039163627,
+          "max_abs": 0.01080322265625,
+          "relative_rms": 0.0006585660456296788,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_pad": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": null,
+          "outside_atol_0p01_rtol_0p01": 0
+        }
+      }
+    },
+    {
+      "index": 110,
+      "packed": {
+        "bitwise_equal": false,
+        "mae": 0.000818777711587558,
+        "max_abs": 0.117095947265625,
+        "relative_rms": 0.0002593115713324501,
+        "outside_atol_0p01_rtol_0p01": 0
+      },
+      "heads": {
+        "q8b_lane_lines": {
+          "bitwise_equal": false,
+          "mae": 0.0005600240194436276,
+          "max_abs": 0.00247955322265625,
+          "relative_rms": 0.00026249115099246723,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_lane_line_probs": {
+          "bitwise_equal": false,
+          "mae": 0.0020594149827957153,
+          "max_abs": 0.004718780517578125,
+          "relative_rms": 0.00044772159467583824,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_road_edges": {
+          "bitwise_equal": false,
+          "mae": 0.0008977489037947221,
+          "max_abs": 0.0055027008056640625,
+          "relative_rms": 0.00028955994194238775,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_meta": {
+          "bitwise_equal": false,
+          "mae": 0.001002944599498402,
+          "max_abs": 0.0041656494140625,
+          "relative_rms": 0.00023200314361321902,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_desire_pred": {
+          "bitwise_equal": false,
+          "mae": 0.0011232085525989532,
+          "max_abs": 0.0036306381225585938,
+          "relative_rms": 0.00027173732067941556,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_pose": {
+          "bitwise_equal": false,
+          "mae": 0.0008584062452428043,
+          "max_abs": 0.00479888916015625,
+          "relative_rms": 0.00016051911415151547,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_wide_from_device_euler": {
+          "bitwise_equal": false,
+          "mae": 0.0006873513069270606,
+          "max_abs": 0.0023050308227539062,
+          "relative_rms": 0.0002449947778347065,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_road_transform": {
+          "bitwise_equal": false,
+          "mae": 0.0005852968037819058,
+          "max_abs": 0.0026731491088867188,
+          "relative_rms": 0.0002319628777329379,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_plan": {
+          "bitwise_equal": false,
+          "mae": 0.0015246845573299718,
+          "max_abs": 0.1011962890625,
+          "relative_rms": 0.00025905662030661084,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_lead": {
+          "bitwise_equal": false,
+          "mae": 0.008376433828339537,
+          "max_abs": 0.117095947265625,
+          "relative_rms": 0.00024110599982945973,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_lead_prob": {
+          "bitwise_equal": false,
+          "mae": 0.0024897257486979165,
+          "max_abs": 0.004775047302246094,
+          "relative_rms": 0.0005013768602955188,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_desire_state": {
+          "bitwise_equal": false,
+          "mae": 0.0022948384284973145,
+          "max_abs": 0.0053195953369140625,
+          "relative_rms": 0.00018264075502433017,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_action": {
+          "bitwise_equal": false,
+          "mae": 0.00011292658746242523,
+          "max_abs": 0.0003287792205810547,
+          "relative_rms": 8.87215065171462e-05,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_hidden_state": {
+          "bitwise_equal": false,
+          "mae": 0.0007143820603232598,
+          "max_abs": 0.008104920387268066,
+          "relative_rms": 0.0006626435142050765,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_pad": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": null,
+          "outside_atol_0p01_rtol_0p01": 0
+        }
+      }
+    },
+    {
+      "index": 132,
+      "packed": {
+        "bitwise_equal": false,
+        "mae": 0.0008469976984372825,
+        "max_abs": 0.155517578125,
+        "relative_rms": 0.0002523269624109183,
+        "outside_atol_0p01_rtol_0p01": 0
+      },
+      "heads": {
+        "q8b_lane_lines": {
+          "bitwise_equal": false,
+          "mae": 0.0005725166111281424,
+          "max_abs": 0.002239704132080078,
+          "relative_rms": 0.00025197249969844635,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_lane_line_probs": {
+          "bitwise_equal": false,
+          "mae": 0.0022988319396972656,
+          "max_abs": 0.0039424896240234375,
+          "relative_rms": 0.00045467917609440077,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_road_edges": {
+          "bitwise_equal": false,
+          "mae": 0.0008384597798188528,
+          "max_abs": 0.004790306091308594,
+          "relative_rms": 0.0002501993689033992,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_meta": {
+          "bitwise_equal": false,
+          "mae": 0.0013204791329123756,
+          "max_abs": 0.0037326812744140625,
+          "relative_rms": 0.0002712187514113756,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_desire_pred": {
+          "bitwise_equal": false,
+          "mae": 0.0008926093578338623,
+          "max_abs": 0.0038051605224609375,
+          "relative_rms": 0.00026205599337402494,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_pose": {
+          "bitwise_equal": false,
+          "mae": 0.0009525558574144574,
+          "max_abs": 0.007366180419921875,
+          "relative_rms": 0.000224779641584443,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_wide_from_device_euler": {
+          "bitwise_equal": false,
+          "mae": 0.0005266689049676643,
+          "max_abs": 0.0012836456298828125,
+          "relative_rms": 0.00016610081828095856,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_road_transform": {
+          "bitwise_equal": false,
+          "mae": 0.0005532674440094828,
+          "max_abs": 0.001983642578125,
+          "relative_rms": 0.00019337444630799177,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_plan": {
+          "bitwise_equal": false,
+          "mae": 0.0013940553469939153,
+          "max_abs": 0.088531494140625,
+          "relative_rms": 0.0002266693640314032,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_lead": {
+          "bitwise_equal": false,
+          "mae": 0.008051975556655735,
+          "max_abs": 0.155517578125,
+          "relative_rms": 0.00024298182745120537,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_lead_prob": {
+          "bitwise_equal": false,
+          "mae": 0.0046990712483723955,
+          "max_abs": 0.0067005157470703125,
+          "relative_rms": 0.0008066741555049302,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_desire_state": {
+          "bitwise_equal": false,
+          "mae": 0.0020378828048706055,
+          "max_abs": 0.0045337677001953125,
+          "relative_rms": 0.0001769049093107942,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_action": {
+          "bitwise_equal": false,
+          "mae": 0.00014963839203119278,
+          "max_abs": 0.0003707408905029297,
+          "relative_rms": 0.00010876950191903272,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_hidden_state": {
+          "bitwise_equal": false,
+          "mae": 0.0007564545211948825,
+          "max_abs": 0.01055908203125,
+          "relative_rms": 0.0006952658899116207,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_pad": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": null,
+          "outside_atol_0p01_rtol_0p01": 0
+        }
+      }
+    },
+    {
+      "index": 154,
+      "packed": {
+        "bitwise_equal": false,
+        "mae": 0.0008276751492755878,
+        "max_abs": 0.126129150390625,
+        "relative_rms": 0.00022465709455517935,
+        "outside_atol_0p01_rtol_0p01": 0
+      },
+      "heads": {
+        "q8b_lane_lines": {
+          "bitwise_equal": false,
+          "mae": 0.000465813008221713,
+          "max_abs": 0.0022916793823242188,
+          "relative_rms": 0.00021379011170115153,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_lane_line_probs": {
+          "bitwise_equal": false,
+          "mae": 0.0023596882820129395,
+          "max_abs": 0.0037937164306640625,
+          "relative_rms": 0.0005152289156315887,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_road_edges": {
+          "bitwise_equal": false,
+          "mae": 0.0006485697107784675,
+          "max_abs": 0.004360198974609375,
+          "relative_rms": 0.0002096090030757152,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_meta": {
+          "bitwise_equal": false,
+          "mae": 0.001084392721002752,
+          "max_abs": 0.0037212371826171875,
+          "relative_rms": 0.00022886867183756105,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_desire_pred": {
+          "bitwise_equal": false,
+          "mae": 0.0008797943592071533,
+          "max_abs": 0.00318145751953125,
+          "relative_rms": 0.00023314840955751146,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_pose": {
+          "bitwise_equal": false,
+          "mae": 0.0008516122628255592,
+          "max_abs": 0.005275726318359375,
+          "relative_rms": 0.00017002391726914814,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_wide_from_device_euler": {
+          "bitwise_equal": false,
+          "mae": 0.0005836654033070469,
+          "max_abs": 0.001739501953125,
+          "relative_rms": 0.00018874655247376403,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_road_transform": {
+          "bitwise_equal": false,
+          "mae": 0.0003673709058678772,
+          "max_abs": 0.0016579627990722656,
+          "relative_rms": 0.0001446174264714505,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_plan": {
+          "bitwise_equal": false,
+          "mae": 0.0013863761507608905,
+          "max_abs": 0.126129150390625,
+          "relative_rms": 0.00024778951469703943,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_lead": {
+          "bitwise_equal": false,
+          "mae": 0.006032612275804341,
+          "max_abs": 0.125518798828125,
+          "relative_rms": 0.0001811431115552448,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_lead_prob": {
+          "bitwise_equal": false,
+          "mae": 0.003451188405354818,
+          "max_abs": 0.004524707794189453,
+          "relative_rms": 0.0005782295047443352,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_desire_state": {
+          "bitwise_equal": false,
+          "mae": 0.0020836591720581055,
+          "max_abs": 0.004726409912109375,
+          "relative_rms": 0.00017110295771084822,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_action": {
+          "bitwise_equal": false,
+          "mae": 0.0009163273498415947,
+          "max_abs": 0.0022516250610351562,
+          "relative_rms": 0.0007025575020715362,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_hidden_state": {
+          "bitwise_equal": false,
+          "mae": 0.0007603998511740429,
+          "max_abs": 0.01535797119140625,
+          "relative_rms": 0.0007440473422277276,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_pad": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": null,
+          "outside_atol_0p01_rtol_0p01": 0
+        }
+      }
+    },
+    {
+      "index": 176,
+      "packed": {
+        "bitwise_equal": false,
+        "mae": 0.0010049266589290855,
+        "max_abs": 0.130859375,
+        "relative_rms": 0.0002493324409453373,
+        "outside_atol_0p01_rtol_0p01": 0
+      },
+      "heads": {
+        "q8b_lane_lines": {
+          "bitwise_equal": false,
+          "mae": 0.000582928176630627,
+          "max_abs": 0.003154277801513672,
+          "relative_rms": 0.00030212211242708245,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_lane_line_probs": {
+          "bitwise_equal": false,
+          "mae": 0.0029351115226745605,
+          "max_abs": 0.005071163177490234,
+          "relative_rms": 0.0006726960002418698,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_road_edges": {
+          "bitwise_equal": false,
+          "mae": 0.0006693018543900865,
+          "max_abs": 0.0053730010986328125,
+          "relative_rms": 0.00023464383267240228,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_meta": {
+          "bitwise_equal": false,
+          "mae": 0.001270891319621693,
+          "max_abs": 0.004002571105957031,
+          "relative_rms": 0.0002776555586228293,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_desire_pred": {
+          "bitwise_equal": false,
+          "mae": 0.0009855125099420547,
+          "max_abs": 0.0030498504638671875,
+          "relative_rms": 0.0002474906096139754,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_pose": {
+          "bitwise_equal": false,
+          "mae": 0.0004196735402122916,
+          "max_abs": 0.0014271736145019531,
+          "relative_rms": 6.949282365165932e-05,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_wide_from_device_euler": {
+          "bitwise_equal": false,
+          "mae": 0.0004171555481965091,
+          "max_abs": 0.0013957023620605469,
+          "relative_rms": 0.00014846224680384055,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_road_transform": {
+          "bitwise_equal": false,
+          "mae": 0.0006176140722497318,
+          "max_abs": 0.003284454345703125,
+          "relative_rms": 0.00025446958994664243,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_plan": {
+          "bitwise_equal": false,
+          "mae": 0.0014129777121550462,
+          "max_abs": 0.130859375,
+          "relative_rms": 0.0002820267257336023,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_lead": {
+          "bitwise_equal": false,
+          "mae": 0.00655542352938533,
+          "max_abs": 0.124053955078125,
+          "relative_rms": 0.00018484487251361584,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_lead_prob": {
+          "bitwise_equal": false,
+          "mae": 0.0017382303873697917,
+          "max_abs": 0.0033316612243652344,
+          "relative_rms": 0.00037905529486724206,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_desire_state": {
+          "bitwise_equal": false,
+          "mae": 0.0025305747985839844,
+          "max_abs": 0.007472991943359375,
+          "relative_rms": 0.00025213694823742356,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_action": {
+          "bitwise_equal": false,
+          "mae": 0.0004798322916030884,
+          "max_abs": 0.0015735626220703125,
+          "relative_rms": 0.0004684630637565078,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_hidden_state": {
+          "bitwise_equal": false,
+          "mae": 0.0009489960145288023,
+          "max_abs": 0.011947870254516602,
+          "relative_rms": 0.0008612155241442759,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_pad": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": null,
+          "outside_atol_0p01_rtol_0p01": 0
+        }
+      }
+    },
+    {
+      "index": 199,
+      "packed": {
+        "bitwise_equal": false,
+        "mae": 0.0007371401889868229,
+        "max_abs": 0.13592529296875,
+        "relative_rms": 0.00020261221247863293,
+        "outside_atol_0p01_rtol_0p01": 0
+      },
+      "heads": {
+        "q8b_lane_lines": {
+          "bitwise_equal": false,
+          "mae": 0.0005786623241323414,
+          "max_abs": 0.0020771026611328125,
+          "relative_rms": 0.0002695316287986998,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_lane_line_probs": {
+          "bitwise_equal": false,
+          "mae": 0.0010690093040466309,
+          "max_abs": 0.0026416778564453125,
+          "relative_rms": 0.00024711010251296116,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_road_edges": {
+          "bitwise_equal": false,
+          "mae": 0.0007791874760931188,
+          "max_abs": 0.004738807678222656,
+          "relative_rms": 0.00023895537312731258,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_meta": {
+          "bitwise_equal": false,
+          "mae": 0.0013268254019997336,
+          "max_abs": 0.004117012023925781,
+          "relative_rms": 0.00028281752394686017,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_desire_pred": {
+          "bitwise_equal": false,
+          "mae": 0.0010234285145998001,
+          "max_abs": 0.0027403831481933594,
+          "relative_rms": 0.0002559358580903712,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_pose": {
+          "bitwise_equal": false,
+          "mae": 0.0005323855245175461,
+          "max_abs": 0.0030803680419921875,
+          "relative_rms": 0.0001065762074577186,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_wide_from_device_euler": {
+          "bitwise_equal": false,
+          "mae": 0.000534315001914365,
+          "max_abs": 0.0019130706787109375,
+          "relative_rms": 0.00019164748872415533,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_road_transform": {
+          "bitwise_equal": false,
+          "mae": 0.0004872284583446647,
+          "max_abs": 0.0019197463989257812,
+          "relative_rms": 0.00018841927152169586,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_plan": {
+          "bitwise_equal": false,
+          "mae": 0.0013879139868676305,
+          "max_abs": 0.0825347900390625,
+          "relative_rms": 0.00022203750252627733,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_lead": {
+          "bitwise_equal": false,
+          "mae": 0.005510625468256573,
+          "max_abs": 0.13592529296875,
+          "relative_rms": 0.00016615247557296155,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_lead_prob": {
+          "bitwise_equal": false,
+          "mae": 0.0015714963277180989,
+          "max_abs": 0.0022253990173339844,
+          "relative_rms": 0.0004222905501388182,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_desire_state": {
+          "bitwise_equal": false,
+          "mae": 0.006255626678466797,
+          "max_abs": 0.015096664428710938,
+          "relative_rms": 0.0006133797955321925,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_action": {
+          "bitwise_equal": false,
+          "mae": 0.0002570394426584244,
+          "max_abs": 0.0005896091461181641,
+          "relative_rms": 0.00019822520252141273,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_hidden_state": {
+          "bitwise_equal": false,
+          "mae": 0.0006553589202837884,
+          "max_abs": 0.009529829025268555,
+          "relative_rms": 0.0006414832367219695,
+          "outside_atol_0p01_rtol_0p01": 0
+        },
+        "q8b_pad": {
+          "bitwise_equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "relative_rms": null,
+          "outside_atol_0p01_rtol_0p01": 0
+        }
+      }
+    }
+  ],
+  "native_file_count": 1200,
+  "golden_output_count": 200,
+  "strict_fp16_gate": "fail",
+  "outside_fp16_tolerance": 96,
+  "calibration_disjoint": "source indices500-699; new zero states;132warmup then68eval",
+  "local_staging": {
+    "source_receipt_sha256": "3d98afcfc06e0fc0c9abbd37046af20c5c8277da5074800fbc7b524aa9fead56",
+    "source_input_list_sha256": "ffa0bd3f0f6185c79f2446611c20e52bff77b3f56e8c60f74fb07c1356aef7a1",
+    "original_root": "/home/pc/sunnypilot-npu-20261102/data/heldout200-v2",
+    "native_and_golden_hashes_preserved": true
+  },
+  "same_precision_cases": [
+    {
+      "index": 22,
+      "packed": {
+        "bitwise_equal": true,
+        "mae": 0.0,
+        "max_abs": 0.0,
+        "relative_rms": 0.0,
+        "outside_atol_0p01_rtol_0p01": 0
+      }
+    },
+    {
+      "index": 66,
+      "packed": {
+        "bitwise_equal": true,
+        "mae": 0.0,
+        "max_abs": 0.0,
+        "relative_rms": 0.0,
+        "outside_atol_0p01_rtol_0p01": 0
+      }
+    }
+  ]
+}
