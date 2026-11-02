@@ -1,5 +1,18 @@
 # Current Sunnypilot state
 
+## 2026-11-02 — Big model NPU feasibility reviewed
+
+Bundled big Tinygrad artifact targets Chestnut/AMD, not direct QNN loading.
+Fresh static opcode/hash inspection:799941965bytes,SHA256d4c7a3fc, no unpickling.
+Teacher already has separate historical big-model W8A16 QNN2.37/v68 conversion:
+Oct31 short replay38.196ms graph/41.515ms host medians, excluding camera;
+bitwise quantized-baseline parity does not resolve floating-reference accuracy.
+Identity of that6fee5937 ONNX versus bundled Mountain Dew v3 is unestablished.
+First NPU research step is graph/weights/state identity comparison; do not
+recompile/retest or promote historical timings as current Sunny performance.
+CD210/Adreno remains recommended next integration; no backend changes started.
+Camera optimisation remains deferred. See [NPU review](Sessions/2026-11-02-big-model-npu.md).
+
 ## 2026-11-02 — Model identity recovered: CD210 default
 
 Bundled driving_supercombo.onnx is labelled CD210 with ref5b6436a90cf6902b8aaa71c2b6f3d7164d8ae391.

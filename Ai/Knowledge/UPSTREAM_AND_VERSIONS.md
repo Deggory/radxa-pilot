@@ -1,5 +1,15 @@
 # Source identity and update workflow
 
+## 2026-11-02 — Big Tinygrad is an AMD artifact; historical NPU path exists
+
+Bundled big pickle799941965bytes/SHA256d4c7a3fc; bounded opcode inspection
+confirms Tinygrad/AMD/LLVM, and helpers selects USB+AMD:LLVM for Chestnut.
+Teacher historical big ONNX6fee5937 already runs as QNN2.37/v68 W8A16 context;
+Oct31 graph38.196ms/host41.515ms medians exclude camera. Graph/weights identity
+to this Mountain Dew v3 artifact is not established; quantized parity is not
+floating-reference accuracy. No current Sunny NPU integration or inference.
+See [detailed review and pins](../Sessions/2026-11-02-big-model-npu.md).
+
 ## 2026-11-02 — Bundled driving model identified as CD210
 
 Configured default:CD210, ref5b6436a90cf6902b8aaa71c2b6f3d7164d8ae391,

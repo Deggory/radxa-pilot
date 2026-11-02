@@ -30,3 +30,8 @@ These remain open; the notebook must not silently fill them in.
 
 Use [coverage](Knowledge/COVERAGE.md) and the
 [workspace question log](/home/radxa/comma/Ai/QUESTION_LOG.md) for related evidence.
+
+2026-11-02 — Open evidence question (no owner answer needed yet): does bundled
+Mountain Dew v3/1e219d77 match historical big ONNX6fee5937 graph and weights?
+Compare retained source/export/contracts first; NPU38.196ms timing cannot be
+assigned to bundled pickle before that. [Review](Sessions/2026-11-02-big-model-npu.md).

@@ -192,3 +192,8 @@ model/GPU/managed run or measured geometry claim. Weights65a08adc unchanged.
 Owner selected printable target/tool; that next increment is in progress and
 calibration guard stays active. New unstaged test_calibration.py is expected
 RED until tool implementation; do not mistake it for a failure of this slice.
+
+2026-11-02 — Inspected big pickle statically, recovered teacher's actual big NPU
+conversion/timing and separated it from small W8A8 failure. Model identity and
+floating-reference accuracy remain open; no runtime change.
+[Review](Sessions/2026-11-02-big-model-npu.md).
