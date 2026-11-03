@@ -1,3 +1,7 @@
+## 2026-11-03 — BeamNG optical webcam + Waveshare/Chimera CAN design
+
+Created [BeamNG PC/Radxa folders and CAN plan](openpilot/tools/sim/beamng/README.md) for a physical webcam watching the PC monitor, state/commands through Waveshare and Chimera, and later bench actuators. Replaced the old network-image proposal in current guides. This is a documented architecture; the CAN/Chimera runtime remains pending.
+
 ## 2026-11-02 — BeamNG reference audited
 
 Reference bundle expanded to96verified upstream files. Fixed our verifier and

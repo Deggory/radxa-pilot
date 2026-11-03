@@ -222,3 +222,7 @@ native-input hashes and independently replayed recurrent provenance. This is
 permission for quantization research, not model/vehicle acceptance. QAIRT2.37
 PTQ uses generic HTP because SC8280XP/SC8280X strings are rejected; context
 compilation must separately establish target v68/SoC37 support.
+
+## 2026-11-03 — BeamNG optical webcam + Waveshare/Chimera CAN design
+
+Use optical monitor capture on Radxa and physical CAN through Waveshare/Chimera for the simulator. This owner-selected architecture supersedes the prior network-image plan. Keep final controller CAN in the test path; stage physical bench actuation later. DBC additions must be canonical/versioned, and physical feedback authority remains unresolved.

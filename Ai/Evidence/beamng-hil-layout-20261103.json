@@ -1,0 +1,89 @@
+{
+  "date": "2026-11-03",
+  "scope": "BeamNG optical camera + Waveshare/Chimera CAN architecture and PC/Radxa folder documentation",
+  "result": "pass",
+  "base_commit": "81d021e30ee4626c43db2e971ed6810016015410",
+  "branch": "radxa/q8b",
+  "reference_commit": "5435d67499f66eca58f95882cbe35e9c577e874c",
+  "canonical_dbc_upstream_commit": "6b90fafe59e81822bfae58e4ecb080248e9de40d",
+  "canonical_dbc_sha256": "ef6eef74021a00183729b53ba90f1c790792cfe5dcf72fe9bdfe2dcb3d6a5dce",
+  "checks": [
+    {
+      "command": ".venv/bin/python Ai/verify_memory.py --workspace /home/radxa/comma",
+      "exit_code": 0,
+      "output": "{\n  \"result\": \"pass\",\n  \"memory_layout\": \"regular project directory\",\n  \"documents\": 67,\n  \"relative_links\": 215,\n  \"optional_workspace_links\": 238,\n  \"source_repositories\": 8,\n  \"indexed_entries\": 4252\n}\n"
+    },
+    {
+      "command": ".venv/bin/python openpilot/tools/sim/beamng_reference/verify_bundle.py",
+      "exit_code": 0,
+      "output": "{\"result\": \"pass\", \"files\": 96, \"bytes\": 1160682, \"source_commit\": \"5435d67499f66eca58f95882cbe35e9c577e874c\"}\n"
+    },
+    {
+      "command": ".venv/bin/python -m unittest discover -s openpilot/tools/sim/beamng_reference -p test_verify_bundle.py -v",
+      "exit_code": 0,
+      "output": "test_changed_mode_is_rejected (test_verify_bundle.TestVerifyBundle.test_changed_mode_is_rejected) ... ok\ntest_changed_source_is_rejected (test_verify_bundle.TestVerifyBundle.test_changed_source_is_rejected) ... ok\ntest_duplicate_source_is_rejected (test_verify_bundle.TestVerifyBundle.test_duplicate_source_is_rejected) ... ok\ntest_empty_snapshot_is_rejected (test_verify_bundle.TestVerifyBundle.test_empty_snapshot_is_rejected) ... ok\ntest_escaped_manifest_path_is_rejected (test_verify_bundle.TestVerifyBundle.test_escaped_manifest_path_is_rejected) ... ok\ntest_extra_source_is_rejected (test_verify_bundle.TestVerifyBundle.test_extra_source_is_rejected) ... ok\ntest_mismatched_checksum_list_is_rejected (test_verify_bundle.TestVerifyBundle.test_mismatched_checksum_list_is_rejected) ... ok\ntest_missing_directory_is_rejected (test_verify_bundle.TestVerifyBundle.test_missing_directory_is_rejected) ... ok\ntest_pristine_fixture_passes (test_verify_bundle.TestVerifyBundle.test_pristine_fixture_passes) ... ok\ntest_source_symlink_is_rejected (test_verify_bundle.TestVerifyBundle.test_source_symlink_is_rejected) ... ok\ntest_wrong_origin_is_rejected (test_verify_bundle.TestVerifyBundle.test_wrong_origin_is_rejected) ... ok\ntest_wrong_pin_is_rejected (test_verify_bundle.TestVerifyBundle.test_wrong_pin_is_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 12 tests in 0.407s\n\nOK\n"
+    },
+    {
+      "command": "python3 canreader/read_can.py --self-test (workspace root)",
+      "exit_code": 0,
+      "output": "PASS: documented silent mode, loopback rejection, and frame examples\n"
+    },
+    {
+      "command": "selected current-guide relative-link/layout checks; git diff --check",
+      "exit_code": 0,
+      "output": "PASS: 7 current guides, 26 relative links; PC/Radxa/shared layout present\n"
+    }
+  ],
+  "review": {
+    "type": "self-review using code-review-and-quality skill",
+    "correctness": "Reconciled source/DBC rows, recovered adapter framing and historical Chimera evidence; no new protocol IDs or runtime support claimed.",
+    "readability": "PC, Radxa, shared wire contract and staged implementation roles separated.",
+    "architecture": "Physical webcam and bidirectional CAN supersede network images; real board health and simulated vehicle state separated; final controller output included.",
+    "security": "Documentation only; no device open, remote install, CAN TX, firmware/config changes, motor activation or new external listener.",
+    "performance": "No runtime change; optical render/monitor latency explicitly excluded from existing camera benchmarks."
+  },
+  "limits": [
+    "CAN/Chimera Sunnypilot backend, PC gateway and simulator car port are not implemented.",
+    "No remote PC deployment or game/hardware/model/manager execution.",
+    "No real bench motor or vehicle actuation.",
+    "Canonical wheel/IMU/session/gear/cruise-status mappings, speed semantics, command family and timing still require implementation decisions.",
+    "Later bench feedback authority and calibrated endpoint mapping unresolved; standalone VW Interceptor work remains paused.",
+    "Earlier 164 pass / 6 fail / 1 skip upstream compatibility results retained, not rerun or resolved by documentation."
+  ],
+  "workflow": [
+    "using-agent-skills",
+    "spec-driven-development",
+    "planning-and-task-breakdown",
+    "documentation-and-adrs",
+    "git-workflow-and-versioning",
+    "code-review-and-quality"
+  ],
+  "rea": "Source-first inspection; no binary/runtime REA question arose.",
+  "inspected_workspace_sources": [
+    {
+      "path": "retropilot/dbc/ocelot_controls.dbc",
+      "sha256": "ef6eef74021a00183729b53ba90f1c790792cfe5dcf72fe9bdfe2dcb3d6a5dce",
+      "identity_scope": "current saved source, not proof of installed firmware or PC deployment"
+    },
+    {
+      "path": "canreader/read_can.py",
+      "sha256": "480249dd5240854b876d88b6609af44b792e7e2ba367db4721ac63be33936ae9",
+      "identity_scope": "current saved source, not proof of installed firmware or PC deployment"
+    },
+    {
+      "path": "ocelot/firmware/chimera/main.c",
+      "sha256": "5d1dd3b0400ec80da9b477abfced51c9346674865ce5ad86d7e5a012c2d94883",
+      "identity_scope": "current saved source, not proof of installed firmware or PC deployment"
+    },
+    {
+      "path": "ocelot/firmware/chimera/can.h",
+      "sha256": "7aca434faa4a1c37d59f5b43f495ed0d213f0e22fc46e4db28c433472b757310",
+      "identity_scope": "current saved source, not proof of installed firmware or PC deployment"
+    },
+    {
+      "path": "ocelot/firmware/chimera/usb.h",
+      "sha256": "2996676fb60447a3ea3de70882e19b0a54709a65e2f3d8c935c68e074eb0612d",
+      "identity_scope": "current saved source, not proof of installed firmware or PC deployment"
+    }
+  ]
+}

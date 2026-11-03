@@ -1,3 +1,7 @@
+## 2026-11-03 — BeamNG optical webcam + Waveshare/Chimera CAN design
+
+Open implementation facts: canonical wheel/IMU/session/gear and cruise-status mapping, speed units/MODE, selected game actuator family, installed Chimera behavior/routing, timeouts/bus load. Later bench: measured angle authority, endpoint types/calibration and physical stop behavior. Teacher evidence recovered before any owner questions; no new question pending.
+
 # Unknowns and limits
 
 Owner deferred automatic calibration2026-11-02, choosing temporary MM-X

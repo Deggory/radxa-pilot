@@ -54,13 +54,16 @@ All copied source bytes remain unchanged. Our verifier has12 corruption regressi
 
 ## Use for our port
 
-Start with `upstream/tools/beamng_mod/` for the PC game side, then the camera and
-vehicle daemons for adapter design. Keep our PC game and Q8B inference separated
-through a checked network gateway. The upstream implementation is same-host:
-its camera captures the local desktop and its game-control listener is loopback.
-Its1928x1208 camera contract also differs from our current1280x720 Thneed path.
-See [our adaptation guide](../BEAMNG_RADXA.md) before integrating these sources.
+Owner clarification2026-11-03: use the **physical Radxa webcam watching the PC
+monitor**, with **Waveshare CAN ↔ Chimera USB ↔ Sunnypilot** for state/commands.
+The former network-image proposal is superseded. Start with
+[the active PC/Radxa layout](../beamng/README.md) and
+[the implementation plan](../beamng/PLAN.md).
 
-Next slice remains recorded PC frames to a sim-only Q8B VisionIPC/UI producer,
-then live camera, timed vehicle state, shadow planning and game-only lateral
-feedback. This bundle does not select the rejected INT8 NPU candidate.
+Reuse the vehicle Lua telemetry/control and rigid game-camera ideas selectively.
+Our optical route uses the existing1280x720 webcam producer; the reference's
+1928x1208 desktop-capture `beamcamd` is not part of that route. Its loopback game
+listener, missing state timing, fake Honda CAN and curvature-to-position control
+still require deliberate adaptation. Preserve `upstream/` bytes; put adapted
+source in the active folder. This bundle does not select the rejected INT8 NPU
+candidate or establish a working Chimera/bench integration.
