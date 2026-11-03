@@ -254,3 +254,13 @@ API and corrected that invocation. No product failure or source modification.
 Read-only Git diff confirms Cereal untouched since pre-port dd29f00.
 Chimera remains held; relays excluded. Documentation/source-first/Git workflow;
 no new REA artifact/runtime question. Hardware enforcement remains untested.
+
+## 2026-11-03 — Safety implementation existence check
+
+Owner asked whether the two proposed safety changes are done. At parent
+685e734/child86a839d, direct schema/whole-safety-tree search finds no RetroPilot
+safety enum, constant or registration. safety/modes/retropilot.h and
+safety/tests/test_retropilot.py are absent. car/retropilot/interface.py:16 still
+requests existing noOutput. Existing host car-port tests are not MCU safety
+policy tests. Checked status only; no implementation or hardware action.
+Chimera remains held; relays excluded; modern Radxa objective unchanged.
