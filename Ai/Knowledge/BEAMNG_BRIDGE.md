@@ -1,3 +1,14 @@
+## 2026-11-03 — Connected PC requirements checkpoint
+
+Owner reports connected BeamNG PC. Existing sim/beamng README now maps six
+Sunny needs; actual gateway/Chimera/car/motion/command adapters remain pending.
+Q8B eth1 UP10.43.0.1; neighbor10.43.0.216 reachable. Strict SSH exited255:
+no trusted ED25519 host key; no remote inspection. Game/car/mods unverified.
+Keep optical+CAN architecture/CD210GPU, canonical DBC and existing source pins.
+Next: resolve trusted PC identity for read-only inspection and continue wire
+contract increment1, then receive-only/shadow. No CAN TX or actuation.
+Details/tests: Sessions/2026-11-03-beamng-requirements.md in both notebooks.
+
 ## 2026-11-03 — BeamNG optical webcam + Waveshare/Chimera CAN design
 
 Owner selected PC monitor → physical Radxa AK-Camera, and PC game gateway ↔ Waveshare CAN ↔ Chimera USB ↔ Sunnypilot. This supersedes the earlier network-camera next step. Added active openpilot/tools/sim/beamng/ PC/Radxa roles, shared CAN mapping/gaps and ordered plan; rewrote the current guide and reference README. No runtime code, DBC, firmware or remote PC files changed; no hardware/game/model launch or CAN transmission.

@@ -25,6 +25,24 @@ The PC gateway translates BeamNG state into the agreed CAN contract and
 translates accepted returning CAN commands into game inputs. It must consume
 the final car-controller commands so the controller is included in the test.
 
+## What Sunnypilot needs from the simulated car
+
+| Requirement | Provider and current status |
+| --- | --- |
+| Road images | AK-Camera watching the PC monitor; existing 720p/20 Hz camera/model path has prior bench evidence. Screen framing, optical geometry and render-to-camera delay still need a BeamNG run. |
+| Vehicle state | BeamNG speed, four separate wheel speeds, observed steering angle, pedals, gear, ignition, cruise/button edges and applicable override/fault state. PC telemetry collector and Sunny car-state parser remain pending. |
+| Vehicle motion | Simulated acceleration and angular velocity with axes, units and acquisition time. One bench motion provider must feed localization; the stationary physical IMU cannot represent the moving game car. |
+| Vehicle parameters | Selected game car/configuration, wheelbase, mass, steering ratio/lock, controller type, limits and response delay. Measure or recover these for that configuration rather than borrowing Honda values. |
+| CAN and board interface | Waveshare PC gateway, canonical DBC mappings and Chimera USB backend. All remain pending; USB connection alone does not provide Panda compatibility. |
+| Commands and lifecycle | Final controller CAN commands mapped to game steering/throttle/brake, explicit engagement, cancel/brake override, source freshness, pause/reset and disconnect stop behavior. Initial stage controls only the game. |
+
+BeamNG documents custom vehicle-Lua telemetry protocols in its
+[official protocol guide](https://docs.beamng.com/modding/protocols/).
+Its basic OutGauge packet alone does not supply this complete contract.
+The detailed signal gaps and implementation order remain in the shared contract
+and plan linked below. A supported-car row in `docs/CARS.md` does not implement
+this simulator interface.
+
 ## Folder ownership
 
 | Folder/document | Responsibility |

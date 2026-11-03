@@ -1,0 +1,29 @@
+{
+  "date": "2026-11-03",
+  "scope": "BeamNG requirements documentation and memory only",
+  "base_commit": "893e17344975ad8f2b3735b0e2f4e534e02ec3c5",
+  "checks": [
+    {
+      "command": ".venv/bin/python Ai/verify_memory.py --workspace /home/radxa/comma",
+      "exit_code": 0,
+      "output": "{\n  \"result\": \"pass\",\n  \"memory_layout\": \"regular project directory\",\n  \"documents\": 71,\n  \"relative_links\": 216,\n  \"optional_workspace_links\": 238,\n  \"source_repositories\": 8,\n  \"indexed_entries\": 4252\n}\n"
+    },
+    {
+      "command": ".venv/bin/python openpilot/tools/sim/beamng_reference/verify_bundle.py",
+      "exit_code": 0,
+      "output": "{\"result\": \"pass\", \"files\": 96, \"bytes\": 1160682, \"source_commit\": \"5435d67499f66eca58f95882cbe35e9c577e874c\"}\n"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "output": ""
+    }
+  ],
+  "result": "pass",
+  "review": "Self-review: six requirements agree with existing optical/CAN plan and source; connection observations separated from runtime claims; no executable code, protocol, configuration or performance change.",
+  "limits": [
+    "No remote commands executed: strict SSH exited255 for missing trusted host key.",
+    "No BeamNG/CAN/Chimera closed loop tested.",
+    "Historical validation failures remain unresolved."
+  ]
+}

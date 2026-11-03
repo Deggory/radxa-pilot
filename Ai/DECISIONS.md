@@ -1,3 +1,11 @@
+## 2026-11-03 — Keep requirements separate from connection proof
+
+Use the existing optical+CAN plan. A reachable Ethernet neighbor establishes
+network adjacency only; no current game/mod/CAN compatibility is inferred.
+Preserve strict SSH trust checks and recover trusted identity before remote
+inspection. Full requirements and exact checks: Sessions/2026-11-03-beamng-requirements.md.
+No new DBC IDs or actuator choice made in this requirements discussion.
+
 ## 2026-11-02 — Accept reference audit, keep runtime blocked
 
 Preserve exact upstream source while fixing our inventory/verifier. Record
