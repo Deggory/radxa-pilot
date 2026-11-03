@@ -4,7 +4,58 @@ Implemented 2026-11-03 in the local opendbc branch `radxa/retropilot`, based on
 `aa9bff6f5442cef8cb8e25e143ef38865c276ce8`. Sunnypilot now registers
 `RETROPILOT_RETROFIT` with brand `retropilot`. This is the **receive-only car-port
 stage**, plus an offline modern controller migration, for the owner's BeamNG → Waveshare CAN → Chimera → Radxa architecture.
-The Chimera USB backend and live BeamNG loop remain separate unfinished work.
+A standalone receive-only Chimera USB adapter is now implemented. Managed board
+health/ignition integration and the live BeamNG loop remain unfinished.
+
+## History-led adaptation beyond the car folder
+
+Owner confirmed the existing Radxa Q8B target. The
+[full C2 history report](../Ai/Reports/retropilot-c2-history-20261103/README.md)
+covers35parent commits, all50final changed paths and64ever-touched paths,
+plus Panda/Cereal/opendbc histories. It maps82paths to modern code or an
+explicit remaining requirement. It includes USB, schema, joystick/relay,
+PID tuning, process startup and Linux changes. Inherited upstream model work
+and legacy disabled health/model checks are distinguished from retrofit code.
+
+The current increment adds
+[Chimera receive code](../openpilot/selfdrive/pandad/chimera.py) and
+[wire/health decoding](../openpilot/selfdrive/pandad/chimera_protocol.py).
+It handles the actual mailbox16/health43 contract rather than treating Chimera
+as a stock Panda CAN5/CAN6 device. Serial, product and exact version are required.
+The reviewed Chimera/ZSS steering source uses STATE1=enabled; our earlier
+STATE0 assumption is corrected. Other endpoint STATE0 fault conventions remain
+separate. Canonical DBC bytes and the current CD210 model path are unchanged.
+
+## Standalone receive-only Chimera monitor
+
+Inspect arguments without opening USB:
+
+```bash
+.venv/bin/python -m openpilot.selfdrive.pandad.chimera --help
+```
+
+After identifying the actual Chimera, supply its confirmed serial/version:
+
+```bash
+.venv/bin/python -m openpilot.selfdrive.pandad.chimera \
+  --serial '<confirmed Chimera serial>' \
+  --expected-version '<confirmed firmware version>' --seconds 5
+```
+
+Default output is a JSONL receive trace. `--publish-can` additionally owns the
+modern Cereal `can` publisher; other CAN publishers must be stopped first. This
+is an explicit standalone tool, not an automatic manager replacement. It does
+not subscribe to sendcan, send CAN/control-OUT, flash/configure the board or
+publish synthetic pandaStates. Health raw safety numbers are retained as raw
+observations, never translated into a claim of modern safety enforcement.
+Unplug, malformed data or pin mismatch fail closed and release the handle;
+publication ends with an invalid empty event. Reconnect requires a new pinned
+session. MCU sample timestamps/source ages and managed lifecycle need further work.
+
+The current sysfs observation is bbaa:ddcc product **Interceptor DAC Bench**,
+serial440048001251333133333633. It is not the historically probed Chimera.
+No device was opened in this increment. The receiver rejects that product even
+when VID/PID match; do not aim the tool at the paused Interceptor experiment.
 
 ## Files, identification and safety status
 

@@ -1,3 +1,18 @@
+## 2026-11-03 — C2 history-led Radxa adaptation checkpoint
+
+Owner confirmed existing Radxa Q8B. Full C2 history/submodules now mapped:
+35parent commits,50final/64historical paths,82paths total. Added standalone
+receive-only Chimera mailbox16/health43 adapter with pinned identity/version
+and modern CAN serialization. Corrected angle STATE1 producer contract in
+opendbc86a839dcec8ed9a3e45315eac804fa1001f1b2d6.15USB/45port/53CAN/303broader
+tests pass (314existing skips), history coverage and Ruff pass. No live output.
+REA GNU symbols/disassembly confirms retained43/16contract; native/layout
+limits retained. Sysfs shows Interceptor DAC Bench, not historical Chimera;
+no device opened. Current model/DBC/owner settings unchanged. Next: actual
+Chimera receive acceptance, units/profile and managed truthful health/ignition;
+MCU safety/physical actuation remain unqualified. Full dated session and
+Ai/Reports/retropilot-c2-history-20261103/README.md record evidence/limits.
+
 ## 2026-11-03 — C2 controller migrated to modern offline replay
 
 Modern C2 steering/pedal/relay calculation and timestamped JSONL replay are

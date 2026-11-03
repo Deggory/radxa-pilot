@@ -1,0 +1,16 @@
+{
+  "captured_at": "2026-11-03T17:54:31.434099+00:00",
+  "source": "Read-only /sys/bus/usb/devices descriptors; no USB handle opened",
+  "matching_vid_pid": "bbaa:ddcc",
+  "matches": [
+    {
+      "busnum": "3",
+      "devnum": "8",
+      "serial": "440048001251333133333633",
+      "product": "Interceptor DAC Bench"
+    }
+  ],
+  "eligible_chimera_products": [],
+  "historical_chimera_serial": "3a0044001651333038373636",
+  "interpretation": "Matching VID/PID currently belongs to Interceptor DAC Bench; not evidence of Chimera presence/firmware. Do not resume paused Interceptor project."
+}

@@ -1,3 +1,39 @@
+## 2026-11-03 — C2 history-led Radxa adaptation checkpoint
+
+Owner confirmed existing Radxa Q8B. Full C2 history/submodules now mapped:
+35parent commits,50final/64historical paths,82paths total. Added standalone
+receive-only Chimera mailbox16/health43 adapter with pinned identity/version
+and modern CAN serialization. Corrected angle STATE1 producer contract in
+opendbc86a839dcec8ed9a3e45315eac804fa1001f1b2d6.15USB/45port/53CAN/303broader
+tests pass (314existing skips), history coverage and Ruff pass. No live output.
+REA GNU symbols/disassembly confirms retained43/16contract; native/layout
+limits retained. Sysfs shows Interceptor DAC Bench, not historical Chimera;
+no device opened. Current model/DBC/owner settings unchanged. Next: actual
+Chimera receive acceptance, units/profile and managed truthful health/ignition;
+MCU safety/physical actuation remain unqualified. Full dated session and
+Ai/Reports/retropilot-c2-history-20261103/README.md record evidence/limits.
+
+## 2026-11-03 — History-led modern RetroPilot adaptation in progress
+
+Owner confirmed existing Radxa Q8B, not physical comma4. Parent history:
+35commits/50final changed paths/64ever-touched paths;28commits dated2025,
+7older upstream. All35commit diffs and pinned panda/cereal/opendbc comparisons
+saved under sunnypilot/Ai/Reports/retropilot-c2-history-20261103/.
+Angle STATE1 correction passes45port tests; previous STATE0 assumption was wrong
+for reviewed Chimera/ZSS producers. Receive-only USB mailbox16/health43 adapter,
+serial/version/product pins and modern CAN serialization implemented;15adapter
+tests being finalized. No live output or settings/firmware changes.
+REA GNU symbols/disassembly of retained Chimera ELF5ae9b4f6 confirms43-byte
+health and16-byte mailbox stride; can_send's visible body queues without a
+safety hook. No complete safety proof. Native decompiler not configured and
+pwntools layout profile is Linuxx64-only; GNU fallback succeeded.
+Read-only sysfs currently shows bbaa:ddcc product "Interceptor DAC Bench",
+serial440048001251333133333633, bus3/device8. This is not the historical Chimera
+serial3a0044001651333038373636. No USB handle opened or CAN consumed. VID/PID
+alone must not identify a Chimera or resume the paused bench project.
+Next: finish migration coverage map/tests, commit verified code and record
+remaining raw health/manager/safety/profile qualification. CD210GPU unchanged.
+
 ## 2026-11-03 — C2 controller migrated to modern offline replay
 
 Modern C2 steering/pedal/relay calculation and timestamped JSONL replay are

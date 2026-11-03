@@ -1,0 +1,497 @@
+{
+  "url": "https://api.github.com/repos/RetroPilot/cereal/compare/03860ae0b2b8128cae7768e4301d889e627c9275...a7193d0f0e472f90709e6671ce6ff01d1534c2a5",
+  "html_url": "https://github.com/RetroPilot/cereal/compare/03860ae0b2b8128cae7768e4301d889e627c9275...a7193d0f0e472f90709e6671ce6ff01d1534c2a5",
+  "permalink_url": "https://github.com/RetroPilot/cereal/compare/RetroPilot:03860ae...RetroPilot:a7193d0",
+  "diff_url": "https://github.com/RetroPilot/cereal/compare/03860ae0b2b8128cae7768e4301d889e627c9275...a7193d0f0e472f90709e6671ce6ff01d1534c2a5.diff",
+  "patch_url": "https://github.com/RetroPilot/cereal/compare/03860ae0b2b8128cae7768e4301d889e627c9275...a7193d0f0e472f90709e6671ce6ff01d1534c2a5.patch",
+  "base_commit": {
+    "sha": "03860ae0b2b8128cae7768e4301d889e627c9275",
+    "node_id": "C_kwDOE_JBt9oAKDAzODYwYWUwYjJiODEyOGNhZTc3NjhlNDMwMWQ4ODllNjI3YzkyNzU",
+    "commit": {
+      "author": {
+        "name": "Adeeb Shihadeh",
+        "email": "adeebshihadeh@gmail.com",
+        "date": "2022-01-28T00:51:15Z"
+      },
+      "committer": {
+        "name": "Adeeb Shihadeh",
+        "email": "adeebshihadeh@gmail.com",
+        "date": "2022-01-28T00:51:15Z"
+      },
+      "message": "add blocked msg cnt to pandaState",
+      "tree": {
+        "sha": "c9836bb57bff0dd01e44e0a230a37044937f40c1",
+        "url": "https://api.github.com/repos/RetroPilot/cereal/git/trees/c9836bb57bff0dd01e44e0a230a37044937f40c1"
+      },
+      "url": "https://api.github.com/repos/RetroPilot/cereal/git/commits/03860ae0b2b8128cae7768e4301d889e627c9275",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/RetroPilot/cereal/commits/03860ae0b2b8128cae7768e4301d889e627c9275",
+    "html_url": "https://github.com/RetroPilot/cereal/commit/03860ae0b2b8128cae7768e4301d889e627c9275",
+    "comments_url": "https://api.github.com/repos/RetroPilot/cereal/commits/03860ae0b2b8128cae7768e4301d889e627c9275/comments",
+    "author": {
+      "login": "adeebshihadeh",
+      "id": 8762862,
+      "node_id": "MDQ6VXNlcjg3NjI4NjI=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/8762862?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/adeebshihadeh",
+      "html_url": "https://github.com/adeebshihadeh",
+      "followers_url": "https://api.github.com/users/adeebshihadeh/followers",
+      "following_url": "https://api.github.com/users/adeebshihadeh/following{/other_user}",
+      "gists_url": "https://api.github.com/users/adeebshihadeh/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/adeebshihadeh/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/adeebshihadeh/subscriptions",
+      "organizations_url": "https://api.github.com/users/adeebshihadeh/orgs",
+      "repos_url": "https://api.github.com/users/adeebshihadeh/repos",
+      "events_url": "https://api.github.com/users/adeebshihadeh/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/adeebshihadeh/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "adeebshihadeh",
+      "id": 8762862,
+      "node_id": "MDQ6VXNlcjg3NjI4NjI=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/8762862?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/adeebshihadeh",
+      "html_url": "https://github.com/adeebshihadeh",
+      "followers_url": "https://api.github.com/users/adeebshihadeh/followers",
+      "following_url": "https://api.github.com/users/adeebshihadeh/following{/other_user}",
+      "gists_url": "https://api.github.com/users/adeebshihadeh/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/adeebshihadeh/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/adeebshihadeh/subscriptions",
+      "organizations_url": "https://api.github.com/users/adeebshihadeh/orgs",
+      "repos_url": "https://api.github.com/users/adeebshihadeh/repos",
+      "events_url": "https://api.github.com/users/adeebshihadeh/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/adeebshihadeh/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "5c64eaab789dfa67a210deaa2530788843474999",
+        "url": "https://api.github.com/repos/RetroPilot/cereal/commits/5c64eaab789dfa67a210deaa2530788843474999",
+        "html_url": "https://github.com/RetroPilot/cereal/commit/5c64eaab789dfa67a210deaa2530788843474999"
+      }
+    ]
+  },
+  "merge_base_commit": {
+    "sha": "03860ae0b2b8128cae7768e4301d889e627c9275",
+    "node_id": "C_kwDOE_JBt9oAKDAzODYwYWUwYjJiODEyOGNhZTc3NjhlNDMwMWQ4ODllNjI3YzkyNzU",
+    "commit": {
+      "author": {
+        "name": "Adeeb Shihadeh",
+        "email": "adeebshihadeh@gmail.com",
+        "date": "2022-01-28T00:51:15Z"
+      },
+      "committer": {
+        "name": "Adeeb Shihadeh",
+        "email": "adeebshihadeh@gmail.com",
+        "date": "2022-01-28T00:51:15Z"
+      },
+      "message": "add blocked msg cnt to pandaState",
+      "tree": {
+        "sha": "c9836bb57bff0dd01e44e0a230a37044937f40c1",
+        "url": "https://api.github.com/repos/RetroPilot/cereal/git/trees/c9836bb57bff0dd01e44e0a230a37044937f40c1"
+      },
+      "url": "https://api.github.com/repos/RetroPilot/cereal/git/commits/03860ae0b2b8128cae7768e4301d889e627c9275",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/RetroPilot/cereal/commits/03860ae0b2b8128cae7768e4301d889e627c9275",
+    "html_url": "https://github.com/RetroPilot/cereal/commit/03860ae0b2b8128cae7768e4301d889e627c9275",
+    "comments_url": "https://api.github.com/repos/RetroPilot/cereal/commits/03860ae0b2b8128cae7768e4301d889e627c9275/comments",
+    "author": {
+      "login": "adeebshihadeh",
+      "id": 8762862,
+      "node_id": "MDQ6VXNlcjg3NjI4NjI=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/8762862?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/adeebshihadeh",
+      "html_url": "https://github.com/adeebshihadeh",
+      "followers_url": "https://api.github.com/users/adeebshihadeh/followers",
+      "following_url": "https://api.github.com/users/adeebshihadeh/following{/other_user}",
+      "gists_url": "https://api.github.com/users/adeebshihadeh/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/adeebshihadeh/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/adeebshihadeh/subscriptions",
+      "organizations_url": "https://api.github.com/users/adeebshihadeh/orgs",
+      "repos_url": "https://api.github.com/users/adeebshihadeh/repos",
+      "events_url": "https://api.github.com/users/adeebshihadeh/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/adeebshihadeh/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "adeebshihadeh",
+      "id": 8762862,
+      "node_id": "MDQ6VXNlcjg3NjI4NjI=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/8762862?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/adeebshihadeh",
+      "html_url": "https://github.com/adeebshihadeh",
+      "followers_url": "https://api.github.com/users/adeebshihadeh/followers",
+      "following_url": "https://api.github.com/users/adeebshihadeh/following{/other_user}",
+      "gists_url": "https://api.github.com/users/adeebshihadeh/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/adeebshihadeh/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/adeebshihadeh/subscriptions",
+      "organizations_url": "https://api.github.com/users/adeebshihadeh/orgs",
+      "repos_url": "https://api.github.com/users/adeebshihadeh/repos",
+      "events_url": "https://api.github.com/users/adeebshihadeh/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/adeebshihadeh/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "5c64eaab789dfa67a210deaa2530788843474999",
+        "url": "https://api.github.com/repos/RetroPilot/cereal/commits/5c64eaab789dfa67a210deaa2530788843474999",
+        "html_url": "https://github.com/RetroPilot/cereal/commit/5c64eaab789dfa67a210deaa2530788843474999"
+      }
+    ]
+  },
+  "status": "ahead",
+  "ahead_by": 3,
+  "behind_by": 0,
+  "total_commits": 3,
+  "commits": [
+    {
+      "sha": "7406e44f7024d7f2457acd89494bb211b373c1d2",
+      "node_id": "C_kwDOE_JBt9oAKDc0MDZlNDRmNzAyNGQ3ZjI0NTdhY2Q4OTQ5NGJiMjExYjM3M2MxZDI",
+      "commit": {
+        "author": {
+          "name": "Kevin Roscom",
+          "email": "37704329+wocsor@users.noreply.github.com",
+          "date": "2025-05-15T18:47:01Z"
+        },
+        "committer": {
+          "name": "Kevin Roscom",
+          "email": "37704329+wocsor@users.noreply.github.com",
+          "date": "2025-05-15T18:47:01Z"
+        },
+        "message": "make compile on Ubuntu 24.04",
+        "tree": {
+          "sha": "fd5dc6d675a4b2ce3c17a41a18924ab752f6608e",
+          "url": "https://api.github.com/repos/RetroPilot/cereal/git/trees/fd5dc6d675a4b2ce3c17a41a18924ab752f6608e"
+        },
+        "url": "https://api.github.com/repos/RetroPilot/cereal/git/commits/7406e44f7024d7f2457acd89494bb211b373c1d2",
+        "comment_count": 0,
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        }
+      },
+      "url": "https://api.github.com/repos/RetroPilot/cereal/commits/7406e44f7024d7f2457acd89494bb211b373c1d2",
+      "html_url": "https://github.com/RetroPilot/cereal/commit/7406e44f7024d7f2457acd89494bb211b373c1d2",
+      "comments_url": "https://api.github.com/repos/RetroPilot/cereal/commits/7406e44f7024d7f2457acd89494bb211b373c1d2/comments",
+      "author": {
+        "login": "wocsor",
+        "id": 37704329,
+        "node_id": "MDQ6VXNlcjM3NzA0MzI5",
+        "avatar_url": "https://avatars.githubusercontent.com/u/37704329?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/wocsor",
+        "html_url": "https://github.com/wocsor",
+        "followers_url": "https://api.github.com/users/wocsor/followers",
+        "following_url": "https://api.github.com/users/wocsor/following{/other_user}",
+        "gists_url": "https://api.github.com/users/wocsor/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/wocsor/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/wocsor/subscriptions",
+        "organizations_url": "https://api.github.com/users/wocsor/orgs",
+        "repos_url": "https://api.github.com/users/wocsor/repos",
+        "events_url": "https://api.github.com/users/wocsor/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/wocsor/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "wocsor",
+        "id": 37704329,
+        "node_id": "MDQ6VXNlcjM3NzA0MzI5",
+        "avatar_url": "https://avatars.githubusercontent.com/u/37704329?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/wocsor",
+        "html_url": "https://github.com/wocsor",
+        "followers_url": "https://api.github.com/users/wocsor/followers",
+        "following_url": "https://api.github.com/users/wocsor/following{/other_user}",
+        "gists_url": "https://api.github.com/users/wocsor/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/wocsor/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/wocsor/subscriptions",
+        "organizations_url": "https://api.github.com/users/wocsor/orgs",
+        "repos_url": "https://api.github.com/users/wocsor/repos",
+        "events_url": "https://api.github.com/users/wocsor/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/wocsor/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "03860ae0b2b8128cae7768e4301d889e627c9275",
+          "url": "https://api.github.com/repos/RetroPilot/cereal/commits/03860ae0b2b8128cae7768e4301d889e627c9275",
+          "html_url": "https://github.com/RetroPilot/cereal/commit/03860ae0b2b8128cae7768e4301d889e627c9275"
+        }
+      ]
+    },
+    {
+      "sha": "58bc67b1d4fdf40a196eaff9cf5c442cb6580520",
+      "node_id": "C_kwDOE_JBt9oAKDU4YmM2N2IxZDRmZGY0MGExOTZlYWZmOWNmNWM0NDJjYjY1ODA1MjA",
+      "commit": {
+        "author": {
+          "name": "Kevin Roscom",
+          "email": "37704329+wocsor@users.noreply.github.com",
+          "date": "2025-06-10T02:35:41Z"
+        },
+        "committer": {
+          "name": "Kevin Roscom",
+          "email": "37704329+wocsor@users.noreply.github.com",
+          "date": "2025-06-10T02:35:41Z"
+        },
+        "message": "add new safety model in enum",
+        "tree": {
+          "sha": "5b0977eb28606fb314620f4a2777cc71aba69c09",
+          "url": "https://api.github.com/repos/RetroPilot/cereal/git/trees/5b0977eb28606fb314620f4a2777cc71aba69c09"
+        },
+        "url": "https://api.github.com/repos/RetroPilot/cereal/git/commits/58bc67b1d4fdf40a196eaff9cf5c442cb6580520",
+        "comment_count": 0,
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        }
+      },
+      "url": "https://api.github.com/repos/RetroPilot/cereal/commits/58bc67b1d4fdf40a196eaff9cf5c442cb6580520",
+      "html_url": "https://github.com/RetroPilot/cereal/commit/58bc67b1d4fdf40a196eaff9cf5c442cb6580520",
+      "comments_url": "https://api.github.com/repos/RetroPilot/cereal/commits/58bc67b1d4fdf40a196eaff9cf5c442cb6580520/comments",
+      "author": {
+        "login": "wocsor",
+        "id": 37704329,
+        "node_id": "MDQ6VXNlcjM3NzA0MzI5",
+        "avatar_url": "https://avatars.githubusercontent.com/u/37704329?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/wocsor",
+        "html_url": "https://github.com/wocsor",
+        "followers_url": "https://api.github.com/users/wocsor/followers",
+        "following_url": "https://api.github.com/users/wocsor/following{/other_user}",
+        "gists_url": "https://api.github.com/users/wocsor/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/wocsor/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/wocsor/subscriptions",
+        "organizations_url": "https://api.github.com/users/wocsor/orgs",
+        "repos_url": "https://api.github.com/users/wocsor/repos",
+        "events_url": "https://api.github.com/users/wocsor/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/wocsor/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "wocsor",
+        "id": 37704329,
+        "node_id": "MDQ6VXNlcjM3NzA0MzI5",
+        "avatar_url": "https://avatars.githubusercontent.com/u/37704329?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/wocsor",
+        "html_url": "https://github.com/wocsor",
+        "followers_url": "https://api.github.com/users/wocsor/followers",
+        "following_url": "https://api.github.com/users/wocsor/following{/other_user}",
+        "gists_url": "https://api.github.com/users/wocsor/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/wocsor/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/wocsor/subscriptions",
+        "organizations_url": "https://api.github.com/users/wocsor/orgs",
+        "repos_url": "https://api.github.com/users/wocsor/repos",
+        "events_url": "https://api.github.com/users/wocsor/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/wocsor/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "7406e44f7024d7f2457acd89494bb211b373c1d2",
+          "url": "https://api.github.com/repos/RetroPilot/cereal/commits/7406e44f7024d7f2457acd89494bb211b373c1d2",
+          "html_url": "https://github.com/RetroPilot/cereal/commit/7406e44f7024d7f2457acd89494bb211b373c1d2"
+        }
+      ]
+    },
+    {
+      "sha": "a7193d0f0e472f90709e6671ce6ff01d1534c2a5",
+      "node_id": "C_kwDOE_JBt9oAKGE3MTkzZDBmMGU0NzJmOTA3MDllNjY3MWNlNmZmMDFkMTUzNGMyYTU",
+      "commit": {
+        "author": {
+          "name": "Kevin Roscom",
+          "email": "37704329+wocsor@users.noreply.github.com",
+          "date": "2025-06-14T02:05:30Z"
+        },
+        "committer": {
+          "name": "Kevin Roscom",
+          "email": "37704329+wocsor@users.noreply.github.com",
+          "date": "2025-06-14T02:05:30Z"
+        },
+        "message": "relay control msg",
+        "tree": {
+          "sha": "6910fb883e688ebfddb9a23e15d20497bcafec2f",
+          "url": "https://api.github.com/repos/RetroPilot/cereal/git/trees/6910fb883e688ebfddb9a23e15d20497bcafec2f"
+        },
+        "url": "https://api.github.com/repos/RetroPilot/cereal/git/commits/a7193d0f0e472f90709e6671ce6ff01d1534c2a5",
+        "comment_count": 0,
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        }
+      },
+      "url": "https://api.github.com/repos/RetroPilot/cereal/commits/a7193d0f0e472f90709e6671ce6ff01d1534c2a5",
+      "html_url": "https://github.com/RetroPilot/cereal/commit/a7193d0f0e472f90709e6671ce6ff01d1534c2a5",
+      "comments_url": "https://api.github.com/repos/RetroPilot/cereal/commits/a7193d0f0e472f90709e6671ce6ff01d1534c2a5/comments",
+      "author": {
+        "login": "wocsor",
+        "id": 37704329,
+        "node_id": "MDQ6VXNlcjM3NzA0MzI5",
+        "avatar_url": "https://avatars.githubusercontent.com/u/37704329?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/wocsor",
+        "html_url": "https://github.com/wocsor",
+        "followers_url": "https://api.github.com/users/wocsor/followers",
+        "following_url": "https://api.github.com/users/wocsor/following{/other_user}",
+        "gists_url": "https://api.github.com/users/wocsor/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/wocsor/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/wocsor/subscriptions",
+        "organizations_url": "https://api.github.com/users/wocsor/orgs",
+        "repos_url": "https://api.github.com/users/wocsor/repos",
+        "events_url": "https://api.github.com/users/wocsor/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/wocsor/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "wocsor",
+        "id": 37704329,
+        "node_id": "MDQ6VXNlcjM3NzA0MzI5",
+        "avatar_url": "https://avatars.githubusercontent.com/u/37704329?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/wocsor",
+        "html_url": "https://github.com/wocsor",
+        "followers_url": "https://api.github.com/users/wocsor/followers",
+        "following_url": "https://api.github.com/users/wocsor/following{/other_user}",
+        "gists_url": "https://api.github.com/users/wocsor/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/wocsor/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/wocsor/subscriptions",
+        "organizations_url": "https://api.github.com/users/wocsor/orgs",
+        "repos_url": "https://api.github.com/users/wocsor/repos",
+        "events_url": "https://api.github.com/users/wocsor/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/wocsor/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "58bc67b1d4fdf40a196eaff9cf5c442cb6580520",
+          "url": "https://api.github.com/repos/RetroPilot/cereal/commits/58bc67b1d4fdf40a196eaff9cf5c442cb6580520",
+          "html_url": "https://github.com/RetroPilot/cereal/commit/58bc67b1d4fdf40a196eaff9cf5c442cb6580520"
+        }
+      ]
+    }
+  ],
+  "files": [
+    {
+      "sha": "ae3f52d980796701fe1d9bf12df2a96e3b55fbd9",
+      "filename": "car.capnp",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 0,
+      "changes": 7,
+      "blob_url": "https://github.com/RetroPilot/cereal/blob/a7193d0f0e472f90709e6671ce6ff01d1534c2a5/car.capnp",
+      "raw_url": "https://github.com/RetroPilot/cereal/raw/a7193d0f0e472f90709e6671ce6ff01d1534c2a5/car.capnp",
+      "contents_url": "https://api.github.com/repos/RetroPilot/cereal/contents/car.capnp?ref=a7193d0f0e472f90709e6671ce6ff01d1534c2a5",
+      "patch": "@@ -293,6 +293,7 @@ struct CarControl {\n \n   # Actuator commands as computed by controlsd\n   actuators @6 :Actuators;\n+  bodycontrol @11 :BodyControl;\n \n   # Any car specific rate limits or quirks applied by\n   # the CarController are reflected in actuatorsOutput\n@@ -327,6 +328,11 @@ struct CarControl {\n \n   }\n \n+  struct BodyControl {\n+    # raw binary control for 8 relays\n+    relayCoreCMD @0: UInt8;\n+  }\n+\n   struct CruiseControl {\n     cancel @0: Bool;\n     override @1: Bool;\n@@ -539,6 +545,7 @@ struct CarParams {\n     hyundaiLegacy @23;\n     hyundaiCommunity @24;\n     stellantis @25;\n+    retropilot @26;\n   }\n \n   enum SteerControlType {"
+    },
+    {
+      "sha": "da55b6720042faf1c0c4552fd9f29c7c96caa98d",
+      "filename": "messaging/messaging.h",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "changes": 1,
+      "blob_url": "https://github.com/RetroPilot/cereal/blob/a7193d0f0e472f90709e6671ce6ff01d1534c2a5/messaging%2Fmessaging.h",
+      "raw_url": "https://github.com/RetroPilot/cereal/raw/a7193d0f0e472f90709e6671ce6ff01d1534c2a5/messaging%2Fmessaging.h",
+      "contents_url": "https://api.github.com/repos/RetroPilot/cereal/contents/messaging%2Fmessaging.h?ref=a7193d0f0e472f90709e6671ce6ff01d1534c2a5",
+      "patch": "@@ -5,6 +5,7 @@\n #include <vector>\n #include <capnp/serialize.h>\n #include \"../gen/cpp/log.capnp.h\"\n+#include <time.h>\n \n #ifdef __APPLE__\n #define CLOCK_BOOTTIME CLOCK_MONOTONIC"
+    },
+    {
+      "sha": "ea98d00d6f5aea472c9a1b0abfb570bd2bff438b",
+      "filename": "messaging/msgq.cc",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 0,
+      "changes": 2,
+      "blob_url": "https://github.com/RetroPilot/cereal/blob/a7193d0f0e472f90709e6671ce6ff01d1534c2a5/messaging%2Fmsgq.cc",
+      "raw_url": "https://github.com/RetroPilot/cereal/raw/a7193d0f0e472f90709e6671ce6ff01d1534c2a5/messaging%2Fmsgq.cc",
+      "contents_url": "https://api.github.com/repos/RetroPilot/cereal/contents/messaging%2Fmsgq.cc?ref=a7193d0f0e472f90709e6671ce6ff01d1534c2a5",
+      "patch": "@@ -347,9 +347,11 @@ int msgq_msg_recv(msgq_msg_t * msg, msgq_queue_t * q){\n \n   uint32_t read_cycles, read_pointer;\n   UNPACK64(read_cycles, read_pointer, *q->read_pointers[id]);\n+  UNUSED(read_cycles);\n \n   uint32_t write_cycles, write_pointer;\n   UNPACK64(write_cycles, write_pointer, *q->write_pointer);\n+  UNUSED(write_cycles);\n \n   char * p = q->data + read_pointer;\n "
+    },
+    {
+      "sha": "27e6be6ae4fa84efe4ef9de20d2fc6b34da9a3d0",
+      "filename": "messaging/msgq.h",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "changes": 1,
+      "blob_url": "https://github.com/RetroPilot/cereal/blob/a7193d0f0e472f90709e6671ce6ff01d1534c2a5/messaging%2Fmsgq.h",
+      "raw_url": "https://github.com/RetroPilot/cereal/raw/a7193d0f0e472f90709e6671ce6ff01d1534c2a5/messaging%2Fmsgq.h",
+      "contents_url": "https://api.github.com/repos/RetroPilot/cereal/contents/messaging%2Fmsgq.h?ref=a7193d0f0e472f90709e6671ce6ff01d1534c2a5",
+      "patch": "@@ -10,6 +10,7 @@\n \n #define UNPACK64(higher, lower, input) do {uint64_t tmp = input; higher = tmp >> 32; lower = tmp & 0xFFFFFFFF;} while (0)\n #define PACK64(output, higher, lower) output = ((uint64_t)higher << 32 ) | ((uint64_t)lower & 0xFFFFFFFF)\n+#define UNUSED(x) (void)x\n \n struct  msgq_header_t {\n   uint64_t num_readers;"
+    },
+    {
+      "sha": "36415c5512ed2d7b40cd55430bc1b846b96a54d4",
+      "filename": "visionipc/ipc.cc",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 3,
+      "changes": 7,
+      "blob_url": "https://github.com/RetroPilot/cereal/blob/a7193d0f0e472f90709e6671ce6ff01d1534c2a5/visionipc%2Fipc.cc",
+      "raw_url": "https://github.com/RetroPilot/cereal/raw/a7193d0f0e472f90709e6671ce6ff01d1534c2a5/visionipc%2Fipc.cc",
+      "contents_url": "https://api.github.com/repos/RetroPilot/cereal/contents/visionipc%2Fipc.cc?ref=a7193d0f0e472f90709e6671ce6ff01d1534c2a5",
+      "patch": "@@ -8,6 +8,7 @@\n #include <sys/mman.h>\n #include <sys/socket.h>\n #include <sys/un.h>\n+#include <vector>\n \n #ifdef __APPLE__\n #define getsocket() socket(AF_UNIX, SOCK_STREAM, 0)\n@@ -59,8 +60,8 @@ int ipc_bind(const char* socket_path) {\n \n int ipc_sendrecv_with_fds(bool send, int fd, void *buf, size_t buf_size, int* fds, int num_fds,\n                           int *out_num_fds) {\n-  char control_buf[CMSG_SPACE(sizeof(int) * num_fds)];\n-  memset(control_buf, 0, CMSG_SPACE(sizeof(int) * num_fds));\n+  std::vector<char> control_buf(CMSG_SPACE(sizeof(int) * num_fds));\n+  memset(control_buf.data(), 0, CMSG_SPACE(sizeof(int) * num_fds));\n \n   struct iovec iov = {\n     .iov_base = buf,\n@@ -74,7 +75,7 @@ int ipc_sendrecv_with_fds(bool send, int fd, void *buf, size_t buf_size, int* fd\n   if (num_fds > 0) {\n     assert(fds);\n \n-    msg.msg_control = control_buf;\n+    msg.msg_control = control_buf.data();\n     msg.msg_controllen = CMSG_SPACE(sizeof(int) * num_fds);\n   }\n "
+    },
+    {
+      "sha": "3b7ba097375d80aa8ce4afa436c1dea631e13e98",
+      "filename": "visionipc/visionipc_server.h",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "blob_url": "https://github.com/RetroPilot/cereal/blob/a7193d0f0e472f90709e6671ce6ff01d1534c2a5/visionipc%2Fvisionipc_server.h",
+      "raw_url": "https://github.com/RetroPilot/cereal/raw/a7193d0f0e472f90709e6671ce6ff01d1534c2a5/visionipc%2Fvisionipc_server.h",
+      "contents_url": "https://api.github.com/repos/RetroPilot/cereal/contents/visionipc%2Fvisionipc_server.h?ref=a7193d0f0e472f90709e6671ce6ff01d1534c2a5",
+      "patch": "@@ -17,7 +17,7 @@ class VisionIpcServer {\n   cl_context ctx = nullptr;\n   uint64_t server_id;\n \n-  std::atomic<bool> should_exit = false;\n+  std::atomic<bool> should_exit{false};\n   std::string name;\n   std::thread listener_thread;\n "
+    }
+  ]
+}

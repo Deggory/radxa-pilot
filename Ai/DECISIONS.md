@@ -1,3 +1,14 @@
+## 2026-11-03 — Keep modern checks and identify Chimera independently
+
+Use history to migrate capability across the stack, preserving modern safety,
+communication/model checks and manager ownership. Receive-only USB adapter is
+standalone/pinned, not a stock Panda lifecycle or synthetic pandaStates path.
+Decode raw health43 safety17 without modern enum translation. Shared bbaa:ddcc
+is also observed on Interceptor DAC Bench; require product, serial and exact
+version before receiving. Angle STATE1 follows reviewed Chimera/ZSS producer;
+no canonical DBC change. Owner confirmed current Radxa Q8B target. Physical
+profile/driver-input/MCU safety and managed health/ignition remain pending.
+
 ## 2026-11-03 — C2 controller migrated to modern offline replay
 
 Separate completed controller calculation from pending live qualification.

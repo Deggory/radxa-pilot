@@ -1,0 +1,996 @@
+{
+  "scope": "Complete path disposition for the pinned branch delta and every included parent commit; not a claim of line-by-line review or tested live integration.",
+  "parent_base": "da2ea41241f16c4b0e80a52fdc40ed57becd185b",
+  "parent_tip": "b9a942efd3cb210127bb5efb5cf9ccf6a811c728",
+  "parent_commit_count": 35,
+  "parent_final_paths": 50,
+  "parent_history_paths": 64,
+  "records": [
+    {
+      "repo": "parent",
+      "path": ".gitattributes",
+      "family": "linux",
+      "status": "modern_linux_implementation_retained",
+      "modern_path": "pyproject.toml",
+      "disposition": "Review Ubuntu24/Pipenv/Cython/Qt/C++/FFmpeg/libyuv changes as old build adaptations. Retain current UV/Python3.12/Linux APIs. No new native build claim.",
+      "at_tip": true,
+      "commits": [
+        "b9a942efd3cb210127bb5efb5cf9ccf6a811c728"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": ".gitmodules",
+      "family": "linux",
+      "status": "modern_linux_implementation_retained",
+      "modern_path": "pyproject.toml",
+      "disposition": "Review Ubuntu24/Pipenv/Cython/Qt/C++/FFmpeg/libyuv changes as old build adaptations. Retain current UV/Python3.12/Linux APIs. No new native build claim.",
+      "at_tip": true,
+      "commits": [
+        "c3c6ad1700a99b7388df1fb95d0e25e73bdd3d2e"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": ".pylintrc",
+      "family": "linux",
+      "status": "modern_linux_implementation_retained",
+      "modern_path": "pyproject.toml",
+      "disposition": "Review Ubuntu24/Pipenv/Cython/Qt/C++/FFmpeg/libyuv changes as old build adaptations. Retain current UV/Python3.12/Linux APIs. No new native build claim.",
+      "at_tip": true,
+      "commits": [
+        "64a819b42eae4a481a0912bf44ef28f938e7d276"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "Dockerfile.openpilot_base",
+      "family": "upstream",
+      "status": "unrelated_historical_upstream",
+      "modern_path": "Ai/Reports/retropilot-c2-history-20261103/commit-history.json",
+      "disposition": "Unrelated OEM/navigation/UI/replay/version/CI changes are inherited or transient upstream work, not retrofit requirements.",
+      "at_tip": false,
+      "commits": [
+        "72b5328ba19b3c1a41931ba2143cb8b9bb73a3c1"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "Jenkinsfile",
+      "family": "upstream",
+      "status": "unrelated_historical_upstream",
+      "modern_path": "Ai/Reports/retropilot-c2-history-20261103/commit-history.json",
+      "disposition": "Unrelated OEM/navigation/UI/replay/version/CI changes are inherited or transient upstream work, not retrofit requirements.",
+      "at_tip": false,
+      "commits": [
+        "72b5328ba19b3c1a41931ba2143cb8b9bb73a3c1"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "Pipfile",
+      "family": "linux",
+      "status": "modern_linux_implementation_retained",
+      "modern_path": "pyproject.toml",
+      "disposition": "Review Ubuntu24/Pipenv/Cython/Qt/C++/FFmpeg/libyuv changes as old build adaptations. Retain current UV/Python3.12/Linux APIs. No new native build claim.",
+      "at_tip": true,
+      "commits": [
+        "64a819b42eae4a481a0912bf44ef28f938e7d276",
+        "b9a942efd3cb210127bb5efb5cf9ccf6a811c728"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "Pipfile.lock",
+      "family": "linux",
+      "status": "modern_linux_implementation_retained",
+      "modern_path": "pyproject.toml",
+      "disposition": "Review Ubuntu24/Pipenv/Cython/Qt/C++/FFmpeg/libyuv changes as old build adaptations. Retain current UV/Python3.12/Linux APIs. No new native build claim.",
+      "at_tip": true,
+      "commits": [
+        "64a819b42eae4a481a0912bf44ef28f938e7d276"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "RELEASES.md",
+      "family": "upstream",
+      "status": "unrelated_historical_upstream",
+      "modern_path": "Ai/Reports/retropilot-c2-history-20261103/commit-history.json",
+      "disposition": "Unrelated OEM/navigation/UI/replay/version/CI changes are inherited or transient upstream work, not retrofit requirements.",
+      "at_tip": false,
+      "commits": [
+        "66473b54b23009cedd824157460324945ea1b514",
+        "72b5328ba19b3c1a41931ba2143cb8b9bb73a3c1"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "SConstruct",
+      "family": "linux",
+      "status": "modern_linux_implementation_retained",
+      "modern_path": "pyproject.toml",
+      "disposition": "Review Ubuntu24/Pipenv/Cython/Qt/C++/FFmpeg/libyuv changes as old build adaptations. Retain current UV/Python3.12/Linux APIs. No new native build claim.",
+      "at_tip": true,
+      "commits": [
+        "b79e2fc7eef3c94b74bb12cb9665f7adf6ecf50f"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "cereal",
+      "family": "cereal",
+      "status": "existing_fields_first_custom_safety_pending",
+      "modern_path": "opendbc_repo/opendbc/car/car.capnp",
+      "disposition": "Use modern torque/accel/latActive/longActive/buttons. Do not copy occupied schema ordinals or C2 safety enum26; explicit relay preview is offline.",
+      "at_tip": true,
+      "commits": [
+        "b79e2fc7eef3c94b74bb12cb9665f7adf6ecf50f",
+        "64a819b42eae4a481a0912bf44ef28f938e7d276",
+        "72b5328ba19b3c1a41931ba2143cb8b9bb73a3c1"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "launch_env.sh",
+      "family": "android",
+      "status": "not_applicable_to_radxa",
+      "modern_path": "RADXA_PORT.md",
+      "disposition": "NEOS20 URL/Android environment changes are specific to C2/mobile. Owner confirmed Radxa Q8B.",
+      "at_tip": false,
+      "commits": [
+        "72b5328ba19b3c1a41931ba2143cb8b9bb73a3c1"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "opendbc",
+      "family": "can",
+      "status": "adapted_canonical",
+      "modern_path": "opendbc_repo/opendbc/can/dbc.py",
+      "disposition": "Canonical DBC and SAE-J1850 CRC/counter support ported to current Python CAN API. No old Cython restore.",
+      "at_tip": true,
+      "commits": [
+        "b243c4a5a828cfd396fbd5a986f9d405c89aed11",
+        "64a819b42eae4a481a0912bf44ef28f938e7d276",
+        "72b5328ba19b3c1a41931ba2143cb8b9bb73a3c1",
+        "be4e6f5a1c9633a89dd4b5bf1b6957b213ada78f",
+        "2a174790561fe621277df12993a583b9fa5e5092",
+        "ae77cb887b4ff150043f9f6f9014e3aa47138ec9",
+        "72ea730f88a6b1c0a8a02333d4c5c06391110cfe",
+        "395e1f24ab59ee6b975e1abe830466d8185b191e",
+        "05965c068ae2a891d120bee0039280bc810ef02b",
+        "2aa9e5ef7d94ed3ff82fc602cbc17292157acbfe",
+        "228d647c831bc426843a16ab2623d226d492386f",
+        "f5838b5c5a9fcbe5eec862e839eecef6e5352103"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "panda",
+      "family": "safety",
+      "status": "unsafe_legacy_policy_rejected_live_policy_pending",
+      "modern_path": "opendbc_repo/opendbc/safety",
+      "disposition": "C2 WIP grants controls on arbitrary RX and disables integrity checks. Zero live host outputs retained; qualified MCU policy not installed.",
+      "at_tip": true,
+      "commits": [
+        "64a819b42eae4a481a0912bf44ef28f938e7d276",
+        "72b5328ba19b3c1a41931ba2143cb8b9bb73a3c1"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "release/files_common",
+      "family": "model",
+      "status": "inherited_upstream_work",
+      "modern_path": "openpilot/selfdrive/modeld",
+      "disposition": "2022 Thneed optimizer/kernels are inherited comma upstream work. Preserve selected CD210/OpenCL/Thneed eb741641.",
+      "at_tip": true,
+      "commits": [
+        "37349c0fef25a796f1d7a536e687f37dbf89986a"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/boardd/SConscript",
+      "family": "usb",
+      "status": "receive_only_adapter_added",
+      "modern_path": "openpilot/selfdrive/pandad/chimera.py",
+      "disposition": "Chimera mailbox16/health43 adapter, serial/product/version pins, Cereal CAN. Manager/raw health integration and real-device acceptance remain pending.",
+      "at_tip": true,
+      "commits": [
+        "64a819b42eae4a481a0912bf44ef28f938e7d276"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/boardd/panda.h",
+      "family": "usb",
+      "status": "receive_only_adapter_added",
+      "modern_path": "openpilot/selfdrive/pandad/chimera.py",
+      "disposition": "Chimera mailbox16/health43 adapter, serial/product/version pins, Cereal CAN. Manager/raw health integration and real-device acceptance remain pending.",
+      "at_tip": true,
+      "commits": [
+        "b79e2fc7eef3c94b74bb12cb9665f7adf6ecf50f"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/car/car_helpers.py",
+      "family": "selection",
+      "status": "adapted",
+      "modern_path": "opendbc_repo/opendbc/car/car_helpers.py",
+      "disposition": "Explicit platform/name migration and scoped diagnostic-query bypass; no global forced platform.",
+      "at_tip": true,
+      "commits": [
+        "64a819b42eae4a481a0912bf44ef28f938e7d276"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/car/hyundai/interface.py",
+      "family": "upstream",
+      "status": "unrelated_historical_upstream",
+      "modern_path": "Ai/Reports/retropilot-c2-history-20261103/commit-history.json",
+      "disposition": "Unrelated OEM/navigation/UI/replay/version/CI changes are inherited or transient upstream work, not retrofit requirements.",
+      "at_tip": true,
+      "commits": [
+        "e57c3413df8a0389f9cfd950b9cb6a5d61925ad3"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/car/retropilot/__init__.py",
+      "family": "car",
+      "status": "adapted_receive_only_offline",
+      "modern_path": "opendbc_repo/opendbc/car/retropilot",
+      "disposition": "Modern platform, state, command calculation and codecs ported; STATE1 corrected. Measured dynamics/driver inputs and live actuation remain unqualified.",
+      "at_tip": true,
+      "commits": [
+        "64a819b42eae4a481a0912bf44ef28f938e7d276"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/car/retropilot/carcontroller.py",
+      "family": "car",
+      "status": "adapted_receive_only_offline",
+      "modern_path": "opendbc_repo/opendbc/car/retropilot",
+      "disposition": "Modern platform, state, command calculation and codecs ported; STATE1 corrected. Measured dynamics/driver inputs and live actuation remain unqualified.",
+      "at_tip": true,
+      "commits": [
+        "64a819b42eae4a481a0912bf44ef28f938e7d276",
+        "72b5328ba19b3c1a41931ba2143cb8b9bb73a3c1",
+        "2aa9e5ef7d94ed3ff82fc602cbc17292157acbfe",
+        "4ed61e6f32114dfbf789027c0edc8b15bb2c16c2",
+        "159d3b3225ef8209d0f473e22ab3080122117b29"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/car/retropilot/carstate.py",
+      "family": "car",
+      "status": "adapted_receive_only_offline",
+      "modern_path": "opendbc_repo/opendbc/car/retropilot",
+      "disposition": "Modern platform, state, command calculation and codecs ported; STATE1 corrected. Measured dynamics/driver inputs and live actuation remain unqualified.",
+      "at_tip": true,
+      "commits": [
+        "64a819b42eae4a481a0912bf44ef28f938e7d276",
+        "72b5328ba19b3c1a41931ba2143cb8b9bb73a3c1",
+        "be4e6f5a1c9633a89dd4b5bf1b6957b213ada78f",
+        "2a174790561fe621277df12993a583b9fa5e5092",
+        "07ef4f91f504064ba29a09a5bf46f67e81601e39",
+        "64c7e67f921f93d5ef42a34061d4d284600a0bef",
+        "05965c068ae2a891d120bee0039280bc810ef02b",
+        "15c3b3665ea9cc33b4516e2c473e4d0289aced18",
+        "6edcb2a15527a26c64088cf3686338f248969bdf",
+        "14be5858eac4d2ddbadee36aee27fb31cbf6e2b3",
+        "8e4c76b5ff5e336dda81ab70ff4196a353d0c843",
+        "2aa9e5ef7d94ed3ff82fc602cbc17292157acbfe",
+        "57f06590a0328cbc0c35859b41af7a8aa4caa880",
+        "6e292258d823e28b14c525d6c4633340336d650d",
+        "4ed61e6f32114dfbf789027c0edc8b15bb2c16c2",
+        "159d3b3225ef8209d0f473e22ab3080122117b29",
+        "228d647c831bc426843a16ab2623d226d492386f"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/car/retropilot/interface.py",
+      "family": "car",
+      "status": "adapted_receive_only_offline",
+      "modern_path": "opendbc_repo/opendbc/car/retropilot",
+      "disposition": "Modern platform, state, command calculation and codecs ported; STATE1 corrected. Measured dynamics/driver inputs and live actuation remain unqualified.",
+      "at_tip": true,
+      "commits": [
+        "64a819b42eae4a481a0912bf44ef28f938e7d276",
+        "72b5328ba19b3c1a41931ba2143cb8b9bb73a3c1",
+        "12f283e0616a45500438351559f0c79ec092f9c3",
+        "159d3b3225ef8209d0f473e22ab3080122117b29"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/car/retropilot/ocelotcan.py",
+      "family": "car",
+      "status": "adapted_receive_only_offline",
+      "modern_path": "opendbc_repo/opendbc/car/retropilot",
+      "disposition": "Modern platform, state, command calculation and codecs ported; STATE1 corrected. Measured dynamics/driver inputs and live actuation remain unqualified.",
+      "at_tip": true,
+      "commits": [
+        "64a819b42eae4a481a0912bf44ef28f938e7d276",
+        "72b5328ba19b3c1a41931ba2143cb8b9bb73a3c1",
+        "2aa9e5ef7d94ed3ff82fc602cbc17292157acbfe",
+        "159d3b3225ef8209d0f473e22ab3080122117b29"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/car/retropilot/radar_interface.py",
+      "family": "car",
+      "status": "adapted_receive_only_offline",
+      "modern_path": "opendbc_repo/opendbc/car/retropilot",
+      "disposition": "Modern platform, state, command calculation and codecs ported; STATE1 corrected. Measured dynamics/driver inputs and live actuation remain unqualified.",
+      "at_tip": true,
+      "commits": [
+        "64a819b42eae4a481a0912bf44ef28f938e7d276",
+        "72b5328ba19b3c1a41931ba2143cb8b9bb73a3c1"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/car/retropilot/tunes",
+      "family": "car",
+      "status": "adapted_receive_only_offline",
+      "modern_path": "opendbc_repo/opendbc/car/retropilot",
+      "disposition": "Modern platform, state, command calculation and codecs ported; STATE1 corrected. Measured dynamics/driver inputs and live actuation remain unqualified.",
+      "at_tip": false,
+      "commits": [
+        "64a819b42eae4a481a0912bf44ef28f938e7d276"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/car/retropilot/tunes.py",
+      "family": "car",
+      "status": "adapted_receive_only_offline",
+      "modern_path": "opendbc_repo/opendbc/car/retropilot",
+      "disposition": "Modern platform, state, command calculation and codecs ported; STATE1 corrected. Measured dynamics/driver inputs and live actuation remain unqualified.",
+      "at_tip": true,
+      "commits": [
+        "17116c0aa0c89ebab388ace0fc244d8c7f3d76bd",
+        "4ed61e6f32114dfbf789027c0edc8b15bb2c16c2",
+        "159d3b3225ef8209d0f473e22ab3080122117b29"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/car/retropilot/values.py",
+      "family": "car",
+      "status": "adapted_receive_only_offline",
+      "modern_path": "opendbc_repo/opendbc/car/retropilot",
+      "disposition": "Modern platform, state, command calculation and codecs ported; STATE1 corrected. Measured dynamics/driver inputs and live actuation remain unqualified.",
+      "at_tip": true,
+      "commits": [
+        "64a819b42eae4a481a0912bf44ef28f938e7d276",
+        "72b5328ba19b3c1a41931ba2143cb8b9bb73a3c1",
+        "2aa9e5ef7d94ed3ff82fc602cbc17292157acbfe",
+        "159d3b3225ef8209d0f473e22ab3080122117b29"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/car/subaru/values.py",
+      "family": "upstream",
+      "status": "unrelated_historical_upstream",
+      "modern_path": "Ai/Reports/retropilot-c2-history-20261103/commit-history.json",
+      "disposition": "Unrelated OEM/navigation/UI/replay/version/CI changes are inherited or transient upstream work, not retrofit requirements.",
+      "at_tip": false,
+      "commits": [
+        "72b5328ba19b3c1a41931ba2143cb8b9bb73a3c1"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/car/toyota/interface.py",
+      "family": "upstream",
+      "status": "unrelated_historical_upstream",
+      "modern_path": "Ai/Reports/retropilot-c2-history-20261103/commit-history.json",
+      "disposition": "Unrelated OEM/navigation/UI/replay/version/CI changes are inherited or transient upstream work, not retrofit requirements.",
+      "at_tip": false,
+      "commits": [
+        "72b5328ba19b3c1a41931ba2143cb8b9bb73a3c1"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/car/toyota/values.py",
+      "family": "upstream",
+      "status": "unrelated_historical_upstream",
+      "modern_path": "Ai/Reports/retropilot-c2-history-20261103/commit-history.json",
+      "disposition": "Unrelated OEM/navigation/UI/replay/version/CI changes are inherited or transient upstream work, not retrofit requirements.",
+      "at_tip": false,
+      "commits": [
+        "72b5328ba19b3c1a41931ba2143cb8b9bb73a3c1"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/common/util.h",
+      "family": "linux",
+      "status": "modern_linux_implementation_retained",
+      "modern_path": "pyproject.toml",
+      "disposition": "Review Ubuntu24/Pipenv/Cython/Qt/C++/FFmpeg/libyuv changes as old build adaptations. Retain current UV/Python3.12/Linux APIs. No new native build claim.",
+      "at_tip": true,
+      "commits": [
+        "b79e2fc7eef3c94b74bb12cb9665f7adf6ecf50f"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/common/version.h",
+      "family": "upstream",
+      "status": "unrelated_historical_upstream",
+      "modern_path": "Ai/Reports/retropilot-c2-history-20261103/commit-history.json",
+      "disposition": "Unrelated OEM/navigation/UI/replay/version/CI changes are inherited or transient upstream work, not retrofit requirements.",
+      "at_tip": true,
+      "commits": [
+        "66473b54b23009cedd824157460324945ea1b514"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/controls/controlsd.py",
+      "family": "control",
+      "status": "legacy_shortcuts_rejected",
+      "modern_path": "openpilot/selfdrive/selfdrived/selfdrived.py",
+      "disposition": "Preserve communication, model, GPS and safety checks. Joystick cannot directly toggle selfdrive enabled/active.",
+      "at_tip": true,
+      "commits": [
+        "72b5328ba19b3c1a41931ba2143cb8b9bb73a3c1",
+        "2aa9e5ef7d94ed3ff82fc602cbc17292157acbfe",
+        "6e292258d823e28b14c525d6c4633340336d650d",
+        "4ed61e6f32114dfbf789027c0edc8b15bb2c16c2"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/controls/lib/latcontrol_pid.py",
+      "family": "pid",
+      "status": "physical_profile_pending",
+      "modern_path": "openpilot/selfdrive/controls/lib/latcontrol_pid.py",
+      "disposition": "Retain modern PIDController API. C2 inactive-only JSON tuning/gains are reference; no unvalidated hot reload across all cars.",
+      "at_tip": true,
+      "commits": [
+        "4ed61e6f32114dfbf789027c0edc8b15bb2c16c2",
+        "159d3b3225ef8209d0f473e22ab3080122117b29"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/hardware/eon/neos.json",
+      "family": "android",
+      "status": "not_applicable_to_radxa",
+      "modern_path": "RADXA_PORT.md",
+      "disposition": "NEOS20 URL/Android environment changes are specific to C2/mobile. Owner confirmed Radxa Q8B.",
+      "at_tip": true,
+      "commits": [
+        "72b5328ba19b3c1a41931ba2143cb8b9bb73a3c1",
+        "047c72b8ad1e6ecbe05117af9153be6d9793b123"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/loggerd/loggerd.h",
+      "family": "linux",
+      "status": "modern_linux_implementation_retained",
+      "modern_path": "pyproject.toml",
+      "disposition": "Review Ubuntu24/Pipenv/Cython/Qt/C++/FFmpeg/libyuv changes as old build adaptations. Retain current UV/Python3.12/Linux APIs. No new native build claim.",
+      "at_tip": true,
+      "commits": [
+        "b79e2fc7eef3c94b74bb12cb9665f7adf6ecf50f"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/loggerd/raw_logger.cc",
+      "family": "linux",
+      "status": "modern_linux_implementation_retained",
+      "modern_path": "pyproject.toml",
+      "disposition": "Review Ubuntu24/Pipenv/Cython/Qt/C++/FFmpeg/libyuv changes as old build adaptations. Retain current UV/Python3.12/Linux APIs. No new native build claim.",
+      "at_tip": true,
+      "commits": [
+        "b79e2fc7eef3c94b74bb12cb9665f7adf6ecf50f"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/loggerd/raw_logger.h",
+      "family": "linux",
+      "status": "modern_linux_implementation_retained",
+      "modern_path": "pyproject.toml",
+      "disposition": "Review Ubuntu24/Pipenv/Cython/Qt/C++/FFmpeg/libyuv changes as old build adaptations. Retain current UV/Python3.12/Linux APIs. No new native build claim.",
+      "at_tip": true,
+      "commits": [
+        "b79e2fc7eef3c94b74bb12cb9665f7adf6ecf50f"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/manager/process.py",
+      "family": "manager",
+      "status": "legacy_ui_shortcut_rejected",
+      "modern_path": "openpilot/system/manager/process.py",
+      "disposition": "Retain enabled/not_run/should_run ownership. C2 forced UI restart before those checks is not copied.",
+      "at_tip": true,
+      "commits": [
+        "4ed61e6f32114dfbf789027c0edc8b15bb2c16c2"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/modeld/SConscript",
+      "family": "model",
+      "status": "inherited_upstream_work",
+      "modern_path": "openpilot/selfdrive/modeld",
+      "disposition": "2022 Thneed optimizer/kernels are inherited comma upstream work. Preserve selected CD210/OpenCL/Thneed eb741641.",
+      "at_tip": true,
+      "commits": [
+        "37349c0fef25a796f1d7a536e687f37dbf89986a"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/modeld/runners/snpemodel.cc",
+      "family": "model",
+      "status": "inherited_upstream_work",
+      "modern_path": "openpilot/selfdrive/modeld",
+      "disposition": "2022 Thneed optimizer/kernels are inherited comma upstream work. Preserve selected CD210/OpenCL/Thneed eb741641.",
+      "at_tip": true,
+      "commits": [
+        "37349c0fef25a796f1d7a536e687f37dbf89986a"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/modeld/thneed/kernels/convolution_horizontal_reduced_reads.cl",
+      "family": "model",
+      "status": "inherited_upstream_work",
+      "modern_path": "openpilot/selfdrive/modeld",
+      "disposition": "2022 Thneed optimizer/kernels are inherited comma upstream work. Preserve selected CD210/OpenCL/Thneed eb741641.",
+      "at_tip": true,
+      "commits": [
+        "37349c0fef25a796f1d7a536e687f37dbf89986a"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/modeld/thneed/kernels/convolution_horizontal_reduced_reads_1x1.cl",
+      "family": "model",
+      "status": "inherited_upstream_work",
+      "modern_path": "openpilot/selfdrive/modeld",
+      "disposition": "2022 Thneed optimizer/kernels are inherited comma upstream work. Preserve selected CD210/OpenCL/Thneed eb741641.",
+      "at_tip": true,
+      "commits": [
+        "37349c0fef25a796f1d7a536e687f37dbf89986a"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/modeld/thneed/kernels/convolution_horizontal_reduced_reads_5_outputs.cl",
+      "family": "model",
+      "status": "inherited_upstream_work",
+      "modern_path": "openpilot/selfdrive/modeld",
+      "disposition": "2022 Thneed optimizer/kernels are inherited comma upstream work. Preserve selected CD210/OpenCL/Thneed eb741641.",
+      "at_tip": true,
+      "commits": [
+        "37349c0fef25a796f1d7a536e687f37dbf89986a"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/modeld/thneed/kernels/convolution_horizontal_reduced_reads_depthwise.cl",
+      "family": "model",
+      "status": "inherited_upstream_work",
+      "modern_path": "openpilot/selfdrive/modeld",
+      "disposition": "2022 Thneed optimizer/kernels are inherited comma upstream work. Preserve selected CD210/OpenCL/Thneed eb741641.",
+      "at_tip": true,
+      "commits": [
+        "37349c0fef25a796f1d7a536e687f37dbf89986a"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/modeld/thneed/kernels/convolution_horizontal_reduced_reads_depthwise_stride_1.cl",
+      "family": "model",
+      "status": "inherited_upstream_work",
+      "modern_path": "openpilot/selfdrive/modeld",
+      "disposition": "2022 Thneed optimizer/kernels are inherited comma upstream work. Preserve selected CD210/OpenCL/Thneed eb741641.",
+      "at_tip": true,
+      "commits": [
+        "37349c0fef25a796f1d7a536e687f37dbf89986a"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/modeld/thneed/optimizer.cc",
+      "family": "model",
+      "status": "inherited_upstream_work",
+      "modern_path": "openpilot/selfdrive/modeld",
+      "disposition": "2022 Thneed optimizer/kernels are inherited comma upstream work. Preserve selected CD210/OpenCL/Thneed eb741641.",
+      "at_tip": true,
+      "commits": [
+        "37349c0fef25a796f1d7a536e687f37dbf89986a"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/modeld/thneed/thneed.cc",
+      "family": "model",
+      "status": "inherited_upstream_work",
+      "modern_path": "openpilot/selfdrive/modeld",
+      "disposition": "2022 Thneed optimizer/kernels are inherited comma upstream work. Preserve selected CD210/OpenCL/Thneed eb741641.",
+      "at_tip": true,
+      "commits": [
+        "37349c0fef25a796f1d7a536e687f37dbf89986a"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/modeld/thneed/thneed.h",
+      "family": "model",
+      "status": "inherited_upstream_work",
+      "modern_path": "openpilot/selfdrive/modeld",
+      "disposition": "2022 Thneed optimizer/kernels are inherited comma upstream work. Preserve selected CD210/OpenCL/Thneed eb741641.",
+      "at_tip": true,
+      "commits": [
+        "37349c0fef25a796f1d7a536e687f37dbf89986a"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/test/process_replay/model_replay_ref_commit",
+      "family": "model",
+      "status": "inherited_upstream_work",
+      "modern_path": "openpilot/selfdrive/modeld",
+      "disposition": "2022 Thneed optimizer/kernels are inherited comma upstream work. Preserve selected CD210/OpenCL/Thneed eb741641.",
+      "at_tip": true,
+      "commits": [
+        "37349c0fef25a796f1d7a536e687f37dbf89986a"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/test/process_replay/process_replay.py",
+      "family": "upstream",
+      "status": "unrelated_historical_upstream",
+      "modern_path": "Ai/Reports/retropilot-c2-history-20261103/commit-history.json",
+      "disposition": "Unrelated OEM/navigation/UI/replay/version/CI changes are inherited or transient upstream work, not retrofit requirements.",
+      "at_tip": false,
+      "commits": [
+        "72b5328ba19b3c1a41931ba2143cb8b9bb73a3c1"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/test/process_replay/ref_commit",
+      "family": "upstream",
+      "status": "unrelated_historical_upstream",
+      "modern_path": "Ai/Reports/retropilot-c2-history-20261103/commit-history.json",
+      "disposition": "Unrelated OEM/navigation/UI/replay/version/CI changes are inherited or transient upstream work, not retrofit requirements.",
+      "at_tip": false,
+      "commits": [
+        "72b5328ba19b3c1a41931ba2143cb8b9bb73a3c1"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/test/test_models.py",
+      "family": "upstream",
+      "status": "unrelated_historical_upstream",
+      "modern_path": "Ai/Reports/retropilot-c2-history-20261103/commit-history.json",
+      "disposition": "Unrelated OEM/navigation/UI/replay/version/CI changes are inherited or transient upstream work, not retrofit requirements.",
+      "at_tip": false,
+      "commits": [
+        "72b5328ba19b3c1a41931ba2143cb8b9bb73a3c1"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/ui/qt/maps/map_helpers.cc",
+      "family": "upstream",
+      "status": "unrelated_historical_upstream",
+      "modern_path": "Ai/Reports/retropilot-c2-history-20261103/commit-history.json",
+      "disposition": "Unrelated OEM/navigation/UI/replay/version/CI changes are inherited or transient upstream work, not retrofit requirements.",
+      "at_tip": true,
+      "commits": [
+        "06add8928dd154c4cfdc62c89585cf7a190f2f07"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/ui/qt/maps/map_settings.cc",
+      "family": "upstream",
+      "status": "unrelated_historical_upstream",
+      "modern_path": "Ai/Reports/retropilot-c2-history-20261103/commit-history.json",
+      "disposition": "Unrelated OEM/navigation/UI/replay/version/CI changes are inherited or transient upstream work, not retrofit requirements.",
+      "at_tip": true,
+      "commits": [
+        "3de449a9932d73d45ef49bdc1c30a6922fdd0251"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/ui/qt/offroad/settings.cc",
+      "family": "upstream",
+      "status": "unrelated_historical_upstream",
+      "modern_path": "Ai/Reports/retropilot-c2-history-20261103/commit-history.json",
+      "disposition": "Unrelated OEM/navigation/UI/replay/version/CI changes are inherited or transient upstream work, not retrofit requirements.",
+      "at_tip": false,
+      "commits": [
+        "b695ffbfdb097a319c93542f9c7ba8bcd3571d8f",
+        "6ca0269f47d048600335ac5776fc7966d9ca339f"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/ui/qt/util.cc",
+      "family": "upstream",
+      "status": "unrelated_historical_upstream",
+      "modern_path": "Ai/Reports/retropilot-c2-history-20261103/commit-history.json",
+      "disposition": "Unrelated OEM/navigation/UI/replay/version/CI changes are inherited or transient upstream work, not retrofit requirements.",
+      "at_tip": false,
+      "commits": [
+        "72b5328ba19b3c1a41931ba2143cb8b9bb73a3c1"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/ui/replay/consoleui.cc",
+      "family": "linux",
+      "status": "modern_linux_implementation_retained",
+      "modern_path": "pyproject.toml",
+      "disposition": "Review Ubuntu24/Pipenv/Cython/Qt/C++/FFmpeg/libyuv changes as old build adaptations. Retain current UV/Python3.12/Linux APIs. No new native build claim.",
+      "at_tip": true,
+      "commits": [
+        "b79e2fc7eef3c94b74bb12cb9665f7adf6ecf50f"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/ui/replay/framereader.cc",
+      "family": "linux",
+      "status": "modern_linux_implementation_retained",
+      "modern_path": "pyproject.toml",
+      "disposition": "Review Ubuntu24/Pipenv/Cython/Qt/C++/FFmpeg/libyuv changes as old build adaptations. Retain current UV/Python3.12/Linux APIs. No new native build claim.",
+      "at_tip": true,
+      "commits": [
+        "b79e2fc7eef3c94b74bb12cb9665f7adf6ecf50f"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "selfdrive/ui/ui.h",
+      "family": "upstream",
+      "status": "unrelated_historical_upstream",
+      "modern_path": "Ai/Reports/retropilot-c2-history-20261103/commit-history.json",
+      "disposition": "Unrelated OEM/navigation/UI/replay/version/CI changes are inherited or transient upstream work, not retrofit requirements.",
+      "at_tip": false,
+      "commits": [
+        "b695ffbfdb097a319c93542f9c7ba8bcd3571d8f"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "third_party/json11/json11.cpp",
+      "family": "linux",
+      "status": "modern_linux_implementation_retained",
+      "modern_path": "pyproject.toml",
+      "disposition": "Review Ubuntu24/Pipenv/Cython/Qt/C++/FFmpeg/libyuv changes as old build adaptations. Retain current UV/Python3.12/Linux APIs. No new native build claim.",
+      "at_tip": true,
+      "commits": [
+        "b79e2fc7eef3c94b74bb12cb9665f7adf6ecf50f"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "third_party/libyuv/build.txt",
+      "family": "linux",
+      "status": "modern_linux_implementation_retained",
+      "modern_path": "pyproject.toml",
+      "disposition": "Review Ubuntu24/Pipenv/Cython/Qt/C++/FFmpeg/libyuv changes as old build adaptations. Retain current UV/Python3.12/Linux APIs. No new native build claim.",
+      "at_tip": true,
+      "commits": [
+        "b79e2fc7eef3c94b74bb12cb9665f7adf6ecf50f",
+        "64a819b42eae4a481a0912bf44ef28f938e7d276"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "third_party/libyuv/x64/lib/libyuv.a",
+      "family": "linux",
+      "status": "modern_linux_implementation_retained",
+      "modern_path": "pyproject.toml",
+      "disposition": "Review Ubuntu24/Pipenv/Cython/Qt/C++/FFmpeg/libyuv changes as old build adaptations. Retain current UV/Python3.12/Linux APIs. No new native build claim.",
+      "at_tip": true,
+      "commits": [
+        "64a819b42eae4a481a0912bf44ef28f938e7d276"
+      ]
+    },
+    {
+      "repo": "parent",
+      "path": "tools/joystick/joystickd.py",
+      "family": "joystick",
+      "status": "modern_default_retained_custom_relays_pending",
+      "modern_path": "openpilot/tools/joystick/joystickd.py",
+      "disposition": "Modern joystick uses selfdriveState and resets stale input after0.2s. Custom relay button mapping remains unqualified; offline preview accepts explicit relay_bits.",
+      "at_tip": true,
+      "commits": [
+        "64a819b42eae4a481a0912bf44ef28f938e7d276",
+        "72b5328ba19b3c1a41931ba2143cb8b9bb73a3c1"
+      ]
+    },
+    {
+      "repo": "panda",
+      "path": "board/safety.h",
+      "family": "safety",
+      "status": "unsafe_legacy_policy_rejected_live_policy_pending",
+      "modern_path": "opendbc_repo/opendbc/safety",
+      "disposition": "C2 WIP grants controls on arbitrary RX and disables integrity checks. Zero live host outputs retained; qualified MCU policy not installed.",
+      "at_tip": true
+    },
+    {
+      "repo": "panda",
+      "path": "board/safety/safety_retropilot.h",
+      "family": "safety",
+      "status": "unsafe_legacy_policy_rejected_live_policy_pending",
+      "modern_path": "opendbc_repo/opendbc/safety",
+      "disposition": "C2 WIP grants controls on arbitrary RX and disables integrity checks. Zero live host outputs retained; qualified MCU policy not installed.",
+      "at_tip": true
+    },
+    {
+      "repo": "cereal",
+      "path": "car.capnp",
+      "family": "cereal",
+      "status": "existing_fields_first_custom_safety_pending",
+      "modern_path": "opendbc_repo/opendbc/car/car.capnp",
+      "disposition": "Use modern torque/accel/latActive/longActive/buttons. Do not copy occupied schema ordinals or C2 safety enum26; explicit relay preview is offline.",
+      "at_tip": true
+    },
+    {
+      "repo": "cereal",
+      "path": "messaging/messaging.h",
+      "family": "linux",
+      "status": "modern_linux_implementation_retained",
+      "modern_path": "pyproject.toml",
+      "disposition": "Review Ubuntu24/Pipenv/Cython/Qt/C++/FFmpeg/libyuv changes as old build adaptations. Retain current UV/Python3.12/Linux APIs. No new native build claim.",
+      "at_tip": true
+    },
+    {
+      "repo": "cereal",
+      "path": "messaging/msgq.cc",
+      "family": "linux",
+      "status": "modern_linux_implementation_retained",
+      "modern_path": "pyproject.toml",
+      "disposition": "Review Ubuntu24/Pipenv/Cython/Qt/C++/FFmpeg/libyuv changes as old build adaptations. Retain current UV/Python3.12/Linux APIs. No new native build claim.",
+      "at_tip": true
+    },
+    {
+      "repo": "cereal",
+      "path": "messaging/msgq.h",
+      "family": "linux",
+      "status": "modern_linux_implementation_retained",
+      "modern_path": "pyproject.toml",
+      "disposition": "Review Ubuntu24/Pipenv/Cython/Qt/C++/FFmpeg/libyuv changes as old build adaptations. Retain current UV/Python3.12/Linux APIs. No new native build claim.",
+      "at_tip": true
+    },
+    {
+      "repo": "cereal",
+      "path": "visionipc/ipc.cc",
+      "family": "linux",
+      "status": "modern_linux_implementation_retained",
+      "modern_path": "pyproject.toml",
+      "disposition": "Review Ubuntu24/Pipenv/Cython/Qt/C++/FFmpeg/libyuv changes as old build adaptations. Retain current UV/Python3.12/Linux APIs. No new native build claim.",
+      "at_tip": true
+    },
+    {
+      "repo": "cereal",
+      "path": "visionipc/visionipc_server.h",
+      "family": "linux",
+      "status": "modern_linux_implementation_retained",
+      "modern_path": "pyproject.toml",
+      "disposition": "Review Ubuntu24/Pipenv/Cython/Qt/C++/FFmpeg/libyuv changes as old build adaptations. Retain current UV/Python3.12/Linux APIs. No new native build claim.",
+      "at_tip": true
+    },
+    {
+      "repo": "opendbc",
+      "path": "can/common.cc",
+      "family": "can",
+      "status": "adapted_canonical",
+      "modern_path": "opendbc_repo/opendbc/can/dbc.py",
+      "disposition": "Canonical DBC and SAE-J1850 CRC/counter support ported to current Python CAN API. No old Cython restore.",
+      "at_tip": true
+    },
+    {
+      "repo": "opendbc",
+      "path": "can/common.h",
+      "family": "can",
+      "status": "adapted_canonical",
+      "modern_path": "opendbc_repo/opendbc/can/dbc.py",
+      "disposition": "Canonical DBC and SAE-J1850 CRC/counter support ported to current Python CAN API. No old Cython restore.",
+      "at_tip": true
+    },
+    {
+      "repo": "opendbc",
+      "path": "can/common.pxd",
+      "family": "can",
+      "status": "adapted_canonical",
+      "modern_path": "opendbc_repo/opendbc/can/dbc.py",
+      "disposition": "Canonical DBC and SAE-J1850 CRC/counter support ported to current Python CAN API. No old Cython restore.",
+      "at_tip": true
+    },
+    {
+      "repo": "opendbc",
+      "path": "can/common_dbc.h",
+      "family": "can",
+      "status": "adapted_canonical",
+      "modern_path": "opendbc_repo/opendbc/can/dbc.py",
+      "disposition": "Canonical DBC and SAE-J1850 CRC/counter support ported to current Python CAN API. No old Cython restore.",
+      "at_tip": true
+    },
+    {
+      "repo": "opendbc",
+      "path": "can/common_pyx_setup.py",
+      "family": "can",
+      "status": "adapted_canonical",
+      "modern_path": "opendbc_repo/opendbc/can/dbc.py",
+      "disposition": "Canonical DBC and SAE-J1850 CRC/counter support ported to current Python CAN API. No old Cython restore.",
+      "at_tip": true
+    },
+    {
+      "repo": "opendbc",
+      "path": "can/dbc_template.cc",
+      "family": "can",
+      "status": "adapted_canonical",
+      "modern_path": "opendbc_repo/opendbc/can/dbc.py",
+      "disposition": "Canonical DBC and SAE-J1850 CRC/counter support ported to current Python CAN API. No old Cython restore.",
+      "at_tip": true
+    },
+    {
+      "repo": "opendbc",
+      "path": "can/packer.cc",
+      "family": "can",
+      "status": "adapted_canonical",
+      "modern_path": "opendbc_repo/opendbc/can/dbc.py",
+      "disposition": "Canonical DBC and SAE-J1850 CRC/counter support ported to current Python CAN API. No old Cython restore.",
+      "at_tip": true
+    },
+    {
+      "repo": "opendbc",
+      "path": "can/parser.cc",
+      "family": "can",
+      "status": "adapted_canonical",
+      "modern_path": "opendbc_repo/opendbc/can/dbc.py",
+      "disposition": "Canonical DBC and SAE-J1850 CRC/counter support ported to current Python CAN API. No old Cython restore.",
+      "at_tip": true
+    },
+    {
+      "repo": "opendbc",
+      "path": "can/process_dbc.py",
+      "family": "can",
+      "status": "adapted_canonical",
+      "modern_path": "opendbc_repo/opendbc/can/dbc.py",
+      "disposition": "Canonical DBC and SAE-J1850 CRC/counter support ported to current Python CAN API. No old Cython restore.",
+      "at_tip": true
+    },
+    {
+      "repo": "opendbc",
+      "path": "ocelot_controls.dbc",
+      "family": "can",
+      "status": "adapted_canonical",
+      "modern_path": "opendbc_repo/opendbc/can/dbc.py",
+      "disposition": "Canonical DBC and SAE-J1850 CRC/counter support ported to current Python CAN API. No old Cython restore.",
+      "at_tip": true
+    }
+  ]
+}

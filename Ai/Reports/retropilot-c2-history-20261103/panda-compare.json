@@ -1,0 +1,367 @@
+{
+  "url": "https://api.github.com/repos/RetroPilot/panda/compare/b76ce55d1384c5c2d91d604dbf5b1de4192728c1...9e6d47f63675d5a45170ae7972c24412034dc136",
+  "html_url": "https://github.com/RetroPilot/panda/compare/b76ce55d1384c5c2d91d604dbf5b1de4192728c1...9e6d47f63675d5a45170ae7972c24412034dc136",
+  "permalink_url": "https://github.com/RetroPilot/panda/compare/RetroPilot:b76ce55...RetroPilot:9e6d47f",
+  "diff_url": "https://github.com/RetroPilot/panda/compare/b76ce55d1384c5c2d91d604dbf5b1de4192728c1...9e6d47f63675d5a45170ae7972c24412034dc136.diff",
+  "patch_url": "https://github.com/RetroPilot/panda/compare/b76ce55d1384c5c2d91d604dbf5b1de4192728c1...9e6d47f63675d5a45170ae7972c24412034dc136.patch",
+  "base_commit": {
+    "sha": "b76ce55d1384c5c2d91d604dbf5b1de4192728c1",
+    "node_id": "C_kwDOFffB-toAKGI3NmNlNTVkMTM4NGM1YzJkOTFkNjA0ZGJmNWIxZGU0MTkyNzI4YzE",
+    "commit": {
+      "author": {
+        "name": "Adeeb Shihadeh",
+        "email": "adeebshihadeh@gmail.com",
+        "date": "2022-03-18T21:52:52Z"
+      },
+      "committer": {
+        "name": "Adeeb Shihadeh",
+        "email": "adeebshihadeh@gmail.com",
+        "date": "2022-06-10T19:53:46Z"
+      },
+      "message": "Nissan + Tesla: don't exit controls allowed on blocked message (#877)\n\n* Nissan + Tesla: don't exit controls allowed on blocked message\r\n\r\n* update tests",
+      "tree": {
+        "sha": "7c5bd6e38878ed7a20db9b89c2ed060fbb14f7ab",
+        "url": "https://api.github.com/repos/RetroPilot/panda/git/trees/7c5bd6e38878ed7a20db9b89c2ed060fbb14f7ab"
+      },
+      "url": "https://api.github.com/repos/RetroPilot/panda/git/commits/b76ce55d1384c5c2d91d604dbf5b1de4192728c1",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/RetroPilot/panda/commits/b76ce55d1384c5c2d91d604dbf5b1de4192728c1",
+    "html_url": "https://github.com/RetroPilot/panda/commit/b76ce55d1384c5c2d91d604dbf5b1de4192728c1",
+    "comments_url": "https://api.github.com/repos/RetroPilot/panda/commits/b76ce55d1384c5c2d91d604dbf5b1de4192728c1/comments",
+    "author": {
+      "login": "adeebshihadeh",
+      "id": 8762862,
+      "node_id": "MDQ6VXNlcjg3NjI4NjI=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/8762862?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/adeebshihadeh",
+      "html_url": "https://github.com/adeebshihadeh",
+      "followers_url": "https://api.github.com/users/adeebshihadeh/followers",
+      "following_url": "https://api.github.com/users/adeebshihadeh/following{/other_user}",
+      "gists_url": "https://api.github.com/users/adeebshihadeh/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/adeebshihadeh/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/adeebshihadeh/subscriptions",
+      "organizations_url": "https://api.github.com/users/adeebshihadeh/orgs",
+      "repos_url": "https://api.github.com/users/adeebshihadeh/repos",
+      "events_url": "https://api.github.com/users/adeebshihadeh/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/adeebshihadeh/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "adeebshihadeh",
+      "id": 8762862,
+      "node_id": "MDQ6VXNlcjg3NjI4NjI=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/8762862?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/adeebshihadeh",
+      "html_url": "https://github.com/adeebshihadeh",
+      "followers_url": "https://api.github.com/users/adeebshihadeh/followers",
+      "following_url": "https://api.github.com/users/adeebshihadeh/following{/other_user}",
+      "gists_url": "https://api.github.com/users/adeebshihadeh/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/adeebshihadeh/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/adeebshihadeh/subscriptions",
+      "organizations_url": "https://api.github.com/users/adeebshihadeh/orgs",
+      "repos_url": "https://api.github.com/users/adeebshihadeh/repos",
+      "events_url": "https://api.github.com/users/adeebshihadeh/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/adeebshihadeh/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "cb88a1756ba2b8b06e06102691c75f8aa87f687b",
+        "url": "https://api.github.com/repos/RetroPilot/panda/commits/cb88a1756ba2b8b06e06102691c75f8aa87f687b",
+        "html_url": "https://github.com/RetroPilot/panda/commit/cb88a1756ba2b8b06e06102691c75f8aa87f687b"
+      }
+    ]
+  },
+  "merge_base_commit": {
+    "sha": "0e79ab33ab0e18168604d9471435d05511d19f8f",
+    "node_id": "C_kwDOFffB-toAKDBlNzlhYjMzYWIwZTE4MTY4NjA0ZDk0NzE0MzVkMDU1MTFkMTlmOGY",
+    "commit": {
+      "author": {
+        "name": "Igor Biletskyy",
+        "email": "briskspirit@users.noreply.github.com",
+        "date": "2022-02-14T22:31:16Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2022-02-14T22:31:16Z"
+      },
+      "message": "Fix USB enumeration detection for C2 (#853)",
+      "tree": {
+        "sha": "4b2b4e556699896089cbf5c925ddfe78301030d3",
+        "url": "https://api.github.com/repos/RetroPilot/panda/git/trees/4b2b4e556699896089cbf5c925ddfe78301030d3"
+      },
+      "url": "https://api.github.com/repos/RetroPilot/panda/git/commits/0e79ab33ab0e18168604d9471435d05511d19f8f",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsBcBAABCAAQBQJiCtg0CRBK7hj4Ov3rIwAAM0wIABafVHDHKzLney2EgXJNLJIj\nWCj5df/tTS8iuAxj3GiC+5YfhBLlnfZpmZ+CGCpAgZGHsT5ExWkcOICRauDY18iA\nkFUVv7yiEiC8U5XvaLKhfkgvbHxhOAaMEIANuUqG7h02Hn/FgoeHS3Qx1w5SwYJe\nVWgIRzQF2ejV8P/xIK5FksK++JxKHpG+xLvnqc53OsOxCeX5BS9/o9ulIxJocXNe\nn2DT7iz9/klQJZwwi+MB5ZysERvIFXV6zsKzDLbX6TJ0QtEpQEIfuvGmg7ldMwWV\n/YBAWpDP1G30sRRXyEWBeeG52QGxJH+P560WwYDZdMhiEHLMxmzDB3rjX9YCgZQ=\n=imvj\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 4b2b4e556699896089cbf5c925ddfe78301030d3\nparent f56ebf5b776b677bf12ec772b0223274dd798999\nauthor Igor Biletskyy <briskspirit@users.noreply.github.com> 1644877876 -0800\ncommitter GitHub <noreply@github.com> 1644877876 -0800\n\nFix USB enumeration detection for C2 (#853)\n\n",
+        "verified_at": "2024-01-16T19:59:59Z"
+      }
+    },
+    "url": "https://api.github.com/repos/RetroPilot/panda/commits/0e79ab33ab0e18168604d9471435d05511d19f8f",
+    "html_url": "https://github.com/RetroPilot/panda/commit/0e79ab33ab0e18168604d9471435d05511d19f8f",
+    "comments_url": "https://api.github.com/repos/RetroPilot/panda/commits/0e79ab33ab0e18168604d9471435d05511d19f8f/comments",
+    "author": {
+      "login": "briskspirit",
+      "id": 11968822,
+      "node_id": "MDQ6VXNlcjExOTY4ODIy",
+      "avatar_url": "https://avatars.githubusercontent.com/u/11968822?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/briskspirit",
+      "html_url": "https://github.com/briskspirit",
+      "followers_url": "https://api.github.com/users/briskspirit/followers",
+      "following_url": "https://api.github.com/users/briskspirit/following{/other_user}",
+      "gists_url": "https://api.github.com/users/briskspirit/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/briskspirit/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/briskspirit/subscriptions",
+      "organizations_url": "https://api.github.com/users/briskspirit/orgs",
+      "repos_url": "https://api.github.com/users/briskspirit/repos",
+      "events_url": "https://api.github.com/users/briskspirit/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/briskspirit/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "f56ebf5b776b677bf12ec772b0223274dd798999",
+        "url": "https://api.github.com/repos/RetroPilot/panda/commits/f56ebf5b776b677bf12ec772b0223274dd798999",
+        "html_url": "https://github.com/RetroPilot/panda/commit/f56ebf5b776b677bf12ec772b0223274dd798999"
+      }
+    ]
+  },
+  "status": "diverged",
+  "ahead_by": 2,
+  "behind_by": 4,
+  "total_commits": 2,
+  "commits": [
+    {
+      "sha": "89ac4452543fe6915ee7e49aecfed27e7441083c",
+      "node_id": "C_kwDOFffB-toAKDg5YWM0NDUyNTQzZmU2OTE1ZWU3ZTQ5YWVjZmVkMjdlNzQ0MTA4M2M",
+      "commit": {
+        "author": {
+          "name": "Kevin Roscom",
+          "email": "37704329+wocsor@users.noreply.github.com",
+          "date": "2025-06-10T02:37:53Z"
+        },
+        "committer": {
+          "name": "Kevin Roscom",
+          "email": "37704329+wocsor@users.noreply.github.com",
+          "date": "2025-06-10T02:37:53Z"
+        },
+        "message": "WIP Retropilot Panda safety",
+        "tree": {
+          "sha": "e1e028fc1c056cad0ad7962f2ba71895ab11be95",
+          "url": "https://api.github.com/repos/RetroPilot/panda/git/trees/e1e028fc1c056cad0ad7962f2ba71895ab11be95"
+        },
+        "url": "https://api.github.com/repos/RetroPilot/panda/git/commits/89ac4452543fe6915ee7e49aecfed27e7441083c",
+        "comment_count": 0,
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        }
+      },
+      "url": "https://api.github.com/repos/RetroPilot/panda/commits/89ac4452543fe6915ee7e49aecfed27e7441083c",
+      "html_url": "https://github.com/RetroPilot/panda/commit/89ac4452543fe6915ee7e49aecfed27e7441083c",
+      "comments_url": "https://api.github.com/repos/RetroPilot/panda/commits/89ac4452543fe6915ee7e49aecfed27e7441083c/comments",
+      "author": {
+        "login": "wocsor",
+        "id": 37704329,
+        "node_id": "MDQ6VXNlcjM3NzA0MzI5",
+        "avatar_url": "https://avatars.githubusercontent.com/u/37704329?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/wocsor",
+        "html_url": "https://github.com/wocsor",
+        "followers_url": "https://api.github.com/users/wocsor/followers",
+        "following_url": "https://api.github.com/users/wocsor/following{/other_user}",
+        "gists_url": "https://api.github.com/users/wocsor/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/wocsor/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/wocsor/subscriptions",
+        "organizations_url": "https://api.github.com/users/wocsor/orgs",
+        "repos_url": "https://api.github.com/users/wocsor/repos",
+        "events_url": "https://api.github.com/users/wocsor/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/wocsor/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "wocsor",
+        "id": 37704329,
+        "node_id": "MDQ6VXNlcjM3NzA0MzI5",
+        "avatar_url": "https://avatars.githubusercontent.com/u/37704329?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/wocsor",
+        "html_url": "https://github.com/wocsor",
+        "followers_url": "https://api.github.com/users/wocsor/followers",
+        "following_url": "https://api.github.com/users/wocsor/following{/other_user}",
+        "gists_url": "https://api.github.com/users/wocsor/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/wocsor/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/wocsor/subscriptions",
+        "organizations_url": "https://api.github.com/users/wocsor/orgs",
+        "repos_url": "https://api.github.com/users/wocsor/repos",
+        "events_url": "https://api.github.com/users/wocsor/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/wocsor/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "0e79ab33ab0e18168604d9471435d05511d19f8f",
+          "url": "https://api.github.com/repos/RetroPilot/panda/commits/0e79ab33ab0e18168604d9471435d05511d19f8f",
+          "html_url": "https://github.com/RetroPilot/panda/commit/0e79ab33ab0e18168604d9471435d05511d19f8f"
+        }
+      ]
+    },
+    {
+      "sha": "9e6d47f63675d5a45170ae7972c24412034dc136",
+      "node_id": "C_kwDOFffB-toAKDllNmQ0N2Y2MzY3NWQ1YTQ1MTcwYWU3OTcyYzI0NDEyMDM0ZGMxMzY",
+      "commit": {
+        "author": {
+          "name": "Kevin Roscom",
+          "email": "37704329+wocsor@users.noreply.github.com",
+          "date": "2025-06-14T02:06:59Z"
+        },
+        "committer": {
+          "name": "Kevin Roscom",
+          "email": "37704329+wocsor@users.noreply.github.com",
+          "date": "2025-06-14T02:06:59Z"
+        },
+        "message": "continue modifying safety",
+        "tree": {
+          "sha": "e80872438fcd045f894e63d123c2b2d7ab0ea3e7",
+          "url": "https://api.github.com/repos/RetroPilot/panda/git/trees/e80872438fcd045f894e63d123c2b2d7ab0ea3e7"
+        },
+        "url": "https://api.github.com/repos/RetroPilot/panda/git/commits/9e6d47f63675d5a45170ae7972c24412034dc136",
+        "comment_count": 0,
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        }
+      },
+      "url": "https://api.github.com/repos/RetroPilot/panda/commits/9e6d47f63675d5a45170ae7972c24412034dc136",
+      "html_url": "https://github.com/RetroPilot/panda/commit/9e6d47f63675d5a45170ae7972c24412034dc136",
+      "comments_url": "https://api.github.com/repos/RetroPilot/panda/commits/9e6d47f63675d5a45170ae7972c24412034dc136/comments",
+      "author": {
+        "login": "wocsor",
+        "id": 37704329,
+        "node_id": "MDQ6VXNlcjM3NzA0MzI5",
+        "avatar_url": "https://avatars.githubusercontent.com/u/37704329?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/wocsor",
+        "html_url": "https://github.com/wocsor",
+        "followers_url": "https://api.github.com/users/wocsor/followers",
+        "following_url": "https://api.github.com/users/wocsor/following{/other_user}",
+        "gists_url": "https://api.github.com/users/wocsor/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/wocsor/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/wocsor/subscriptions",
+        "organizations_url": "https://api.github.com/users/wocsor/orgs",
+        "repos_url": "https://api.github.com/users/wocsor/repos",
+        "events_url": "https://api.github.com/users/wocsor/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/wocsor/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "committer": {
+        "login": "wocsor",
+        "id": 37704329,
+        "node_id": "MDQ6VXNlcjM3NzA0MzI5",
+        "avatar_url": "https://avatars.githubusercontent.com/u/37704329?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/wocsor",
+        "html_url": "https://github.com/wocsor",
+        "followers_url": "https://api.github.com/users/wocsor/followers",
+        "following_url": "https://api.github.com/users/wocsor/following{/other_user}",
+        "gists_url": "https://api.github.com/users/wocsor/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/wocsor/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/wocsor/subscriptions",
+        "organizations_url": "https://api.github.com/users/wocsor/orgs",
+        "repos_url": "https://api.github.com/users/wocsor/repos",
+        "events_url": "https://api.github.com/users/wocsor/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/wocsor/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "parents": [
+        {
+          "sha": "89ac4452543fe6915ee7e49aecfed27e7441083c",
+          "url": "https://api.github.com/repos/RetroPilot/panda/commits/89ac4452543fe6915ee7e49aecfed27e7441083c",
+          "html_url": "https://github.com/RetroPilot/panda/commit/89ac4452543fe6915ee7e49aecfed27e7441083c"
+        }
+      ]
+    }
+  ],
+  "files": [
+    {
+      "sha": "569df8327288322cb2a149863de162a6a377d55f",
+      "filename": "board/safety.h",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 0,
+      "changes": 3,
+      "blob_url": "https://github.com/RetroPilot/panda/blob/9e6d47f63675d5a45170ae7972c24412034dc136/board%2Fsafety.h",
+      "raw_url": "https://github.com/RetroPilot/panda/raw/9e6d47f63675d5a45170ae7972c24412034dc136/board%2Fsafety.h",
+      "contents_url": "https://api.github.com/repos/RetroPilot/panda/contents/board%2Fsafety.h?ref=9e6d47f63675d5a45170ae7972c24412034dc136",
+      "patch": "@@ -15,6 +15,7 @@\n #include \"safety/safety_volkswagen_mqb.h\"\n #include \"safety/safety_volkswagen_pq.h\"\n #include \"safety/safety_elm327.h\"\n+#include \"safety/safety_retropilot.h\"\n \n // from cereal.car.CarParams.SafetyModel\n #define SAFETY_SILENT 0U\n@@ -40,6 +41,7 @@\n #define SAFETY_HYUNDAI_LEGACY 23U\n #define SAFETY_HYUNDAI_COMMUNITY 24U\n #define SAFETY_STELLANTIS 25U\n+#define SAFETY_RETROPILOT 26U\n \n uint16_t current_safety_mode = SAFETY_SILENT;\n int16_t current_safety_param = 0;\n@@ -251,6 +253,7 @@ const safety_hook_config safety_hook_registry[] = {\n   {SAFETY_NOOUTPUT, &nooutput_hooks},\n   {SAFETY_HYUNDAI_LEGACY, &hyundai_legacy_hooks},\n   {SAFETY_MAZDA, &mazda_hooks},\n+  {SAFETY_RETROPILOT, &retropilot_hooks},\n #ifdef ALLOW_DEBUG\n   {SAFETY_TESLA, &tesla_hooks},\n   {SAFETY_SUBARU_LEGACY, &subaru_legacy_hooks},"
+    },
+    {
+      "sha": "1e704f0dd57336be79e274ee7070e49d3c54579d",
+      "filename": "board/safety/safety_retropilot.h",
+      "status": "added",
+      "additions": 113,
+      "deletions": 0,
+      "changes": 113,
+      "blob_url": "https://github.com/RetroPilot/panda/blob/9e6d47f63675d5a45170ae7972c24412034dc136/board%2Fsafety%2Fsafety_retropilot.h",
+      "raw_url": "https://github.com/RetroPilot/panda/raw/9e6d47f63675d5a45170ae7972c24412034dc136/board%2Fsafety%2Fsafety_retropilot.h",
+      "contents_url": "https://api.github.com/repos/RetroPilot/panda/contents/board%2Fsafety%2Fsafety_retropilot.h?ref=9e6d47f63675d5a45170ae7972c24412034dc136",
+      "patch": "@@ -0,0 +1,113 @@\n+// WIP: RP safety model\n+const CanMsg RETROPILOT_TX_MSGS[] = {{0x10E, 0, 6}, {0x12E, 0, 6}, {0x200, 0, 6}, \n+                                     {0x20E, 0, 6}, {0x22E, 0, 5}, {0x300, 0, 6}, \n+                                     {0x400, 0, 6}, {0x600, 0, 4},  // DSU bus 0\n+};\n+\n+AddrCheckStruct retropilot_addr_checks[] = {\n+    {.msg = {{0x10F, 0, 6, .check_checksum = false, .expected_timestep = 12000U}, { 0 }, { 0 }}},\n+    {.msg = {{0x12F, 0, 6, .check_checksum = false, .expected_timestep = 20000U}, { 0 }, { 0 }}},\n+    {.msg = {{0x201, 0, 6, .check_checksum = false, .expected_timestep = 30000U}, { 0 }, { 0 }}},\n+    {.msg = {{0x20F, 0, 6, .check_checksum = false, .expected_timestep = 25000U}, { 0 }, { 0 }}},\n+    {.msg = {{0x22F, 0, 8, .check_checksum = false, .expected_timestep = 25000U}, { 0 }, { 0 }}},\n+    {.msg = {{0x301, 0, 6, .check_checksum = false, .expected_timestep = 12000U}, { 0 }, { 0 }}},\n+    {.msg = {{0x401, 0, 6, .check_checksum = false, .expected_timestep = 12000U}, { 0 }, { 0 }}},\n+    {.msg = {{0x601, 0, 6, .check_checksum = false, .expected_timestep = 12000U}, { 0 }}},\n+  };\n+\n+#define RETROPILOT_ADDR_CHECKS_LEN (sizeof(retropilot_addr_checks) / sizeof(retropilot_addr_checks[0]))\n+addr_checks retropilot_rx_checks = {retropilot_addr_checks, RETROPILOT_ADDR_CHECKS_LEN};\n+\n+// global actuation limit states\n+\n+/*\n+// placeholder - implement CRC8_1D from ocelot\n+static uint8_t retropilot_compute_checksum(CANPacket_t *to_push) {\n+  int addr = GET_ADDR(to_push);\n+  int len = GET_LEN(to_push);\n+  uint8_t checksum = (uint8_t)(addr) + (uint8_t)((unsigned int)(addr) >> 8U) + (uint8_t)(len);\n+  for (int i = 0; i < (len - 1); i++) {\n+    checksum += (uint8_t)GET_BYTE(to_push, i);\n+  }\n+  return checksum;\n+}\n+\n+static uint8_t retropilot_get_checksum(CANPacket_t *to_push) {\n+  return (uint8_t)(GET_BYTE(to_push, 0));\n+}\n+*/\n+\n+static int retropilot_rx_hook(CANPacket_t *to_push) {\n+  bool valid = 1;\n+//   bool valid = addr_safety_check(to_push, &retropilot_rx_checks,\n+//                                  retropilot_get_checksum, retropilot_compute_checksum, NULL);\n+\n+//   if (valid && (GET_BUS(to_push) == 0U)) {\n+//     int addr = GET_ADDR(to_push);\n+//     generic_rx_checks((addr == 0x2E4));\n+//   }\n+\n+  // need to gate this behind a CAN msg check\n+  controls_allowed = 1;\n+  if (valid && (GET_BUS(to_push) == 0U)) {\n+    int addr = GET_ADDR(to_push);\n+    if (addr == 0x201) {\n+        gas_interceptor_detected = 1;\n+        int gas_interceptor = TOYOTA_GET_INTERCEPTOR(to_push);\n+        gas_pressed = gas_interceptor > TOYOTA_GAS_INTERCEPTOR_THRSLD;\n+  \n+        // TODO: remove this, only left in for gas_interceptor_prev test\n+        gas_interceptor_prev = gas_interceptor;\n+      }\n+  }\n+  return valid;\n+}\n+\n+static int retropilot_tx_hook(CANPacket_t *to_send) {\n+\n+  int tx = 1;\n+  int addr = GET_ADDR(to_send);\n+  int bus = GET_BUS(to_send);\n+\n+  if (!msg_allowed(to_send, RETROPILOT_TX_MSGS, sizeof(RETROPILOT_TX_MSGS)/sizeof(RETROPILOT_TX_MSGS[0]))) {\n+    tx = 0;\n+  }\n+\n+  // Check if msg is sent on BUS 0\n+  if (bus == 0) {\n+    // GAS PEDAL: safety check\n+    if (addr == 0x200) {\n+      if (!controls_allowed) {\n+        if (GET_BYTE(to_send, 0) || GET_BYTE(to_send, 1)) {\n+          tx = 0;\n+        }\n+      }\n+    }\n+  }\n+\n+  return tx;\n+}\n+\n+static const addr_checks* retropilot_init(int16_t param) {\n+  UNUSED(param);\n+  controls_allowed = 0;\n+  relay_malfunction_reset();\n+  gas_interceptor_detected = 0;\n+  return &retropilot_rx_checks;\n+}\n+\n+static int retropilot_fwd_hook(int bus_num, CANPacket_t *to_fwd) {\n+  // Forwarding is not implemented or required\n+  UNUSED(to_fwd);\n+  UNUSED(bus_num);\n+  int bus_fwd = -1;\n+  return bus_fwd;\n+}\n+\n+const safety_hooks retropilot_hooks = {\n+  .init = retropilot_init,\n+  .rx = retropilot_rx_hook,\n+  .tx = retropilot_tx_hook,\n+  .tx_lin = nooutput_tx_lin_hook,\n+  .fwd = retropilot_fwd_hook,\n+};"
+    }
+  ]
+}

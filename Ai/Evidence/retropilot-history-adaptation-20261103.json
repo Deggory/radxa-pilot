@@ -1,0 +1,145 @@
+{
+  "recorded_at": "2026-11-03T17:54:14.205281+00:00",
+  "target": "Owner confirmed existing Radxa Q8B, not physical comma4",
+  "parent_base": "35d46c1e179d0f6a541e32e5669ee0c879b408b1",
+  "opendbc_commit": "86a839dcec8ed9a3e45315eac804fa1001f1b2d6",
+  "upstream_reference": "a86979d2b2b176413a7f3e5cccf8c807596a7def",
+  "c2_tip": "b9a942efd3cb210127bb5efb5cf9ccf6a811c728",
+  "tests": [
+    {
+      "name": "usb",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "unittest",
+        "openpilot.selfdrive.pandad.tests.test_chimera",
+        "openpilot.selfdrive.pandad.tests.test_chimera_protocol",
+        "-v"
+      ],
+      "exit_code": 0,
+      "seconds": 0.317,
+      "log": "Ai/Evidence/retropilot-history-20261103-usb.log",
+      "log_sha256": "a79d807cf49b5440009880993b5d40a3d39fe339aacb93d054559469b513e474"
+    },
+    {
+      "name": "retropilot",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "opendbc_repo/opendbc/car/retropilot/tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "seconds": 0.437,
+      "log": "Ai/Evidence/retropilot-history-20261103-retropilot.log",
+      "log_sha256": "98b52d37fd452e78e1ffa76e7a75127ac5f98adad7859e8348a762852023d334"
+    },
+    {
+      "name": "can",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "opendbc_repo/opendbc/can/tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "seconds": 0.653,
+      "log": "Ai/Evidence/retropilot-history-20261103-can.log",
+      "log_sha256": "4ab27c3a9e30ec3688d3d0e8620a45c8a32afdfca4ce0d88f53aa6e749fe86ec"
+    },
+    {
+      "name": "interfaces",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "unittest",
+        "opendbc.car.tests.test_car_interfaces",
+        "opendbc.car.tests.test_platform_configs",
+        "opendbc.car.tests.test_can_fingerprint",
+        "opendbc.car.tests.test_fw_fingerprint",
+        "opendbc.car.tests.test_docs",
+        "opendbc.car.tests.test_vehicle_model"
+      ],
+      "exit_code": 0,
+      "seconds": 33.962,
+      "log": "Ai/Evidence/retropilot-history-20261103-interfaces.log",
+      "log_sha256": "bd3a1f74a03e928a90c2e94de7fb8c636d7cb19ca5e4628c1310bbf11c42ef92"
+    },
+    {
+      "name": "coverage",
+      "command": [
+        ".venv/bin/python",
+        "Ai/Reports/retropilot-c2-history-20261103/verify_history.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.048,
+      "log": "Ai/Evidence/retropilot-history-20261103-coverage.log",
+      "log_sha256": "daa9dcd669cc3d023414ec33a82324f2a58192db32a77e7b75781a7c71b16837"
+    },
+    {
+      "name": "ruff",
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "openpilot/selfdrive/pandad/chimera.py",
+        "openpilot/selfdrive/pandad/chimera_protocol.py",
+        "openpilot/selfdrive/pandad/tests/test_chimera.py",
+        "openpilot/selfdrive/pandad/tests/test_chimera_protocol.py",
+        "opendbc_repo/opendbc/car/retropilot",
+        "Ai/Reports/retropilot-c2-history-20261103/verify_history.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.011,
+      "log": "Ai/Evidence/retropilot-history-20261103-ruff.log",
+      "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    }
+  ],
+  "source_sha256": {
+    "openpilot/selfdrive/pandad/chimera.py": "68d40878ed706c8790b1a7f1c6810a4b0838227e2789513d528c777863ca7f8b",
+    "openpilot/selfdrive/pandad/chimera_protocol.py": "a63293efd4a015b0883198fa9693f5d2b89794adb7ebdca28a5ad2db783bca88",
+    "opendbc_repo/opendbc/car/retropilot/carstate.py": "6148ea7ee5f5d0a95e8c5035c235d0b1d4cd5db9d872b766c63aef5602baf786"
+  },
+  "reference_sha256": {
+    "ocelot/firmware/chimera/main.c": "5d1dd3b0400ec80da9b477abfced51c9346674865ce5ad86d7e5a012c2d94883",
+    "ocelot/firmware/chimera/can.h": "7aca434faa4a1c37d59f5b43f495ed0d213f0e22fc46e4db28c433472b757310",
+    "ocelot/firmware/obj/chimera/chimera.elf": "5ae9b4f6ea99e569028d271c4ec9c2ce59cd11375b5482adbd0781f3480e20b8",
+    "zss/common/README.md": "b272990bff814cb37182341cac6e36803b098dd226d3e955fdfdf3f2d3dc1a16"
+  },
+  "REA": {
+    "symbols_evidence": "ev_ac17a8b5cec16bed89cad2a8ccf9d13d887340650716039ff3890278cb28be78",
+    "assembly_evidence": "ev_6c720630735de45e83f641b76daea07ba4d1813541724750f8670e1cf723a934",
+    "coverage": "GNU symbol/disassembly complete without truncation, retained artifact unchanged. Deep providers/layout unavailable as recorded; not installed-board proof."
+  },
+  "red": [
+    "STATE1 regression failed before correction",
+    "New protocol/USB test imports failed before implementation"
+  ],
+  "limits": [
+    "No USB handle opened or real CAN consumed; sysfs descriptor observation only",
+    "Current matching VID/PID product is Interceptor DAC Bench, not historical Chimera",
+    "Standalone receive-only monitor; no manager/pandaStates integration or live TX",
+    "Game/physical calibration, driver-input authority, source ages and enforced MCU safety remain pending",
+    "CD210/OpenCL/Thneed eb741641 unchanged"
+  ],
+  "runtime_versions": {
+    "python": "3.12.13",
+    "libusb1": "3.4.0",
+    "pycapnp": "2.1.0"
+  },
+  "review": "Correctness/readability/architecture/input boundaries/performance reviewed; single-owner managed lifecycle, live timing/calibration and MCU safety explicitly pending.",
+  "notebook_validation": {
+    "command": ".venv/bin/python Ai/verify_memory.py --workspace /home/radxa/comma",
+    "result": "pass",
+    "documents": 78,
+    "relative_links": 226,
+    "source_repositories": 8,
+    "indexed_entries": 4252
+  },
+  "documentation_validation": "Relative links and all82 mapped modern targets exist; whitespace passes"
+}

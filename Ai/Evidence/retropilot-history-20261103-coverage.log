@@ -1,0 +1,24 @@
+{
+  "result": "pass",
+  "parent_commits": 35,
+  "parent_final_paths": 50,
+  "parent_history_paths": 64,
+  "total_mapped_paths": 82,
+  "submodule_commits": {
+    "panda": 2,
+    "cereal": 3,
+    "opendbc": 43
+  },
+  "source_sha256": {
+    "rea-native-provider-block.json": "4a31b9f395716072e0989844d5458a840806634242295fc41230e705787ab0d2",
+    "rea-chimera-symbols.json": "09a1fe0af3289423d789aed90a84e5f88fb1e24a6e4a23063191e9ee134fdafb",
+    "cereal-compare.json": "5c9340c1e871358a5b805457664f5346fb3f1bace6dcc32b05d49ee1a31b0196",
+    "coverage.json": "badfca40799c4073f8977c6185d674da61fa47bb9e355fc7005d539ceb04a1da",
+    "opendbc-compare.json": "ac00c77fc9f387e1e9aac361da782617311f61f011ac37a3e6607e39732b324e",
+    "commit-history.json": "86d54dbe7ee3f0afbda713a633116e8af8f4fd6336753781849ee22da4b0391b",
+    "panda-compare.json": "64de8b288a8c839e453e5dc480593508dcb917d4c05aaf1fcd1780c3ac650b7d",
+    "rea-layout-profile-block.json": "6d8b5058af0df3cebc3fa13249e4e1d24fb0d9f5311061336e8c9517f7a97bb2",
+    "parent-compare.json": "1d644b82d1008b7e697c240c7679956b12249a7aaf5465d8254e2aad3593643a",
+    "rea-chimera-disassembly.json": "daced1aae2cc88c1994941034e9c78d5b757e9525e09eebff186d12ac9475baa"
+  }
+}

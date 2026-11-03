@@ -1,0 +1,11 @@
+{
+  "scope": "Chimera/ZSS angle source-state correction, no DBC or actuation change",
+  "source": {
+    "chimera_main_sha256": "5d1dd3b0400ec80da9b477abfced51c9346674865ce5ad86d7e5a012c2d94883",
+    "zss_convention": "zss/common/README.md: STATE1 means enabled valid publisher"
+  },
+  "red": "STATE1 regression failed before fix",
+  "green": "45 RetroPilot unittest tests and Ruff pass",
+  "log": "Ai/Evidence/retropilot-angle-state-20261103.log",
+  "limits": "No live device/game/firmware test"
+}
