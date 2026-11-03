@@ -158,3 +158,23 @@ Documentation/source-first skills; no new REA artifact question. Next actual
 Chimera receive acceptance/units/profile/managed health remains unchanged.
 Validation: history35parent/82path coverage, notebook79docs/236relative links
 and whitespace pass. Documentation-only clarification; no new runtime test.
+
+## 2026-11-03 — Owner corrected the C2 research framing
+
+Accepted scope: RetroPilot working on existing Radxa Q8B/current Sunnypilot;
+Chimera CAN and intended BeamNG environment. Owner asked to inspect C2 folders
+to understand behavior/requirements, not reproduce its old integration or add
+all historical changes. Earlier wording implying that all six integration
+areas must be recreated was too broad. Current APIs and existing capabilities
+determine the minimum necessary implementation. Updated report/plan, student
+topic/handoff and central repo/resume to make that explicit.
+
+Source pins unchanged: parent 855bc09fab42d24a0d405a39ca71ce02692ea379;
+opendbc 86a839dcec8ed9a3e45315eac804fa1001f1b2d6; reference C2 b9a942e,
+opendbc 6b90fafe, Panda 9e6d47f, Cereal a7193d0. No runtime, DBC, settings,
+firmware or device changes. Documentation/Git skills; no REA runtime/artifact
+question in this clarification. No new behavioral tests. Actual Chimera
+receive acceptance and modern lifecycle/health/data contracts remain next.
+Upstream inbox has zero related pending commits; no upstream integration.
+Validation: notebook verifier passes 79 documents/236 relative links;
+whitespace check passes. This increment records scope only.

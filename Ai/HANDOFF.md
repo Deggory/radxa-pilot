@@ -1,3 +1,24 @@
+## 2026-11-03 — Owner clarification: modern RetroPilot implementation
+
+The objective is to make RetroPilot work on the existing Radxa Q8B running
+current Sunnypilot, with Chimera providing the CAN interface and BeamNG as
+the intended initial vehicle environment. C2 is a behavioral/protocol reference.
+The owner requested examination of cereal, opendbc, panda, selfdrive,
+third_party and tools to understand what the author achieved and why.
+Those folders and commits are research inputs, not an implementation checklist.
+
+Identify the required RetroPilot behavior and CAN/hardware contracts, then
+implement only the missing pieces through current Sunnypilot APIs. Reuse
+existing modern capabilities. Do not recreate the C2 integration or require
+matching edits in every old folder. Old build fixes, schemas, engagement
+shortcuts and tuning machinery are not requirements merely because C2 used
+them. Evaluate any proposed change against the current Radxa goal and evidence.
+
+This clarification changes the framing, not the tested runtime status. No
+runtime code was changed for this clarification. Next remains actual Chimera
+receive acceptance, then current board health/lifecycle and vehicle-data
+contracts. Historical review is supporting evidence, not live validation.
+
 2026-11-03 history explanation: complete53-commit plain-English2025guide saved in
 sunnypilot/Ai/Reports/retropilot-c2-history-20261103/2025_COMMITS.md.
 No runtime change; actual Chimera receive acceptance remains next.

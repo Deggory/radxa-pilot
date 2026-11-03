@@ -1,6 +1,28 @@
-# RetroPilot C2 history and adaptation to current Sunnypilot
+# RetroPilot reference research for current Sunnypilot on Radxa
 
 Target confirmed by owner: **existing Radxa Q8B**, not physical comma4.
+
+## 2026-11-03 — Owner clarification: modern RetroPilot implementation
+
+The objective is to make RetroPilot work on the existing Radxa Q8B running
+current Sunnypilot, with Chimera providing the CAN interface and BeamNG as
+the intended initial vehicle environment. C2 is a behavioral/protocol reference.
+The owner requested examination of cereal, opendbc, panda, selfdrive,
+third_party and tools to understand what the author achieved and why.
+Those folders and commits are research inputs, not an implementation checklist.
+
+Identify the required RetroPilot behavior and CAN/hardware contracts, then
+implement only the missing pieces through current Sunnypilot APIs. Reuse
+existing modern capabilities. Do not recreate the C2 integration or require
+matching edits in every old folder. Old build fixes, schemas, engagement
+shortcuts and tuning machinery are not requirements merely because C2 used
+them. Evaluate any proposed change against the current Radxa goal and evidence.
+
+This clarification changes the framing, not the tested runtime status. No
+runtime code was changed for this clarification. Next remains actual Chimera
+receive acceptance, then current board health/lifecycle and vehicle-data
+contracts. Historical review is supporting evidence, not live validation.
+
 Parentbase35d46c1e179d0f6a541e32e5669ee0c879b408b1, current upstream reference
 a86979d2b2b176413a7f3e5cccf8c807596a7def (GitHub master rechecked this session).
 Use its current APIs; preserve the tested CD210/OpenCL/Thneed path.
@@ -12,8 +34,8 @@ has35commits beyond the retained2022base
 da2ea41241f16c4b0e80a52fdc40ed57becd185b.28are dated May15–August14,2025;
 7are older upstream commits. Its opendbc ancestry includes work from2021,
 2022and2025. This evidence does not support describing all of it as one year
-of new work by one author. The important requirement is to recover the full
-integration, including work outside the car folder.
+of new work by one author. The purpose is to understand the RetroPilot behavior and contracts across
+these areas, then identify what the current Radxa implementation actually needs.
 
 Fetched every included parent commit's changed files/patches, the complete
 parent comparison and all3modified submodule comparisons through GitHub.
