@@ -232,3 +232,25 @@ no board/firmware/mode changes. Source pins parent18054f2/child86a839d;
 C2b9a942e/Panda9e6d47f/Cereala7193d0. Skills: source-first/docs/Git; no new REA
 artifact question or behavioral tests. Next discussion is modern safety needs;
 no Chimera or relay work authorized by this explanation.
+
+## 2026-11-03 — Cereal change requirement checked against actual bindings
+
+Owner asked for verification, not implementation. At parent0e550c7/child86a839d,
+openpilot/cereal/log.capnp imports /car.capnp, and cereal/__init__.py supplies
+the opendbc/car schema import directory. The safety enum lives in modern
+opendbc/car/car.capnp. Therefore adding a future safety identifier belongs
+there; no duplicate enum/direct Cereal schema edit is required for that name.
+This does not mean active RetroPilot needs no changes: no retropilot enum or
+registered safety policy exists yet;26=hongqi/SAFETY_FAW and current noOutput
+must not be relabelled as active support.
+
+Ran actual current venv bindings without hardware: constructed RetroPilot
+CarParams via get_params(CAR.RETROPILOT_RETROFIT, gen_empty_fingerprint(), [],
+False, False, False); asserted noOutput/dashcamOnly, serialized into existing
+Cereal log.Event.carParams and decoded it; assertions PASS. Also asserted
+absence of retropilot safety enum and hongqi=26. Initial ad hoc probe used an
+obsolete experimental_long keyword and raised TypeError; inspected the actual
+API and corrected that invocation. No product failure or source modification.
+Read-only Git diff confirms Cereal untouched since pre-port dd29f00.
+Chimera remains held; relays excluded. Documentation/source-first/Git workflow;
+no new REA artifact/runtime question. Hardware enforcement remains untested.
