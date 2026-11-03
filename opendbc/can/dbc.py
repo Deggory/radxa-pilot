@@ -21,6 +21,7 @@ from opendbc.car.psa.psacan import psa_checksum
 from opendbc.car.rivian.riviancan import rivian_checksum
 from opendbc.car.ford.fordcan import FORD_CHECKSUM_FIELDS, ford_checksum
 from opendbc.car.mg.mgcan import mg_checksum
+from opendbc.car.retropilot.retropilotcan import ocelot_checksum
 
 
 class SignalType:
@@ -42,6 +43,7 @@ class SignalType:
   RIVIAN_CHECKSUM = 15
   FORD_CHECKSUM = 16
   MG_CHECKSUM = 17
+  OCELOT_CHECKSUM = 18
 
 
 @dataclass
@@ -217,7 +219,9 @@ class ChecksumState:
 
 
 def get_checksum_state(dbc_name: str) -> ChecksumState | None:
-  if dbc_name.startswith(("honda_", "acura_")):
+  if dbc_name == "ocelot_controls":
+    return ChecksumState(SignalType.OCELOT_CHECKSUM, ocelot_checksum)
+  elif dbc_name.startswith(("honda_", "acura_")):
     return ChecksumState(SignalType.HONDA_CHECKSUM, honda_checksum)
   elif dbc_name.startswith(("toyota_", "lexus_")):
     return ChecksumState(SignalType.TOYOTA_CHECKSUM, toyota_checksum)

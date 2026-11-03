@@ -1,0 +1,15 @@
+{
+  "canonical_dbc": {
+    "workspace_source": "retropilot/dbc/ocelot_controls.dbc",
+    "upstream": "https://github.com/RetroPilot/opendbc",
+    "commit": "6b90fafe59e81822bfae58e4ecb080248e9de40d",
+    "sha256": "ef6eef74021a00183729b53ba90f1c790792cfe5dcf72fe9bdfe2dcb3d6a5dce"
+  },
+  "crc_reference": "protocol/common.cc ocelot_checksum from the same canonical opendbc source",
+  "legacy_car_reference": {
+    "upstream": "https://github.com/RetroPilot/openpilot",
+    "commit": "b9a942efd3cb210127bb5efb5cf9ccf6a811c728",
+    "scope": "Design reference; legacy car code is not copied verbatim."
+  },
+  "modern_opendbc_base": "aa9bff6f5442cef8cb8e25e143ef38865c276ce8"
+}
