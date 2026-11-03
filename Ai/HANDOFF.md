@@ -1,3 +1,5 @@
+Owner communication preference: plain-English explanations first; coding details when requested. DBC inclusion rechecked; partial port versus live integration must remain explicit.
+
 ## 2026-11-03 — C2 history-led Radxa adaptation checkpoint
 
 Owner confirmed existing Radxa Q8B. Full C2 history/submodules now mapped:

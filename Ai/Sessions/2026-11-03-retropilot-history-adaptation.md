@@ -94,3 +94,14 @@ Package README, docs/RETROPILOT.md, submodule pin and Ai evidence/notebooks also
 changed. profiles.py/fingerprints.py/commands.py/carcontroller.py belong to
 preceding increments and were unchanged in this latest adaptation. Read-only
 Git inspection; no runtime/hardware changes or new behavioral tests.
+
+## Plain-English/DBC clarification, 2026-11-03
+
+Owner says they are unfamiliar with coding and use vibe coding. Prefer plain
+English: explain observable capabilities/completion limits before file/API
+names, and avoid implying offline tests establish a working control loop.
+Rechecked packaged opendbc_repo/opendbc/dbc/ocelot_controls.dbc against the
+canonical retropilot/dbc copy: both SHA256ef6eef74021a00183729b53ba90f1c790792cfe5dcf72fe9bdfe2dcb3d6a5dce.
+DBC is included and used by the port; actual Chimera acceptance, managed
+integration, BeamNG loop, calibration and MCU safety remain pending. No runtime
+code/device change or new behavioral test in this clarification.
