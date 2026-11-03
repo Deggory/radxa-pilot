@@ -178,3 +178,15 @@ receive acceptance and modern lifecycle/health/data contracts remain next.
 Upstream inbox has zero related pending commits; no upstream integration.
 Validation: notebook verifier passes 79 documents/236 relative links;
 whitespace check passes. This increment records scope only.
+
+## 2026-11-03 — Actual changes outside RetroPilot clarified
+
+Rechecked parent diff dd29f00..2304f5a and opendbc aa9bff6f..86a839d.
+Outside car/retropilot: can/dbc.py, car/values.py, car/car_helpers.py,
+car/fingerprints.py, car/torque_data/override.toml and packaged canonical DBC;
+parent adds standalone pandad/chimera.py and chimera_protocol.py, tests and
+documentation. Panda firmware/gitlink and .gitmodules unchanged for this port;
+no Cereal/third_party/existing manager/controlsd edits in this comparison.
+Host pandad files are distinct from Panda firmware. Recent clarification
+turns change notes only. No new runtime test/device action; modern Radxa scope
+and next Chimera receive acceptance remain unchanged. Source/Git inspection.
