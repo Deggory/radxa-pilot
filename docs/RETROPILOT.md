@@ -3,7 +3,7 @@
 Implemented 2026-11-03 in the local opendbc branch `radxa/retropilot`, based on
 `aa9bff6f5442cef8cb8e25e143ef38865c276ce8`. Sunnypilot now registers
 `RETROPILOT_RETROFIT` with brand `retropilot`. This is the **receive-only car-port
-stage** for the owner's BeamNG → Waveshare CAN → Chimera → Radxa architecture.
+stage**, plus an offline modern controller migration, for the owner's BeamNG → Waveshare CAN → Chimera → Radxa architecture.
 The Chimera USB backend and live BeamNG loop remain separate unfinished work.
 
 ## Files, identification and safety status
@@ -17,8 +17,9 @@ places the host car package in opendbc/car. Our pinned implementation is in
 | `values.py` | Platform, bus and observed-module flags registered; physical parameters remain non-driving placeholders. |
 | `interface.py` | Modern parameter and parser/controller wiring; explicit selection, dashcamOnly and noOutput. |
 | `carstate.py` | Existing canonical signals parsed with validity checks; missing gear/wheels and unqualified speed remain explicit. |
-| `carcontroller.py` | Implemented passive stage: always returns zero actuators and no CAN frames. Active control mapping is pending. |
-| `retropilotcan.py` / `commands.py` | Canonical CRC and offline command constructors; no calibrated normalized-control-to-actuator mapping. |
+| `carcontroller.py` | Modern steering/pedal/relay calculation and candidate CAN in explicit offline preview; runtime still returns zero actual actuators and no transmitted frames. |
+| `retropilotcan.py` / `commands.py` | Canonical CRC and eight offline command constructors, used by the controller preview. |
+| `profiles.py` / `replay.py` | Validated explicit calibration, labelled C2 reference and parser-to-controller JSONL replay; no hardware transport. |
 | `fingerprints.py` | C2-name compatibility and an explicitly empty automatic CAN database. Both old/new names select the modern platform; no ECU firmware versions are asserted. |
 | `radar_interface.py` | No radar-specific implementation; inherited base interface with radarUnavailable. |
 | `opendbc/dbc/ocelot_controls.dbc` | Packaged canonical DBC; existing wire bytes unchanged. |
@@ -37,6 +38,40 @@ calibration or firmware compatibility. Future automatic identification needs
 measured ECU/module identities or a qualified CAN signature. There is no reason
 to populate fingerprints.py with invented ECU versions for the present explicit
 simulator selection.
+
+## C2 controller migration, 2026-11-03
+
+Checked the [linked C2 directory](https://github.com/RetroPilot/retropilot/tree/b9a942efd3cb210127bb5efb5cf9ccf6a811c728/selfdrive/car/retropilot)
+through GitHub: branch c2 still resolves to b9a942efd3cb210127bb5efb5cf9ccf6a811c728.
+All eight retained file Git blobs match. The previous11-line controller was a
+receive-only placeholder; modern API differences alone did not justify leaving
+its control calculation missing. The calculation is now implemented and tested
+offline, with the following explicit disposition of every C2 file:
+
+| C2 file | Modern disposition |
+| --- | --- |
+| `__init__.py` | Standard Python package, unchanged. |
+| `carcontroller.py` | Modern torque/accel requests; separate lat/long gating, speed taper, count slew, pedal mapping,100/50Hz scheduling and per-message counters. Candidate feedback stays separate from actual zero output. |
+| `ocelotcan.py` | Canonical `commands.py`; profiles hold explicit channel centers/slopes and brake travel. Hostbus2 is an intentional adaptation of C2's bus0. |
+| `carstate.py` | Modern parser dictionaries and button events; accepted CAN timestamps feed preview freshness. No forced drive gear or fabricated engaged state. |
+| `interface.py` | Modern parameter/state/controller wiring; normal CAN validity. Firmware safety and measured dynamics remain required for live control. |
+| `values.py` | Registered platform, per-instance observed modules and explicit routing; no global enabled ECU defaults. |
+| `tunes.py` | C2 PID_A uses kp=.05, ki=.05, kf=.00003; PEDAL/ACTUATOR long tunes are vehicle-specific reference data. They are not selected for an unmeasured vehicle; current live gains remain zero. |
+| `radar_interface.py` | C2 forcibly set no_radar=True. Current radarUnavailable/base interface preserves that behavior without copying an unused Toyota radar parser. |
+
+Fixed C2's disabled-steering calculation, single-active-flag coupling, negative
+speed taper above90m/s, gas/brake handoff and copied-request feedback. C2's
+Toyota-style measured-torque limiter depended on an unqualified conversion of
+Interceptor channels into EPS torque; it is not represented as a calibrated
+physical limit here. Actual feedback calibration/safety remains unfinished.
+
+See the [package replay command and input contract](../opendbc_repo/opendbc/car/retropilot/README.md#offline-controller-replay).
+The C2 reference constants must be explicitly selected for offline evaluation.
+The owner's Core source rejects a channel difference over400; the C2 profile
+can reach700. Runtime transmission remains blocked independently of profiles.
+A complete live port still needs Chimera transport/health/safety, selected
+vehicle dynamics and calibrated actuator/driver-input mappings. No game or
+hardware was operated to validate this migration.
 
 ## How C2 selection maps to this version
 
@@ -100,8 +135,8 @@ rows in CARS.md are intentionally not used to imply driving support.
 `dashcamOnly=True`, safety model `noOutput`, no longitudinal control, infinite
 minimum engagement speeds, zero PID gains and an independently passive
 CarController prevent actuation. Its apply method returns zero actuators and
-no CAN frames even when CC requests active control. Offline encoders are not
-connected to that method. Do not replace this with `allOutput` or assume
+no CAN frames even when CC requests active control. The method records
+`last_preview` candidates only when an explicit offline profile is supplied. Do not replace this with `allOutput` or assume
 Chimera honors modern Panda safety commands; the host emits nothing here.
 
 The 2.7 m / 13:1 geometry is a non-driving mock-style computational placeholder,

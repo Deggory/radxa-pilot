@@ -1,0 +1,155 @@
+...............................................dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+.dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+...dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+.dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+..dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+.dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+dashcamOnly: SecOC is unsupported
+...................................................................................................................................................................................................................................ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss..ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss......iso-tp query empty response: (2016, None)
+iso-tp query empty response: (2017, None)
+iso-tp query empty response: (2016, None)
+iso-tp query empty response: (1798, None)
+iso-tp query empty response: (1840, None)
+iso-tp query empty response: (1888, None)
+iso-tp query empty response: (2000, None)
+iso-tp query empty response: (2000, None)
+iso-tp query empty response: (2000, None)
+iso-tp query empty response: (587, None)
+iso-tp query empty response: (1969, None)
+iso-tp query empty response: (1988, None)
+iso-tp query empty response: (1798, None)
+iso-tp query empty response: (1859, None)
+iso-tp query empty response: (2016, None)
+iso-tp query empty response: (1859, None)
+iso-tp query empty response: (1799, None)
+iso-tp query empty response: (2016, None)
+iso-tp query empty response: (1856, None)
+iso-tp query empty response: (1799, None)
+iso-tp query empty response: (1859, None)
+iso-tp query empty response: (1718, None)
+iso-tp query empty response: (1843, None)
+iso-tp query empty response: (1927, None)
+iso-tp query empty response: (1927, None)
+iso-tp query empty response: (2002, None)
+iso-tp query empty response: (1879, None)
+iso-tp query empty response: (1810, None)
+.vin query retry (1) ...
+vin query retry (2) ...
+vin query retry (1) ...
+vin query retry (2) ...
+vin query retry (1) ...
+vin query retry (2) ...
+vin query retry (1) ...
+vin query retry (2) ...
+vin query retry (1) ...
+vin query retry (2) ...
+vin query retry (1) ...
+vin query retry (1) ...
+vin query retry (1) ...
+vin query retry (1) ...
+vin query retry (1) ...
+.sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss...s...
+----------------------------------------------------------------------
+Ran 303 tests in 33.786s
+
+OK (skipped=314)
+body set()
+byd set()
+chrysler {0, 2, 4, 8, 9, 12, 18}
+ford {0, 1, 2, 3}
+gm set()
+honda set()
+hyundai set()
+mazda set()
+mg set()
+nissan set()
+psa set()
+rivian set()
+subaru {0, 1, 3, 4, 8}
+tesla set()
+toyota {0, 1, 2, 3, 4, 6}
+volkswagen {0, 2, 4, 8, 9}
+brand='body', len(config.requests)=1, avg FW query time=0.11 seconds
+brand='byd', len(config.requests)=0, avg FW query time=0.0 seconds
+brand='chrysler', len(config.requests)=3, avg FW query time=0.3 seconds
+brand='ford', len(config.requests)=15, avg FW query time=1.5 seconds
+brand='gm', len(config.requests)=10, avg FW query time=1.0 seconds
+brand='honda', len(config.requests)=4, avg FW query time=0.45 seconds
+brand='hyundai', len(config.requests)=6, avg FW query time=0.65 seconds
+brand='mazda', len(config.requests)=1, avg FW query time=0.1 seconds
+brand='mg', len(config.requests)=1, avg FW query time=0.1 seconds
+brand='nissan', len(config.requests)=15, avg FW query time=1.6 seconds
+brand='psa', len(config.requests)=1, avg FW query time=0.1 seconds
+brand='rivian', len(config.requests)=3, avg FW query time=0.3 seconds
+brand='subaru', len(config.requests)=6, avg FW query time=0.65 seconds
+brand='tesla', len(config.requests)=1, avg FW query time=0.1 seconds
+brand='toyota', len(config.requests)=3, avg FW query time=0.7 seconds
+brand='volkswagen', len(config.requests)=6, avg FW query time=0.65 seconds
+all brands, total FW query time=8.31 seconds
+get_present_ecus, query time=0.4500000000000002 seconds
+get_vin worst case, query time=1.5999999999999974 seconds
+get_vin best case, query time=0.8000000000000004 seconds

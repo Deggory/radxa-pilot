@@ -1,3 +1,14 @@
+## 2026-11-03 — C2 controller migrated to modern offline replay
+
+Modern C2 steering/pedal/relay calculation and timestamped JSONL replay are
+implemented in opendbc9da9210adfa4dc213424f36945caccd40182c80d. Explicit offline
+calibration only; default absent. update() still returns zero actual output/no
+CAN.44port/53CAN/303broader tests pass (314existing skips), Ruff/whitespace pass.
+All8linked C2 blobs verified at b9a942e; canonical DBC, hostbus2 and CD210GPU
+unchanged. Next: receive-only Chimera backend, producer/profile qualification,
+then shadow/game-only loop and actual MCU safety. Hardware/game/vehicle control
+remains untested. Full session: Sessions/2026-11-03-retropilot-controller.md.
+
 ## 2026-11-03 — C2 RetroPilot identification mapped to modern selection
 
 Owner asked why fingerprint registration was absent and requested teacher C2

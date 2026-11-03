@@ -1,3 +1,13 @@
+## 2026-11-03 — C2 controller migrated to modern offline replay
+
+Separate completed controller calculation from pending live qualification.
+Use an explicit immutable profile for offline candidates; keep runtime output
+zero independently of CP flags. Preserve C2 as a labelled reference, not the
+owner's calibration:350counts conflicts with local400channel-difference limit.
+Do not reproduce C2 fake drive gear/cruise enable, forced CAN validity, global
+ECU defaults or its unqualified feedback torque conversion. The guide records
+tunes/radar disposition. Receipt: sunnypilot/Ai/Evidence/retropilot-controller-20261103.json.
+
 ## 2026-11-03 — Preserve C2 explicit-selection compatibility
 
 Map "RETROPILOT RETROFIT" to RETROPILOT_RETROFIT through the brand/shared

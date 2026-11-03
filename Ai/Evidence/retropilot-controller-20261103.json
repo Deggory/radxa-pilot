@@ -1,0 +1,115 @@
+{
+  "date": "2026-11-03T17:21:27.351820+00:00",
+  "parent_base": "796059f3457315877ba8d42890d29d0a76ea131b",
+  "opendbc_base": "04a78352a9605a0e07342146fe8481b7d92ee7fd",
+  "c2_commit": "b9a942efd3cb210127bb5efb5cf9ccf6a811c728",
+  "c2_verified_blobs": {
+    "__init__.py": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+    "carcontroller.py": "75ab15a0e0a399d1718fe2a7f2ab83d008e04ee3",
+    "carstate.py": "cad96359a0f3dc5b4ae3b36c8388b7f67fc9b26e",
+    "interface.py": "d277a02ab964e87a90ed58cb2035f2c42d5db826",
+    "ocelotcan.py": "815f47efc7c1e69273b9c1c02d26ed7055156623",
+    "radar_interface.py": "09b0a58f362f989f115a509c38c6f46d0a934ff9",
+    "tunes.py": "7955c86c7746fb19c38384775e9b672e4bf6a3fe",
+    "values.py": "3665624025651c8c65683547c804bc72654a5ab0"
+  },
+  "tests": [
+    {
+      "name": "retropilot",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "opendbc_repo/opendbc/car/retropilot/tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "seconds": 0.498,
+      "log": "Ai/Evidence/retropilot-controller-20261103-retropilot.log",
+      "log_sha256": "10036793ba8e9d2bb63abf4f8081b7853ee0d3a233f13f50e8484d857ebe247f"
+    },
+    {
+      "name": "can",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "opendbc_repo/opendbc/can/tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "seconds": 0.706,
+      "log": "Ai/Evidence/retropilot-controller-20261103-can.log",
+      "log_sha256": "02aff3e27afc1a4618df2b1e55c4460e126144651a19b917c1b5735b75a9f576"
+    },
+    {
+      "name": "interfaces",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "unittest",
+        "opendbc.car.tests.test_car_interfaces",
+        "opendbc.car.tests.test_platform_configs",
+        "opendbc.car.tests.test_can_fingerprint",
+        "opendbc.car.tests.test_fw_fingerprint",
+        "opendbc.car.tests.test_docs",
+        "opendbc.car.tests.test_vehicle_model"
+      ],
+      "exit_code": 0,
+      "seconds": 34.134,
+      "log": "Ai/Evidence/retropilot-controller-20261103-interfaces.log",
+      "log_sha256": "549d00894adb35354dc1b776fe6771ce160aa8e06fbd9160357c73cfff9217af"
+    },
+    {
+      "name": "ruff",
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "opendbc_repo/opendbc/car/retropilot"
+      ],
+      "exit_code": 0,
+      "seconds": 0.008,
+      "log": "Ai/Evidence/retropilot-controller-20261103-ruff.log",
+      "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    {
+      "name": "whitespace",
+      "command": [
+        "git",
+        "-C",
+        "opendbc_repo",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "seconds": 0.005,
+      "log": "Ai/Evidence/retropilot-controller-20261103-whitespace.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "red_tests": [
+    "Missing profiles import reproduced before implementation",
+    "Expanded controller suite: 5 failures, 1 error before pedal/cadence implementation"
+  ],
+  "limits": [
+    "Offline candidates only; no live CAN, hardware, game or firmware test",
+    "Default profile absent, actual update zero/no frames",
+    "Vehicle dynamics, driver pedal/torque calibration, Chimera transport and MCU safety unqualified"
+  ],
+  "model": "CD210/OpenCL/Thneed eb741641 unchanged",
+  "opendbc_commit": "9da9210adfa4dc213424f36945caccd40182c80d",
+  "notebook_validation": {
+    "command": ".venv/bin/python Ai/verify_memory.py --workspace /home/radxa/comma",
+    "result": "pass",
+    "documents": 74,
+    "relative_links": 224,
+    "source_repositories": 8,
+    "indexed_entries": 4252
+  },
+  "documentation_links": "pass: both RetroPilot guides",
+  "self_review": "Correctness/readability/architecture/input validation/performance reviewed; candidate/live isolation and missing physical calibration explicitly retained."
+}
