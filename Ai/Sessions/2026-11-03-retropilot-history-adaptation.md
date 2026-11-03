@@ -105,3 +105,16 @@ canonical retropilot/dbc copy: both SHA256ef6eef74021a00183729b53ba90f1c790792cf
 DBC is included and used by the port; actual Chimera acceptance, managed
 integration, BeamNG loop, calibration and MCU safety remain pending. No runtime
 code/device change or new behavioral test in this clarification.
+
+## Outside-car-folder and Panda clarification, 2026-11-03
+
+Owner asked whether DBC/car folder suffice and whether Panda changed. Read-only
+Git comparison from modern opendbcbaseaa9bff6 confirms additional edits to
+can/dbc.py, car/values.py, car/car_helpers.py, car/fingerprints.py and
+torque_data/override.toml. New host receive files are in
+openpilot/selfdrive/pandad/chimera.py and chimera_protocol.py, plus tests.
+Parent diff from pre-portdd29f00 confirms no panda/ gitlink or .gitmodules
+change for this port. Panda reference/safety comparison JSON is evidence,
+not edited/deployed board firmware. Existing stock pandad remains unchanged;
+new standalone Chimera receiver is not managed/live actuation integration.
+No board flash or new hardware action; tests not rerun for this explanation.
