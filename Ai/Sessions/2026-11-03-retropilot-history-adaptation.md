@@ -201,3 +201,19 @@ openpilot/cereal/__init__.py loads log/custom with opendbc imports. Chimera
 optional publisher imports existing openpilot.cereal.messaging and PubMaster
 can, without schema modifications. Read-only source/filesystem check only;
 no new runtime test. Modern Radxa scope/next task unchanged.
+
+## 2026-11-03 — Chimera held; C2 Cereal reasons explained
+
+Owner explicitly said hold Chimera for now. Do not advance Chimera code,
+acceptance or hardware work until resumed. Current discussion stays on
+RetroPilot/current messaging needs. Rechecked pinned Cereal comparison:
+7406e44f fixes Ubuntu24 messaging/VisionIPC compiler compatibility;
+58bc67b1 adds retropilot safety enum26 in then-Cereal car.capnp;
+a7193d0f adds CarControl.bodycontrol.relayCoreCMD UInt8 for eight relay bits.
+Those were specific C2 build/interface requirements, not a universal car-port
+checklist. Existing current CAN receive path needs no Cereal schema change;
+future end-to-end relay/safety requirements must be checked against current
+vehicle schema in opendbc/car/car.capnp. No claim all future features already
+fit existing fields. Runtime/source/DBC/firmware unchanged; no device actions.
+Parent source checked at79b96e4; child remains86a839d. Documentation/Git skills,
+source-first saved patches; no new REA artifact/runtime question or tests.

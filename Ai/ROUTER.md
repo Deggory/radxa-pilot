@@ -1,3 +1,7 @@
+2026-11-03 owner direction: **Chimera work is on hold until the owner resumes it.**
+Current discussion is the need for modern RetroPilot messages and why C2 changed
+Cereal. Earlier next-step notes about Chimera acceptance are deferred.
+
 2026-11-03 current: [RetroPilot C2 selection compatibility](Knowledge/RETROPILOT_CAR_PORT.md)
 now includes fingerprints.py/shared MIGRATION; automatic matching remains pending.
 

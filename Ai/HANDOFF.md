@@ -1,3 +1,7 @@
+2026-11-03 owner direction: **Chimera work is on hold until the owner resumes it.**
+Current discussion is the need for modern RetroPilot messages and why C2 changed
+Cereal. Earlier next-step notes about Chimera acceptance are deferred.
+
 ## 2026-11-03 — Owner clarification: modern RetroPilot implementation
 
 The objective is to make RetroPilot work on the existing Radxa Q8B running
