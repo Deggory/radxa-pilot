@@ -1,3 +1,5 @@
+Later increment: [parameterized active engine](../retropilot-active-safety-20261103/README.md) now tested with native fixtures. This report and its line counts/coverage describe the earlier disabled-only source version; production output remains disabled.
+
 # RetroPilot modern safety increment — 2026-11-03
 
 Owner asked to implement the missing safety identifier, registered rules and

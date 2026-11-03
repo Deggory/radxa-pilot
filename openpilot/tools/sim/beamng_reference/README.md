@@ -1,5 +1,15 @@
 # BeamNG bridge reference bundle
 
+## Which BeamNG car did the reference use?
+
+At the pinned Caleb source5435d674, the launch instructions say to spawn a car
+in BeamNG; they do not require one fixed model. The geometry section includes
+an Ibishu Covet example log and ETK800 rack examples. `HONDA_CIVIC_2022` was
+openpilot's older CAN/platform identity, not a selection of a Civic in the game;
+the newer identity is `BEAMPILOT`. The mod measures the selected game's car.
+See upstream/README.md lines233,509–534 and626. This does not identify the
+owner's currently loaded vehicle/configuration or qualify a RetroPilot profile.
+
 Collected from [Caleb-J773/beampilot-drive](https://github.com/Caleb-J773/beampilot-drive)
 on2026-11-02, commit **5435d67499f66eca58f95882cbe35e9c577e874c**.
 Contains **96 original files / 1,160,682 bytes**, plus this guide and verification metadata.

@@ -1,0 +1,13 @@
+F
+======================================================================
+FAIL: test_corrupt_rx_latches_fault_even_if_shared_flag_is_forced (opendbc.safety.tests.test_retropilot_active.TestRetroPilotActive.test_corrupt_rx_latches_fault_even_if_shared_flag_is_forced)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/safety/tests/test_retropilot_active.py", line 181, in test_corrupt_rx_latches_fault_even_if_shared_flag_is_forced
+    self.assertFalse(self._tx(self.command('steer', 5)))
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 1 test in 0.798s
+
+FAILED (failures=1)

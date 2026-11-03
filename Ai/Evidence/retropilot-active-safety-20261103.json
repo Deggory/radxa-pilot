@@ -1,0 +1,93 @@
+{
+  "date_utc": "2026-11-03T22:18:25.715200+00:00",
+  "parent_base": "14a44ca4f1cbf9579dfd592a1e6faf9759c41e31",
+  "opendbc_base": "a6099a1e141f17ec18ca9b065cf9a8f972e0cac8",
+  "scope": "Parameterized active software safety engine, native artificial fixture only; normal mode remains disabled-only; car stays noOutput. Chimera held, relays excluded.",
+  "production_profile": null,
+  "native_fixture": "ALLOW_DEBUG in native test harness only; absent in release; not selectable by firmware parameter",
+  "endpoints": {
+    "steer": "0x300 interceptor",
+    "gas": "0x200 interceptor",
+    "brake": "0x20E iBooster position mode2",
+    "bus": 2
+  },
+  "checks": [
+    "7 required RX exact bus/DLC/CRC/mod16/metadata/health and explicit100ms fixture freshness",
+    "2 clean RX samples and fault-latched engagement requiring release/ON/new SET or RES",
+    "full16-count disabled startup cycle perselected axis, output history retained until sequential releases",
+    "steering channel agreement, bounds, speed taper, slew,250ms change",
+    "gas channel ratio/range/slew and brake mode/position/slew",
+    "gas/brake exclusion, command timing/counter progression, timestamp wrap",
+    "ENGINE/CRUISE MODE0 health and explicit SPEED source MODE independently of units"
+  ],
+  "review": {
+    "agent": "review_retropilot_safety",
+    "final": "No remaining Critical or Required findings; software-only approval",
+    "required_fixes": [
+      "disabled counter/model divergence",
+      "invalid RX must latch private fault",
+      "ENGINE/CRUISE MODE faults",
+      "unknown startup counter requires full16 cycle"
+    ],
+    "self_review_fix": "Do not credit release blocked by outer board fault"
+  },
+  "red_logs": [
+    "red.txt",
+    "release-red.txt",
+    "corrupt-rx-red.txt",
+    "mode-health-red.txt",
+    "startup-release-red.txt",
+    "startup-cycle-red.txt"
+  ],
+  "validation": {
+    "focused": "50 pass (29 active-engine plus21 restricted), native debug/UBSan and release fixture containment",
+    "host": "45 RetroPilot tests pass",
+    "full_safety": "8806 run,932 existing skips, no failures; final native C source, strict compiler flags and UBSan",
+    "lint": "Ruff pass",
+    "whitespace": "child and parent pass",
+    "memory": "84 documents/246 relative links pass"
+  },
+  "source_pins": {
+    "canonical_dbc": "6b90fafe59e81822bfae58e4ecb080248e9de40d",
+    "ocelot": "d87892fa25ef2a2474110b97bfb5245ee818b534, dirty/untracked reference source; hashes retained; not installed firmware proof",
+    "beamng_reference": "Caleb-J773/beampilot-drive5435d67499f66eca58f95882cbe35e9c577e874c",
+    "model": "CD210 GPU unchanged"
+  },
+  "beamng_car_answer": "Pinned README says user spawns a car; Ibishu Covet example and ETK800 rack examples. HONDA_CIVIC_2022 was an old CAN/platform identity; BEAMPILOT is newer. Does not establish owner vehicle/configuration.",
+  "limits": [
+    "No production active profile, physical/BeamNG calibration or native torque/acceleration law qualified",
+    "No receipt acknowledgement or evidence all startup commands reach endpoint",
+    "Legacy producer partial-CRC/layout/mode/speed incompatibilities remain; no firmware adaptation or hardware test",
+    "No live car/game/USB/CAN/firmware/Chimera action, no ARM image/MISRA/gcovr qualification",
+    "No new coverage result; prior disabled-policy coverage applies to its earlier version only"
+  ],
+  "environment": {
+    "python": "3.12.3",
+    "machine": "aarch64",
+    "cc": "cc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0"
+  },
+  "source_sha256": {
+    "sunnypilot/opendbc_repo/opendbc/safety/modes/retropilot.h": "a7e8c9cb5a6cd8ce51ac911ec3ed896b98dc8c4af1df84d3b6c287196d268596",
+    "sunnypilot/opendbc_repo/opendbc/safety/modes/retropilot_active.h": "facbb340af64667a29f8eaa75ea363b3873365c7b8e0a401125ba71f2acefd58",
+    "sunnypilot/opendbc_repo/opendbc/safety/tests/libsafety/safety.c": "c6ee3aca0573dc7bd3ba9e564ef150587e6c2389c94c393708b339f9a0cdcf45",
+    "sunnypilot/opendbc_repo/opendbc/safety/tests/test_retropilot_active.py": "34125199c4ca363f90710d116bb5ed8ad51d816eaac3291285f1ff5cbb31a3a0",
+    "sunnypilot/opendbc_repo/opendbc/dbc/ocelot_controls.dbc": "ef6eef74021a00183729b53ba90f1c790792cfe5dcf72fe9bdfe2dcb3d6a5dce",
+    "retropilot/dbc/ocelot_controls.dbc": "ef6eef74021a00183729b53ba90f1c790792cfe5dcf72fe9bdfe2dcb3d6a5dce",
+    "ocelot/firmware/ibst/main.c": "dad5871c25f1a10f964d8f111936dcf5c8128d58999706c9202999cf11b6acb3",
+    "ocelot/firmware/chimera/main.c": "5d1dd3b0400ec80da9b477abfced51c9346674865ce5ad86d7e5a012c2d94883",
+    "ocelot/firmware/RetroPilot_Cores/interceptor_core/modes/gas_pedal.h": "ddbe879e31d103460d9613b56a775c28ba99e4b5a61bc2be0eda872fc89a4bc8",
+    "ocelot/firmware/RetroPilot_Cores/interceptor_core/modes/differential_command.h": "4d6f2f95f4bfd6c568b64d4e2d22e81811dff5808f75aa04ce71cc2dc14b0ac7"
+  },
+  "skills": [
+    "source-driven-development",
+    "test-driven-development",
+    "incremental-implementation",
+    "api-and-interface-design",
+    "debugging-and-error-recovery",
+    "code-review-and-quality",
+    "git-workflow-and-versioning",
+    "documentation-and-adrs"
+  ],
+  "rea": "Source-first routing for complete readable source/native compilation. No artifact-only question; no REA runtime/firmware proof claimed.",
+  "opendbc_commit": "671f8c450fc74f5b8b90b2ee53124394108651ce"
+}

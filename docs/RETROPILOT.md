@@ -7,6 +7,22 @@ stage**, plus an offline modern controller migration, for the owner's BeamNG →
 A standalone receive-only Chimera USB adapter is now implemented. Managed board
 health/ignition integration and the live BeamNG loop remain unfinished.
 
+## Active checks implemented, live output still disabled
+
+The [parameterized C safety engine](../opendbc_repo/opendbc/safety/modes/retropilot_active.h)
+now checks sensor integrity/freshness, explicit speed/source mode, driver
+intervention, button engagement and bounded/rate-limited interceptor steering,
+gas and iBooster position commands. It blocks overlapping gas/brake and retains
+outstanding commands across faults until a sequential release. Startup needs
+one full16-counter disabled cycle for each selected endpoint. Other command
+families remain disabled-only. These checks run in compiled native tests using
+artificial limits, **not a qualified vehicle calibration**.
+
+No production profile exists and firmware parameters cannot select the native
+fixture. Normal mode39 remains disabled-command-only; the car still requests
+noOutput and its runtime controller sends no CAN. No Chimera or vehicle action.
+See the [active safety report](../Ai/Reports/retropilot-active-safety-20261103/README.md).
+
 ## History-led adaptation beyond the car folder
 
 Owner confirmed the existing Radxa Q8B target. The

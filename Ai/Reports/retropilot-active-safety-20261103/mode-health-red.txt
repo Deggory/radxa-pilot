@@ -1,0 +1,29 @@
+FFF
+======================================================================
+FAIL: test_driver_takeover_and_faults (opendbc.safety.tests.test_retropilot_active.TestRetroPilotActive.test_driver_takeover_and_faults) (name='ENGINE', values={'MODE': 5})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/safety/tests/test_retropilot_active.py", line 122, in test_driver_takeover_and_faults
+    self.assertFalse(self.safety.get_controls_allowed())
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_driver_takeover_and_faults (opendbc.safety.tests.test_retropilot_active.TestRetroPilotActive.test_driver_takeover_and_faults) (name='CRUISE', values={'MODE': 5})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/safety/tests/test_retropilot_active.py", line 122, in test_driver_takeover_and_faults
+    self.assertFalse(self.safety.get_controls_allowed())
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_driver_takeover_and_faults (opendbc.safety.tests.test_retropilot_active.TestRetroPilotActive.test_driver_takeover_and_faults) (name='SPEED', values={'MODE': 1})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/safety/tests/test_retropilot_active.py", line 122, in test_driver_takeover_and_faults
+    self.assertFalse(self.safety.get_controls_allowed())
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 1 test in 0.810s
+
+FAILED (failures=3)

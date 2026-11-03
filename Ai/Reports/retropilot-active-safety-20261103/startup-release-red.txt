@@ -1,0 +1,21 @@
+FF
+======================================================================
+FAIL: test_replayed_or_skipped_release_does_not_credit_pedal_release (opendbc.safety.tests.test_retropilot_active.TestRetroPilotActive.test_replayed_or_skipped_release_does_not_credit_pedal_release)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/safety/tests/test_retropilot_active.py", line 286, in test_replayed_or_skipped_release_does_not_credit_pedal_release
+    self.assertFalse(self._tx(packet(addr, data)))
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_startup_requires_two_sequential_releases_before_engagement (opendbc.safety.tests.test_retropilot_active.TestRetroPilotActive.test_startup_requires_two_sequential_releases_before_engagement)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/safety/tests/test_retropilot_active.py", line 302, in test_startup_requires_two_sequential_releases_before_engagement
+    self.assertFalse(self.safety.get_controls_allowed())
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.785s
+
+FAILED (failures=2)

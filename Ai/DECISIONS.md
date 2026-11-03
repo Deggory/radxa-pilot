@@ -1,3 +1,17 @@
+## 2026-11-03 — Profile-dependent active rules without invented calibration
+
+Owner's "why not fix it" authorizes implementing missing safety behavior, not
+assuming a BeamNG/physical calibration. Add a parameterized native-tested C
+engine for canonical interceptor steering/gas and iBooster position, leaving
+production initialization without any active profile. Firmware parameters
+cannot select the artificial test fixture. Keep noOutput/zero live controller.
+Require fault-latched recovery, bounded commands and retained output history.
+Block invalid-sequence disabled sends with an active profile; require a full16-
+count startup disable cycle to cover unknown counters in non-resynchronizing
+endpoints. Qualify delivery, producer/endpoint semantics and limits separately.
+Chimera remains held, relay/physical Interceptor work excluded. Software review
+and native tests are not permission or proof for installed vehicle actuation.
+
 ## 2026-11-03 — Register restricted safety without guessing active limits
 
 User authorized implementing the missing identifier/rules/tests. Existing C2

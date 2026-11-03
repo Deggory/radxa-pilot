@@ -1,0 +1,18 @@
+E
+======================================================================
+ERROR: test_valid_active_commands (opendbc.safety.tests.test_retropilot_active.TestRetroPilotActive.test_valid_active_commands)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/safety/tests/test_retropilot_active.py", line 28, in setUp
+    self.assertTrue(self.safety.set_retropilot_test_profile(0))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/radxa/comma/sunnypilot/.venv/lib/python3.12/site-packages/cffi/api.py", line 907, in __getattr__
+    make_accessor(name)
+  File "/home/radxa/comma/sunnypilot/.venv/lib/python3.12/site-packages/cffi/api.py", line 902, in make_accessor
+    raise AttributeError(name)
+AttributeError: set_retropilot_test_profile
+
+----------------------------------------------------------------------
+Ran 1 test in 1.126s
+
+FAILED (errors=1)

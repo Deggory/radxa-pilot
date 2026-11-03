@@ -1,3 +1,27 @@
+## 2026-11-03 — RetroPilot active safety software engine, no live profile
+
+Child opendbc671f8c450fc74f5b8b90b2ee53124394108651ce adds profile-dependent
+sensor integrity/freshness, fault-latched engagement, driver intervention and
+bounded/rate-limited interceptor steering/gas/iBooster-position checks. Only
+an artificial native-test fixture supplies limits; no production initializer or
+firmware parameter selects an active profile. Normal mode39 remains disabled-
+command-only; interface noOutput/dashcamOnly and zero runtime CAN remain.
+50 focused tests pass; full native suite8806 run/932 existing skips/no failures;
+45 RetroPilot host tests, release-fixture absence, Ruff and whitespace pass.
+Independent review required recovery/counter/health/startup fixes; all addressed,
+final no Critical/Required findings. Startup models a full16-count disable
+cycle peraxis; this is not receipt acknowledgement or installed-firmware proof.
+Chimera and physical Interceptor held; relays excluded; no device/game/CAN action.
+
+Owner asked which car Caleb used: pinned5435d674 launch says user spawns a car;
+README has Ibishu Covet example and ETK800 rack examples. HONDA_CIVIC_2022 was
+CAN/platform identity, newer BEAMPILOT measures the selected car. Owner's actual
+vehicle/configuration remains unknown. Next: qualify selected game vehicle,
+endpoint/units/mode/driver/calibration contract and then game-only integration.
+No production limits inferred from C2 constants, DBC ranges or a demo model.
+Report: Ai/Reports/retropilot-active-safety-20261103/README.md; source/test hashes
+and remaining firmware/profile limits in the matching evidence JSON.
+
 ## 2026-11-03 — RetroPilot restricted safety mode implemented
 
 Modern opendbc a6099a1e141f17ec18ca9b065cf9a8f972e0cac8 registers local

@@ -1,3 +1,13 @@
+## 2026-11-03 — Game car/configuration still unconfirmed
+
+Asked which BeamNG vehicle/configuration is selected. Owner referred to the
+BeamNG-openpilot author instead of naming the currently loaded vehicle. Saved
+Caleb5435d674 source does not force one model: user spawns a car; Covet is an
+example, ETK800 appears in geometry examples. Do not silently select either
+as the owner's car. Native algorithm tests use artificial limits; final game
+profile/command mapping remains unresolved. Continue independent software work
+without resuming held Chimera or physical Interceptor tasks.
+
 ## 2026-11-03 — C2 history-led Radxa adaptation checkpoint
 
 Owner confirmed existing Radxa Q8B. Full C2 history/submodules now mapped:
