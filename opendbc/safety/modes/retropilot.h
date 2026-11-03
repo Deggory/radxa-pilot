@@ -6,7 +6,7 @@
 // matches car/retropilot/values.py; it is not a discovery of physical wiring.
 // Only disabled commands are qualified here. No active profile, arbitrary
 // parameter, incoming message or controls_allowed state may enable actuation.
-static safety_config retropilot_init(uint16_t param) {
+static safety_config retropilot_restricted_init(uint16_t param) {
   static const CanMsg RETROPILOT_TX_MSGS[] = {
     {0x10E, 2, 6, .check_relay = false},  // Brake actuator
     {0x12E, 2, 6, .check_relay = false},  // Steering actuator
@@ -26,7 +26,7 @@ static safety_config retropilot_init(uint16_t param) {
   return ret;
 }
 
-static bool retropilot_tx_hook(const CANPacket_t *msg) {
+static bool retropilot_disabled_command(const CANPacket_t *msg) {
   // The dispatcher also enforces address, bus and DLC against the allowlist.
   bool brake = (msg->addr == 0x10EU) || (msg->addr == 0x20EU);
   bool interceptor = (msg->addr == 0x200U) || (msg->addr == 0x300U) || (msg->addr == 0x400U);
@@ -55,8 +55,20 @@ static bool retropilot_tx_hook(const CANPacket_t *msg) {
   return valid && (msg->data[0] == (uint8_t)(crc ^ 0xFFU));
 }
 
+#include "opendbc/safety/modes/retropilot_active.h"
+
+static safety_config retropilot_init(uint16_t param) {
+  // No qualified vehicle profile exists. Mode parameters cannot select the
+  // native test fixture or enable the active engine, even in debug firmware.
+  return retropilot_profile_init(NULL, param);
+}
+
 const safety_hooks retropilot_hooks = {
   .init = retropilot_init,
-  .rx = default_rx_hook,
+  .rx = retropilot_rx_hook,
   .tx = retropilot_tx_hook,
+  .get_checksum = retropilot_get_checksum,
+  .compute_checksum = retropilot_compute_checksum,
+  .get_counter = retropilot_get_counter,
+  .get_quality_flag_valid = retropilot_quality_valid,
 };

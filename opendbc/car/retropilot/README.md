@@ -33,6 +33,33 @@ measured command/driver limits, RX freshness and engagement/disengagement rules
 are qualified. Chimera work is held; relays are excluded from requested work.
 No firmware image was flashed or hardware mode changed.
 
+## Active safety engine: native tests only
+
+`safety/modes/retropilot_active.h` adds profile-dependent RX CRC/counter/
+quality/freshness, explicit speed units/source mode, ignition/pedal/steering
+intervention, button-edge engagement and steering/gas/position-brake limits.
+It covers interceptor steering0x300, gas0x200 and iBooster position0x20E.
+Other endpoint families remain disabled-only; relays remain blocked.
+
+No production initializer supplies an active profile. Firmware mode parameters
+cannot select one. The only supplied calibration is an artificial native-test
+fixture in tests/libsafety/safety.c under ALLOW_DEBUG; the setter is absent from
+release builds. ControllerProfile/C2_REFERENCE is not this safety profile.
+
+The engine checks channel agreement, steering slew/250ms change/speed taper,
+pedal slew/range, gas/brake exclusion, command timing and sequential counters.
+It requires one full16-counter disabled cycle per selected axis before engagement;
+this models endpoint counter synchronization, not receipt acknowledgement.
+Out-of-sequence disabled packets are blocked when an active profile exists,
+because an endpoint can ignore their target while updating its counter. Invalid
+RX latches private disengagement even if the shared controls flag is forced.
+Faults retain outstanding command state until a permitted sequential release.
+
+The canonical DBC defines encoding, not safe physical values. Producer/firmware
+compatibility, real driver authority and vehicle calibration remain unqualified.
+In particular local legacy firmware has CRC/layout/speed/mode discrepancies.
+This engine does not make Chimera enforce the policy or enable vehicle output.
+
 ## Offline controller replay
 
 From the Sunnypilot root:

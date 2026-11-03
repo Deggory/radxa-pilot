@@ -18,6 +18,17 @@
     "host_bus": 2,
     "wire_source": "canonical_dbc above",
     "implementation": "opendbc/safety/modes/retropilot.h, authored for current opendbc APIs; not copied from C2 safety",
-    "limits": "No qualified active vehicle profile. Active modes and nonzero targets are rejected; relays excluded."
+    "limits": "No qualified active vehicle profile. Active modes and nonzero targets are rejected; relays excluded.",
+    "active_engine": {
+      "implementation": "opendbc/safety/modes/retropilot_active.h; compiled tests/test_retropilot_active.py",
+      "stage": "parameterized engine tested with artificial native-only fixture; no production profile or live selection",
+      "endpoints": [
+        "0x300 interceptor steering",
+        "0x200 interceptor gas",
+        "0x20E iBooster position"
+      ],
+      "qualification": "No actual BeamNG car/configuration, installed producer or physical calibration selected. C2 constants not adopted.",
+      "source_notes": "Canonical DBC above; local ocelot d87892fa dirty source is compatibility evidence only, not installed firmware proof."
+    }
   }
 }

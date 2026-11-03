@@ -13,6 +13,32 @@ uint32_t microsecond_timer_get(void) {
 #include "opendbc/safety/safety.h"
 #include "opendbc/safety/ignition.h"
 
+#ifdef ALLOW_DEBUG
+// Artificial raw-unit limits for native tests ONLY. No firmware parameter,
+// CarParams, board API or production profile selects these values.
+bool set_retropilot_test_profile(int invalid_case) {
+  RetroPilotSafetyLimits fixture = {
+    .steer_center1 = 1000, .steer_center2 = 1000, .steer_max = 100,
+    .steer_high_speed_max = 25, .steer_up = 5, .steer_down = 10, .steer_rt_delta = 20,
+    .gas_offset1 = 10, .gas_offset2 = 20, .gas_range1 = 1000, .gas_range2 = 2000,
+    .gas_step = 20, .gas_driver_threshold = 100, .brake_max = 128, .brake_step = 16,
+    .speed_divisor = 100, .speed_mode = 0, .max_speed_kph = 50, .angle_max = 1000, .angle_rate_max = 500,
+    .rx_timeout = 100000U, .steer_interval = 10000U, .gas_interval = 20000U, .brake_interval = 10000U,
+  };
+  if (invalid_case == 1) { fixture.steer_center1 = -1; }
+  if (invalid_case == 2) { fixture.steer_max = 0; }
+  if (invalid_case == 3) { fixture.gas_range1 = 0; }
+  if (invalid_case == 4) { fixture.brake_max = 4000; }
+  if (invalid_case == 5) { fixture.speed_divisor = 10; }
+  if (invalid_case == 6) { fixture.rx_timeout = 0U; }
+  if (invalid_case == 7) { fixture.steer_interval = 0U; }
+  if (invalid_case == 8) { fixture.angle_max = 0; }
+  if (invalid_case == 9) { fixture.gas_offset2 = 65535; }
+  current_safety_config = retropilot_profile_init(&fixture, 0U);
+  return retropilot_profile_valid;
+}
+#endif
+
 bool safety_config_valid() {
   if (current_safety_config.rx_checks_len <= 0) {
     printf("missing RX checks\n");
