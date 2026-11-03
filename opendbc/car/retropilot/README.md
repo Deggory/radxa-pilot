@@ -43,6 +43,14 @@ ignition loss prevent that indicator. CAN checks are reference20Hz/500ms,
 not verified source freshness; callers supply monotonic timestamped batches,
 including empty batches to advance timeouts.
 
-Select through the existing fixed-platform path; no auto fingerprint is added.
+The new fingerprints.py declares an empty automatic CAN database and maps
+C2's "RETROPILOT RETROFIT" to RETROPILOT_RETROFIT. The alias is included in
+shared car/fingerprints.py:MIGRATION and normalized for explicit arguments or
+FINGERPRINT environment selection. Saved CarPlatformBundle names use the
+existing Sunnypilot migration. No ECU FW database/query configuration is
+registered. C2 hard-coded the old name and bypassed FW queries; its IDs0..15
+fingerprint was a placeholder. No global override is carried into this port.
+
+Select through the fixed-platform path; no automatic matching is added.
 Explicit RetroPilot selection skips VIN/FW diagnostic TX. Other brands are
 unchanged. No hardware is opened by this package or its tests.

@@ -9,6 +9,7 @@ from opendbc.car.mazda.values import CAR as MAZDA
 from opendbc.car.mock.values import CAR as MOCK
 from opendbc.car.nissan.values import CAR as NISSAN
 from opendbc.car.rivian.values import CAR as RIVIAN
+from opendbc.car.retropilot.fingerprints import MIGRATION as RETROPILOT_MIGRATION
 from opendbc.car.subaru.values import CAR as SUBARU
 from opendbc.car.toyota.values import CAR as TOYOTA
 from opendbc.car.volkswagen.values import CAR as VW
@@ -56,6 +57,7 @@ def all_legacy_fingerprint_cars():
 
 # A dict that maps old platform strings to their latest representations
 MIGRATION = {
+  **RETROPILOT_MIGRATION,
   "ACURA ILX 2016 ACURAWATCH PLUS": HONDA.ACURA_ILX,
   "ACURA RDX 2018 ACURAWATCH PLUS": HONDA.ACURA_RDX,
   "ACURA RDX 2020 TECH": HONDA.ACURA_RDX_3G,
