@@ -69,3 +69,27 @@ teacher PORTING_PLAN used; no need for a second approval to execute owner's
 explicit port instruction. REA binary analysis was not needed for this
 readable-source migration. The native CRC crosscheck is an offline reference
 execution, not REA/firmware or hardware verification.
+
+## 2026-11-03 — Car-port checklist: identification and safety remain separate
+
+Reconciled owner's pasted modern car-port checklist with actual source and
+commaai/opendbc README (official current structure/safety sections). Added a
+file/status matrix to docs/RETROPILOT.md. Existing modern package/state/codecs
+and explicit selection are implemented; active controller mapping, automatic
+identification, RetroPilot MCU policy and compiled safety tests are pending.
+No invented fingerprints or radar/safety stubs added. Current noOutput request
+is not proof of Chimera enforcement; CarController itself always emits nothing.
+Teacher C2 safety header remains WIP (arbitrary RX enables controls, disabled
+integrity checks, DLC mismatches and missing steering/brake limits). Host file
+creation alone cannot wire that policy into Chimera's actual TX path.
+
+Source pins unchanged: parentbase1a1cc4025c4233732bbbb86c061c4c54b35add5a,
+opendbc649bbb632a020f155fc1eb16ae343f49a5c4bb50; canonical DBC/source/model
+unchanged. Documentation/source review only; prior53CAN/22port/1600native CRC
+results remain prior results, not new MCU safety tests. No code/device/network
+PC/firmware/actuation change; no REA binary question. Next implementation stays
+receive-only Chimera transport, producer units/profile, then qualified active
+control and MCU policy. No new owner question needed for this clarification.
+Skills: source-driven review, code-review-and-quality, interface design and
+repository documentation/Git. Validation: notebook, real file-status/relative
+link assertions and whitespace, captured in the checklist evidence receipt.

@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-03",
+  "scope": "Car-port checklist documentation reconciliation; no executable change",
+  "base": "1a1cc4025c4233732bbbb86c061c4c54b35add5a",
+  "opendbc": "649bbb632a020f155fc1eb16ae343f49a5c4bb50",
+  "official_source": "https://github.com/commaai/opendbc/blob/master/README.md#structure-of-a-port",
+  "historical_safety_reference_sha256": "fe50de5a366d990023058cb89621ca1abadb131dc6fccb8d804f78f519837513",
+  "checks": [
+    {
+      "command": ".venv/bin/python Ai/verify_memory.py --workspace /home/radxa/comma",
+      "exit_code": 0,
+      "output": "{\n  \"result\": \"pass\",\n  \"memory_layout\": \"regular project directory\",\n  \"documents\": 73,\n  \"relative_links\": 223,\n  \"optional_workspace_links\": 238,\n  \"source_repositories\": 8,\n  \"indexed_entries\": 4252\n}\n"
+    },
+    {
+      "command": "Current guide relative-link and implemented/planned file-status assertions",
+      "exit_code": 0,
+      "output": "PASS: 2 relative links;8 existing files and4 explicitly absent files; passive controller unchanged"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "output": ""
+    }
+  ],
+  "result": "pass",
+  "limits": [
+    "No automatic ECU identity database or RetroPilot active MCU safety implementation exists.",
+    "Host tests/empty TX are not MCU safety coverage; no existing suites rerun for this prose-only change.",
+    "No hardware/firmware/control action; source-only review, no REA artifact claim."
+  ]
+}

@@ -6,6 +6,47 @@ Implemented 2026-11-03 in the local opendbc branch `radxa/retropilot`, based on
 stage** for the owner's BeamNG → Waveshare CAN → Chimera → Radxa architecture.
 The Chimera USB backend and live BeamNG loop remain separate unfinished work.
 
+## Files, identification and safety status
+
+Comma's [current port structure](https://github.com/commaai/opendbc/blob/master/README.md#structure-of-a-port)
+places the host car package in opendbc/car. Our pinned implementation is in
+`opendbc_repo/opendbc/car/retropilot/`:
+
+| Component | Current RetroPilot status |
+| --- | --- |
+| `values.py` | Platform, bus and observed-module flags registered; physical parameters remain non-driving placeholders. |
+| `interface.py` | Modern parameter and parser/controller wiring; explicit selection, dashcamOnly and noOutput. |
+| `carstate.py` | Existing canonical signals parsed with validity checks; missing gear/wheels and unqualified speed remain explicit. |
+| `carcontroller.py` | Implemented passive stage: always returns zero actuators and no CAN frames. Active control mapping is pending. |
+| `retropilotcan.py` / `commands.py` | Canonical CRC and offline command constructors; no calibrated normalized-control-to-actuator mapping. |
+| `fingerprints.py` | No qualified automatic identification database. Explicit RETROPILOT_RETROFIT selection is implemented and tested. |
+| `radar_interface.py` | No radar-specific implementation; inherited base interface with radarUnavailable. |
+| `opendbc/dbc/ocelot_controls.dbc` | Packaged canonical DBC; existing wire bytes unchanged. |
+| `opendbc/safety/modes/retropilot.h` | Not implemented. A future policy needs registration in the modern safety dispatcher and schema plus compiled safety tests. |
+| `opendbc/safety/tests/test_retropilot.py` | Not implemented. Existing host/codec tests do not qualify firmware safety enforcement. |
+
+Paths beginning with `opendbc/` in this table are relative to opendbc_repo;
+the two RetroPilot safety paths are planned locations, not existing files.
+For comparison, this pinned tree uses `opendbc/safety/modes/hyundai.h`,
+`hyundai_canfd.h` and `opendbc/safety/tests/test_hyundai*.py`.
+
+The platform name selects the parser/profile. Observed CAN ID/DLC flags identify
+module presence only. Chimera USB identity identifies the interface board;
+none of these establishes the selected BeamNG car, vehicle geometry, actuator
+calibration or firmware compatibility. Future automatic identification needs
+measured ECU/module identities or a qualified CAN signature. There is no reason
+to populate fingerprints.py with invented ECU versions for the present explicit
+simulator selection.
+
+The historical teacher reference `retropilot/safety/safety_retropilot.h` is WIP:
+it allows controls on arbitrary reception, disables receive-integrity checks,
+lacks steering/brake limits and contains DLC mismatches. It remains reference
+evidence. A modern safety file must also be enforced in Chimera's actual TX path;
+adding it to host opendbc does not install or activate it on that custom board.
+The existing noOutput setting is a host-requested policy; the unconditional
+empty output from CarController is the current local enforcement. No claim is
+made that installed Chimera firmware implements the modern policy.
+
 ## Implemented
 
 - Explicit platform selection through the existing `FINGERPRINT` or

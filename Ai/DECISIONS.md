@@ -1,3 +1,11 @@
+## 2026-11-03 — Keep file presence distinct from control/safety support
+
+Explicit selection is sufficient for the current simulator monitoring stage;
+no fabricated ECU firmware database. Existing host tests and noOutput request
+do not qualify firmware safety. Retain the C2 hook as historical WIP and require
+a reviewed modern policy enforced in the actual Chimera TX path, with compiled
+safety tests, before active control. Documentation only; no runtime change.
+
 ## 2026-11-03 — Implement RetroPilot as its own modern car platform
 
 Owner explicitly chose RetroPilot as the car and Chimera as Panda. Implement

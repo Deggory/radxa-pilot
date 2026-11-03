@@ -1,3 +1,5 @@
+Checklist clarification2026-11-03: explicit identification is implemented; automatic fingerprints and active firmware safety/tests remain pending. Current task/next step unchanged: receive-only Chimera transport and producer/profile qualification. docs/RETROPILOT.md has actual file status.
+
 ## 2026-11-03 — RetroPilot car port implemented, receive-only
 
 Owner explicitly requested RetroPilot as the car and Chimera as Panda. Modern
