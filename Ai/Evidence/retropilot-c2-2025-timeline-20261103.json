@@ -1,0 +1,54 @@
+{
+  "date_utc": "2026-11-03T18:49:36.944180+00:00",
+  "scope": "Documentation/history only; no runtime or device tests",
+  "result": "pass",
+  "guide_unique_commit_links": 53,
+  "individually_fetched_opendbc_commits": 20,
+  "checks": [
+    {
+      "command": [
+        ".venv/bin/python",
+        "/home/radxa/comma/sunnypilot/Ai/Reports/retropilot-c2-history-20261103/verify_history.py"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"result\": \"pass\",\n  \"parent_commits\": 35,\n  \"parent_final_paths\": 50,\n  \"parent_history_paths\": 64,\n  \"total_mapped_paths\": 82,\n  \"submodule_commits\": {\n    \"panda\": 2,\n    \"cereal\": 3,\n    \"opendbc\": 43\n  },\n  \"source_sha256\": {\n    \"rea-native-provider-block.json\": \"4a31b9f395716072e0989844d5458a840806634242295fc41230e705787ab0d2\",\n    \"rea-chimera-symbols.json\": \"09a1fe0af3289423d789aed90a84e5f88fb1e24a6e4a23063191e9ee134fdafb\",\n    \"cereal-compare.json\": \"5c9340c1e871358a5b805457664f5346fb3f1bace6dcc32b05d49ee1a31b0196\",\n    \"c2-branch-recheck-20261103.json\": \"e64d1f76a6950dbaa84278f55cc2f44107c7a2aba8be466aab20ed7eebefeead\",\n    \"coverage.json\": \"badfca40799c4073f8977c6185d674da61fa47bb9e355fc7005d539ceb04a1da\",\n    \"opendbc-compare.json\": \"ac00c77fc9f387e1e9aac361da782617311f61f011ac37a3e6607e39732b324e\",\n    \"commit-history.json\": \"86d54dbe7ee3f0afbda713a633116e8af8f4fd6336753781849ee22da4b0391b\",\n    \"opendbc-2025-commits.json\": \"30b35ad500ded5c465e4331f26aef11b67825ba2a3c9f1d488fe86d0fde23535\",\n    \"panda-compare.json\": \"64de8b288a8c839e453e5dc480593508dcb917d4c05aaf1fcd1780c3ac650b7d\",\n    \"rea-layout-profile-block.json\": \"6d8b5058af0df3cebc3fa13249e4e1d24fb0d9f5311061336e8c9517f7a97bb2\",\n    \"parent-compare.json\": \"1d644b82d1008b7e697c240c7679956b12249a7aaf5465d8254e2aad3593643a\",\n    \"rea-chimera-disassembly.json\": \"daced1aae2cc88c1994941034e9c78d5b757e9525e09eebff186d12ac9475baa\"\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "Ai/verify_memory.py",
+        "--workspace",
+        "/home/radxa/comma"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"result\": \"pass\",\n  \"memory_layout\": \"regular project directory\",\n  \"documents\": 79,\n  \"relative_links\": 236,\n  \"optional_workspace_links\": 238,\n  \"source_repositories\": 8,\n  \"indexed_entries\": 4252\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "source_sha256": {
+    "rea-native-provider-block.json": "4a31b9f395716072e0989844d5458a840806634242295fc41230e705787ab0d2",
+    "rea-chimera-symbols.json": "09a1fe0af3289423d789aed90a84e5f88fb1e24a6e4a23063191e9ee134fdafb",
+    "cereal-compare.json": "5c9340c1e871358a5b805457664f5346fb3f1bace6dcc32b05d49ee1a31b0196",
+    "c2-branch-recheck-20261103.json": "e64d1f76a6950dbaa84278f55cc2f44107c7a2aba8be466aab20ed7eebefeead",
+    "coverage.json": "badfca40799c4073f8977c6185d674da61fa47bb9e355fc7005d539ceb04a1da",
+    "opendbc-compare.json": "ac00c77fc9f387e1e9aac361da782617311f61f011ac37a3e6607e39732b324e",
+    "commit-history.json": "86d54dbe7ee3f0afbda713a633116e8af8f4fd6336753781849ee22da4b0391b",
+    "opendbc-2025-commits.json": "30b35ad500ded5c465e4331f26aef11b67825ba2a3c9f1d488fe86d0fde23535",
+    "panda-compare.json": "64de8b288a8c839e453e5dc480593508dcb917d4c05aaf1fcd1780c3ac650b7d",
+    "rea-layout-profile-block.json": "6d8b5058af0df3cebc3fa13249e4e1d24fb0d9f5311061336e8c9517f7a97bb2",
+    "parent-compare.json": "1d644b82d1008b7e697c240c7679956b12249a7aaf5465d8254e2aad3593643a",
+    "rea-chimera-disassembly.json": "daced1aae2cc88c1994941034e9c78d5b757e9525e09eebff186d12ac9475baa"
+  },
+  "guide_sha256": "8842ec7905fcd44dfcebdc228be65e9933317d07317a75e490b780fd83a45521"
+}

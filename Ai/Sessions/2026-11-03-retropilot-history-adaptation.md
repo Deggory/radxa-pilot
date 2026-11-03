@@ -118,3 +118,23 @@ change for this port. Panda reference/safety comparison JSON is evidence,
 not edited/deployed board firmware. Existing stock pandad remains unchanged;
 new standalone Chimera receiver is not managed/live actuation integration.
 No board flash or new hardware action; tests not rerun for this explanation.
+
+## 2026-11-03 — Complete plain-English 2025 C2 commit list
+
+Owner asked to see all the C2 author's work during the year. Added
+Ai/Reports/retropilot-c2-history-20261103/2025_COMMITS.md: 53 individually linked
+2025 commits (28 application, 20 CAN library/DBC, 2 Panda, 3 Cereal), with
+original titles and plain-English patch explanations. Dates span February 6–
+August 14; application May 15–August 14. The compared history also contains
+30 older 2021/2022 commits, including inherited/other-author work. This is the
+2025 portion of the four pinned comparisons, not every branch/repository ever
+used by the author. Fresh GitHub C2 branch still b9a942efd3cb210127bb5efb5cf9ccf6a811c728.
+Fetched all20 individual 2025 opendbc patches through GitHub and retained
+opendbc-2025-commits.json (SHA25630b35ad500ded5c465e4331f26aef11b67825ba2a3c9f1d488fe86d0fde23535).
+53 unique repo/commit links and the20 patch SHAs match comparison records;
+history verifier and notebook/link verifier pass. Documentation/Git skills and
+source-first history inspection; no new REA artifact question or runtime test.
+Author's July16 "op drives" title remains an author report, not our measured
+result. No runtime/DBC/firmware/device changes; live commands stay disabled.
+Next remains actual Chimera receive acceptance and units/profile/managed
+health/ignition qualification. No upstream integration; inbox0related pending.

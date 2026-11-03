@@ -1,0 +1,317 @@
+[
+  {
+    "sha": "a4d54fb0f9c6204b963c29418280f25ba3929994",
+    "date": "2025-02-06T15:54:49Z",
+    "author": "Kevin Roscom",
+    "message": "yeah.",
+    "files": [
+      {
+        "path": "ocelot_controls.dbc",
+        "status": "modified",
+        "patch": "@@ -118,6 +118,20 @@ BO_ 527 OCELOT_BRAKE_STATUS: 5 IBST\n  SG_ COUNTER : 8|4@1+ (1,0) [0|15] \"\" EON\n  SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" EON\n \n+BO_ 768 INTERCEPTOR_STEERING_COMMAND: 6 EON\n+ SG_ TORQUE_COMMAND1 : 8|16@1- (1,0) [0|1] \"\"  PED\n+ SG_ TORQUE_COMMAND2 : 24|16@1- (1,0) [0|1] \"\"  PED\n+ SG_ ENABLE : 47|1@1+ (1,0) [0|1] \"\"  PED\n+ SG_ COUNTER : 40|4@1+ (1,0) [0|15] \"\"  PED\n+ SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\"  PED\n+\n+BO_ 513 INTERCEPTOR_STEERING_SENSOR: 6 PED\n+ SG_ TRQ_1 : 8|16@1+ (0.275676,-33.3567) [0|1] \"\"  EON\n+ SG_ TRQ_2 : 24|16@1+ (0.13629,-32.71) [0|1] \"\"  EON\n+ SG_ STATE : 44|4@1+ (1,0) [0|15] \"\"  EON\n+ SG_ COUNTER : 40|4@1+ (1,0) [0|15] \"\"  EON\n+ SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\"  EON\n+\n BO_ 558 OCELOT_STEERING_COMMAND: 6 EON\n  SG_ REQUESTED_STEER_TORQUE : 32|16@1- (1,0) [-1500|1500] \"Nm\" EPAS\n  SG_ REQUESTED_STEER_ANGLE : 16|16@1- (0.1,0) [-1638.4|1638.3] \"deg\" EPAS"
+      }
+    ]
+  },
+  {
+    "sha": "97f1449b5fd6b3c3dbf0670d7b9eadeea28ef7b3",
+    "date": "2025-02-06T21:30:59Z",
+    "author": "Kevin Roscom",
+    "message": "fix ocelot steering status msg addr",
+    "files": [
+      {
+        "path": "ocelot_controls.dbc",
+        "status": "modified",
+        "patch": "@@ -125,7 +125,7 @@ BO_ 768 INTERCEPTOR_STEERING_COMMAND: 6 EON\n  SG_ COUNTER : 40|4@1+ (1,0) [0|15] \"\"  PED\n  SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\"  PED\n \n-BO_ 513 INTERCEPTOR_STEERING_SENSOR: 6 PED\n+BO_ 769 INTERCEPTOR_STEERING_SENSOR: 6 PED\n  SG_ TRQ_1 : 8|16@1+ (0.275676,-33.3567) [0|1] \"\"  EON\n  SG_ TRQ_2 : 24|16@1+ (0.13629,-32.71) [0|1] \"\"  EON\n  SG_ STATE : 44|4@1+ (1,0) [0|15] \"\"  EON"
+      }
+    ]
+  },
+  {
+    "sha": "27b146d20ea035ce828d90962f459708b6c4be03",
+    "date": "2025-02-14T00:07:53Z",
+    "author": "Kevin Roscom",
+    "message": "add new signals",
+    "files": [
+      {
+        "path": "ocelot_controls.dbc",
+        "status": "modified",
+        "patch": "@@ -39,19 +39,20 @@ VAL_TABLE_ BRAKEMODE 3 \"Reserved\" 2 \"Position Control\" 1 \"Relative Control\" 0 \"D\n VAL_TABLE_ STATUS 5 \"FAULT_TIMEOUT\" 4 \"FAULT_STARTUP\" 3 \"FAULT_SCE\" 2 \"FAULT_SEND\" 1 \"FAULT_BAD_CHECKSUM\" 0 \"NO_FAULT\" ;\n VAL_TABLE_ YESNO 1 \"Yes\" 0 \"No\" ;\n \n-BO_ 256 ACTUATOR_GAS_COMMAND: 6 EON\n- SG_ GAS_COMMAND : 8|16@1+ (0.275676,-33.3567) [0|1] \"\"  GAS_ACTUATOR\n- SG_ GAS_COMMAND2 : 24|16@1+ (0.13629,-32.71) [0|1] \"\"  GAS_ACTUATOR\n- SG_ ENABLE : 47|1@1+ (1,0) [0|1] \"\"  GAS_ACTUATOR\n- SG_ COUNTER : 40|4@1+ (1,0) [0|15] \"\"  GAS_ACTUATOR\n- SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\"  GAS_ACTUATOR\n-\n-BO_ 257 ACTUATOR_GAS_SENSOR: 6 GAS_ACTUATOR\n- SG_ PED_GAS : 8|16@1+ (0.275676,-33.3567) [0|1] \"\"  EON\n- SG_ PED_GAS2 : 24|16@1+ (0.13629,-32.71) [0|1] \"\"  EON\n- SG_ STATE : 44|4@1+ (1,0) [0|15] \"\"  EON\n- SG_ COUNTER : 40|4@1+ (1,0) [0|15] \"\"  EON\n- SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\"  EON\n+BO_ 336 CRUISE: 6 XXX\n+ SG_ ON_OFF : 19|1@0+ (1,0) [0|1] \"\" XXX\n+ SG_ RES_UP : 18|1@0+ (1,0) [0|1] \"\" XXX\n+ SG_ SET_DOWN : 17|1@0+ (1,0) [0|1] \"\" XXX\n+ SG_ CANCEL : 16|1@0+ (1,0) [0|1] \"\" XXX\n+\n+BO_ 256 WHEEL_SPEEDS: 8 XXX\n+ SG_ WHEEL_FL : 7|16@0+ (1,0) [0|65535] \"\" XXX\n+ SG_ WHEEL_FR : 23|16@0+ (1,0) [0|65535] \"\" XXX\n+ SG_ WHEEL_RR : 55|16@0+ (1,0) [0|65535] \"\" XXX\n+\n+BO_ 80 STEER_ANGLE_SENSOR: 8 XXX\n+ SG_ STEER_RATE : 35|12@0- (1,0) [0|16383] \"\" XXX\n+ SG_ STEER_ANGLE : 19|12@0- (1,0) [0|8191] \"\" XXX\n \n BO_ 270 ACTUATOR_BRAKE_COMMAND: 6 EON\n  SG_ BRAKE_POSITION_COMMAND : 32|12@1+ (0.015625,-5) [-5|47] \"mm\" BRAKE_ACTUATOR\n@@ -87,15 +88,15 @@ BO_ 303 ACTUATOR_STEERING_STATUS: 7 STEER_ACTUATOR\n  SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" EON\n \n BO_ 512 PEDAL_GAS_COMMAND: 6 EON\n- SG_ GAS_COMMAND : 8|16@1+ (0.275676,-33.3567) [0|1] \"\"  PED\n- SG_ GAS_COMMAND2 : 24|16@1+ (0.13629,-32.71) [0|1] \"\"  PED\n+ SG_ GAS_COMMAND : 8|16@1+ (1,0) [0|1] \"\"  PED\n+ SG_ GAS_COMMAND2 : 24|16@1+ (1,0) [0|1] \"\"  PED\n  SG_ ENABLE : 47|1@1+ (1,0) [0|1] \"\"  PED\n  SG_ COUNTER : 40|4@1+ (1,0) [0|15] \"\"  PED\n  SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\"  PED\n \n BO_ 513 PEDAL_GAS_SENSOR: 6 PED\n- SG_ PED_GAS : 8|16@1+ (0.275676,-33.3567) [0|1] \"\"  EON\n- SG_ PED_GAS2 : 24|16@1+ (0.13629,-32.71) [0|1] \"\"  EON\n+ SG_ PED_GAS : 8|16@1+ (1,0) [0|1] \"\"  EON\n+ SG_ PED_GAS2 : 24|16@1+ (1,0) [0|1] \"\"  EON\n  SG_ STATE : 44|4@1+ (1,0) [0|15] \"\"  EON\n  SG_ COUNTER : 40|4@1+ (1,0) [0|15] \"\"  EON\n  SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\"  EON"
+      }
+    ]
+  },
+  {
+    "sha": "8d5b4d57c2088b0e66dd3ec37bba3e270cb9586a",
+    "date": "2025-02-22T05:27:34Z",
+    "author": "Kevin Roscom",
+    "message": "add throttle actuator",
+    "files": [
+      {
+        "path": "ocelot_controls.dbc",
+        "status": "modified",
+        "patch": "@@ -2,42 +2,39 @@ VERSION \"\"\n \n \n NS_ :\n-\tNS_DESC_\n-\tCM_\n-\tBA_DEF_\n-\tBA_\n-\tVAL_\n-\tCAT_DEF_\n-\tCAT_\n-\tFILTER\n-\tBA_DEF_DEF_\n-\tEV_DATA_\n-\tENVVAR_DATA_\n-\tSGTYPE_\n-\tSGTYPE_VAL_\n-\tBA_DEF_SGTYPE_\n-\tBA_SGTYPE_\n-\tSIG_TYPE_REF_\n-\tVAL_TABLE_\n-\tSIG_GROUP_\n-\tSIG_VALTYPE_\n-\tSIGTYPE_VALTYPE_\n-\tBO_TX_BU_\n-\tBA_DEF_REL_\n-\tBA_REL_\n-\tBA_DEF_DEF_REL_\n-\tBU_SG_REL_\n-\tBU_EV_REL_\n-\tBU_BO_REL_\n-\tSG_MUL_VAL_\n+    NS_DESC_\n+    CM_\n+    BA_DEF_\n+    BA_\n+    VAL_\n+    CAT_DEF_\n+    CAT_\n+    FILTER\n+    BA_DEF_DEF_\n+    EV_DATA_\n+    ENVVAR_DATA_\n+    SGTYPE_\n+    SGTYPE_VAL_\n+    BA_DEF_SGTYPE_\n+    BA_SGTYPE_\n+    SIG_TYPE_REF_\n+    VAL_TABLE_\n+    SIG_GROUP_\n+    SIG_VALTYPE_\n+    SIGTYPE_VALTYPE_\n+    BO_TX_BU_\n+    BA_DEF_REL_\n+    BA_REL_\n+    BA_DEF_DEF_REL_\n+    BU_SG_REL_\n+    BU_EV_REL_\n+    BU_BO_REL_\n+    SG_MUL_VAL_\n \n BS_:\n \n-BU_: EON PED IBST EPAS GAS_ACTUATOR BRAKE_ACTUATOR STEER_ACTUATOR\n+BU_: EON PED IBST EPAS GAS_ACTUATOR BRAKE_ACTUATOR STEER_ACTUATOR XXX\n \n-VAL_TABLE_ BRAKEMODE 3 \"Reserved\" 2 \"Position Control\" 1 \"Relative Control\" 0 \"Disengadged\" ;\n-VAL_TABLE_ STATUS 5 \"FAULT_TIMEOUT\" 4 \"FAULT_STARTUP\" 3 \"FAULT_SCE\" 2 \"FAULT_SEND\" 1 \"FAULT_BAD_CHECKSUM\" 0 \"NO_FAULT\" ;\n-VAL_TABLE_ YESNO 1 \"Yes\" 0 \"No\" ;\n \n BO_ 336 CRUISE: 6 XXX\n  SG_ ON_OFF : 19|1@0+ (1,0) [0|1] \"\" XXX\n@@ -88,18 +85,18 @@ BO_ 303 ACTUATOR_STEERING_STATUS: 7 STEER_ACTUATOR\n  SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" EON\n \n BO_ 512 PEDAL_GAS_COMMAND: 6 EON\n- SG_ GAS_COMMAND : 8|16@1+ (1,0) [0|1] \"\"  PED\n- SG_ GAS_COMMAND2 : 24|16@1+ (1,0) [0|1] \"\"  PED\n- SG_ ENABLE : 47|1@1+ (1,0) [0|1] \"\"  PED\n- SG_ COUNTER : 40|4@1+ (1,0) [0|15] \"\"  PED\n- SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\"  PED\n+ SG_ GAS_COMMAND : 8|16@1+ (1,0) [0|1] \"\" PED\n+ SG_ GAS_COMMAND2 : 24|16@1+ (1,0) [0|1] \"\" PED\n+ SG_ ENABLE : 47|1@1+ (1,0) [0|1] \"\" PED\n+ SG_ COUNTER : 40|4@1+ (1,0) [0|15] \"\" PED\n+ SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" PED\n \n BO_ 513 PEDAL_GAS_SENSOR: 6 PED\n- SG_ PED_GAS : 8|16@1+ (1,0) [0|1] \"\"  EON\n- SG_ PED_GAS2 : 24|16@1+ (1,0) [0|1] \"\"  EON\n- SG_ STATE : 44|4@1+ (1,0) [0|15] \"\"  EON\n- SG_ COUNTER : 40|4@1+ (1,0) [0|15] \"\"  EON\n- SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\"  EON\n+ SG_ PED_GAS : 8|16@1+ (1,0) [0|1] \"\" EON\n+ SG_ PED_GAS2 : 24|16@1+ (1,0) [0|1] \"\" EON\n+ SG_ STATE : 44|4@1+ (1,0) [0|15] \"\" EON\n+ SG_ COUNTER : 40|4@1+ (1,0) [0|15] \"\" EON\n+ SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" EON\n \n BO_ 526 OCELOT_BRAKE_COMMAND: 6 EON\n  SG_ BRAKE_POSITION_COMMAND : 32|12@1+ (0.015625,-5) [-5|47] \"mm\" IBST\n@@ -120,35 +117,35 @@ BO_ 527 OCELOT_BRAKE_STATUS: 5 IBST\n  SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" EON\n \n BO_ 768 INTERCEPTOR_STEERING_COMMAND: 6 EON\n- SG_ TORQUE_COMMAND1 : 8|16@1- (1,0) [0|1] \"\"  PED\n- SG_ TORQUE_COMMAND2 : 24|16@1- (1,0) [0|1] \"\"  PED\n- SG_ ENABLE : 47|1@1+ (1,0) [0|1] \"\"  PED\n- SG_ COUNTER : 40|4@1+ (1,0) [0|15] \"\"  PED\n- SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\"  PED\n+ SG_ TORQUE_COMMAND1 : 8|16@1- (1,0) [0|1] \"\" PED\n+ SG_ TORQUE_COMMAND2 : 24|16@1- (1,0) [0|1] \"\" PED\n+ SG_ ENABLE : 47|1@1+ (1,0) [0|1] \"\" PED\n+ SG_ COUNTER : 40|4@1+ (1,0) [0|15] \"\" PED\n+ SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" PED\n \n BO_ 769 INTERCEPTOR_STEERING_SENSOR: 6 PED\n- SG_ TRQ_1 : 8|16@1+ (0.275676,-33.3567) [0|1] \"\"  EON\n- SG_ TRQ_2 : 24|16@1+ (0.13629,-32.71) [0|1] \"\"  EON\n- SG_ STATE : 44|4@1+ (1,0) [0|15] \"\"  EON\n- SG_ COUNTER : 40|4@1+ (1,0) [0|15] \"\"  EON\n- SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\"  EON\n-\n-BO_ 558 OCELOT_STEERING_COMMAND: 6 EON\n- SG_ REQUESTED_STEER_TORQUE : 32|16@1- (1,0) [-1500|1500] \"Nm\" EPAS\n- SG_ REQUESTED_STEER_ANGLE : 16|16@1- (0.1,0) [-1638.4|1638.3] \"deg\" EPAS\n- SG_ STEER_MODE : 12|2@1+ (1,0) [0|3] \"\" EPAS\n- SG_ COUNTER : 8|4@1+ (1,0) [0|15] \"\" EPAS\n- SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" EPAS\n-\n-BO_ 559 OCELOT_STEERING_STATUS: 7 EPAS\n- SG_ STEERING_TORQUE_EPS : 40|16@1- (0.8,0) [-819.2|818.4] \"Nm\" EON\n- SG_ STEERING_TORQUE_DRIVER : 24|16@1- (0.8,0) [-819.2|818.4] \"Nm\" EON\n- SG_ STEERING_OK : 16|1@1+ (1,0) [0|1] \"\" EON\n- SG_ STATUS : 12|4@1+ (1,0) [0|15] \"\" EON\n- SG_ COUNTER : 8|4@1+ (1,0) [0|15] \"\" EON\n+ SG_ TRQ_1 : 8|16@1+ (0.275676,-33.3567) [0|1] \"\" EON\n+ SG_ TRQ_2 : 24|16@1+ (0.13629,-32.71) [0|1] \"\" EON\n+ SG_ STATE : 44|4@1+ (1,0) [0|15] \"\" EON\n+ SG_ COUNTER : 40|4@1+ (1,0) [0|15] \"\" EON\n  SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" EON\n \n- VAL_ 527 IBOOSTER_BRAKE_APPLIED 1 \"Yes\" 0 \"No\" ;\n- VAL_ 527 BRAKE_OK 1 \"Yes\" 0 \"No\" ;\n- VAL_ 527 STATUS 5 \"FAULT_TIMEOUT\" 4 \"FAULT_STARTUP\" 3 \"FAULT_SCE\" 2 \"FAULT_SEND\" 1 \"FAULT_BAD_CHECKSUM\" 0 \"NO_FAULT\" ;\n- VAL_ 526 BRAKE_MODE 3 \"Reserved\" 2 \"Position Control\" 1 \"Relative Control\" 0 \"Disengadged\" ;\n+BO_ 1024 ACTUATOR_GAS_COMMAND: 6 EON\n+ SG_ THROTTLE_REQ : 8|16@1+ (1,0) [0|1] \"\" PED\n+ SG_ THROTTLE_REQ2 : 24|16@1+ (1,0) [0|1] \"\" PED\n+ SG_ ENABLE : 47|1@1+ (1,0) [0|1] \"\" PED\n+ SG_ COUNTER : 40|4@1+ (1,0) [0|15] \"\" PED\n+ SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" PED\n+\n+BO_ 1025 ACTUATOR_GAS_SENSOR: 8 PED\n+ SG_ THROTTLE_POS : 8|16@1+ (1,0) [0|1] \"\" EON\n+ SG_ VSS : 24|16@1+ (1,0) [0|1] \"\" EON\n+ SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" EON\n+ SG_ COUNTER : 56|4@1+ (1,0) [0|15] \"\" EON\n+ SG_ STATE : 56|8@1+ (1,0) [0|15] \"\" EON\n+ SG_ VSS_ENCODER : 47|16@0+ (1,0) [0|65535] \"\" XXX\n+\n+\n+VAL_ 526 BRAKE_MODE 3 \"Reserved\" 2 \"Position Control\" 1 \"Relative Control\" 0 \"Disengadged\" ;\n+VAL_ 527 BRAKE_OK 1 \"Yes\" 0 \"No\" ;\n+VAL_ 527 STATUS 5 \"FAULT_TIMEOUT\" 4 \"FAULT_STARTUP\" 3 \"FAULT_SCE\" 2 \"FAULT_SEND\" 1 \"FAULT_BAD_CHECKSUM\" 0 \"NO_FAULT\" ;\n\\ No newline at end of file"
+      }
+    ]
+  },
+  {
+    "sha": "6d8b114acd9fd9df8d215ba0f00ff29927a70c9b",
+    "date": "2025-02-25T19:14:30Z",
+    "author": "Kevin Roscom",
+    "message": "remove deprecated dbcs",
+    "files": [
+      {
+        "path": "ocelot_can.dbc",
+        "status": "removed",
+        "patch": "@@ -1,129 +0,0 @@\n-VERSION \"\"\n-\n-\n-NS_ :\n-\tNS_DESC_\n-\tCM_\n-\tBA_DEF_\n-\tBA_\n-\tVAL_\n-\tCAT_DEF_\n-\tCAT_\n-\tFILTER\n-\tBA_DEF_DEF_\n-\tEV_DATA_\n-\tENVVAR_DATA_\n-\tSGTYPE_\n-\tSGTYPE_VAL_\n-\tBA_DEF_SGTYPE_\n-\tBA_SGTYPE_\n-\tSIG_TYPE_REF_\n-\tVAL_TABLE_\n-\tSIG_GROUP_\n-\tSIG_VALTYPE_\n-\tSIGTYPE_VALTYPE_\n-\tBO_TX_BU_\n-\tBA_DEF_REL_\n-\tBA_REL_\n-\tBA_DEF_DEF_REL_\n-\tBU_SG_REL_\n-\tBU_EV_REL_\n-\tBU_BO_REL_\n-\tSG_MUL_VAL_\n-\n-BS_:\n-\n-BU_: EPAS HIM EON IBST SAS EPAS TOYOTASAS\n-\n-VAL_TABLE_ BRAKEMODE 3 \"Reserved\" 2 \"Position Control\" 1 \"Relative Control\" 0 \"Disengadged\" ;\n-VAL_TABLE_ STATUS 5 \"FAULT_TIMEOUT\" 4 \"FAULT_STARTUP\" 3 \"FAULT_SCE\" 2 \"FAULT_SEND\" 1 \"FAULT_BAD_CHECKSUM\" 0 \"NO_FAULT\" ;\n-VAL_TABLE_ STEERINGMODE 3 \"Reserved\" 2 \"Position Control\" 1 \"Torque Control\" 0 \"Disengadged\" ;\n-VAL_TABLE_ YESNO 1 \"Yes\" 0 \"No\" ;\n-\n-BO_ 741 STEERING_COMMAND: 5 EON\n- SG_ REQUESTED_STEER_TORQUE : 29|11@1- (0.5,0) [-512|511.5] \"Nm\" EPAS\n- SG_ COUNTER : 8|4@1+ (1,0) [0|15] \"\" EPAS\n- SG_ REQUESTED_STEER_ANGLE : 14|15@1- (0.1,0) [-1638.4|1638.3] \"deg\" EPAS\n- SG_ STEER_MODE : 12|2@1+ (1,0) [0|3] \"\" EPAS\n- SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" EPAS\n-\n-BO_ 608 STEERING_STATUS: 5 EPAS\n- SG_ COUNTER : 8|4@1+ (1,0) [0|15] \"\" EON\n- SG_ STATUS : 12|4@1+ (1,0) [0|15] \"\" EON\n- SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" EON\n- SG_ STEERING_TORQUE_EPS : 29|11@1- (0.8,0) [-819.2|818.4] \"Nm\" EON\n- SG_ STEERING_TORQUE_DRIVER : 18|11@1- (0.8,0) [-819.2|818.4] \"Nm\" EON\n- SG_ STEERING_OK : 16|1@1+ (1,0) [0|1] \"\" EON\n-\n-BO_ 527 BRAKE_STATUS: 5 IBST\n- SG_ BRAKE_PEDAL_POSITION : 20|12@1+ (0.015625,-5) [-5|47] \"mm\" EON\n- SG_ BRAKE_APPLIED : 18|1@1+ (1,0) [0|1] \"\" EON\n- SG_ DRIVER_BRAKE_APPLIED : 17|1@1+ (1,0) [0|1] \"\" EON\n- SG_ BRAKE_OK : 16|1@1+ (1,0) [0|1] \"\" EON\n- SG_ STATUS : 12|4@1+ (1,0) [0|15] \"\" EON\n- SG_ EXT_STATUS1 : 32|4@1+ (1,0) [0|15] \"\" EON\n- SG_ EXT_STATUS2 : 36|4@1+ (1,0) [0|15] \"\" EON\n- SG_ COUNTER : 8|4@1+ (1,0) [0|15] \"\" EON\n- SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" EON\n-\n-BO_ 526 BRAKE_COMMAND: 6 EON\n- SG_ BRAKE_POSITION_COMMAND : 32|12@1+ (0.015625,-5) [-5|47] \"mm\" IBST\n- SG_ BRAKE_RELATIVE_COMMAND : 16|16@1+ (0.0078125,-252) [-252|252] \"\" IBST\n- SG_ BRAKE_MODE : 12|2@1+ (1,0) [0|3] \"\" IBST\n- SG_ COUNTER : 8|4@1+ (1,0) [0|15] \"\" IBST\n- SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" IBST\n-\n-BO_ 870 CURRENT_STATE: 4 EON\n- SG_ ENABLED : 8|1@1+ (1,0) [0|0] \"\"  HIM\n- SG_ SET_SPEED : 16|8@1+ (1,0) [0|255] \"mph\"  HIM\n- SG_ CURRENT_SPEED : 24|8@1+ (1,0) [0|255] \"kph\" IBST\n- SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\"  HIM\n-\n-BO_ 869 HIM_CTRLS: 3 HIM\n- SG_ SPEEDDN_BTN : 11|1@1+ (1,0) [0|0] \"\"  EON\n- SG_ SPEEDUP_BTN : 10|1@1+ (1,0) [0|0] \"\"  EON\n- SG_ CANCEL_BTN : 9|1@1+ (1,0) [0|0] \"\"  EON\n- SG_ SET_BTN : 8|1@1+ (1,0) [0|0] \"\"  EON\n- SG_ STATE : 12|4@1+ (1,0) [0|15] \"\"  EON\n- SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\"  EON\n-\n-BO_ 1059 TOYOTA_STEERING_ANGLE_SENSOR3: 1 TOYOTASAS\n-\n-BO_ 1222 TOYOTA_STEERING_ANGLE_SENSOR2: 8 TOYOTASAS\n-\n-BO_ 37 TOYOTA_STEERING_ANGLE_SENSOR1: 8 TOYOTASAS\n- SG_ TOYOTA_STEER_RATE : 35|12@0- (1,0) [-2000|2000] \"deg/s\" EON\n- SG_ TOYOTA_STEER_FRACTION : 39|4@0- (0.1,0) [-0.7|0.7] \"deg\" EON\n- SG_ TOYOTA_STEER_ANGLE : 3|12@0- (1.5,0) [-500|500] \"deg\" EON\n-\n-BO_ 512 GAS_COMMAND: 6 EON\n- SG_ GAS_COMMAND : 8|16@1+ (0.275676,-33.3567) [0|1] \"\"  PED\n- SG_ GAS_COMMAND2 : 24|16@1+ (0.13629,-32.71) [0|1] \"\"  PED\n- SG_ ENABLE : 47|1@1+ (1,0) [0|1] \"\"  PED\n- SG_ COUNTER : 40|4@1+ (1,0) [0|15] \"\"  PED\n- SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\"  PED\n-\n-BO_ 513 GAS_SENSOR: 6 PED\n- SG_ PED_GAS : 8|16@1+ (0.275676,-33.3567) [0|1] \"\"  EON\n- SG_ PED_GAS2 : 24|16@1+ (0.13629,-32.71) [0|1] \"\"  EON\n- SG_ STATE : 44|4@1+ (1,0) [0|15] \"\"  EON\n- SG_ COUNTER : 40|4@1+ (1,0) [0|15] \"\"  EON\n- SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\"  EON\n-\n- VAL_ 527 IBOOSTER_BRAKE_APPLIED 1 \"Yes\" 0 \"No\" ;\n- VAL_ 527 BRAKE_OK 1 \"Yes\" 0 \"No\" ;\n- VAL_ 527 STATUS 5 \"FAULT_TIMEOUT\" 4 \"FAULT_STARTUP\" 3 \"FAULT_SCE\" 2 \"FAULT_SEND\" 1 \"FAULT_BAD_CHECKSUM\" 0 \"NO_FAULT\" ;\n- VAL_ 526 BRAKE_MODE 3 \"Reserved\" 2 \"Position Control\" 1 \"Relative Control\" 0 \"Disengadged\" ;\n-\n- VAL_ 741 STEER_MODE 3 \"Reserved\" 2 \"Position Control\" 1 \"Torque Control\" 0 \"Disengadged\" ;\n- VAL_ 608 STATUS 5 \"FAULT_TIMEOUT\" 4 \"FAULT_STARTUP\" 3 \"FAULT_SCE\" 2 \"FAULT_SEND\" 1 \"FAULT_BAD_CHECKSUM\" 0 \"NO_FAULT\" ;\n- VAL_ 608 STEERING_OK 1 \"Yes\" 0 \"No\" ;\n- VAL_ 870 ENABLED 1 \"Yes\" 0 \"No\" ;\n- VAL_ 869 STATE 5 \"FAULT_TIMEOUT\" 4 \"FAULT_STARTUP\" 3 \"FAULT_SCE\" 2 \"FAULT_SEND\" 1 \"FAULT_BAD_CHECKSUM\" 0 \"NO_FAULT\" ;\n- VAL_ 869 SPEEDUP_BTN 1 \"Yes\" 0 \"No\" ;\n- VAL_ 869 SPEEDDN_BTN 1 \"Yes\" 0 \"No\" ;\n- VAL_ 869 CANCEL_BTN 1 \"Yes\" 0 \"No\" ;\n- VAL_ 869 SET_BTN 1 \"Yes\" 0 \"No\" ;\n-\n- VAL_ 512 ENABLE 1 \"Yes\" 0 \"No\" ;\n- VAL_ 513 STATE 5 \"FAULT_TIMEOUT\" 4 \"FAULT_STARTUP\" 3 \"FAULT_SCE\" 2 \"FAULT_SEND\" 1 \"FAULT_BAD_CHECKSUM\" 0 \"NO_FAULT\" ;"
+      },
+      {
+        "path": "ocelot_can.ini",
+        "status": "removed",
+        "patch": "@@ -1,165 +0,0 @@\n-[View_Vehicles]\n-HIDDEN=\n-ORDER=0,1,\n-DEFINITIONS=\n-COLUMNWIDTHS=125,150,\n-[View_Vehicle]\n-HIDDEN=\n-ORDER=0,1,\n-DEFINITIONS=\n-COLUMNWIDTHS=125,125,\n-[View_VehicleNetworks]\n-HIDDEN=3,\n-ORDER=0,1,2,3,\n-DEFINITIONS=\n-COLUMNWIDTHS=125,125,100,100,150,\n-[View_VehicleNetwork]\n-HIDDEN=\n-ORDER=0,1,2,3,4,\n-DEFINITIONS=\n-COLUMNWIDTHS=125,125,100,125,150,\n-[View_VehicleNetworkTxMessages]\n-HIDDEN=\n-ORDER=0,1,2,3,4,5,6,7,8,\n-DEFINITIONS=\n-COLUMNWIDTHS=125,125,55,100,50,100,100,100,150,\n-[View_VehicleNetworkSignals]\n-HIDDEN=\n-ORDER=0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,\n-DEFINITIONS=\n-COLUMNWIDTHS=125,125,100,50,100,50,100,100,100,50,50,50,50,100,100,150,\n-[View_VehicleControlUnit]\n-HIDDEN=\n-ORDER=0,1,2,3,4,\n-DEFINITIONS=\n-COLUMNWIDTHS=125,125,100,125,150,\n-[View_VehicleGateways]\n-HIDDEN=\n-ORDER=0,1,2,\n-DEFINITIONS=\n-COLUMNWIDTHS=125,125,100,\n-[View_VehicleGatewaySignals]\n-HIDDEN=\n-ORDER=0,1,2,3,4,5,6,\n-DEFINITIONS=\n-COLUMNWIDTHS=125,125,125,125,125,125,125,\n-[View_Networks]\n-HIDDEN=2,\n-ORDER=0,1,2,\n-DEFINITIONS=\n-COLUMNWIDTHS=125,100,100,150,\n-[View_Network]\n-HIDDEN=\n-ORDER=0,1,2,3,\n-DEFINITIONS=\n-COLUMNWIDTHS=125,125,100,150,\n-[View_NetworkTxMessages]\n-HIDDEN=\n-ORDER=0,1,2,3,4,5,6,7,8,\n-DEFINITIONS=\n-COLUMNWIDTHS=125,125,55,100,50,100,100,100,150,\n-[View_NetworkTxSignals]\n-HIDDEN=\n-ORDER=0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,\n-DEFINITIONS=\n-COLUMNWIDTHS=125,125,100,50,100,50,100,100,100,50,50,50,50,100,100,150,-1,\n-[View_NetworkNodeGroup]\n-HIDDEN=\n-ORDER=0,1,2,\n-DEFINITIONS=\n-COLUMNWIDTHS=125,100,150,\n-[View_Ecus]\n-HIDDEN=\n-ORDER=0,1,\n-DEFINITIONS=\n-COLUMNWIDTHS=125,150,\n-[View_Ecu]\n-HIDDEN=\n-ORDER=0,1,2,3,\n-DEFINITIONS=\n-COLUMNWIDTHS=125,125,100,150,\n-[View_EnvVars]\n-HIDDEN=\n-ORDER=0,1,2,3,4,5,6,7,8,9,\n-DEFINITIONS=\n-COLUMNWIDTHS=125,100,100,50,50,50,50,100,100,150,\n-[View_EnvVar]\n-HIDDEN=\n-ORDER=0,1,2,3,4,5,6,7,8,9,10,\n-DEFINITIONS=\n-COLUMNWIDTHS=125,125,100,100,50,50,50,50,100,100,150,\n-[View_NodeGroups]\n-HIDDEN=\n-ORDER=0,1,\n-DEFINITIONS=\n-COLUMNWIDTHS=125,150,\n-[View_NodeGroup]\n-HIDDEN=\n-ORDER=0,1,2,3,\n-DEFINITIONS=\n-COLUMNWIDTHS=125,125,55,150,\n-[View_Nodes]\n-HIDDEN=\n-ORDER=0,1,2,\n-DEFINITIONS=\n-COLUMNWIDTHS=125,100,150,\n-[View_Node]\n-HIDDEN=\n-ORDER=0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,\n-DEFINITIONS=\n-COLUMNWIDTHS=125,125,100,50,50,100,100,100,50,50,50,50,100,100,150,-1,\n-[View_NodeTxMessages]\n-HIDDEN=\n-ORDER=0,1,2,3,4,5,6,7,\n-DEFINITIONS=\n-COLUMNWIDTHS=125,125,55,100,50,100,100,150,\n-[View_NodeTxMsg]\n-HIDDEN=\n-ORDER=0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,\n-DEFINITIONS=\n-COLUMNWIDTHS=125,125,100,50,50,100,100,100,50,50,50,50,100,100,150,-1,\n-[View_NodeTxSignals]\n-HIDDEN=\n-ORDER=0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,\n-DEFINITIONS=\n-COLUMNWIDTHS=125,125,100,50,50,100,100,100,50,50,50,50,100,100,150,-1,\n-[View_NodeRxSignals]\n-HIDDEN=\n-ORDER=0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,\n-DEFINITIONS=\n-COLUMNWIDTHS=125,125,100,50,50,100,100,100,50,50,50,50,100,100,150,-1,\n-[View_NodeTxSigs]\n-HIDDEN=\n-ORDER=0,1,2,3,4,5,6,7,8,9,10,11,12,\n-DEFINITIONS=\n-COLUMNWIDTHS=125,125,50,100,100,100,50,50,50,50,100,100,150,\n-[View_NodeRxSigs]\n-HIDDEN=\n-ORDER=0,1,2,3,4,5,6,7,8,9,10,11,12,\n-DEFINITIONS=\n-COLUMNWIDTHS=125,125,50,100,100,100,50,50,50,50,100,100,150,\n-[View_Messages]\n-HIDDEN=\n-ORDER=0,1,2,3,4,5,6,7,\n-DEFINITIONS=\n-COLUMNWIDTHS=125,55,100,50,100,100,100,150,\n-[View_Message]\n-HIDDEN=\n-ORDER=0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,\n-DEFINITIONS=\n-COLUMNWIDTHS=125,125,100,50,50,100,100,100,50,50,50,50,100,100,150,\n-[View_Signals]\n-HIDDEN=\n-ORDER=0,1,2,3,4,5,6,7,8,9,10,11,\n-DEFINITIONS=\n-COLUMNWIDTHS=125,50,100,100,100,50,50,50,50,100,100,150,\n-[View_ValueTables]\n-HIDDEN=\n-ORDER=0,1,\n-DEFINITIONS=\n-COLUMNWIDTHS=125,150,\n-[View_AttrDefs]\n-HIDDEN=6,\n-ORDER=0,1,2,3,4,5,\n-DEFINITIONS=\n-COLUMNWIDTHS=125,100,100,50,50,100,150,"
+      },
+      {
+        "path": "ocelot_smart_roadster_pt.dbc",
+        "status": "removed",
+        "patch": "@@ -1,110 +0,0 @@\n-VERSION \"\"\n-\n-\n-NS_ :\n-\tNS_DESC_\n-\tCM_\n-\tBA_DEF_\n-\tBA_\n-\tVAL_\n-\tCAT_DEF_\n-\tCAT_\n-\tFILTER\n-\tBA_DEF_DEF_\n-\tEV_DATA_\n-\tENVVAR_DATA_\n-\tSGTYPE_\n-\tSGTYPE_VAL_\n-\tBA_DEF_SGTYPE_\n-\tBA_SGTYPE_\n-\tSIG_TYPE_REF_\n-\tVAL_TABLE_\n-\tSIG_GROUP_\n-\tSIG_VALTYPE_\n-\tSIGTYPE_VALTYPE_\n-\tBO_TX_BU_\n-\tBA_DEF_REL_\n-\tBA_REL_\n-\tBA_DEF_DEF_REL_\n-\tBU_SG_REL_\n-\tBU_EV_REL_\n-\tBU_BO_REL_\n-\tSG_MUL_VAL_\n-\n-BS_:\n-\n-BU_: EON SMART PED\n-VAL_TABLE_ BRAKEMODE 3 \"Reserved\" 2 \"Position Control\" 1 \"Relative Control\" 0 \"Disengadged\" ;\n-VAL_TABLE_ STATUS 5 \"FAULT_TIMEOUT\" 4 \"FAULT_STARTUP\" 3 \"FAULT_SCE\" 2 \"FAULT_SEND\" 1 \"FAULT_BAD_CHECKSUM\" 0 \"NO_FAULT\" ;\n-VAL_TABLE_ STEERINGMODE 3 \"Reserved\" 2 \"Position Control\" 1 \"Torque Control\" 0 \"Disengadged\" ;\n-VAL_TABLE_ YESNO 1 \"Yes\" 0 \"No\" ;\n-\n-\n-\n-\n-BO_ 1585 SMART_ROADSTER_MESSAGE8: 8 SMART\n-\n-BO_ 1301 SMART_ROADSTER_MESSAGE7: 7 SMART\n-\n-BO_ 816 SMART_ROADSTER_MESSAGE6: 2 SMART\n-\n-BO_ 768 SMART_ROADSTER_MESSAGE5: 8 SMART\n-\n-BO_ 570 SMART_ROADSTER_MESSAGE4: 8 SMART\n-\n-BO_ 568 SMART_ROADSTER_MESSAGE3: 8 SMART\n-\n-BO_ 528 SMART_ROADSTER_MESSAGE2: 8 SMART\n-\n-BO_ 128 SMARTROADSTERWHEELSPEEDS: 8 SMART\n- SG_ WHEELSPEED_RL : 55|16@0+ (0.034,0) [0|65535] \"mph\" EON\n- SG_ WHEELSPEED_RR : 39|16@0+ (0.034,0) [0|65535] \"mph\" EON\n- SG_ WHEELSPEED_FL : 23|16@0+ (0.034,0) [0|65535] \"mph\" EON\n- SG_ WHEELSPEED_FR : 7|16@0+ (0.034,0) [0|65535] \"mph\" EON\n-\n-BO_ 194 SMARTSTEERINGANGLESENSOR: 8 SMART\n- SG_ SMART_STEER_RATE_SIGN : 31|1@1+ (1,0) [0|0] \"\" EON\n- SG_ SMART_STEER_RATE_VALUE : 16|15@1+ (0.04375,0) [0|1433.6] \"Deg/S\" EON\n- SG_ SMART_STEER_ANGLE_SIGN : 15|1@1+ (1,0) [0|0] \"\" EON\n- SG_ SMART_STEER_ANGLE_VALUE : 0|15@1+ (0.04375,0) [0|1433.6] \"Deg\" EON\n-\n-BO_ 784 SMARTTHROTTLEPEDAL: 8 SMART\n- SG_ THROTTLE_POSITION : 32|16@1+ (0.00156143,0) [0|0] \"%\" EON\n-\n-BO_ 544 BODYCONTROL: 8 SMART\n- SG_ RIGHT_DOOR : 0|1@1+ (1,0) [0|0] \"\" EON\n- SG_ LEFT_DOOR : 7|1@1+ (1,0) [0|0] \"\" EON\n- SG_ LEFT_SIGNAL : 5|1@1+ (1,0) [0|0] \"\" EON\n- SG_ RIGHT_SIGNAL : 4|1@1+ (1,0) [0|0] \"\" EON\n- SG_ SIDELIGHTS : 6|1@1+ (1,0) [0|0] \"\" EON\n-\n-BO_ 144 ABS: 8 SMART\n- SG_ ESP_STATUS : 6|1@1+ (1,0) [0|0] \"\" EON\n- SG_ BRAKEPEDAL : 2|1@1+ (1,0) [0|0] \"\" EON\n- SG_ VEHICLESPEED : 45|6@0- (1,0) [0|0] \"mph\" EON\n-\n-BO_ 400 GEAR_PACKET: 8 SMART\n- SG_ GEAR : 0|8@1+ (1,0) [0|0] \"\" EON\n-\n-BO_ 520 SMART_ROADSTER_MESSAGE1: 8 SMART\n-\n-\n-\n-CM_ SG_ 741 CHECKSUM \"CRC8_J1650 SAE Checksum\";\n-CM_ SG_ 608 CHECKSUM \"CRC8_J1650 SAE Checksum\";\n-BA_DEF_ BO_  \"GenMsgBackgroundColor\" STRING ;\n-BA_DEF_ BO_  \"GenMsgForegroundColor\" STRING ;\n-BA_DEF_ BO_  \"isj1939dbc\" INT 0 0;\n-BA_DEF_DEF_  \"GenMsgBackgroundColor\" \"#1e1e1e\";\n-BA_DEF_DEF_  \"GenMsgForegroundColor\" \"#ffffff\";\n-BA_DEF_DEF_  \"isj1939dbc\" 0;\n-\n-\n-VAL_ 544 RIGHT_DOOR 0 \"Open\" 1 \"Closed\" ;\n-VAL_ 544 LEFT_DOOR 0 \"Open\" 1 \"Closed\" ;\n-VAL_ 544 LEFT_SIGNAL 0 \"Off\" 1 \"On\" ;\n-VAL_ 544 RIGHT_SIGNAL 0 \"Off\" 1 \"On\" ;\n-VAL_ 544 SIDELIGHTS 0 \"Off\" 1 \"On\" ;\n-VAL_ 144 ESP_STATUS 0 \"On\" 1 \"Off\" ;\n-VAL_ 144 BRAKEPEDAL 0 \"Not_pressed\" 1 \"Pressed\" ;\n-VAL_ 400 GEAR 8 \"N\" 4 \"R\" 76 \"D\" 16 \"S\" ;"
+      }
+    ]
+  },
+  {
+    "sha": "f71a6fc525998ae48620be480a48291904715827",
+    "date": "2025-06-05T17:08:55Z",
+    "author": "Kevin Roscom",
+    "message": "merge ocelot",
+    "files": [
+      {
+        "path": "can/common.cc",
+        "status": "modified",
+        "patch": "@@ -71,6 +71,7 @@ unsigned int chrysler_checksum(unsigned int address, uint64_t d, int l) {\n \n // Static lookup table for fast computation of CRC8 poly 0x2F, aka 8H2F/AUTOSAR\n uint8_t crc8_lut_8h2f[256];\n+uint8_t crc8_lut_1d[256];\n \n void gen_crc_lookup_table(uint8_t poly, uint8_t crc_lut[]) {\n   uint8_t crc;\n@@ -92,6 +93,7 @@ void init_crc_lookup_tables() {\n   // At init time, set up static lookup tables for fast CRC computation.\n \n   gen_crc_lookup_table(0x2F, crc8_lut_8h2f);    // CRC-8 8H2F/AUTOSAR for Volkswagen\n+  gen_crc_lookup_table(0x1D, crc8_lut_1d);      // CRC-8 SAE-j18650  for Retropilot\n }\n \n unsigned int volkswagen_crc(unsigned int address, uint64_t d, int l) {\n@@ -197,6 +199,18 @@ unsigned int pedal_checksum(uint64_t d, int l) {\n   return crc;\n }\n \n+unsigned int ocelot_checksum(uint64_t d, int l) {\n+  uint8_t crc = 0xFF; // Standard init value for CRC8\n+\n+  // CRC the payload, skipping over the first byte where the CRC lives.\n+  for (int i = 1; i < l; i++) {\n+    crc ^= (d >> (i*8)) & 0xFF;\n+    crc = crc8_lut_1d[crc] ^ crc << 8 ;\n+  }\n+  crc = crc ^ 0xFF; //final xor\n+\n+  return crc;\n+}\n \n uint64_t read_u64_be(const uint8_t* v) {\n   return (((uint64_t)v[0] << 56)"
+      },
+      {
+        "path": "can/common.h",
+        "status": "modified",
+        "patch": "@@ -22,6 +22,7 @@ unsigned int chrysler_checksum(unsigned int address, uint64_t d, int l);\n void init_crc_lookup_tables();\n unsigned int volkswagen_crc(unsigned int address, uint64_t d, int l);\n unsigned int pedal_checksum(uint64_t d, int l);\n+unsigned int ocelot_checksum(uint64_t d, int l);\n uint64_t read_u64_be(const uint8_t* v);\n uint64_t read_u64_le(const uint8_t* v);\n "
+      },
+      {
+        "path": "can/common.pxd",
+        "status": "modified",
+        "patch": "@@ -20,7 +20,9 @@ cdef extern from \"common_dbc.h\":\n     VOLKSWAGEN_CHECKSUM,\n     VOLKSWAGEN_COUNTER,\n     SUBARU_CHECKSUM,\n-    CHRYSLER_CHECKSUM\n+    CHRYSLER_CHECKSUM,\n+    OCELOT_CHECKSUM,\n+    OCELOT_COUNTER\n \n   cdef struct Signal:\n     const char* name"
+      },
+      {
+        "path": "can/common_dbc.h",
+        "status": "modified",
+        "patch": "@@ -40,6 +40,8 @@ enum SignalType {\n   VOLKSWAGEN_COUNTER,\n   SUBARU_CHECKSUM,\n   CHRYSLER_CHECKSUM,\n+  OCELOT_CHECKSUM,\n+  OCELOT_COUNTER,\n };\n \n struct Signal {"
+      },
+      {
+        "path": "can/common_pyx_setup.py",
+        "status": "added",
+        "patch": "@@ -0,0 +1,94 @@\n+import os\n+import subprocess\n+import sysconfig\n+import platform\n+from distutils.core import Extension, setup  # pylint: disable=import-error,no-name-in-module\n+\n+from Cython.Build import cythonize\n+from Cython.Distutils import build_ext\n+\n+\n+ANNOTATE = os.getenv('ANNOTATE') is not None\n+BASEDIR = os.path.abspath(os.path.join(os.path.dirname(os.path.realpath(__file__)), \"../../\"))\n+\n+\n+def get_ext_filename_without_platform_suffix(filename):\n+  name, ext = os.path.splitext(filename)\n+  ext_suffix = sysconfig.get_config_var('EXT_SUFFIX')\n+\n+  if ext_suffix == ext:\n+    return filename\n+\n+  ext_suffix = ext_suffix.replace(ext, '')\n+  idx = name.find(ext_suffix)\n+\n+  if idx == -1:\n+    return filename\n+  else:\n+    return name[:idx] + ext\n+\n+\n+class BuildExtWithoutPlatformSuffix(build_ext):\n+  def get_ext_filename(self, ext_name):\n+    filename = super().get_ext_filename(ext_name)\n+    return get_ext_filename_without_platform_suffix(filename)\n+\n+\n+extra_compile_args = [\"-std=c++1z\", \"-Wno-nullability-completeness\"]\n+ARCH = subprocess.check_output([\"uname\", \"-m\"], encoding='utf8').rstrip()  # pylint: disable=unexpected-keyword-arg\n+if ARCH == \"aarch64\":\n+  extra_compile_args += [\"-Wno-deprecated-register\"]\n+\n+if platform.system() == \"Darwin\":\n+  libdbc = \"libdbc.dylib\"\n+else:\n+  libdbc = \"libdbc.so\"\n+\n+extra_link_args = [os.path.join(BASEDIR, 'opendbc', 'can', libdbc)]\n+include_dirs = [\n+  BASEDIR,\n+  os.path.join(BASEDIR, 'phonelibs'),\n+]\n+\n+# Build CAN Parser\n+\n+setup(name='CAN parser',\n+      cmdclass={'build_ext': BuildExtWithoutPlatformSuffix},\n+      ext_modules=cythonize(\n+        Extension(\n+          \"parser_pyx\",\n+          language=\"c++\",\n+          sources=['parser_pyx.pyx'],\n+          extra_compile_args=extra_compile_args,\n+          include_dirs=include_dirs,\n+          extra_link_args=extra_link_args,\n+        ),\n+        nthreads=4,\n+        annotate=ANNOTATE\n+      ),\n+)\n+\n+if platform.system() == \"Darwin\":\n+  os.system(\"install_name_tool -change opendbc/can/libdbc.dylib \" + BASEDIR + \"/opendbc/can/libdbc.dylib parser_pyx.so\")\n+\n+\n+# Build CAN Packer\n+\n+setup(name='CAN packer',\n+      cmdclass={'build_ext': BuildExtWithoutPlatformSuffix},\n+      ext_modules=cythonize(\n+        Extension(\n+          \"packer_pyx\",\n+          language=\"c++\",\n+          sources=['packer_pyx.pyx'],\n+          extra_compile_args=extra_compile_args,\n+          include_dirs=include_dirs,\n+          extra_link_args=extra_link_args,\n+        ),\n+        nthreads=4,\n+        annotate=ANNOTATE\n+      ),\n+)\n+\n+if platform.system() == \"Darwin\":\n+  os.system(\"install_name_tool -change opendbc/can/libdbc.dylib \" + BASEDIR + \"/opendbc/can/libdbc.dylib packer_pyx.so\")"
+      },
+      {
+        "path": "can/dbc_template.cc",
+        "status": "modified",
+        "patch": "@@ -37,6 +37,10 @@ const Signal sigs_{{address}}[] = {\n       .type = SignalType::PEDAL_CHECKSUM,\n       {% elif address in [512, 513] and sig.name == \"COUNTER_PEDAL\" %}\n       .type = SignalType::PEDAL_COUNTER,\n+      {% elif checksum_type == \"ocelot\" and sig.name == \"CHECKSUM\" %}\n+      .type = SignalType::OCELOT_CHECKSUM,\n+      {% elif checksum_type == \"ocelot\" and sig.name == \"COUNTER\" %}\n+      .type = SignalType::OCELOT_COUNTER,\n       {% else %}\n       .type = SignalType::DEFAULT,\n       {% endif %}"
+      },
+      {
+        "path": "can/packer.cc",
+        "status": "modified",
+        "patch": "@@ -76,7 +76,7 @@ uint64_t CANPacker::pack(uint32_t address, const std::vector<SignalPackValue> &s\n     }\n     const auto& sig = sig_it->second;\n \n-    if ((sig.type != SignalType::HONDA_COUNTER) && (sig.type != SignalType::VOLKSWAGEN_COUNTER)) {\n+    if ((sig.type != SignalType::HONDA_COUNTER) && (sig.type != SignalType::VOLKSWAGEN_COUNTER) && (sig.type != SignalType::OCELOT_COUNTER)) {\n       WARN(\"COUNTER signal type not valid\\n\");\n     }\n \n@@ -104,7 +104,11 @@ uint64_t CANPacker::pack(uint32_t address, const std::vector<SignalPackValue> &s\n     } else if (sig.type == SignalType::CHRYSLER_CHECKSUM) {\n       unsigned int chksm = chrysler_checksum(address, ReverseBytes(ret), message_lookup[address].size);\n       ret = set_value(ret, sig, chksm);\n-    } else {\n+    } else if (sig.type == SignalType::OCELOT_CHECKSUM) {\n+      unsigned int chksm = ocelot_checksum(ReverseBytes(ret), message_lookup[address].size);\n+      ret = set_value(ret, sig, chksm);\n+    }\n+    else {\n       //WARN(\"CHECKSUM signal type not valid\\n\");\n     }\n   }"
+      },
+      {
+        "path": "can/parser.cc",
+        "status": "modified",
+        "patch": "@@ -80,6 +80,15 @@ bool MessageState::parse(uint64_t sec, uint8_t * dat) {\n           return false;\n         }\n       }\n+    } else if (sig.type == SignalType::OCELOT_CHECKSUM) {\n+      if (ocelot_checksum(dat_le, size) != tmp) {\n+        INFO(\"0x%X OCELOT CHECKSUM FAIL\\n\", address);\n+        return false;\n+      }\n+    } else if (sig.type == SignalType::OCELOT_COUNTER) {\n+      if (!update_counter_generic(tmp, sig.b2)) {\n+        return false;\n+      }\n     }\n \n     vals[i] = tmp * sig.factor + sig.offset;"
+      },
+      {
+        "path": "can/process_dbc.py",
+        "status": "modified",
+        "patch": "@@ -61,6 +61,13 @@ def process(in_fn, out_fn):\n     checksum_start_bit = 7\n     counter_start_bit = None\n     little_endian = False\n+  elif can_dbc.name.startswith((\"ocelot_\")):\n+    checksum_type = \"ocelot\"\n+    checksum_size = 8\n+    counter_size = 4\n+    checksum_start_bit = 0\n+    counter_start_bit = 0\n+    little_endian = True\n   else:\n     checksum_type = None\n     checksum_size = None"
+      },
+      {
+        "path": "ocelot_controls.dbc",
+        "status": "added",
+        "patch": "@@ -0,0 +1,151 @@\n+VERSION \"\"\n+\n+\n+NS_ :\n+    NS_DESC_\n+    CM_\n+    BA_DEF_\n+    BA_\n+    VAL_\n+    CAT_DEF_\n+    CAT_\n+    FILTER\n+    BA_DEF_DEF_\n+    EV_DATA_\n+    ENVVAR_DATA_\n+    SGTYPE_\n+    SGTYPE_VAL_\n+    BA_DEF_SGTYPE_\n+    BA_SGTYPE_\n+    SIG_TYPE_REF_\n+    VAL_TABLE_\n+    SIG_GROUP_\n+    SIG_VALTYPE_\n+    SIGTYPE_VALTYPE_\n+    BO_TX_BU_\n+    BA_DEF_REL_\n+    BA_REL_\n+    BA_DEF_DEF_REL_\n+    BU_SG_REL_\n+    BU_EV_REL_\n+    BU_BO_REL_\n+    SG_MUL_VAL_\n+\n+BS_:\n+\n+BU_: EON PED IBST EPAS GAS_ACTUATOR BRAKE_ACTUATOR STEER_ACTUATOR XXX\n+\n+\n+BO_ 336 CRUISE: 6 XXX\n+ SG_ ON_OFF : 19|1@0+ (1,0) [0|1] \"\" XXX\n+ SG_ RES_UP : 18|1@0+ (1,0) [0|1] \"\" XXX\n+ SG_ SET_DOWN : 17|1@0+ (1,0) [0|1] \"\" XXX\n+ SG_ CANCEL : 16|1@0+ (1,0) [0|1] \"\" XXX\n+\n+BO_ 256 WHEEL_SPEEDS: 8 XXX\n+ SG_ WHEEL_FL : 7|16@0+ (1,0) [0|65535] \"\" XXX\n+ SG_ WHEEL_FR : 23|16@0+ (1,0) [0|65535] \"\" XXX\n+ SG_ WHEEL_RR : 55|16@0+ (1,0) [0|65535] \"\" XXX\n+\n+BO_ 80 STEER_ANGLE_SENSOR: 8 XXX\n+ SG_ STEER_RATE : 35|12@0- (1,0) [0|16383] \"\" XXX\n+ SG_ STEER_ANGLE : 19|12@0- (1,0) [0|8191] \"\" XXX\n+\n+BO_ 270 ACTUATOR_BRAKE_COMMAND: 6 EON\n+ SG_ BRAKE_POSITION_COMMAND : 32|12@1+ (0.015625,-5) [-5|47] \"mm\" BRAKE_ACTUATOR\n+ SG_ BRAKE_RELATIVE_COMMAND : 16|16@1+ (0.0078125,-252) [-252|252] \"\" BRAKE_ACTUATOR\n+ SG_ BRAKE_MODE : 12|2@1+ (1,0) [0|3] \"\" BRAKE_ACTUATOR\n+ SG_ COUNTER : 8|4@1+ (1,0) [0|15] \"\" BRAKE_ACTUATOR\n+ SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" BRAKE_ACTUATOR\n+\n+BO_ 271 ACTUATOR_BRAKE_STATUS: 5 BRAKE_ACTUATOR\n+ SG_ BRAKE_PEDAL_POSITION : 20|12@1+ (0.015625,-5) [-5|47] \"mm\" EON\n+ SG_ BRAKE_APPLIED : 18|1@1+ (1,0) [0|1] \"\" EON\n+ SG_ DRIVER_BRAKE_APPLIED : 17|1@1+ (1,0) [0|1] \"\" EON\n+ SG_ BRAKE_OK : 16|1@1+ (1,0) [0|1] \"\" EON\n+ SG_ STATUS : 12|4@1+ (1,0) [0|15] \"\" EON\n+ SG_ EXT_STATUS1 : 32|4@1+ (1,0) [0|15] \"\" EON\n+ SG_ EXT_STATUS2 : 36|4@1+ (1,0) [0|15] \"\" EON\n+ SG_ COUNTER : 8|4@1+ (1,0) [0|15] \"\" EON\n+ SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" EON\n+\n+BO_ 302 ACTUATOR_STEERING_COMMAND: 6 EON\n+ SG_ REQUESTED_STEER_TORQUE : 32|16@1- (0.5,0) [-512|511.5] \"Nm\" STEER_ACTUATOR\n+ SG_ REQUESTED_STEER_ANGLE : 16|16@1- (0.1,0) [-1638.4|1638.3] \"deg\" STEER_ACTUATOR\n+ SG_ STEER_MODE : 12|2@1+ (1,0) [0|3] \"\" STEER_ACTUATOR\n+ SG_ COUNTER : 8|4@1+ (1,0) [0|15] \"\" STEER_ACTUATOR\n+ SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" STEER_ACTUATOR\n+\n+BO_ 303 ACTUATOR_STEERING_STATUS: 7 STEER_ACTUATOR\n+ SG_ STEERING_TORQUE_EPS : 40|16@1- (0.8,0) [-819.2|818.4] \"Nm\" EON\n+ SG_ STEERING_TORQUE_DRIVER : 24|16@1- (0.8,0) [-819.2|818.4] \"Nm\" EON\n+ SG_ STEERING_OK : 16|1@1+ (1,0) [0|1] \"\" EON\n+ SG_ STATUS : 12|4@1+ (1,0) [0|15] \"\" EON\n+ SG_ COUNTER : 8|4@1+ (1,0) [0|15] \"\" EON\n+ SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" EON\n+\n+BO_ 512 PEDAL_GAS_COMMAND: 6 EON\n+ SG_ GAS_COMMAND : 8|16@1+ (1,0) [0|1] \"\" PED\n+ SG_ GAS_COMMAND2 : 24|16@1+ (1,0) [0|1] \"\" PED\n+ SG_ ENABLE : 47|1@1+ (1,0) [0|1] \"\" PED\n+ SG_ COUNTER : 40|4@1+ (1,0) [0|15] \"\" PED\n+ SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" PED\n+\n+BO_ 513 PEDAL_GAS_SENSOR: 6 PED\n+ SG_ PED_GAS : 8|16@1+ (1,0) [0|1] \"\" EON\n+ SG_ PED_GAS2 : 24|16@1+ (1,0) [0|1] \"\" EON\n+ SG_ STATE : 44|4@1+ (1,0) [0|15] \"\" EON\n+ SG_ COUNTER : 40|4@1+ (1,0) [0|15] \"\" EON\n+ SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" EON\n+\n+BO_ 526 OCELOT_BRAKE_COMMAND: 6 EON\n+ SG_ BRAKE_POSITION_COMMAND : 32|12@1+ (0.015625,-5) [-5|47] \"mm\" IBST\n+ SG_ BRAKE_RELATIVE_COMMAND : 16|16@1+ (0.0078125,-252) [-252|252] \"\" IBST\n+ SG_ BRAKE_MODE : 12|2@1+ (1,0) [0|3] \"\" IBST\n+ SG_ COUNTER : 8|4@1+ (1,0) [0|15] \"\" IBST\n+ SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" IBST\n+\n+BO_ 527 OCELOT_BRAKE_STATUS: 5 IBST\n+ SG_ BRAKE_PEDAL_POSITION : 20|12@1+ (0.015625,-5) [-5|47] \"mm\" EON\n+ SG_ BRAKE_APPLIED : 18|1@1+ (1,0) [0|1] \"\" EON\n+ SG_ DRIVER_BRAKE_APPLIED : 17|1@1+ (1,0) [0|1] \"\" EON\n+ SG_ BRAKE_OK : 16|1@1+ (1,0) [0|1] \"\" EON\n+ SG_ STATUS : 12|4@1+ (1,0) [0|15] \"\" EON\n+ SG_ EXT_STATUS1 : 32|4@1+ (1,0) [0|15] \"\" EON\n+ SG_ EXT_STATUS2 : 36|4@1+ (1,0) [0|15] \"\" EON\n+ SG_ COUNTER : 8|4@1+ (1,0) [0|15] \"\" EON\n+ SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" EON\n+\n+BO_ 768 INTERCEPTOR_STEERING_COMMAND: 6 EON\n+ SG_ TORQUE_COMMAND1 : 8|16@1- (1,0) [0|1] \"\" PED\n+ SG_ TORQUE_COMMAND2 : 24|16@1- (1,0) [0|1] \"\" PED\n+ SG_ ENABLE : 47|1@1+ (1,0) [0|1] \"\" PED\n+ SG_ COUNTER : 40|4@1+ (1,0) [0|15] \"\" PED\n+ SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" PED\n+\n+BO_ 769 INTERCEPTOR_STEERING_SENSOR: 6 PED\n+ SG_ TRQ_1 : 8|16@1+ (0.275676,-33.3567) [0|1] \"\" EON\n+ SG_ TRQ_2 : 24|16@1+ (0.13629,-32.71) [0|1] \"\" EON\n+ SG_ STATE : 44|4@1+ (1,0) [0|15] \"\" EON\n+ SG_ COUNTER : 40|4@1+ (1,0) [0|15] \"\" EON\n+ SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" EON\n+\n+BO_ 1024 ACTUATOR_GAS_COMMAND: 6 EON\n+ SG_ THROTTLE_REQ : 8|16@1+ (1,0) [0|1] \"\" PED\n+ SG_ THROTTLE_REQ2 : 24|16@1+ (1,0) [0|1] \"\" PED\n+ SG_ ENABLE : 47|1@1+ (1,0) [0|1] \"\" PED\n+ SG_ COUNTER : 40|4@1+ (1,0) [0|15] \"\" PED\n+ SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" PED\n+\n+BO_ 1025 ACTUATOR_GAS_SENSOR: 8 PED\n+ SG_ THROTTLE_POS : 8|16@1+ (1,0) [0|1] \"\" EON\n+ SG_ VSS : 24|16@1+ (1,0) [0|1] \"\" EON\n+ SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" EON\n+ SG_ COUNTER : 56|4@1+ (1,0) [0|15] \"\" EON\n+ SG_ STATE : 56|8@1+ (1,0) [0|15] \"\" EON\n+ SG_ VSS_ENCODER : 47|16@0+ (1,0) [0|65535] \"\" XXX\n+\n+\n+VAL_ 526 BRAKE_MODE 3 \"Reserved\" 2 \"Position Control\" 1 \"Relative Control\" 0 \"Disengadged\" ;\n+VAL_ 527 BRAKE_OK 1 \"Yes\" 0 \"No\" ;\n+VAL_ 527 STATUS 5 \"FAULT_TIMEOUT\" 4 \"FAULT_STARTUP\" 3 \"FAULT_SCE\" 2 \"FAULT_SEND\" 1 \"FAULT_BAD_CHECKSUM\" 0 \"NO_FAULT\" ;\n\\ No newline at end of file"
+      }
+    ]
+  },
+  {
+    "sha": "0fe13b3a11ff525607da05ac24bd44c931cc90e9",
+    "date": "2025-06-10T02:36:27Z",
+    "author": "Kevin Roscom",
+    "message": "add Relay Core to DBC",
+    "files": [
+      {
+        "path": "ocelot_controls.dbc",
+        "status": "modified",
+        "patch": "@@ -145,6 +145,17 @@ BO_ 1025 ACTUATOR_GAS_SENSOR: 8 PED\n  SG_ STATE : 56|8@1+ (1,0) [0|15] \"\" EON\n  SG_ VSS_ENCODER : 47|16@0+ (1,0) [0|65535] \"\" XXX\n \n+BO_ 1536 RELAY_CORE_COMMAND: 4 EON\n+ SG_ RELAY_COMMAND : 8|16@1+ (1,0) [0|1] \"\" PED\n+ SG_ ENABLE : 31|1@1+ (1,0) [0|1] \"\" PED\n+ SG_ COUNTER : 24|4@1+ (1,0) [0|15] \"\" PED\n+ SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" PED\n+\n+BO_ 1537 RELAY_CORE_STATUS: 4 PED\n+ SG_ RELAY_STATUS : 8|16@1+ (1,0) [0|1] \"\" EON\n+ SG_ STATE : 31|4@1+ (1,0) [0|15] \"\" EON\n+ SG_ COUNTER : 24|4@1+ (1,0) [0|15] \"\" EON\n+ SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" EON\n \n VAL_ 526 BRAKE_MODE 3 \"Reserved\" 2 \"Position Control\" 1 \"Relative Control\" 0 \"Disengadged\" ;\n VAL_ 527 BRAKE_OK 1 \"Yes\" 0 \"No\" ;"
+      }
+    ]
+  },
+  {
+    "sha": "e41610f4ea449406d6766ea8f2e01cc555136913",
+    "date": "2025-06-14T02:05:58Z",
+    "author": "Kevin Roscom",
+    "message": "update dbc",
+    "files": [
+      {
+        "path": "ocelot_controls.dbc",
+        "status": "modified",
+        "patch": "@@ -35,22 +35,16 @@ BS_:\n \n BU_: EON PED IBST EPAS GAS_ACTUATOR BRAKE_ACTUATOR STEER_ACTUATOR XXX\n \n-\n-BO_ 336 CRUISE: 6 XXX\n- SG_ ON_OFF : 19|1@0+ (1,0) [0|1] \"\" XXX\n- SG_ RES_UP : 18|1@0+ (1,0) [0|1] \"\" XXX\n- SG_ SET_DOWN : 17|1@0+ (1,0) [0|1] \"\" XXX\n- SG_ CANCEL : 16|1@0+ (1,0) [0|1] \"\" XXX\n+BO_ 80 STEER_ANGLE_SENSOR: 8 XXX\n+ SG_ STEER_RATE : 35|12@0- (1,0) [0|16383] \"\" XXX\n+ SG_ STEER_ANGLE : 19|12@0- (1,0) [0|8191] \"\" XXX\n \n BO_ 256 WHEEL_SPEEDS: 8 XXX\n  SG_ WHEEL_FL : 7|16@0+ (1,0) [0|65535] \"\" XXX\n  SG_ WHEEL_FR : 23|16@0+ (1,0) [0|65535] \"\" XXX\n+ SG_ WHEEL_RR : 39|16@0+ (1,0) [0|65535] \"\" XXX\n  SG_ WHEEL_RR : 55|16@0+ (1,0) [0|65535] \"\" XXX\n \n-BO_ 80 STEER_ANGLE_SENSOR: 8 XXX\n- SG_ STEER_RATE : 35|12@0- (1,0) [0|16383] \"\" XXX\n- SG_ STEER_ANGLE : 19|12@0- (1,0) [0|8191] \"\" XXX\n-\n BO_ 270 ACTUATOR_BRAKE_COMMAND: 6 EON\n  SG_ BRAKE_POSITION_COMMAND : 32|12@1+ (0.015625,-5) [-5|47] \"mm\" BRAKE_ACTUATOR\n  SG_ BRAKE_RELATIVE_COMMAND : 16|16@1+ (0.0078125,-252) [-252|252] \"\" BRAKE_ACTUATOR\n@@ -84,6 +78,12 @@ BO_ 303 ACTUATOR_STEERING_STATUS: 7 STEER_ACTUATOR\n  SG_ COUNTER : 8|4@1+ (1,0) [0|15] \"\" EON\n  SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" EON\n \n+BO_ 336 CRUISE: 6 XXX\n+ SG_ ON_OFF : 19|1@0+ (1,0) [0|1] \"\" XXX\n+ SG_ RES_UP : 18|1@0+ (1,0) [0|1] \"\" XXX\n+ SG_ SET_DOWN : 17|1@0+ (1,0) [0|1] \"\" XXX\n+ SG_ CANCEL : 16|1@0+ (1,0) [0|1] \"\" XXX\n+\n BO_ 512 PEDAL_GAS_COMMAND: 6 EON\n  SG_ GAS_COMMAND : 8|16@1+ (1,0) [0|1] \"\" PED\n  SG_ GAS_COMMAND2 : 24|16@1+ (1,0) [0|1] \"\" PED\n@@ -98,14 +98,14 @@ BO_ 513 PEDAL_GAS_SENSOR: 6 PED\n  SG_ COUNTER : 40|4@1+ (1,0) [0|15] \"\" EON\n  SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" EON\n \n-BO_ 526 OCELOT_BRAKE_COMMAND: 6 EON\n+BO_ 526 IBOOSTER_BRAKE_COMMAND: 6 EON\n  SG_ BRAKE_POSITION_COMMAND : 32|12@1+ (0.015625,-5) [-5|47] \"mm\" IBST\n  SG_ BRAKE_RELATIVE_COMMAND : 16|16@1+ (0.0078125,-252) [-252|252] \"\" IBST\n  SG_ BRAKE_MODE : 12|2@1+ (1,0) [0|3] \"\" IBST\n  SG_ COUNTER : 8|4@1+ (1,0) [0|15] \"\" IBST\n  SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" IBST\n \n-BO_ 527 OCELOT_BRAKE_STATUS: 5 IBST\n+BO_ 527 IBOOSTER_BRAKE_STATUS: 5 IBST\n  SG_ BRAKE_PEDAL_POSITION : 20|12@1+ (0.015625,-5) [-5|47] \"mm\" EON\n  SG_ BRAKE_APPLIED : 18|1@1+ (1,0) [0|1] \"\" EON\n  SG_ DRIVER_BRAKE_APPLIED : 17|1@1+ (1,0) [0|1] \"\" EON\n@@ -116,6 +116,23 @@ BO_ 527 OCELOT_BRAKE_STATUS: 5 IBST\n  SG_ COUNTER : 8|4@1+ (1,0) [0|15] \"\" EON\n  SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" EON\n \n+BO_ 558 STEERING_COMMAND_SSC: 5 EON\n+ SG_ STEER_TORQUE : 32|8@1- (0.125,0) [-16|15.875] \"Nm\"  EPAS\n+ SG_ STEER_ANGLE : 16|16@1- (0.125,0) [-4096|4095.875] \"deg\"  EPAS\n+ SG_ STEER_MODE : 12|2@1+ (1,0) [0|3] \"\"  EPAS\n+ SG_ COUNTER : 8|4@1+ (1,0) [0|15] \"\"  EPAS\n+ SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\"  EPAS\n+\n+BO_ 559 STEERING_STATUS_SSC: 8 EPAS\n+ SG_ STEERING_ANGLE : 40|16@1- (0.125,0) [-4096|4095.875] \"deg\"  EON\n+ SG_ STEERING_SPEED : 24|8@1- (0.015625,0) [-2|1.984375] \"rev/s\"  EON\n+ SG_ STEERING_TORQUE : 16|8@1- (0.125,0) [-16|15.875] \"Nm\"  EON\n+ SG_ CONTROL_STATUS : 12|4@1+ (1,0) [0|15] \"\"  EON\n+ SG_ COUNTER : 8|4@1+ (1,0) [0|15] \"\"  EON\n+ SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\"  EON\n+ SG_ TEMPERATURE : 32|8@1+ (1,-60) [-60|195] \"C\"  EON\n+ SG_ DEBUG_STATES : 56|8@1+ (1,0) [0|255] \"\"  EON\n+\n BO_ 768 INTERCEPTOR_STEERING_COMMAND: 6 EON\n  SG_ TORQUE_COMMAND1 : 8|16@1- (1,0) [0|1] \"\" PED\n  SG_ TORQUE_COMMAND2 : 24|16@1- (1,0) [0|1] \"\" PED"
+      }
+    ]
+  },
+  {
+    "sha": "a03f2557fefa47adcd5b2709611319975e734995",
+    "date": "2025-06-26T03:25:38Z",
+    "author": "Kevin Roscom",
+    "message": "add new signals",
+    "files": [
+      {
+        "path": "ocelot_controls.dbc",
+        "status": "modified",
+        "patch": "@@ -35,15 +35,29 @@ BS_:\n \n BU_: EON PED IBST EPAS GAS_ACTUATOR BRAKE_ACTUATOR STEER_ACTUATOR XXX\n \n-BO_ 80 STEER_ANGLE_SENSOR: 8 XXX\n- SG_ STEER_RATE : 35|12@0- (1,0) [0|16383] \"\" XXX\n- SG_ STEER_ANGLE : 19|12@0- (1,0) [0|8191] \"\" XXX\n-\n-BO_ 256 WHEEL_SPEEDS: 8 XXX\n- SG_ WHEEL_FL : 7|16@0+ (1,0) [0|65535] \"\" XXX\n- SG_ WHEEL_FR : 23|16@0+ (1,0) [0|65535] \"\" XXX\n- SG_ WHEEL_RR : 39|16@0+ (1,0) [0|65535] \"\" XXX\n- SG_ WHEEL_RR : 55|16@0+ (1,0) [0|65535] \"\" XXX\n+BO_ 80 STEER_ANGLE_SENSOR: 6 XXX\n+ SG_ STEER_ANGLE : 8|16@1+ (0.1,0) [0|65535] \"\" XXX\n+ SG_ STATE : 44|4@1+ (1,0) [0|15] \"\" EON\n+ SG_ COUNTER : 40|4@1+ (1,0) [0|15] \"\" EON\n+ SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" XXX\n+\n+BO_ 117 ENGINE: 8 XXX\n+ SG_ VSS_PULSE_MS : 8|16@1+ (1,0) [0|65535] \"\" XXX\n+ SG_ VSS_PULSE_CNT : 24|8@1+ (1,0) [0|255] \"\" XXX\n+ SG_ CPS_PULSE_MS : 32|16@1+ (1,0) [0|65535] \"\" XXX\n+ SG_ CPS_PULSE_CNT : 55|8@1+ (1,0) [0|255] \"\" XXX\n+ SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" XXX\n+ SG_ COUNTER : 56|4@1+ (1,0) [0|7] \"\" XXX\n+ SG_ STATE : 60|4@1+ (1,0) [0|15] \"\" XXX\n+\n+BO_ 256 CRUISE: 6 XXX\n+ SG_ ON_OFF : 19|1@0+ (1,0) [0|1] \"\" XXX\n+ SG_ RES_UP : 18|1@0+ (1,0) [0|1] \"\" XXX\n+ SG_ SET_DOWN : 17|1@0+ (1,0) [0|1] \"\" XXX\n+ SG_ CANCEL : 16|1@0+ (1,0) [0|1] \"\" XXX\n+ SG_ COUNTER : 40|4@1+ (1,0) [0|15] \"\" XXX\n+ SG_ STATE : 44|4@1+ (1,0) [0|15] \"\" XXX\n+ SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" XXX\n \n BO_ 270 ACTUATOR_BRAKE_COMMAND: 6 EON\n  SG_ BRAKE_POSITION_COMMAND : 32|12@1+ (0.015625,-5) [-5|47] \"mm\" BRAKE_ACTUATOR\n@@ -78,12 +92,6 @@ BO_ 303 ACTUATOR_STEERING_STATUS: 7 STEER_ACTUATOR\n  SG_ COUNTER : 8|4@1+ (1,0) [0|15] \"\" EON\n  SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" EON\n \n-BO_ 336 CRUISE: 6 XXX\n- SG_ ON_OFF : 19|1@0+ (1,0) [0|1] \"\" XXX\n- SG_ RES_UP : 18|1@0+ (1,0) [0|1] \"\" XXX\n- SG_ SET_DOWN : 17|1@0+ (1,0) [0|1] \"\" XXX\n- SG_ CANCEL : 16|1@0+ (1,0) [0|1] \"\" XXX\n-\n BO_ 512 PEDAL_GAS_COMMAND: 6 EON\n  SG_ GAS_COMMAND : 8|16@1+ (1,0) [0|1] \"\" PED\n  SG_ GAS_COMMAND2 : 24|16@1+ (1,0) [0|1] \"\" PED"
+      }
+    ]
+  },
+  {
+    "sha": "0b1ab361a115baea30e2de69c50940bcdf76ffa2",
+    "date": "2025-06-27T03:50:11Z",
+    "author": "Kevin Roscom",
+    "message": "define speed and engine signals better",
+    "files": [
+      {
+        "path": "ocelot_controls.dbc",
+        "status": "modified",
+        "patch": "@@ -36,28 +36,35 @@ BS_:\n BU_: EON PED IBST EPAS GAS_ACTUATOR BRAKE_ACTUATOR STEER_ACTUATOR XXX\n \n BO_ 80 STEER_ANGLE_SENSOR: 6 XXX\n- SG_ STEER_ANGLE : 8|16@1+ (0.1,0) [0|65535] \"\" XXX\n- SG_ STATE : 44|4@1+ (1,0) [0|15] \"\" EON\n- SG_ COUNTER : 40|4@1+ (1,0) [0|15] \"\" EON\n  SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" XXX\n+ SG_ COUNTER : 40|4@1+ (1,0) [0|15] \"\" XXX\n+ SG_ STATE : 44|4@1+ (1,0) [0|15] \"\" XXX\n+ SG_ STEER_ANGLE : 8|16@1+ (0.1,0) [0|65535] \"\" XXX\n \n BO_ 117 ENGINE: 8 XXX\n- SG_ VSS_PULSE_MS : 8|16@1+ (1,0) [0|65535] \"\" XXX\n- SG_ VSS_PULSE_CNT : 24|8@1+ (1,0) [0|255] \"\" XXX\n- SG_ CPS_PULSE_MS : 32|16@1+ (1,0) [0|65535] \"\" XXX\n- SG_ CPS_PULSE_CNT : 55|8@1+ (1,0) [0|255] \"\" XXX\n  SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" XXX\n  SG_ COUNTER : 56|4@1+ (1,0) [0|7] \"\" XXX\n- SG_ STATE : 60|4@1+ (1,0) [0|15] \"\" XXX\n+ SG_ CAN_ENG_RPM : 47|16@0+ (1,0) [0|65535] \"\" XXX\n+ SG_ CPS_PULSE_US : 8|16@1+ (1,0) [0|65535] \"\" XXX\n+ SG_ CPS_PULSE_CNT : 24|8@1+ (1,0) [0|255] \"\" XXX\n+ SG_ MODE : 60|4@1+ (1,0) [0|15] \"\" XXX\n+\n+BO_ 118 SPEED: 8 XXX\n+ SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" XXX\n+ SG_ VSS_PULSE_US : 8|16@1+ (0.0062,0) [0|65535] \"\" XXX\n+ SG_ VSS_PULSE_CNT : 24|8@1+ (1,0) [0|255] \"\" XXX\n+ SG_ CAN_SPEED : 40|16@1+ (1,0) [0|16777215] \"\" XXX\n+ SG_ MODE : 60|4@1+ (1,0) [0|15] \"\" XXX\n+ SG_ COUNTER : 56|7@1+ (1,0) [0|15] \"\" XXX\n \n BO_ 256 CRUISE: 6 XXX\n  SG_ ON_OFF : 19|1@0+ (1,0) [0|1] \"\" XXX\n  SG_ RES_UP : 18|1@0+ (1,0) [0|1] \"\" XXX\n  SG_ SET_DOWN : 17|1@0+ (1,0) [0|1] \"\" XXX\n  SG_ CANCEL : 16|1@0+ (1,0) [0|1] \"\" XXX\n  SG_ COUNTER : 40|4@1+ (1,0) [0|15] \"\" XXX\n- SG_ STATE : 44|4@1+ (1,0) [0|15] \"\" XXX\n  SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" XXX\n+ SG_ MODE : 44|4@1+ (1,0) [0|15] \"\" XXX\n \n BO_ 270 ACTUATOR_BRAKE_COMMAND: 6 EON\n  SG_ BRAKE_POSITION_COMMAND : 32|12@1+ (0.015625,-5) [-5|47] \"mm\" BRAKE_ACTUATOR"
+      }
+    ]
+  },
+  {
+    "sha": "63e159131765a38d057507bd958d08be51f3d624",
+    "date": "2025-06-27T04:28:45Z",
+    "author": "Kevin Roscom",
+    "message": "update cruise control msg with ADC",
+    "files": [
+      {
+        "path": "ocelot_controls.dbc",
+        "status": "modified",
+        "patch": "@@ -57,14 +57,16 @@ BO_ 118 SPEED: 8 XXX\n  SG_ MODE : 60|4@1+ (1,0) [0|15] \"\" XXX\n  SG_ COUNTER : 56|7@1+ (1,0) [0|15] \"\" XXX\n \n-BO_ 256 CRUISE: 6 XXX\n- SG_ ON_OFF : 19|1@0+ (1,0) [0|1] \"\" XXX\n- SG_ RES_UP : 18|1@0+ (1,0) [0|1] \"\" XXX\n- SG_ SET_DOWN : 17|1@0+ (1,0) [0|1] \"\" XXX\n- SG_ CANCEL : 16|1@0+ (1,0) [0|1] \"\" XXX\n- SG_ COUNTER : 40|4@1+ (1,0) [0|15] \"\" XXX\n+BO_ 256 CRUISE: 8 XXX\n  SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" XXX\n- SG_ MODE : 44|4@1+ (1,0) [0|15] \"\" XXX\n+ SG_ CANCEL : 16|1@0+ (1,0) [0|1] \"\" XXX\n+ SG_ SET_DOWN : 17|1@0+ (1,0) [0|1] \"\" XXX\n+ SG_ RES_UP : 18|1@0+ (1,0) [0|1] \"\" XXX\n+ SG_ ON_OFF : 19|1@0+ (1,0) [0|1] \"\" XXX\n+ SG_ ADC_1 : 31|16@0+ (1,0) [0|65535] \"\" XXX\n+ SG_ ADC_2 : 47|16@0+ (1,0) [0|65535] \"\" XXX\n+ SG_ COUNTER : 56|4@1+ (1,0) [0|15] \"\" XXX\n+ SG_ MODE : 60|4@1+ (1,0) [0|15] \"\" XXX\n \n BO_ 270 ACTUATOR_BRAKE_COMMAND: 6 EON\n  SG_ BRAKE_POSITION_COMMAND : 32|12@1+ (0.015625,-5) [-5|47] \"mm\" BRAKE_ACTUATOR"
+      }
+    ]
+  },
+  {
+    "sha": "233a1af6920d48e497680c881eca1b9e734a6b42",
+    "date": "2025-06-27T04:47:53Z",
+    "author": "Kevin Roscom",
+    "message": "endianness fixes",
+    "files": [
+      {
+        "path": "ocelot_controls.dbc",
+        "status": "modified",
+        "patch": "@@ -59,12 +59,12 @@ BO_ 118 SPEED: 8 XXX\n \n BO_ 256 CRUISE: 8 XXX\n  SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" XXX\n- SG_ CANCEL : 16|1@0+ (1,0) [0|1] \"\" XXX\n- SG_ SET_DOWN : 17|1@0+ (1,0) [0|1] \"\" XXX\n- SG_ RES_UP : 18|1@0+ (1,0) [0|1] \"\" XXX\n- SG_ ON_OFF : 19|1@0+ (1,0) [0|1] \"\" XXX\n- SG_ ADC_1 : 31|16@0+ (1,0) [0|65535] \"\" XXX\n- SG_ ADC_2 : 47|16@0+ (1,0) [0|65535] \"\" XXX\n+ SG_ CANCEL : 16|1@1+ (1,0) [0|1] \"\" XXX\n+ SG_ SET_DOWN : 17|1@1+ (1,0) [0|1] \"\" XXX\n+ SG_ RES_UP : 18|1@1+ (1,0) [0|1] \"\" XXX\n+ SG_ ON_OFF : 19|1@1+ (1,0) [0|1] \"\" XXX\n+ SG_ ADC_1 : 31|16@1+ (1,0) [0|65535] \"\" XXX\n+ SG_ ADC_2 : 47|16@1+ (1,0) [0|65535] \"\" XXX\n  SG_ COUNTER : 56|4@1+ (1,0) [0|15] \"\" XXX\n  SG_ MODE : 60|4@1+ (1,0) [0|15] \"\" XXX\n "
+      }
+    ]
+  },
+  {
+    "sha": "0a6e66d779ea278c0128bcb559deb90bdd34c099",
+    "date": "2025-06-30T19:40:42Z",
+    "author": "Kevin Roscom",
+    "message": "more signals - wrapping it up",
+    "files": [
+      {
+        "path": "ocelot_controls.dbc",
+        "status": "modified",
+        "patch": "@@ -37,16 +37,19 @@ BU_: EON PED IBST EPAS GAS_ACTUATOR BRAKE_ACTUATOR STEER_ACTUATOR XXX\n \n BO_ 80 STEER_ANGLE_SENSOR: 6 XXX\n  SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" XXX\n+ SG_ STEER_ANGLE : 8|16@1+ (0.1,0) [0|65535] \"\" XXX\n+ SG_ STEER_RATE : 24|16@1+ (1,0) [0|65535] \"\" XXX\n  SG_ COUNTER : 40|4@1+ (1,0) [0|15] \"\" XXX\n  SG_ STATE : 44|4@1+ (1,0) [0|15] \"\" XXX\n- SG_ STEER_ANGLE : 8|16@1+ (0.1,0) [0|65535] \"\" XXX\n \n BO_ 117 ENGINE: 8 XXX\n  SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" XXX\n- SG_ COUNTER : 56|4@1+ (1,0) [0|7] \"\" XXX\n- SG_ CAN_ENG_RPM : 47|16@0+ (1,0) [0|65535] \"\" XXX\n  SG_ CPS_PULSE_US : 8|16@1+ (1,0) [0|65535] \"\" XXX\n  SG_ CPS_PULSE_CNT : 24|8@1+ (1,0) [0|255] \"\" XXX\n+ SG_ IGNITION_ON : 32|1@0+ (1,0) [0|1] \"\" XXX\n+ SG_ BRAKE_PRESSED : 33|1@0+ (1,0) [0|1] \"\" XXX\n+ SG_ CAN_ENG_RPM : 47|16@0+ (1,0) [0|65535] \"\" XXX\n+ SG_ COUNTER : 56|4@1+ (1,0) [0|7] \"\" XXX\n  SG_ MODE : 60|4@1+ (1,0) [0|15] \"\" XXX\n \n BO_ 118 SPEED: 8 XXX"
+      }
+    ]
+  },
+  {
+    "sha": "dff506167c2c4d8edd8dc65b6b0e6b37fee8ce1d",
+    "date": "2025-06-30T20:04:59Z",
+    "author": "Kevin Roscom",
+    "message": "fix typo",
+    "files": [
+      {
+        "path": "ocelot_controls.dbc",
+        "status": "modified",
+        "patch": "@@ -54,7 +54,7 @@ BO_ 117 ENGINE: 8 XXX\n \n BO_ 118 SPEED: 8 XXX\n  SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" XXX\n- SG_ VSS_PULSE_US : 8|16@1+ (0.0062,0) [0|65535] \"\" XXX\n+ SG_ VSS_PULSE_US : 8|16@1+ (1,0) [0|65535] \"\" XXX\n  SG_ VSS_PULSE_CNT : 24|8@1+ (1,0) [0|255] \"\" XXX\n  SG_ CAN_SPEED : 40|16@1+ (1,0) [0|16777215] \"\" XXX\n  SG_ MODE : 60|4@1+ (1,0) [0|15] \"\" XXX"
+      }
+    ]
+  },
+  {
+    "sha": "d04567a3f9a5470644a0a6dd1738a4660d466efd",
+    "date": "2025-06-30T20:33:30Z",
+    "author": "Kevin Roscom",
+    "message": "dammit",
+    "files": [
+      {
+        "path": "ocelot_controls.dbc",
+        "status": "modified",
+        "patch": "@@ -58,7 +58,7 @@ BO_ 118 SPEED: 8 XXX\n  SG_ VSS_PULSE_CNT : 24|8@1+ (1,0) [0|255] \"\" XXX\n  SG_ CAN_SPEED : 40|16@1+ (1,0) [0|16777215] \"\" XXX\n  SG_ MODE : 60|4@1+ (1,0) [0|15] \"\" XXX\n- SG_ COUNTER : 56|7@1+ (1,0) [0|15] \"\" XXX\n+ SG_ COUNTER : 56|8@1+ (1,0) [0|15] \"\" XXX\n \n BO_ 256 CRUISE: 8 XXX\n  SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" XXX"
+      }
+    ]
+  },
+  {
+    "sha": "6f38c538359200c8514a0eba1aa0fa5c448a774b",
+    "date": "2025-06-30T20:35:28Z",
+    "author": "Kevin Roscom",
+    "message": "...",
+    "files": [
+      {
+        "path": "ocelot_controls.dbc",
+        "status": "modified",
+        "patch": "@@ -58,7 +58,7 @@ BO_ 118 SPEED: 8 XXX\n  SG_ VSS_PULSE_CNT : 24|8@1+ (1,0) [0|255] \"\" XXX\n  SG_ CAN_SPEED : 40|16@1+ (1,0) [0|16777215] \"\" XXX\n  SG_ MODE : 60|4@1+ (1,0) [0|15] \"\" XXX\n- SG_ COUNTER : 56|8@1+ (1,0) [0|15] \"\" XXX\n+ SG_ COUNTER : 56|4@1+ (1,0) [0|15] \"\" XXX\n \n BO_ 256 CRUISE: 8 XXX\n  SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" XXX"
+      }
+    ]
+  },
+  {
+    "sha": "7cbd799d71671e1603ef0ebcc0f9039986ace9fd",
+    "date": "2025-07-13T22:43:48Z",
+    "author": "Kevin Roscom",
+    "message": "signed angle",
+    "files": [
+      {
+        "path": "ocelot_controls.dbc",
+        "status": "modified",
+        "patch": "@@ -37,7 +37,7 @@ BU_: EON PED IBST EPAS GAS_ACTUATOR BRAKE_ACTUATOR STEER_ACTUATOR XXX\n \n BO_ 80 STEER_ANGLE_SENSOR: 6 XXX\n  SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" XXX\n- SG_ STEER_ANGLE : 8|16@1+ (0.1,0) [0|65535] \"\" XXX\n+ SG_ STEER_ANGLE : 8|16@1- (0.1,0) [0|65535] \"\" XXX\n  SG_ STEER_RATE : 24|16@1+ (1,0) [0|65535] \"\" XXX\n  SG_ COUNTER : 40|4@1+ (1,0) [0|15] \"\" XXX\n  SG_ STATE : 44|4@1+ (1,0) [0|15] \"\" XXX"
+      }
+    ]
+  },
+  {
+    "sha": "775de84978e622b29a09054d1361c5c58d6797b8",
+    "date": "2025-07-14T20:41:09Z",
+    "author": "Kevin Roscom",
+    "message": "DBC fixes",
+    "files": [
+      {
+        "path": "ocelot_controls.dbc",
+        "status": "modified",
+        "patch": "@@ -179,7 +179,7 @@ BO_ 1025 ACTUATOR_GAS_SENSOR: 8 PED\n  SG_ VSS : 24|16@1+ (1,0) [0|1] \"\" EON\n  SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" EON\n  SG_ COUNTER : 56|4@1+ (1,0) [0|15] \"\" EON\n- SG_ STATE : 56|8@1+ (1,0) [0|15] \"\" EON\n+ SG_ STATE : 60|4@1+ (1,0) [0|15] \"\" EON\n  SG_ VSS_ENCODER : 47|16@0+ (1,0) [0|65535] \"\" XXX\n \n BO_ 1536 RELAY_CORE_COMMAND: 4 EON\n@@ -190,7 +190,7 @@ BO_ 1536 RELAY_CORE_COMMAND: 4 EON\n \n BO_ 1537 RELAY_CORE_STATUS: 4 PED\n  SG_ RELAY_STATUS : 8|16@1+ (1,0) [0|1] \"\" EON\n- SG_ STATE : 31|4@1+ (1,0) [0|15] \"\" EON\n+ SG_ STATE : 28|4@1+ (1,0) [0|15] \"\" EON\n  SG_ COUNTER : 24|4@1+ (1,0) [0|15] \"\" EON\n  SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" EON\n "
+      }
+    ]
+  },
+  {
+    "sha": "ecdc340733bb040cbdabf8f395ce03daa320f0d3",
+    "date": "2025-07-24T16:35:29Z",
+    "author": "Kevin Roscom",
+    "message": "add override bit to icore",
+    "files": [
+      {
+        "path": "ocelot_controls.dbc",
+        "status": "modified",
+        "patch": "@@ -160,11 +160,12 @@ BO_ 768 INTERCEPTOR_STEERING_COMMAND: 6 EON\n  SG_ COUNTER : 40|4@1+ (1,0) [0|15] \"\" PED\n  SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" PED\n \n-BO_ 769 INTERCEPTOR_STEERING_SENSOR: 6 PED\n+BO_ 769 INTERCEPTOR_STEERING_SENSOR: 8 PED\n  SG_ TRQ_1 : 8|16@1+ (0.275676,-33.3567) [0|1] \"\" EON\n  SG_ TRQ_2 : 24|16@1+ (0.13629,-32.71) [0|1] \"\" EON\n- SG_ STATE : 44|4@1+ (1,0) [0|15] \"\" EON\n- SG_ COUNTER : 40|4@1+ (1,0) [0|15] \"\" EON\n+ SG_ STATE : 56|4@1+ (1,0) [0|15] \"\" EON\n+ SG_ OVERRIDE : 40|1@0+ (1,0) [0|1] \"\" EON\n+ SG_ COUNTER : 60|4@1+ (1,0) [0|15] \"\" EON\n  SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" EON\n \n BO_ 1024 ACTUATOR_GAS_COMMAND: 6 EON"
+      }
+    ]
+  },
+  {
+    "sha": "6b90fafe59e81822bfae58e4ecb080248e9de40d",
+    "date": "2025-07-24T17:41:32Z",
+    "author": "Kevin Roscom",
+    "message": "fix typos",
+    "files": [
+      {
+        "path": "ocelot_controls.dbc",
+        "status": "modified",
+        "patch": "@@ -163,9 +163,9 @@ BO_ 768 INTERCEPTOR_STEERING_COMMAND: 6 EON\n BO_ 769 INTERCEPTOR_STEERING_SENSOR: 8 PED\n  SG_ TRQ_1 : 8|16@1+ (0.275676,-33.3567) [0|1] \"\" EON\n  SG_ TRQ_2 : 24|16@1+ (0.13629,-32.71) [0|1] \"\" EON\n- SG_ STATE : 56|4@1+ (1,0) [0|15] \"\" EON\n- SG_ OVERRIDE : 40|1@0+ (1,0) [0|1] \"\" EON\n- SG_ COUNTER : 60|4@1+ (1,0) [0|15] \"\" EON\n+ SG_ STATE : 60|4@1+ (1,0) [0|15] \"\" EON\n+ SG_ OVERRIDE : 40|1@1+ (1,0) [0|1] \"\" EON\n+ SG_ COUNTER : 56|4@1+ (1,0) [0|15] \"\" EON\n  SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] \"\" EON\n \n BO_ 1024 ACTUATOR_GAS_COMMAND: 6 EON"
+      }
+    ]
+  }
+]

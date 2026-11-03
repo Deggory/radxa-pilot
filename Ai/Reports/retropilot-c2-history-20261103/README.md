@@ -20,6 +20,8 @@ parent comparison and all3modified submodule comparisons through GitHub.
 The final parent delta has50paths; the history touches64including transient
 changes. Panda has2additional commits/2changed files, Cereal3/6, opendbc43/10.
 [Timeline](TIMELINE.md) lists every parent commit with its upstream link.
+[Plain-English 2025 guide](2025_COMMITS.md) explains all53dated2025commits across
+the application, CAN library, Panda and Cereal, with direct patch links.
 [Coverage](coverage.json) assigns all82parent/submodule paths an explicit
 disposition. This is complete path coverage, not a claim of line-by-line review
 of unrelated kernels/binaries or tested live integration. Relevant transport,

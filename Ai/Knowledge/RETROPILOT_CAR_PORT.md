@@ -1,3 +1,12 @@
+## 2026-11-03 — 2025 commit guide
+
+[Plain-English commit guide](../Reports/retropilot-c2-history-20261103/2025_COMMITS.md) covers all53dated2025commits in the
+reviewed four-repository comparisons: application28, opendbc20, Panda2,
+Cereal3; February6–August14.30older inherited/other-author commits remain
+separate. All20individual2025opendbc patches retained and SHAs checked.
+C2 branch freshly rechecked at b9a942efd3cb210127bb5efb5cf9ccf6a811c728.
+This is history evidence, not proof of completed safety or our live control.
+
 ## 2026-11-03 — C2 history-led adaptation on existing Radxa Q8B
 
 Owner explicitly requested all C2 integration work beyond the car folder and

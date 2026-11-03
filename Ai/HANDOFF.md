@@ -1,3 +1,7 @@
+2026-11-03 history explanation: complete53-commit plain-English2025guide saved in
+sunnypilot/Ai/Reports/retropilot-c2-history-20261103/2025_COMMITS.md.
+No runtime change; actual Chimera receive acceptance remains next.
+
 Owner communication preference: plain-English explanations first; coding details when requested. DBC inclusion rechecked; partial port versus live integration must remain explicit.
 
 ## 2026-11-03 — C2 history-led Radxa adaptation checkpoint
