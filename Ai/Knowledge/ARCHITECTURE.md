@@ -38,3 +38,7 @@ port. See [SYSTEM.md](SYSTEM.md) and [RADXA_PORT.md](RADXA_PORT.md).
 
 Historical deep navigation: [existing brain map](/home/radxa/comma/Ai/AI_BRAIN/00_MASTER_INDEX.md).
 Check its own version/coverage before trusting old line numbers and paths.
+
+## 2026-11-03 — Hidden root folders explained
+
+Read-only inspection at bf3c44d: .github contains tracked GitHub workflows/issue templates; .idea contains tracked JetBrains build-tool/custom-target settings; .run contains tracked CLion/Python UI build/run profiles. These are development/service configuration, not camera/model runtime providers. .install-backup-20261102 is an ignored local installation backup: five original native .so libraries plus SHA/size manifest (params, msgq, VisionIPC, UVC capture and Q8B Thneed replay), confirmed by install.md. It is not a complete repository/model backup. .ruff_cache is an ignored, regenerable Ruff lint cache (observed0.16.7). A leading dot normally hides an entry in Linux file listings. No folder deleted, configuration executed or runtime behavior changed. BeamNG optical/CAN implementation remains the active next task. Source-first documentation/Git skills; no applicable REA binary question.

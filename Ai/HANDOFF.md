@@ -736,3 +736,5 @@ model/GPU/managed run or measured geometry claim. Weights65a08adc unchanged.
 Owner selected printable target/tool; that next increment is in progress and
 calibration guard stays active. New unstaged test_calibration.py is expected
 RED until tool implementation; do not mistake it for a failure of this slice.
+
+2026-11-03 informational folder explanation saved in Knowledge/ARCHITECTURE.md and Sessions/2026-11-03-root-folders.md; no runtime/folder changes. BeamNG optical/CAN next step remains unchanged.

@@ -561,3 +561,5 @@ update and was refreshed; the historical system review remains pinned to6f7.
 2026-11-02 read-only follow-up:55thermal zones/58hwmon temperature attributes
 confirmed, including NVMe and SMB2351 extras; UI/sourcece7b047 unchanged.
 See NONCAMERA_HARDWARE temperature inventory. No runtime test rerun.
+
+2026-11-03 informational folder explanation saved in Knowledge/ARCHITECTURE.md and Sessions/2026-11-03-root-folders.md; no runtime/folder changes. BeamNG optical/CAN next step remains unchanged.
