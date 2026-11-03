@@ -11,5 +11,13 @@
     "commit": "b9a942efd3cb210127bb5efb5cf9ccf6a811c728",
     "scope": "All eight retained source blobs verified against linked c2 branch on 2026-11-03. Modern parser/controller adaptation; C2 constants are offline reference calibration only."
   },
-  "modern_opendbc_base": "aa9bff6f5442cef8cb8e25e143ef38865c276ce8"
+  "modern_opendbc_base": "aa9bff6f5442cef8cb8e25e143ef38865c276ce8",
+  "modern_safety": {
+    "stage": "disabled-command-only; not selected by the live car interface",
+    "identifier": 39,
+    "host_bus": 2,
+    "wire_source": "canonical_dbc above",
+    "implementation": "opendbc/safety/modes/retropilot.h, authored for current opendbc APIs; not copied from C2 safety",
+    "limits": "No qualified active vehicle profile. Active modes and nonzero targets are rejected; relays excluded."
+  }
 }

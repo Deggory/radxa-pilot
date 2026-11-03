@@ -10,6 +10,29 @@ selection; it is not an owner/BeamNG calibration or a qualified active port.
 `commands.py` implements all eight canonical command IDs for adapter verification.
 Its checks enforce encoded bit ranges, not qualified physical actuator limits.
 
+## Registered safety policy: disabled commands only
+
+`CarParams.SafetyModel.retropilot` is registered as39 in modern opendbc, with
+C rules in `safety/modes/retropilot.h` and compiled tests in
+`safety/tests/test_retropilot.py`. Existing identifiers, including26, retain
+their meanings. Cereal already imports this schema; its source is unchanged.
+
+This policy accepts only canonical disabled steering, gas and brake commands
+on explicit hostbus2. It checks address/DLC, CRC8J1850, disabled mode/ENABLE,
+zero engineering targets and reserved bits. Brake zero is offset encoded:
+relative raw0x7e00 and position raw0x0140. All16counter values are allowed;
+this is not TX freshness or replay protection. FD/extended/returned/rejected
+packets, unknown parameters and RelayCore commands are blocked. No RX message
+enables controls, and there is no forwarding. Incoming data is not qualified
+by this passive policy, and no physical actuator limit is inferred from a DBC.
+
+**The car interface still requests noOutput**, and runtime controller output
+remains zero. Registration is not permission to activate this policy on a board.
+The software-only policy is deliberately limited until a vehicle profile,
+measured command/driver limits, RX freshness and engagement/disengagement rules
+are qualified. Chimera work is held; relays are excluded from requested work.
+No firmware image was flashed or hardware mode changed.
+
 ## Offline controller replay
 
 From the Sunnypilot root:

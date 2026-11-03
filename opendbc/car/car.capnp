@@ -648,6 +648,7 @@ struct CarParams {
     volvo @36;
     bmw @37;
     mg @38;
+    retropilot @39;  # Disabled commands only; no qualified active profile.
   }
 
   enum SteerControlType {
