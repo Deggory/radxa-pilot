@@ -1,0 +1,106 @@
+{
+  "date_utc": "2026-11-03T21:08:35.367182+00:00",
+  "parent_base": "3dd853588be9685ce87cd62ed73b9347a8f2b947",
+  "opendbc_base": "86a839dcec8ed9a3e45315eac804fa1001f1b2d6",
+  "scope": "Register and test modern disabled-command-only policy; live interface remains noOutput; no hardware, relay integration or Chimera changes",
+  "mode": {
+    "name": "retropilot",
+    "identifier": 39,
+    "old_identifier26": "hongqi/FAW, unchanged",
+    "bus": 2,
+    "parameter": 0,
+    "unknown_parameters": "no TX"
+  },
+  "commands": {
+    "allowed_only_when_disabled": [
+      "0x10E/DLC6",
+      "0x12E/DLC6",
+      "0x200/DLC6",
+      "0x20E/DLC6",
+      "0x22E/DLC5",
+      "0x300/DLC6",
+      "0x400/DLC6"
+    ],
+    "crc": "CRC8SAEJ1850 poly1D/initFF/xorFF, bytes1..end",
+    "targets": "engineering zero only, including brake offsets",
+    "relays": "blocked",
+    "forwarding": "disabled",
+    "rx_engagement": "none"
+  },
+  "validation": [
+    {
+      "command": ".venv/bin/python -m unittest opendbc.safety.tests.test_retropilot",
+      "stage": "RED",
+      "result": "Expected AttributeError: no retropilot enum, before implementation"
+    },
+    {
+      "command": ".venv/bin/python -m unittest opendbc.safety.tests.test_retropilot",
+      "stage": "GREEN",
+      "result": "21 tests pass; native debug/release C with UBSan; independent bitwise CRC, all payload bits, randomized packets, valid-CRC wrong lengths, all buses/DLCs, fault/noOutput transitions"
+    },
+    {
+      "command": ".venv/bin/python -m unittest discover -s opendbc_repo/opendbc/safety/tests -p test_*.py",
+      "result": "8777 tests pass,932 existing skips; final test tree; raw log retained"
+    },
+    {
+      "command": "SAFETY_COVERAGE=1 focused suite + gcov --json-format --branch-probabilities --branch-counts",
+      "result": "24/24 executable policy lines and53/53 function blocks covered; coverage evidence retained"
+    },
+    {
+      "command": ".venv/bin/python -m unittest discover -s opendbc_repo/opendbc/car/retropilot/tests",
+      "result": "45 pass"
+    },
+    {
+      "command": ".venv/bin/python -m unittest discover -s opendbc_repo/opendbc/can/tests",
+      "result": "53 pass"
+    },
+    {
+      "command": "six-module broader car regression, listed in session",
+      "result": "303 tests pass,314 existing skips"
+    },
+    {
+      "command": ".venv/bin/python -m unittest opendbc.car.tests.test_models",
+      "result": "0 run,1 existing base-class skip; not counted as model validation"
+    },
+    {
+      "command": ".venv/bin/ruff check opendbc_repo/opendbc/safety/tests/test_retropilot.py",
+      "result": "pass"
+    },
+    {
+      "command": "SCons openpilot/cereal/libcereal.a with venv/bin and capnproto.BIN_DIR in PATH",
+      "result": "pass; generated C++ schema and static library rebuilt"
+    },
+    {
+      "command": "existing Cereal log.Event.carParams with retropilot safety ID39 encode/decode",
+      "result": "pass; no Cereal source edits"
+    }
+  ],
+  "review": {
+    "skill": "code-review-and-quality",
+    "agent": "review_retropilot_safety",
+    "result": "No Critical/Required findings; wrong-DLC test weakness addressed by canonical payload and recomputed CRC"
+  },
+  "initial_build_failure": "capnpc not in unactivated process PATH; corrected build invocation using already installed project package, no dependency changes",
+  "environment": {
+    "python": "3.12.13",
+    "machine": "aarch64",
+    "cc": "cc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "capnproto_bin": "/home/radxa/comma/sunnypilot/.venv/lib/python3.12/site-packages/capnproto/install/bin"
+  },
+  "source_sha256": {
+    "opendbc/car/car.capnp": "d1cdd1e23d8d779659ed5c24a76704a821aeb25dbbee7b5536a3770e8588c6bf",
+    "opendbc/safety/declarations.h": "40bde981216e7db62acd109574954dc3594947d4facf135a421dbb3a865ee520",
+    "opendbc/safety/safety.h": "5989c80595dfadcb3b9c9023831f5ba91769212302c98eff14130ae133cca4d6",
+    "opendbc/safety/modes/retropilot.h": "4d31c038bcc7c584df0d740b00bb657d0a7f0bdc02510ab66dcc368a6553747e",
+    "opendbc/safety/tests/test_retropilot.py": "8a1a753de06e4b951363f62206051e71204abd08b164b58263b3ace6c51ca046"
+  },
+  "dbc_sha256": "ef6eef74021a00183729b53ba90f1c790792cfe5dcf72fe9bdfe2dcb3d6a5dce",
+  "limits": [
+    "No qualified active actuator or driver limits; no RX integrity/freshness engagement policy.",
+    "No installed-board tests or ARM firmware image/flash.",
+    "Full CI gcovr and MISRA tools absent; native gcov used for new-policy coverage.",
+    "REA not run: complete readable sources and actual compiled test behavior suffice, per source-first/REA skill.",
+    "Local safety identifier39 is unused in this pinned checkout; review collisions before future upstream integration."
+  ],
+  "opendbc_commit": "a6099a1e141f17ec18ca9b065cf9a8f972e0cac8"
+}

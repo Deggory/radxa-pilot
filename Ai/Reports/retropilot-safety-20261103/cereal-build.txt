@@ -1,0 +1,17 @@
+scons: Reading SConscript files ...
+kj/filesystem-disk-unix.c++:1734: warning: PWD environment variable doesn't match current directory; pwd = /home/radxa/comma/sunnypilot
+scons: done reading SConscript files.
+scons: Building targets ...
+progress: 29.4
+progress: 58.8
+progress: 88.2
+capnpc --src-prefix=openpilot/cereal --src-prefix=opendbc_repo/opendbc/car --import-path=opendbc_repo/opendbc/car openpilot/cereal/log.capnp openpilot/cereal/deprecated.capnp openpilot/cereal/custom.capnp opendbc_repo/opendbc/car/car.capnp -o c++:openpilot/cereal/gen/cpp/
+progress: 100.0
+  [CXX] openpilot/cereal/gen/cpp/deprecated.capnp.o
+  [CXX] openpilot/cereal/gen/cpp/log.capnp.o
+  [CXX] openpilot/cereal/gen/cpp/car.capnp.o
+  [CXX] openpilot/cereal/gen/cpp/custom.capnp.o
+  [AR] openpilot/cereal/libcereal.a
+  [RANLIB] openpilot/cereal/libcereal.a
+prune_cache_dir(["openpilot/cereal/libcereal.a"], ["openpilot/cereal/gen/cpp/log.capnp.o", "openpilot/cereal/gen/cpp/deprecated.capnp.o", "openpilot/cereal/gen/cpp/custom.capnp.o", "openpilot/cereal/gen/cpp/car.capnp.o"])
+scons: done building targets.

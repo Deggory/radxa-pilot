@@ -1,3 +1,12 @@
+## 2026-11-03 — Current RetroPilot safety work
+
+- [x] Register modern ID 39 and implement/test disabled-command-only policy.
+- [x] Native debug/release safety, schema/library build and regressions.
+- [ ] Qualify active actuator/driver bounds, RX integrity/freshness and engagement.
+- [ ] Implement active rules only against those qualified requirements.
+- Chimera work is held by owner; relay integration is excluded.
+- Current car interface remains noOutput and runtime controller output is zero.
+
 ## 2026-11-03 — C2 history-led Radxa adaptation checkpoint
 
 Owner confirmed existing Radxa Q8B. Full C2 history/submodules now mapped:

@@ -83,10 +83,17 @@ Our RetroPilot interface currently requests existing noOutput and dashcamOnly.
 Current noOutput has no allowed outgoing messages and its TX hook rejects output
 (opendbc/safety/modes/defaults.h). The controller also returns no live CAN frames.
 These are current source settings, not proof of installed hardware behavior.
-Future active control requires a policy matching the actual CAN protocol and
-qualified limits, matching host/firmware identification, registration and safety
-tests. A new enum alone is insufficient. No safety code or firmware was changed
-for this explanation, and no mode was sent to hardware.
+The new `retropilot @39` identifier and restricted firmware-source policy are
+now registered. The policy accepts only seven canonical disabled commands on
+hostbus2, with exact DLC, CRC and zero engineering targets. Active modes,
+nonzero targets, reserved bits, relays, unknown parameters and CAN forwarding
+are blocked. The car interface continues to request noOutput.
+
+This is a tested disabled-command-only policy, not a qualified active-control
+policy. No physical limits are invented from DBC signal ranges or C2 constants.
+Active control still requires a measured profile and driver limits, incoming
+message integrity/freshness and engagement/disengagement requirements. No
+firmware image was flashed or mode sent to hardware; Chimera remains held.
 
 ## Files, identification and safety status
 
@@ -105,11 +112,11 @@ places the host car package in opendbc/car. Our pinned implementation is in
 | `fingerprints.py` | C2-name compatibility and an explicitly empty automatic CAN database. Both old/new names select the modern platform; no ECU firmware versions are asserted. |
 | `radar_interface.py` | No radar-specific implementation; inherited base interface with radarUnavailable. |
 | `opendbc/dbc/ocelot_controls.dbc` | Packaged canonical DBC; existing wire bytes unchanged. |
-| `opendbc/safety/modes/retropilot.h` | Not implemented. A future policy needs registration in the modern safety dispatcher and schema plus compiled safety tests. |
-| `opendbc/safety/tests/test_retropilot.py` | Not implemented. Existing host/codec tests do not qualify firmware safety enforcement. |
+| `opendbc/safety/modes/retropilot.h` | Registered as mode39: disabled-command-only policy with exact bus/DLC, CRC and zero-target checks. Active commands and relays blocked; interface stays noOutput. |
+| `opendbc/safety/tests/test_retropilot.py` | Compiled C-policy tests, including debug/release builds, payload mutation, malformed frames, unknown parameters and forwarding. No installed-board qualification. |
 
 Paths beginning with `opendbc/` in this table are relative to opendbc_repo;
-the two RetroPilot safety paths are planned locations, not existing files.
+both RetroPilot safety paths now exist and are covered by compiled software tests.
 For comparison, this pinned tree uses `opendbc/safety/modes/hyundai.h`,
 `hyundai_canfd.h` and `opendbc/safety/tests/test_hyundai*.py`.
 

@@ -1,3 +1,14 @@
+## 2026-11-03 — Register restricted safety without guessing active limits
+
+User authorized implementing the missing identifier/rules/tests. Existing C2
+constants and DBC signal ranges are not measured Radxa/BeamNG actuator limits.
+Append local enum 39, keep existing IDs, and implement explicit disabled-only
+CAN rules with full compiled tests. Preserve noOutput selection and zero live
+output. Repeated counters remain allowed for disabled packets; this is not
+an engagement/freshness policy. Reject unknown parameters and exclude relays.
+No physical control/flash or held Chimera work follows from source registration.
+Review future upstream enum assignments before integrating them.
+
 ## 2026-11-03 — Keep modern checks and identify Chimera independently
 
 Use history to migrate capability across the stack, preserving modern safety,

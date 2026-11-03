@@ -1,0 +1,33 @@
+{
+  "file": "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/safety/modes/retropilot.h",
+  "covered_lines": 24,
+  "executable_lines": 24,
+  "functions": [
+    {
+      "name": "retropilot_init",
+      "demangled_name": "retropilot_init",
+      "start_line": 9,
+      "start_column": 22,
+      "end_line": 27,
+      "end_column": 1,
+      "blocks": 4,
+      "blocks_executed": 4,
+      "execution_count": 33
+    },
+    {
+      "name": "retropilot_tx_hook",
+      "demangled_name": "retropilot_tx_hook",
+      "start_line": 29,
+      "start_column": 13,
+      "end_line": 56,
+      "end_column": 1,
+      "blocks": 49,
+      "blocks_executed": 49,
+      "execution_count": 2204
+    }
+  ],
+  "uncovered": [],
+  "coverage_directory": "/tmp/retropilot-safety-coverage-wgc40opa",
+  "source_sha256": "4d31c038bcc7c584df0d740b00bb657d0a7f0bdc02510ab66dcc368a6553747e",
+  "scope": "Focused compiled policy tests; new header only, not full-suite coverage"
+}

@@ -1,3 +1,6 @@
+Current safety increment: [restricted RetroPilot policy](Reports/retropilot-safety-20261103/README.md)
+registered and tested; active control disabled, Chimera held, relays excluded.
+
 2026-11-03 owner direction: **Chimera work is on hold until the owner resumes it.**
 Current discussion is the need for modern RetroPilot messages and why C2 changed
 Cereal. Earlier next-step notes about Chimera acceptance are deferred.

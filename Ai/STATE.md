@@ -1,3 +1,20 @@
+## 2026-11-03 — RetroPilot restricted safety mode implemented
+
+Modern opendbc a6099a1e141f17ec18ca9b065cf9a8f972e0cac8 registers local
+RetroPilot safety ID 39 and a disabled-command-only C policy. Seven canonical
+steering/gas/brake disable packets are checked on bus 2; active commands,
+relays, malformed frames, unknown parameters and forwarding are blocked.
+The interface stays noOutput/dashcamOnly and controller runtime sends no CAN.
+21 focused and 8777 full safety tests pass (932 existing skips); 45 RetroPilot,
+53 CAN and 303 broader car checks pass (314 broader skips). New policy has
+24/24 executable lines covered; debug/release C and Cereal C++ builds pass.
+No Cereal source/DBC/model/firmware changes. Chimera is held; relays excluded.
+Active policy limits, RX health/freshness and engagement remain unqualified.
+Next: qualify those software/vehicle requirements without resuming held hardware.
+Evidence: Ai/Evidence/retropilot-safety-20261103.json and report under
+Ai/Reports/retropilot-safety-20261103/. This supersedes older "no policy file"
+notes, not the remaining active-control limitations.
+
 ## 2026-11-03 — C2 history-led Radxa adaptation checkpoint
 
 Owner confirmed existing Radxa Q8B. Full C2 history/submodules now mapped:
