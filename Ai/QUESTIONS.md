@@ -1,3 +1,8 @@
+2026-11-03 identification update: C2-name compatibility is implemented at04a7835.
+Remaining identification question is measured automatic CAN/ECU identity, not
+fixed selection. Teacher C2 used a forced name and placeholder fingerprint.
+No owner question needed for the completed alias/migration increment.
+
 ## 2026-11-03 — RetroPilot live-integration facts still needed
 
 Car code stage implemented; no question pending for this completed increment.

@@ -19,7 +19,7 @@ places the host car package in opendbc/car. Our pinned implementation is in
 | `carstate.py` | Existing canonical signals parsed with validity checks; missing gear/wheels and unqualified speed remain explicit. |
 | `carcontroller.py` | Implemented passive stage: always returns zero actuators and no CAN frames. Active control mapping is pending. |
 | `retropilotcan.py` / `commands.py` | Canonical CRC and offline command constructors; no calibrated normalized-control-to-actuator mapping. |
-| `fingerprints.py` | No qualified automatic identification database. Explicit RETROPILOT_RETROFIT selection is implemented and tested. |
+| `fingerprints.py` | C2-name compatibility and an explicitly empty automatic CAN database. Both old/new names select the modern platform; no ECU firmware versions are asserted. |
 | `radar_interface.py` | No radar-specific implementation; inherited base interface with radarUnavailable. |
 | `opendbc/dbc/ocelot_controls.dbc` | Packaged canonical DBC; existing wire bytes unchanged. |
 | `opendbc/safety/modes/retropilot.h` | Not implemented. A future policy needs registration in the modern safety dispatcher and schema plus compiled safety tests. |
@@ -37,6 +37,32 @@ calibration or firmware compatibility. Future automatic identification needs
 measured ECU/module identities or a qualified CAN signature. There is no reason
 to populate fingerprints.py with invented ECU versions for the present explicit
 simulator selection.
+
+## How C2 selection maps to this version
+
+The retained C2 source (RetroPilot/openpilot b9a942ef) did not rely on its CAN
+fingerprint to identify the retrofit. `car/retropilot/values.py` defined a
+placeholder fingerprint containing IDs0..15/DLC8, while
+`selection/car_helpers.py` hard-coded `fixed_fingerprint = "RETROPILOT RETROFIT"`
+and `skip_fw_query = True`. The fixed name overrode the matcher result.
+
+The modern equivalent keeps selection explicit:
+
+| C2 mechanism | Current implementation |
+| --- | --- |
+| `CAR.RETROFIT = "RETROPILOT RETROFIT"` | `CAR.RETROPILOT_RETROFIT` in the modern platform registry. |
+| Placeholder IDs0..15 in values.py | `retropilot/fingerprints.py` declares `FINGERPRINTS = {}`; no unmeasured automatic signature is installed. |
+| Forced old name in car_helpers | Explicit old/new names are normalized before selection and the no-diagnostic guard; other vehicles remain selectable. |
+| Old platform names in saved configuration | RetroPilot's alias is merged into shared `car/fingerprints.py:MIGRATION`, used by Sunnypilot's existing CarPlatformBundle migration. |
+| Unconditional firmware-query bypass | Query bypass is scoped to explicit RetroPilot selection. No FW_VERSIONS/FW_QUERY_CONFIG is registered for unknown modules. |
+
+Both `RETROPILOT RETROFIT` and `RETROPILOT_RETROFIT` work through the fixed
+argument or FINGERPRINT environment variable. Tests use synthetic CAN and a
+temporary Params directory; no owner's saved selection was changed. Hostbus2,
+passive output, unqualified speed and vehicle/safety limits remain unchanged.
+The shared file now contains the RetroPilot migration entry. It still has no
+RetroPilot automatic CAN/ECU matching entry. Adding a filename or name alias
+does not establish identification of a physical vehicle or installed firmware.
 
 The historical teacher reference `retropilot/safety/safety_retropilot.h` is WIP:
 it allows controls on arbitrary reception, disables receive-integrity checks,

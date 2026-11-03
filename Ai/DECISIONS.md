@@ -1,3 +1,12 @@
+## 2026-11-03 — Preserve C2 explicit-selection compatibility
+
+Map "RETROPILOT RETROFIT" to RETROPILOT_RETROFIT through the brand/shared
+migration registry and selector normalization. Keep the current platform
+explicitly selected, preserving other vehicles. C2's fakeIDs0..15 are not a
+modern automatic fingerprint. Do not register unqualified ECU versions or
+query configurations; modern FW discovery requires real database/config pairs.
+Owner's saved settings are untouched; migration tests use temporary Params.
+
 ## 2026-11-03 — Keep file presence distinct from control/safety support
 
 Explicit selection is sufficient for the current simulator monitoring stage;

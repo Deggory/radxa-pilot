@@ -1,3 +1,6 @@
+2026-11-03 current: [RetroPilot C2 selection compatibility](Knowledge/RETROPILOT_CAR_PORT.md)
+now includes fingerprints.py/shared MIGRATION; automatic matching remains pending.
+
 Current2026-11-03: [RetroPilot car platform](Knowledge/RETROPILOT_CAR_PORT.md)
 implemented receive-only; Chimera backend/live loop still pending. See HANDOFF.
 

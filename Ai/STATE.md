@@ -1,3 +1,35 @@
+## 2026-11-03 — C2 RetroPilot identification mapped to modern selection
+
+Owner asked why fingerprint registration was absent and requested teacher C2
+comparison. Re-read immutable C2 values.py and selection/car_helpers.py:
+values has placeholderIDs0..15/DLC8; selection hard-codes "RETROPILOT RETROFIT",
+skipsFW queries and overwrites the matcher result. It did not identify the
+retrofit through measured ECU/CAN fingerprints. Earlier explanation omitted
+this distinction and compatibility with the old name was missing.
+
+Implemented car/retropilot/fingerprints.py with C2-name MIGRATION and an empty
+FINGERPRINTS map. Shared car/fingerprints.py merges that map; car_helpers
+normalizes the old name before the RetroPilot no-diagnostic guard. Explicit
+argument and FINGERPRINT environment accept both old/new names. Existing
+Sunnypilot CarPlatformBundle migration now converts saved C2 names; tested
+against actual native Params in caller-owned temporary directories. Other-car
+MOCK selection stays unchanged. No global override or automatic matching added.
+
+Source: C2b9a942efd3cb210127bb5efb5cf9ccf6a811c728; parentbasec6917544;
+opendbc649bbb6→04a78352a9605a0e07342146fe8481b7d92ee7fd on radxa/retropilot.
+27RetroPilot/5Params/53CAN tests and303broader car tests pass (314existing
+subtest skips); Ruff and whitespace pass. Canonical DBC, noOutput/passive
+controller, speed factor0, hostbus2, CD210GPU eb741641 and firmware unchanged.
+No model/manager/game/hardware/CAN TX or persistent owner-settings action.
+Next remains receive-only Chimera backend and producer/profile qualification;
+automatic identity and active MCU safety remain unimplemented. No new question.
+
+Current receipt: Ai/Evidence/retropilot-c2-selection-20261103.json; source hashes
+and RED/GREEN/regression logs retained. Skills: source-driven-development,
+interface design, TDD/incremental implementation, Git, documentation and
+self-review. Source-first path; no REA artifact/runtime question. No upstream
+merge; inbox had0related pending and8historical failed/blocked records retained.
+
 ## 2026-11-03 — Car-port checklist: identification and safety remain separate
 
 Reconciled owner's pasted modern car-port checklist with actual source and

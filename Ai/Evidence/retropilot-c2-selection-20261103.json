@@ -1,0 +1,81 @@
+{
+  "date": "2026-11-03",
+  "scope": "C2-to-modern RetroPilot selection compatibility, shared migration registry and saved-bundle tests",
+  "parent_base": "c6917544f1f4a93bec34dc0a008cbb243ed3f2b7",
+  "opendbc_base": "649bbb632a020f155fc1eb16ae343f49a5c4bb50",
+  "opendbc_commit": "04a78352a9605a0e07342146fe8481b7d92ee7fd",
+  "c2_reference": "b9a942efd3cb210127bb5efb5cf9ccf6a811c728",
+  "source_hashes": {
+    "/home/radxa/comma/retropilot/selection/car_helpers.py": "aed54c4928b38e8cebc45de8f3619a414c2767d3d8a13c0174d27389919d412f",
+    "/home/radxa/comma/retropilot/car/retropilot/values.py": "035949eae1f463c73b894524c59f3e6b5ceeab9520fc7a5588c5ec7dc69debd8"
+  },
+  "checks": [
+    {
+      "command": ".venv/bin/python -m unittest discover -s opendbc_repo/opendbc/car/retropilot/tests -v",
+      "exit_code": 0,
+      "log": "Ai/Reports/retropilot-c2-selection-20261103/retropilot-c2-port.log",
+      "sha256": "89c19830e174296ff1dbb9eabadb40eabd5e9ca5e53d15e3314669ed24970f3c",
+      "summary": [
+        "Ran 27 tests in 0.073s",
+        "OK"
+      ]
+    },
+    {
+      "command": ".venv/bin/python -m unittest openpilot.sunnypilot.system.tests.test_params_migration -v",
+      "exit_code": 0,
+      "log": "Ai/Reports/retropilot-c2-selection-20261103/retropilot-c2-params.log",
+      "sha256": "c0f9f50ea01517a8f652ed8e759fe60340ec000478378dafdcec5c7d92ea9b01",
+      "summary": [
+        "Ran 5 tests in 0.230s",
+        "OK"
+      ]
+    },
+    {
+      "command": ".venv/bin/python -m unittest opendbc.car.tests.test_car_interfaces opendbc.car.tests.test_platform_configs opendbc.car.tests.test_can_fingerprint opendbc.car.tests.test_fw_fingerprint opendbc.car.tests.test_docs opendbc.car.tests.test_vehicle_model",
+      "exit_code": 0,
+      "log": "Ai/Reports/retropilot-c2-selection-20261103/retropilot-c2-regressions.log",
+      "sha256": "94e3a0e483029f0a6f5f9bee4ba32652410b595fee6d316f95825c5df0925dad",
+      "summary": [
+        "Ran 303 tests in 33.705s",
+        "OK (skipped=314)"
+      ]
+    },
+    {
+      "command": ".venv/bin/python -m unittest discover -s opendbc_repo/opendbc/can/tests -v",
+      "exit_code": 0,
+      "log": "Ai/Reports/retropilot-c2-selection-20261103/retropilot-c2-can.log",
+      "sha256": "10d3f80501c3aa93fb3a61d8641dd27c851b21e2be7ad4b37b0d40c87d978dd8",
+      "summary": [
+        "Ran 53 tests in 0.406s",
+        "OK"
+      ]
+    },
+    {
+      "command": ".venv/bin/ruff check opendbc_repo/opendbc/car/fingerprints.py opendbc_repo/opendbc/car/car_helpers.py opendbc_repo/opendbc/car/retropilot openpilot/sunnypilot/system/tests/test_params_migration.py",
+      "exit_code": 0,
+      "output": "All checks passed!"
+    },
+    {
+      "command": ".venv/bin/python Ai/verify_memory.py --workspace /home/radxa/comma",
+      "exit_code": 0,
+      "output": "PASS:73 notebook documents/224 relative links/8 source repositories/4252 indexed entries"
+    },
+    {
+      "command": "git diff --check; selected current guide/package relative-link assertions",
+      "exit_code": 0,
+      "output": "PASS"
+    }
+  ],
+  "result": "pass",
+  "review": {
+    "correctness": "C2 old name normalized before query guard; both argument/environment tested, no diagnostic TX, actual native temporary Params migration tested; other-car MOCK selection preserved.",
+    "architecture": "Brand-specific metadata/migration map merges into shared registry; no global override, fabricated CAN ID signature, firmware versions or queries.",
+    "security": "Passive/noOutput remains unchanged. Tests use synthetic CAN and caller-owned temporary Params; no device or owner-config writes.",
+    "performance": "Only dictionary lookups added; no timing/rate benchmark claimed."
+  },
+  "limits": [
+    "Automatic CAN/FW identification is not implemented. FINGERPRINTS is an empty map; FW_VERSIONS is deliberately absent to avoid registering an unqualified FW database.",
+    "Chimera transport/safety/calibration and live BeamNG integration remain pending.",
+    "No hardware/firmware/CAN TX/model/manager/game run or persistent owner settings change."
+  ]
+}

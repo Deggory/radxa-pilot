@@ -5,9 +5,37 @@ This file is part of sunnypilot and is licensed under the MIT License.
 See the LICENSE.md file in the root directory for more details.
 """
 
+import json
+import tempfile
+import unittest
+from pathlib import Path
+from unittest.mock import patch
+
 from openpilot.common.params import Params
 from openpilot.common.test import OpenpilotTestCase
-from openpilot.sunnypilot.system.params_migration import _migrate_model_bundle_slots
+from openpilot.sunnypilot.system.params_migration import _migrate_car_platform_bundle, _migrate_model_bundle_slots
+
+
+class TestRetroPilotPlatformMigration(unittest.TestCase):
+  def test_saved_c2_platform_maps_to_modern_platform(self):
+    with tempfile.TemporaryDirectory() as tmp:
+      params = Params(str(Path(tmp) / 'params'))
+      old_bundle = {'platform': 'RETROPILOT RETROFIT', 'brand': 'retropilot', 'model': 'Retrofit', 'name': 'Owner profile'}
+      params.put('CarPlatformBundle', old_bundle, block=True)
+      car_list = Path(tmp) / 'car_list.json'
+      car_list.write_text(json.dumps({}))
+      with patch('openpilot.sunnypilot.system.params_migration.CAR_LIST_JSON_OUT', str(car_list)):
+        _migrate_car_platform_bundle(params)
+      self.assertEqual(params.get('CarPlatformBundle'), {**old_bundle, 'platform': 'RETROPILOT_RETROFIT'})
+
+  def test_current_platform_and_profile_metadata_are_preserved(self):
+    for platform in ('RETROPILOT_RETROFIT', 'MOCK'):
+      with self.subTest(platform=platform), tempfile.TemporaryDirectory() as tmp:
+        params = Params(str(Path(tmp) / 'params'))
+        bundle = {'platform': platform, 'name': 'Existing profile'}
+        params.put('CarPlatformBundle', bundle, block=True)
+        _migrate_car_platform_bundle(params)
+        self.assertEqual(params.get('CarPlatformBundle'), bundle)
 
 
 class TestModelBundleSlotMigration(OpenpilotTestCase):

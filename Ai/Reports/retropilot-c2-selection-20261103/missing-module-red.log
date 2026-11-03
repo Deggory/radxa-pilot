@@ -1,0 +1,19 @@
+test_fingerprints (unittest.loader._FailedTest.test_fingerprints) ... ERROR
+
+======================================================================
+ERROR: test_fingerprints (unittest.loader._FailedTest.test_fingerprints)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_fingerprints
+Traceback (most recent call last):
+  File "/home/radxa/.local/share/uv/python/cpython-3.12.13-linux-aarch64-gnu/lib/python3.12/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/retropilot/tests/test_fingerprints.py", line 9, in <module>
+    from opendbc.car.retropilot import fingerprints
+ImportError: cannot import name 'fingerprints' from 'opendbc.car.retropilot' (/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/retropilot/__init__.py)
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (errors=1)

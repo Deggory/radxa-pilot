@@ -1,0 +1,10 @@
+test_noop_when_chestnut_slot_already_set (openpilot.sunnypilot.system.tests.test_params_migration.TestModelBundleSlotMigration.test_noop_when_chestnut_slot_already_set) ... ok
+test_noop_when_no_selection (openpilot.sunnypilot.system.tests.test_params_migration.TestModelBundleSlotMigration.test_noop_when_no_selection) ... ok
+test_seeds_chestnut_slot_from_active_bundle (openpilot.sunnypilot.system.tests.test_params_migration.TestModelBundleSlotMigration.test_seeds_chestnut_slot_from_active_bundle) ... ok
+test_current_platform_and_profile_metadata_are_preserved (openpilot.sunnypilot.system.tests.test_params_migration.TestRetroPilotPlatformMigration.test_current_platform_and_profile_metadata_are_preserved) ... ok
+test_saved_c2_platform_maps_to_modern_platform (openpilot.sunnypilot.system.tests.test_params_migration.TestRetroPilotPlatformMigration.test_saved_c2_platform_maps_to_modern_platform) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.230s
+
+OK
