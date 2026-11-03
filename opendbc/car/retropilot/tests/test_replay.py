@@ -11,7 +11,7 @@ from opendbc.car.retropilot.values import CAN_BUS
 class TestReplay(unittest.TestCase):
   def rows(self, count=14, live_count=1):
     packer = CANPacker('ocelot_controls')
-    signals = {'STEER_ANGLE_SENSOR': {}, 'ENGINE': {'IGNITION_ON': 1}, 'SPEED': {'CAN_SPEED': 36}, 'CRUISE': {},
+    signals = {'STEER_ANGLE_SENSOR': {'STATE': 1}, 'ENGINE': {'IGNITION_ON': 1}, 'SPEED': {'CAN_SPEED': 36}, 'CRUISE': {},
                'INTERCEPTOR_STEERING_SENSOR': {}, 'ACTUATOR_GAS_SENSOR': {}, 'IBOOSTER_BRAKE_STATUS': {'BRAKE_OK': 1}}
     rows = []
     for i in range(count):

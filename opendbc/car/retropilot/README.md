@@ -64,6 +64,11 @@ Modern Chimera USB/health/safety compatibility is a separate backend task.
 
 ## Deliberately unavailable
 
+The reviewed Chimera TIM3 producer and shared ZSSv0.2.0 encode angle STATE1
+as enabled/valid; STATE0 is disabled. CarState requires exactly1 for this source
+contract, rejecting other nibble values. This is separate from actuator status
+STATE0=healthy. The DBC has no named angle-state enum; its bytes are unchanged.
+
 Speed scale starts at0 and `vehicleSensorsInvalid=True`. Set
 `CP.wheelSpeedFactor` before interface construction to1.0 for a confirmed km/h
 producer, or0.01 for confirmed centi-km/h, in an isolated replay. Raw speed is

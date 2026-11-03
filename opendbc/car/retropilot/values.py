@@ -7,6 +7,10 @@ from opendbc.car import Bus, CarSpecs, PlatformConfig, Platforms
 # The transport must preserve host bus numbers; actual wiring is not inferred.
 CAN_BUS = 2
 
+# Chimera TIM3 producer packs can.enabled in this nibble; shared ZSS v0.2.0
+# follows the same contract. Zero means disabled, not an OK/fault status code.
+ANGLE_STATE_ENABLED = 1
+
 
 class CarControllerParams:
   # Normalized output range and zero slew describe the enforced passive stage.

@@ -23,7 +23,7 @@ class TestRetroPilot(unittest.TestCase):
     self.t = 1_000_000_000
 
   def update(self, changes=None, bus=CAN_BUS, omit=()):
-    values = {'STEER_ANGLE_SENSOR': {'STEER_ANGLE': -12.3, 'STEER_RATE': 4},
+    values = {'STEER_ANGLE_SENSOR': {'STEER_ANGLE': -12.3, 'STEER_RATE': 4, 'STATE': 1},
               'SPEED': {'CAN_SPEED': 36}, 'ENGINE': {'IGNITION_ON': 1}, 'CRUISE': {}}
     for name, signals in (changes or {}).items():
       values.setdefault(name, {}).update(signals)
@@ -94,6 +94,17 @@ class TestRetroPilot(unittest.TestCase):
     self.assertEqual(state.vEgoRaw, 0)
     self.ci = make_interface(speed_factor=0.01)
     self.assertAlmostEqual(self.update({'SPEED': {'CAN_SPEED': 3600}}).vEgoRaw, 10.0)
+
+  def test_angle_state_matches_enabled_chimera_and_zss_producers(self):
+    state = self.update({'STEER_ANGLE_SENSOR': {'STATE': 1}})
+    self.assertFalse(state.vehicleSensorsInvalid)
+    self.assertFalse(state.steerFaultTemporary)
+    self.assertTrue(self.ci.CS.control_ready)
+    for value in (0, 2, 3, 15):
+      state = self.update({'STEER_ANGLE_SENSOR': {'STATE': value}})
+      self.assertTrue(state.vehicleSensorsInvalid)
+      self.assertTrue(state.steerFaultTemporary)
+      self.assertFalse(self.ci.CS.control_ready)
 
   def test_wrong_bus_and_missing_message_do_not_become_valid(self):
     self.assertFalse(self.update(bus=(CAN_BUS + 1) % 3).canValid)

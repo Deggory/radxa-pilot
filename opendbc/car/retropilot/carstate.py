@@ -5,7 +5,7 @@ from opendbc.can.parser import MAX_BAD_COUNTER
 from opendbc.car import Bus, structs
 from opendbc.car.common.conversions import Conversions as CV
 from opendbc.car.interfaces import CarStateBase
-from opendbc.car.retropilot.values import CAN_BUS, DBC, MODULES, RetroPilotFlags
+from opendbc.car.retropilot.values import ANGLE_STATE_ENABLED, CAN_BUS, DBC, MODULES, RetroPilotFlags
 
 
 BUTTONS = {
@@ -58,13 +58,13 @@ class CarState(CarStateBase):
     else:
       ret.vehicleSensorsInvalid = True
 
-    ret.steerFaultTemporary = not cp.fresh('STEER_ANGLE_SENSOR') or cp.vl['STEER_ANGLE_SENSOR']['STATE'] != 0
+    ret.steerFaultTemporary = not cp.fresh('STEER_ANGLE_SENSOR') or cp.vl['STEER_ANGLE_SENSOR']['STATE'] != ANGLE_STATE_ENABLED
 
     if cp.fresh('STEER_ANGLE_SENSOR'):
       ret.steeringAngleDeg = cp.vl['STEER_ANGLE_SENSOR']['STEER_ANGLE']
       # Canonical STEER_RATE is unsigned magnitude, not a signed derivative.
       # CarState's rate has direction; leave it unavailable rather than inventing it.
-      ret.vehicleSensorsInvalid |= cp.vl['STEER_ANGLE_SENSOR']['STATE'] != 0
+      ret.vehicleSensorsInvalid |= cp.vl['STEER_ANGLE_SENSOR']['STATE'] != ANGLE_STATE_ENABLED
     else:
       ret.vehicleSensorsInvalid = True
 
