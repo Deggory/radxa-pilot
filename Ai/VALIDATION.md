@@ -286,3 +286,5 @@ tests rerun. See Sessions/2026-11-02-q8b-hardware-support.md and teacher report
 sunnypilot-hardware-support-20261102 for actual output. Runtime ce7b047 unchanged.
 
 2026-11-03 BeamNG optical/CAN layout: documentation-only validation PASS. 67 notebook documents/215 relative links/8 pinned repositories/4252 index entries; 7 current guides/26 relative links;96 preserved source files/1160682bytes; 12 existing verifier regressions and existing Waveshare offline self-test pass. No HIL runtime or hardware execution. Receipt Ai/Evidence/beamng-hil-layout-20261103.json.
+
+Packaging correction: .gitignore PLAN.md rule omitted the linked plan from initial2968735. Explicitly track the plan in the follow-up; all5 active guides and linked file targets pass a Git-index presence check. Initial commit alone is incomplete; use the following checkpoint.

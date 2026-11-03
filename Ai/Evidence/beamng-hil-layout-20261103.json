@@ -85,5 +85,10 @@
       "sha256": "2996676fb60447a3ea3de70882e19b0a54709a65e2f3d8c935c68e074eb0612d",
       "identity_scope": "current saved source, not proof of installed firmware or PC deployment"
     }
-  ]
+  ],
+  "packaging_correction": {
+    "first_commit": "296873538012649ee929f150a22d8491dca65a1d",
+    "finding": "Global PLAN.md ignore omitted linked plan from first commit; disk checks passed but initial commit was not portable. Follow-up explicitly stages the plan.",
+    "validation": "All five active guides and linked file targets verified present in Git index after explicit staging."
+  }
 }
