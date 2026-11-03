@@ -1,0 +1,46 @@
+....................VIN 00000000000000000
+{'event': 'fingerprinted', 'car_fingerprint': 'RETROPILOT_RETROFIT', 'source': 2, 'fuzzy': False, 'cached': False, 'fw_count': 0, 'ecu_responses': [], 'vin_rx_addr': -1, 'vin_rx_bus': -1, 'fingerprints': '{0: {}, 1: {}, 2: {80: 6}, 3: {}, 4: {}, 5: {}, 6: {}, 7: {}}', 'fw_query_time': 0.00028551500145113096}
+VIN 00000000000000000
+{'event': 'fingerprinted', 'car_fingerprint': 'RETROPILOT_RETROFIT', 'source': 2, 'fuzzy': False, 'cached': False, 'fw_count': 0, 'ecu_responses': [], 'vin_rx_addr': -1, 'vin_rx_bus': -1, 'fingerprints': '{0: {}, 1: {}, 2: {80: 6}, 3: {}, 4: {}, 5: {}, 6: {}, 7: {}}', 'fw_query_time': 4.0988001273944974e-05}
+VIN 00000000000000000
+{'event': 'fingerprinted', 'car_fingerprint': 'RETROPILOT_RETROFIT', 'source': 2, 'fuzzy': False, 'cached': False, 'fw_count': 0, 'ecu_responses': [], 'vin_rx_addr': -1, 'vin_rx_bus': -1, 'fingerprints': '{0: {}, 1: {}, 2: {80: 6}, 3: {}, 4: {}, 5: {}, 6: {}, 7: {}}', 'fw_query_time': 3.5363998904358596e-05}
+VIN 00000000000000000
+{'event': 'fingerprinted', 'car_fingerprint': 'RETROPILOT_RETROFIT', 'source': 2, 'fuzzy': False, 'cached': False, 'fw_count': 0, 'ecu_responses': [], 'vin_rx_addr': -1, 'vin_rx_bus': -1, 'fingerprints': '{0: {}, 1: {}, 2: {80: 6}, 3: {}, 4: {}, 5: {}, 6: {}, 7: {}}', 'fw_query_time': 3.4217999200336635e-05}
+..VIN 00000000000000000
+{'event': 'fingerprinted', 'car_fingerprint': 'MOCK', 'source': 2, 'fuzzy': False, 'cached': False, 'fw_count': 0, 'ecu_responses': [], 'vin_rx_addr': -1, 'vin_rx_bus': -1, 'fingerprints': '{0: {}, 1: {}, 2: {118: 8}, 3: {}, 4: {}, 5: {}, 6: {}, 7: {}}', 'fw_query_time': 2.8279995603952557e-05}
+...CANParser: 0x76 SPEED checksum failed: received 0x20, calculated 0x21
+.............VIN 00000000000000000
+{'event': 'fingerprinted', 'car_fingerprint': 'RETROPILOT_RETROFIT', 'source': 2, 'fuzzy': False, 'cached': False, 'fw_count': 0, 'ecu_responses': [], 'vin_rx_addr': -1, 'vin_rx_bus': -1, 'fingerprints': '{0: {}, 1: {}, 2: {80: 6}, 3: {}, 4: {}, 5: {}, 6: {}, 7: {}}', 'fw_query_time': 5.166600021766499e-05}
+.....CANParser: 0x50 STEER_ANGLE_SENSOR not valid (timeout or missing)
+CANParser: 0x75 ENGINE not valid (timeout or missing)
+CANParser: 0x76 SPEED not valid (timeout or missing)
+CANParser: 0x100 CRUISE not valid (timeout or missing)
+CANParser: 0x50 STEER_ANGLE_SENSOR not valid (timeout or missing)
+CANParser: 0x75 ENGINE not valid (timeout or missing)
+CANParser: 0x76 SPEED not valid (timeout or missing)
+CANParser: 0x100 CRUISE not valid (timeout or missing)
+CANParser: 0x50 STEER_ANGLE_SENSOR not valid (timeout or missing)
+CANParser: 0x75 ENGINE not valid (timeout or missing)
+CANParser: 0x76 SPEED not valid (timeout or missing)
+CANParser: 0x100 CRUISE not valid (timeout or missing)
+CANParser: 0x50 STEER_ANGLE_SENSOR not valid (timeout or missing)
+CANParser: 0x75 ENGINE not valid (timeout or missing)
+CANParser: 0x76 SPEED not valid (timeout or missing)
+CANParser: 0x100 CRUISE not valid (timeout or missing)
+CANParser: 0x50 STEER_ANGLE_SENSOR not valid (timeout or missing)
+CANParser: 0x75 ENGINE not valid (timeout or missing)
+CANParser: 0x76 SPEED not valid (timeout or missing)
+CANParser: 0x100 CRUISE not valid (timeout or missing)
+CANParser: 0x50 STEER_ANGLE_SENSOR not valid (timeout or missing)
+CANParser: 0x75 ENGINE not valid (timeout or missing)
+CANParser: 0x76 SPEED not valid (timeout or missing)
+CANParser: 0x100 CRUISE not valid (timeout or missing)
+.CANParser: 0x50 STEER_ANGLE_SENSOR not valid (timeout or missing)
+CANParser: 0x75 ENGINE not valid (timeout or missing)
+CANParser: 0x76 SPEED not valid (timeout or missing)
+CANParser: 0x100 CRUISE not valid (timeout or missing)
+.
+----------------------------------------------------------------------
+Ran 45 tests in 0.142s
+
+OK

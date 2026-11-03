@@ -1,3 +1,17 @@
+## 2026-11-03 — Audit saved before owner-requested shutdown
+
+Audited parent469f3c5/child671f8c4, both clean at start;10 source hashes match.
+Fresh168 tests pass:50 safety,45 port,53 CAN,20 offline adapter/migration; Ruff
+passes. Prior full safety8806/932 skips belongs to unchanged source, not a new
+shutdown run. Modern port/shared registrations and two-header safety split are
+saved in the audit report. Production noOutput/zero CAN, missing real profile,
+held Chimera/Interceptor and excluded relays remain explicit. No device action.
+Next after boot: read both handoffs/inbox, verify Git, resolve actual BeamNG car/
+configuration and endpoint/units/mode/driver/calibration contract. No automatic
+active output or hardware resumption. Owner requests normal local Radxa shutdown
+only after all saves/validation; queue/readback is central shutdown receipt.
+Report: Ai/Reports/retropilot-shutdown-audit-20261103/README.md.
+
 ## 2026-11-03 — RetroPilot active safety software engine, no live profile
 
 Child opendbc671f8c450fc74f5b8b90b2ee53124394108651ce adds profile-dependent

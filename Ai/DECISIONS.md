@@ -1,3 +1,12 @@
+## 2026-11-03 — Preserve the tested boundary across shutdown/restart
+
+Record software tests and source matches separately from actual game/vehicle/
+firmware integration. Two RetroPilot safety headers form one firmware policy;
+registration or host file presence does not install enforcement into Chimera.
+Keep production noOutput, explicit selection and absent active profile after
+restart. User authorized saving and orderly local shutdown; finish audit/notes/
+commit/validation first and allow normal editor/session cleanup without force.
+
 ## 2026-11-03 — Profile-dependent active rules without invented calibration
 
 Owner's "why not fix it" authorizes implementing missing safety behavior, not

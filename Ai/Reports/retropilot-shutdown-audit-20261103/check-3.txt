@@ -1,0 +1,10 @@
+..................................CANParser: 0x301 INTERCEPTOR_STEERING_SENSOR checksum failed: received 0x29, calculated 0x28
+..CANParser: 0x76 SPEED counter invalid, state.counter_fail=5 MAX_BAD_COUNTER=5
+.unknown signal name='UNKNOWN_SIGNAL' in ACC_CONTROL
+msg not found for name_or_addr='UNKNOWN_MESSAGE'
+msg not found for address=0
+................
+----------------------------------------------------------------------
+Ran 53 tests in 0.453s
+
+OK
