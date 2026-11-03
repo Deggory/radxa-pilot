@@ -190,3 +190,14 @@ no Cereal/third_party/existing manager/controlsd edits in this comparison.
 Host pandad files are distinct from Panda firmware. Recent clarification
 turns change notes only. No new runtime test/device action; modern Radxa scope
 and next Chimera receive acceptance remain unchanged. Source/Git inspection.
+
+## 2026-11-03 — Current Cereal location clarified
+
+At parent 15b39ed344179febf8808322fa8bf9a104cf4443, Cereal exists as the
+regular project directory openpilot/cereal/, not a root cereal/ submodule.
+README defines its messaging role; messaging/__init__.py uses msgq. Vehicle
+schema is opendbc_repo/opendbc/car/car.capnp, loaded by car/structs.py;
+openpilot/cereal/__init__.py loads log/custom with opendbc imports. Chimera
+optional publisher imports existing openpilot.cereal.messaging and PubMaster
+can, without schema modifications. Read-only source/filesystem check only;
+no new runtime test. Modern Radxa scope/next task unchanged.
