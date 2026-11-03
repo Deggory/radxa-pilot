@@ -1,3 +1,17 @@
+
+## 2026-11-03 — Radxa-focused docs assessment
+
+Owner wants a simpler Radxa project. Inspected docs27files/366532logical bytes
+before edit (~440KiBallocated). Useful porting/policy/logging/safety references
+remain; comma connection/public-site pages are optional references, not Q8B
+setup. Updated docs/README.md with a short Radxa entry index. Existing op docs,
+site CI and car-doc generator/maintenance consume this tree. No deletion or
+runtime change. Hardware selector still imports HardwareComma unconditionally;
+HardwareRadxa inherits HardwarePc, so names alone do not justify pruning.
+Detailed scope/limits: Knowledge/REPOSITORY_CLEANUP.md in the student notebook.
+Next cleanup needs dependency-checked scope; current BeamNG wire-contract task
+remains pending. Documentation-only checks; no REA binary/runtime claim.
+
 ## 2026-11-03 — BeamNG optical webcam + Waveshare/Chimera CAN design
 
 Owner selected PC monitor → physical Radxa AK-Camera, and PC game gateway ↔ Waveshare CAN ↔ Chimera USB ↔ Sunnypilot. This supersedes the earlier network-camera next step. Added active openpilot/tools/sim/beamng/ PC/Radxa roles, shared CAN mapping/gaps and ordered plan; rewrote the current guide and reference README. No runtime code, DBC, firmware or remote PC files changed; no hardware/game/model launch or CAN transmission.

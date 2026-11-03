@@ -1,3 +1,5 @@
+Radxa simplification assessment: [repository cleanup](Knowledge/REPOSITORY_CLEANUP.md); docs README is the short project entry, no files deleted.
+
 Current BeamNG design2026-11-03: [optical camera + CAN](../openpilot/tools/sim/beamng/README.md), PC/Radxa roles and canonical DBC gaps. Supersedes older network-image next steps below. Runtime implementation pending.
 
 Current BeamNG checkpoint: [complete audit](../openpilot/tools/sim/beamng_reference/AUDIT.md),96source files verified; current opendbc API and simulator contracts block direct integration.
