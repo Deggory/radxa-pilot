@@ -217,3 +217,18 @@ vehicle schema in opendbc/car/car.capnp. No claim all future features already
 fit existing fields. Runtime/source/DBC/firmware unchanged; no device actions.
 Parent source checked at79b96e4; child remains86a839d. Documentation/Git skills,
 source-first saved patches; no new REA artifact/runtime question or tests.
+
+## 2026-11-03 — Relay exclusion and safety-mode explanation
+
+Owner explicitly does not want relays; preserve reference/offline code but add
+no relay integration. Chimera remains held. Explained C2 enum26 -> car interface
+safetyConfigs -> board registered retropilot_hooks; identifier alone supplies no
+rules. Rechecked current host PandaSafety and Panda::set_safety_model(0xdc),
+board mode selection/transmit hook, opendbc safety registry/defaults and current
+RetroPilot interface. Current schema26=hongqi, firmware26=SAFETY_FAW, occupied.
+Current RetroPilot still dashcamOnly/noOutput; no active policy implemented.
+Saved explanation in docs/RETROPILOT.md. Source-only, not installed enforcement;
+no board/firmware/mode changes. Source pins parent18054f2/child86a839d;
+C2b9a942e/Panda9e6d47f/Cereala7193d0. Skills: source-first/docs/Git; no new REA
+artifact question or behavioral tests. Next discussion is modern safety needs;
+no Chimera or relay work authorized by this explanation.

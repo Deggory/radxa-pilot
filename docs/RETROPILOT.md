@@ -57,6 +57,37 @@ serial440048001251333133333633. It is not the historically probed Chimera.
 No device was opened in this increment. The receiver rejects that product even
 when VID/PID match; do not aim the tool at the paused Interceptor experiment.
 
+## Safety mode: identifier, configuration and enforcement
+
+Owner excludes relay features; Chimera work is on hold. C2 is reference evidence,
+not an integration checklist. This section explains source behavior only.
+
+A safety-mode identifier selects firmware rules for outgoing CAN. It does not
+implement those rules or identify the vehicle automatically. In the reviewed
+C2 source, car.capnp named retropilot as26; the car interface requested that
+mode; Panda registered matching26 with retropilot_hooks. The hooks checked a
+transmit allowlist and attempted limited pedal gating. The final policy remained
+WIP: RX integrity checking was disabled, reception unconditionally enabled
+controls, and calibrated steering/brake bounds were absent.
+
+In current Sunnypilot the standard source path is:
+CarParams.safetyConfigs -> pandad/panda_safety.cc -> Panda::set_safety_model ->
+board mode selection -> registered opendbc safety hooks -> CAN transmit checks.
+The car schema is opendbc_repo/opendbc/car/car.capnp. Safety definitions and
+registration are in opendbc_repo/opendbc/safety/declarations.h and safety.h;
+board control/CAN code is in panda/board/main_comms.h and drivers/can_common.h.
+The schema now uses26 for hongqi and firmware constants call26 SAFETY_FAW;
+C2's26 is occupied, not a reusable RetroPilot assignment.
+
+Our RetroPilot interface currently requests existing noOutput and dashcamOnly.
+Current noOutput has no allowed outgoing messages and its TX hook rejects output
+(opendbc/safety/modes/defaults.h). The controller also returns no live CAN frames.
+These are current source settings, not proof of installed hardware behavior.
+Future active control requires a policy matching the actual CAN protocol and
+qualified limits, matching host/firmware identification, registration and safety
+tests. A new enum alone is insufficient. No safety code or firmware was changed
+for this explanation, and no mode was sent to hardware.
+
 ## Files, identification and safety status
 
 Comma's [current port structure](https://github.com/commaai/opendbc/blob/master/README.md#structure-of-a-port)

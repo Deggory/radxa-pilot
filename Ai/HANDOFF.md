@@ -1,3 +1,7 @@
+2026-11-03 owner scope: relay features are not wanted. Current discussion is
+RetroPilot safety-mode selection and enforcement. Chimera work remains on hold.
+Preserve existing offline reference code; do not add relay integration.
+
 2026-11-03 owner direction: **Chimera work is on hold until the owner resumes it.**
 Current discussion is the need for modern RetroPilot messages and why C2 changed
 Cereal. Earlier next-step notes about Chimera acceptance are deferred.
