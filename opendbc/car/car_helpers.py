@@ -8,6 +8,7 @@ from opendbc.car.structs import CarParams, CarParamsT
 from opendbc.car.fingerprints import eliminate_incompatible_cars, all_legacy_fingerprint_cars
 from opendbc.car.fw_versions import ObdCallback, get_fw_versions_ordered, get_present_ecus, match_fw_to_car
 from opendbc.car.mock.values import CAR as MOCK
+from opendbc.car.retropilot.values import CAR as RETROPILOT
 from opendbc.car.values import BRANDS
 from opendbc.car.vin import get_vin, is_valid_vin, VIN_UNKNOWN
 
@@ -87,7 +88,9 @@ def fingerprint(can_recv: CanRecvCallable, can_send: CanSendCallable, set_obd_mu
                 cached_params: CarParamsT | None,
                 fixed_fingerprint: str | None) -> tuple[str | None, dict, str, list[CarParams.CarFw], CarParams.FingerprintSource, bool]:
   fixed_fingerprint = fixed_fingerprint or os.environ.get('FINGERPRINT', "")
-  skip_fw_query = os.environ.get('SKIP_FW_QUERY', False)
+  # RetroPilot is explicitly selected and receive-only. Identifying it must not
+  # send OEM VIN/FW probes through an as-yet unqualified Chimera transport.
+  skip_fw_query = os.environ.get('SKIP_FW_QUERY', False) or fixed_fingerprint == RETROPILOT.RETROPILOT_RETROFIT
   disable_fw_cache = os.environ.get('DISABLE_FW_CACHE', False)
   ecu_rx_addrs = set()
 

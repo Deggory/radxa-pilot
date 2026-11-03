@@ -1,4 +1,7 @@
 import unittest
+import hashlib
+import json
+from pathlib import Path
 
 from opendbc.can import CANPacker, CANParser
 
@@ -14,6 +17,12 @@ def reference_crc(data):
 
 
 class TestOcelot(unittest.TestCase):
+  def test_packaged_dbc_provenance(self):
+    root = Path(__file__).resolve().parents[2]
+    provenance = json.loads((root / 'car/retropilot/SOURCES.json').read_text())
+    self.assertEqual(hashlib.sha256((root / 'dbc/ocelot_controls.dbc').read_bytes()).hexdigest(),
+                     provenance['canonical_dbc']['sha256'])
+
   def test_all_canonical_messages_and_counters(self):
     packer = CANPacker('ocelot_controls')
     for msg in packer.dbc.addr_to_msg.values():

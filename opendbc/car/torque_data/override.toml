@@ -1,4 +1,6 @@
 legend = ["LAT_ACCEL_FACTOR", "MAX_LAT_ACCEL_MEASURED", "FRICTION"]
+# Receive-only computational bound, unmeasured; no torque tune or active output.
+"RETROPILOT_RETROFIT" = [nan, 1.0, nan]
 ### angle control
 # Nissan appears to have torque
 "NISSAN_XTRAIL" = [nan, 1.5, nan]
