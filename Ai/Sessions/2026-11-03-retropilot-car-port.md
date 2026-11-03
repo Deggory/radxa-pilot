@@ -80,3 +80,5 @@ control and MCU policy. No new owner question needed for this clarification.
 Skills: source-driven review, code-review-and-quality, interface design and
 repository documentation/Git. Validation: notebook, real file-status/relative
 link assertions and whitespace, captured in the checklist evidence receipt.
+
+2026-11-03 path lookup: shared fingerprints.py is opendbc_repo/opendbc/car/fingerprints.py; Hyundai example is car/hyundai/fingerprints.py. RetroPilot has no fingerprints.py; explicit RETROPILOT_RETROFIT is in car/retropilot/values.py:49. Verified by rg --files and absence check at parent c62cfe2/opendbc649bbb6; no runtime change.
