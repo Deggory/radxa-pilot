@@ -1,0 +1,341 @@
+test_normal_selection_does_not_send_diagnostic_queries (opendbc.car.retropilot.tests.test_retropilot.TestRetroPilot.test_normal_selection_does_not_send_diagnostic_queries) ... Getting VIN & FW versions
+VIN query exception
+Traceback (most recent call last):
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/vin.py", line 55, in get_vin
+    results = query.get_data(timeout)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/isotp_parallel_query.py", line 91, in get_data
+    self._create_isotp_msg(addr, None, -1).send(self.request[0])
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 457, in send
+    self._tx_first_frame(setup_only=setup_only)
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 472, in _tx_first_frame
+    self._can_client.send([msg])
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 412, in send
+    self.tx(self.tx_addr, msg, self.bus)
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/isotp_parallel_query.py", line 42, in _can_tx
+    self.can_send([msg])
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/retropilot/tests/test_retropilot.py", line 55, in send
+    raise RuntimeError('No CAN transmitter in this test')
+RuntimeError: No CAN transmitter in this test
+VIN query exception
+Traceback (most recent call last):
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/vin.py", line 55, in get_vin
+    results = query.get_data(timeout)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/isotp_parallel_query.py", line 91, in get_data
+    self._create_isotp_msg(addr, None, -1).send(self.request[0])
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 457, in send
+    self._tx_first_frame(setup_only=setup_only)
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 472, in _tx_first_frame
+    self._can_client.send([msg])
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 412, in send
+    self.tx(self.tx_addr, msg, self.bus)
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/isotp_parallel_query.py", line 42, in _can_tx
+    self.can_send([msg])
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/retropilot/tests/test_retropilot.py", line 55, in send
+    raise RuntimeError('No CAN transmitter in this test')
+RuntimeError: No CAN transmitter in this test
+VIN query exception
+Traceback (most recent call last):
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/vin.py", line 55, in get_vin
+    results = query.get_data(timeout)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/isotp_parallel_query.py", line 96, in get_data
+    msg.send(self.request[0], setup_only=len(self.functional_addrs) > 0)
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 457, in send
+    self._tx_first_frame(setup_only=setup_only)
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 472, in _tx_first_frame
+    self._can_client.send([msg])
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 412, in send
+    self.tx(self.tx_addr, msg, self.bus)
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/isotp_parallel_query.py", line 42, in _can_tx
+    self.can_send([msg])
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/retropilot/tests/test_retropilot.py", line 55, in send
+    raise RuntimeError('No CAN transmitter in this test')
+RuntimeError: No CAN transmitter in this test
+VIN query exception
+Traceback (most recent call last):
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/vin.py", line 55, in get_vin
+    results = query.get_data(timeout)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/isotp_parallel_query.py", line 96, in get_data
+    msg.send(self.request[0], setup_only=len(self.functional_addrs) > 0)
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 457, in send
+    self._tx_first_frame(setup_only=setup_only)
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 472, in _tx_first_frame
+    self._can_client.send([msg])
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 412, in send
+    self.tx(self.tx_addr, msg, self.bus)
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/isotp_parallel_query.py", line 42, in _can_tx
+    self.can_send([msg])
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/retropilot/tests/test_retropilot.py", line 55, in send
+    raise RuntimeError('No CAN transmitter in this test')
+RuntimeError: No CAN transmitter in this test
+VIN query exception
+Traceback (most recent call last):
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/vin.py", line 55, in get_vin
+    results = query.get_data(timeout)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/isotp_parallel_query.py", line 96, in get_data
+    msg.send(self.request[0], setup_only=len(self.functional_addrs) > 0)
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 457, in send
+    self._tx_first_frame(setup_only=setup_only)
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 472, in _tx_first_frame
+    self._can_client.send([msg])
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 412, in send
+    self.tx(self.tx_addr, msg, self.bus)
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/isotp_parallel_query.py", line 42, in _can_tx
+    self.can_send([msg])
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/retropilot/tests/test_retropilot.py", line 55, in send
+    raise RuntimeError('No CAN transmitter in this test')
+RuntimeError: No CAN transmitter in this test
+VIN query exception
+Traceback (most recent call last):
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/vin.py", line 55, in get_vin
+    results = query.get_data(timeout)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/isotp_parallel_query.py", line 96, in get_data
+    msg.send(self.request[0], setup_only=len(self.functional_addrs) > 0)
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 457, in send
+    self._tx_first_frame(setup_only=setup_only)
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 472, in _tx_first_frame
+    self._can_client.send([msg])
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 412, in send
+    self.tx(self.tx_addr, msg, self.bus)
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/isotp_parallel_query.py", line 42, in _can_tx
+    self.can_send([msg])
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/retropilot/tests/test_retropilot.py", line 55, in send
+    raise RuntimeError('No CAN transmitter in this test')
+RuntimeError: No CAN transmitter in this test
+VIN query exception
+Traceback (most recent call last):
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/vin.py", line 55, in get_vin
+    results = query.get_data(timeout)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/isotp_parallel_query.py", line 91, in get_data
+    self._create_isotp_msg(addr, None, -1).send(self.request[0])
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 457, in send
+    self._tx_first_frame(setup_only=setup_only)
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 472, in _tx_first_frame
+    self._can_client.send([msg])
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 412, in send
+    self.tx(self.tx_addr, msg, self.bus)
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/isotp_parallel_query.py", line 42, in _can_tx
+    self.can_send([msg])
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/retropilot/tests/test_retropilot.py", line 55, in send
+    raise RuntimeError('No CAN transmitter in this test')
+RuntimeError: No CAN transmitter in this test
+VIN query exception
+Traceback (most recent call last):
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/vin.py", line 55, in get_vin
+    results = query.get_data(timeout)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/isotp_parallel_query.py", line 91, in get_data
+    self._create_isotp_msg(addr, None, -1).send(self.request[0])
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 457, in send
+    self._tx_first_frame(setup_only=setup_only)
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 472, in _tx_first_frame
+    self._can_client.send([msg])
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 412, in send
+    self.tx(self.tx_addr, msg, self.bus)
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/isotp_parallel_query.py", line 42, in _can_tx
+    self.can_send([msg])
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/retropilot/tests/test_retropilot.py", line 55, in send
+    raise RuntimeError('No CAN transmitter in this test')
+RuntimeError: No CAN transmitter in this test
+vin query retry (1) ...
+VIN query exception
+Traceback (most recent call last):
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/vin.py", line 55, in get_vin
+    results = query.get_data(timeout)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/isotp_parallel_query.py", line 91, in get_data
+    self._create_isotp_msg(addr, None, -1).send(self.request[0])
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 457, in send
+    self._tx_first_frame(setup_only=setup_only)
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 472, in _tx_first_frame
+    self._can_client.send([msg])
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 412, in send
+    self.tx(self.tx_addr, msg, self.bus)
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/isotp_parallel_query.py", line 42, in _can_tx
+    self.can_send([msg])
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/retropilot/tests/test_retropilot.py", line 55, in send
+    raise RuntimeError('No CAN transmitter in this test')
+RuntimeError: No CAN transmitter in this test
+VIN query exception
+Traceback (most recent call last):
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/vin.py", line 55, in get_vin
+    results = query.get_data(timeout)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/isotp_parallel_query.py", line 91, in get_data
+    self._create_isotp_msg(addr, None, -1).send(self.request[0])
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 457, in send
+    self._tx_first_frame(setup_only=setup_only)
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 472, in _tx_first_frame
+    self._can_client.send([msg])
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 412, in send
+    self.tx(self.tx_addr, msg, self.bus)
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/isotp_parallel_query.py", line 42, in _can_tx
+    self.can_send([msg])
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/retropilot/tests/test_retropilot.py", line 55, in send
+    raise RuntimeError('No CAN transmitter in this test')
+RuntimeError: No CAN transmitter in this test
+VIN query exception
+Traceback (most recent call last):
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/vin.py", line 55, in get_vin
+    results = query.get_data(timeout)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/isotp_parallel_query.py", line 96, in get_data
+    msg.send(self.request[0], setup_only=len(self.functional_addrs) > 0)
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 457, in send
+    self._tx_first_frame(setup_only=setup_only)
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 472, in _tx_first_frame
+    self._can_client.send([msg])
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 412, in send
+    self.tx(self.tx_addr, msg, self.bus)
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/isotp_parallel_query.py", line 42, in _can_tx
+    self.can_send([msg])
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/retropilot/tests/test_retropilot.py", line 55, in send
+    raise RuntimeError('No CAN transmitter in this test')
+RuntimeError: No CAN transmitter in this test
+VIN query exception
+Traceback (most recent call last):
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/vin.py", line 55, in get_vin
+    results = query.get_data(timeout)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/isotp_parallel_query.py", line 96, in get_data
+    msg.send(self.request[0], setup_only=len(self.functional_addrs) > 0)
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 457, in send
+    self._tx_first_frame(setup_only=setup_only)
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 472, in _tx_first_frame
+    self._can_client.send([msg])
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 412, in send
+    self.tx(self.tx_addr, msg, self.bus)
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/isotp_parallel_query.py", line 42, in _can_tx
+    self.can_send([msg])
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/retropilot/tests/test_retropilot.py", line 55, in send
+    raise RuntimeError('No CAN transmitter in this test')
+RuntimeError: No CAN transmitter in this test
+VIN query exception
+Traceback (most recent call last):
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/vin.py", line 55, in get_vin
+    results = query.get_data(timeout)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/isotp_parallel_query.py", line 96, in get_data
+    msg.send(self.request[0], setup_only=len(self.functional_addrs) > 0)
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 457, in send
+    self._tx_first_frame(setup_only=setup_only)
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 472, in _tx_first_frame
+    self._can_client.send([msg])
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 412, in send
+    self.tx(self.tx_addr, msg, self.bus)
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/isotp_parallel_query.py", line 42, in _can_tx
+    self.can_send([msg])
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/retropilot/tests/test_retropilot.py", line 55, in send
+    raise RuntimeError('No CAN transmitter in this test')
+RuntimeError: No CAN transmitter in this test
+VIN query exception
+Traceback (most recent call last):
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/vin.py", line 55, in get_vin
+    results = query.get_data(timeout)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/isotp_parallel_query.py", line 96, in get_data
+    msg.send(self.request[0], setup_only=len(self.functional_addrs) > 0)
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 457, in send
+    self._tx_first_frame(setup_only=setup_only)
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 472, in _tx_first_frame
+    self._can_client.send([msg])
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 412, in send
+    self.tx(self.tx_addr, msg, self.bus)
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/isotp_parallel_query.py", line 42, in _can_tx
+    self.can_send([msg])
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/retropilot/tests/test_retropilot.py", line 55, in send
+    raise RuntimeError('No CAN transmitter in this test')
+RuntimeError: No CAN transmitter in this test
+VIN query exception
+Traceback (most recent call last):
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/vin.py", line 55, in get_vin
+    results = query.get_data(timeout)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/isotp_parallel_query.py", line 91, in get_data
+    self._create_isotp_msg(addr, None, -1).send(self.request[0])
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 457, in send
+    self._tx_first_frame(setup_only=setup_only)
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 472, in _tx_first_frame
+    self._can_client.send([msg])
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 412, in send
+    self.tx(self.tx_addr, msg, self.bus)
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/isotp_parallel_query.py", line 42, in _can_tx
+    self.can_send([msg])
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/retropilot/tests/test_retropilot.py", line 55, in send
+    raise RuntimeError('No CAN transmitter in this test')
+RuntimeError: No CAN transmitter in this test
+VIN query exception
+Traceback (most recent call last):
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/vin.py", line 55, in get_vin
+    results = query.get_data(timeout)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/isotp_parallel_query.py", line 91, in get_data
+    self._create_isotp_msg(addr, None, -1).send(self.request[0])
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 457, in send
+    self._tx_first_frame(setup_only=setup_only)
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 472, in _tx_first_frame
+    self._can_client.send([msg])
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/uds.py", line 412, in send
+    self.tx(self.tx_addr, msg, self.bus)
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/isotp_parallel_query.py", line 42, in _can_tx
+    self.can_send([msg])
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/retropilot/tests/test_retropilot.py", line 55, in send
+    raise RuntimeError('No CAN transmitter in this test')
+RuntimeError: No CAN transmitter in this test
+vin query retry (2) ...
+ECU addr scan exception
+Traceback (most recent call last):
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/ecu_addrs.py", line 38, in get_ecu_addrs
+    can_send(msgs)
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/retropilot/tests/test_retropilot.py", line 55, in send
+    raise RuntimeError('No CAN transmitter in this test')
+RuntimeError: No CAN transmitter in this test
+ECU addr scan exception
+Traceback (most recent call last):
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/ecu_addrs.py", line 38, in get_ecu_addrs
+    can_send(msgs)
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/retropilot/tests/test_retropilot.py", line 55, in send
+    raise RuntimeError('No CAN transmitter in this test')
+RuntimeError: No CAN transmitter in this test
+ECU addr scan exception
+Traceback (most recent call last):
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/ecu_addrs.py", line 38, in get_ecu_addrs
+    can_send(msgs)
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/retropilot/tests/test_retropilot.py", line 55, in send
+    raise RuntimeError('No CAN transmitter in this test')
+RuntimeError: No CAN transmitter in this test
+ECU addr scan exception
+Traceback (most recent call last):
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/ecu_addrs.py", line 38, in get_ecu_addrs
+    can_send(msgs)
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/retropilot/tests/test_retropilot.py", line 55, in send
+    raise RuntimeError('No CAN transmitter in this test')
+RuntimeError: No CAN transmitter in this test
+VIN 00000000000000000
+{'event': 'fingerprinted', 'car_fingerprint': 'RETROPILOT_RETROFIT', 'source': 2, 'fuzzy': False, 'cached': False, 'fw_count': 0, 'ecu_responses': [], 'vin_rx_addr': -1, 'vin_rx_bus': -1, 'fingerprints': '{0: {}, 1: {}, 2: {80: 6}, 3: {}, 4: {}, 5: {}, 6: {}, 7: {}}', 'fw_query_time': 0.03667136599688092}
+FAIL
+
+======================================================================
+FAIL: test_normal_selection_does_not_send_diagnostic_queries (opendbc.car.retropilot.tests.test_retropilot.TestRetroPilot.test_normal_selection_does_not_send_diagnostic_queries)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/retropilot/tests/test_retropilot.py", line 61, in test_normal_selection_does_not_send_diagnostic_queries
+    self.assertEqual(transmissions, [])
+AssertionError: Lists differ: [CanData(address=2015, dat=b'\x03"\xf1\x90[11246 chars]c=1)] != []
+
+First list contains 163 additional elements.
+First extra element 0:
+CanData(address=2015, dat=b'\x03"\xf1\x90\x00\x00\x00\x00', src=0)
+
+Diff is 11787 characters long. Set self.maxDiff to None to see it.
+
+----------------------------------------------------------------------
+Ran 1 test in 0.054s
+
+FAILED (failures=1)

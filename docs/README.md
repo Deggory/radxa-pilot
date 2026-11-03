@@ -55,3 +55,5 @@ op docs --build
 ``` bash
 op docs
 ```
+
+RetroPilot implementation: [receive-only car platform](RETROPILOT.md).

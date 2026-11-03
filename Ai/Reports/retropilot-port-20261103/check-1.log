@@ -1,0 +1,71 @@
+test_fca_giorgio_abs_2 (test_checksums.TestCanChecksums.test_fca_giorgio_abs_2) ... ok
+test_fca_giorgio_eps_1 (test_checksums.TestCanChecksums.test_fca_giorgio_eps_1) ... ok
+test_fca_giorgio_eps_2 (test_checksums.TestCanChecksums.test_fca_giorgio_eps_2) ... ok
+test_fca_giorgio_eps_3 (test_checksums.TestCanChecksums.test_fca_giorgio_eps_3) ... ok
+test_honda_checksum (test_checksums.TestCanChecksums.test_honda_checksum)
+Test checksums for Honda standard and extended CAN ids ... ok
+test_volkswagen_mqb_crc_acc_02 (test_checksums.TestCanChecksums.test_volkswagen_mqb_crc_acc_02) ... ok
+test_volkswagen_mqb_crc_acc_04 (test_checksums.TestCanChecksums.test_volkswagen_mqb_crc_acc_04) ... ok
+test_volkswagen_mqb_crc_acc_06 (test_checksums.TestCanChecksums.test_volkswagen_mqb_crc_acc_06) ... ok
+test_volkswagen_mqb_crc_acc_07 (test_checksums.TestCanChecksums.test_volkswagen_mqb_crc_acc_07) ... ok
+test_volkswagen_mqb_crc_acc_10 (test_checksums.TestCanChecksums.test_volkswagen_mqb_crc_acc_10) ... ok
+test_volkswagen_mqb_crc_airbag_01 (test_checksums.TestCanChecksums.test_volkswagen_mqb_crc_airbag_01) ... ok
+test_volkswagen_mqb_crc_esp_02 (test_checksums.TestCanChecksums.test_volkswagen_mqb_crc_esp_02) ... ok
+test_volkswagen_mqb_crc_esp_05 (test_checksums.TestCanChecksums.test_volkswagen_mqb_crc_esp_05) ... ok
+test_volkswagen_mqb_crc_esp_10 (test_checksums.TestCanChecksums.test_volkswagen_mqb_crc_esp_10) ... ok
+test_volkswagen_mqb_crc_esp_20 (test_checksums.TestCanChecksums.test_volkswagen_mqb_crc_esp_20) ... ok
+test_volkswagen_mqb_crc_esp_21 (test_checksums.TestCanChecksums.test_volkswagen_mqb_crc_esp_21) ... ok
+test_volkswagen_mqb_crc_esp_33 (test_checksums.TestCanChecksums.test_volkswagen_mqb_crc_esp_33) ... ok
+test_volkswagen_mqb_crc_getriebe_11 (test_checksums.TestCanChecksums.test_volkswagen_mqb_crc_getriebe_11) ... ok
+test_volkswagen_mqb_crc_gra_acc_01 (test_checksums.TestCanChecksums.test_volkswagen_mqb_crc_gra_acc_01) ... ok
+test_volkswagen_mqb_crc_hca_01 (test_checksums.TestCanChecksums.test_volkswagen_mqb_crc_hca_01) ... ok
+test_volkswagen_mqb_crc_klemmen_status_01 (test_checksums.TestCanChecksums.test_volkswagen_mqb_crc_klemmen_status_01) ... ok
+test_volkswagen_mqb_crc_lh_eps_03 (test_checksums.TestCanChecksums.test_volkswagen_mqb_crc_lh_eps_03) ... ok
+test_volkswagen_mqb_crc_licht_anf_01 (test_checksums.TestCanChecksums.test_volkswagen_mqb_crc_licht_anf_01) ... ok
+test_volkswagen_mqb_crc_lwi_01 (test_checksums.TestCanChecksums.test_volkswagen_mqb_crc_lwi_01) ... ok
+test_volkswagen_mqb_crc_motor_20 (test_checksums.TestCanChecksums.test_volkswagen_mqb_crc_motor_20) ... ok
+test_volkswagen_mqb_crc_motor_ev_01 (test_checksums.TestCanChecksums.test_volkswagen_mqb_crc_motor_ev_01) ... ok
+test_volkswagen_mqb_crc_swa_01 (test_checksums.TestCanChecksums.test_volkswagen_mqb_crc_swa_01) ... ok
+test_volkswagen_mqb_crc_tsk_06 (test_checksums.TestCanChecksums.test_volkswagen_mqb_crc_tsk_06) ... ok
+test_civic_exceptions (test_dbc_exceptions.TestCanParserPackerExceptions.test_civic_exceptions) ... ok
+test_enough_dbcs (test_dbc_parser.TestDBCParser.test_enough_dbcs) ... ok
+test_parse_all_dbcs (test_dbc_parser.TestDBCParser.test_parse_all_dbcs)
+Dynamic DBC parser checks: ... ok
+test_all_dbcs (test_define.TestCANDefine.test_all_dbcs) ... ok
+test_civic (test_define.TestCANDefine.test_civic) ... ok
+test_all_canonical_messages_and_counters (test_ocelot.TestOcelot.test_all_canonical_messages_and_counters) ... ok
+test_crc_covers_full_interceptor_status (test_ocelot.TestOcelot.test_crc_covers_full_interceptor_status) ... CANParser: 0x301 INTERCEPTOR_STEERING_SENSOR checksum failed: received 0x29, calculated 0x28
+ok
+test_packaged_dbc_provenance (test_ocelot.TestOcelot.test_packaged_dbc_provenance) ... ok
+test_repeated_counter_becomes_invalid (test_ocelot.TestOcelot.test_repeated_counter_becomes_invalid) ... CANParser: 0x76 SPEED counter invalid, state.counter_fail=5 MAX_BAD_COUNTER=5
+ok
+test_allow_undefined_msgs (test_packer_parser.TestCanParserPacker.test_allow_undefined_msgs) ... unknown signal name='UNKNOWN_SIGNAL' in ACC_CONTROL
+msg not found for name_or_addr='UNKNOWN_MESSAGE'
+msg not found for address=0
+ok
+test_bus_timeout (test_packer_parser.TestCanParserPacker.test_bus_timeout)
+Test CAN bus timeout detection ... ok
+test_disallow_duplicate_messages (test_packer_parser.TestCanParserPacker.test_disallow_duplicate_messages) ... ok
+test_nonexistent_messages (test_packer_parser.TestCanParserPacker.test_nonexistent_messages) ... ok
+test_packer (test_packer_parser.TestCanParserPacker.test_packer) ... ok
+test_packer_counter (test_packer_parser.TestCanParserPacker.test_packer_counter) ... ok
+test_packer_parser (test_packer_parser.TestCanParserPacker.test_packer_parser) ... ok
+test_parser_can_valid (test_packer_parser.TestCanParserPacker.test_parser_can_valid) ... ok
+test_parser_counter_can_valid (test_packer_parser.TestCanParserPacker.test_parser_counter_can_valid)
+Tests number of allowed bad counters + ensures CAN stays invalid ... ok
+test_parser_no_partial_update (test_packer_parser.TestCanParserPacker.test_parser_no_partial_update)
+Ensure that the CANParser doesn't partially update messages with invalid signals (COUNTER/CHECKSUM). ... ok
+test_parser_updated_list (test_packer_parser.TestCanParserPacker.test_parser_updated_list) ... ok
+test_scale_offset (test_packer_parser.TestCanParserPacker.test_scale_offset)
+Test that both scale and offset are correctly preserved ... ok
+test_subaru (test_packer_parser.TestCanParserPacker.test_subaru) ... ok
+test_timestamp_nanos (test_packer_parser.TestCanParserPacker.test_timestamp_nanos)
+Test message timestamp dict ... ok
+test_track_all_signals (test_packer_parser.TestCanParserPacker.test_track_all_signals) ... ok
+test_updated (test_packer_parser.TestCanParserPacker.test_updated)
+Test updated value dict ... ok
+
+----------------------------------------------------------------------
+Ran 53 tests in 0.404s
+
+OK

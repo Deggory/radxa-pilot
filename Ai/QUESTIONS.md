@@ -1,3 +1,12 @@
+## 2026-11-03 — RetroPilot live-integration facts still needed
+
+Car code stage implemented; no question pending for this completed increment.
+Before live integration: confirm installed Chimera image/health/bus route,
+producer speed units (C2rawkm/h vs saved Hall*100 and ambiguous MODE), actual
+vehicle geometry/dynamics, endpoint calibration and MCU safety. Wheel/gear/
+cruise-status/IMU/session gaps remain in the shared contract. Teacher evidence
+was recovered first; do not ask the owner to repeat already retained facts.
+
 ## 2026-11-03 — BeamNG optical webcam + Waveshare/Chimera CAN design
 
 Open implementation facts: canonical wheel/IMU/session/gear and cruise-status mapping, speed units/MODE, selected game actuator family, installed Chimera behavior/routing, timeouts/bus load. Later bench: measured angle authority, endpoint types/calibration and physical stop behavior. Teacher evidence recovered before any owner questions; no new question pending.

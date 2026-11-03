@@ -30,7 +30,7 @@ the final car-controller commands so the controller is included in the test.
 | Requirement | Provider and current status |
 | --- | --- |
 | Road images | AK-Camera watching the PC monitor; existing 720p/20 Hz camera/model path has prior bench evidence. Screen framing, optical geometry and render-to-camera delay still need a BeamNG run. |
-| Vehicle state | BeamNG speed, four separate wheel speeds, observed steering angle, pedals, gear, ignition, cruise/button edges and applicable override/fault state. PC telemetry collector and Sunny car-state parser remain pending. |
+| Vehicle state | BeamNG speed, four separate wheel speeds, observed steering angle, pedals, gear, ignition, cruise/button edges and applicable override/fault state. RetroPilot receive-only car-state parser is implemented; PC telemetry collector and remaining signal definitions are pending. |
 | Vehicle motion | Simulated acceleration and angular velocity with axes, units and acquisition time. One bench motion provider must feed localization; the stationary physical IMU cannot represent the moving game car. |
 | Vehicle parameters | Selected game car/configuration, wheelbase, mass, steering ratio/lock, controller type, limits and response delay. Measure or recover these for that configuration rather than borrowing Honda values. |
 | CAN and board interface | Waveshare PC gateway, canonical DBC mappings and Chimera USB backend. All remain pending; USB connection alone does not provide Panda compatibility. |
@@ -90,3 +90,5 @@ game camera pose/FOV and measured sign/units with each run.
 
 Current runtime remains the existing 1280×720 road webcam/CD210 GPU path.
 There is no BeamNG launch command yet. Start with [the implementation plan](PLAN.md).
+
+2026-11-03 implementation: [RetroPilot receive-only car port](../../../../docs/RETROPILOT.md). The PC gateway, Chimera backend and complete motion/vehicle contract remain pending.

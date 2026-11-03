@@ -1,3 +1,10 @@
+## 2026-11-03 — RetroPilot receive-only car platform now implemented
+
+See [car port](RETROPILOT_CAR_PORT.md). The earlier car-port-pending statement
+is superseded for registration/receive decoding/offline command encoders only.
+Chimera USB backend, PC gateway, full state/IMU/session contract, optical shadow
+and closed-loop control remain pending. Source pin649bbb6; no live CAN test.
+
 ## 2026-11-03 — Connected PC requirements checkpoint
 
 Owner reports connected BeamNG PC. Existing sim/beamng README now maps six

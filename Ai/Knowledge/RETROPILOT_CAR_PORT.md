@@ -1,0 +1,71 @@
+# RetroPilot car platform — current implementation
+
+## 2026-11-03 — RetroPilot car port implemented, receive-only
+
+Owner explicitly requested RetroPilot as the car and Chimera as Panda. Modern
+RETROPILOT_RETROFIT now registers in opendbc; canonical DBC/CRC/counters,
+state/module parsing, button/override/stale handling and all8offline command
+IDs implemented. Explicit selection suppresses OEM VIN/FW probes. Hostbus2;
+no global car override, forced CAN validity or fake wheels/gear/torque.
+Default speed scale0 marks sensors invalid; legacy km/h vs local Hall centi-km/h
+must be qualified explicitly. CarController is unconditionally passive;
+dashcamOnly/noOutput and placeholder geometry/tune do not establish control.
+
+Submodule branch radxa/retropilot: codec eb64a22, platform649bbb6
+(full649bbb632a020f155fc1eb16ae343f49a5c4bb50), baseaa9bff6f; parentbase dd29f00.
+53CAN+22port tests pass;303broader car tests pass (314existing subtest skips),
+490lateral-limit tests pass (31existing skips), Ruff/whitespace pass.
+Compiled original CRC matches1600vectors across20canonical messages.
+No devices/game/model/manager/firmware/CAN TX or actuation tested or enabled.
+Next: receive-only Chimera backend + actual producer units/frames/hostbus2,
+then full BeamNG telemetry/motion contract and optical shadow. Actual actuator
+profile, live safety and endpoint calibration remain open. No owner question
+needed to complete this code stage. Detailed topic/session/receipts below.
+
+Guide: [RetroPilot](../../docs/RETROPILOT.md).
+Code: [package](../../opendbc_repo/opendbc/car/retropilot/README.md).
+Validation: [receipt](../Evidence/retropilot-port-20261103.json),
+[native CRC](../Evidence/retropilot-native-crc-20261103.json).
+
+Accepted scope: modern car platform and offline canonical codecs, using the
+teacher C2 migration plan. Chimera remains the intended Panda-role device;
+its backend, installed firmware safety and board health are not supplied or
+fabricated by a car package. Normal CAN parser validity/timeouts retained.
+
+Sources: C2b9a942efd3cb210127bb5efb5cf9ccf6a811c728, canonical
+RetroPilot/opendbc6b90fafe59e81822bfae58e4ecb080248e9de40d,
+DBC SHAef6eef74021a00183729b53ba90f1c790792cfe5dcf72fe9bdfe2dcb3d6a5dce.
+Packaged DBC bytes unchanged; checksum test enforces this pin. Current target
+opendbc baseaa9bff6f5442cef8cb8e25e143ef38865c276ce8. Panda8a16e089 unchanged;
+CD210/OpenCL GPU eb741641 retained, no new model/camera test. Historical
+Chimera de193215/43-byte health observation stays historical; no USB opened.
+
+Teacher source recovered a new implementation-critical discrepancy: saved
+ocelot/firmware/chimera/main.c Hall speed computes kph*100, while C2 CarState
+uses raw kph. SPEED.MODE uses a different config index in that source; it does
+not establish a reliable units selector. CP.wheelSpeedFactor defaults0, and only
+explicit1.0/0.01 scales qualify an isolated replay after producer confirmation.
+Canonical unsigned steering-rate magnitude stays raw rather than pretending
+it is signed rate. Gear/wheels/cruise-enabled/set-speed remain unavailable.
+Actual Interceptor differential torque calibration and SSC status semantics
+remain unknown. Optional module flags require exact bus/ID/DLC, are per-instance
+observations, and never grant active capabilities.
+
+The minimum platform geometry2.7m/ratio13 and 1m/s² bound are explicitly
+non-driving computational placeholders; no actual vehicle has been tuned.
+No active requests are encoded by CarController even if caller flags mutate.
+Offline commands require endpoint targets, bus and counter; bit limits are not
+physical actuator limits. Invalid/nonfinite values cannot silently wrap.
+
+Changed owning subsystems: opendbc/can/dbc.py and new test_ocelot.py,
+car/{values.py,car_helpers.py,torque_data/override.toml,retropilot/},
+dbc/ocelot_controls.dbc. Parent pins submodule; guide/BeamNG guides/notebooks
+and validation logs are tracked. Local commits are not pushed. Maintenance
+configcdc20d4 registers the submodule and retains journaling/validation.
+
+Workflow: source-driven-development, interface design, TDD, incremental
+implementation, security, Git, documentation and self-review. Existing
+teacher PORTING_PLAN used; no need for a second approval to execute owner's
+explicit port instruction. REA binary analysis was not needed for this
+readable-source migration. The native CRC crosscheck is an offline reference
+execution, not REA/firmware or hardware verification.

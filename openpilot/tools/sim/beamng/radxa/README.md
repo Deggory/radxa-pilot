@@ -1,7 +1,9 @@
 # Radxa role: physical webcam, Sunnypilot and Chimera
 
-Specification, 2026-11-03; Chimera is selected to replace Panda, but its managed
-Sunnypilot backend and this CAN simulator car port remain unimplemented.
+Updated 2026-11-03: Chimera is selected to replace Panda. The modern RetroPilot
+receive-only car platform is now implemented; see the project docs/RETROPILOT.md.
+The managed Chimera USB backend and complete BeamNG telemetry/motion integration
+remain pending. Earlier requirements below describe the remaining integration.
 
 ## Keep the existing optical pipeline
 

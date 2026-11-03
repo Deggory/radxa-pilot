@@ -1,3 +1,25 @@
+## 2026-11-03 — RetroPilot car port implemented, receive-only
+
+Owner explicitly requested RetroPilot as the car and Chimera as Panda. Modern
+RETROPILOT_RETROFIT now registers in opendbc; canonical DBC/CRC/counters,
+state/module parsing, button/override/stale handling and all8offline command
+IDs implemented. Explicit selection suppresses OEM VIN/FW probes. Hostbus2;
+no global car override, forced CAN validity or fake wheels/gear/torque.
+Default speed scale0 marks sensors invalid; legacy km/h vs local Hall centi-km/h
+must be qualified explicitly. CarController is unconditionally passive;
+dashcamOnly/noOutput and placeholder geometry/tune do not establish control.
+
+Submodule branch radxa/retropilot: codec eb64a22, platform649bbb6
+(full649bbb632a020f155fc1eb16ae343f49a5c4bb50), baseaa9bff6f; parentbase dd29f00.
+53CAN+22port tests pass;303broader car tests pass (314existing subtest skips),
+490lateral-limit tests pass (31existing skips), Ruff/whitespace pass.
+Compiled original CRC matches1600vectors across20canonical messages.
+No devices/game/model/manager/firmware/CAN TX or actuation tested or enabled.
+Next: receive-only Chimera backend + actual producer units/frames/hostbus2,
+then full BeamNG telemetry/motion contract and optical shadow. Actual actuator
+profile, live safety and endpoint calibration remain open. No owner question
+needed to complete this code stage. Detailed topic/session/receipts below.
+
 ## 2026-11-03 — Connected PC requirements checkpoint
 
 Owner reports connected BeamNG PC. Existing sim/beamng README now maps six

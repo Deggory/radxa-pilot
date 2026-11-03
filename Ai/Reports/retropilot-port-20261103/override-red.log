@@ -1,0 +1,14 @@
+test_driver_override_clears_local_armed_indicator (opendbc.car.retropilot.tests.test_retropilot.TestRetroPilot.test_driver_override_clears_local_armed_indicator) ... FAIL
+
+======================================================================
+FAIL: test_driver_override_clears_local_armed_indicator (opendbc.car.retropilot.tests.test_retropilot.TestRetroPilot.test_driver_override_clears_local_armed_indicator)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/retropilot/tests/test_retropilot.py", line 169, in test_driver_override_clears_local_armed_indicator
+    self.assertFalse(state.cruiseState.available)
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 1 test in 0.017s
+
+FAILED (failures=1)

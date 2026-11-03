@@ -1,3 +1,6 @@
+Current2026-11-03: [RetroPilot car platform](Knowledge/RETROPILOT_CAR_PORT.md)
+implemented receive-only; Chimera backend/live loop still pending. See HANDOFF.
+
 Radxa simplification assessment: [repository cleanup](Knowledge/REPOSITORY_CLEANUP.md); docs README is the short project entry, no files deleted.
 
 Current BeamNG design2026-11-03: [optical camera + CAN](../openpilot/tools/sim/beamng/README.md), PC/Radxa roles and canonical DBC gaps. Supersedes older network-image next steps below. Runtime implementation pending.

@@ -1,3 +1,14 @@
+## 2026-11-03 — Implement RetroPilot as its own modern car platform
+
+Owner explicitly chose RetroPilot as the car and Chimera as Panda. Implement
+in modern opendbc, preserve canonical DBC bytes and normal parser validity.
+Use explicit selection, per-instance module observations and hostbus2. Keep
+source/transport safety boundaries: noOutput/passive controller, no diagnostic
+TX and unqualified speed scale0. Offline encoders do not enable hardware.
+Do not inherit C2 calibration, fake drive gear/wheels or claim Chimera's legacy
+USB/safety lifecycle matches modern Panda. Live profile/safety remains future
+work. [Implementation](Knowledge/RETROPILOT_CAR_PORT.md).
+
 ## 2026-11-03 — Keep requirements separate from connection proof
 
 Use the existing optical+CAN plan. A reachable Ethernet neighbor establishes

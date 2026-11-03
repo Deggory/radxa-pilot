@@ -1,0 +1,151 @@
+{
+  "result": "pass",
+  "vectors": 1600,
+  "canonical_messages": 20,
+  "method": "Compiled unchanged original ocelot_checksum and lookup-table generator; five DLC sizes, deterministic random payloads and every canonical message/counter. No CAN TX.",
+  "source_sha256": "a861ea99b71076b4e402930c8fd6ed3aa0d9b92ce7f91f38a40263c3e0b8a49d",
+  "harness_sha256": "e5601d7d93115c894af9baa5b326af192aade92cc0ca9559b34033e273b7505c",
+  "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "golden_examples": [
+    {
+      "name": "STEER_ANGLE_SENSOR",
+      "id": "0x50",
+      "dlc": 6,
+      "counter": 3,
+      "data_hex": "370000000003"
+    },
+    {
+      "name": "ENGINE",
+      "id": "0x75",
+      "dlc": 8,
+      "counter": 3,
+      "data_hex": "2d00000000000003"
+    },
+    {
+      "name": "SPEED",
+      "id": "0x76",
+      "dlc": 8,
+      "counter": 3,
+      "data_hex": "2d00000000000003"
+    },
+    {
+      "name": "CRUISE",
+      "id": "0x100",
+      "dlc": 8,
+      "counter": 3,
+      "data_hex": "2d00000000000003"
+    },
+    {
+      "name": "ACTUATOR_BRAKE_COMMAND",
+      "id": "0x10e",
+      "dlc": 6,
+      "counter": 3,
+      "data_hex": "ae0300000000"
+    },
+    {
+      "name": "ACTUATOR_BRAKE_STATUS",
+      "id": "0x10f",
+      "dlc": 5,
+      "counter": 3,
+      "data_hex": "e303000000"
+    },
+    {
+      "name": "ACTUATOR_STEERING_COMMAND",
+      "id": "0x12e",
+      "dlc": 6,
+      "counter": 3,
+      "data_hex": "ae0300000000"
+    },
+    {
+      "name": "ACTUATOR_STEERING_STATUS",
+      "id": "0x12f",
+      "dlc": 7,
+      "counter": 3,
+      "data_hex": "3c030000000000"
+    },
+    {
+      "name": "PEDAL_GAS_COMMAND",
+      "id": "0x200",
+      "dlc": 6,
+      "counter": 3,
+      "data_hex": "370000000003"
+    },
+    {
+      "name": "PEDAL_GAS_SENSOR",
+      "id": "0x201",
+      "dlc": 6,
+      "counter": 3,
+      "data_hex": "370000000003"
+    },
+    {
+      "name": "IBOOSTER_BRAKE_COMMAND",
+      "id": "0x20e",
+      "dlc": 6,
+      "counter": 3,
+      "data_hex": "ae0300000000"
+    },
+    {
+      "name": "IBOOSTER_BRAKE_STATUS",
+      "id": "0x20f",
+      "dlc": 5,
+      "counter": 3,
+      "data_hex": "e303000000"
+    },
+    {
+      "name": "STEERING_COMMAND_SSC",
+      "id": "0x22e",
+      "dlc": 5,
+      "counter": 3,
+      "data_hex": "e303000000"
+    },
+    {
+      "name": "STEERING_STATUS_SSC",
+      "id": "0x22f",
+      "dlc": 8,
+      "counter": 3,
+      "data_hex": "ed03000000000000"
+    },
+    {
+      "name": "INTERCEPTOR_STEERING_COMMAND",
+      "id": "0x300",
+      "dlc": 6,
+      "counter": 3,
+      "data_hex": "370000000003"
+    },
+    {
+      "name": "INTERCEPTOR_STEERING_SENSOR",
+      "id": "0x301",
+      "dlc": 8,
+      "counter": 3,
+      "data_hex": "2d00000000000003"
+    },
+    {
+      "name": "ACTUATOR_GAS_COMMAND",
+      "id": "0x400",
+      "dlc": 6,
+      "counter": 3,
+      "data_hex": "370000000003"
+    },
+    {
+      "name": "ACTUATOR_GAS_SENSOR",
+      "id": "0x401",
+      "dlc": 8,
+      "counter": 3,
+      "data_hex": "2d00000000000003"
+    },
+    {
+      "name": "RELAY_CORE_COMMAND",
+      "id": "0x600",
+      "dlc": 4,
+      "counter": 3,
+      "data_hex": "d6000003"
+    },
+    {
+      "name": "RELAY_CORE_STATUS",
+      "id": "0x601",
+      "dlc": 4,
+      "counter": 3,
+      "data_hex": "d6000003"
+    }
+  ]
+}

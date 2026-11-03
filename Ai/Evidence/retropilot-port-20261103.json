@@ -1,0 +1,114 @@
+{
+  "date": "2026-11-03",
+  "scope": "Modern receive-only RetroPilot car port, all canonical offline command encoders and no-diagnostic explicit selection",
+  "parent_base": "dd29f0094526faf435754aa92e68ed25b0ba21fd",
+  "opendbc_base": "aa9bff6f5442cef8cb8e25e143ef38865c276ce8",
+  "codec_commit": "eb64a22e31b2393ec1a88f2dc6303a3d631b8308",
+  "canonical_dbc_sha256": "ef6eef74021a00183729b53ba90f1c790792cfe5dcf72fe9bdfe2dcb3d6a5dce",
+  "checks": [
+    {
+      "command": ".venv/bin/python -m unittest discover -s opendbc_repo/opendbc/can/tests -v",
+      "exit_code": 0,
+      "log": "Ai/Reports/retropilot-port-20261103/check-1.log",
+      "log_sha256": "accc939b3fa36082e535f33cae917bf3c017828c8d5519b1a7081e49f832a568",
+      "summary": [
+        "Ran 53 tests in 0.404s",
+        "OK"
+      ]
+    },
+    {
+      "command": ".venv/bin/python -m unittest discover -s opendbc_repo/opendbc/car/retropilot/tests -v",
+      "exit_code": 0,
+      "log": "Ai/Reports/retropilot-port-20261103/check-2.log",
+      "log_sha256": "92a5796fecd714876ed3a92c40e16a0e96229024c511432e32f1118221afbfbe",
+      "summary": [
+        "Ran 22 tests in 0.065s",
+        "OK"
+      ]
+    },
+    {
+      "command": ".venv/bin/python -m unittest opendbc.car.tests.test_car_interfaces opendbc.car.tests.test_platform_configs opendbc.car.tests.test_can_fingerprint opendbc.car.tests.test_fw_fingerprint opendbc.car.tests.test_docs opendbc.car.tests.test_vehicle_model",
+      "exit_code": 0,
+      "log": "Ai/Reports/retropilot-port-20261103/check-3.log",
+      "log_sha256": "1179fe8d0952ab26003909bf3677d4401b64566b61ee21fa36e20a4fa178339e",
+      "summary": [
+        "Ran 303 tests in 32.611s",
+        "OK (skipped=314)"
+      ]
+    },
+    {
+      "command": ".venv/bin/python -m unittest opendbc.car.tests.test_lateral_limits",
+      "exit_code": 0,
+      "log": "Ai/Reports/retropilot-port-20261103/check-4.log",
+      "log_sha256": "f09b629a77bc53fee12394cf7522f5403f534ac205ac0224c8c133ebc2fcacc9",
+      "summary": [
+        "Ran 490 tests in 0.073s",
+        "OK (skipped=31)"
+      ]
+    },
+    {
+      "command": ".venv/bin/ruff check opendbc_repo/opendbc/can/dbc.py opendbc_repo/opendbc/can/tests/test_ocelot.py opendbc_repo/opendbc/car/retropilot opendbc_repo/opendbc/car/car_helpers.py opendbc_repo/opendbc/car/values.py",
+      "exit_code": 0,
+      "log": "Ai/Reports/retropilot-port-20261103/check-5.log",
+      "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "summary": [
+        "All checks passed!"
+      ]
+    },
+    {
+      "command": "git -C opendbc_repo diff --check",
+      "exit_code": 0,
+      "log": "Ai/Reports/retropilot-port-20261103/check-6.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "summary": []
+    },
+    {
+      "command": ".venv/bin/ruff check opendbc_repo/opendbc/car/retropilot (after override fix)",
+      "exit_code": 0,
+      "log": "Ai/Reports/retropilot-port-20261103/check-5-followup.log",
+      "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "summary": [
+        "All checks passed!"
+      ]
+    }
+  ],
+  "native_crc": "Ai/Evidence/retropilot-native-crc-20261103.json",
+  "result": "pass",
+  "limits": [
+    "No hardware/managed stack/game/model/firmware/CAN TX or actuation test.",
+    "Receive-only/noOutput; Chimera backend, real safety, profile/calibration and complete BeamNG telemetry/motion remain pending.",
+    "Speed scale intentionally unqualified by default; legacy and saved Hall producer differ by100.",
+    "Only stated unit/interface suites run; no dataset/route/full-manager qualification."
+  ],
+  "opendbc_commit": "649bbb632a020f155fc1eb16ae343f49a5c4bb50",
+  "maintenance_registration_commit": "cdc20d4",
+  "review": {
+    "correctness": "No forced CAN validity, global ECU state, guessed gear/wheels/torque, or diagnostic TX. Exact-DLC checks preserve the base parser validity/timeout policy. Speed is invalid until explicitly qualified. Driver override/brake/cancel/ignition/stale input clear the local armed indicator.",
+    "readability": "Separate platform, interface/state, passive controller, checksum and explicit command encoders; current support level and placeholders documented.",
+    "architecture": "Modern opendbc platform; canonical DBC bytes unchanged. Real Chimera backend/board health and BeamNG sensor providers remain separate.",
+    "security": "No device opens or active requests from the port. Active/NaN/infinite control requests return zero actuators/no CAN output. Offline encoders reject nonfinite/overflow requests and nonboolean enable.",
+    "performance": "No runtime benchmark claimed. No camera/model/backend changes. Parser checks retain 20 Hz reference assumptions, not source-age or live rate proof."
+  },
+  "source_hashes": {
+    "/home/radxa/comma/retropilot/dbc/ocelot_controls.dbc": "ef6eef74021a00183729b53ba90f1c790792cfe5dcf72fe9bdfe2dcb3d6a5dce",
+    "/home/radxa/comma/retropilot/protocol/common.cc": "a861ea99b71076b4e402930c8fd6ed3aa0d9b92ce7f91f38a40263c3e0b8a49d",
+    "/home/radxa/comma/ocelot/firmware/chimera/main.c": "5d1dd3b0400ec80da9b477abfced51c9346674865ce5ad86d7e5a012c2d94883"
+  },
+  "documentation_checks": [
+    {
+      "command": ".venv/bin/python Ai/verify_memory.py --workspace /home/radxa/comma",
+      "exit_code": 0,
+      "result": "pass:73 documents/223 relative links/8 source repositories/4252 indexed entries"
+    },
+    {
+      "command": ".venv/bin/python openpilot/tools/sim/beamng_reference/verify_bundle.py",
+      "exit_code": 0,
+      "result": "pass:96 files/1160682 bytes, source5435d674 unchanged"
+    },
+    {
+      "command": "git diff --check; selected current-guide relative-link check",
+      "exit_code": 0,
+      "result": "pass:4 guides/30 relative targets"
+    }
+  ]
+}
