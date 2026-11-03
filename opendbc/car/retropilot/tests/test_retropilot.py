@@ -73,6 +73,19 @@ class TestRetroPilot(unittest.TestCase):
     self.assertEqual(sum(state.wheelSpeeds.to_dict().values()), 0)
     self.assertTrue(state.carNotReady)
 
+  def test_preview_readiness_tracks_oldest_accepted_message(self):
+    self.update()
+    first = self.t
+    self.assertTrue(self.ci.CS.control_ready)
+    self.assertEqual(self.ci.CS.control_state_nanos, first)
+    self.update(omit=('ENGINE',))
+    self.assertEqual(self.ci.CS.control_state_nanos, first)
+    self.t += 10_000_000
+    self.ci.update([(self.t, [])])
+    self.assertEqual(self.ci.CS.control_state_nanos, first)
+    self.update({'ENGINE': {'IGNITION_ON': 0}})
+    self.assertFalse(self.ci.CS.control_ready)
+
   def test_speed_scale_is_explicit(self):
     self.ci = make_interface()
     state = self.update()

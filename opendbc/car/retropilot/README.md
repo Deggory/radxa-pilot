@@ -2,11 +2,50 @@
 
 `CAR.RETROPILOT_RETROFIT` is an explicitly selected **receive-only** platform.
 `CarInterface`/`CarState` use the modern Sunnypilot opendbc API; `CarController`
-returns zero actuators and no outgoing frames unconditionally. This is a
-functional monitoring stage, not a qualified active controller. Offline
-`commands.py` implements the eight canonical command IDs for later adapter
-verification, with explicit raw/physical targets and no legacy calibration law.
+returns zero actual actuators and no outgoing frames unconditionally. Its
+`preview()` now migrates C2's steering/pedal/relay calculation to modern requests
+and generates candidate CAN with an explicit `ControllerProfile`. The default
+profile is absent. `C2_REFERENCE` is available only through explicit offline
+selection; it is not an owner/BeamNG calibration or a qualified active port.
+`commands.py` implements all eight canonical command IDs for adapter verification.
 Its checks enforce encoded bit ranges, not qualified physical actuator limits.
+
+## Offline controller replay
+
+From the Sunnypilot root:
+
+```bash
+.venv/bin/python -m opendbc.car.retropilot.replay \
+  --profile c2-reference --speed-units kph < recording.jsonl > candidates.jsonl
+```
+
+Each JSONL row contains `timestamp_nanos`, `can` triples `[address, "hex", bus]`
+and `control` using this checkout's CarControl schema (`enabled`, `latActive`,
+`longActive`, `actuators.torque`, `actuators.accel`). Supply rows at100Hz and
+all required base/selected-module status frames on hostbus2 with valid integrity.
+Empty CAN rows advance time. Outputs distinguish candidate CAN/actuators from
+actual zero feedback and empty transmitted CAN. This tool never opens hardware.
+
+Steering and position brake candidates run100Hz; gas/relay50Hz. Disabled gas
+and relay flush on the next step even between normal sends. Steering resets
+immediately on disable/override/fault; speed taper is clamped at zero. Gas and
+brake have separate acceleration calibration scales and cannot overlap. Modern
+lateral/longitudinal activation is independent. Counters increment per emitted
+message and wrap at16; canonical CRC/DLC and hostbus2 remain unchanged.
+
+Preview blocks invalid requests, missing endpoints, ignition loss and stale CAN.
+Its100ms cutoff measures the oldest accepted tracked CAN arrival; empty, bad-CRC
+or unrelated packets cannot refresh it. Non-monotonic steps and gaps over50ms
+disable candidates and clear steering/pedals. These are offline evaluation
+limits, not measured source-acquisition deadlines or installed MCU watchdogs.
+
+C2's1510-center/350-count steering, pedal slopes and7mm iBooster travel are
+historical reference values. The350-count limit creates a700-count channel
+difference, exceeding the local Core source's400-count check. No calibrated
+driver-torque-to-counts feedback limit, driver-pedal authority, physical tune or
+live Chimera safety policy is supplied by this reference profile. Actuator/SSC
+steering has codecs but no normalized-control mapping, just as C2's commented
+controller paths did not implement them. Unsupported profile endpoints fail.
 
 ## Provenance and routing
 

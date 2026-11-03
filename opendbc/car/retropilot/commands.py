@@ -1,7 +1,8 @@
 """Offline canonical encoders. No device access or normalized-control calibration.
 
-These helpers are intentionally not called by the receive-only CarController.
-Explicit channels, physical targets, modes, counters and host buses are required.
+The controller preview calls these with an explicit calibration. Its runtime
+update never forwards the candidates. Explicit channels, physical targets,
+modes, counters and host buses are required.
 """
 import math
 

@@ -7,9 +7,9 @@
   },
   "crc_reference": "protocol/common.cc ocelot_checksum from the same canonical opendbc source",
   "legacy_car_reference": {
-    "upstream": "https://github.com/RetroPilot/openpilot",
+    "upstream": "https://github.com/RetroPilot/retropilot/tree/c2/selfdrive/car/retropilot",
     "commit": "b9a942efd3cb210127bb5efb5cf9ccf6a811c728",
-    "scope": "Design reference; legacy car code is not copied verbatim."
+    "scope": "All eight retained source blobs verified against linked c2 branch on 2026-11-03. Modern parser/controller adaptation; C2 constants are offline reference calibration only."
   },
   "modern_opendbc_base": "aa9bff6f5442cef8cb8e25e143ef38865c276ce8"
 }

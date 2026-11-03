@@ -39,6 +39,8 @@ class CarState(CarStateBase):
     super().__init__(CP, CP_SP)
     self.armed = False
     self.previous_buttons = None
+    self.control_ready = False
+    self.control_state_nanos = 0
 
   def update(self, can_parsers):
     cp = can_parsers[Bus.main]
@@ -100,6 +102,11 @@ class CarState(CarStateBase):
     # torque mapping exists in the base contract. Keep their schema defaults.
     cruise_healthy = (healthy and ignition and not ret.brakePressed and not ret.steeringPressed and not ret.vehicleSensorsInvalid and
                       not ret.steerFaultTemporary and not ret.accFaulted and not ret.carFaultedNonCritical)
+    # Readiness for offline control calculation only. carNotReady remains true:
+    # it additionally covers the unqualified live profile/gear/safety path.
+    # Empty/wrong-bus/CRC-rejected traffic must not refresh this timestamp.
+    self.control_state_nanos = min((state.timestamps[-1] if state.timestamps else 0) for state in cp.message_states.values())
+    self.control_ready = healthy and ignition and not ret.vehicleSensorsInvalid and not ret.carFaultedNonCritical
     if not cruise_healthy:
       self.armed = False
       self.previous_buttons = None
