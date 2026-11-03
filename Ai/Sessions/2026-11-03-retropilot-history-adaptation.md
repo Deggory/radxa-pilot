@@ -84,3 +84,13 @@ driver-input contract; integrate truthful board health/ignition and exclusive
 manager lifecycle/reconnect. Shadow/game-only loop and measured actuation/MCU
 safety remain separate. Do not promote raw safety17, C2 constants or source/
 offline results to modern safety enforcement or tested integrated driving.
+
+## File-list clarification, 2026-11-03
+
+Owner asked which files changed. Verified clean Git against parent35d46c1→d3cd298
+and child9da9210→86a839d: latest adaptation adds runtime chimera.py and
+chimera_protocol.py, modifies carstate.py/values.py, and adds/modifies4tests.
+Package README, docs/RETROPILOT.md, submodule pin and Ai evidence/notebooks also
+changed. profiles.py/fingerprints.py/commands.py/carcontroller.py belong to
+preceding increments and were unchanged in this latest adaptation. Read-only
+Git inspection; no runtime/hardware changes or new behavioral tests.
