@@ -141,5 +141,6 @@
     "source_repositories": 8,
     "indexed_entries": 4252
   },
-  "documentation_validation": "Relative links and all82 mapped modern targets exist; whitespace passes"
+  "documentation_validation": "Relative links and all82 mapped modern targets exist; whitespace passes",
+  "packaging_followup": "Initial4280a0a had a trailing EOF blank-line check failure and an ignored PLAN.md; follow-up fixes both. See retropilot-history-packaging-20261103.json. Runtime hashes/test results unchanged."
 }

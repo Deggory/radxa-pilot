@@ -41,4 +41,3 @@ Pinned tip b9a942efd3cb210127bb5efb5cf9ccf6a811c728; complete35-commit compariso
 | 2025-08-14 | [b9a942ef](https://github.com/RetroPilot/retropilot/commit/b9a942efd3cb210127bb5efb5cf9ccf6a811c728) | Kevin Roscom | remove Pipfile from lfs |
 
 The28parent commits dated2025 span May15–August14;7included commits are upstream2022 work. The opendbc comparison contains43commits from2021/2022/2025, not one continuous year of new C2 work. Panda adds2commits and Cereal3; see their separate compare records.
-
