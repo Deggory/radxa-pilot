@@ -49,6 +49,27 @@ unrelated upstream/build work is attributed separately.
 Complete exact-path mappings and commit attribution are retained in JSON,
 including transient files that do not appear in the final branch diff.
 
+## The six folders the owner identified
+
+Read directly from the pinned parent commit patches and submodule comparisons;
+this expands the date-based guide into the actual integration areas.
+
+| Folder | What the C2 history changed | Current Radxa implication |
+| --- | --- | --- |
+| cereal | car.capnp adds RetroPilot safety enum26 and an8-bit bodycontrol.relayCoreCMD field. Messaging/VisionIPC headers, buffer allocation and atomic initialization change for Ubuntu24 compiler compatibility. | Modern schema identifiers/APIs differ; no numeric-enum or schema-field copying. Current offline relay calculation does not establish a managed relay control path. |
+| opendbc | ocelot_controls.dbc plus CAN generator/parser/packer/common code add Ocelot definitions, CRC/counters and signals for steering, speed, pedals, brakes, cruise, engine and relays. | Canonical DBC and modern codec/state/offline-command adaptation exist. Producer units/profile and live bus acceptance still need qualification. |
+| panda | board/safety.h registers RetroPilot; board/safety/safety_retropilot.h adds receive/transmit/forward hooks and a message allowlist. | Final C2 code remains WIP: receive integrity checks commented out, arbitrary reception enables controls, DLC conflicts and missing actuator limits. Modern enforced MCU safety is pending; this project has not changed/flashed Panda firmware. |
+| selfdrive | New car package and fixed selection; controlsd joystick relay/engagement handling and communication/model/GPS event suppression; inactive steering-tune JSON reload; forced UI restart; compiler/FFmpeg/replay fixes and NEOS URLs. | Modern car package and standalone Chimera receiver exist. Preserve current selfdrived checks, manager ownership and GPU/camera runtime. Old boardd changes here are build/header fixes, not a demonstrated Chimera USB mailbox conversion. Older2022Thneed/navigation/OEM changes are inherited upstream work. |
+| third_party | json11 gains utility header and explicit std::move. libyuv recipe adds position-independent build, make and archive-copy steps; x64 libyuv Git LFS archive reference changes. | Compiler/video-library compatibility work, not car CAN behavior. An x64 archive is not a Radxa ARM64 library; the changed binary contents were not independently analyzed. |
+| tools | joystick/joystickd.py changes gamepad axes, five button states, threaded input and20Hz publication; removes the previous offroad launch restriction. controlsd maps those buttons to relays and engagement. | Development/manual-control support in that C2 snapshot. It is not a BeamNG bridge, and the old engagement shortcut is not qualified modern control behavior. |
+
+Source examples: parent b79e2fc7 (compiler/FFmpeg/json11),64a819b4
+(first car port/libyuv/joystick),72b5328b (joystick/controlsd),4ed61e6f
+(tuning/events/UI); Cereal58bc67b1/a7193d0f; Panda89ac4452/9e6d47f6.
+Exact patches and source pins are retained in the linked2025guide/JSON above.
+No additional runtime integration or hardware action was performed for this
+folder-by-folder explanation.
+
 ## REA evidence and source limits
 
 Selected retained Chimera ELF, not a new build or installed-device dump:

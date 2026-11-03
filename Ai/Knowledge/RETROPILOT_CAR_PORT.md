@@ -287,3 +287,8 @@ and RED/GREEN/regression logs retained. Skills: source-driven-development,
 interface design, TDD/incremental implementation, Git, documentation and
 self-review. Source-first path; no REA artifact/runtime question. No upstream
 merge; inbox had0related pending and8historical failed/blocked records retained.
+
+2026-11-03 six-folder clarification: history report now maps cereal/opendbc/
+panda/selfdrive/third_party/tools. Old third_party is compiler/libyuv work;
+tools is joystick control. boardd edits are build fixes, not Chimera transport
+validation. Runtime status/next action unchanged; see dated history session.

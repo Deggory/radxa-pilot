@@ -138,3 +138,23 @@ Author's July16 "op drives" title remains an author report, not our measured
 result. No runtime/DBC/firmware/device changes; live commands stay disabled.
 Next remains actual Chimera receive acceptance and units/profile/managed
 health/ignition qualification. No upstream integration; inbox0related pending.
+
+## 2026-11-03 — Six-folder C2 integration clarification
+
+Owner highlighted cereal/opendbc/panda/selfdrive/third_party/tools. Inspected
+pinned parent patches and complete Cereal/Panda final comparisons; expanded
+history report with all six roles and current Radxa implications. third_party
+changes are json11 C++ compatibility and PIC libyuv build/x64 archive-reference
+updates, not CAN support; binary archive contents not analyzed. tools changes
+are threaded gamepad input, five buttons and20Hz publication with an offroad
+restriction removed; not a BeamNG implementation. selfdrive also modifies
+controlsd engagement/relay/events, inactive PID JSON reload, manager UI restart,
+FFmpeg/replay/build and NEOS. boardd changes are header/build compatibility,
+not a demonstrated Chimera mailbox adaptation. Cereal relay field is8bits;
+canonical wire relay field remains16bits. Old safety/event bypasses remain
+unqualified; no runtime/DBC/firmware/device change or new behavioral tests.
+Sources remain applicationb9a942e, Cereal a7193d0, Panda9e6d47f, opendbc6b90fafe.
+Documentation/source-first skills; no new REA artifact question. Next actual
+Chimera receive acceptance/units/profile/managed health remains unchanged.
+Validation: history35parent/82path coverage, notebook79docs/236relative links
+and whitespace pass. Documentation-only clarification; no new runtime test.
