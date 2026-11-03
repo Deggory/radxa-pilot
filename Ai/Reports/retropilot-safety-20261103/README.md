@@ -23,6 +23,31 @@ frames are passively accepted; their integrity is not qualified by this mode.
 All16counter values are allowed on disabled messages, without replay protection.
 Local identifier39 must be reviewed for collisions on future upstream updates.
 
+## What is missing compared with an active vehicle policy
+
+Owner compared the short RetroPilot header with Rivian and requested the full
+original C2 file. Current counts: RetroPilot62lines, Rivian187lines; retained
+C2 safety_retropilot.h113lines. Exact current source confirms behavioral gaps,
+not merely different formatting or shared helper use.
+
+| Active safety behavior | Current RetroPilot | Rivian source example |
+| --- | --- | --- |
+| Incoming checksum/counter/quality and frequency checks | Not implemented by this mode | get_counter/get_checksum/get_quality_flag_valid and RxCheck table |
+| Speed, driver steering effort and pedal state | Not used for active safety | rivian_rx_hook reads speed/driver torque/gas/brake |
+| Engagement and disengagement | No received message enables control | Cruise state and common driver/state checks |
+| Steering command bounds and rate/driver limits | All active requests blocked; no calibrated bounds | TorqueSteeringLimits and steer_torque_cmd_checks |
+| Longitudinal command limits | All active requests blocked; no calibrated bounds | LongitudinalLimits and longitudinal_accel_checks |
+
+The21focused tests validate the disabled-command-only contract; passing them
+does not complete or verify these absent active behaviors. Rivian constants
+are vehicle/protocol-specific, not a source of RetroPilot calibration values.
+Original C2 file remains in optional workspace reference
+/home/radxa/comma/retropilot/safety/safety_retropilot.h at Panda9e6d47f.
+It labels itself WIP, comments out addr_safety_check at lines42–43, and sets
+controls_allowed=1 at line51. It is not a complete active-safety template.
+This comparison made no runtime/DBC/firmware changes. Chimera remains held,
+relays excluded; profile and feedback contracts are still needed.
+
 ## Validation and review
 
 - TDD RED: new named enum absent, expected test import failure before code.

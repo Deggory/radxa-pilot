@@ -52,3 +52,17 @@ Ai/Reports/retropilot-safety-20261103/ with actual full-suite/build logs.
 Next: qualify active profile/driver limits, RX health/freshness and engagement
 contracts; active policy remains incomplete. Do not resume held Chimera or add
 relay functionality. Local ID39 collision must be checked on upstream updates.
+
+## 2026-11-03 — Header length and missing active behavior explained
+
+Owner requested original C2 safety_retropilot.h and comparison with Rivian.
+Read full current RetroPilot62lines/Rivian187lines and retained C2 original
+113lines. Parent sourcea8f5462/childa6099a1; old Panda9e6d47f. Current policy
+lacks active RX integrity/freshness and vehicle/driver-state gating, engagement,
+steering bounds/rate/driver authority and longitudinal limits. It blocks active
+commands.21tests validate that limited contract, not missing active behaviors.
+Rivian uses shared helper functions with its own vehicle-specific constants.
+C2 original has RX validation commented out and controls_allowed=1 on RX;
+show original through existing reference file link, do not restore/copy it into
+modern source. Added comparison table to existing safety report. No new runtime
+tests or source/device changes; Chimera held and relays excluded.
