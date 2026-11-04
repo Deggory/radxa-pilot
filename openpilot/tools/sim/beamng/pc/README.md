@@ -37,6 +37,11 @@ First inspect real game data without opening the CAN adapter:
 .venv/bin/python pc/gateway.py --duration 10 > beamng-can-preview.jsonl
 ```
 
+The PC account needs Linux serial-device access (normally membership in
+`dialout`). If opening the adapter reports Permission denied, an administrator
+can run `sudo usermod -aG dialout pc`, then open a fresh login/SSH session.
+Do not make the serial device writable by everyone.
+
 Then, on the isolated simulator CAN bus, start telemetry transmission:
 
 ```bash

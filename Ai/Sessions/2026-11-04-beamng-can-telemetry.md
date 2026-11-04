@@ -86,3 +86,109 @@ bulk-IN probe succeeded with0CAN frames,controls_allowed0; no control/bulkOUT,
 bitrate,safety,heartbeat or configuration writes. This is USB receive acceptance
 with no observed CAN payload, not a wire-delivery or firmware safety result.
 Latest focused suite17passes includes a command-message allowlist rejection.
+
+## 2026-11-04 — Saved implementation and download recovery checkpoint
+
+CAN implementation parent880a0adb542d107e59724df954fb08144f0b8f86 and
+opendbc150f937198ceab43c43b39f94b9bdea63fcb633c are locally committed.
+Actual source/fixture validation attached to both in the maintenance ledger;
+central code index refreshed. No remote push. Both trees were clean afterward.
+
+PC repair owner authentication succeeded. APT is retrying large NVIDIA files
+from in.archive.ubuntu.com; pre-download of the exact same five large packages
+in 1MiB HTTPS ranges from security.ubuntu.com was started in a user-owned cache.
+Each assembled package must match the SHA256 from the PC's existing APT index.
+No package-plan, repository configuration or running root script change;
+no installation/driver/game success yet. Installed kernel38/42 module packages
+have downloaded to APT cache; driver libraries/firmware remain in progress.
+17 focused CAN checks pass. Genuine game and physical CAN remain pending.
+
+## Later physical CAN attempt — serial permission prerequisite
+
+A bounded synthetic telemetry-to-wire check stopped before opening Waveshare:
+PC account pc is not in dialout; ttyUSB0 is root:dialout0660. No physical CAN
+frame was transmitted by this attempt. Chimera received no configuration writes.
+Opened a separate PC terminal for the exact command sudo usermod -aG dialout pc;
+owner was asked to authenticate locally, not provide a password in chat.
+After authentication a fresh SSH login must verify group membership before
+retrying the wire check. Source receipt records the blocked attempt distinctly
+from the earlier successful software fixture. GPU package downloads continue.
+
+Owner confirmed second local authentication. Fresh SSH confirms dialout membership; adapter open/config and20synthetic sample writes completed. Chimera version/health/bulk reads succeeded but observed0frames, no errors/controls_allowed0. No physical delivery success claimed. Owner wiring clarification requested because saved source maps hostbus2 to connectorCAN2 but cannot establish present wiring. No Chimera writes/flash or actuator commands.
+
+## CAN wire observations after owner replies
+
+Owner said "connected to can 3 of chimera". Record that exact wording; saved
+source maps MCUCAN3 to hostbus2/connectorCAN2, but owner terminology/board label
+has not been independently checked. Reader inspected all bus tags, not only2.
+Owner then said "i removed the resisitro see now". A second bounded20sample
+synthetic physical-adapter attempt again produced0Chimera frames,0decode.
+Both captures preserved separately. Which resistor and external power remain
+unanswered; another brief clarification is pending. Do not infer correct
+termination or powered CAN transceivers from USB enumeration/zero health ADC.
+
+Source lead: ocelot/firmware/chimera/can.h initializes can_silent=0xFF and
+passes each silent bit into llcan_set_speed. A two-node link needs an ACK
+participant; a silent receiver is a possible zero-frame cause. This is the
+94efc673 local source with modifications, NOT recovered de193215 nightly source.
+Installed version is de193215; its exact source remains unavailable. The saved
+nightly ZIP contains only signed Chimera binary, no ELF/symbols. No claim that
+installed silent state was read, and no firmware/config/USB-OUT change made.
+REA skill routing reviewed; readable source and saved provenance were used,
+no new binary/decompilation result fabricated.
+
+## NVIDIA repair and genuine game acceptance
+
+Original authorized repair finished2026-11-04T19:49:40Z without reboot/desktop
+restart. GTX1650 recognized by nvidia-smi595.99.02; nvidia/nvidia_modeset/
+nvidia_drm loaded, module versions38and42both595.99.02, dpkg --audit clean.
+APT slow/retry download stage took28min42s. Independent exact-package HTTPS
+range/hash fallback also completed; original APT ultimately installed itself,
+so no third authentication/cache-copy/cancel was needed. Raw repair log saved
+centrally. No passwords stored.
+
+BeamNG20972/0.39.4 launches on NVIDIA Vulkan, successful swapchain and mod mount.
+No pre-existing vehicle at menu. Loaded temporary Bastion reference on
+west_coast_usa at the prior proven observation coordinates; this is our test
+fixture, NOT owner-selected/calibrated model. Cold map loading exceeded the
+100s BeamNGpy client timeout; game stayed healthy and finished loading.
+Recovered current scenario metadata after reconnect and started it; no steering,
+throttle or brake commands were sent. Original preview had0packets during map
+loading; later actual producer works without BeamNG.tech license.
+
+Genuine game Lua->PCgateway->fileoverSSH->Radxa decoder:1480/1480samples decoded
+in42.387s, median19.982ms, largest cold/startup gap3545ms. Last RPM729;
+speed/angle0; driver brake0 and applied brake1 in pre-start freeze; independent
+wheels, accel, gyro, neutral gear and actual cruise available/disabled/target
+27.78m/s present. Buttons unavailable as designed. Receiver expires after
+150ms. A separate12s steady pre-start capture decoded460/460, median19.894ms,
+max56.993ms,0gaps>150ms; actual ~38Hz wall throughput, not a guaranteed50Hz.
+Post-start capture is being checked separately. No moving sign/device-frame
+calibration or physical CAN success inferred.
+
+## Final software/GPU checkpoint; physical wire still unresolved
+
+Post-start genuine capture492/492 samples over11.995s passed independent
+decoder and actual passive CarInterface (canValidtrue/vehicleSensorsInvalidfalse,
+noOutput,dashcamOnly,carNotReadytrue). Median19.835ms,p9547.902,max57.640,0gaps
+>150ms. Actual throughput~41Hz, not guaranteed50Hz. Final genuine-game serial
+TX attempt117samples/3s received0Chimera frames. Firmware/manager/control holds
+unchanged. All bounded gateways/readers stopped; BeamNG remains open with the
+temporary Bastion reference scene and read-only UDP producer. PC account now
+has dialout access. Next measure termination/transceiver rails,confirm wiring/
+bitrate and qualify ACK/silent behavior. Current hardware owner facts retained;
+no invented powered-rail or installed silent-state conclusion.
+
+## Final network interruption
+
+After GPU/game/CarState captures and bounded CAN tests completed, SSH/SCP to
+10.43.0.216 returned No route to host. Radxa eth1 remains10.43.0.1/24UP;
+neighbor FAILED. Prior10.42.0.216 and saved neighboring192.168.1.100 also did
+not connect; pc.local did not resolve. Cause is unknown; no interface/reset/
+reboot command was issued. No repair failure inferred from network loss.
+Successful repair log,all actual captures/compact receipts are already on
+Radxa. Last successful observation: GTX1650/595.99.02, BeamNG running temporary
+Bastion scene; bounded gateway/readers completed and exited. Final PC README
+serial-permission paragraph copy failed; deployed executable/Lua/DBC were
+already verified and unchanged. Reconnect the PC link on resume,then copy that
+documentation paragraph and continue electrical CAN qualification.

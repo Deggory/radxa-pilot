@@ -307,3 +307,16 @@ Snapshot values change with workload and were read sequentially. No thermal
 stress test, new model/UI run, PWM write or application change performed.
 Sourcece7b047; raw snapshot: central ui-telemetry report/temperature-inventory.json.
 Git/source-first workflow used; REA binary analysis not applicable.
+
+## Final software/GPU checkpoint; physical wire still unresolved
+
+Post-start genuine capture492/492 samples over11.995s passed independent
+decoder and actual passive CarInterface (canValidtrue/vehicleSensorsInvalidfalse,
+noOutput,dashcamOnly,carNotReadytrue). Median19.835ms,p9547.902,max57.640,0gaps
+>150ms. Actual throughput~41Hz, not guaranteed50Hz. Final genuine-game serial
+TX attempt117samples/3s received0Chimera frames. Firmware/manager/control holds
+unchanged. All bounded gateways/readers stopped; BeamNG remains open with the
+temporary Bastion reference scene and read-only UDP producer. PC account now
+has dialout access. Next measure termination/transceiver rails,confirm wiring/
+bitrate and qualify ACK/silent behavior. Current hardware owner facts retained;
+no invented powered-rail or installed silent-state conclusion.

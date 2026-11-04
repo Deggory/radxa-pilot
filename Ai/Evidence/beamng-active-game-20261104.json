@@ -1,0 +1,66 @@
+{
+  "kind": "genuine post-start BeamNG packet capture through independent decoder AND actual RETROPILOT_BEAMNG CarInterface",
+  "samples": 492,
+  "valid_carstate_samples": 492,
+  "duration_seconds": 11.994769354,
+  "interval_ms_median": 19.834637,
+  "interval_ms_p95": 47.901736,
+  "interval_ms_max": 57.639793,
+  "gaps_over_150ms": 0,
+  "last_decoded": {
+    "session": 13052,
+    "sequence": 5982,
+    "sim_time_ms": 136118.0,
+    "speed_mps": 0.0,
+    "steering_angle_deg": 0.0,
+    "steering_rate_magnitude_dps": 0.0,
+    "ignition": true,
+    "brake_pressed": false,
+    "rpm": 724.0,
+    "throttle_input": 0.0,
+    "brake_input": 0.0,
+    "brake_applied": 0.30196078431372547,
+    "engaged_gear_index": 0.0,
+    "acceleration_mps2": [
+      0.0,
+      -0.01,
+      0.0
+    ],
+    "angular_velocity_rps": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "motion_frame": "BeamNG motionSim component convention; not device-frame qualified",
+    "wheel_speeds_mps": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "cruise": {
+      "available": true,
+      "enabled": false,
+      "set_speed_mps": 27.78
+    },
+    "cruise_buttons": null
+  },
+  "carstate": {
+    "vEgoRaw": 0.0,
+    "steeringAngleDeg": 0.0,
+    "brakePressed": false,
+    "gas": 0.0,
+    "brake": 0.0,
+    "cruiseAvailable": true,
+    "cruiseEnabled": false,
+    "carNotReady": true,
+    "vehicleSensorsInvalid": false,
+    "canValid": true
+  },
+  "safety_model": "noOutput",
+  "dashcam_only": true,
+  "raw_sha256": "5a81bc2bc5980198c4770fd9def0fee15bdb49566dcf24b996349e66b70928ba",
+  "raw_bytes": 200736,
+  "physical_can_delivery": false,
+  "limitations": "stationary reference, not moving steering/axis/actuator calibration; raw replay timestamps remain PC monotonic"
+}

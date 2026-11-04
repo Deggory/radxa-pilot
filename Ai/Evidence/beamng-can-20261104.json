@@ -1,5 +1,5 @@
 {
-  "stage": "CAN source/fixtures verified and deployed; PC driver repair downloading after local authentication",
+  "stage": "GPU repaired; CAN software and genuine game/CarState replay verified; electrical CAN delivery remains unresolved",
   "project_base": "4709073d7bff673b6344677bb49cecadfbf61bbb",
   "opendbc_base": "671f8c450fc74f5b8b90b2ee53124394108651ce",
   "dbc": {
@@ -30,19 +30,36 @@
     "car_interface_platform_model": {
       "run": 278,
       "skipped": 1
+    },
+    "genuine_active_game": {
+      "samples": 492,
+      "valid_carstate": 492,
+      "canValid": true,
+      "gaps_over_150ms": 0,
+      "receipt": "beamng-active-game-20261104.json"
+    },
+    "real_game_wire": {
+      "samples_submitted_serial": 117,
+      "chimera_frames": 0,
+      "result": "unresolved hardware/firmware gate",
+      "receipt": "beamng-real-game-wire-20261104.json"
     }
   },
-  "physical_can_tx": false,
-  "live_game_telemetry_verified": false,
+  "physical_can_tx": true,
+  "live_game_telemetry_verified": true,
   "control_output": "noOutput",
   "pc_gpu": {
     "kernel": "7.0.0-38-generic",
-    "nvidia_module_missing": true,
+    "nvidia_module_missing": false,
     "old_module_kernel": "7.0.0-31-generic",
     "next_kernel": "7.0.0-42-generic",
     "driver_libraries": "595.84",
     "sudo_local_authentication_pending": false,
-    "repair_state": "owner authenticated; APT downloading 382MB, repair not yet verified"
+    "repair_state": "passed: GTX1650 recognized, driver595.99.02 loaded; module38/42 verified; dpkg audit clean; no reboot",
+    "current_module_missing": false,
+    "current_driver": "595.99.02",
+    "game_vulkan": "passed: NVIDIA swapchain, temporary reference scene started, real telemetry produced",
+    "original_diagnosis": "Initial current kernel had no module; nvidia_module_missing field records the pre-repair state"
   },
   "installed_lua_sources": [
     {
@@ -70,7 +87,7 @@
   "opendbc_implementation": "150f937198ceab43c43b39f94b9bdea63fcb633c",
   "validation": {
     "result": "pass",
-    "scope": "source,fixtures and deployment; excludes live GPU/game/CAN acceptance",
+    "scope": "source/fixtures, deployment, GPU repair and genuine game replay; physical CAN acceptance unresolved",
     "canonical_packaged_match": true,
     "legacy_prefix_byte_preserved": 7363,
     "canonical_sha256": "b4079670b8118fe63c6a7710ca1158afaabfec7df881ef902e43d70d70a36b67",
@@ -101,12 +118,30 @@
     "openpilot/tools/sim/beamng/tests/test_gateway.py": "efff1890392d55946841daea2481b1a5305edb5c776160c541af65ffd6a42633",
     "openpilot/tools/sim/beamng/pc/requirements.txt": "f2c06a61dea400e443f68be987ed0835045acf3d14b26b001922030c87684972",
     "openpilot/tools/sim/beamng/pc/repair_nvidia_20261104.sh": "6191609359505474e71bf69e10a2d85493583c6f6062b6a514ba713536b9a644",
-    "openpilot/tools/sim/beamng/pc/README.md": "77406ac47509f1d29d667eff13a18fc25d0ec78421e5666f944fcb098ec99577",
+    "openpilot/tools/sim/beamng/pc/README.md": "26820722f861e2a6e35da2d2745cb5de1c6f059300956e809b3b96ebb0cd9e33",
     "openpilot/tools/sim/beamng/pc/gateway.py": "609d127a25817d4b7b12e23ef3b46f2513083427fceb318374311556d4c88acb",
     "openpilot/tools/sim/beamng/pc/install.py": "447cb03be8820a4808c4b5dc123f0366bbff82625b153ef2cd2ea2a12aa033b6",
     "openpilot/tools/sim/beamng/shared/CAN_CONTRACT.md": "495d004b3479ee33bca43a09999f677a0f7608e09fe14ad86e55d7b1e3b5ed61",
     "openpilot/tools/sim/beamng/shared/dbc-version.json": "87f11cb7b1d7598da1fa8ee49744a8c83ad5d4090a55fc6ede0d2cf0536b61b0",
     "openpilot/tools/sim/beamng/pc/mod/LICENSE": "9fddcf3da3addd18209e3435d71c9091f1dfecb2fa571cfe6be1f7370882efcd",
     "openpilot/tools/sim/beamng/pc/mod/lua/vehicle/protocols/radxaRetropilot.lua": "08c3810c2febd65154d8a89f7cd29f40357de2696ff3b47ad5429a89a893311f"
+  },
+  "physical_can_delivery_verified": false,
+  "wire_test": {
+    "synthetic_samples_serial_written": 20,
+    "chimera_frames_received": 0,
+    "result": "adapter access and serial writes pass; end-to-end delivery unresolved",
+    "receipt": "beamng-can-wire-probe-20261104.json",
+    "genuine_game_samples_serial_written": 117
+  },
+  "project_implementation": "880a0adb542d107e59724df954fb08144f0b8f86",
+  "physical_can_tx_attempted": true,
+  "physical_can_tx_scope": "actual adapter serial/config writes requested TX; wire emission and reception not measured as successful",
+  "pc_network_closeout": {
+    "state": "10.43.0.216 unreachable after all captures completed",
+    "cause": "unknown",
+    "impact": "final PC README paragraph not copied; deployed executable/Lua/DBC already verified unchanged",
+    "last_verified_gpu": "GTX1650/595.99.02",
+    "next": "restore link then documentation copy and CAN electrical qualification"
   }
 }

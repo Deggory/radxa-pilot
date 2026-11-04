@@ -26,6 +26,38 @@
 
 **Evidence for this increment:** [source/test/runtime checkpoint](Reports/beamng-can-20261104/README.md). Source child150f9371; parent base4709073d7. Historical backfill and unresolved items below are unchanged. Append completion/corrections after repair and live validation.
 
+## QA-20261104-12 — CAN adapter access authentication
+
+**Owner reply (original):** i givenn password
+
+**Answer/status:** Fresh PC SSH login confirms pc is now in dialout and can open Waveshare. A bounded synthetic telemetry test then sent20samples via the physical adapter; Chimera USB reads succeeded but reported0CAN frames. This proves adapter access and attempted wire transmission, not end-to-end CAN delivery. Asked whether CAN-H/L/signal-ground are actually wired to Chimera CAN2; no bitrate/firmware/configuration changes made. NVIDIA downloads still in progress.
+
+## QA-20261104-13 — Chimera port clarification
+
+**Owner reply (original):** connected to can 3 of chimera
+
+**Answer/status:** Recorded as supplied. Saved source maps the third MCU controller CAN3 to softwarebus2/connectorCAN2; actual board label is not independently verified. The raw reader monitored every bus and received0frames, so a parser bus filter alone does not explain it. Power, termination and ACK participation remain unresolved.
+
+## QA-20261104-14 — Resistor change
+
+**Owner reply (original):** i removed the resisitro see now
+
+**Answer/status:** Repeated the bounded20sample telemetry attempt after this physical change; Waveshare serial writes completed and Chimera again received0frames. Saved before/after captures separately. Asked which end's resistor was removed and whether external power is present; neither fact can be inferred from the zero result. NVIDIA packages have finished downloading and are installing.
+
+## QA-20261104-15 — Physical wiring state
+
+**Owner reply (original):** waveshare resitr ,chimea is powered by usb only
+
+**Answer/status:** Recorded Waveshare resistor removed and USB-only Chimera power. Both before/after20sample attempts received0CAN frames. This does not prove powered transceiver rails, correct total termination, active bitrate or an ACK participant. No external power instruction or firmware change was issued without resolving these facts. PC GPU repair meanwhile passed: GTX1650/595.99.02, current38/next42modules, clean dpkg audit and successful BeamNG Vulkan startup; no reboot.
+
+### Completion update for QA-20261104-08/10/11 — 2026-11-04
+
+The original GPU repair finished successfully without reboot: GTX1650/595.99.02, matching modules for kernels38/42, clean package audit, and BeamNG running on NVIDIA Vulkan. All1480genuine game samples in a42s capture decoded on Radxa after file transfer; an additional12s capture had0gaps over150ms. Steering/speed/IMU/pedals/wheels/gear/optional cruise are present; generic cruise buttons unavailable. This proves real game generation/encoding/decoding, not physical CAN delivery: both bounded Waveshare/Chimera attempts still received0frames. Teacher/student retain USB-only Chimera power, Waveshare resistor removed and source-only silent-mode lead as unresolved electrical/firmware facts.
+
+### Final answer update for this BeamNG/repair request
+
+NVIDIA/BeamNG is repaired without reboot. CAN files and shared DBC extension are complete;17new focused tests and existing regressions pass. Real running-game492/492samples produced valid passive Sunnypilot car state in replay. Steering/speed/IMU/pedals/wheels/gear/cruise status are available; buttons and IMU localization remain unqualified/unavailable as documented. A genuine117sample serial-CAN attempt still received0Chimera frames. The remaining next step is electrical/ACK/bitrate qualification with the recorded USB-only power/resistor state, not a claim the entire CAN chain works. Source implementation parent880a0adb/child150f9371 saved locally; no push.
+
 ---
 
 # Owner Q&A recovered for November 3–4, 2026

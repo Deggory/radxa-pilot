@@ -1,0 +1,68 @@
+{
+  "kind": "synthetic fixture over physical Waveshare-CAN-Chimera, not real BeamNG",
+  "pc": {
+    "fixture": true,
+    "samples_sent_udp": 20,
+    "gateway_returncode": 0,
+    "stdout": "",
+    "stderr": "{\"samples\": 20, \"physical_tx\": true}\n",
+    "ready": "{\"status\": \"waiting_for_beamng\", \"udp\": \"127.0.0.1:37950\", \"physical_tx\": true}\n"
+  },
+  "chimera_exit": 0,
+  "frames_received": 0,
+  "bus_counts": {},
+  "addresses": [],
+  "health_first_last": [
+    {
+      "uptime": 2700,
+      "voltage": 0,
+      "current": 0,
+      "can_rx_errs": 0,
+      "can_send_errs": 0,
+      "can_fwd_errs": 0,
+      "gmlan_send_errs": 0,
+      "faults": 0,
+      "ignition_line": 0,
+      "ignition_can": 0,
+      "controls_allowed": 0,
+      "gas_interceptor_detected": 0,
+      "car_harness_status": 0,
+      "usb_power_mode": 0,
+      "safety_model_raw": 17,
+      "safety_param_raw": 0,
+      "fault_status": 0,
+      "power_save_enabled": 0
+    },
+    {
+      "uptime": 2708,
+      "voltage": 0,
+      "current": 0,
+      "can_rx_errs": 0,
+      "can_send_errs": 0,
+      "can_fwd_errs": 0,
+      "gmlan_send_errs": 0,
+      "faults": 0,
+      "ignition_line": 0,
+      "ignition_can": 0,
+      "controls_allowed": 0,
+      "gas_interceptor_detected": 0,
+      "car_harness_status": 0,
+      "usb_power_mode": 0,
+      "safety_model_raw": 17,
+      "safety_param_raw": 0,
+      "fault_status": 0,
+      "power_save_enabled": 0
+    }
+  ],
+  "decoded_samples": [],
+  "owner_port_description": "connected to can 3 of chimera",
+  "owner_change": "i removed the resisitro see now",
+  "termination_and_external_power": "unknown; clarification pending",
+  "previous_capture": "beamng-can-wire-probe-20261104-before-resistor-change.json",
+  "silent_mode_lead": "Local source initializes all buses silent; exact installed nightly state not established",
+  "source_hashes": {
+    "ocelot/firmware/chimera/can.h": "7aca434faa4a1c37d59f5b43f495ed0d213f0e22fc46e4db28c433472b757310",
+    "ocelot/firmware/chimera/main.c": "5d1dd3b0400ec80da9b477abfced51c9346674865ce5ad86d7e5a012c2d94883",
+    "ocelot/WebUSB DFU/firmware/ocelot-firmware-main-de19321.zip": "8158f29132e88bff946cbe23b72d269fa2e6aeb4d6ca5aba7b9539ac04ec043c"
+  }
+}

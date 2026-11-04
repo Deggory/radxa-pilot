@@ -1,0 +1,103 @@
+{
+  "kind": "genuine BeamNG Lua -> PC gateway CAN encoding -> SSH file transfer -> Radxa decoder, not physical CAN",
+  "game": "BeamNG.drive 0.39.4 build20972",
+  "vehicle": "temporary Bastion reference on west_coast_usa; not owner-selected/calibrated control profile",
+  "samples": 1480,
+  "decoded": 1480,
+  "duration_seconds": 42.386845162,
+  "interval_ms_median": 19.98212,
+  "interval_ms_max": 3545.041002,
+  "source_progress_ms": [
+    1.0,
+    33351.0
+  ],
+  "first": {
+    "session": 3486,
+    "sequence": 1,
+    "sim_time_ms": 1.0,
+    "speed_mps": 0.1,
+    "steering_angle_deg": 0.0,
+    "steering_rate_magnitude_dps": null,
+    "ignition": true,
+    "brake_pressed": false,
+    "rpm": 353.0,
+    "throttle_input": 0.0,
+    "brake_input": 0.0,
+    "brake_applied": 1.0,
+    "engaged_gear_index": 0.0,
+    "acceleration_mps2": [
+      -0.05,
+      0.02,
+      -9.93
+    ],
+    "angular_velocity_rps": [
+      0.003,
+      0.009,
+      0.0
+    ],
+    "motion_frame": "BeamNG motionSim component convention; not device-frame qualified",
+    "wheel_speeds_mps": [
+      0.05,
+      0.05,
+      0.25,
+      0.25
+    ],
+    "cruise": {
+      "available": true,
+      "enabled": false,
+      "set_speed_mps": 27.78
+    },
+    "cruise_buttons": null
+  },
+  "last": {
+    "session": 3486,
+    "sequence": 1480,
+    "sim_time_ms": 33351.0,
+    "speed_mps": 0.0,
+    "steering_angle_deg": 0.0,
+    "steering_rate_magnitude_dps": 0.0,
+    "ignition": true,
+    "brake_pressed": false,
+    "rpm": 729.0,
+    "throttle_input": 0.0,
+    "brake_input": 0.0,
+    "brake_applied": 1.0,
+    "engaged_gear_index": 0.0,
+    "acceleration_mps2": [
+      0.02,
+      0.01,
+      0.0
+    ],
+    "angular_velocity_rps": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "motion_frame": "BeamNG motionSim component convention; not device-frame qualified",
+    "wheel_speeds_mps": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "cruise": {
+      "available": true,
+      "enabled": false,
+      "set_speed_mps": 27.78
+    },
+    "cruise_buttons": null
+  },
+  "optional_availability_counts": {
+    "acceleration_mps2": 1480,
+    "angular_velocity_rps": 1480,
+    "wheel_speeds_mps": 1480,
+    "cruise": 1480,
+    "engaged_gear_index": 1480,
+    "cruise_buttons": 0
+  },
+  "raw_sha256": "2c2ba912f2063bc79b736039a26fc8b016983b258ba15bbccb307459528e625c",
+  "raw_bytes": 603840,
+  "physical_can_tx": false,
+  "stale_expiration_verified": true,
+  "limits": "stationary/pre-start observation; no moving steering-sign or IMU-device-frame qualification, physical CAN delivery unresolved"
+}

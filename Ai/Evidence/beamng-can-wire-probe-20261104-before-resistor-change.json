@@ -1,0 +1,60 @@
+{
+  "kind": "synthetic fixture over physical Waveshare-CAN-Chimera, not real BeamNG",
+  "pc": {
+    "fixture": true,
+    "samples_sent_udp": 20,
+    "gateway_returncode": 0,
+    "stdout": "",
+    "stderr": "{\"samples\": 20, \"physical_tx\": true}\n",
+    "ready": "{\"status\": \"waiting_for_beamng\", \"udp\": \"127.0.0.1:55454\", \"physical_tx\": true}\n"
+  },
+  "chimera_exit": 0,
+  "frames_received": 0,
+  "bus_counts": {},
+  "addresses": [],
+  "health_first_last": [
+    {
+      "uptime": 2080,
+      "voltage": 0,
+      "current": 0,
+      "can_rx_errs": 0,
+      "can_send_errs": 0,
+      "can_fwd_errs": 0,
+      "gmlan_send_errs": 0,
+      "faults": 0,
+      "ignition_line": 0,
+      "ignition_can": 0,
+      "controls_allowed": 0,
+      "gas_interceptor_detected": 0,
+      "car_harness_status": 0,
+      "usb_power_mode": 0,
+      "safety_model_raw": 17,
+      "safety_param_raw": 0,
+      "fault_status": 0,
+      "power_save_enabled": 0
+    },
+    {
+      "uptime": 2087,
+      "voltage": 0,
+      "current": 0,
+      "can_rx_errs": 0,
+      "can_send_errs": 0,
+      "can_fwd_errs": 0,
+      "gmlan_send_errs": 0,
+      "faults": 0,
+      "ignition_line": 0,
+      "ignition_can": 0,
+      "controls_allowed": 0,
+      "gas_interceptor_detected": 0,
+      "car_harness_status": 0,
+      "usb_power_mode": 0,
+      "safety_model_raw": 17,
+      "safety_param_raw": 0,
+      "fault_status": 0,
+      "power_save_enabled": 0
+    }
+  ],
+  "decoded_samples": [],
+  "previous_attempt": "Stopped before serial open: PC pc account lacked dialout permission.",
+  "serial_access_fixed": "Owner authenticated locally; fresh SSH id confirms dialout membership."
+}

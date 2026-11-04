@@ -1,0 +1,21 @@
+{
+  "completed_utc": "2026-11-04T19:49:40Z",
+  "gpu": "NVIDIA GeForce GTX1650",
+  "driver": "595.99.02",
+  "running_kernel": "7.0.0-38-generic",
+  "module_versions": {
+    "7.0.0-38-generic": "595.99.02",
+    "7.0.0-42-generic": "595.99.02"
+  },
+  "dpkg_audit": "clean",
+  "reboot_performed": false,
+  "desktop_restart_performed": false,
+  "game": "BeamNG0.39.4/build20972",
+  "game_vulkan": "NVIDIA595.99.02, swapchain Success, scenario loaded, actual telemetry received",
+  "initial_cause": "running/newer kernel lacked NVIDIA module while only older31had one",
+  "package_plan": "16 NVIDIA upgrades,3new,1obsolete31NVIDIA module package removal; no kernel removal/autoremove",
+  "fallback": "exact APT-index hashes verified in user cache; original APT ultimately completed installation without using a new root fallback command",
+  "repair_script_sha256": "6191609359505474e71bf69e10a2d85493583c6f6062b6a514ba713536b9a644",
+  "raw_log_sha256": "da0f66f21320c96ec89e816f32bc40b309691d2a72ca0d56081b9a152d51c7dc",
+  "official_guide": "https://ubuntu.com/server/docs/how-to/graphics/install-nvidia-drivers/"
+}

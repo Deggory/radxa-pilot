@@ -543,3 +543,16 @@ merge; inbox had0related pending and8historical failed/blocked records retained.
 panda/selfdrive/third_party/tools. Old third_party is compiler/libyuv work;
 tools is joystick control. boardd edits are build fixes, not Chimera transport
 validation. Runtime status/next action unchanged; see dated history session.
+
+## Final software/GPU checkpoint; physical wire still unresolved
+
+Post-start genuine capture492/492 samples over11.995s passed independent
+decoder and actual passive CarInterface (canValidtrue/vehicleSensorsInvalidfalse,
+noOutput,dashcamOnly,carNotReadytrue). Median19.835ms,p9547.902,max57.640,0gaps
+>150ms. Actual throughput~41Hz, not guaranteed50Hz. Final genuine-game serial
+TX attempt117samples/3s received0Chimera frames. Firmware/manager/control holds
+unchanged. All bounded gateways/readers stopped; BeamNG remains open with the
+temporary Bastion reference scene and read-only UDP producer. PC account now
+has dialout access. Next measure termination/transceiver rails,confirm wiring/
+bitrate and qualify ACK/silent behavior. Current hardware owner facts retained;
+no invented powered-rail or installed silent-state conclusion.

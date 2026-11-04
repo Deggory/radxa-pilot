@@ -1,0 +1,23 @@
+{
+  "kind": "genuine running BeamNG -> Waveshare serial TX requested -> Chimera USB receive check",
+  "fixture": false,
+  "pc_gateway_exit": 0,
+  "pc_gateway_events": [
+    {
+      "status": "waiting_for_beamng",
+      "udp": "127.0.0.1:49160",
+      "physical_tx": true
+    },
+    {
+      "samples": 117,
+      "physical_tx": true
+    }
+  ],
+  "chimera_exit": 0,
+  "received_frames": 0,
+  "bus_counts": {},
+  "owner_wiring": "CAN3; Chimera USB-only powered; Waveshare termination resistor removed",
+  "chimera_configuration_or_out_writes": 0,
+  "delivery_verified": false,
+  "limits": "serial success is not evidence of wire emission or successful CAN reception; transceiver power/termination/ACK/bitrate unresolved"
+}
