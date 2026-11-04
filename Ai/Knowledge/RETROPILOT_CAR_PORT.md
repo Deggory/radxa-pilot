@@ -1,3 +1,5 @@
+2026-11-04: additional explicit receive-only RETROPILOT_BEAMNG profile reads RP-SIM-1 telemetry and uses centi-km/h; generic physical RETROPILOT_RETROFIT stays unchanged. Canonical DBC adds8simulator-only messages, preserving all20legacy layouts. [Contract](../../openpilot/tools/sim/beamng/shared/CAN_CONTRACT.md). No controller output or firmware change.
+
 ## 2026-11-04 — OEM CAN plus RetroPilot through separate DBC parsers
 
 Owner asked whether connecting the car CAN bus can supply data while keeping

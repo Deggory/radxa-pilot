@@ -1,3 +1,13 @@
+## 2026-11-04 — RP-SIM-1 and explicit receive-only BeamNG profile
+
+Owner authorized adding missing BeamNG telemetry centrally to the shared DBC.
+Preserve the original20message prefix; version and synchronize the eight new
+simulator-only messages. Physical profile/firmware defaults stay unchanged.
+RETROPILOT_BEAMNG is explicit and passive,with qualified wire units but no
+measured vehicle tune or actuator authority. IMU transport is separate from
+measured device-frame/localization integration. Owner separately authorized
+PC NVIDIA repair; local authentication provided,no reboot yet authorized.
+
 2026-11-04 two-day owner Q&A backfill complete: [62 chronological records](QUESTIONS.md) (47 on November 3,15 on November 4) with [exact original questions/58 completed answers](Evidence/owner-qa-20261103-04.json). Three requests link to clarification continuations; this request has a separately labelled closeout. Existing Q&A/unknowns retained. Local documentation only; no push. Continue recording later questions and read related answers before follow-ups.
 
 2026-11-04 owner Q&A memory rule implemented:explicit recent questions AND actual answers in [existing question log](QUESTIONS.md); startup/closeout instructions require retrieval and continued recording. Older unknowns retained; summaries are not full transcripts or automatic model training. Documentation only,local commit/no push.

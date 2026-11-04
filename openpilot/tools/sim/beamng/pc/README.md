@@ -1,75 +1,63 @@
-# PC role: BeamNG and Waveshare CAN gateway
+# PC: BeamNG -> Waveshare -> RetroPilot CAN
 
-Specification, 2026-11-03; no runnable PC gateway has been added yet.
+Implemented read-only telemetry producer and gateway,2026-11-04. The game is
+viewed by Radxa's webcam; no PC image sender is needed. See the
+[shared protocol](../shared/CAN_CONTRACT.md) for definitions and limits.
 
-The game PC renders BeamNG on a monitor for Radxa's physical webcam. It also
-owns the Waveshare USB-to-CAN adapter. No image sender or PC screen-capture
-daemon is required by this design. Future adapted game mod and gateway source
-belong in this directory, with provenance back to the reference bundle.
+Installed PC bundle: `/home/pc/beamng-q8b/retropilot-can/` on the saved Linux PC.
+It has its own `.venv`, not changes to the existing Beamng-onnx environment.
+`pc/gateway.py` uses cantools40.7.1 and a hash-verified copy of our shared DBC.
 
-## Outbound state: PC → CAN → Chimera → Sunnypilot
+The [Lua mod](mod/lua/vehicle/protocols/radxaRetropilot.lua) reads measured
+steering angle, aggregate speed, RPM/ignition, separate driver/applied pedals,
+gear index, acceleration, gyro, four independent kinematic wheel speeds and
+cruise status/set speed if available. Unavailable fields have explicit validity
+bits. It does not drive the car, change cruise, set a camera or operate actuators.
+The generic button API is unknown: cruise enabled/set-speed is sent as status;
+button bits remain explicitly unavailable rather than invented.
 
-Collect state from the selected vehicle at known simulation times:
+## Install and start on the PC
 
-- Vehicle identity/configuration, reset/session, pause state and acquisition time.
-- Vehicle speed and separately measured FL, FR, RL and RR wheel speeds.
-- Observed steering-wheel angle and rate; retain normalized steering input
-  separately. Determine left/right sign and lock for the chosen car.
-- Body acceleration and angular velocity with documented axes, SI units,
-  gravity convention and sensor origin. A velocity difference alone is not a
-  qualified IMU stream. Optional GPS/heading need a separate defined provider.
-- Brake pedal, brake applied, accelerator, gear, ignition and cruise/buttons.
-  Send actual state while cruise is enabled; do not replace driver pedals with zero.
+Open a terminal on the PC:
 
-Validate finite values, ranges, availability and reset/pause before encoding.
-Missing data must stay unavailable; do not copy scalar speed into all four
-wheel-speed fields. Cruise buttons require press/release edges, distinct from
-available/enabled/set-speed status. CAN details are in
-[the shared contract](../shared/CAN_CONTRACT.md).
+```bash
+cd /home/pc/beamng-q8b/retropilot-can
+.venv/bin/python pc/install.py --user-folder /home/pc/.local/share/BeamNG/BeamNG.drive/current
+```
 
-## Returning commands: Sunnypilot → Chimera → CAN → PC
+Open BeamNG, choose the car/configuration and turn on **Options > Other >
+Other protocols**. Press Ctrl+R to reload the vehicle. Other protocols enables
+all installed third-party protocol mods; review those if others are installed.
+The installer supports `--enable` for an offline settings change with a backup.
+It only writes a user-folder mod and optionally that setting, not game binaries.
 
-Decode the selected canonical actuator command family, including enable/mode,
-counter, checksum and its calibrated units. Use accepted **final CAN commands**
-as the input to the game adapter. The downloaded reference's
-`desiredCurvature → game steering position` shortcut bypasses final torque
-control and is unsuitable for validating the intended actuator path.
+First inspect real game data without opening the CAN adapter:
 
-BeamNG normalized steering input is a position request, not motor torque.
-For torque control, the first game loop needs an explicit simulated actuator
-model with angle/rate feedback, saturation and measured delay, or a separately
-validated BeamNG torque interface. Later the physical bench can supply the
-steering plant. Do not relabel Nm as normalized steering or claim torque-loop
-validation from a position conversion. Throttle/brake also need a measured
-command-to-game mapping; pedal counts and brake millimetres are not percentages.
+```bash
+.venv/bin/python pc/gateway.py --duration 10 > beamng-can-preview.jsonl
+```
 
-The gateway must independently expire enabled commands on stale/malformed CAN,
-telemetry loss, pause, vehicle reset, disconnect or process exit. Clear the
-latched game inputs using the validated simulator stop policy, and require a
-fresh disabled handshake plus explicit re-engagement. Exact deadlines and
-stop behavior must be specified and tested before game control is enabled.
-Continuing to send old commands must not refresh their validity.
+Then, on the isolated simulator CAN bus, start telemetry transmission:
 
-## Reuse and deployment limits
+```bash
+.venv/bin/python pc/gateway.py --serial /dev/serial/by-id/usb-1a86_USB_Serial-if00-port0 --transmit
+```
 
-The pinned source's vehicle Lua protocol and rigid camera mod are useful
-references: [beampilot_bridge](../../beamng_reference/upstream/tools/beamng_mod/beampilot_bridge/)
-and [openpilot_cam](../../beamng_reference/upstream/tools/beamng_mod/openpilot_cam/).
-Its BPL1 packet lacks the required source timing/session and complete wheel
-state. Its Honda CAN emulation and fork installer are not our shared protocol.
-Adapt copies here; preserve reference bytes and MIT attribution.
+Default bitrate500kbit/s,serial2Mbaud8N1. Ctrl+C stops the gateway. Source silence
+or pause stops new telemetry, so the receiver expires it. The current CLI is
+Linux-only; do not use SocketCAN/SLCAN settings for this serial-framed adapter.
+Waveshare and Chimera need matching bitrate, correct CAN-H/L, termination and a
+working ACK participant. A serial write is not confirmation that Chimera received it.
 
-Teacher records identify the Waveshare CH340 adapter (`1a86:7523`), previously
-`/dev/ttyUSB0` on Radxa, and a 500 kbit/s isolated bench. That historical device
-path does not select a port on the PC. It is a serial-framed CAN adapter; do
-not assume it is SocketCAN or SLCAN. The saved `canreader/read_can.py` selects
-2,000,000-baud 8N1, a20-byte AA55 configuration packet and variable-length CAN
-records (AA, flags/DLC, little-endian ID, payload,55). Silent mode is0x01;
-normal/ACK mode is0x00, and0x02 must not be relabelled silent. Its receiver has
-no CAN data transmitter. Adapt and verify that framing for the PC OS/driver
-and current device identity before deployment; do not assume serial writes
-prove CAN delivery or source acquisition time.
+## Copying from another checkout
 
-The previous measured PC was Linux BeamNG.drive 0.39.4.0.20972 with a limited
-BeamNGpy 1.35.1 subset. These are historical observations, not a fresh check or
-proof that all Tech sensors work. No new dependency or mod was installed here.
+The PC bundle needs `pc/` and `shared/`, plus the packaged canonical
+`opendbc_repo/opendbc/dbc/ocelot_controls.dbc` copied to `pc/ocelot_controls.dbc`.
+Create its own Python3.12 virtual environment and install `pc/requirements.txt`.
+Do not copy a sibling research checkout or replace an existing model environment.
+For tests on Radxa use a separate test environment with cantools40.7.1 and
+lupa2.6 exposed only for that command; the Sunny runtime needs neither dependency.
+
+Commands returning from Sunnypilot and a calibrated game actuator model are
+outside this telemetry stage. No desired-curvature shortcut or actuator TX is
+implemented. Chimera's receive/manager/firmware qualification remains separate.

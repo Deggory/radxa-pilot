@@ -1,3 +1,9 @@
+2026-11-04 live observation: Radxa USB now enumerates actual Chimera/bbaa:ddcc, with pinned de193215 version and43-byte health. A1second read-only probe succeeded;0CAN frames observed. No board writes/flash or proof of CAN wiring/safety. PC CH340Waveshare is ttyUSB0. See dated BeamNG CAN session/evidence.
+
+2026-11-04 active BeamNG CAN increment: PC Lua producer/Waveshare gateway, RP-SIM-1 additive DBC, independent Radxa decoder/monitor and explicit receive-only RETROPILOT_BEAMNG profile implemented. 16 focused checks pass plus existing regressions. PC CH340 confirmed and files installed. Live game test blocked by missing NVIDIA modules for running kernel7.0.0-38; owner authorized repair, reviewed package script is waiting for local sudo authentication in PC terminal. No repair success, physical CAN delivery, localization fusion or control is claimed. No reboot or upstream update authorized.
+
+[Contract](../../openpilot/tools/sim/beamng/shared/CAN_CONTRACT.md) · [PC](../../openpilot/tools/sim/beamng/pc/README.md) · [Radxa](../../openpilot/tools/sim/beamng/radxa/README.md).
+
 ## 2026-11-03 — Game car/configuration still unconfirmed
 
 Asked which BeamNG vehicle/configuration is selected. Owner referred to the

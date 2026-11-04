@@ -1,0 +1,122 @@
+{
+  "kind": "synthetic PC-local UDP to deployed gateway; no physical CAN",
+  "startup": {
+    "status": "waiting_for_beamng",
+    "udp": "127.0.0.1:41248",
+    "physical_tx": false
+  },
+  "summary": {
+    "samples": 1,
+    "physical_tx": false
+  },
+  "records": [
+    {
+      "timestamp_ns": 21943330510052,
+      "frames": [
+        [
+          1792,
+          "8311c29f010007ff",
+          2
+        ],
+        [
+          1793,
+          "7701e80300000100",
+          2
+        ],
+        [
+          80,
+          "9a85ff000011",
+          2
+        ],
+        [
+          118,
+          "2d00000000100e11",
+          2
+        ],
+        [
+          117,
+          "6e0000000304b011",
+          2
+        ],
+        [
+          256,
+          "1700000000000001",
+          2
+        ],
+        [
+          1794,
+          "8811780000000000",
+          2
+        ],
+        [
+          1795,
+          "f111000000002c01",
+          2
+        ],
+        [
+          1796,
+          "c9f1c8200dbec00d",
+          2
+        ],
+        [
+          1797,
+          "3101001a4d000f07",
+          2
+        ],
+        [
+          1798,
+          "cfb1d00700000000",
+          2
+        ],
+        [
+          1799,
+          "8311c29f010007ff",
+          2
+        ]
+      ]
+    }
+  ],
+  "decoded_on_radxa": {
+    "session": 40898,
+    "sequence": 1,
+    "sim_time_ms": 1000.0,
+    "speed_mps": 10.0,
+    "steering_angle_deg": -12.3,
+    "steering_rate_magnitude_dps": 0.0,
+    "ignition": true,
+    "brake_pressed": true,
+    "rpm": 1200.0,
+    "throttle_input": 0.0,
+    "brake_input": 0.10196078431372549,
+    "brake_applied": 0.30196078431372547,
+    "engaged_gear_index": 0.0,
+    "acceleration_mps2": [
+      1.2,
+      0.0,
+      0.0
+    ],
+    "angular_velocity_rps": [
+      0.0,
+      0.0,
+      0.3
+    ],
+    "motion_frame": "BeamNG motionSim component convention; not device-frame qualified",
+    "wheel_speeds_mps": [
+      10.0,
+      10.5,
+      9.5,
+      11.0
+    ],
+    "cruise": {
+      "available": true,
+      "enabled": false,
+      "set_speed_mps": 20.0
+    },
+    "cruise_buttons": {
+      "ON_OFF": false,
+      "CANCEL": false,
+      "SET_DOWN": false,
+      "RES_UP": false
+    }
+  }
+}

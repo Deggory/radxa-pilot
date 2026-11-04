@@ -1,3 +1,33 @@
+# New owner Q&A after the two-day backfill — 2026-11-04
+
+## QA-20261104-08 — BeamNG shared-CAN telemetry
+
+**Owner question/request (original):** like we discused before will be using beam ng to usb to can ,which chimera will read ,so i want u to work on beamng on pc ,were it will be able to send steering angle ,speed ,imu ,brake ,cruise control if any ,see our current dbc ,so the beamng should use wat is there in our dbc ,if some thing is not there add it to our dbc ,teacher please help use agnet skill  edit the beamng file in pc and radxa accordinly
+
+**Answer/status at this increment:** Implemented and deployed read-only PC telemetry/gateway,RP-SIM-1 canonical additions,independent Radxa decoder/monitor and explicit passive simulator profile. Steering,speed,IMU,pedals,wheels,gear and optional actual cruise status have defined availability/units. Existing20message layouts remain unchanged.16focused software checks and existing regressions pass; the deployed PC synthetic fixture decodes on Radxa. Live game/CAN acceptance is blocked by the PC graphics driver; no actuator output or localization fusion enabled.
+
+## QA-20261104-09 — Waveshare connection clarification
+
+**Owner reply (original):** yes waveshare is connected
+
+**Answer/status:** Confirmed on the PC as CH3401a86:7523,ttyUSB0 and its by-id alias. Software is prepared for that Linux serial-framed adapter. Enumeration and synthetic/PTY tests are not electrical CAN delivery proof; no physical CAN transmission performed at this checkpoint.
+
+## QA-20261104-10 — Diagnose and repair BeamNG graphics
+
+**Owner question/request (original):** can see wat was the error ,can u repair it ,then finsifh our can file ,till last week beamng was working
+
+**Answer/status:** BeamNG reports no usable Vulkan GPU; nvidia-smi fails because current kernel7.0.0-38has no NVIDIA module. Only31has a module, and installed next kernel42also lacks one. Prepared/reviewed Ubuntu595-open module/library repair for38and42; owner authenticated in the PC terminal and package downloads started. Driver/game success is not yet verified. No automatic PC restart. CAN source work is saved while live tests wait for graphics recovery.
+
+## QA-20261104-11 — Local repair authentication
+
+**Owner reply (original):** password given
+
+**Answer/status:** Confirmed the root repair log started; 382MB NVIDIA package downloads are in progress. Authentication happened locally; no secret was requested or retained in chat. Next verify installation,module versions,nvidia-smi,Vulkan and genuine game telemetry.
+
+**Evidence for this increment:** [source/test/runtime checkpoint](Reports/beamng-can-20261104/README.md). Source child150f9371; parent base4709073d7. Historical backfill and unresolved items below are unchanged. Append completion/corrections after repair and live validation.
+
+---
+
 # Owner Q&A recovered for November 3–4, 2026
 
 This dated backfill expands the earlier seven-entry summary below. It covers all

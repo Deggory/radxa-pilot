@@ -1,0 +1,2 @@
+# Isolated PC gateway only; no Sunnypilot/Beamng-onnx environment changes.
+cantools==40.7.1

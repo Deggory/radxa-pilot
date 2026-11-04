@@ -1,3 +1,5 @@
+2026-11-04 live observation: Radxa USB now enumerates actual Chimera/bbaa:ddcc, with pinned de193215 version and43-byte health. A1second read-only probe succeeded;0CAN frames observed. No board writes/flash or proof of CAN wiring/safety. PC CH340Waveshare is ttyUSB0. See dated BeamNG CAN session/evidence.
+
 # Q8B hardware data and integration map
 
 ## Current needs versus Q8B support — 2026-11-02

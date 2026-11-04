@@ -1,0 +1,20 @@
+{
+  "version": "RP-SIM-1",
+  "date": "2026-11-04",
+  "source": "owner-authorized additive simulator telemetry extension",
+  "parent_upstream": "RetroPilot/opendbc@6b90fafe59e81822bfae58e4ecb080248e9de40d",
+  "parent_sha256": "ef6eef74021a00183729b53ba90f1c790792cfe5dcf72fe9bdfe2dcb3d6a5dce",
+  "sha256": "b4079670b8118fe63c6a7710ca1158afaabfec7df881ef902e43d70d70a36b67",
+  "legacy_prefix_bytes": 7363,
+  "new_messages": {
+    "0x700": "SIM_SAMPLE_BEGIN",
+    "0x701": "SIM_CLOCK",
+    "0x702": "SIM_ACCEL",
+    "0x703": "SIM_GYRO",
+    "0x704": "SIM_WHEEL_SPEEDS",
+    "0x705": "SIM_INPUTS",
+    "0x706": "SIM_CRUISE_STATUS",
+    "0x707": "SIM_SAMPLE_END"
+  },
+  "compatibility": "Existing 20 message definitions remain byte-identical. Old producers need not implement simulator-only additions."
+}

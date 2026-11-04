@@ -1,3 +1,11 @@
+2026-11-04 implemented: read-only game Lua producer, PC Waveshare telemetry
+encoder/gateway, shared RP-SIM-1 DBC additions, Radxa decoder/monitor and explicit
+receive-only RETROPILOT_BEAMNG profile. [PC instructions](pc/README.md) ·
+[Radxa instructions](radxa/README.md) · [Wire contract](shared/CAN_CONTRACT.md).
+Historical requirements below are superseded only for these software pieces.
+Live game/CAN delivery, Chimera integration and device-frame IMU fusion require
+separate acceptance; output remains disabled.
+
 # Implementation plan: optical webcam + CAN loop
 
 2026-11-03. Owner selected the architecture in [README.md](README.md).

@@ -1,3 +1,37 @@
+# Radxa telemetry receiver — implemented 2026-11-04
+
+The explicit `RETROPILOT_BEAMNG` platform now reads RP-SIM-1 speed/angle, four
+wheel speeds, driver pedal values and actual game cruise status. It remains
+receive-only/noOutput,carNotReady and dashcamOnly. Generic physical RetroPilot
+settings are unchanged. The shared DBC now includes eight additive simulator
+messages; see [the exact wire contract](../shared/CAN_CONTRACT.md).
+
+To inspect saved PC dry-run output from the Sunnypilot root:
+
+```bash
+.venv/bin/python -m openpilot.tools.sim.beamng.radxa.receive < beamng-can-preview.jsonl
+```
+
+When a qualified Chimera receive adapter is already publishing real `can`:
+
+```bash
+.venv/bin/python -m openpilot.tools.sim.beamng.radxa.receive --cereal
+```
+
+This monitor subscribes only; it does not open/flash Chimera, change the
+manager or generate board health. It rejects stale Cereal publications and
+prints decoded IMU components with their explicit BeamNG frame label. It also
+reports invalid state after data loss. No new cantools dependency is added to
+the Radxa/Sunnypilot runtime. Select `RETROPILOT_BEAMNG` explicitly for the
+simulator; arriving CAN alone does not auto-identify a car.
+
+IMU transport/decoding is implemented. Device-frame conversion and a dedicated
+simulated localization provider remain pending measured axis/origin checks;
+no sensorEvents are fabricated and the stationary physical IMU is unchanged.
+Below is the earlier architecture/hardware checklist, retained for remaining work.
+
+---
+
 # Radxa role: physical webcam, Sunnypilot and Chimera
 
 Updated 2026-11-03: Chimera is selected to replace Panda. The modern RetroPilot

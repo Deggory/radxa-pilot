@@ -1,0 +1,112 @@
+{
+  "stage": "CAN source/fixtures verified and deployed; PC driver repair downloading after local authentication",
+  "project_base": "4709073d7bff673b6344677bb49cecadfbf61bbb",
+  "opendbc_base": "671f8c450fc74f5b8b90b2ee53124394108651ce",
+  "dbc": {
+    "version": "RP-SIM-1",
+    "date": "2026-11-04",
+    "source": "owner-authorized additive simulator telemetry extension",
+    "parent_upstream": "RetroPilot/opendbc@6b90fafe59e81822bfae58e4ecb080248e9de40d",
+    "parent_sha256": "ef6eef74021a00183729b53ba90f1c790792cfe5dcf72fe9bdfe2dcb3d6a5dce",
+    "sha256": "b4079670b8118fe63c6a7710ca1158afaabfec7df881ef902e43d70d70a36b67",
+    "legacy_prefix_bytes": 7363,
+    "new_messages": {
+      "0x700": "SIM_SAMPLE_BEGIN",
+      "0x701": "SIM_CLOCK",
+      "0x702": "SIM_ACCEL",
+      "0x703": "SIM_GYRO",
+      "0x704": "SIM_WHEEL_SPEEDS",
+      "0x705": "SIM_INPUTS",
+      "0x706": "SIM_CRUISE_STATUS",
+      "0x707": "SIM_SAMPLE_END"
+    },
+    "compatibility": "Existing 20 message definitions remain byte-identical. Old producers need not implement simulator-only additions."
+  },
+  "tests": {
+    "focused": 17,
+    "existing_retropilot": 45,
+    "can": 53,
+    "native_retropilot_safety": 50,
+    "car_interface_platform_model": {
+      "run": 278,
+      "skipped": 1
+    }
+  },
+  "physical_can_tx": false,
+  "live_game_telemetry_verified": false,
+  "control_output": "noOutput",
+  "pc_gpu": {
+    "kernel": "7.0.0-38-generic",
+    "nvidia_module_missing": true,
+    "old_module_kernel": "7.0.0-31-generic",
+    "next_kernel": "7.0.0-42-generic",
+    "driver_libraries": "595.84",
+    "sudo_local_authentication_pending": false,
+    "repair_state": "owner authenticated; APT downloading 382MB, repair not yet verified"
+  },
+  "installed_lua_sources": [
+    {
+      "path": "vehicle/protocols.lua",
+      "sha256": "57b1f101bd4587869495643b02db37654628c39c6082492326cd9603ad24478b"
+    },
+    {
+      "path": "vehicle/protocols/motionSim.lua",
+      "sha256": "d3148c0bb27908aef89a39b54d773c580246e75bcde6f6f1cc1128f97e334b9d"
+    },
+    {
+      "path": "vehicle/extensions/cruiseControl.lua",
+      "sha256": "5f3e18da8992ea3cb022399f9e3dc1d39893aceb21b1e7554f76d53300eccf22"
+    },
+    {
+      "path": "vehicle/sensors.lua",
+      "sha256": "1d8765ae99cdd340d71defcf6c610de880b899e0e4f1e249f3f82a52abeb98e3"
+    },
+    {
+      "path": "vehicle/wheels.lua",
+      "sha256": "e907a97e2b7f391f4f5b7b1811d95d147df58e5aceac470a421a75dfd064927d"
+    }
+  ],
+  "published": false,
+  "opendbc_implementation": "150f937198ceab43c43b39f94b9bdea63fcb633c",
+  "validation": {
+    "result": "pass",
+    "scope": "source,fixtures and deployment; excludes live GPU/game/CAN acceptance",
+    "canonical_packaged_match": true,
+    "legacy_prefix_byte_preserved": 7363,
+    "canonical_sha256": "b4079670b8118fe63c6a7710ca1158afaabfec7df881ef902e43d70d70a36b67",
+    "retained_source_checksums_verified": 31,
+    "ruff": "pass",
+    "diff_check": "pass",
+    "bash_syntax": "pass",
+    "pc_gateway_fixture": "Ai/Evidence/beamng-pc-gateway-fixture-20261104.json"
+  },
+  "chimera_receive_probe": {
+    "version": "v1.0.0-DEV-de193215-DEBUG",
+    "duration_seconds": 1,
+    "health_layout_bytes": 43,
+    "frames": 0,
+    "control_or_bulk_writes": 0,
+    "controls_allowed_raw": 0,
+    "safety_model_raw": 17,
+    "scope": "USB identity/version/health and empty bulk-IN only; no CAN delivery or firmware safety proof"
+  },
+  "source_hashes": {
+    "openpilot/tools/sim/beamng/README.md": "6e56a14cf30f91c233eae095fd92fda729d3ceb93831e62a5a15248f8359dcde",
+    "openpilot/tools/sim/beamng/PLAN.md": "fca83a04c0ab54addcb7f2787f77ac02a63de030f985f13349ece7ad4487b80e",
+    "openpilot/tools/sim/beamng/radxa/receive.py": "d3b6ee2254be3f6ae318f47e88493b9b1b92c9aa79b6ec5faa259a50f8dd612a",
+    "openpilot/tools/sim/beamng/radxa/README.md": "04476fd0a94ac125850e0f099697acf73913b92a274533e84970daa316f03906",
+    "openpilot/tools/sim/beamng/tests/requirements.txt": "355aead6653d112bdb3832d785c4aafaeb46c09299e78a3c930734f36672e9a7",
+    "openpilot/tools/sim/beamng/tests/test_lua_producer.py": "a951b48c3e3571818a464a23b389e3315427179720943706e92d84773aace085",
+    "openpilot/tools/sim/beamng/tests/test_transport.py": "d710d29b6f03be2cf84e1ec97c10b1f3c7edd9150f3ecb575b15ce6fbf914f8b",
+    "openpilot/tools/sim/beamng/tests/test_gateway.py": "efff1890392d55946841daea2481b1a5305edb5c776160c541af65ffd6a42633",
+    "openpilot/tools/sim/beamng/pc/requirements.txt": "f2c06a61dea400e443f68be987ed0835045acf3d14b26b001922030c87684972",
+    "openpilot/tools/sim/beamng/pc/repair_nvidia_20261104.sh": "6191609359505474e71bf69e10a2d85493583c6f6062b6a514ba713536b9a644",
+    "openpilot/tools/sim/beamng/pc/README.md": "77406ac47509f1d29d667eff13a18fc25d0ec78421e5666f944fcb098ec99577",
+    "openpilot/tools/sim/beamng/pc/gateway.py": "609d127a25817d4b7b12e23ef3b46f2513083427fceb318374311556d4c88acb",
+    "openpilot/tools/sim/beamng/pc/install.py": "447cb03be8820a4808c4b5dc123f0366bbff82625b153ef2cd2ea2a12aa033b6",
+    "openpilot/tools/sim/beamng/shared/CAN_CONTRACT.md": "495d004b3479ee33bca43a09999f677a0f7608e09fe14ad86e55d7b1e3b5ed61",
+    "openpilot/tools/sim/beamng/shared/dbc-version.json": "87f11cb7b1d7598da1fa8ee49744a8c83ad5d4090a55fc6ede0d2cf0536b61b0",
+    "openpilot/tools/sim/beamng/pc/mod/LICENSE": "9fddcf3da3addd18209e3435d71c9091f1dfecb2fa571cfe6be1f7370882efcd",
+    "openpilot/tools/sim/beamng/pc/mod/lua/vehicle/protocols/radxaRetropilot.lua": "08c3810c2febd65154d8a89f7cd29f40357de2696ff3b47ad5429a89a893311f"
+  }
+}
