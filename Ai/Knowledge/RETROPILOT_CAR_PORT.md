@@ -1,3 +1,30 @@
+## 2026-11-04 — dzid stepper commands and separate ZSS feedback
+
+Owner asked whether our DBC includes dzid stepper control and ZSS angle.
+Yes at the definition level:STEERING_COMMAND_SSC0x22E/DLC5 requests
+angle/torque/mode;STEERING_STATUS_SSC0x22F/DLC8 reports motor encoder
+angle/speed,torque estimate,module temperature,control/debug state.
+STEER_ANGLE_SENSOR0x50/DLC6 is separate calibrated steering-wheel feedback
+from the updated ZSS v0.2.0 AS5047P/ADMT4000 code. Original smartZSS0x23
+is a different format. Motor encoder angle is not automatically wheel angle.
+
+Fresh source comparison:both SSC messages match retained dzid dependency DBC
+fields(bit positions,width,endian,sign,scale/offset,DLC). dzid source main
+782676bc4cd8f0ae578a73835e0a778b7e63f162 BSP/can.c instead uses additive
+CAN-ID checksum; canonical host uses CRC8J1850. Generic actuator0x12E/0x12F
+is another message pair. Current commands.py has an SSC builder, while
+ControllerProfile excludes STEER_SSC and live interface stays noOutput.
+No ready-to-connect dzid or owner-board/installed-firmware match is claimed.
+Checksum/mode/limits/override/controller integration and calibration remain.
+
+Fresh zss/common/scripts/check_dbc.py passes0x50/DLC6 field/hash check;
+shared encoder implements matching CRC/layout. Defaults remain uncalibrated,
+not a measured/live angle source. Canonical/package hash unchangedef6eef74.
+This clarification makes no new actuator/axis selection and does not replace
+prior Toyota0x25 feedback choices in separate actuator/brake projects.
+No hardware access, firmware edit/build/flash, motor output or source changes.
+Documentation/source-first skill workflow; no unrelated REA binary analysis.
+
 ## 2026-11-04 — What the shared DBC can describe
 
 Owner requested a plain-English inventory, not a protocol or hardware change.
