@@ -21,3 +21,13 @@ Next engineering work remains physical CAN qualification and subsequent
 managed receive/shadow/return-command integration; existing holds preserved.
 
 Verification: memory checker104docs/335relative links/240optional workspace links passes; git diff --check passes. No runtime tests rerun for this explanation-only increment.
+
+## DBC synchronization follow-up — 2026-11-04
+
+Owner Q&A18 asks whether DBC covers the outgoing data. Fresh canonical and
+packaged SHA/count/prefix checks pass:28messages,20old+8new; fresh PC SSH
+sha256sum matches RP-SIM-1 b4079670b8118fe63c6a7710ca1158afaabfec7df881ef902e43d70d70a36b67.
+All emitted telemetry has definitions. Buttons remain defined/unavailable and
+wall_time is PC-local by design. Source7f924e81/child150f9371; no runtime/DBC
+change or new physical reception test. Documentation skills/source-first route
+continue; no binary analysis needed. Next remains electrical CAN qualification.

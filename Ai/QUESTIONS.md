@@ -80,6 +80,15 @@ wall_time is used on the PC to reject old UDP samples and is NOT transmitted on 
 
 **Evidence/scope:** Read current gateway.py Encoder.encode,game Lua producer,shared CAN_CONTRACT.md and prior active-game receipt at parenta27c269c097c3937fc7877d491877de509e1272a / child150f937198ceab43c43b39f94b9bdea63fcb633c. No executable/DBC/device change, CAN transmission, upstream update, or new runtime test this turn.
 
+
+## QA-20261104-18 — Is our DBC updated for this data?
+
+**Owner question (original):** so is our dbc updated with this data
+
+**Answer:** Yes. Canonical retropilot/dbc/ocelot_controls.dbc, Sunnypilot packaged copy and deployed PC pc/ocelot_controls.dbc all match RP-SIM-1/SHA256b4079670b8118fe63c6a7710ca1158afaabfec7df881ef902e43d70d70a36b67. Count28messages:20original unchanged plus8sim additions. Existing angle/speed/RPM/ignition definitions reused; new IMU,wheels,separate pedals/gear,actual cruise status and sample/time/validity metadata cover the outgoing telemetry. wall_time is intentionally PC-local; button definitions exist but the current game producer marks presses unavailable. DBC coverage does not assert physical reception; last0-frame result remains historical.
+
+**Actual verification:** Current local byte hashes and28BO_ count; original reference byte-prefix assertion; fresh pinned-host SSH sha256sum of deployed PC DBC. Source parent7f924e81add86045442a3d2562b97ea8d24e9f88/child150f937198ceab43c43b39f94b9bdea63fcb633c. No DBC/code/device change or CAN transmission.
+
 ---
 
 # Owner Q&A recovered for November 3–4, 2026

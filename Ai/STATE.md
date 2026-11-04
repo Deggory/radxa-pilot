@@ -1,3 +1,5 @@
+2026-11-04 DBC confirmation: fresh canonical/Sunnypilot/PC hashes match RP-SIM-1;28messages (20preserved+8new), original prefix intact. Q&A18 records coverage and button/wall-time limits. No DBC/code/hardware change or new CAN delivery test.
+
 2026-11-04 CAN inventory follow-up: owner Q&A17 now explains every outgoing telemetry group, PC-local wall timestamp versus CAN simulation time, unavailable button data and unsigned rate/raw-gear limits. Documentation only; source/devices unchanged and last physical CAN reception remains0frames.
 
 2026-11-04 later follow-up: additional Sunnypilot/BeamNG requirements explained and recorded in Q&A16; sender folder opened on PC and Radxa, gateway.py in VS Code. PC network reachable again and pending README copy completed. No code/control/firmware change or new CAN test; physical reception remains unqualified.

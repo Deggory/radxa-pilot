@@ -170,3 +170,13 @@ and four wheel speeds. Button frame remains zero/unavailable; wall_time stays
 PC-local while simulation milliseconds go on CAN. Missing fields have validity
 flags. No current reception/actuation claim: last physical test0Chimera frames.
 Source parenta27c269c/child150f9371; source/DBC/runtime unchanged.
+
+## DBC synchronization follow-up — 2026-11-04
+
+Owner Q&A18 asks whether DBC covers the outgoing data. Fresh canonical and
+packaged SHA/count/prefix checks pass:28messages,20old+8new; fresh PC SSH
+sha256sum matches RP-SIM-1 b4079670b8118fe63c6a7710ca1158afaabfec7df881ef902e43d70d70a36b67.
+All emitted telemetry has definitions. Buttons remain defined/unavailable and
+wall_time is PC-local by design. Source7f924e81/child150f9371; no runtime/DBC
+change or new physical reception test. Documentation skills/source-first route
+continue; no binary analysis needed. Next remains electrical CAN qualification.
