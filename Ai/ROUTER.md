@@ -1,3 +1,5 @@
+2026-11-04 two-day owner Q&A backfill complete: [62 chronological records](QUESTIONS.md) (47 on November 3,15 on November 4) with [exact original questions/58 completed answers](Evidence/owner-qa-20261103-04.json). Three requests link to clarification continuations; this request has a separately labelled closeout. Existing Q&A/unknowns retained. Local documentation only; no push. Continue recording later questions and read related answers before follow-ups.
+
 2026-11-04 owner requirement:retain questions AND actual answers across sessions. Read [answered owner Q&A](QUESTIONS.md) before related follow-ups; add new answers/status/evidence at closeout.
 
 2026-11-04:public radxa-pilot publication with master/Radxa/RetroPilot history; original commits preserved. [Evidence](Reports/github-publication-20261104/README.md). Upstream updates stay paused.

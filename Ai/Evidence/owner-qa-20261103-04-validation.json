@@ -1,0 +1,34 @@
+{
+  "result": "pass",
+  "owner_turns": 62,
+  "by_day": {
+    "2026-11-03": 47,
+    "2026-11-04": 15
+  },
+  "original_final_answers_verified_verbatim_against_source": 58,
+  "continuation_pairs_verified": 3,
+  "new_closeout_separately_labelled": true,
+  "source_prefix_hashes_verified": 2,
+  "both_archives_identical": true,
+  "both_new_log_sections_identical": true,
+  "previous_student_log_byte_preserved": true,
+  "previous_teacher_log_retained_bytes": 486413,
+  "existing_seven_qa_and_unanswered_items_retained": true,
+  "archive_sha256": "f006e168292090d23212df7607eb115b7b00bb3b6d83b9d2ad65d01f901c290a",
+  "child_clean": true,
+  "application_changes": false,
+  "hardware_software_tests": "not applicable; documentation only",
+  "pushed": false,
+  "source_head_before_backfill": "762842752843e204cc854c4c49728582e5d3ea40",
+  "notebook": {
+    "result": "pass",
+    "memory_layout": "regular project directory",
+    "documents": 100,
+    "relative_links": 326,
+    "optional_workspace_links": 240,
+    "source_repositories": 8,
+    "indexed_entries": 4254
+  },
+  "git_diff_check": "pass",
+  "checked_paths_scope": "Ai/ notebook only; no application/submodule change"
+}
