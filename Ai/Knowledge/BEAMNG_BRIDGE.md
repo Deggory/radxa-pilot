@@ -180,3 +180,15 @@ All emitted telemetry has definitions. Buttons remain defined/unavailable and
 wall_time is PC-local by design. Source7f924e81/child150f9371; no runtime/DBC
 change or new physical reception test. Documentation skills/source-first route
 continue; no binary analysis needed. Next remains electrical CAN qualification.
+
+## Canonical master and opendbc scope clarification — 2026-11-04
+
+Owner Q&A19 explains canonical as our agreed workspace mastercopy, with
+synchronized Sunnypilot/PC copies. RP-SIM-1 is a local extension, not a claim
+of upstream acceptance. Actual child150f9371 diff shows9latest BeamNG paths:
+DBC,decoder,CarState,values/interface,diagnostic-query skip,passive torque-data
+placeholder and provenance/docs. These implement passive input support;
+no live control activation or measured tune. Parent sourcea644f949/child150f9371.
+Source-first/documentation workflow; existing skills apply, no binary analysis
+needed. No code/DBC/device modification or runtime test this turn. Next CAN
+qualification/manager/return path and existing holds remain unchanged.

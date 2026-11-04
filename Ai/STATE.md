@@ -1,3 +1,5 @@
+2026-11-04 terminology follow-up: Q&A19 explains canonical as the owner-selected DBC master and enumerates the9latest BeamNG opendbc paths. Documentation only; runtime remains passive and physical CAN qualification unresolved.
+
 2026-11-04 DBC confirmation: fresh canonical/Sunnypilot/PC hashes match RP-SIM-1;28messages (20preserved+8new), original prefix intact. Q&A18 records coverage and button/wall-time limits. No DBC/code/hardware change or new CAN delivery test.
 
 2026-11-04 CAN inventory follow-up: owner Q&A17 now explains every outgoing telemetry group, PC-local wall timestamp versus CAN simulation time, unavailable button data and unsigned rate/raw-gear limits. Documentation only; source/devices unchanged and last physical CAN reception remains0frames.

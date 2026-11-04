@@ -89,6 +89,15 @@ wall_time is used on the PC to reject old UDP samples and is NOT transmitted on 
 
 **Actual verification:** Current local byte hashes and28BO_ count; original reference byte-prefix assertion; fresh pinned-host SSH sha256sum of deployed PC DBC. Source parent7f924e81add86045442a3d2562b97ea8d24e9f88/child150f937198ceab43c43b39f94b9bdea63fcb633c. No DBC/code/device change or CAN transmission.
 
+
+## QA-20261104-19 — Canonical DBC meaning and opendbc changes
+
+**Owner question (original):** Canonical RetroPilot DBC wat it means , and i saw u have updated opendbc folder wat u did
+
+**Answer:** Canonical means the owner-selected master/reference copy at retropilot/dbc/ocelot_controls.dbc; Sunnypilot and PC carry matching working copies so all projects use the same IDs,bit layouts,scales and meaning. RP-SIM-1 is our local versioned extension; this does not claim upstream publication. opendbc is Sunnypilot's CAN/vehicle-support library. Latest BeamNG child commit150f9371 changed9files: dbc/ocelot_controls.dbc(add8sim messages); car/retropilot/simulation.py(new coherent/CRC/counter/session/time/availability decoder); carstate.py(map readings into Sunny state); values.py and interface.py(explicit passive RETROPILOT_BEAMNG and simulator speed units); car/car_helpers.py(skip OEM firmware/VIN probes for explicit sim selection); car/torque_data/override.toml(passive required placeholder,not a measured tune); README.md and SOURCES.json(documentation/provenance). This describes the latest BeamNG increment, not all historical port work. Profile stays noOutput,dashcamOnly,carNotReady and controller runtime TX empty.
+
+**Evidence:** Actual git show --stat and selected diff671f8c4..150f9371, current interface/controller docs, owner CAN_DBC_POLICY. Parent basea644f949a95906adce28493048c0c940a7979eed; child150f937198ceab43c43b39f94b9bdea63fcb633c. Documentation/source-only explanation; no source/DBC/firmware/runtime/upstream change or new hardware test.
+
 ---
 
 # Owner Q&A recovered for November 3–4, 2026
