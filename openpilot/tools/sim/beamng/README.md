@@ -3,8 +3,9 @@ encoder/gateway, shared RP-SIM-1 DBC additions, Radxa decoder/monitor and explic
 receive-only RETROPILOT_BEAMNG profile. [PC instructions](pc/README.md) ·
 [Radxa instructions](radxa/README.md) · [Wire contract](shared/CAN_CONTRACT.md).
 Historical requirements below are superseded only for these software pieces.
-Live game/CAN delivery, Chimera integration and device-frame IMU fusion require
-separate acceptance; output remains disabled.
+Genuine game production/PC encoding and passive CarState replay have passed.
+Physical CAN delivery, managed Chimera integration and device-frame IMU fusion
+remain unqualified; output stays disabled. See the [latest audit](../../../../Ai/Reports/beamng-shutdown-audit-20261104/README.md).
 
 # BeamNG optical camera and CAN hardware-in-the-loop project
 
@@ -38,10 +39,10 @@ the final car-controller commands so the controller is included in the test.
 | Requirement | Provider and current status |
 | --- | --- |
 | Road images | AK-Camera watching the PC monitor; existing 720p/20 Hz camera/model path has prior bench evidence. Screen framing, optical geometry and render-to-camera delay still need a BeamNG run. |
-| Vehicle state | BeamNG speed, four separate wheel speeds, observed steering angle, pedals, gear, ignition, cruise/button edges and applicable override/fault state. RetroPilot receive-only car-state parser is implemented; PC telemetry collector and remaining signal definitions are pending. |
+| Vehicle state | BeamNG speed, four separate wheel speeds, observed steering angle, pedals, gear, ignition, cruise/button edges and applicable override/fault state. Read-only producer, shared definitions and passive parser implemented and tested with genuine game replay; gear selector mapping, button edges and actuator fault/override sources remain pending. |
 | Vehicle motion | Simulated acceleration and angular velocity with axes, units and acquisition time. One bench motion provider must feed localization; the stationary physical IMU cannot represent the moving game car. |
 | Vehicle parameters | Selected game car/configuration, wheelbase, mass, steering ratio/lock, controller type, limits and response delay. Measure or recover these for that configuration rather than borrowing Honda values. |
-| CAN and board interface | Waveshare PC gateway, canonical DBC mappings and Chimera USB backend. All remain pending; USB connection alone does not provide Panda compatibility. |
+| CAN and board interface | Waveshare PC gateway, canonical DBC mappings and Chimera USB backend. PC gateway and standalone USB receiver implemented; actual physical delivery is still0frames and managed Panda-compatible lifecycle/safety integration is unqualified. |
 | Commands and lifecycle | Final controller CAN commands mapped to game steering/throttle/brake, explicit engagement, cancel/brake override, source freshness, pause/reset and disconnect stop behavior. Initial stage controls only the game. |
 
 BeamNG documents custom vehicle-Lua telemetry protocols in its

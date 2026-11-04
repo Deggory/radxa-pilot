@@ -1,3 +1,13 @@
+## November 4 shutdown audit — next session November 5: Chimera
+
+Owner authorized audit/save, GitHub publication, then PC poweroff and VS Code/
+Radxa shutdown. Fresh165tests pass; DBC copies match. PC currently boots kernel42
+with working GTX1650/595.99.02; no game/gateway running. Last actual CAN reception
+remains0frames. Tomorrow start connector/power/termination/ACK/bitrate and receive
+qualification, preserving noOutput and relay/actuation limits. Publish child150f9371
+and Radxa branch with original master preserved; finish remote verification before
+normal ordered shutdown. No automatic upstream update or firmware work now.
+
 2026-11-04 latest checkpoint: NVIDIA repair passed without reboot (GTX1650/595.99.02; kernel38/42 modules; clean dpkg audit); BeamNG runs. Shared RP-SIM-1/PC/Radxa implementation saved at parent880a0adb and child150f9371. Genuine post-start capture492/492 yields valid passive CarState/canValid; 17 focused tests plus regressions pass. Physical CAN gate remains unresolved: genuine game117samples submitted via Waveshare,0Chimera frames. Owner reports CAN3, USB-only Chimera power and Waveshare resistor removed. Next qualify termination, transceiver rails, bitrate and ACK/silent mode; firmware/manager/actuation holds remain. No upstream update or push. PC link became unreachable after captures; restore it before further live work (last README clarification copy pending).
 
 2026-11-04 active BeamNG CAN increment: PC Lua producer/Waveshare gateway, RP-SIM-1 additive DBC, independent Radxa decoder/monitor and explicit receive-only RETROPILOT_BEAMNG profile implemented. 17 focused checks pass plus existing regressions. PC CH340 confirmed and files installed. Live game test blocked by missing NVIDIA modules for running kernel7.0.0-38; owner authorized repair, reviewed package script is waiting for local sudo authentication in PC terminal. No repair success, physical CAN delivery, localization fusion or control is claimed. No reboot or upstream update authorized.

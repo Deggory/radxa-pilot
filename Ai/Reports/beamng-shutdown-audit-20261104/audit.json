@@ -1,0 +1,117 @@
+{
+  "date_utc": "2026-11-04",
+  "next_work_date_utc": "2026-11-05",
+  "project_before_audit": "fb805202ee2d4f82f3657533f429687346aaaf51",
+  "opendbc": "150f937198ceab43c43b39f94b9bdea63fcb633c",
+  "published_before": {
+    "radxa/q8b": "40a0c9f8491abcfdde32d3e12bf5fb438f2b41e1",
+    "opendbc/retropilot": "671f8c450fc74f5b8b90b2ee53124394108651ce",
+    "master": "8cf6ff9a33c94bdf2fcb02e228a9aef1a7e6dc7f"
+  },
+  "fresh_tests": {
+    "beamng": {
+      "run": 17,
+      "result": "pass",
+      "log_sha256": "29482dc8414fd7ee1b61a81ccb7d2fa59ae96798b3d424514f1cab5639825097"
+    },
+    "retropilot": {
+      "run": 45,
+      "result": "pass",
+      "log_sha256": "67314aa93750b1dcc8be0cfe999dbf32948e5f1b5213d11709a6cb69b88dfe61"
+    },
+    "can": {
+      "run": 53,
+      "result": "pass",
+      "log_sha256": "f0043100c40b384be9b98640465495ef61a33f8621b200e516ac475b9b68841e"
+    },
+    "safety": {
+      "run": 50,
+      "result": "pass",
+      "log_sha256": "14a3d17e710dc6e072634752d887045a5819bc5ea07160a07c9cfdd34491729f"
+    }
+  },
+  "fresh_test_total": 165,
+  "mutation": {
+    "guard": "telemetry encoder actuator-name allowlist",
+    "experiment": "temporary guard removal in local source, one focused test expected failure",
+    "result": "test detected missing guard (ValueError not raised)",
+    "restored_original_sha256": "609d127a25817d4b7b12e23ef3b46f2513083427fceb318374311556d4c88acb"
+  },
+  "dbc": {
+    "version": "RP-SIM-1",
+    "sha256": "b4079670b8118fe63c6a7710ca1158afaabfec7df881ef902e43d70d70a36b67",
+    "messages": 28,
+    "unchanged_original_prefix": 7363,
+    "canonical_packaged_pc_match": true
+  },
+  "checks": {
+    "ruff": "pass",
+    "bash_syntax": "pass",
+    "new_file_secret_pattern_scan": "no matches in51changed paths; scoped scan only",
+    "camera_model_panda_cereal_changes_since_published": false,
+    "whitespace": "pass",
+    "updated_entrypoint_links": "pass",
+    "memory": "106docs/337relative links/240workspace links pass"
+  },
+  "historical_runtime": {
+    "genuine_post_start_carstate_samples": 492,
+    "valid_samples": 492,
+    "gaps_over_150ms": 0,
+    "genuine_serial_attempt_samples": 117,
+    "chimera_received_frames": 0,
+    "rerun_today_during_shutdown_audit": false
+  },
+  "pc_fresh": {
+    "kernel": "7.0.0-42-generic",
+    "gpu": "GTX1650",
+    "driver": "595.99.02",
+    "dpkg_audit": "clean",
+    "running_beamng_or_gateway": false,
+    "boot_time_reported_pc_local": "2026-11-05 01:31:14",
+    "reboot_cause": "unknown; no claim repair agent initiated reboot",
+    "dialout_access": true
+  },
+  "editor": {
+    "autosave": "afterDelay",
+    "backup_regular_files": 0,
+    "explicit_save_all_inspection": "not verified",
+    "shutdown_policy": "normal GNOME application/session cleanup; no force kill/discard/inhibitor override"
+  },
+  "publication": {
+    "authorized": true,
+    "target": "Deggory/radxa-pilot",
+    "branches": [
+      "opendbc/retropilot",
+      "radxa/q8b"
+    ],
+    "original_master_preserved": true,
+    "default_branch_target": "radxa/q8b",
+    "status": "pending push and remote verification"
+  },
+  "shutdown": {
+    "authorized": true,
+    "order": [
+      "PC",
+      "VS Code",
+      "Radxa"
+    ],
+    "status": "planned only after publication verification",
+    "physical_poweroff_observed": false
+  },
+  "limits": [
+    "Physical CAN reception remains0; transceiver rails/termination/ACK/bitrate/connector mapping unresolved",
+    "Source can_silent=0xFF is a lead, not readback of exact installed nightly state",
+    "Gear selector mapping, button input, motion-provider fusion, calibrated vehicle/controller and command return remain pending",
+    "NoOutput/dashcamOnly/carNotReady preserved; no flash,relay or vehicle actuation"
+  ],
+  "reviewed_source_hashes": {
+    "openpilot/tools/sim/beamng/pc/gateway.py": "609d127a25817d4b7b12e23ef3b46f2513083427fceb318374311556d4c88acb",
+    "openpilot/tools/sim/beamng/pc/install.py": "447cb03be8820a4808c4b5dc123f0366bbff82625b153ef2cd2ea2a12aa033b6",
+    "openpilot/tools/sim/beamng/pc/mod/lua/vehicle/protocols/radxaRetropilot.lua": "08c3810c2febd65154d8a89f7cd29f40357de2696ff3b47ad5429a89a893311f",
+    "openpilot/tools/sim/beamng/radxa/receive.py": "d3b6ee2254be3f6ae318f47e88493b9b1b92c9aa79b6ec5faa259a50f8dd612a",
+    "opendbc_repo/opendbc/car/retropilot/simulation.py": "4fa22a7eabd7b9366ccef3da41194f1e69cf4d73678f30fba1f9e8a6b5e5e822",
+    "opendbc_repo/opendbc/car/retropilot/carstate.py": "3ef5984f9270e69d244f5b138737aaff58ae9b8a1f99b77509781e4127c944d7",
+    "opendbc_repo/opendbc/car/retropilot/interface.py": "f142bcc3a54f0cae01db4af3da5cc375a484e3ea4c664719643505f5c23e9be8",
+    "opendbc_repo/opendbc/car/retropilot/values.py": "3082301e39dda4bc5a5fe57e1e4f06bbf3abfc6bea9b24d6bfdeba4b98c85fae"
+  }
+}

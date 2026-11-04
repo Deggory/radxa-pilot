@@ -556,3 +556,5 @@ temporary Bastion reference scene and read-only UDP producer. PC account now
 has dialout access. Next measure termination/transceiver rails,confirm wiring/
 bitrate and qualify ACK/silent behavior. Current hardware owner facts retained;
 no invented powered-rail or installed silent-state conclusion.
+
+2026-11-04 shutdown handoff: fresh165tests/source integrity pass; no functional change. Owner chose November5Chimera focus: resolve actual connector,USB-only rails,removed Waveshare termination and ACK/silent/bitrate before receive acceptance. Last0CANframes; noOutput/relay exclusion retained. Audit/publication/ordered shutdown report at Ai/Reports/beamng-shutdown-audit-20261104; actual remote/shutdown receipts follow before closeout.

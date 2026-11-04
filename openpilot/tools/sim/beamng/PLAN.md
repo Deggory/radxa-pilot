@@ -3,8 +3,13 @@ encoder/gateway, shared RP-SIM-1 DBC additions, Radxa decoder/monitor and explic
 receive-only RETROPILOT_BEAMNG profile. [PC instructions](pc/README.md) ·
 [Radxa instructions](radxa/README.md) · [Wire contract](shared/CAN_CONTRACT.md).
 Historical requirements below are superseded only for these software pieces.
-Live game/CAN delivery, Chimera integration and device-frame IMU fusion require
-separate acceptance; output remains disabled.
+Genuine game telemetry and passive CarState replay have passed; physical CAN
+delivery, managed Chimera integration and device-frame IMU fusion remain
+unqualified. Output stays disabled.
+
+Next session November 5: [Chimera audit handoff](../../../../Ai/Reports/beamng-shutdown-audit-20261104/README.md).
+Wire-contract/software work is implemented; qualify physical receive before
+managed shadow integration or a simulator command return path.
 
 # Implementation plan: optical webcam + CAN loop
 
@@ -21,9 +26,9 @@ pending; the existing source audit does not satisfy their acceptance criteria.
 | 4 — game-only closed loop | CAN return, PC actuator model/mapping and explicit engagement/stop | Selected vehicle/sign/lock/dynamics; bounded lateral tracking, driver brake/cancel, pause/reset/disconnect and stale-command tests; final CAN command path included. Bench hardware excluded. |
 | 5 — later physical bench | Interceptor/Core, steering-angle feedback, then brake/accelerator endpoints | Owner-selected feedback authority, calibrated hardware/protocols, single publishers, endpoint watchdog/stop and fault/override evidence before motion. Not authorized or performed by this increment. |
 
-## Exact next task
+## Historical next task — November 3
 
-Start increment1 with saved sources: teacher
+The latest handoff above supersedes this starting point. Start increment1 with saved sources: teacher
 `Knowledge/Repos/chimera-panda-transport.md`, `retropilot-cores.md`,
 `steer-actuator-demo.md`, workspace `canreader/read_can.py`, canonical
 `retropilot/dbc/` and companion `retropilot/protocol/`. The reader source confirms

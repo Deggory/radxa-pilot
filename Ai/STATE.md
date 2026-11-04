@@ -1,3 +1,13 @@
+## November 4 shutdown audit — next session November 5: Chimera
+
+Owner authorized audit/save, GitHub publication, then PC poweroff and VS Code/
+Radxa shutdown. Fresh165tests pass; DBC copies match. PC currently boots kernel42
+with working GTX1650/595.99.02; no game/gateway running. Last actual CAN reception
+remains0frames. Tomorrow start connector/power/termination/ACK/bitrate and receive
+qualification, preserving noOutput and relay/actuation limits. Publish child150f9371
+and Radxa branch with original master preserved; finish remote verification before
+normal ordered shutdown. No automatic upstream update or firmware work now.
+
 2026-11-04 updated Ocelot DBC inventory: Q&A20 explains all28message definitions (20old+8sim additions) and distinguishes dictionary coverage from firmware/producer/control acceptance. No code/DBC/device change; physical CAN qualification remains next.
 
 2026-11-04 terminology follow-up: Q&A19 explains canonical as the owner-selected DBC master and enumerates the9latest BeamNG opendbc paths. Documentation only; runtime remains passive and physical CAN qualification unresolved.

@@ -1,7 +1,23 @@
 ![](https://user-images.githubusercontent.com/47793918/233812617-beab2e71-57b9-479e-8bff-c3931347ca40.png)
 
-Radxa Dragon Q8B development: start with [install.md](install.md) and
-[Ai/HANDOFF.md](Ai/HANDOFF.md) for this port’s setup and tested state.
+## Radxa Pilot — Dragon Q8B
+
+This branch contains the Radxa Sunnypilot port. Original Sunnypilot source is
+preserved on `master`; project development is on `radxa/q8b`.
+
+| Area | Tested state — November 4, 2026 |
+| --- | --- |
+| Camera / Thneed | Existing Radxa camera/model bench work retained; BeamNG optical alignment remains to be qualified. |
+| BeamNG telemetry | Read-only PC Lua/Waveshare gateway, RP-SIM-1 DBC and Radxa decoder implemented. Real game capture:492/492valid passive car-state samples. |
+| Shared CAN definitions |28messages:20original+8simulator additions; canonical/Sunnypilot/PC copies match. |
+| Chimera hardware link | Last genuine117sample serial attempt received0CAN frames. Physical reception remains unresolved. |
+| Control | Receive-only/noOutput. Vehicle tuning, simulator IMU integration, managed bridge and command return are pending. |
+
+Fresh shutdown audit: **165tests passed**. Next session, **November 5: Chimera**.
+See the [audit and next steps](Ai/Reports/beamng-shutdown-audit-20261104/README.md),
+[BeamNG files](openpilot/tools/sim/beamng/README.md), [setup](install.md),
+[GitHub clone guide](docs/GITHUB_RADXA.md) and [current handoff](Ai/HANDOFF.md).
+
 
 ## 🌞 What is sunnypilot?
 [sunnypilot](https://github.com/sunnyhaibin/sunnypilot) is a fork of comma.ai's openpilot, an open source driver assistance system. sunnypilot offers the user a unique driving experience for over 300+ supported car makes and models with modified behaviors of driving assist engagements. sunnypilot complies with comma.ai's safety rules as accurately as possible.

@@ -204,3 +204,5 @@ physical integration; gateway uses12telemetry frames. Source9e3b896f/child150f93
 Direct hash/equality/count/prefix checks pass; no executable/DBC/device or new
 runtime operation. Current source-first/documentation skills apply; no binary
 analysis needed. Next remains unresolved physical CAN qualification.
+
+2026-11-04 shutdown handoff: fresh165tests/source integrity pass; no functional change. Owner chose November5Chimera focus: resolve actual connector,USB-only rails,removed Waveshare termination and ACK/silent/bitrate before receive acceptance. Last0CANframes; noOutput/relay exclusion retained. Audit/publication/ordered shutdown report at Ai/Reports/beamng-shutdown-audit-20261104; actual remote/shutdown receipts follow before closeout.

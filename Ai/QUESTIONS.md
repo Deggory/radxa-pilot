@@ -107,6 +107,15 @@ wall_time is used on the PC to reject old UDP samples and is NOT transmitted on 
 
 **Evidence:** Direct BO_/SG_ inventory, canonical SHA256b4079670b8118fe63c6a7710ca1158afaabfec7df881ef902e43d70d70a36b67, packaged byte equality,28message count and preserved20message original-prefix assertion. Source parent9e3b896fb9a6f564acbce42aef3845994cad5eea / child150f937198ceab43c43b39f94b9bdea63fcb633c. Documentation/source-only; no DBC/code/firmware/runtime change or hardware test.
 
+
+## QA-20261104-21 — Audit, publish and ordered shutdown
+
+**Owner request (original):** audit wat we did ,tom onwards we will work on chimera ,update the githu page ,and close pc ,then vscode and this radxa
+
+**Accepted scope/status:** Audit/save both memories, publish verified parent and child to Deggory/radxa-pilot with visible Radxa status and preserved master, prepare November5Chimera receive-diagnostics handoff, then power off PC first and close VS Code/Radxa normally last. Fresh165tests and source/DBC checks pass. Last physical CAN0frames remains unresolved. Publication/physical shutdown are not yet claimed at preparation time; append actual readbacks. No flash,relays or actuation.
+
+**Evidence:** Ai/Reports/beamng-shutdown-audit-20261104 and the dated audit-publication-shutdown session.
+
 ---
 
 # Owner Q&A recovered for November 3–4, 2026
