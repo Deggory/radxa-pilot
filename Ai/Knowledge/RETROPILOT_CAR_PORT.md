@@ -1,3 +1,25 @@
+## 2026-11-04 — What Ocelot means in the C2 RetroPilot port
+
+Ocelot is RetroPilot's firmware/hardware family for automotive gateways and
+control modules, per local ocelot/README.md. It includes Chimera, Interceptor
+Core, Actuator Core and iBooster firmware; naming support is not proof every
+module was fitted to the author's vehicle. C2 ocelotcan.py constructs commands
+using ocelot_controls.dbc; its controller calls the appropriate constructors
+according to DetectedEcus. It is host CAN encoding, not board firmware.
+
+Modern Sunnypilot packages the same canonical DBC and uses commands.py for
+these constructors. Ocelot board firmware executes on the selected modules;
+the external ocelot/ directory is a separate reference/project, not a folder
+to copy wholesale into the car port. Producer CRC/layout/units compatibility
+still needs qualification. NoOutput/zero live CAN, absent active profile,
+held Chimera/physical Interceptor and excluded relay integration remain.
+
+Sources: retained C2b9a942efd3cb210127bb5efb5cf9ccf6a811c728, canonical DBC
+6b90fafe59e81822bfae58e4ecb080248e9de40d, local Ocelotd87892fa dirty source.
+Current parentec53967/child671f8c4 clean at session start. Source-only explanation;
+no runtime/firmware/device test or code change. Next active work still needs
+actual BeamNG vehicle/configuration and endpoint/units/mode/calibration contract.
+
 ## 2026-11-03 — Audit saved before owner-requested shutdown
 
 Audited parent469f3c5/child671f8c4, both clean at start;10 source hashes match.

@@ -1,3 +1,9 @@
+2026-11-04 session reopened: parentec53967/child671f8c4 clean. Explained C2
+Ocelot naming from source: module firmware family, ocelotcan.py command encoder,
+DBC wire definitions; modern commands.py supplies the encoder role. No runtime
+change or hardware resumption. Existing noOutput/profile/Chimera holds remain.
+See Sessions/2026-11-04-ocelot-c2-explanation.md.
+
 ## 2026-11-03 — Audit saved before owner-requested shutdown
 
 Audited parent469f3c5/child671f8c4, both clean at start;10 source hashes match.

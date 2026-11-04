@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-04",
+  "parent_base": "ec53967f400e55dc103fcb1f2c015e5a87250f8a",
+  "child": "671f8c450fc74f5b8b90b2ee53124394108651ce",
+  "scope": "C2 Ocelot source explanation and both notebooks only",
+  "c2": "b9a942efd3cb210127bb5efb5cf9ccf6a811c728",
+  "source_hash_checks": [
+    "car/retropilot/carcontroller.py",
+    "car/retropilot/ocelotcan.py",
+    "car/retropilot/values.py"
+  ],
+  "ocelot": "d87892fa25ef2a2474110b97bfb5245ee818b534 dirty reference; no installed firmware claim",
+  "runtime_tests": "none; source/doc task",
+  "rea": "Readable source sufficient, no artifact/runtime proof",
+  "holds": "Chimera/physical Interceptor held, relay integration excluded, noOutput/no active profile retained",
+  "validation": "3 retained C2 source hashes verified; notebook87 documents249 links; whitespace pass"
+}
