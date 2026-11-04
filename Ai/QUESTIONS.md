@@ -69,6 +69,17 @@ NVIDIA/BeamNG is repaired without reboot. CAN files and shared DBC extension are
 
 **Scope:** Source/read-only explanation and folder opening, using project4cc6d67195c20f1edf19a38d703c58ffff6418b0 and child150f937198ceab43c43b39f94b9bdea63fcb633c. No new runtime/safety/transport success is claimed.
 
+
+## QA-20261104-17 — What the PC sends over CAN
+
+**Owner question (original):** wat all data does pc send through can bus to chimera
+
+**Answer:** With physical TX explicitly enabled, gateway.py sends12CAN frames per sample: measured steering angle and unsigned steering-rate magnitude (0x050); ignition,RPM if available,and driver-brake pressed derived from input>0.05(0x075); speed magnitude in centi-km/h(0x076); cruise button frame0x100 currently zero/unavailable; XYZ acceleration0x702; XYZ angular velocity0x703; four independent wheel-speed magnitudes0x704; driver accelerator input,driver brake input,applied brake,raw gear index,ignition and validity flags0x705; available/enabled/target game-cruise status0x706. Begin0x700/clock0x701/end0x707 add protocol/session/sample metadata,simulation milliseconds,validity flags; each frame has counter/CRC. Nominal maximum50updates/s,not a guaranteed measured rate.
+
+wall_time is used on the PC to reject old UDP samples and is NOT transmitted on CAN; sim_time is transmitted in milliseconds. The full PC session/sequence/valid fields are mapped into bounded CAN metadata rather than copied verbatim. Missing optional fields are explicitly unavailable. Gear is not yet mapped to a complete P/R/N/D selector; IMU axes remain game-frame/unqualified for device localization. Generic cruise button presses are unavailable. Current gateway carries telemetry; command return remains unfinished. Last physical wire test received0frames, so outgoing definitions/serial submission are distinct from proven Chimera reception.
+
+**Evidence/scope:** Read current gateway.py Encoder.encode,game Lua producer,shared CAN_CONTRACT.md and prior active-game receipt at parenta27c269c097c3937fc7877d491877de509e1272a / child150f937198ceab43c43b39f94b9bdea63fcb633c. No executable/DBC/device change, CAN transmission, upstream update, or new runtime test this turn.
+
 ---
 
 # Owner Q&A recovered for November 3–4, 2026

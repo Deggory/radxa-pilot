@@ -741,3 +741,13 @@ noOutput/read-only is unchanged. PC reachable again; sender folder opened on
 PC and Radxa; gateway.py opened in VS Code. Pending PC README copy completed.
 No new physical CAN test; last0frames remains unresolved. See the dated
 requirements-sender session and owner Q&A16 for source pins/actions/limits.
+
+## 2026-11-04 — Outgoing CAN inventory explained
+
+Owner Q&A17 records all outgoing telemetry and12message IDs from the actual
+encoder. Includes distinct driver/applied brake, unsigned steering-rate
+magnitude, raw gear index, optional cruise state, six game-frame IMU values
+and four wheel speeds. Button frame remains zero/unavailable; wall_time stays
+PC-local while simulation milliseconds go on CAN. Missing fields have validity
+flags. No current reception/actuation claim: last physical test0Chimera frames.
+Source parenta27c269c/child150f9371; source/DBC/runtime unchanged.
