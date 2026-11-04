@@ -192,3 +192,15 @@ no live control activation or measured tune. Parent sourcea644f949/child150f9371
 Source-first/documentation workflow; existing skills apply, no binary analysis
 needed. No code/DBC/device modification or runtime test this turn. Next CAN
 qualification/manager/return path and existing holds remain unchanged.
+
+## Full updated Ocelot dictionary explanation — 2026-11-04
+
+Q&A20 interprets the owner's wording as the updated DBC in this conversation.
+Fresh BO_/SG_ inventory enumerates28definitions:20preserved originals and8new
+RP-SIM-1 messages. Existing sensor/control/status families and new timing/IMU/
+wheels/pedals/gear/cruise described; legacy relay definitions retained but
+relay use excluded. Definitions are distinct from producer availability and
+physical integration; gateway uses12telemetry frames. Source9e3b896f/child150f9371.
+Direct hash/equality/count/prefix checks pass; no executable/DBC/device or new
+runtime operation. Current source-first/documentation skills apply; no binary
+analysis needed. Next remains unresolved physical CAN qualification.

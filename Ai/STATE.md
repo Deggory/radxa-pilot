@@ -1,3 +1,5 @@
+2026-11-04 updated Ocelot DBC inventory: Q&A20 explains all28message definitions (20old+8sim additions) and distinguishes dictionary coverage from firmware/producer/control acceptance. No code/DBC/device change; physical CAN qualification remains next.
+
 2026-11-04 terminology follow-up: Q&A19 explains canonical as the owner-selected DBC master and enumerates the9latest BeamNG opendbc paths. Documentation only; runtime remains passive and physical CAN qualification unresolved.
 
 2026-11-04 DBC confirmation: fresh canonical/Sunnypilot/PC hashes match RP-SIM-1;28messages (20preserved+8new), original prefix intact. Q&A18 records coverage and button/wall-time limits. No DBC/code/hardware change or new CAN delivery test.

@@ -98,6 +98,15 @@ wall_time is used on the PC to reject old UDP samples and is NOT transmitted on 
 
 **Evidence:** Actual git show --stat and selected diff671f8c4..150f9371, current interface/controller docs, owner CAN_DBC_POLICY. Parent basea644f949a95906adce28493048c0c940a7979eed; child150f937198ceab43c43b39f94b9bdea63fcb633c. Documentation/source-only explanation; no source/DBC/firmware/runtime/upstream change or new hardware test.
 
+
+## QA-20261104-20 — What the updated Ocelot DBC contains
+
+**Owner question (original):** can u tell wat all now new coelot hvae
+
+**Interpretation/answer:** In the current conversation this refers to updated ocelot_controls.dbc, not newly flashed Ocelot/Chimera firmware. It contains28message definitions:20originals plus8local RP-SIM-1 additions. Original coverage: measured angle/rate,speed,ignition/RPM/brake-pressed,cruise buttons/ADC; command/status pairs for brake actuator,steering actuator,gas pedal interceptor,iBooster,SSC stepper,steering interceptor,throttle actuator,and historical RelayCore definitions. Relay control remains outside this project scope. New0x700..0x707:sample begin,simulation clock,XYZacceleration,XYZgyro,fourwheel speeds,driver accelerator/driver brake/applied brake/raw gear/ignition/validity,actual cruise available/enabled/target,coherent sample end. Missing optional values are marked unavailable; current generic button presses unavailable,gear selector mapping pending. Hardware operation requires matching firmware/wiring; these definitions do not establish working physical control. Current gateway emits12telemetry frames, not all28definitions.
+
+**Evidence:** Direct BO_/SG_ inventory, canonical SHA256b4079670b8118fe63c6a7710ca1158afaabfec7df881ef902e43d70d70a36b67, packaged byte equality,28message count and preserved20message original-prefix assertion. Source parent9e3b896fb9a6f564acbce42aef3845994cad5eea / child150f937198ceab43c43b39f94b9bdea63fcb633c. Documentation/source-only; no DBC/code/firmware/runtime change or hardware test.
+
 ---
 
 # Owner Q&A recovered for November 3–4, 2026
