@@ -730,3 +730,14 @@ Read-only inspection at bf3c44d: .github contains tracked GitHub workflows/issue
 2026-11-03 path lookup: shared fingerprints.py is opendbc_repo/opendbc/car/fingerprints.py; Hyundai example is car/hyundai/fingerprints.py. RetroPilot has no fingerprints.py; explicit RETROPILOT_RETROFIT is in car/retropilot/values.py:49. Verified by rg --files and absence check at parent c62cfe2/opendbc649bbb6; no runtime change.
 
 2026-11-04 BeamNG CAN closeout: source parent880a0adb/child150f9371 locally saved;17focused plus45port/53CAN/50safety/278broader(1skip)checks pass. PC GTX1650/595.99.02 and module38/42repair passed without reboot; real post-start492/492samples pass actual passive CarInterface,canValidtrue;117sample real-game adapter attempt received0Chimera frames. Owner CAN3/USB-only/Waveshare resistor removed recorded. Electrical/ACK/bitrate and firmware-manager qualification remain; noOutput preserved. PC link became unreachable only after receipts saved; final README clarification copy pending. Notebook102docs/335relative links/240workspace links passes. No push/upstream update. See Reports/beamng-can-20261104/README.md and dated session for exact limits.
+
+## 2026-11-04 — Requirements clarified; sender folders opened
+
+Gear mapping/engagement, override/actuator faults, vehicle calibration, optical
+camera/model and simulator IMU integration, safety/fresh CAN, and final CAN
+commands returning to game are the remaining categories beyond telemetry.
+Raw gear index already exists; cruise buttons remain unavailable. Runtime
+noOutput/read-only is unchanged. PC reachable again; sender folder opened on
+PC and Radxa; gateway.py opened in VS Code. Pending PC README copy completed.
+No new physical CAN test; last0frames remains unresolved. See the dated
+requirements-sender session and owner Q&A16 for source pins/actions/limits.

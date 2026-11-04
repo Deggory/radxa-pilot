@@ -58,6 +58,17 @@ The original GPU repair finished successfully without reboot: GTX1650/595.99.02,
 
 NVIDIA/BeamNG is repaired without reboot. CAN files and shared DBC extension are complete;17new focused tests and existing regressions pass. Real running-game492/492samples produced valid passive Sunnypilot car state in replay. Steering/speed/IMU/pedals/wheels/gear/cruise status are available; buttons and IMU localization remain unqualified/unavailable as documented. A genuine117sample serial-CAN attempt still received0Chimera frames. The remaining next step is electrical/ACK/bitrate qualification with the recorded USB-only power/resistor state, not a claim the entire CAN chain works. Source implementation parent880a0adb/child150f9371 saved locally; no push.
 
+
+## QA-20261104-16 — Additional requirements and opening the Waveshare sender
+
+**Owner question/request (original):** for sunnypilot to work wat are the things neeeded ,steering angle, speed, IMU, pedals, wheels and available cruise status. other than these ,and can u open beamng folder where it send waveshare can data
+
+**Answer:** For this BeamNG setup, additionally need gear/ignition readiness (raw gear index is already transported but Drive/Reverse/Park mapping is pending), an explicit engage/cancel input (current cruise status is not button presses), driver override and actuator-ready/fault feedback appropriate to the selected control method, calibrated vehicle/steering parameters, aligned road-camera/model and simulator IMU integration, reliable timely CAN with enforced safety/fault shutdown, and a return path mapping final Sunnypilot CAN commands to game steering/throttle/brake. Real-vehicle doors/seatbelts/parking-brake conditions apply where appropriate; this does not require inventing simulator signals or bypassing checks. Radar is not mandatory for this current radarUnavailable simulator profile. Current runtime remains noOutput/dashcamOnly and live controller TX is empty; previous physical CAN attempt received0frames. No new CAN test or activation this turn.
+
+**Action/evidence:** PC10.43.0.216 is reachable again using the pinned prior host key. PC desktop gio open returned0 for /home/pc/beamng-q8b/retropilot-can/pc; gateway.py exists. Radxa code --reuse-window --goto opened openpilot/tools/sim/beamng/pc/gateway.py:234; xdg-open for its containing folder returned0. Lua mod reads game state and sends loopback UDP49160; gateway.py uses the shared DBC to encode and write Waveshare serial CAN telemetry. Also completed the previously pending PC README copy; no executable or firmware change.
+
+**Scope:** Source/read-only explanation and folder opening, using project4cc6d67195c20f1edf19a38d703c58ffff6418b0 and child150f937198ceab43c43b39f94b9bdea63fcb633c. No new runtime/safety/transport success is claimed.
+
 ---
 
 # Owner Q&A recovered for November 3–4, 2026

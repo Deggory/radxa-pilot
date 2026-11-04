@@ -149,3 +149,14 @@ temporary Bastion reference scene and read-only UDP producer. PC account now
 has dialout access. Next measure termination/transceiver rails,confirm wiring/
 bitrate and qualify ACK/silent behavior. Current hardware owner facts retained;
 no invented powered-rail or installed silent-state conclusion.
+
+## 2026-11-04 — Requirements clarified; sender folders opened
+
+Gear mapping/engagement, override/actuator faults, vehicle calibration, optical
+camera/model and simulator IMU integration, safety/fresh CAN, and final CAN
+commands returning to game are the remaining categories beyond telemetry.
+Raw gear index already exists; cruise buttons remain unavailable. Runtime
+noOutput/read-only is unchanged. PC reachable again; sender folder opened on
+PC and Radxa; gateway.py opened in VS Code. Pending PC README copy completed.
+No new physical CAN test; last0frames remains unresolved. See the dated
+requirements-sender session and owner Q&A16 for source pins/actions/limits.
