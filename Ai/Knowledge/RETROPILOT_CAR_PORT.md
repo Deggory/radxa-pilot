@@ -1,3 +1,32 @@
+## 2026-11-04 — OEM CAN plus RetroPilot through separate DBC parsers
+
+Owner asked whether connecting the car CAN bus can supply data while keeping
+RetroPilot DBC. Yes as supported architecture, not current implementation:
+CarInterfaceBase stores a dictionary of CANParser instances, updates every
+parser from received packets and passes all to CarState. Each CANParser owns
+its DBC and filters numeric source bus. Existing Honda HAS_BSM code combines
+Bus.pt honda_civic_hatchback_ex_2017_can_generated with Bus.body
+honda_crv_ex_2017_body_generated in an actual platform configuration.
+
+Proposed use only:OEM DBC decodes available vehicle speed/brake/gear/RPM/etc;
+canonical ocelot_controls decodes ZSS/module feedback. CarState explicitly
+chooses authoritative signals and combines them, including source-specific
+units, CRC/counter/freshness and readiness checks. Same physical bus is possible
+for distinct compatible IDs; conflicting ID meanings require separate bus
+routing or explicit translation. Preserve OEM definitions and canonical DBC.
+No new bus number/wiring or adapter capability is inferred from this discussion.
+
+Current RetroPilot CarState returns one parser on hostbus2 and still expects
+its base RetroPilot ENGINE/SPEED/CRUISE/angle messages. A real OEM addition
+needs a second parser, mapping/required-source changes and a sourced car DBC.
+Two files placed in a directory do not implement that integration. No vehicle
+selection, OEM port, hardware connection, CAN TX or control permission here.
+Live receive-only/noOutput and prior holds remain. Source child671f8c4,
+application40a0c9f8 unchanged; documentation-only review, no runtime test.
+Source references:opendbc/car/interfaces.py114,263-271;can/parser.py114,215;
+honda/carstate.py240-246;honda/values.py233;retropilot/carstate.py134-137.
+Documentation/Git skills, readable-source REA route; no binary analysis needed.
+
 ## 2026-11-04 — dzid stepper commands and separate ZSS feedback
 
 Owner asked whether our DBC includes dzid stepper control and ZSS angle.
