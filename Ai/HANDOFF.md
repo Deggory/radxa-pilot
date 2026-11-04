@@ -1,3 +1,11 @@
+## 2026-11-04 — Owner-authorized GitHub publication in progress
+
+Private `Deggory/radxa-pilot` created. Original `master`, Radxa branch and
+RetroPilot support history are the accepted scope; only Sunnypilot project
+contents. Portable submodule/LFS metadata prepared, large assets uploading,
+remote clone verification pending. Original application0758b123 and child671f8c4
+source unchanged. See [publication guide](../docs/GITHUB_RADXA.md). Timer remains paused.
+
 ## 2026-11-04 — Exactly two upstream updates approved and applied
 
 Later owner instruction authorized a86979d2 and8cf6ff9a only, preserving
