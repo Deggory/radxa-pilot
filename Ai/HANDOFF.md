@@ -1,3 +1,10 @@
+2026-11-04 owner requirement: Chimera + Interceptor Core + Actuator Core are
+all selected required hardware for the Radxa/Sunnypilot RetroPilot project.
+Jobs: computer/CAN + vehicle signals; analog pedal/steering sensor interface;
+custom actuator motor control, respectively. Recorded in DECISIONS and the
+RetroPilot topic/session. Selection is not installed/tested status; existing
+Chimera/physical Interceptor holds, noOutput and relay exclusion remain.
+
 2026-11-04 DBC comparison: old/canonical and packaged current ocelot_controls
 are identical (7363bytes,20messages,120signals,SHAef6eef74). Current port selects
 this DBC already. Direct diff/provenance pass; no code/DBC or runtime change.

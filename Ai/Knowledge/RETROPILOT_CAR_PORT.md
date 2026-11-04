@@ -1,3 +1,26 @@
+## 2026-11-04 — Owner-selected required hardware: all three modules
+
+Owner explicitly selected these as required parts of our existing Radxa Q8B /
+modern Sunnypilot RetroPilot project and requested both notebooks remember them:
+
+| Required part | Owner-selected job |
+| --- | --- |
+| Chimera | Connects the computer to CAN and gathers vehicle signals. |
+| Interceptor Core | Handles analog accelerator or steering torque-sensor signals. |
+| Actuator Core | Controls motors used in custom actuators. |
+
+All three belong to the intended architecture. Do not reduce this selection to
+Chimera alone, treat the two Cores merely as examples, or ask the owner to repeat
+which three were selected. This is an owner requirement, not proof of purchase,
+installed hardware, working firmware, exact per-axis assignments or calibration.
+
+Recording the architecture does not resume held Chimera implementation or the
+paused physical Interceptor bench task. Relays remain excluded. No iBooster or
+other module is additionally selected by this table. Current noOutput, absent
+active vehicle profile and zero runtime CAN remain. Canonical shared
+ocelot_controls.dbc remains selected; no rename, wire change or device action.
+Exact endpoint/axis mapping and qualification remain future integration work.
+
 ## 2026-11-04 — Old/reference DBC versus current Sunnypilot DBC
 
 Owner asked whether Ocelot DBC is needed and requested comparison. Yes: current

@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-04",
+  "source": "owner explicitly supplied module/job table and asked both notebooks to note it",
+  "required_parts": {
+    "Chimera": "Connects the computer to CAN and gathers vehicle signals",
+    "Interceptor Core": "Handles analog accelerator or steering torque-sensor signals",
+    "Actuator Core": "Controls motors used in custom actuators"
+  },
+  "scope": "existing Radxa Q8B / modern Sunnypilot RetroPilot architecture",
+  "parent_base": "e7cd35c22cb675246695f45ed35f7b8f848a8bd1",
+  "opendbc": "671f8c450fc74f5b8b90b2ee53124394108651ce",
+  "code_dbc_hardware_changes": false,
+  "unknowns": [
+    "actual per-axis mapping",
+    "installed/working hardware",
+    "firmware compatibility and calibration"
+  ],
+  "holds": "Chimera implementation and physical Interceptor bench remain held; relays excluded; noOutput/zero CAN/absent active profile unchanged",
+  "runtime_tests": "none; documentation-only owner requirement",
+  "REA": "No artifact/runtime question; source-first route",
+  "validation": "three selected parts asserted in teacher/student decisions/topics; notebook88 documents249 links; whitespace pass"
+}
