@@ -2,7 +2,7 @@ from opendbc.car import get_safety_config, structs
 from opendbc.car.interfaces import CarInterfaceBase
 from opendbc.car.retropilot.carcontroller import CarController
 from opendbc.car.retropilot.carstate import CarState
-from opendbc.car.retropilot.values import CAN_BUS, MODULES
+from opendbc.car.retropilot.values import CAN_BUS, MODULES, RetroPilotFlags
 
 
 class CarInterface(CarInterfaceBase):
@@ -20,6 +20,8 @@ class CarInterface(CarInterfaceBase):
     # Zero means unqualified. Explicitly choose 1.0 (legacy km/h) or 0.01
     # (centi-km/h) only after confirming the producer. No unit guessing.
     ret.wheelSpeedFactor = 0.0
+    if ret.flags & RetroPilotFlags.BEAMNG:
+      ret.wheelSpeedFactor = 0.01  # RP-SIM-1 explicitly specifies centi-km/h.
     ret.minEnableSpeed = float('inf')
     ret.minSteerSpeed = float('inf')
     ret.lateralTuning.init('pid')

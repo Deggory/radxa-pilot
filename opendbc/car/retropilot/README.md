@@ -1,3 +1,19 @@
+## RP-SIM-1 receive-only simulator profile — 2026-11-04
+
+Explicit RETROPILOT_BEAMNG selection decodes coherent simulation samples,
+centi-km/h speed,wheels,pedals and observed cruise status. It keeps noOutput,
+dashcamOnly,carNotReady and empty runtime controller TX. The physical
+RETROPILOT_RETROFIT profile keeps its previous behavior and unqualified speed
+factor. No automatic identification,measured vehicle tune or live safety claim.
+
+Canonical ocelot_controls.dbc now appends eight RP-SIM-1 messages0x700..0x707;
+all original20message definitions are unchanged. Current/parent hashes and
+provenance are in SOURCES.json. SimulationReceiver exposes decoded motion
+components with an explicit unqualified BeamNG frame label; no localization
+or physical sensor provider is enabled. The parent Sunnypilot project's
+openpilot/tools/sim/beamng/shared/CAN_CONTRACT.md defines timing,masks and routing.
+Actual game/CAN/firmware acceptance remains separate.
+
 # RetroPilot retrofit platform
 
 `CAR.RETROPILOT_RETROFIT` is an explicitly selected **receive-only** platform.

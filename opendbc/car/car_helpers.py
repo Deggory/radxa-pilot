@@ -92,7 +92,7 @@ def fingerprint(can_recv: CanRecvCallable, can_send: CanSendCallable, set_obd_mu
   fixed_fingerprint = RETROPILOT_MIGRATION.get(fixed_fingerprint, fixed_fingerprint)
   # RetroPilot is explicitly selected and receive-only. Identifying it must not
   # send OEM VIN/FW probes through an as-yet unqualified Chimera transport.
-  skip_fw_query = os.environ.get('SKIP_FW_QUERY', False) or fixed_fingerprint == RETROPILOT.RETROPILOT_RETROFIT
+  skip_fw_query = os.environ.get('SKIP_FW_QUERY', False) or fixed_fingerprint in (RETROPILOT.RETROPILOT_RETROFIT, RETROPILOT.RETROPILOT_BEAMNG)
   disable_fw_cache = os.environ.get('DISABLE_FW_CACHE', False)
   ecu_rx_addrs = set()
 

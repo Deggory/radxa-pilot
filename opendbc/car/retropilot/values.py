@@ -34,6 +34,7 @@ class RetroPilotFlags(IntFlag):
   BRAKE_ACTUATOR = 32
   IBOOSTER = 64
   RELAY = 128
+  BEAMNG = 256  # Explicit RP-SIM-1 receive-only profile; never auto-selected.
 
 
 # Presence is an observation, not a calibrated control capability.
@@ -55,6 +56,13 @@ class CAR(Platforms):
     # Non-driving placeholders, as in mock. Replace with a measured vehicle profile.
     CarSpecs(wheelbase=2.7, steerRatio=13),
     {Bus.main: 'ocelot_controls'},
+  )
+  RETROPILOT_BEAMNG = PlatformConfig(
+    [],
+    # Receive-only placeholders, not a measured game-car or steering tune.
+    CarSpecs(wheelbase=2.7, steerRatio=13),
+    {Bus.main: 'ocelot_controls'},
+    flags=RetroPilotFlags.BEAMNG,
   )
 
 

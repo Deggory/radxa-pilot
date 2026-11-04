@@ -44,6 +44,8 @@ class CarState(CarStateBase):
 
   def update(self, can_parsers):
     cp = can_parsers[Bus.main]
+    if self.CP.flags & RetroPilotFlags.BEAMNG:
+      return self.update_simulation(cp)
     ret = structs.CarState()
     ret_sp = structs.CarStateSP()
     button_events = []
@@ -130,8 +132,53 @@ class CarState(CarStateBase):
     ret.buttonEvents = button_events
     return ret, ret_sp
 
+  def update_simulation(self, cp):
+    ret, ret_sp = structs.CarState(), structs.CarStateSP()
+    ret.carNotReady = True  # Telemetry only, independent of in-game cruise state.
+    ret.vehicleSensorsInvalid = True
+    self.control_ready = False
+    sample = cp.simulation.current(cp._last_update_nanos)
+    if sample is None:
+      return ret, ret_sp
+    ret.vehicleSensorsInvalid = False
+    ret.vEgoRaw = sample['speed_mps']
+    ret.vEgo, ret.aEgo = self.update_speed_kf(ret.vEgoRaw)
+    ret.standstill = ret.vEgoRaw < 0.001
+    ret.steeringAngleDeg = sample['steering_angle_deg']
+    ret.brakePressed = sample['brake_pressed']
+    if sample['brake_input'] is not None:
+      ret_sp.brake = sample['brake_input']
+    if sample['throttle_input'] is not None:
+      ret_sp.gas = sample['throttle_input']
+      ret.gasPressed = ret_sp.gas > 0.01
+    if sample['wheel_speeds_mps'] is not None:
+      for name, value in zip(('fl', 'fr', 'rl', 'rr'), sample['wheel_speeds_mps'], strict=True):
+        setattr(ret.wheelSpeeds, name, value)
+    if sample['cruise'] is not None:
+      ret.cruiseState.available = sample['cruise']['available']
+      ret.cruiseState.enabled = sample['cruise']['enabled']
+      ret.cruiseState.speed = sample['cruise']['set_speed_mps'] or 0
+    # RPM, engaged gear index and simulated IMU remain explicitly available in
+    # cp.simulation.current(). No guessed gear selector or device-frame IMU.
+    return ret, ret_sp
+
   @staticmethod
   def get_can_parsers(CP, CP_SP):
+    if CP.flags & RetroPilotFlags.BEAMNG:
+      from opendbc.car.retropilot.simulation import NAMES, SimulationReceiver
+
+      class SimulationParser(RetroPilotCANParser):
+        def __init__(self):
+          super().__init__('ocelot_controls', [(name, 50) for name in NAMES], CAN_BUS)
+          self.simulation = SimulationReceiver()
+
+        def update(self, packets, sendcan=False):
+          for timestamp, frames in packets:
+            for address, data, bus in frames:
+              self.simulation.feed(address, data, bus, timestamp)
+          return super().update(packets, sendcan)
+
+      return {Bus.main: SimulationParser()}
     messages = [('STEER_ANGLE_SENSOR', 20), ('ENGINE', 20), ('SPEED', 20), ('CRUISE', 20)]
     messages += [(name, 20) for flag, (name, _, _) in MODULES.items() if CP.flags & flag]
     return {Bus.main: RetroPilotCANParser(DBC[CP.carFingerprint][Bus.main], messages, CAN_BUS)}

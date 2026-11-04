@@ -198,3 +198,74 @@ BO_ 1537 RELAY_CORE_STATUS: 4 PED
 VAL_ 526 BRAKE_MODE 3 "Reserved" 2 "Position Control" 1 "Relative Control" 0 "Disengadged" ;
 VAL_ 527 BRAKE_OK 1 "Yes" 0 "No" ;
 VAL_ 527 STATUS 5 "FAULT_TIMEOUT" 4 "FAULT_STARTUP" 3 "FAULT_SCE" 2 "FAULT_SEND" 1 "FAULT_BAD_CHECKSUM" 0 "NO_FAULT" ;
+CM_ "Workspace extension RP-SIM-1, 2026-11-04. Existing C2 messages unchanged. Isolated simulator telemetry only; CRC-8/SAE-J1850 excludes byte0. See shared CAN contract for units, masks, 50Hz and bus2 routing.";
+
+BO_ 1792 SIM_SAMPLE_BEGIN: 8 XXX
+ SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] "" EON
+ SG_ COUNTER : 8|4@1+ (1,0) [0|15] "" EON
+ SG_ PROTOCOL_VERSION : 12|4@1+ (1,0) [0|15] "" EON
+ SG_ SESSION : 16|16@1+ (1,0) [0|65535] "" EON
+ SG_ SAMPLE : 32|16@1+ (1,0) [0|65535] "" EON
+ SG_ FLAGS : 48|8@1+ (1,0) [0|255] "" EON
+ SG_ VALID_MASK : 56|8@1+ (1,0) [0|255] "" EON
+
+BO_ 1793 SIM_CLOCK: 8 XXX
+ SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] "" EON
+ SG_ COUNTER : 8|4@1+ (1,0) [0|15] "" EON
+ SG_ SIM_TIME_MS : 16|32@1+ (1,0) [0|4.29497e+09] "ms" EON
+ SG_ SAMPLE : 48|16@1+ (1,0) [0|65535] "" EON
+
+BO_ 1794 SIM_ACCEL: 8 XXX
+ SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] "" EON
+ SG_ COUNTER : 8|4@1+ (1,0) [0|15] "" EON
+ SG_ VALID : 12|1@1+ (1,0) [0|1] "" EON
+ SG_ X : 16|16@1- (0.01,0) [-327.68|327.67] "m/s2" EON
+ SG_ Y : 32|16@1- (0.01,0) [-327.68|327.67] "m/s2" EON
+ SG_ Z : 48|16@1- (0.01,0) [-327.68|327.67] "m/s2" EON
+
+BO_ 1795 SIM_GYRO: 8 XXX
+ SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] "" EON
+ SG_ COUNTER : 8|4@1+ (1,0) [0|15] "" EON
+ SG_ VALID : 12|1@1+ (1,0) [0|1] "" EON
+ SG_ X : 16|16@1- (0.001,0) [-32.768|32.767] "rad/s" EON
+ SG_ Y : 32|16@1- (0.001,0) [-32.768|32.767] "rad/s" EON
+ SG_ Z : 48|16@1- (0.001,0) [-32.768|32.767] "rad/s" EON
+
+BO_ 1796 SIM_WHEEL_SPEEDS: 8 XXX
+ SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] "" EON
+ SG_ COUNTER : 8|4@1+ (1,0) [0|15] "" EON
+ SG_ VALID_MASK : 12|4@1+ (1,0) [0|15] "" EON
+ SG_ FL : 16|12@1+ (0.05,0) [0|204.75] "m/s" EON
+ SG_ FR : 28|12@1+ (0.05,0) [0|204.75] "m/s" EON
+ SG_ RL : 40|12@1+ (0.05,0) [0|204.75] "m/s" EON
+ SG_ RR : 52|12@1+ (0.05,0) [0|204.75] "m/s" EON
+
+BO_ 1797 SIM_INPUTS: 8 XXX
+ SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] "" EON
+ SG_ COUNTER : 8|4@1+ (1,0) [0|15] "" EON
+ SG_ THROTTLE : 16|8@1+ (0.00392156862745098,0) [0|1] "ratio" EON
+ SG_ BRAKE_INPUT : 24|8@1+ (0.00392156862745098,0) [0|1] "ratio" EON
+ SG_ BRAKE_APPLIED : 32|8@1+ (0.00392156862745098,0) [0|1] "ratio" EON
+ SG_ GEAR : 40|8@1- (1,0) [-128|127] "" EON
+ SG_ VALID_MASK : 48|8@1+ (1,0) [0|255] "" EON
+ SG_ IGNITION : 56|1@1+ (1,0) [0|1] "" EON
+ SG_ RPM_VALID : 57|1@1+ (1,0) [0|1] "" EON
+ SG_ STEER_RATE_VALID : 58|1@1+ (1,0) [0|1] "" EON
+
+BO_ 1798 SIM_CRUISE_STATUS: 8 XXX
+ SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] "" EON
+ SG_ COUNTER : 8|4@1+ (1,0) [0|15] "" EON
+ SG_ VALID : 12|1@1+ (1,0) [0|1] "" EON
+ SG_ AVAILABLE : 13|1@1+ (1,0) [0|1] "" EON
+ SG_ ENABLED : 14|1@1+ (1,0) [0|1] "" EON
+ SG_ SET_SPEED_VALID : 15|1@1+ (1,0) [0|1] "" EON
+ SG_ SET_SPEED : 16|16@1+ (0.01,0) [0|655.35] "m/s" EON
+
+BO_ 1799 SIM_SAMPLE_END: 8 XXX
+ SG_ CHECKSUM : 0|8@1+ (1,0) [0|255] "" EON
+ SG_ COUNTER : 8|4@1+ (1,0) [0|15] "" EON
+ SG_ PROTOCOL_VERSION : 12|4@1+ (1,0) [0|15] "" EON
+ SG_ SESSION : 16|16@1+ (1,0) [0|65535] "" EON
+ SG_ SAMPLE : 32|16@1+ (1,0) [0|65535] "" EON
+ SG_ FLAGS : 48|8@1+ (1,0) [0|255] "" EON
+ SG_ VALID_MASK : 56|8@1+ (1,0) [0|255] "" EON
