@@ -1,0 +1,28 @@
+Cloning into '/tmp/radxa-pilot-verify-20261104-ud7do2zk/project'...
+Submodule 'msgq' (https://github.com/sunnypilot/msgq.git) registered for path 'msgq_repo'
+Submodule 'opendbc' (https://github.com/Deggory/radxa-pilot.git) registered for path 'opendbc_repo'
+Submodule 'sunnypilot/neural_network_data' (https://github.com/sunnypilot/neural-network-data.git) registered for path 'openpilot/sunnypilot/neural_network_data'
+Submodule 'panda' (https://github.com/sunnyhaibin/panda.git) registered for path 'panda'
+Submodule 'rednose_repo' (https://github.com/commaai/rednose.git) registered for path 'rednose_repo'
+Submodule 'teleoprtc_repo' (https://github.com/commaai/teleoprtc) registered for path 'teleoprtc_repo'
+Submodule 'tinygrad' (https://github.com/sunnypilot/tinygrad.git) registered for path 'tinygrad_repo'
+Cloning into '/tmp/radxa-pilot-verify-20261104-ud7do2zk/project/msgq_repo'...
+Cloning into '/tmp/radxa-pilot-verify-20261104-ud7do2zk/project/opendbc_repo'...
+Cloning into '/tmp/radxa-pilot-verify-20261104-ud7do2zk/project/openpilot/sunnypilot/neural_network_data'...
+Cloning into '/tmp/radxa-pilot-verify-20261104-ud7do2zk/project/panda'...
+Cloning into '/tmp/radxa-pilot-verify-20261104-ud7do2zk/project/rednose_repo'...
+Cloning into '/tmp/radxa-pilot-verify-20261104-ud7do2zk/project/teleoprtc_repo'...
+Cloning into '/tmp/radxa-pilot-verify-20261104-ud7do2zk/project/tinygrad_repo'...
+Submodule path 'msgq_repo': checked out 'e7396e76dadbb49e374d4b664ff6bbb43a39bcb0'
+From https://github.com/Deggory/radxa-pilot
+ * branch            671f8c450fc74f5b8b90b2ee53124394108651ce -> FETCH_HEAD
+Submodule path 'opendbc_repo': checked out '671f8c450fc74f5b8b90b2ee53124394108651ce'
+Submodule path 'openpilot/sunnypilot/neural_network_data': checked out '03cac2d30e111e0689c0429cb8c1fe6cb5a905af'
+Submodule path 'panda': checked out '8a16e089b88593914823743df29e1c30b7dd3e00'
+From https://github.com/commaai/rednose
+ * branch            28d4a7f69e80e1c3e0d24ca0733d7daeaeade3d0 -> FETCH_HEAD
+Submodule path 'rednose_repo': checked out '28d4a7f69e80e1c3e0d24ca0733d7daeaeade3d0'
+From https://github.com/commaai/teleoprtc
+ * branch            1aa8fc433bef1519a95c0700c96258c3be6dfb34 -> FETCH_HEAD
+Submodule path 'teleoprtc_repo': checked out '1aa8fc433bef1519a95c0700c96258c3be6dfb34'
+Submodule path 'tinygrad_repo': checked out '92b742f711c7d216fd3ed7a46a30a959e3c43bd4'

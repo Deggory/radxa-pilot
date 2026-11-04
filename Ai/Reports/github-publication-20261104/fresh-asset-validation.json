@@ -1,0 +1,17 @@
+[
+  {
+    "path": "Ai/Evidence/thneed-modeld-20261102.png",
+    "sha256": "5d85210b18775ffb5c2b6fd579c50566e459461f67a6c037d934b68eede94bf8",
+    "bytes": 1875692
+  },
+  {
+    "path": "openpilot/selfdrive/modeld/models/q8b_cd210.fixtures.npz",
+    "sha256": "ae51e3d9acb6feb1ab7f0dccac71e471838f0cb700fb4db615801f50987962b2",
+    "bytes": 5123782
+  },
+  {
+    "path": "openpilot/selfdrive/modeld/models/q8b_cd210.thneed",
+    "sha256": "eb74164116723b2601730a19e2f2060a25bfdc3814bf7912ce991798df176068",
+    "bytes": 99641029
+  }
+]

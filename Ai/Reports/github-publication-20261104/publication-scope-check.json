@@ -1,0 +1,8 @@
+{
+  "checked": "Tracked regular non-symlink files <=5MB; high-confidence GitHub/AWS/private-key signatures only. Not a full secret audit.",
+  "flagged_paths": [
+    "openpilot/common/hardware/comma/id_rsa"
+  ],
+  "tracked_dotenv_paths": [],
+  "tracked_file_count": 2106
+}

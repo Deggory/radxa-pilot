@@ -1,6 +1,10 @@
 # Radxa project on GitHub
 
-Repository: https://github.com/Deggory/radxa-pilot (private).
+Repository: https://github.com/Deggory/radxa-pilot (public).
+
+This is a standalone public copy with preserved Sunnypilot history, rather
+than another GitHub fork-network entry. The existing owner fork
+`Deggory/sunnypilot-pc` is untouched.
 
 - `master`: untouched Sunnypilot source at approved upstream
   `8cf6ff9a33c94bdf2fcb02e228a9aef1a7e6dc7f`.
@@ -17,7 +21,7 @@ not a file-only copy or a history squash.
 
 ## Clone the Radxa branch
 
-Authenticate Git access to the private repository, then run:
+Run:
 
 ```sh
 git clone --branch radxa/q8b --recurse-submodules https://github.com/Deggory/radxa-pilot.git
@@ -42,6 +46,9 @@ The original official `origin` remote remains unchanged locally. The new
 branches; do not push all workspace backups or use mirror/force pushes.
 The upstream update timer remains paused and later updates need owner approval.
 GitHub Actions is disabled on this new copy until its CI is deliberately set up.
+A temporary Git-object transfer workflow failed its old-LFS tag check and
+was removed; a direct push subsequently preserved the complete master history.
+The temporary branch was deleted and no import tags remain.
 
 This publication does not qualify hardware, models or vehicle control.
 RetroPilot remains receive-only/noOutput in its live interface; existing

@@ -1,3 +1,14 @@
+## 2026-11-04 — Radxa project published to owner GitHub
+
+Public `Deggory/radxa-pilot`:master is original8cf6ff9a,radxa/q8b contains
+our project and preserved commits,opendbc/retropilot retains child671f8c4.
+All pre-task commit IDs retained; no source/model/history rewrite.290LFS
+assets uploaded; fresh recursive checkout verifies all7dependency pins.
+The existing sunnypilot-pc fork is untouched; new repo is a standalone public
+copy. Camera/Thneed/RetroPilot bytes unchanged; live control stays disabled.
+GitHub Actions and automatic upstream updates remain disabled/paused.
+See [publication report](../Reports/github-publication-20261104/README.md) for source pins, transfer evidence, tests and limits.
+
 ## 2026-11-04 — Owner-authorized GitHub publication in progress
 
 Private `Deggory/radxa-pilot` created. Original `master`, Radxa branch and

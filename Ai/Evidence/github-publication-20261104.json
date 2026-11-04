@@ -1,0 +1,96 @@
+{
+  "date_utc": "2026-11-04T16:40:29.366253+00:00",
+  "status": "pass",
+  "repository": "https://github.com/Deggory/radxa-pilot",
+  "visibility": "public (owner explicitly selected)",
+  "github_fork_network_entry": false,
+  "existing_owner_fork_untouched": "Deggory/sunnypilot-pc",
+  "master": "8cf6ff9a33c94bdf2fcb02e228a9aef1a7e6dc7f",
+  "radxa_first_publication": "c7265864864c488ad4cdbdf65ae5cdefdca973c2",
+  "opendbc": "671f8c450fc74f5b8b90b2ee53124394108651ce",
+  "original_project_head": "0758b123c8e92f8aa57d5bfde8ac8da37d421659",
+  "original_project_commits_preserved": 98,
+  "original_child_commits_preserved": 8,
+  "runtime_source_and_model_unchanged": true,
+  "metadata_and_documentation_paths": [
+    ".gitmodules",
+    ".lfsconfig",
+    "Ai/HANDOFF.md",
+    "Ai/Knowledge/UPSTREAM_AND_VERSIONS.md",
+    "docs/GITHUB_RADXA.md"
+  ],
+  "lfs_objects_uploaded": 290,
+  "lfs_bytes_uploaded": 1052390826,
+  "full_master_history_commits": 19005,
+  "actions_enabled": false,
+  "automatic_upstream_timer": "still paused; approval-only updates",
+  "limits": [
+    "Git copy and targeted fresh-clone checks are not a new model, camera, build or vehicle test.",
+    "Generated native binaries, virtualenv and ignored caches are not copied.",
+    "Current and locally introduced LFS assets uploaded; older upstream-only model bytes remain at upstream storage URLs."
+  ],
+  "resolved_transfer_issues": [
+    "Source-import REST endpoint deprecated; no import performed by that API.",
+    "Temporary transfer workflow rejected old-LFS intermediate tag; direct complete-master push succeeded with original IDs. Temporary branch removed; no import tags.",
+    "First Radxa push during public visibility change returned403 disabled; metadata showed enabled and retry succeeded.",
+    "Master verification helper initially omitted json import after successful clone; fixed helper, original clone retained and verified.",
+    "Scratch clone lacked Git LFS on PATH. Used existing3.8.1 tool and local filters, then added binary directory to child-process PATH. Initial failed checkout left stale stat metadata; re-add3scratch files produced identical index blobs and clean status. Downloaded asset hashes unchanged."
+  ],
+  "fresh_recursive_clone": {
+    "result": "pass",
+    "head": "c7265864864c488ad4cdbdf65ae5cdefdca973c2",
+    "submodules": [
+      " e7396e76dadbb49e374d4b664ff6bbb43a39bcb0 msgq_repo (heads/master)",
+      " 671f8c450fc74f5b8b90b2ee53124394108651ce opendbc_repo (671f8c4)",
+      " 03cac2d30e111e0689c0429cb8c1fe6cb5a905af openpilot/sunnypilot/neural_network_data (heads/master)",
+      " 8a16e089b88593914823743df29e1c30b7dd3e00 panda (heads/master)",
+      " 28d4a7f69e80e1c3e0d24ca0733d7daeaeade3d0 rednose_repo (28d4a7f)",
+      " 1aa8fc433bef1519a95c0700c96258c3be6dfb34 teleoprtc_repo (1aa8fc4)",
+      " 92b742f711c7d216fd3ed7a46a30a959e3c43bd4 tinygrad_repo (heads/master)"
+    ],
+    "key_source_files_identical": true
+  },
+  "fresh_master_history": {
+    "sha": "8cf6ff9a33c94bdf2fcb02e228a9aef1a7e6dc7f",
+    "history_commits": 19005,
+    "shallow": false,
+    "clone_filter": "blob:none; complete commit ancestry"
+  },
+  "fresh_downloaded_assets": [
+    {
+      "path": "Ai/Evidence/thneed-modeld-20261102.png",
+      "sha256": "5d85210b18775ffb5c2b6fd579c50566e459461f67a6c037d934b68eede94bf8",
+      "bytes": 1875692
+    },
+    {
+      "path": "openpilot/selfdrive/modeld/models/q8b_cd210.fixtures.npz",
+      "sha256": "ae51e3d9acb6feb1ab7f0dccac71e471838f0cb700fb4db615801f50987962b2",
+      "bytes": 5123782
+    },
+    {
+      "path": "openpilot/selfdrive/modeld/models/q8b_cd210.thneed",
+      "sha256": "eb74164116723b2601730a19e2f2060a25bfdc3814bf7912ce991798df176068",
+      "bytes": 99641029
+    }
+  ],
+  "fresh_downloaded_bytes": 106640503,
+  "public_repository": {
+    "full_name": "Deggory/radxa-pilot",
+    "id": 1445907716,
+    "url": "https://github.com/Deggory/radxa-pilot",
+    "private": false,
+    "fork": false,
+    "default_branch": "master",
+    "actions_enabled": false,
+    "refs": "8cf6ff9a33c94bdf2fcb02e228a9aef1a7e6dc7f\trefs/heads/master\n671f8c450fc74f5b8b90b2ee53124394108651ce\trefs/heads/opendbc/retropilot\nc7265864864c488ad4cdbdf65ae5cdefdca973c2\trefs/heads/radxa/q8b\n"
+  },
+  "notebook_verification": {
+    "result": "pass",
+    "memory_layout": "regular project directory",
+    "documents": 95,
+    "relative_links": 280,
+    "optional_workspace_links": 238,
+    "source_repositories": 8,
+    "indexed_entries": 4254
+  }
+}
