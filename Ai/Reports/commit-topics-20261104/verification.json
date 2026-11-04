@@ -1,0 +1,14 @@
+{
+  "all_92_commit_trees_identical": true,
+  "all_headers_other_than_parent_links_identical": true,
+  "all_commit_bodies_identical": true,
+  "subjects_match_plan": true,
+  "only_expected_refs_changed": true,
+  "backup_ref_resolves": true,
+  "working_tree_clean_before_documentation": true,
+  "old_validation_outcomes_preserved": true,
+  "runtime_tests_rerun": false,
+  "historical_failed_or_blocked_sha_records": 17,
+  "distinct_original_failure_lineages": 9,
+  "missing_validation": 0
+}

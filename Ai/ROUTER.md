@@ -1,3 +1,5 @@
+History note: [camera/thneed/retropilot subject labels and old/new SHA map](Reports/commit-topics-20261104/README.md). Original evidence preserved; runtime source unchanged.
+
 Restart checkpoint: [RetroPilot audit before shutdown](Reports/retropilot-shutdown-audit-20261103/README.md),168 focused checks pass; live output disabled, hardware holds preserved.
 
 Current2026-11-03: [active safety software checks](Reports/retropilot-active-safety-20261103/README.md), native fixture only; no production profile or live output. Chimera held, relays excluded.

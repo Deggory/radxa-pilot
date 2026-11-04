@@ -1,3 +1,16 @@
+## 2026-11-04 — Owner-authorized topic labels applied to Git history
+
+Camera/Thneed/RetroPilot subjects now use camera, thneed and retropilot scopes.
+64titles reworded;28camera/16thneed/29retropilot commits, with mixed scopes.
+90IDs changed by ancestry; all92local file trees, dates and message bodies match
+originals. New tip before report213cd6d9; original6fb457bc retained under
+refs/backups/20261104-before-topic-reword. Child671f8c4/gitlinks unchanged.
+Original recorded SHAs are historical evidence, not stale hashes to replace:
+use Ai/Reports/commit-topics-20261104/commit-map.csv or mapping.json to resolve
+current IDs.90validation histories inherited without rerunning tests;17raw
+failed/blocked IDs represent9original lineages, no new software-test failure.
+No code/device/DBC/model/firmware or remote change. Preserve noOutput and holds.
+
 2026-11-04 owner requirement: Chimera + Interceptor Core + Actuator Core are
 all selected required hardware for the Radxa/Sunnypilot RetroPilot project.
 Jobs: computer/CAN + vehicle signals; analog pedal/steering sensor interface;

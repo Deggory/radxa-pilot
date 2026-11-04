@@ -1,0 +1,41 @@
+{
+  "created_utc": "2026-11-04T14:40:10.786562+00:00",
+  "owner_authorized": true,
+  "old_head": "6fb457bcf5013e168fb621f88d195a27006ec91a",
+  "new_head": "213cd6d9ef39010e5ca807ad856ccfdbb1f6f796",
+  "backup_ref": "refs/backups/20261104-before-topic-reword",
+  "upstream_base": "6f7a2c94c10dffcf9a83b120ab1e6985e4496868",
+  "child_head_unchanged": "671f8c450fc74f5b8b90b2ee53124394108651ce",
+  "renamed_subjects": 64,
+  "rebuilt_commit_ids": 90,
+  "counts": {
+    "camera": 28,
+    "thneed": 16,
+    "retropilot": 29
+  },
+  "all_trees_identical": true,
+  "all_bodies_identical": true,
+  "author_committer_dates_preserved": true,
+  "no_runtime_tests_rerun": true,
+  "remote_push": false,
+  "validation_lineages_preserved": 90,
+  "original_validation_outcomes_preserved": true,
+  "verification": {
+    "all_92_commit_trees_identical": true,
+    "all_headers_other_than_parent_links_identical": true,
+    "all_commit_bodies_identical": true,
+    "subjects_match_plan": true,
+    "only_expected_refs_changed": true,
+    "backup_ref_resolves": true,
+    "working_tree_clean_before_documentation": true,
+    "old_validation_outcomes_preserved": true,
+    "runtime_tests_rerun": false,
+    "historical_failed_or_blocked_sha_records": 17,
+    "distinct_original_failure_lineages": 9,
+    "missing_validation": 0
+  },
+  "report": "Ai/Reports/commit-topics-20261104/README.md",
+  "future_rule": "Ai/REPO_RULES.md",
+  "runtime_changes": false,
+  "documentation_validation": "notebook90 documents253 relative links pass; whitespace pass"
+}

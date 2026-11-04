@@ -1,0 +1,886 @@
+{
+  "owner_request": "Existing camera commits mention camera; Thneed runtime work mentions thneed; RetroPilot work mentions retropilot. Update actual messages.",
+  "repository": "/home/radxa/comma/sunnypilot",
+  "branch": "refs/heads/radxa/q8b",
+  "upstream_base": "6f7a2c94c10dffcf9a83b120ab1e6985e4496868",
+  "old_head": "6fb457bcf5013e168fb621f88d195a27006ec91a",
+  "first_rewrite": "12e44feeff241334e184c86dc9daccdc7f9e4fa1",
+  "rows": [
+    {
+      "old": "824be91bbffed684bb91fb932e9cb7e509c76dc3",
+      "old_subject": "docs: establish protected Radxa Q8B port workflow",
+      "new_subject": "docs: establish protected Radxa Q8B port workflow",
+      "topics": [],
+      "change_message": false,
+      "tree": "092887dc1ebdfe3461f7557883a1803a55b26f32"
+    },
+    {
+      "old": "dfb86f6a9b5161f323abc6312f1462fb946d39d8",
+      "old_subject": "docs: route Radxa work through Sunnypilot specialist memory",
+      "new_subject": "docs: route Radxa work through Sunnypilot specialist memory",
+      "topics": [],
+      "change_message": false,
+      "tree": "ddb2f27f7d54ec38ef5beed11580fe18c90c448c"
+    },
+    {
+      "old": "12e44feeff241334e184c86dc9daccdc7f9e4fa1",
+      "old_subject": "feat: identify Radxa Dragon Q8B on Linux ARM64",
+      "new_subject": "feat(camera): identify Radxa Dragon Q8B on Linux ARM64",
+      "topics": [
+        "camera"
+      ],
+      "change_message": true,
+      "tree": "9f50e411f56a71df675849045168fb645edb9e47"
+    },
+    {
+      "old": "7c208a33747d4ce279131649f2ca3434ad3b3fc3",
+      "old_subject": "chore: make sunnypilot the canonical Radxa project",
+      "new_subject": "chore: make sunnypilot the canonical Radxa project",
+      "topics": [],
+      "change_message": false,
+      "tree": "d3039d59dd2d4e76e0a759cdd8cb701627bb5484"
+    },
+    {
+      "old": "b7fff5360aebb15d774c2146e5de1415022db160",
+      "old_subject": "docs: align notebook overview with in-project storage",
+      "new_subject": "docs: align notebook overview with in-project storage",
+      "topics": [],
+      "change_message": false,
+      "tree": "34804eaba60b77190c4029109e82f05150f05bf4"
+    },
+    {
+      "old": "520d7f2fa7164766490332f55faa9732e34ebd97",
+      "old_subject": "docs: record existing Sunnypilot changes and remaining limits",
+      "new_subject": "docs: record existing Sunnypilot changes and remaining limits",
+      "topics": [],
+      "change_message": false,
+      "tree": "d63ff0061aa46c565cc4f4049e6dc2c4d3b14148"
+    },
+    {
+      "old": "99d38e4ca26ca95b7474b3ed5f50e5d207c73f6f",
+      "old_subject": "docs: record clean Git and commit-journal audit",
+      "new_subject": "docs: record clean Git and commit-journal audit",
+      "topics": [],
+      "change_message": false,
+      "tree": "222571f825eeb2235432647d6bde9d9171d729c0"
+    },
+    {
+      "old": "5bcc0028c494e248e5d77f7f0cbea8877407415c",
+      "old_subject": "docs: persist default skills workflow and restart handoff",
+      "new_subject": "docs: persist default skills workflow and restart handoff",
+      "topics": [],
+      "change_message": false,
+      "tree": "2759ef81701a4b6c51390631f6cc165ea1798a92"
+    },
+    {
+      "old": "b62481ccf058930a13ba534b4200cdbef3290874",
+      "old_subject": "docs: map non-camera sensors and Q8B hardware interfaces",
+      "new_subject": "docs: map non-camera sensors and Q8B hardware interfaces",
+      "topics": [],
+      "change_message": false,
+      "tree": "190c66ad105d200f0f450b9b7e40ec54427d62dc"
+    },
+    {
+      "old": "a80afa88ea5ed141684c2e8a83901c042a99322a",
+      "old_subject": "docs: recover known IMU details and require teacher-first lookup",
+      "new_subject": "docs: recover known IMU details and require teacher-first lookup",
+      "topics": [],
+      "change_message": false,
+      "tree": "31a1460c6a8fc122b88c10160bf7b6c2df421557"
+    },
+    {
+      "old": "f12882e96c6388dc72dcd434a4de33955595e5b4",
+      "old_subject": "docs: list non-camera hardware inputs and controls",
+      "new_subject": "docs: list non-camera hardware inputs and controls",
+      "topics": [],
+      "change_message": false,
+      "tree": "3ad4da42fa154d3e9e9bed6df1cfcc143bede4f1"
+    },
+    {
+      "old": "0205e38bf44014c6b57b5508352d924e26d041c8",
+      "old_subject": "docs: compare MM-X PC hardware policy with Q8B requirements",
+      "new_subject": "docs: compare MM-X PC hardware policy with Q8B requirements",
+      "topics": [],
+      "change_message": false,
+      "tree": "69b5f2829b9abdc5c4dbdcd9fc84fbb0d79909e9"
+    },
+    {
+      "old": "1dd194f1aa42cfac8cac0f83e73a2f4ecefe1684",
+      "old_subject": "docs: capture Jetson hardware designs from teacher evidence",
+      "new_subject": "docs: capture Jetson hardware designs from teacher evidence",
+      "topics": [],
+      "change_message": false,
+      "tree": "06cccb02133bff14e52391bc0536771da2904992"
+    },
+    {
+      "old": "29630251976104c71dd72f18de53f64adcc70864",
+      "old_subject": "docs: plan incremental Q8B hardware integration",
+      "new_subject": "docs: plan incremental Q8B hardware integration",
+      "topics": [],
+      "change_message": false,
+      "tree": "588d8d48bcdceda7a500dd7aa63ee645b2ad5ec5"
+    },
+    {
+      "old": "73773e34b5bd4cb094618a6647d56eb60b89df67",
+      "old_subject": "docs: save shutdown audit and next hardware checkpoint",
+      "new_subject": "docs: save shutdown audit and next hardware checkpoint",
+      "topics": [],
+      "change_message": false,
+      "tree": "7c70a9f1ad5ec0629df71c20c36ae5ae1499cc1c"
+    },
+    {
+      "old": "22859f4ef587ed47415a7aa8bb0b21e0de44b35e",
+      "old_subject": "docs: clarify Linux PC policy and optional webcam input",
+      "new_subject": "docs(camera): clarify Linux PC policy and optional webcam input",
+      "topics": [
+        "camera"
+      ],
+      "change_message": true,
+      "tree": "19e8dd1f99cba4dfc6e53da1321f8a2cb8456fad"
+    },
+    {
+      "old": "4bf50579fb590786ce1b0454258e0480bf83a978",
+      "old_subject": "docs: explain hardware requirements with webcam input",
+      "new_subject": "docs(camera): explain hardware requirements with webcam input",
+      "topics": [
+        "camera"
+      ],
+      "change_message": true,
+      "tree": "0cdbda2c5bc9b963b72bb64651d9536c43df9b65"
+    },
+    {
+      "old": "4585e13954ce3172ece9756b66bc3b8a6de11625",
+      "old_subject": "docs: distinguish MM-X webcam bring-up from full board support",
+      "new_subject": "docs(camera): distinguish MM-X webcam bring-up from full board support",
+      "topics": [
+        "camera"
+      ],
+      "change_message": true,
+      "tree": "50d2de2163e4007f040a5b23d12dd04cf166fa2f"
+    },
+    {
+      "old": "4888c949c6b51ef8f83b9d1ac07409361f45939c",
+      "old_subject": "docs: select camera work and map webcam source entry points",
+      "new_subject": "docs(camera): select camera work and map webcam source entry points",
+      "topics": [
+        "camera"
+      ],
+      "change_message": true,
+      "tree": "ead97023813ac545183d6fa84e95cc01636c53d9"
+    },
+    {
+      "old": "f4f4d01d2c8c8c5bcaeee3a1ed081a1c6fd08aab",
+      "old_subject": "feat: add Q8B road-only AK camera capture and publication",
+      "new_subject": "feat(camera): add Q8B road-only AK camera capture and publication",
+      "topics": [
+        "camera"
+      ],
+      "change_message": true,
+      "tree": "7aa84da391c7fe7587e06f747723680ee019e5e4"
+    },
+    {
+      "old": "6fea7ecf69e27eb07e0d74fa360a1a40868312ae",
+      "old_subject": "fix: align Q8B webcam buffers with current model input layout",
+      "new_subject": "fix(camera): align Q8B webcam buffers with current model input layout",
+      "topics": [
+        "camera"
+      ],
+      "change_message": true,
+      "tree": "b0fcd8e8cfba26d1533c6d3b9fd3f38c6af48f09"
+    },
+    {
+      "old": "d273823b4ae08eb51cce8042eea424b9dea062d9",
+      "old_subject": "feat: add printable AK camera calibration target and tools",
+      "new_subject": "feat(camera): add printable AK camera calibration target and tools",
+      "topics": [
+        "camera"
+      ],
+      "change_message": true,
+      "tree": "20dbb2fd20308ef28e3d80538b45840ceaa14e6b"
+    },
+    {
+      "old": "c67cb57bf53a16bd3b90b3e4806e232c77e6fbec",
+      "old_subject": "docs: clarify MM-X RK camera intrinsics and calibration methods",
+      "new_subject": "docs(camera): clarify MM-X RK camera intrinsics and calibration methods",
+      "topics": [
+        "camera"
+      ],
+      "change_message": true,
+      "tree": "96bc4cb07f76335983c3c57e4d66adabedec8e25"
+    },
+    {
+      "old": "1c5c6b9d7c40ef5cfbbd580927b7812c8eb76ebe",
+      "old_subject": "docs: explain automatic lens and vehicle mounting calibration",
+      "new_subject": "docs(camera): explain automatic lens and vehicle mounting calibration",
+      "topics": [
+        "camera"
+      ],
+      "change_message": true,
+      "tree": "df89b081d27ea44bca31d5594cde9abcb4f4b60e"
+    },
+    {
+      "old": "d0d654a66c04f57a39cb3dddb8516c6309e992e6",
+      "old_subject": "feat: use temporary MM-X geometry in Q8B road-only mode",
+      "new_subject": "feat(camera): use temporary MM-X geometry in Q8B road-only mode",
+      "topics": [
+        "camera"
+      ],
+      "change_message": true,
+      "tree": "0b0e72417154ae30982bf1cc19454fdaab554b2e"
+    },
+    {
+      "old": "5de4f3e52b93b037e260ba493013e0db23bb7dfc",
+      "old_subject": "docs: record camera implementation commit in restart handoff",
+      "new_subject": "docs(camera): record camera implementation commit in restart handoff",
+      "topics": [
+        "camera"
+      ],
+      "change_message": true,
+      "tree": "89e7921d89ab9cf3ed87fe4fcd382ba8f499512f"
+    },
+    {
+      "old": "536470bd4fe9ab9abb68f9af9320ee8b315aecd2",
+      "old_subject": "feat: open Q8B live camera in isolated Sunnypilot dashboard",
+      "new_subject": "feat(camera): open Q8B live camera in isolated Sunnypilot dashboard",
+      "topics": [
+        "camera"
+      ],
+      "change_message": true,
+      "tree": "34c9c61752d99ad0b33560b8233e94edf4290286"
+    },
+    {
+      "old": "aa2fe3b1221db7e6fbf93e254a196ce2ff43f30d",
+      "old_subject": "docs: save completed camera dashboard session and reopen command",
+      "new_subject": "docs(camera): save completed camera dashboard session and reopen command",
+      "topics": [
+        "camera"
+      ],
+      "change_message": true,
+      "tree": "220dda11b48b2e0d35a5652acf3f000ef63af1dc"
+    },
+    {
+      "old": "567e8f9cf3117ef8bc12905b48831224ff671753",
+      "old_subject": "docs: record active persistent camera preview session",
+      "new_subject": "docs(camera): record active persistent camera preview session",
+      "topics": [
+        "camera"
+      ],
+      "change_message": true,
+      "tree": "3416d5c26a2f6f2d69dc62ecfdca1a738d51b24c"
+    },
+    {
+      "old": "91ded2e013121dbec1d966094f345cca4acf50ca",
+      "old_subject": "docs: remove trailing blank line from camera preview session",
+      "new_subject": "docs(camera): remove trailing blank line from camera preview session",
+      "topics": [
+        "camera"
+      ],
+      "change_message": true,
+      "tree": "5411381a748c0cb642d4e0337ab8bed43ff53fab"
+    },
+    {
+      "old": "6c8345149dc89d5cbb45ef3dc9ffd082c684b430",
+      "old_subject": "docs: assess provisional camera intrinsics and their limits",
+      "new_subject": "docs(camera): assess provisional camera intrinsics and their limits",
+      "topics": [
+        "camera"
+      ],
+      "change_message": true,
+      "tree": "943b1cdaa0ff5433dfb8e85d38f6cfc92e635e54"
+    },
+    {
+      "old": "5b9704faada74fa4764d72ee0fabd812b2a345f7",
+      "old_subject": "docs: distinguish camera display cadence from UI latency",
+      "new_subject": "docs(camera): distinguish camera display cadence from UI latency",
+      "topics": [
+        "camera"
+      ],
+      "change_message": true,
+      "tree": "3bb9df02211a97b6e14ac3dc4be779ee5d3c16a7"
+    },
+    {
+      "old": "7ac07b5c4f58238fd184f668300aa331fd9442d5",
+      "old_subject": "feat: benchmark Q8B camera-to-UI frame timing",
+      "new_subject": "feat(camera): benchmark Q8B camera-to-UI frame timing",
+      "topics": [
+        "camera"
+      ],
+      "change_message": true,
+      "tree": "e030f9d0b2f30b443859061bb2e1a66681bb9f5f"
+    },
+    {
+      "old": "679bf8d04160e17f0f11f609a075923fea0c87fc",
+      "old_subject": "docs: park accepted camera milestone and defer latency optimisation",
+      "new_subject": "docs(camera): park accepted camera milestone and defer latency optimisation",
+      "topics": [
+        "camera"
+      ],
+      "change_message": true,
+      "tree": "4d7ae88542c02f7e75795a6c9fd4055722173ef1"
+    },
+    {
+      "old": "576cdc6b3a166a2fdea5c9876ee6cba10ddcac15",
+      "old_subject": "docs: recommend current model Adreno qualification next",
+      "new_subject": "docs(camera,thneed): recommend current model Adreno qualification next",
+      "topics": [
+        "camera",
+        "thneed"
+      ],
+      "change_message": true,
+      "tree": "e3d37991806b864c6958e9106eef2325d9dec7e9"
+    },
+    {
+      "old": "b9d8af56deeca5411752a8b5887f2a428a84d197",
+      "old_subject": "docs: identify bundled CD210 driving model and verified fingerprint",
+      "new_subject": "docs(thneed): identify bundled CD210 driving model and verified fingerprint",
+      "topics": [
+        "thneed"
+      ],
+      "change_message": true,
+      "tree": "79d6943f552690583d79685deb879d672ce0a2ed"
+    },
+    {
+      "old": "b67031e3d6bc585fcba4123f188f070fca2ee1fb",
+      "old_subject": "docs: distinguish big-model NPU feasibility from current integration",
+      "new_subject": "docs: distinguish big-model NPU feasibility from current integration",
+      "topics": [],
+      "change_message": false,
+      "tree": "f79198eba9bc8b72c039e6bab6baa222d3f7e49c"
+    },
+    {
+      "old": "452cb3e8a8c4fbe5d787bfd70960ffb24af5cac7",
+      "old_subject": "docs: recover teacher's tested Thneed GPU pipeline",
+      "new_subject": "docs(thneed): recover teacher's tested Thneed GPU pipeline",
+      "topics": [
+        "thneed"
+      ],
+      "change_message": true,
+      "tree": "402ed528fa3c54cd5adc5779298b710e00bdc25e"
+    },
+    {
+      "old": "6df9a8f92626135b1d475a3ad6822f0edfa4d531",
+      "old_subject": "docs: confirm Thneed used CD210 and correct weight comparison",
+      "new_subject": "docs(thneed): confirm Thneed used CD210 and correct weight comparison",
+      "topics": [
+        "thneed"
+      ],
+      "change_message": true,
+      "tree": "c9b4a4344b1599941a68c554189fe1d582a32a86"
+    },
+    {
+      "old": "31aa29b77fca1a9eed216b8bceaf38e041fc3232",
+      "old_subject": "feat: reuse converted CD210 Thneed with in-project Q8B replay",
+      "new_subject": "feat(thneed): reuse converted CD210 Thneed with in-project Q8B replay",
+      "topics": [
+        "thneed"
+      ],
+      "change_message": true,
+      "tree": "2d5fd411110123fdaac6c26f2e29e7925b5c2715"
+    },
+    {
+      "old": "07bc78eec619a259d0dbe7899531df8e8e6e8cb4",
+      "old_subject": "feat: connect Q8B Thneed to stock modeld and isolated camera UI",
+      "new_subject": "feat(camera,thneed): connect Q8B Thneed to stock modeld and isolated camera UI",
+      "topics": [
+        "camera",
+        "thneed"
+      ],
+      "change_message": true,
+      "tree": "a0a97471ff277a4df62b93a089bca57c3f82e5b7"
+    },
+    {
+      "old": "1de7f2f5b3649c4b939e2d3445e70d70f1e23545",
+      "old_subject": "docs: clarify Q8B preview launch directory and timing scope",
+      "new_subject": "docs(camera,thneed): clarify Q8B preview launch directory and timing scope",
+      "topics": [
+        "camera",
+        "thneed"
+      ],
+      "change_message": true,
+      "tree": "bfc70bd21bedcb7b60931566f4f546810fd1c060"
+    },
+    {
+      "old": "ed674866289202a765eec17e0680229c52b07213",
+      "old_subject": "docs: record missing acados dependency diagnosis",
+      "new_subject": "docs(thneed): record missing acados dependency diagnosis",
+      "topics": [
+        "thneed"
+      ],
+      "change_message": true,
+      "tree": "b445b3648c4b67abc942d34123af4c23e9da20f5"
+    },
+    {
+      "old": "b59f68045e67113b3af1d5457c1c1511d0a4b88c",
+      "old_subject": "build: declare Q8B dependencies and document verified installation",
+      "new_subject": "build(camera,thneed): declare Q8B dependencies and document verified installation",
+      "topics": [
+        "camera",
+        "thneed"
+      ],
+      "change_message": true,
+      "tree": "fd736dd825bc137cdc203d3ffe894951deabf0c1"
+    },
+    {
+      "old": "623f728af43fc220bf432aa698126438b6c67942",
+      "old_subject": "perf: require scoped Q8B maximum clocks and measure model latency",
+      "new_subject": "perf(camera,thneed): require scoped Q8B maximum clocks and measure model latency",
+      "topics": [
+        "camera",
+        "thneed"
+      ],
+      "change_message": true,
+      "tree": "aba8d61556e43a6b1b243fe6236bac3e6a99a56d"
+    },
+    {
+      "old": "49d2f07432541d9456acb60369a8f959db4c5611",
+      "old_subject": "perf: keep Q8B camera views and history on GPU",
+      "new_subject": "perf(camera,thneed): keep Q8B camera views and history on GPU",
+      "topics": [
+        "camera",
+        "thneed"
+      ],
+      "change_message": true,
+      "tree": "253817034357476026eded89c82fcb89bf7c8a20"
+    },
+    {
+      "old": "c744d99f2bed9004bfde493f2c4bd224ffca4516",
+      "old_subject": "docs: record complete Sunnypilot commit checkpoint",
+      "new_subject": "docs(thneed): record complete Sunnypilot commit checkpoint",
+      "topics": [
+        "thneed"
+      ],
+      "change_message": true,
+      "tree": "193b9aaa3bc005de50a2cbe41917516bcac82014"
+    },
+    {
+      "old": "5e01a48d98b2abd62d52add22a05bd8ab2a70dc1",
+      "old_subject": "feat: add read-only Q8B health and timing telemetry helpers",
+      "new_subject": "feat(thneed): add read-only Q8B health and timing telemetry helpers",
+      "topics": [
+        "thneed"
+      ],
+      "change_message": true,
+      "tree": "800fd3092aa159c65c38d0169b58c725cc2e5ff7"
+    },
+    {
+      "old": "ce7b0477c99f501e0393b54efb04d72f00107ddf",
+      "old_subject": "feat: show live Q8B health and latency on the onroad UI",
+      "new_subject": "feat(camera,thneed): show live Q8B health and latency on the onroad UI",
+      "topics": [
+        "camera",
+        "thneed"
+      ],
+      "change_message": true,
+      "tree": "49cc8884f6aae0705eebf257dd299861f4e2daf0"
+    },
+    {
+      "old": "d88a72c6968e46e93090a7a5bbfb9bab340ab3f3",
+      "old_subject": "docs: record available Q8B temperature channels",
+      "new_subject": "docs(thneed): record available Q8B temperature channels",
+      "topics": [
+        "thneed"
+      ],
+      "change_message": true,
+      "tree": "4462cea5c3e7ab1e4bc4947530ef1fffe08cf515"
+    },
+    {
+      "old": "fd3e0c0c4d5b0f78e86f76607f8c665835aff53d",
+      "old_subject": "docs: map Sunnypilot data needs to current Q8B support",
+      "new_subject": "docs(thneed): map Sunnypilot data needs to current Q8B support",
+      "topics": [
+        "thneed"
+      ],
+      "change_message": true,
+      "tree": "9e9bf77d40807a9262dbb63f521e0513cb152fc0"
+    },
+    {
+      "old": "d450dbbdc7aa246a3779fcbf9c69527dba21a95e",
+      "old_subject": "feat: stage fresh Mountain Dew v3 NPU conversion tools",
+      "new_subject": "feat: stage fresh Mountain Dew v3 NPU conversion tools",
+      "topics": [],
+      "change_message": false,
+      "tree": "c9cb5a4db314a1e27ab4ad0160060289347fb095"
+    },
+    {
+      "old": "71571642a4455275f43e21fbd8843d400e230c76",
+      "old_subject": "feat: gate INT8 research with preserved precision diagnostics",
+      "new_subject": "feat: gate INT8 research with preserved precision diagnostics",
+      "topics": [],
+      "change_message": false,
+      "tree": "6df2134129349eca2dabc336728b5abde93c9f19"
+    },
+    {
+      "old": "6b16d69100221068e28f84c81497570edb227229",
+      "old_subject": "feat: prepare bounded Q8B NPU replay and heldout diagnostics",
+      "new_subject": "feat: prepare bounded Q8B NPU replay and heldout diagnostics",
+      "topics": [],
+      "change_message": false,
+      "tree": "c635faa26838bb24abf98dba28baede0cc2ce12d"
+    },
+    {
+      "old": "d2bb1b3a04a15b388d5349ef08e5a520c8f04ad5",
+      "old_subject": "style: correct NPU metrics trailing whitespace",
+      "new_subject": "style: correct NPU metrics trailing whitespace",
+      "topics": [],
+      "change_message": false,
+      "tree": "4cabcdf6d2cf351c90b1f4b7d1359d890fd70855"
+    },
+    {
+      "old": "43678a671237bae095c1eb6fea95d78ff69d4261",
+      "old_subject": "feat: validate integer IO for Q8B NPU research replay",
+      "new_subject": "feat: validate integer IO for Q8B NPU research replay",
+      "topics": [],
+      "change_message": false,
+      "tree": "c48f275fa334b13c846e036bac2712fb76a53bd3"
+    },
+    {
+      "old": "1fb476be404ff6d60ed1e5e737266874cbcf1df8",
+      "old_subject": "docs: record rejected fresh W8A8 NPU baseline",
+      "new_subject": "docs: record rejected fresh W8A8 NPU baseline",
+      "topics": [],
+      "change_message": false,
+      "tree": "90b1d8040e77068e5a4112b8151ad2b733a101de"
+    },
+    {
+      "old": "dc71be58fa3acad1d8ac5462630ce31ec8a8c593",
+      "old_subject": "docs: distinguish fresh W8A8 from earlier NPU and GPU models",
+      "new_subject": "docs: distinguish fresh W8A8 from earlier NPU and GPU models",
+      "topics": [],
+      "change_message": false,
+      "tree": "69df01a250543740244dd0d0191fb8462d603dd4"
+    },
+    {
+      "old": "4c138835345a8c3196a129301b9785de428b426f",
+      "old_subject": "docs: map BeamNG bridge reference to the Radxa sim interfaces",
+      "new_subject": "docs: map BeamNG bridge reference to the Radxa sim interfaces",
+      "topics": [],
+      "change_message": false,
+      "tree": "7813d1c35ff70a69637e15d5b0e9c9a4eba86ac4"
+    },
+    {
+      "old": "f72a1eaf118f422e1aa166e36ddb97dd847ce1d2",
+      "old_subject": "chore: collect pinned BeamNG bridge source bundle",
+      "new_subject": "chore: collect pinned BeamNG bridge source bundle",
+      "topics": [],
+      "change_message": false,
+      "tree": "cb933748fee9daefe5a9a122c32c9e190c4848d8"
+    },
+    {
+      "old": "81d021e30ee4626c43db2e971ed6810016015410",
+      "old_subject": "fix: complete BeamNG reference audit and integrity checks",
+      "new_subject": "fix: complete BeamNG reference audit and integrity checks",
+      "topics": [],
+      "change_message": false,
+      "tree": "2ecec5e4170388325bfd98aa6e87f416da01e126"
+    },
+    {
+      "old": "296873538012649ee929f150a22d8491dca65a1d",
+      "old_subject": "docs: define optical BeamNG and Chimera CAN test loop",
+      "new_subject": "docs(camera,retropilot): define optical BeamNG and Chimera CAN test loop",
+      "topics": [
+        "camera",
+        "retropilot"
+      ],
+      "change_message": true,
+      "tree": "51c866b08d330e88f537488c624929487b640760"
+    },
+    {
+      "old": "bf3c44d4bda45202bfb4d9ce2e811304fc318aa1",
+      "old_subject": "docs: include ignored BeamNG implementation plan",
+      "new_subject": "docs(retropilot): include ignored BeamNG implementation plan",
+      "topics": [
+        "retropilot"
+      ],
+      "change_message": true,
+      "tree": "3a20c69aed7e11503338c474b594a082b2a17717"
+    },
+    {
+      "old": "d17dc3cd1e71fef7187b5a6267266a51f17a4c81",
+      "old_subject": "docs: record purposes of hidden project folders",
+      "new_subject": "docs: record purposes of hidden project folders",
+      "topics": [],
+      "change_message": false,
+      "tree": "6ba975323f96650fa9f0f3e51210636084ef9c10"
+    },
+    {
+      "old": "893e17344975ad8f2b3735b0e2f4e534e02ec3c5",
+      "old_subject": "docs: add Radxa-focused documentation entry point",
+      "new_subject": "docs: add Radxa-focused documentation entry point",
+      "topics": [],
+      "change_message": false,
+      "tree": "36141eb7d6dd0752339022c0b1daddf890b6ec9c"
+    },
+    {
+      "old": "dd29f0094526faf435754aa92e68ed25b0ba21fd",
+      "old_subject": "docs: map Sunnypilot requirements for connected BeamNG PC",
+      "new_subject": "docs(retropilot): map Sunnypilot requirements for connected BeamNG PC",
+      "topics": [
+        "retropilot"
+      ],
+      "change_message": true,
+      "tree": "fbe1da84de9b0d5e64a73bfe7db62645670c4a50"
+    },
+    {
+      "old": "1a1cc4025c4233732bbbb86c061c4c54b35add5a",
+      "old_subject": "feat: pin the RetroPilot receive-only car port and validation",
+      "new_subject": "feat(retropilot): pin the RetroPilot receive-only car port and validation",
+      "topics": [
+        "retropilot"
+      ],
+      "change_message": true,
+      "tree": "bdad16eb23ec22038fce2c03b5fd851d1d300ee6"
+    },
+    {
+      "old": "c62cfe21fa71d08c3c99046c813a5f751e2d3dfb",
+      "old_subject": "docs: distinguish RetroPilot host support from identification and safety",
+      "new_subject": "docs(retropilot): distinguish RetroPilot host support from identification and safety",
+      "topics": [
+        "retropilot"
+      ],
+      "change_message": true,
+      "tree": "9e8b7240f9543c2766a5ef039ac657b486fc8a69"
+    },
+    {
+      "old": "c6917544f1f4a93bec34dc0a008cbb243ed3f2b7",
+      "old_subject": "docs: record exact fingerprints file locations",
+      "new_subject": "docs(retropilot): record exact fingerprints file locations",
+      "topics": [
+        "retropilot"
+      ],
+      "change_message": true,
+      "tree": "ec1352d487b7cd76a2406c62d05b96910ada3f0f"
+    },
+    {
+      "old": "796059f3457315877ba8d42890d29d0a76ea131b",
+      "old_subject": "fix: preserve C2 RetroPilot selection in the modern Radxa port",
+      "new_subject": "fix(retropilot): preserve C2 RetroPilot selection in the modern Radxa port",
+      "topics": [
+        "retropilot"
+      ],
+      "change_message": true,
+      "tree": "3afe5bd988bcf3f62dfb0e4c719ef20f3a86e571"
+    },
+    {
+      "old": "35d46c1e179d0f6a541e32e5669ee0c879b408b1",
+      "old_subject": "Pin modern RetroPilot controller replay and C2 migration evidence",
+      "new_subject": "feat(retropilot): pin modern RetroPilot controller replay and C2 migration evidence",
+      "topics": [
+        "retropilot"
+      ],
+      "change_message": true,
+      "tree": "1ee4b30df494c758afc8ac74b518e2063ea982c8"
+    },
+    {
+      "old": "4280a0a67a96227dc406470e5a0d4c0b80998256",
+      "old_subject": "Adapt Chimera receive path from full RetroPilot C2 history",
+      "new_subject": "feat(retropilot): adapt Chimera receive path from full RetroPilot C2 history",
+      "topics": [
+        "retropilot"
+      ],
+      "change_message": true,
+      "tree": "a8d9fd9e1e21cffba493e1d73735c9ee1d9b1bf0"
+    },
+    {
+      "old": "d3cd298f55bdff9043e1f5d4b95eba00f7ef33ad",
+      "old_subject": "Track RetroPilot adaptation plan and finish report packaging",
+      "new_subject": "docs(retropilot): track RetroPilot adaptation plan and finish report packaging",
+      "topics": [
+        "retropilot"
+      ],
+      "change_message": true,
+      "tree": "c26530fc57c6140171e8bb572ffb048fdc21189b"
+    },
+    {
+      "old": "fdac520d34c3ecff9cbac6a28852d9d6e7d47710",
+      "old_subject": "Record RetroPilot changed-file clarification",
+      "new_subject": "docs(retropilot): record RetroPilot changed-file clarification",
+      "topics": [
+        "retropilot"
+      ],
+      "change_message": true,
+      "tree": "567d11002a08f4f56cf0b0638af436fcb34a0e99"
+    },
+    {
+      "old": "911e0b60f6632717eaf7badf88f5b90be1b42f0f",
+      "old_subject": "Record plain-English port explanation and verified DBC inclusion",
+      "new_subject": "docs(retropilot): record plain-English port explanation and verified DBC inclusion",
+      "topics": [
+        "retropilot"
+      ],
+      "change_message": true,
+      "tree": "431cf511b97f8ae6af8401441e129efae7df8d5a"
+    },
+    {
+      "old": "8f48b769d98e38672305e623e48db25002b37081",
+      "old_subject": "Clarify RetroPilot registry changes and Panda host boundary",
+      "new_subject": "docs(retropilot): clarify RetroPilot registry changes and Panda host boundary",
+      "topics": [
+        "retropilot"
+      ],
+      "change_message": true,
+      "tree": "8611660360adcd87c5eed9b450ebadcddc88e5ca"
+    },
+    {
+      "old": "3075618919577f4743764c91db409aee4a84d094",
+      "old_subject": "docs: explain all 53 RetroPilot C2 commits dated 2025",
+      "new_subject": "docs(retropilot): explain all 53 RetroPilot C2 commits dated 2025",
+      "topics": [
+        "retropilot"
+      ],
+      "change_message": true,
+      "tree": "380044265ba70d92e2977997aa2125653bb18336"
+    },
+    {
+      "old": "855bc09fab42d24a0d405a39ca71ce02692ea379",
+      "old_subject": "docs: map C2 changes across all six integration folders",
+      "new_subject": "docs(retropilot): map C2 changes across all six integration folders",
+      "topics": [
+        "retropilot"
+      ],
+      "change_message": true,
+      "tree": "414935aff1f36403270989fa3a824d7ae4c103c5"
+    },
+    {
+      "old": "2304f5a3d34e5c6f408f3fab2178da9fcca21b94",
+      "old_subject": "docs: clarify modern Radxa goal and C2 reference scope",
+      "new_subject": "docs(retropilot): clarify modern Radxa goal and C2 reference scope",
+      "topics": [
+        "retropilot"
+      ],
+      "change_message": true,
+      "tree": "e7f2e4df8ad1c0ba7396dbdce08226e79a08dcc0"
+    },
+    {
+      "old": "15b39ed344179febf8808322fa8bf9a104cf4443",
+      "old_subject": "docs: record verified RetroPilot change boundaries",
+      "new_subject": "docs(retropilot): record verified RetroPilot change boundaries",
+      "topics": [
+        "retropilot"
+      ],
+      "change_message": true,
+      "tree": "9c55ec98213440799bfb2537c312b1f108150e55"
+    },
+    {
+      "old": "79b96e4c91225e8aa00ee8cb2ff73e6dea625a4b",
+      "old_subject": "docs: record current Cereal and vehicle-schema locations",
+      "new_subject": "docs(retropilot): record current Cereal and vehicle-schema locations",
+      "topics": [
+        "retropilot"
+      ],
+      "change_message": true,
+      "tree": "f2dcc3db61567daee468d2c04c4186aa0f59910a"
+    },
+    {
+      "old": "18054f2529122c5dfc131d5e123da66b34f13b75",
+      "old_subject": "docs: hold Chimera work and clarify C2 messaging changes",
+      "new_subject": "docs(retropilot): hold Chimera work and clarify C2 messaging changes",
+      "topics": [
+        "retropilot"
+      ],
+      "change_message": true,
+      "tree": "0ade7080a59bde8995b15e0584c51dcbb9884e7a"
+    },
+    {
+      "old": "0e550c7ff952621dc1de5d7b2a52d437f340c15c",
+      "old_subject": "docs: explain safety-mode selection and record relay exclusion",
+      "new_subject": "docs(retropilot): explain safety-mode selection and record relay exclusion",
+      "topics": [
+        "retropilot"
+      ],
+      "change_message": true,
+      "tree": "178a5badc689146443fab48bdc45c504bdffbdae"
+    },
+    {
+      "old": "685e734334c820e48478fe218407296fb7f912f2",
+      "old_subject": "docs: verify existing Cereal safety-config serialization",
+      "new_subject": "docs(retropilot): verify existing Cereal safety-config serialization",
+      "topics": [
+        "retropilot"
+      ],
+      "change_message": true,
+      "tree": "fe03cf64970ffdeb2a6ba03676f0513fcf46afdb"
+    },
+    {
+      "old": "3dd853588be9685ce87cd62ed73b9347a8f2b947",
+      "old_subject": "docs: confirm RetroPilot safety implementation remains absent",
+      "new_subject": "docs(retropilot): confirm RetroPilot safety implementation remains absent",
+      "topics": [
+        "retropilot"
+      ],
+      "change_message": true,
+      "tree": "3e1d6df6cf57557d630348121719bece635f42f1"
+    },
+    {
+      "old": "a8f5462c0da1ee8ec151f3d7e3fc234c1b966066",
+      "old_subject": "feat: pin the tested restricted RetroPilot safety policy",
+      "new_subject": "feat(retropilot): pin the tested restricted RetroPilot safety policy",
+      "topics": [
+        "retropilot"
+      ],
+      "change_message": true,
+      "tree": "11db6e8c16c8eff8b33b6c0a4e71bcca87e46eef"
+    },
+    {
+      "old": "14a44ca4f1cbf9579dfd592a1e6faf9759c41e31",
+      "old_subject": "docs: explain missing active safety against Rivian and C2",
+      "new_subject": "docs(retropilot): explain missing active safety against Rivian and C2",
+      "topics": [
+        "retropilot"
+      ],
+      "change_message": true,
+      "tree": "013867b670e06e0475bd9d594b001824fdb15995"
+    },
+    {
+      "old": "469f3c5c3d325380069c4380b8efcab8dc78d2cd",
+      "old_subject": "feat(retropilot): pin tested active safety engine without live calibration",
+      "new_subject": "feat(retropilot): pin tested active safety engine without live calibration",
+      "topics": [
+        "retropilot"
+      ],
+      "change_message": false,
+      "tree": "10fe11638555fd35c4686fe25a1be07f31a9a4ee"
+    },
+    {
+      "old": "ec53967f400e55dc103fcb1f2c015e5a87250f8a",
+      "old_subject": "docs: save RetroPilot audit and shutdown restart handoff",
+      "new_subject": "docs(retropilot): save RetroPilot audit and shutdown restart handoff",
+      "topics": [
+        "retropilot"
+      ],
+      "change_message": true,
+      "tree": "3e640c0042db7f4cc9457ec6944375e8aa41bb58"
+    },
+    {
+      "old": "f5ec74470e94c6de26c168a06c0454c93fc98f4d",
+      "old_subject": "docs: explain Ocelot roles in the C2 RetroPilot port",
+      "new_subject": "docs(retropilot): explain Ocelot roles in the C2 RetroPilot port",
+      "topics": [
+        "retropilot"
+      ],
+      "change_message": true,
+      "tree": "51c46eeb531a28a840655bdf90e0897cf764802f"
+    },
+    {
+      "old": "e7cd35c22cb675246695f45ed35f7b8f848a8bd1",
+      "old_subject": "docs: record identical C2 and modern RetroPilot DBC copies",
+      "new_subject": "docs(retropilot): record identical C2 and modern RetroPilot DBC copies",
+      "topics": [
+        "retropilot"
+      ],
+      "change_message": true,
+      "tree": "6718410978561e1fb60689f907e99337bc0d8ace"
+    },
+    {
+      "old": "6fb457bcf5013e168fb621f88d195a27006ec91a",
+      "old_subject": "docs: record required Chimera Interceptor and Actuator Core hardware",
+      "new_subject": "docs(retropilot): record required Chimera Interceptor and Actuator Core hardware",
+      "topics": [
+        "retropilot"
+      ],
+      "change_message": true,
+      "tree": "2b35cb72fdfd75c0ee7131c7ea11ddd61a060dc6"
+    }
+  ],
+  "opendbc_note": "All seven local child commit subjects already contain RetroPilot; child branch and historical gitlinks remain unchanged.",
+  "initial_camera_guard_note": "Initial Radxa identity commit also changes camera geometry selection; it receives the camera label."
+}

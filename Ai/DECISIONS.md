@@ -1,3 +1,18 @@
+## Owner commit-topic naming rule — 2026-11-04
+
+For camera work use a camera scope (e.g. feat(camera): ...); for the Thneed
+runtime/integration use thneed; for the RetroPilot port use retropilot. Include
+multiple scopes when a commit spans them, e.g. perf(camera,thneed): .... Apply
+to implementation, tests, tooling and their documentation. Keep other topics
+accurately named and retain Assisted-by disclosure required by docs/AI_POLICY.
+
+Owner explicitly authorized rewording existing local messages on2026-11-04.
+The original branch history is preserved and old/new IDs are mapped in
+Reports/commit-topics-20261104/. Historical test/source SHAs remain original
+versions, with current aliases available; do not edit them to imply a retest.
+This one requested rewrite does not authorize future automatic rewrites,
+merges or pushes. Standard protected-project/upstream rules remain in force.
+
 ## 2026-11-04 — Owner-selected required hardware: all three modules
 
 Owner explicitly selected these as required parts of our existing Radxa Q8B /
