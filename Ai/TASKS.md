@@ -1,3 +1,9 @@
+2026-11-04 DBC comparison: old/canonical and packaged current ocelot_controls
+are identical (7363bytes,20messages,120signals,SHAef6eef74). Current port selects
+this DBC already. Direct diff/provenance pass; no code/DBC or runtime change.
+C2 source explanation session records details. Existing noOutput/hardware holds
+and next actual BeamNG endpoint/profile qualification remain unchanged.
+
 2026-11-04 session reopened: parentec53967/child671f8c4 clean. Explained C2
 Ocelot naming from source: module firmware family, ocelotcan.py command encoder,
 DBC wire definitions; modern commands.py supplies the encoder role. No runtime

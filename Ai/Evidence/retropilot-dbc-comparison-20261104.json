@@ -1,0 +1,20 @@
+{
+  "date": "2026-11-04",
+  "parent_base": "f5ec74470e94c6de26c168a06c0454c93fc98f4d",
+  "opendbc": "671f8c450fc74f5b8b90b2ee53124394108651ce",
+  "canonical": "retropilot/dbc/ocelot_controls.dbc",
+  "packaged": "sunnypilot/opendbc_repo/opendbc/dbc/ocelot_controls.dbc",
+  "identical": true,
+  "bytes": 7363,
+  "messages": 20,
+  "signals": 120,
+  "sha256": "ef6eef74021a00183729b53ba90f1c790792cfe5dcf72fe9bdfe2dcb3d6a5dce",
+  "provenance": "retropilot/SOURCES.json: RetroPilot/opendbc6b90fafe59e81822bfae58e4ecb080248e9de40d",
+  "diff": "exit0,no output",
+  "runtime_selection": "opendbc/car/retropilot/values.py selects ocelot_controls; state/controller use mapping and commands checks name",
+  "code_or_dbc_changes": false,
+  "runtime_tests": "none; byte equality/source comparison only",
+  "REA": "Source-first; no binary/runtime analysis required",
+  "limits": "Firmware CRC/layout/units, physical calibration and live output not qualified; Chimera/physical Interceptor held, relays excluded",
+  "validation": "byte equality + diff + retained manifest SHA match; notebook87 documents249 links; whitespace"
+}
