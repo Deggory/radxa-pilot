@@ -1,3 +1,20 @@
+## 2026-11-04 — Updates held until explicit owner approval
+
+Latest owner instruction: check GitHub master, "do not update yet without
+asking". Read-only status/source checks remain allowed. Apply the hold to both
+the actual Radxa project and the separate upstream reference; do not run
+updater.py check, fetch/fast-forward the reference, integrate upstream, pull,
+merge/rebase or resume automatic updates without explicit approval. This
+supersedes earlier standing daily vendor-advance authorization while held.
+
+The daily timer was enabled/active at startup and had refreshed the reference
+at15:30UTC before the request. It is now linked/inactive, with the automatic
+timers.target.wants link removed; its source unit and service are retained.
+The service is inactive. No future schedule is armed. Resume/reenable only
+after approval; a later request asking whether updates exist is not approval.
+The actual Radxa project received no upstream source change. Local notebook
+records do not represent applying an upstream update.
+
 ## Owner commit-topic naming rule — 2026-11-04
 
 For camera work use a camera scope (e.g. feat(camera): ...); for the Thneed

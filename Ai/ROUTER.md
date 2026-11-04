@@ -1,3 +1,5 @@
+UPSTREAM HOLD2026-11-04: read-only GitHub checks allowed; owner approval required before any update. Automatic reference timer paused. Read current upstream policy/session before acting.
+
 History note: [camera/thneed/retropilot subject labels and old/new SHA map](Reports/commit-topics-20261104/README.md). Original evidence preserved; runtime source unchanged.
 
 Restart checkpoint: [RetroPilot audit before shutdown](Reports/retropilot-shutdown-audit-20261103/README.md),168 focused checks pass; live output disabled, hardware holds preserved.

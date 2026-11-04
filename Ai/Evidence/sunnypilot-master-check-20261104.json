@@ -1,0 +1,71 @@
+{
+  "date_utc": "2026-11-04",
+  "source": "Live read-only GitHub connector commit/master and compare endpoints",
+  "repo": "sunnypilot/sunnypilot",
+  "project_head_before": "b4f31519edcf3fa0a9ac9fef5ff49864dd33f8a5",
+  "project_upstream_base": "6f7a2c94c10dffcf9a83b120ab1e6985e4496868",
+  "local_master_and_origin_master_unchanged": "6f7a2c94c10dffcf9a83b120ab1e6985e4496868",
+  "reference_head_before_and_after": "8cf6ff9a33c94bdf2fcb02e228a9aef1a7e6dc7f",
+  "commits": [
+    {
+      "sha": "8cf6ff9a33c94bdf2fcb02e228a9aef1a7e6dc7f",
+      "subject": "controls: predictive accel boost (#2089)",
+      "date": "2026-11-04T04:16:52Z",
+      "url": "https://github.com/sunnypilot/sunnypilot/commit/8cf6ff9a33c94bdf2fcb02e228a9aef1a7e6dc7f",
+      "files": [
+        "openpilot/common/params_keys.h",
+        "openpilot/selfdrive/ui/sunnypilot/layouts/settings/cruise.py",
+        "openpilot/sunnypilot/selfdrive/controls/lib/accel_boost.py",
+        "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_planner.py",
+        "openpilot/sunnypilot/selfdrive/controls/lib/tests/test_accel_boost.py",
+        "openpilot/sunnypilot/sunnylink/settings_ui.json",
+        "openpilot/sunnypilot/sunnylink/settings_ui_src/pages/cruise.yaml"
+      ]
+    },
+    {
+      "sha": "a86979d2b2b176413a7f3e5cccf8c807596a7def",
+      "subject": "sunnylink: gate steering arc toggle on MICI (#2085)",
+      "date": "2026-11-01T17:02:47Z",
+      "url": "https://github.com/sunnypilot/sunnypilot/commit/a86979d2b2b176413a7f3e5cccf8c807596a7def",
+      "files": [
+        "openpilot/sunnypilot/sunnylink/settings_ui.json",
+        "openpilot/sunnypilot/sunnylink/settings_ui_src/pages/visuals.yaml"
+      ]
+    }
+  ],
+  "upstream_ahead_of_port_base": 2,
+  "upstream_ahead_of_previous_a869_check": 1,
+  "latest_summary": "Predictive acceleration boost; upstream AccelBoostSP bool default1; cruise/sunnylink settings and tests. Changes longitudinal behavior; no qualification on Radxa.",
+  "prior_daily_reference_update": "2026-11-04T15:30:04Z, before this user request, standing-authorized at that time; never merged into project",
+  "owner_instruction": "Do not update yet without asking. Read-only checks allowed; explicit approval required before any further upstream/reference update or integration.",
+  "automatic_timer": {
+    "unit": "q8b-sunnypilot-update.timer",
+    "prior": "enabled,active,persistent",
+    "now": "linked,inactive; timers.target.wants activation link removed; source unit retained",
+    "service": "inactive",
+    "resumption": "Only after explicit owner approval"
+  },
+  "local_fetch_pull_merge_rebase_install": false,
+  "upstream_code_applied": false,
+  "runtime_tests": "none; source check only",
+  "memory_only_documentation": true,
+  "verification": {
+    "project_master_unchanged": true,
+    "reference_head_unchanged_since_request": true,
+    "timer_startup_link_absent": true
+  },
+  "notebook_index_correction": {
+    "initial_verification": "failed: saved reference index still expected a869, but daily job had already advanced the reference to8cf before owner request",
+    "action": "Refresh only the saved source-index metadata from the already-present Git tree; no fetch/update/code change",
+    "refreshed": [
+      {
+        "path": "/home/radxa/comma/q8b/sunnypilot-upstream",
+        "old_head": "a86979d2b2b176413a7f3e5cccf8c807596a7def",
+        "observed_head": "8cf6ff9a33c94bdf2fcb02e228a9aef1a7e6dc7f",
+        "old_entries": 1641,
+        "new_entries": 1643
+      }
+    ]
+  },
+  "validation": "Live GitHub master/compare verified; project master/origin-master and upstream reference unchanged during request; timer linked/inactive and startup link absent; notebook91 documents253 links/4254 indexed entries pass; whitespace"
+}

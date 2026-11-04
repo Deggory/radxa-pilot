@@ -4,7 +4,7 @@
   "repositories": [
     {
       "path": "/home/radxa/comma/q8b/sunnypilot-upstream",
-      "head": "a86979d2b2b176413a7f3e5cccf8c807596a7def",
+      "head": "8cf6ff9a33c94bdf2fcb02e228a9aef1a7e6dc7f",
       "entries": [
         {
           "path": ".codespellignore",
@@ -964,7 +964,7 @@
           "path": "openpilot/common/params_keys.h",
           "mode": "100644",
           "type": "blob",
-          "oid": "1ccd8110a6cf5b84e4765e202e2bedcd3c7694c0"
+          "oid": "ec47d12d2ec3c2bbb8ae3670e3e66cc6547ab4dd"
         },
         {
           "path": "openpilot/common/pid.py",
@@ -4060,7 +4060,7 @@
           "path": "openpilot/selfdrive/ui/sunnypilot/layouts/settings/cruise.py",
           "mode": "100644",
           "type": "blob",
-          "oid": "61254ce62454e2d5c6e9b4b0c524b2573db33e56"
+          "oid": "04f164568a2dea845a0f99c1859c11dd4b36c053"
         },
         {
           "path": "openpilot/selfdrive/ui/sunnypilot/layouts/settings/cruise_sub_layouts/speed_limit_policy.py",
@@ -5491,6 +5491,12 @@
           "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
         },
         {
+          "path": "openpilot/sunnypilot/selfdrive/controls/lib/accel_boost.py",
+          "mode": "100644",
+          "type": "blob",
+          "oid": "d2bb8b3b64f784aaeb48c32285ae585467f2f430"
+        },
+        {
           "path": "openpilot/sunnypilot/selfdrive/controls/lib/auto_lane_change.py",
           "mode": "100644",
           "type": "blob",
@@ -5554,7 +5560,7 @@
           "path": "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_planner.py",
           "mode": "100644",
           "type": "blob",
-          "oid": "a579e61c599f6b51cfa8594a92ae323ba79ce613"
+          "oid": "f379f29cd87adc89843c8b4a542613b828fb419f"
         },
         {
           "path": "openpilot/sunnypilot/selfdrive/controls/lib/nnlc/__init__.py",
@@ -5693,6 +5699,12 @@
           "mode": "100644",
           "type": "blob",
           "oid": "884749c72ed810ccb4f0eab4243f6cfdd116c168"
+        },
+        {
+          "path": "openpilot/sunnypilot/selfdrive/controls/lib/tests/test_accel_boost.py",
+          "mode": "100644",
+          "type": "blob",
+          "oid": "b054a8f6fbe3019113540d3cfd36c200341c195b"
         },
         {
           "path": "openpilot/sunnypilot/selfdrive/controls/lib/tests/test_auto_lane_change.py",
@@ -5962,7 +5974,7 @@
           "path": "openpilot/sunnypilot/sunnylink/settings_ui.json",
           "mode": "100644",
           "type": "blob",
-          "oid": "215331dde1672c8135c56040e85e0c913a21908c"
+          "oid": "06068fca388b7f8c0f1e9ceb2b5ddc6b6fcbab75"
         },
         {
           "path": "openpilot/sunnypilot/sunnylink/settings_ui.schema.json",
@@ -5998,7 +6010,7 @@
           "path": "openpilot/sunnypilot/sunnylink/settings_ui_src/pages/cruise.yaml",
           "mode": "100644",
           "type": "blob",
-          "oid": "39d6fbffd4a257463643ff200df58247befac012"
+          "oid": "efc703ff153a0044fcdaf8d92ebc506d29ecf240"
         },
         {
           "path": "openpilot/sunnypilot/sunnylink/settings_ui_src/pages/developer.yaml",
@@ -25569,5 +25581,7 @@
         }
       ]
     }
-  ]
+  ],
+  "last_refreshed_at": "2026-11-04T16:08:08.508556+00:00",
+  "last_refresh_reason": "Read-only metadata refresh of already-present reference8cf after earlier scheduled job; no upstream update in this task"
 }

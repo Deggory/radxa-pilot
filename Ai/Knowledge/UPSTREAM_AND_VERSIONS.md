@@ -1,3 +1,19 @@
+## 2026-11-04 — GitHub master checked; all upstream updates on hold
+
+Live GitHub master is8cf6ff9a (predictive acceleration boost,#2089,Nov4UTC).
+It adds AccelBoostSP/defaulton, longitudinal boost logic, settings and tests.
+Previousa86979d2 gates sunnylink steering-arc toggle on MICI. GitHub is2commits
+ahead of our6f7a2c94 upstream base,1ahead of the previous a869 reference check.
+No source integration or compatibility test performed. Actual project master/
+origin-master remain6f7a2c94; Radxa code and child671f8c4 unchanged.
+
+The daily job already advanced only the reference to8cf6ff9a at15:30UTC before
+the owner asked. New owner instruction requires approval before updates.
+Automatic timer is now linked/inactive and not enabled for automatic startup;
+service inactive. Do not run mutating updater check or reenable it without
+explicit approval. Read-only GitHub checks are allowed. See current upstream
+policy, receipt Evidence/sunnypilot-master-check-20261104.json and dated session.
+
 ## 2026-11-04 — Owner-authorized topic labels applied to Git history
 
 Camera/Thneed/RetroPilot subjects now use camera, thneed and retropilot scopes.
