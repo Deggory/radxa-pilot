@@ -1,0 +1,20 @@
+E
+======================================================================
+ERROR: test_upstream_boost_red (unittest.loader._FailedTest.test_upstream_boost_red)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_upstream_boost_red
+Traceback (most recent call last):
+  File "/home/radxa/.local/share/uv/python/cpython-3.12.13-linux-aarch64-gnu/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/radxa/.local/share/uv/python/cpython-3.12.13-linux-aarch64-gnu/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/tmp/sunny-approved-updates-20261104-wlhof5p2/test_upstream_boost_red.py", line 15, in <module>
+    from openpilot.sunnypilot.selfdrive.controls.lib.accel_boost import AccelBoostSP, ACCEL_BOOST_MAX
+ModuleNotFoundError: No module named 'openpilot.sunnypilot.selfdrive.controls.lib.accel_boost'
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (errors=1)

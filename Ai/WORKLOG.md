@@ -1,3 +1,17 @@
+## 2026-11-04 — Exactly two upstream updates approved and applied
+
+Later owner instruction authorized a86979d2 and8cf6ff9a only, preserving
+camera, Thneed/model and RetroPilot. Local application commits67876efc and
+a009818b onradxa/q8b; eight source paths match upstream exactly. Protected
+15,384 file hashes/submodule pins unchanged; child671f8c4 clean.217 distinct
+tests passed,1 existing skip; native Params rebuilt for new default-on boost
+option. This is CPU/source validation, not live driving acceptance.
+
+Automatic reference updates remain paused; future updates need approval.
+No further implementation is pending for this request. No live Params,
+hardware, model or actuation run. See [the approved-update report](Reports/upstream-approved-20261104/README.md) for source pins, checks,
+initial failures and exact scope; older hold-only entries below are historical.
+
 ## 2026-11-04 — GitHub master checked; all upstream updates on hold
 
 Live GitHub master is8cf6ff9a (predictive acceleration boost,#2089,Nov4UTC).

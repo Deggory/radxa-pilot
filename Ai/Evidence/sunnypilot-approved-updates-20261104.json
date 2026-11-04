@@ -1,0 +1,93 @@
+{
+  "date_utc": "2026-11-04T16:17:19.691835+00:00",
+  "status": "pass",
+  "scope": "Owner approved exactly a86979d2 and 8cf6ff9a. Camera, Thneed and RetroPilot untouched; future updates still approval-only.",
+  "branch": "radxa/q8b",
+  "before": "ed877d63c603463d4ddf579f45e46a49983d3127",
+  "application_head": "a009818b752437d1b3c85334d1b292fbf51a7b95",
+  "upstream_to_local": {
+    "a86979d2b2b176413a7f3e5cccf8c807596a7def": "67876efcf03e18475565cd56a65726c015375c03",
+    "8cf6ff9a33c94bdf2fcb02e228a9aef1a7e6dc7f": "a009818b752437d1b3c85334d1b292fbf51a7b95"
+  },
+  "changed_source_paths": [
+    "openpilot/common/params_keys.h",
+    "openpilot/selfdrive/ui/sunnypilot/layouts/settings/cruise.py",
+    "openpilot/sunnypilot/selfdrive/controls/lib/accel_boost.py",
+    "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_planner.py",
+    "openpilot/sunnypilot/selfdrive/controls/lib/tests/test_accel_boost.py",
+    "openpilot/sunnypilot/sunnylink/settings_ui.json",
+    "openpilot/sunnypilot/sunnylink/settings_ui_src/pages/cruise.yaml",
+    "openpilot/sunnypilot/sunnylink/settings_ui_src/pages/visuals.yaml"
+  ],
+  "source_paths_byte_identical_to_8cf6ff9a": true,
+  "submodule_gitlinks_unchanged": [
+    "160000 commit e7396e76dadbb49e374d4b664ff6bbb43a39bcb0\tmsgq_repo",
+    "160000 commit 671f8c450fc74f5b8b90b2ee53124394108651ce\topendbc_repo",
+    "160000 commit 8a16e089b88593914823743df29e1c30b7dd3e00\tpanda",
+    "160000 commit 28d4a7f69e80e1c3e0d24ca0733d7daeaeade3d0\trednose_repo",
+    "160000 commit 1aa8fc433bef1519a95c0700c96258c3be6dfb34\tteleoprtc_repo",
+    "160000 commit 92b742f711c7d216fd3ed7a46a30a959e3c43bd4\ttinygrad_repo"
+  ],
+  "protection": {
+    "checked_files": 15384,
+    "changed_files": [],
+    "manifest_sha256": "77c788f27be152aeb9551c7898942b30a31df48cafeb281a01567bba9128ac48",
+    "manifest_gzip_sha256": "75955cab435908413e001d09faee6d132bd30d94595e0d4927c5767d0d8b24d3",
+    "parent_before": "ed877d63c603463d4ddf579f45e46a49983d3127",
+    "child_before_and_after": "671f8c450fc74f5b8b90b2ee53124394108651ce"
+  },
+  "model_sha256": "eb74164116723b2601730a19e2f2060a25bfdc3814bf7912ce991798df176068",
+  "thneed_library_sha256": "46c18dc88e507daf5efdbdde848ba70c3e7431850d802775edf048fa6eb8591d",
+  "new_params_library_sha256": "ae25dad5aa6ba271f0533d9e50612c3973a0e46b0c8c215aed55cad89a0dac33",
+  "validation": {
+    "first_settings_suite": {
+      "run": 75,
+      "skips": 1,
+      "result": "pass"
+    },
+    "boost_params_settings": {
+      "run": 102,
+      "skips": 1,
+      "result": "pass"
+    },
+    "controls_directory": {
+      "run": 124,
+      "skips": 0,
+      "result": "pass"
+    },
+    "extra_integration": {
+      "run": 6,
+      "skips": 0,
+      "result": "pass"
+    },
+    "unique_test_count": 218,
+    "unique_passed": 217,
+    "unique_skips": 1,
+    "count_note": "14 boost tests overlap the 102 and 124 suites; the 75 first-slice settings tests are also in the 102 suite.",
+    "mutation": "Reversed enabled guard: disabled-reset test failed; restored exact source and all14 boost tests passed.",
+    "native_build": "DEBUG=0; project .venv and capnproto.BIN_DIR on PATH; .venv/bin/scons --minimal -j2 openpilot/common/libparams_c.so",
+    "lint": "Ruff passed on four approved Python paths and extra integration test; git diff --check passed.",
+    "initial_failures": "Before adding source: module absent (expected RED). Before native rebuild: UnknownKeyName AccelBoostSP. Extra harness initially used wrong Cereal import/from_bytes and string Path APIs; corrected only in harness; upstream source unchanged.",
+    "memory_verifier": {
+      "result": "pass",
+      "memory_layout": "regular project directory",
+      "documents": 93,
+      "relative_links": 267,
+      "optional_workspace_links": 238,
+      "source_repositories": 8,
+      "indexed_entries": 4254
+    }
+  },
+  "timer": {
+    "ActiveState": "inactive",
+    "UnitFileState": "linked",
+    "NextElapseUSecRealtime": "",
+    "automatic_startup_link_present": false
+  },
+  "unresolved": [
+    "No live camera/model/UI/control or vehicle acceptance run for these changes.",
+    "Predictive AccelBoostSP defaults enabled upstream; no live Params store was modified.",
+    "Upstream brake-horizon comment says4s; selected probability index1 corresponds to2s in current constants. Kept exact approved source."
+  ],
+  "backup_ref": "refs/backups/20261104-before-approved-updates"
+}

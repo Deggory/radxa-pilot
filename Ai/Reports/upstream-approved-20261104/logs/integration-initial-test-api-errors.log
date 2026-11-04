@@ -1,0 +1,29 @@
+E..E..
+======================================================================
+ERROR: test_existing_cereal_model_message_contract (test_integration.TestApprovedIntegration.test_existing_cereal_model_message_contract)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/radxa/comma/sunnypilot/openpilot/common/test.py", line 59, in _callTestMethod
+    return method(**{name: self._fixture(name) for name in params})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/radxa/comma/sunnypilot/Ai/Reports/upstream-approved-20261104/test_integration.py", line 61, in test_existing_cereal_model_message_contract
+    with type(msg).from_bytes(msg.to_bytes()) as parsed:
+         ^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'capnp.lib.capnp._DynamicStructBuilder' has no attribute 'from_bytes'. Did you mean: 'to_bytes'?
+
+======================================================================
+ERROR: test_settings_capability_rules (test_integration.TestApprovedIntegration.test_settings_capability_rules)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/radxa/comma/sunnypilot/openpilot/common/test.py", line 59, in _callTestMethod
+    return method(**{name: self._fixture(name) for name in params})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/radxa/comma/sunnypilot/Ai/Reports/upstream-approved-20261104/test_integration.py", line 77, in test_settings_capability_rules
+    schema = json.loads(DEFAULT_OUT.read_text())
+                        ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'read_text'
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.112s
+
+FAILED (errors=2)

@@ -1,3 +1,5 @@
+2026-11-04:owner-approved two upstream updates applied;camera/Thneed/RetroPilot unchanged. Future updates remain on hold. [Evidence](Reports/upstream-approved-20261104/README.md).
+
 UPSTREAM HOLD2026-11-04: read-only GitHub checks allowed; owner approval required before any update. Automatic reference timer paused. Read current upstream policy/session before acting.
 
 History note: [camera/thneed/retropilot subject labels and old/new SHA map](Reports/commit-topics-20261104/README.md). Original evidence preserved; runtime source unchanged.

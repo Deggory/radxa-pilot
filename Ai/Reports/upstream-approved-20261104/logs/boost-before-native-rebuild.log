@@ -1,0 +1,21 @@
+.........E....
+======================================================================
+ERROR: test_param_switch (openpilot.sunnypilot.selfdrive.controls.lib.tests.test_accel_boost.TestAccelBoostSP.test_param_switch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/radxa/comma/sunnypilot/openpilot/common/test.py", line 59, in _callTestMethod
+    return method(**{name: self._fixture(name) for name in params})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/radxa/comma/sunnypilot/openpilot/sunnypilot/selfdrive/controls/lib/tests/test_accel_boost.py", line 73, in test_param_switch
+    params.put_bool("AccelBoostSP", True, block=True)
+  File "/home/radxa/comma/sunnypilot/openpilot/common/params.py", line 179, in put_bool
+    params_put_bool(self.p, self.check_key(key), val, block)
+                            ^^^^^^^^^^^^^^^^^^^
+  File "/home/radxa/comma/sunnypilot/openpilot/common/params.py", line 134, in check_key
+    raise UnknownKeyName(key)
+openpilot.common.params.UnknownKeyName: b'AccelBoostSP'
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.034s
+
+FAILED (errors=1)

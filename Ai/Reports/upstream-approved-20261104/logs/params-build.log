@@ -1,0 +1,23 @@
+scons: Reading SConscript files ...
+scons: done reading SConscript files.
+scons: Building targets ...
+progress: 7.8
+progress: 15.6
+progress: 23.4
+progress: 31.2
+progress: 39.1
+progress: 46.9
+progress: 54.7
+progress: 62.5
+progress: 70.3
+  [CXX] openpilot/common/params.o
+progress: 78.1
+  [CXX] openpilot/common/swaglog.o
+progress: 85.9
+progress: 93.8
+progress: 100.0
+  [AR] openpilot/common/libcommon.a
+  [RANLIB] openpilot/common/libcommon.a
+  [LINK] openpilot/common/libparams_c.so
+prune_cache_dir(["openpilot/common/libparams_c.so"], ["openpilot/common/params_c.os"])
+scons: done building targets.
