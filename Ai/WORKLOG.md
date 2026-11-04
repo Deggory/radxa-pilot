@@ -1,3 +1,5 @@
+2026-11-04 DBC explanation complete:20messages/120fields,12reports/8commands; all signal names inventoried, defined data distinguished from current CarState mapping and actual producer/calibration. DBC and code unchanged, no live test. [Details](Knowledge/RETROPILOT_CAR_PORT.md). Notebook changes are local; no new remote push.
+
 ## 2026-11-04 — Radxa project published to owner GitHub
 
 Public `Deggory/radxa-pilot`:master is original8cf6ff9a,radxa/q8b contains

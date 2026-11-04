@@ -1,0 +1,311 @@
+{
+  "type": "readable-source inventory; not live CAN measurement",
+  "date": "2026-11-04",
+  "parent_before": "40a0c9f8491abcfdde32d3e12bf5fb438f2b41e1",
+  "opendbc_pin": "671f8c450fc74f5b8b90b2ee53124394108651ce",
+  "sha256": "ef6eef74021a00183729b53ba90f1c790792cfe5dcf72fe9bdfe2dcb3d6a5dce",
+  "bytes": 7363,
+  "canonical_packaged_equal": true,
+  "messages": [
+    {
+      "id": 80,
+      "hex": "0x50",
+      "name": "STEER_ANGLE_SENSOR",
+      "dlc": 6,
+      "transmitter": "XXX",
+      "signals": [
+        "CHECKSUM",
+        "STEER_ANGLE",
+        "STEER_RATE",
+        "COUNTER",
+        "STATE"
+      ]
+    },
+    {
+      "id": 117,
+      "hex": "0x75",
+      "name": "ENGINE",
+      "dlc": 8,
+      "transmitter": "XXX",
+      "signals": [
+        "CHECKSUM",
+        "CPS_PULSE_US",
+        "CPS_PULSE_CNT",
+        "IGNITION_ON",
+        "BRAKE_PRESSED",
+        "CAN_ENG_RPM",
+        "COUNTER",
+        "MODE"
+      ]
+    },
+    {
+      "id": 118,
+      "hex": "0x76",
+      "name": "SPEED",
+      "dlc": 8,
+      "transmitter": "XXX",
+      "signals": [
+        "CHECKSUM",
+        "VSS_PULSE_US",
+        "VSS_PULSE_CNT",
+        "CAN_SPEED",
+        "MODE",
+        "COUNTER"
+      ]
+    },
+    {
+      "id": 256,
+      "hex": "0x100",
+      "name": "CRUISE",
+      "dlc": 8,
+      "transmitter": "XXX",
+      "signals": [
+        "CHECKSUM",
+        "CANCEL",
+        "SET_DOWN",
+        "RES_UP",
+        "ON_OFF",
+        "ADC_1",
+        "ADC_2",
+        "COUNTER",
+        "MODE"
+      ]
+    },
+    {
+      "id": 270,
+      "hex": "0x10e",
+      "name": "ACTUATOR_BRAKE_COMMAND",
+      "dlc": 6,
+      "transmitter": "EON",
+      "signals": [
+        "BRAKE_POSITION_COMMAND",
+        "BRAKE_RELATIVE_COMMAND",
+        "BRAKE_MODE",
+        "COUNTER",
+        "CHECKSUM"
+      ]
+    },
+    {
+      "id": 271,
+      "hex": "0x10f",
+      "name": "ACTUATOR_BRAKE_STATUS",
+      "dlc": 5,
+      "transmitter": "BRAKE_ACTUATOR",
+      "signals": [
+        "BRAKE_PEDAL_POSITION",
+        "BRAKE_APPLIED",
+        "DRIVER_BRAKE_APPLIED",
+        "BRAKE_OK",
+        "STATUS",
+        "EXT_STATUS1",
+        "EXT_STATUS2",
+        "COUNTER",
+        "CHECKSUM"
+      ]
+    },
+    {
+      "id": 302,
+      "hex": "0x12e",
+      "name": "ACTUATOR_STEERING_COMMAND",
+      "dlc": 6,
+      "transmitter": "EON",
+      "signals": [
+        "REQUESTED_STEER_TORQUE",
+        "REQUESTED_STEER_ANGLE",
+        "STEER_MODE",
+        "COUNTER",
+        "CHECKSUM"
+      ]
+    },
+    {
+      "id": 303,
+      "hex": "0x12f",
+      "name": "ACTUATOR_STEERING_STATUS",
+      "dlc": 7,
+      "transmitter": "STEER_ACTUATOR",
+      "signals": [
+        "STEERING_TORQUE_EPS",
+        "STEERING_TORQUE_DRIVER",
+        "STEERING_OK",
+        "STATUS",
+        "COUNTER",
+        "CHECKSUM"
+      ]
+    },
+    {
+      "id": 512,
+      "hex": "0x200",
+      "name": "PEDAL_GAS_COMMAND",
+      "dlc": 6,
+      "transmitter": "EON",
+      "signals": [
+        "GAS_COMMAND",
+        "GAS_COMMAND2",
+        "ENABLE",
+        "COUNTER",
+        "CHECKSUM"
+      ]
+    },
+    {
+      "id": 513,
+      "hex": "0x201",
+      "name": "PEDAL_GAS_SENSOR",
+      "dlc": 6,
+      "transmitter": "PED",
+      "signals": [
+        "PED_GAS",
+        "PED_GAS2",
+        "STATE",
+        "COUNTER",
+        "CHECKSUM"
+      ]
+    },
+    {
+      "id": 526,
+      "hex": "0x20e",
+      "name": "IBOOSTER_BRAKE_COMMAND",
+      "dlc": 6,
+      "transmitter": "EON",
+      "signals": [
+        "BRAKE_POSITION_COMMAND",
+        "BRAKE_RELATIVE_COMMAND",
+        "BRAKE_MODE",
+        "COUNTER",
+        "CHECKSUM"
+      ]
+    },
+    {
+      "id": 527,
+      "hex": "0x20f",
+      "name": "IBOOSTER_BRAKE_STATUS",
+      "dlc": 5,
+      "transmitter": "IBST",
+      "signals": [
+        "BRAKE_PEDAL_POSITION",
+        "BRAKE_APPLIED",
+        "DRIVER_BRAKE_APPLIED",
+        "BRAKE_OK",
+        "STATUS",
+        "EXT_STATUS1",
+        "EXT_STATUS2",
+        "COUNTER",
+        "CHECKSUM"
+      ]
+    },
+    {
+      "id": 558,
+      "hex": "0x22e",
+      "name": "STEERING_COMMAND_SSC",
+      "dlc": 5,
+      "transmitter": "EON",
+      "signals": [
+        "STEER_TORQUE",
+        "STEER_ANGLE",
+        "STEER_MODE",
+        "COUNTER",
+        "CHECKSUM"
+      ]
+    },
+    {
+      "id": 559,
+      "hex": "0x22f",
+      "name": "STEERING_STATUS_SSC",
+      "dlc": 8,
+      "transmitter": "EPAS",
+      "signals": [
+        "STEERING_ANGLE",
+        "STEERING_SPEED",
+        "STEERING_TORQUE",
+        "CONTROL_STATUS",
+        "COUNTER",
+        "CHECKSUM",
+        "TEMPERATURE",
+        "DEBUG_STATES"
+      ]
+    },
+    {
+      "id": 768,
+      "hex": "0x300",
+      "name": "INTERCEPTOR_STEERING_COMMAND",
+      "dlc": 6,
+      "transmitter": "EON",
+      "signals": [
+        "TORQUE_COMMAND1",
+        "TORQUE_COMMAND2",
+        "ENABLE",
+        "COUNTER",
+        "CHECKSUM"
+      ]
+    },
+    {
+      "id": 769,
+      "hex": "0x301",
+      "name": "INTERCEPTOR_STEERING_SENSOR",
+      "dlc": 8,
+      "transmitter": "PED",
+      "signals": [
+        "TRQ_1",
+        "TRQ_2",
+        "STATE",
+        "OVERRIDE",
+        "COUNTER",
+        "CHECKSUM"
+      ]
+    },
+    {
+      "id": 1024,
+      "hex": "0x400",
+      "name": "ACTUATOR_GAS_COMMAND",
+      "dlc": 6,
+      "transmitter": "EON",
+      "signals": [
+        "THROTTLE_REQ",
+        "THROTTLE_REQ2",
+        "ENABLE",
+        "COUNTER",
+        "CHECKSUM"
+      ]
+    },
+    {
+      "id": 1025,
+      "hex": "0x401",
+      "name": "ACTUATOR_GAS_SENSOR",
+      "dlc": 8,
+      "transmitter": "PED",
+      "signals": [
+        "THROTTLE_POS",
+        "VSS",
+        "CHECKSUM",
+        "COUNTER",
+        "STATE",
+        "VSS_ENCODER"
+      ]
+    },
+    {
+      "id": 1536,
+      "hex": "0x600",
+      "name": "RELAY_CORE_COMMAND",
+      "dlc": 4,
+      "transmitter": "EON",
+      "signals": [
+        "RELAY_COMMAND",
+        "ENABLE",
+        "COUNTER",
+        "CHECKSUM"
+      ]
+    },
+    {
+      "id": 1537,
+      "hex": "0x601",
+      "name": "RELAY_CORE_STATUS",
+      "dlc": 4,
+      "transmitter": "PED",
+      "signals": [
+        "RELAY_STATUS",
+        "STATE",
+        "COUNTER",
+        "CHECKSUM"
+      ]
+    }
+  ]
+}

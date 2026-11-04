@@ -1,3 +1,48 @@
+## 2026-11-04 — What the shared DBC can describe
+
+Owner requested a plain-English inventory, not a protocol or hardware change.
+Canonical and packaged ocelot_controls.dbc remain identical,7363bytes,
+SHA256ef6eef74021a00183729b53ba90f1c790792cfe5dcf72fe9bdfe2dcb3d6a5dce.
+Source parent40a0c9f8/child671f8c4. Direct source inventory:20messages,
+120signals total;12sensor/status messages and8command messages. Repeated
+checksum/counter/state/mode fields count toward120; these are not120sensors.
+
+| Incoming source | Data defined |
+| --- | --- |
+| Angle sensor | Steering angle, unsigned speed magnitude, sensor state. |
+| ENGINE | CAN RPM, crank pulse timing/count, ignition, brake switch, mode. |
+| SPEED | CAN speed, vehicle-speed pulse timing/count, mode. |
+| CRUISE | On/off, cancel, set/down, resume/up, two raw ADC channels, mode. |
+| Gas interceptor | Two pedal sensor channels and state. |
+| Gas actuator | Throttle position, VSS, VSS encoder and state. |
+| Steering interceptor | Two sensor channels, driver override and state. |
+| Steering actuator | Driver/EPS torque, steering OK and status. |
+| Brake actuator | Pedal position(mm), driver-brake/applied flags, brake OK/status/extended states. |
+| Optional legacy iBooster | Corresponding brake position/applied/health/extended status. |
+| Optional legacy SSC | Steering angle/speed/torque, steering-module temperature, control/debug states. |
+| Legacy relay | Relay status/state only; owner excludes relays from the project. |
+
+All messages also define counters/checksums. Outgoing definitions cover gas
+(two channels/enable), steering(two channels or angle/torque/mode), brake
+(position/relative/mode), and legacy excluded relay commands. These definitions
+are not enabled live actuation. DBC is a wire dictionary, not a sensor or
+producer. Hardware or a future BeamNG adapter must supply compatible frames.
+
+Current CarState consumes selected base/module fields, with freshness/health
+checks. It does not publish every DBC signal into standard CarState:engine
+RPM and calibrated pedal values are not mapped; interceptor channels are not
+qualified Nm; STEER_RATE is unsigned and not copied to signed CarState rate.
+Speed scale defaults0 until a producer is qualified. Optional modules depend
+on detected flags, not an assumption that all legacy hardware is fitted.
+No gear, separate wheel speeds, actual cruise-enabled/set speed, seatbelt,
+doors, indicators, fuel/battery level, GPS/IMU or radar tracks in this DBC.
+Live port remains noOutput/dashcamOnly. Chimera/hardware holds stay in force.
+
+[Exact message/signal inventory](../Evidence/retropilot-dbc-inventory-20261104.json).
+Checked readable DBC, current CarState/interface/values and canonical publisher
+notes; no native/runtime or physical CAN test. Documentation/Git skills with
+source-first REA routing, no unrelated binary analysis. No DBC/source change.
+
 ## 2026-11-04 — Owner-selected required hardware: all three modules
 
 Owner explicitly selected these as required parts of our existing Radxa Q8B /
