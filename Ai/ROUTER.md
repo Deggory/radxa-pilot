@@ -1,3 +1,5 @@
+2026-11-04 owner requirement:retain questions AND actual answers across sessions. Read [answered owner Q&A](QUESTIONS.md) before related follow-ups; add new answers/status/evidence at closeout.
+
 2026-11-04:public radxa-pilot publication with master/Radxa/RetroPilot history; original commits preserved. [Evidence](Reports/github-publication-20261104/README.md). Upstream updates stay paused.
 
 2026-11-04:owner-approved two upstream updates applied;camera/Thneed/RetroPilot unchanged. Future updates remain on hold. [Evidence](Reports/upstream-approved-20261104/README.md).

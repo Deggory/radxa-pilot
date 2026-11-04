@@ -1,3 +1,17 @@
+## Owner questions and answers — standing rule, 2026-11-04
+
+Record each substantive owner project question and the actual answer during
+closeout:date,faithful question quote or labelled paraphrase,plain-English
+answer,evidence/source pin,implemented-versus-proposed status and unresolved
+limits. Use existing `Ai/QUESTIONS.md` (teacher:`/home/radxa/comma/Ai/QUESTION_LOG.md`); preserve its unanswered items separately. For
+Sunnypilot, keep the coordinating teacher log and student answers synchronized when
+working in the Comma workspace; a standalone clone retains its own student log.
+On startup and before follow-up answers or repeat questions, read the relevant
+Q&A entries through the routers. Add a dated correction when an earlier answer
+changes; never invent missing answers or call a summary a full chat transcript.
+These files are read by future sessions; they are not background model learning.
+This memory rule does not authorize new code,hardware actions,updates or pushes.
+
 # Sunnypilot on Radxa Dragon Q8B
 
 This repository is the actual project, currently located at

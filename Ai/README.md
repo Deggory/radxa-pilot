@@ -1,3 +1,5 @@
+Owner Q&A:read [QUESTIONS.md](QUESTIONS.md) for answered owner questions and separate unresolved items. Record new question/answer/status/evidence pairs and dated corrections; future sessions must read relevant entries.
+
 # Sunnypilot specialist memory
 
 This is the repository's “student notebook”: detailed Sunnypilot knowledge,

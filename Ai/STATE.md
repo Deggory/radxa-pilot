@@ -1,3 +1,5 @@
+2026-11-04 owner Q&A memory rule implemented:explicit recent questions AND actual answers in [existing question log](QUESTIONS.md); startup/closeout instructions require retrieval and continued recording. Older unknowns retained; summaries are not full transcripts or automatic model training. Documentation only,local commit/no push.
+
 2026-11-04 dual-DBC question answered:multi-parser support verified; OEM+RetroPilot requires explicit CarState integration, currently absent. No source/hardware change or push. [Details](Knowledge/RETROPILOT_CAR_PORT.md).
 
 2026-11-04 dzid/ZSS clarification complete:SSC command/status0x22E/0x22F and ZSSangle0x50 already defined; matching layouts do not resolve dzid checksum/controller integration or physical calibration. Source/DBC unchanged; notebooks local only. [Details](Knowledge/RETROPILOT_CAR_PORT.md).

@@ -1,3 +1,5 @@
+2026-11-04 owner Q&A memory rule implemented:explicit recent questions AND actual answers in [existing question log](QUESTIONS.md); startup/closeout instructions require retrieval and continued recording. Older unknowns retained; summaries are not full transcripts or automatic model training. Documentation only,local commit/no push.
+
 ## 2026-11-04 — Radxa project published to owner GitHub
 
 Public `Deggory/radxa-pilot`:master is original8cf6ff9a,radxa/q8b contains
