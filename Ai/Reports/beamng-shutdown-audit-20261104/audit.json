@@ -51,7 +51,8 @@
     "camera_model_panda_cereal_changes_since_published": false,
     "whitespace": "pass",
     "updated_entrypoint_links": "pass",
-    "memory": "106docs/337relative links/240workspace links pass"
+    "memory": "106docs/337relative links/240workspace links pass",
+    "pc_deployed_source_hashes": "six files verified"
   },
   "historical_runtime": {
     "genuine_post_start_carstate_samples": 492,
@@ -86,7 +87,13 @@
     ],
     "original_master_preserved": true,
     "default_branch_target": "radxa/q8b",
-    "status": "pending push and remote verification"
+    "status": "verified pushed and fresh source download matched",
+    "verified_radxa_commit": "2f283f86ace2179463670975b1312fb681a14c2f",
+    "verified_child_commit": "150f937198ceab43c43b39f94b9bdea63fcb633c",
+    "default_branch": "radxa/q8b",
+    "actions_enabled": false,
+    "fresh_source_download": "pass",
+    "receipt": "publication.json"
   },
   "shutdown": {
     "authorized": true,

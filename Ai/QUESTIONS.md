@@ -116,6 +116,10 @@ wall_time is used on the PC to reject old UDP samples and is NOT transmitted on 
 
 **Evidence:** Ai/Reports/beamng-shutdown-audit-20261104 and the dated audit-publication-shutdown session.
 
+### QA21 publication completion update
+
+Audit165fresh tests passed. Updated Deggory/radxa-pilot front page and both source branches; fresh source downloads match, original master preserved, Actions disabled. Teacher/student handoff for November5Chimera saved. Final action is normal PC shutdown first, then VS Code/Radxa cleanup and poweroff; actual shutdown request receipt is central, not a premature claim of physical completion.
+
 ---
 
 # Owner Q&A recovered for November 3–4, 2026

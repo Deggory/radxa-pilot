@@ -411,3 +411,5 @@ compilation must separately establish target v68/SoC37 support.
 ## 2026-11-03 — BeamNG optical webcam + Waveshare/Chimera CAN design
 
 Use optical monitor capture on Radxa and physical CAN through Waveshare/Chimera for the simulator. This owner-selected architecture supersedes the prior network-image plan. Keep final controller CAN in the test path; stage physical bench actuation later. DBC additions must be canonical/versioned, and physical feedback authority remains unresolved.
+
+2026-11-04: owner requested audit/save, GitHub update and ordered PC→VSCode→Radxa shutdown, with Chimera focus starting November5. Implementation choice under that publication request: show radxa/q8b by default so project status is visible; preserve original master and all history. Verified by API/refs/fresh source downloads. Next-session focus does not authorize arbitrary firmware flashing or physical actuation; normal session cleanup respects prompts/inhibitors.

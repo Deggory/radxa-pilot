@@ -1,0 +1,55 @@
+{
+  "verified_utc": "2026-11-04T22:18:43.392837+00:00",
+  "repository": {
+    "default_branch": "radxa/q8b",
+    "full_name": "Deggory/radxa-pilot",
+    "html_url": "https://github.com/Deggory/radxa-pilot"
+  },
+  "remote_refs": {
+    "refs/heads/master": "8cf6ff9a33c94bdf2fcb02e228a9aef1a7e6dc7f",
+    "refs/heads/opendbc/retropilot": "150f937198ceab43c43b39f94b9bdea63fcb633c",
+    "refs/heads/radxa/q8b": "2f283f86ace2179463670975b1312fb681a14c2f"
+  },
+  "original_master_unchanged": true,
+  "actions_enabled": false,
+  "force_or_mirror_push": false,
+  "fresh_parent": {
+    "fresh_clone": "/tmp/radxa-pilot-audit-parent-20261104-4nxbie7b/checkout",
+    "branch": "radxa/q8b",
+    "commit": "2f283f86ace2179463670975b1312fb681a14c2f",
+    "opendbc_gitlink": "160000 commit 150f937198ceab43c43b39f94b9bdea63fcb633c\topendbc_repo",
+    "verified_paths": [
+      "README.md",
+      "Ai/HANDOFF.md",
+      "openpilot/tools/sim/beamng/pc/gateway.py",
+      "openpilot/tools/sim/beamng/pc/mod/lua/vehicle/protocols/radxaRetropilot.lua",
+      "openpilot/tools/sim/beamng/shared/dbc-version.json"
+    ],
+    "mode": "fresh shallow blob-filtered source download, no full LFS/native/hardware retest",
+    "result": "pass"
+  },
+  "fresh_child": {
+    "fresh_clone": "/tmp/radxa-pilot-audit-child-20261104-6r19x9_1/checkout",
+    "branch": "opendbc/retropilot",
+    "commit": "150f937198ceab43c43b39f94b9bdea63fcb633c",
+    "verified_paths": [
+      "opendbc/dbc/ocelot_controls.dbc",
+      "opendbc/car/retropilot/simulation.py",
+      "opendbc/car/retropilot/carstate.py",
+      "opendbc/car/retropilot/interface.py"
+    ],
+    "dbc_sha256": "b4079670b8118fe63c6a7710ca1158afaabfec7df881ef902e43d70d70a36b67",
+    "result": "pass"
+  },
+  "pc_deployed_hashes_verified": {
+    "pc/gateway.py": "609d127a25817d4b7b12e23ef3b46f2513083427fceb318374311556d4c88acb",
+    "pc/install.py": "447cb03be8820a4808c4b5dc123f0366bbff82625b153ef2cd2ea2a12aa033b6",
+    "pc/mod/lua/vehicle/protocols/radxaRetropilot.lua": "08c3810c2febd65154d8a89f7cd29f40357de2696ff3b47ad5429a89a893311f",
+    "pc/README.md": "26820722f861e2a6e35da2d2745cb5de1c6f059300956e809b3b96ebb0cd9e33",
+    "shared/CAN_CONTRACT.md": "495d004b3479ee33bca43a09999f677a0f7608e09fe14ad86e55d7b1e3b5ed61",
+    "shared/dbc-version.json": "87f11cb7b1d7598da1fa8ee49744a8c83ad5d4090a55fc6ede0d2cf0536b61b0"
+  },
+  "source_result": "pass",
+  "scope": "fresh shallow source downloads; no new full recursive LFS/native/hardware acceptance test",
+  "shutdown_status": "not yet requested; follow publication verification"
+}

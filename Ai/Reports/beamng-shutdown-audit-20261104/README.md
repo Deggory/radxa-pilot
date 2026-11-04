@@ -70,12 +70,16 @@ relay or physical actuator work during this task.
 
 ## GitHub update
 
-Publish verified child150f9371to `opendbc/retropilot` before parent `radxa/q8b`
-so its submodule commit is available. Update the project front page/status and
-set GitHub's default view to radxa/q8b. Preserve master8cf6ff9a exactly and all
-existing history; no force/mirror push, unrelated repository or automatic
-upstream integration. GitHub Actions remains disabled. Actual push/readback/
-fresh-source verification will be saved in the publication receipt.
+Published child150f9371to `opendbc/retropilot` and parent2f283f86to
+`radxa/q8b` using normal fast-forward pushes. GitHub now opens on radxa/q8b;
+master8cf6ff9a is unchanged and Actions disabled. Fresh shallow source downloads
+of both branches verify parent README/handoff/gateway/Lua/manifest, the child
+DBC/decoder/CarState/interface and exact submodule gitlink. Six deployed PC
+source/document hashes match local files. [Publication receipt](publication.json).
+This checks source availability, not a new full recursive LFS/native/hardware
+run; the prior full clone/LFS acceptance remains historical. A final report-only
+checkpoint follows this receipt before shutdown; its Git HEAD identifies that
+last publication commit.
 
 ## Saving and shutdown
 

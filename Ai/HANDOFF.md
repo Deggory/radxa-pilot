@@ -1,12 +1,14 @@
 ## November 4 shutdown audit — next session November 5: Chimera
 
-Owner authorized audit/save, GitHub publication, then PC poweroff and VS Code/
-Radxa shutdown. Fresh165tests pass; DBC copies match. PC currently boots kernel42
-with working GTX1650/595.99.02; no game/gateway running. Last actual CAN reception
-remains0frames. Tomorrow start connector/power/termination/ACK/bitrate and receive
-qualification, preserving noOutput and relay/actuation limits. Publish child150f9371
-and Radxa branch with original master preserved; finish remote verification before
-normal ordered shutdown. No automatic upstream update or firmware work now.
+Audit/save and GitHub publication verified: fresh165tests pass; DBC and six PC
+source/doc files match. Public radxa/q8b and child150f9371pass fresh source-download
+checks; default viewRadxa,master8cf6ff9a preserved,Actions disabled. PC kernel42/
+GTX1650/595.99.02 healthy; no game/gateway running. Last physical CAN0frames.
+Tomorrow November5 start Chimera connector/power/termination/ACK/bitrate and receive
+qualification with noOutput and relay/actuation limits retained. Next final action:
+normal PC poweroff first,then VS Code/Radxa session shutdown; no force discard.
+No automatic upstream update or firmware work now. Central shutdown receipt records
+actual request/readbacks; physical completion after host poweroff is not claimed.
 
 2026-11-04 later follow-up: additional Sunnypilot/BeamNG requirements explained and recorded in Q&A16; sender folder opened on PC and Radxa, gateway.py in VS Code. PC network reachable again and pending README copy completed. No code/control/firmware change or new CAN test; physical reception remains unqualified.
 

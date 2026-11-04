@@ -787,3 +787,15 @@ runtime operation. Current source-first/documentation skills apply; no binary
 analysis needed. Next remains unresolved physical CAN qualification.
 
 2026-11-04 shutdown handoff: fresh165tests/source integrity pass; no functional change. Owner chose November5Chimera focus: resolve actual connector,USB-only rails,removed Waveshare termination and ACK/silent/bitrate before receive acceptance. Last0CANframes; noOutput/relay exclusion retained. Audit/publication/ordered shutdown report at Ai/Reports/beamng-shutdown-audit-20261104; actual remote/shutdown receipts follow before closeout.
+
+## Actual publication verification
+
+Child150f9371 and parent2f283f86 published with normal fast-forward pushes.
+Remote master remains8cf6ff9a; default branchradxa/q8b; Actions disabled. Fresh
+shallow source clones of both published branches match selected source/DBC
+bytes and parent gitlink. Six deployed PC file hashes match local source.
+PC no game/gateway, kernel42/GPU595.99.02, clean package audit. Teacher/student
+notes and next-November5handoff saved. Final report-only commit follows, then
+normal ordered shutdown; actual requests/readbacks are in central teacher
+Ai/Reports/beamng-shutdown-audit-20261104/shutdown.json. No completed physical
+poweroff claim is recorded in advance.
