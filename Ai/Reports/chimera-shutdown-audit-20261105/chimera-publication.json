@@ -1,0 +1,11 @@
+{
+  "repository": "Deggory/chimera",
+  "url": "https://github.com/Deggory/chimera",
+  "private": true,
+  "default_branch": "planning/modern-usb",
+  "head": "306c0c8e1fc073d12af9f6d4f6c2d93c90a0a2a7",
+  "readme_blob": "24dcf786fbe44dfab850296f4299c7715d7ce140",
+  "readme_remote_matches": true,
+  "verification": "authenticated gh REST plus git ls-remote; connected GitHub app returned404 for new private repo",
+  "actions_enabled": false
+}

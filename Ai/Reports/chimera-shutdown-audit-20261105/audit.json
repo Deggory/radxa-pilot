@@ -1,0 +1,19 @@
+{
+  "result": "pass",
+  "manifest_entries": 94,
+  "copied_references": 93,
+  "nightly_image_sha256": "match",
+  "protected_repo_states": "unchanged",
+  "public_unpublished_scope": "Ai only",
+  "credential_signature_scan_files": 157,
+  "scan_limit": "narrow credential signatures only",
+  "hardware_access": false,
+  "firmware_flash_or_config_action": false,
+  "source_pins": {
+    "sunnypilot": "f63e84685f9bf1d131a835443f1a08916cfa00af",
+    "chimera": "306c0c8e1fc073d12af9f6d4f6c2d93c90a0a2a7",
+    "sunnypilot/panda": "8a16e089b88593914823743df29e1c30b7dd3e00",
+    "sunnypilot/opendbc_repo": "150f937198ceab43c43b39f94b9bdea63fcb633c",
+    "ocelot": "d87892fa25ef2a2474110b97bfb5245ee818b534"
+  }
+}

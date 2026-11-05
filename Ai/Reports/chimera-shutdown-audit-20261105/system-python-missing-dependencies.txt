@@ -1,0 +1,75 @@
+panda (unittest.loader._FailedTest.panda) ... ERROR
+panda (unittest.loader._FailedTest.panda) ... ERROR
+pandad (unittest.loader._FailedTest.pandad) ... ERROR
+pandad (unittest.loader._FailedTest.pandad) ... ERROR
+
+======================================================================
+ERROR: panda (unittest.loader._FailedTest.panda)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: panda
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/radxa/comma/sunnypilot/panda/__init__.py", line 1, in <module>
+    from .python.constants import McuType, BASEDIR, FW_PATH, USBPACKET_MAX_SIZE  # noqa: F401
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/radxa/comma/sunnypilot/panda/python/__init__.py", line 6, in <module>
+    import usb1
+ModuleNotFoundError: No module named 'usb1'
+
+
+======================================================================
+ERROR: panda (unittest.loader._FailedTest.panda)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: panda
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/radxa/comma/sunnypilot/panda/__init__.py", line 1, in <module>
+    from .python.constants import McuType, BASEDIR, FW_PATH, USBPACKET_MAX_SIZE  # noqa: F401
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/radxa/comma/sunnypilot/panda/python/__init__.py", line 6, in <module>
+    import usb1
+ModuleNotFoundError: No module named 'usb1'
+
+
+======================================================================
+ERROR: pandad (unittest.loader._FailedTest.pandad)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: pandad
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/radxa/comma/sunnypilot/openpilot/selfdrive/pandad/__init__.py", line 1, in <module>
+    from openpilot.selfdrive.pandad.pandad_api_impl import can_list_to_can_capnp as can_list_to_can_capnp, can_capnp_to_list as can_capnp_to_list
+  File "/home/radxa/comma/sunnypilot/openpilot/selfdrive/pandad/pandad_api_impl.py", line 2, in <module>
+    from openpilot.cereal import log
+  File "/home/radxa/comma/sunnypilot/openpilot/cereal/__init__.py", line 2, in <module>
+    import capnp
+ModuleNotFoundError: No module named 'capnp'
+
+
+======================================================================
+ERROR: pandad (unittest.loader._FailedTest.pandad)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: pandad
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/radxa/comma/sunnypilot/openpilot/selfdrive/pandad/__init__.py", line 1, in <module>
+    from openpilot.selfdrive.pandad.pandad_api_impl import can_list_to_can_capnp as can_list_to_can_capnp, can_capnp_to_list as can_capnp_to_list
+  File "/home/radxa/comma/sunnypilot/openpilot/selfdrive/pandad/pandad_api_impl.py", line 2, in <module>
+    from openpilot.cereal import log
+  File "/home/radxa/comma/sunnypilot/openpilot/cereal/__init__.py", line 2, in <module>
+    import capnp
+ModuleNotFoundError: No module named 'capnp'
+
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+FAILED (errors=4)

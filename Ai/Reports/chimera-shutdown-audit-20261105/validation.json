@@ -1,0 +1,725 @@
+{
+  "kind": "offline source,codec and freshly compiled native comms tests",
+  "hardware_access": false,
+  "mailbox_vectors": 189,
+  "modern_vectors_all_splits_and_single_bit_corruptions": 336,
+  "health_layouts": {
+    "chimera": {
+      "bytes": 43,
+      "format": "<IIIIIIIIBBBBBBBhBB",
+      "fields": [
+        {
+          "name": "uptime_pkt",
+          "offset": 0,
+          "type": "uint32_t"
+        },
+        {
+          "name": "voltage_pkt",
+          "offset": 4,
+          "type": "uint32_t"
+        },
+        {
+          "name": "current_pkt",
+          "offset": 8,
+          "type": "uint32_t"
+        },
+        {
+          "name": "can_rx_errs_pkt",
+          "offset": 12,
+          "type": "uint32_t"
+        },
+        {
+          "name": "can_send_errs_pkt",
+          "offset": 16,
+          "type": "uint32_t"
+        },
+        {
+          "name": "can_fwd_errs_pkt",
+          "offset": 20,
+          "type": "uint32_t"
+        },
+        {
+          "name": "gmlan_send_errs_pkt",
+          "offset": 24,
+          "type": "uint32_t"
+        },
+        {
+          "name": "faults_pkt",
+          "offset": 28,
+          "type": "uint32_t"
+        },
+        {
+          "name": "ignition_line_pkt",
+          "offset": 32,
+          "type": "uint8_t"
+        },
+        {
+          "name": "ignition_can_pkt",
+          "offset": 33,
+          "type": "uint8_t"
+        },
+        {
+          "name": "controls_allowed_pkt",
+          "offset": 34,
+          "type": "uint8_t"
+        },
+        {
+          "name": "gas_interceptor_detected_pkt",
+          "offset": 35,
+          "type": "uint8_t"
+        },
+        {
+          "name": "car_harness_status_pkt",
+          "offset": 36,
+          "type": "uint8_t"
+        },
+        {
+          "name": "usb_power_mode_pkt",
+          "offset": 37,
+          "type": "uint8_t"
+        },
+        {
+          "name": "safety_mode_pkt",
+          "offset": 38,
+          "type": "uint8_t"
+        },
+        {
+          "name": "safety_param_pkt",
+          "offset": 39,
+          "type": "int16_t"
+        },
+        {
+          "name": "fault_status_pkt",
+          "offset": 41,
+          "type": "uint8_t"
+        },
+        {
+          "name": "power_save_enabled_pkt",
+          "offset": 42,
+          "type": "uint8_t"
+        }
+      ]
+    },
+    "legacy_demo": {
+      "bytes": 43,
+      "format": "<IIIIIIIIBBBBBBBhBB",
+      "fields": [
+        {
+          "name": "uptime",
+          "offset": 0,
+          "type": "uint32_t"
+        },
+        {
+          "name": "voltage",
+          "offset": 4,
+          "type": "uint32_t"
+        },
+        {
+          "name": "current",
+          "offset": 8,
+          "type": "uint32_t"
+        },
+        {
+          "name": "can_rx_errs",
+          "offset": 12,
+          "type": "uint32_t"
+        },
+        {
+          "name": "can_send_errs",
+          "offset": 16,
+          "type": "uint32_t"
+        },
+        {
+          "name": "can_fwd_errs",
+          "offset": 20,
+          "type": "uint32_t"
+        },
+        {
+          "name": "gmlan_send_errs",
+          "offset": 24,
+          "type": "uint32_t"
+        },
+        {
+          "name": "faults",
+          "offset": 28,
+          "type": "uint32_t"
+        },
+        {
+          "name": "ignition_line",
+          "offset": 32,
+          "type": "uint8_t"
+        },
+        {
+          "name": "ignition_can",
+          "offset": 33,
+          "type": "uint8_t"
+        },
+        {
+          "name": "controls_allowed",
+          "offset": 34,
+          "type": "uint8_t"
+        },
+        {
+          "name": "gas_interceptor_detected",
+          "offset": 35,
+          "type": "uint8_t"
+        },
+        {
+          "name": "car_harness_status",
+          "offset": 36,
+          "type": "uint8_t"
+        },
+        {
+          "name": "usb_power_mode",
+          "offset": 37,
+          "type": "uint8_t"
+        },
+        {
+          "name": "safety_model",
+          "offset": 38,
+          "type": "uint8_t"
+        },
+        {
+          "name": "safety_param",
+          "offset": 39,
+          "type": "int16_t"
+        },
+        {
+          "name": "fault_status",
+          "offset": 41,
+          "type": "uint8_t"
+        },
+        {
+          "name": "power_save_enabled",
+          "offset": 42,
+          "type": "uint8_t"
+        }
+      ]
+    },
+    "c2": {
+      "bytes": 50,
+      "format": "<IIIIIIIIBBBBBBBhBBBHI",
+      "fields": [
+        {
+          "name": "uptime_pkt",
+          "offset": 0,
+          "type": "uint32_t"
+        },
+        {
+          "name": "voltage_pkt",
+          "offset": 4,
+          "type": "uint32_t"
+        },
+        {
+          "name": "current_pkt",
+          "offset": 8,
+          "type": "uint32_t"
+        },
+        {
+          "name": "can_rx_errs_pkt",
+          "offset": 12,
+          "type": "uint32_t"
+        },
+        {
+          "name": "can_send_errs_pkt",
+          "offset": 16,
+          "type": "uint32_t"
+        },
+        {
+          "name": "can_fwd_errs_pkt",
+          "offset": 20,
+          "type": "uint32_t"
+        },
+        {
+          "name": "gmlan_send_errs_pkt",
+          "offset": 24,
+          "type": "uint32_t"
+        },
+        {
+          "name": "faults_pkt",
+          "offset": 28,
+          "type": "uint32_t"
+        },
+        {
+          "name": "ignition_line_pkt",
+          "offset": 32,
+          "type": "uint8_t"
+        },
+        {
+          "name": "ignition_can_pkt",
+          "offset": 33,
+          "type": "uint8_t"
+        },
+        {
+          "name": "controls_allowed_pkt",
+          "offset": 34,
+          "type": "uint8_t"
+        },
+        {
+          "name": "gas_interceptor_detected_pkt",
+          "offset": 35,
+          "type": "uint8_t"
+        },
+        {
+          "name": "car_harness_status_pkt",
+          "offset": 36,
+          "type": "uint8_t"
+        },
+        {
+          "name": "usb_power_mode_pkt",
+          "offset": 37,
+          "type": "uint8_t"
+        },
+        {
+          "name": "safety_mode_pkt",
+          "offset": 38,
+          "type": "uint8_t"
+        },
+        {
+          "name": "safety_param_pkt",
+          "offset": 39,
+          "type": "int16_t"
+        },
+        {
+          "name": "fault_status_pkt",
+          "offset": 41,
+          "type": "uint8_t"
+        },
+        {
+          "name": "power_save_enabled_pkt",
+          "offset": 42,
+          "type": "uint8_t"
+        },
+        {
+          "name": "heartbeat_lost_pkt",
+          "offset": 43,
+          "type": "uint8_t"
+        },
+        {
+          "name": "unsafe_mode_pkt",
+          "offset": 44,
+          "type": "uint16_t"
+        },
+        {
+          "name": "blocked_msg_cnt_pkt",
+          "offset": 46,
+          "type": "uint32_t"
+        }
+      ]
+    },
+    "modern": {
+      "bytes": 49,
+      "format": "<IHHIIIIIHBBHBHBBHHHHBB",
+      "fields": [
+        {
+          "name": "uptime_pkt",
+          "offset": 0,
+          "type": "uint32_t"
+        },
+        {
+          "name": "voltage_pkt",
+          "offset": 4,
+          "type": "uint16_t"
+        },
+        {
+          "name": "current_pkt",
+          "offset": 6,
+          "type": "uint16_t"
+        },
+        {
+          "name": "safety_tx_blocked_pkt",
+          "offset": 8,
+          "type": "uint32_t"
+        },
+        {
+          "name": "safety_rx_invalid_pkt",
+          "offset": 12,
+          "type": "uint32_t"
+        },
+        {
+          "name": "tx_buffer_overflow_pkt",
+          "offset": 16,
+          "type": "uint32_t"
+        },
+        {
+          "name": "rx_buffer_overflow_pkt",
+          "offset": 20,
+          "type": "uint32_t"
+        },
+        {
+          "name": "faults_pkt",
+          "offset": 24,
+          "type": "uint32_t"
+        },
+        {
+          "name": "flags_pkt",
+          "offset": 28,
+          "type": "uint16_t"
+        },
+        {
+          "name": "car_harness_status_pkt",
+          "offset": 30,
+          "type": "uint8_t"
+        },
+        {
+          "name": "safety_mode_pkt",
+          "offset": 31,
+          "type": "uint8_t"
+        },
+        {
+          "name": "safety_param_pkt",
+          "offset": 32,
+          "type": "uint16_t"
+        },
+        {
+          "name": "fault_status_pkt",
+          "offset": 34,
+          "type": "uint8_t"
+        },
+        {
+          "name": "alternative_experience_pkt",
+          "offset": 35,
+          "type": "uint16_t"
+        },
+        {
+          "name": "interrupt_load_pkt",
+          "offset": 37,
+          "type": "uint8_t"
+        },
+        {
+          "name": "fan_power",
+          "offset": 38,
+          "type": "uint8_t"
+        },
+        {
+          "name": "spi_error_count_pkt",
+          "offset": 39,
+          "type": "uint16_t"
+        },
+        {
+          "name": "sbu1_voltage_mV",
+          "offset": 41,
+          "type": "uint16_t"
+        },
+        {
+          "name": "sbu2_voltage_mV",
+          "offset": 43,
+          "type": "uint16_t"
+        },
+        {
+          "name": "sound_output_level_pkt",
+          "offset": 45,
+          "type": "uint16_t"
+        },
+        {
+          "name": "temperature_pkt",
+          "offset": 47,
+          "type": "uint8_t"
+        },
+        {
+          "name": "controls_allowed_sp_pkt",
+          "offset": 48,
+          "type": "uint8_t"
+        }
+      ]
+    }
+  },
+  "modern_can_health_layout": {
+    "bytes": 64,
+    "format": "<BIBBBBBBBBIIIIIIIHHBBBIIII",
+    "fields": [
+      {
+        "name": "bus_off",
+        "offset": 0,
+        "type": "uint8_t"
+      },
+      {
+        "name": "bus_off_cnt",
+        "offset": 1,
+        "type": "uint32_t"
+      },
+      {
+        "name": "error_warning",
+        "offset": 5,
+        "type": "uint8_t"
+      },
+      {
+        "name": "error_passive",
+        "offset": 6,
+        "type": "uint8_t"
+      },
+      {
+        "name": "last_error",
+        "offset": 7,
+        "type": "uint8_t"
+      },
+      {
+        "name": "last_stored_error",
+        "offset": 8,
+        "type": "uint8_t"
+      },
+      {
+        "name": "last_data_error",
+        "offset": 9,
+        "type": "uint8_t"
+      },
+      {
+        "name": "last_data_stored_error",
+        "offset": 10,
+        "type": "uint8_t"
+      },
+      {
+        "name": "receive_error_cnt",
+        "offset": 11,
+        "type": "uint8_t"
+      },
+      {
+        "name": "transmit_error_cnt",
+        "offset": 12,
+        "type": "uint8_t"
+      },
+      {
+        "name": "total_error_cnt",
+        "offset": 13,
+        "type": "uint32_t"
+      },
+      {
+        "name": "total_tx_lost_cnt",
+        "offset": 17,
+        "type": "uint32_t"
+      },
+      {
+        "name": "total_rx_lost_cnt",
+        "offset": 21,
+        "type": "uint32_t"
+      },
+      {
+        "name": "total_tx_cnt",
+        "offset": 25,
+        "type": "uint32_t"
+      },
+      {
+        "name": "total_rx_cnt",
+        "offset": 29,
+        "type": "uint32_t"
+      },
+      {
+        "name": "total_fwd_cnt",
+        "offset": 33,
+        "type": "uint32_t"
+      },
+      {
+        "name": "total_tx_checksum_error_cnt",
+        "offset": 37,
+        "type": "uint32_t"
+      },
+      {
+        "name": "can_speed",
+        "offset": 41,
+        "type": "uint16_t"
+      },
+      {
+        "name": "can_data_speed",
+        "offset": 43,
+        "type": "uint16_t"
+      },
+      {
+        "name": "canfd_enabled",
+        "offset": 45,
+        "type": "uint8_t"
+      },
+      {
+        "name": "brs_enabled",
+        "offset": 46,
+        "type": "uint8_t"
+      },
+      {
+        "name": "canfd_non_iso",
+        "offset": 47,
+        "type": "uint8_t"
+      },
+      {
+        "name": "irq0_call_rate",
+        "offset": 48,
+        "type": "uint32_t"
+      },
+      {
+        "name": "irq1_call_rate",
+        "offset": 52,
+        "type": "uint32_t"
+      },
+      {
+        "name": "irq2_call_rate",
+        "offset": 56,
+        "type": "uint32_t"
+      },
+      {
+        "name": "can_core_reset_cnt",
+        "offset": 60,
+        "type": "uint32_t"
+      }
+    ]
+  },
+  "modern_constructor_fake_handle_calls": [
+    {
+      "disable_checks": true,
+      "versions": [
+        0,
+        0
+      ],
+      "calls": [
+        [
+          "IN",
+          221,
+          0,
+          0,
+          8
+        ],
+        [
+          "OUT",
+          248,
+          0,
+          0
+        ],
+        [
+          "OUT",
+          231,
+          0,
+          0
+        ],
+        [
+          "OUT",
+          192,
+          0,
+          0
+        ],
+        [
+          "OUT",
+          232,
+          0,
+          0
+        ],
+        [
+          "OUT",
+          232,
+          1,
+          0
+        ],
+        [
+          "OUT",
+          232,
+          2,
+          0
+        ],
+        [
+          "OUT",
+          222,
+          0,
+          5000
+        ],
+        [
+          "OUT",
+          222,
+          1,
+          5000
+        ],
+        [
+          "OUT",
+          222,
+          2,
+          5000
+        ]
+      ],
+      "write_count": 9
+    },
+    {
+      "disable_checks": false,
+      "versions": [
+        0,
+        0
+      ],
+      "calls": [
+        [
+          "IN",
+          221,
+          0,
+          0,
+          8
+        ],
+        [
+          "OUT",
+          192,
+          0,
+          0
+        ],
+        [
+          "OUT",
+          232,
+          0,
+          0
+        ],
+        [
+          "OUT",
+          232,
+          1,
+          0
+        ],
+        [
+          "OUT",
+          232,
+          2,
+          0
+        ],
+        [
+          "OUT",
+          222,
+          0,
+          5000
+        ],
+        [
+          "OUT",
+          222,
+          1,
+          5000
+        ],
+        [
+          "OUT",
+          222,
+          2,
+          5000
+        ]
+      ],
+      "write_count": 7
+    }
+  ],
+  "version_hashes": {
+    "panda/board/health.h": 3398409903,
+    "opendbc_repo/opendbc/safety/can.h": 1974202998
+  },
+  "native_build": {
+    "command": [
+      "gcc",
+      "-shared",
+      "-fPIC",
+      "-fno-builtin",
+      "-std=gnu11",
+      "-Wno-pointer-to-int-cast",
+      "-I/home/radxa/comma/sunnypilot/panda",
+      "-I/home/radxa/comma/sunnypilot/panda/board",
+      "-I/home/radxa/comma/sunnypilot/opendbc_repo",
+      "/home/radxa/comma/sunnypilot/panda/tests/libpanda/panda.c",
+      "-o",
+      "/tmp/panda-contract-native-8ob7895r/libpanda.so"
+    ],
+    "exit_code": 0,
+    "output": "",
+    "compiler_version": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "library_sha256": "1d19624da971ea56aff640205352da66f5abe8cceab290144889558a41d8d3fb"
+  },
+  "existing_tests": {
+    "run": 21,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  }
+}

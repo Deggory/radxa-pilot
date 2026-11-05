@@ -1,0 +1,53 @@
+panda (unittest.loader._FailedTest.panda) ... ERROR
+panda (unittest.loader._FailedTest.panda) ... ERROR
+openpilot (unittest.loader._FailedTest.openpilot) ... ERROR
+openpilot (unittest.loader._FailedTest.openpilot) ... ERROR
+
+======================================================================
+ERROR: panda (unittest.loader._FailedTest.panda)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: panda
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'panda'
+
+
+======================================================================
+ERROR: panda (unittest.loader._FailedTest.panda)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: panda
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'panda'
+
+
+======================================================================
+ERROR: openpilot (unittest.loader._FailedTest.openpilot)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: openpilot
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'openpilot'
+
+
+======================================================================
+ERROR: openpilot (unittest.loader._FailedTest.openpilot)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: openpilot
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'openpilot'
+
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+FAILED (errors=4)
