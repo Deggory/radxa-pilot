@@ -1,3 +1,15 @@
+## QA-20261105-05 — What every docs file does and which to keep
+
+**Date:** November 5, 2026 UTC.
+
+**Owner question (original):** https://github.com/Deggory/radxa-pilot/tree/radxa/q8b/docs tell me wat to keep ,wat eacg file do
+
+**Answer:** Keep our README/RETROPILOT/GITHUB_RADXA guides, safety/limitations/integration references, AI/contribution policies, car-port/log/replay and safety-debugging guides. CARS.md is an optional generated supported-car catalogue. Comma-device connection and speed-color tutorials, upstream feedback/roadmap, the empty architecture page and website-only files are optional/removal candidates for Radxa-only docs. The safety concepts page links to SAFETY.md. Keep website logo/favicon with the website, star/video icons with CARS.md and three-back.svg with the comma connection guide. Full29entry explanation is saved in the existing cleanup topic/inventory.
+
+**Implemented versus proposed:** Inspected source and dependencies, provided per-file recommendations; no docs deletion or content edit, no push. Remote Radxa matches local sourcec93bd4197e3b0a45249be12638fb410f7e4474f1.29tracked paths,390999logical bytes following the safety symlink. Removal choices remain proposed; nothing from the docs folder was removed by this question.
+
+**Evidence/limits:** Student Ai/Evidence/docs-cleanup-review-20261105.json and Ai/Knowledge/REPOSITORY_CLEANUP.md. tools/op.sh, serve.py/template.html, docs/repo-maintenance workflows and car-doc generator checked for consumers. Not a full website implementation/security or whole-project runtime dependency audit. Older RETROPILOT sections need status refresh; inherited feature descriptions are not Radxa capability proof. No runtime test required for this read-only review and notebook update. Upstream updates stay paused.
+
 ## QA-20261105-04 — Remove JetBrains folders locally and on GitHub Q8B
 
 **Date:** November 5, 2026 UTC.

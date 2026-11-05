@@ -1,3 +1,13 @@
+## November 5 — Docs file-by-file cleanup advice saved
+
+Owner asked purpose/keep advice for GitHub Q8B docs. Inspected29tracked entries
+at public/localc93bd4197;390999logical bytes. Keep project/safety/debugging/porting
+references. Comma-only tutorials and website/upstream extras are optional, with
+navigation/generator/assets dependencies retained until deliberate cleanup.
+QA-20261105-05 and the complete inventory record recommendations; no docs removed
+or edited and no push/runtime/hardware action. Next owner chooses cleanup scope.
+Existing upstream update hold and separate Chimera receive qualification remain.
+
 ## November 5 — JetBrains folders removed and published
 
 Owner explicitly authorized local and GitHub Q8B deletion. Removed six .idea/.run

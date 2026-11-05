@@ -1,3 +1,51 @@
+## November 5 — Every tracked docs entry reviewed for cleanup
+
+Source/public Radxa commitc93bd4197e3b0a45249be12638fb410f7e4474f1. Owner asked
+what each docs file does and which to keep.29tracked entries inventoried,390999
+logical bytes following the safety symlink. Recommendations only; docs unchanged.
+[Complete file/purpose/keep inventory](../Evidence/docs-cleanup-review-20261105.json).
+
+| File | Plain-English purpose | Recommendation |
+| --- | --- | --- |
+| AI_POLICY.md | Rules for AI-assisted changes, verification and disclosure. | Keep |
+| CARS.md | Automatically generated catalogue of supported factory cars; reference only for our custom port. | Optional reference; preserve generator/icon links if removed |
+| CONTRIBUTING.md | How developers submit changes and report bugs. | Keep |
+| DEBUGGING_SAFETY.md | Use VS Code and replay to inspect C safety rules. | Keep; adapt paths as needed |
+| GITHUB_RADXA.md | Our GitHub branches, cloning instructions and asset/submodule setup. | Keep |
+| INTEGRATION.md | How supported stock-car assist features interact with openpilot. | Keep as reference |
+| LIMITATIONS.md | Known limitations of lane, cruise, warning and driver-monitoring features. | Keep as reference |
+| README.md | Starting page linking our Radxa, install, BeamNG and project guides. | Keep |
+| RETROPILOT.md | Our custom car port, CAN transport, safety implementation and remaining gaps. | Keep; older sections need current BeamNG status refresh |
+| SAFETY.md | Safety design principles, driver takeover and bounded actuation. | Keep |
+| index.md | Upstream introduction used as the website home page. | Optional with website |
+| serve.py | Builds and serves the documentation website. | Optional with website; tools/op.sh and docs workflow reference it |
+| template.html | Page appearance and layout for that website. | Keep with serve.py, otherwise optional |
+| concepts/logs.md | Recorded messages, route segments and camera log files. | Keep |
+| concepts/safety.md | Symlink to ../SAFETY.md for website navigation; not a second independent text. | Keep while website uses this path |
+| contributing/architecture.md | Contains only the Architecture heading. | Removal candidate; fix any references |
+| contributing/feedback.md | How upstream comma users report driving/monitoring feedback. | Optional upstream reference |
+| contributing/roadmap.md | Upstream openpilot plans; not the Radxa project plan. | Optional; replace only under separate scope |
+| how-to/car-port.md | Explains interface, state reader, controller, DBC and safety files for a car port. | Keep |
+| how-to/connect-to-comma.md | SSH/serial/ADB instructions for comma hardware. | Removal candidate for Radxa-only docs; navigation/image links must be adapted |
+| how-to/replay-a-drive.md | How to replay recorded driving data; its CAN section is unfinished. | Keep; update incomplete/device-specific parts |
+| how-to/turn-the-speed-blue.md | Beginner example changing speed-display color and deploying to a comma device. | Optional tutorial; not needed for Q8B setup |
+| assets/comma-logo.png | Website logo. | Keep with website, otherwise optional |
+| assets/favicon.svg | Website browser-tab icon. | Keep with website, otherwise optional |
+| assets/icon-star-empty.svg | Empty rating star in the supported-car catalogue. | Keep with CARS.md |
+| assets/icon-star-full.svg | Full rating star in the supported-car catalogue. | Keep with CARS.md |
+| assets/icon-star-half.svg | Half rating star in the supported-car catalogue. | Keep with CARS.md |
+| assets/icon-youtube.svg | Video-link icon in the supported-car catalogue. | Keep with CARS.md |
+| assets/three-back.svg | Picture of comma-device connectors used by the connection tutorial. | Keep with comma connection tutorial, otherwise removal candidate |
+
+Website files and navigation, generated car-list assets and tutorial images have
+explicit consumers. A deletion must update those links/workflows together. Keep
+safety/developer policies and our Radxa/RetroPilot guides. RETROPILOT.md has older
+physical-profile/November3status statements; current RP-SIM-1 receiver/replay and
+last0physical CANframes live in the BeamNG guide and student handoff. Retention
+is not a claim that every old paragraph is current or that the port is qualified.
+No executable/DBC/firmware/website content changed. Source-first Git/documentation
+skills reused, no unrelated REA runtime claim or driving acceptance.
+
 ## November 5 — JetBrains folders removed and published
 
 Owner explicitly authorized local and GitHub Q8B deletion. Removed six .idea/.run

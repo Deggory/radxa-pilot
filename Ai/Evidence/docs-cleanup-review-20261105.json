@@ -1,0 +1,234 @@
+{
+  "date": "2026-11-05",
+  "source_head": "c93bd4197e3b0a45249be12638fb410f7e4474f1",
+  "remote_radxa_head_matches_source": true,
+  "files": [
+    {
+      "path": "docs/AI_POLICY.md",
+      "purpose": "Rules for AI-assisted changes, verification and disclosure.",
+      "recommendation": "Keep",
+      "logical_bytes_following_symlink": 1994,
+      "content_sha256": "0841284427a96a6a06cbd7fe381c317b902d3a31fb7b01a1ce9e3888d19d6543"
+    },
+    {
+      "path": "docs/CARS.md",
+      "purpose": "Automatically generated catalogue of supported factory cars; reference only for our custom port.",
+      "recommendation": "Optional reference; preserve generator/icon links if removed",
+      "logical_bytes_following_symlink": 173783,
+      "content_sha256": "df5c7d6889dd0a96ae96ebc1face0ebb2d49436658dc661a074b7425f3b50d88"
+    },
+    {
+      "path": "docs/CONTRIBUTING.md",
+      "purpose": "How developers submit changes and report bugs.",
+      "recommendation": "Keep",
+      "logical_bytes_following_symlink": 4519,
+      "content_sha256": "ec1dabc694b729f41a6eb293f07eea4157cb818fd91219ac6c1a07cc08f7f035"
+    },
+    {
+      "path": "docs/DEBUGGING_SAFETY.md",
+      "purpose": "Use VS Code and replay to inspect C safety rules.",
+      "recommendation": "Keep; adapt paths as needed",
+      "logical_bytes_following_symlink": 1188,
+      "content_sha256": "ab50cc25261d9392aa265cf6a141423b5e92fdd9906863a4878350529dd041e8"
+    },
+    {
+      "path": "docs/GITHUB_RADXA.md",
+      "purpose": "Our GitHub branches, cloning instructions and asset/submodule setup.",
+      "recommendation": "Keep",
+      "logical_bytes_following_symlink": 3134,
+      "content_sha256": "ef530aec5d8b9caff95af568edf81979b8bd14ecc9d7bd0fb87f1b4f26836936"
+    },
+    {
+      "path": "docs/INTEGRATION.md",
+      "purpose": "How supported stock-car assist features interact with openpilot.",
+      "recommendation": "Keep as reference",
+      "logical_bytes_following_symlink": 616,
+      "content_sha256": "3c85c2b70a083fa5da2711549377f130e2998443012c89a288b1994bc25cd5e2"
+    },
+    {
+      "path": "docs/LIMITATIONS.md",
+      "purpose": "Known limitations of lane, cruise, warning and driver-monitoring features.",
+      "recommendation": "Keep as reference",
+      "logical_bytes_following_symlink": 4368,
+      "content_sha256": "dda0df7072977d82ca7dbcc1d5ab881d7692871af11090bf0bc54f0a68e449fa"
+    },
+    {
+      "path": "docs/README.md",
+      "purpose": "Starting page linking our Radxa, install, BeamNG and project guides.",
+      "recommendation": "Keep",
+      "logical_bytes_following_symlink": 2762,
+      "content_sha256": "9d43e80960470e57e8b6b27cd5112f18fdef32b3812645be4f255a05d49f0a1f"
+    },
+    {
+      "path": "docs/RETROPILOT.md",
+      "purpose": "Our custom car port, CAN transport, safety implementation and remaining gaps.",
+      "recommendation": "Keep; older sections need current BeamNG status refresh",
+      "logical_bytes_following_symlink": 18881,
+      "content_sha256": "d6a60a0285d03703e22381bdf6dc85e47d993fb80836dcc6278f0e3c81e11222"
+    },
+    {
+      "path": "docs/SAFETY.md",
+      "purpose": "Safety design principles, driver takeover and bounded actuation.",
+      "recommendation": "Keep",
+      "logical_bytes_following_symlink": 3120,
+      "content_sha256": "9ecec49877bf0bab5b338334f90ef5a35824ec6b00bb1f7053a5876cf2877ff5"
+    },
+    {
+      "path": "docs/index.md",
+      "purpose": "Upstream introduction used as the website home page.",
+      "recommendation": "Optional with website",
+      "logical_bytes_following_symlink": 1088,
+      "content_sha256": "9035bcb8f96babd8af869a46bffdcc9fc2a93094ae7a94cdd4100dd7f8c38025"
+    },
+    {
+      "path": "docs/serve.py",
+      "purpose": "Builds and serves the documentation website.",
+      "recommendation": "Optional with website; tools/op.sh and docs workflow reference it",
+      "logical_bytes_following_symlink": 19791,
+      "content_sha256": "5acad75365cac08854b7e30dfb836f99d41cbd4c60426fa9d8db5b0857d13604"
+    },
+    {
+      "path": "docs/template.html",
+      "purpose": "Page appearance and layout for that website.",
+      "recommendation": "Keep with serve.py, otherwise optional",
+      "logical_bytes_following_symlink": 8566,
+      "content_sha256": "2f66b0bab80db1b7b5b9522a5c8672e86ddd653cc4ed372494662e4bf3bf5dc3"
+    },
+    {
+      "path": "docs/concepts/logs.md",
+      "purpose": "Recorded messages, route segments and camera log files.",
+      "recommendation": "Keep",
+      "logical_bytes_following_symlink": 1616,
+      "content_sha256": "dd678953d26b8576b367cc0d438c756dc0c8f9bf4c23258ef2f68872c30bae76"
+    },
+    {
+      "path": "docs/concepts/safety.md",
+      "purpose": "Symlink to ../SAFETY.md for website navigation; not a second independent text.",
+      "recommendation": "Keep while website uses this path",
+      "logical_bytes_following_symlink": 3120,
+      "content_sha256": "9ecec49877bf0bab5b338334f90ef5a35824ec6b00bb1f7053a5876cf2877ff5",
+      "symlink_target": "../SAFETY.md"
+    },
+    {
+      "path": "docs/contributing/architecture.md",
+      "purpose": "Contains only the Architecture heading.",
+      "recommendation": "Removal candidate; fix any references",
+      "logical_bytes_following_symlink": 15,
+      "content_sha256": "2e7cb38229f7877e569cc05dd9c8fb71b30954ad2c9978328d69f5d377f81505"
+    },
+    {
+      "path": "docs/contributing/feedback.md",
+      "purpose": "How upstream comma users report driving/monitoring feedback.",
+      "recommendation": "Optional upstream reference",
+      "logical_bytes_following_symlink": 1785,
+      "content_sha256": "e105f08ed63b0469f96477406df3514b23993331fc1bdfc8f94c05f1d14dbd34"
+    },
+    {
+      "path": "docs/contributing/roadmap.md",
+      "purpose": "Upstream openpilot plans; not the Radxa project plan.",
+      "recommendation": "Optional; replace only under separate scope",
+      "logical_bytes_following_symlink": 786,
+      "content_sha256": "563ec139153c2878d7878b8c26d6dd8465837c948f98eb289349f0ec13dd4ea1"
+    },
+    {
+      "path": "docs/how-to/car-port.md",
+      "purpose": "Explains interface, state reader, controller, DBC and safety files for a car port.",
+      "recommendation": "Keep",
+      "logical_bytes_following_symlink": 2112,
+      "content_sha256": "8548ecf71319d611f8b3fb227bdb103d1bd7ebafb2bab867e61e4067b95b586c"
+    },
+    {
+      "path": "docs/how-to/connect-to-comma.md",
+      "purpose": "SSH/serial/ADB instructions for comma hardware.",
+      "recommendation": "Removal candidate for Radxa-only docs; navigation/image links must be adapted",
+      "logical_bytes_following_symlink": 3460,
+      "content_sha256": "a50ef14feadd95d0f05699bd1921f4e4bc2c1df964bf1ac859f48bfefeac3bdc"
+    },
+    {
+      "path": "docs/how-to/replay-a-drive.md",
+      "purpose": "How to replay recorded driving data; its CAN section is unfinished.",
+      "recommendation": "Keep; update incomplete/device-specific parts",
+      "logical_bytes_following_symlink": 280,
+      "content_sha256": "9456523b41346da68d7151fdc1a62d1222f518346edba5f40b4e8884fd966963"
+    },
+    {
+      "path": "docs/how-to/turn-the-speed-blue.md",
+      "purpose": "Beginner example changing speed-display color and deploying to a comma device.",
+      "recommendation": "Optional tutorial; not needed for Q8B setup",
+      "logical_bytes_following_symlink": 3201,
+      "content_sha256": "1353976f5a7475df81dfc499d74277637cb85d7fc41c21fddacf7f78b6b13190"
+    },
+    {
+      "path": "docs/assets/comma-logo.png",
+      "purpose": "Website logo.",
+      "recommendation": "Keep with website, otherwise optional",
+      "logical_bytes_following_symlink": 1388,
+      "content_sha256": "7ad4ee47ec6470f788a026f95ed86bf344f64f9cf3186c9c78927233d2694a1d",
+      "symlink_target": "../../openpilot/selfdrive/assets/icons_mici/settings/comma_icon.png"
+    },
+    {
+      "path": "docs/assets/favicon.svg",
+      "purpose": "Website browser-tab icon.",
+      "recommendation": "Keep with website, otherwise optional",
+      "logical_bytes_following_symlink": 349,
+      "content_sha256": "9e019ed5af500e8820d05934d47e0380728e1b30e01a179f786dc4edb1eccbd7"
+    },
+    {
+      "path": "docs/assets/icon-star-empty.svg",
+      "purpose": "Empty rating star in the supported-car catalogue.",
+      "recommendation": "Keep with CARS.md",
+      "logical_bytes_following_symlink": 1947,
+      "content_sha256": "3142658fa2782d266028dcab491e02ab329a2cadcf9efb1846a5f9631d64cac1"
+    },
+    {
+      "path": "docs/assets/icon-star-full.svg",
+      "purpose": "Full rating star in the supported-car catalogue.",
+      "recommendation": "Keep with CARS.md",
+      "logical_bytes_following_symlink": 1950,
+      "content_sha256": "5fdcc85f3d8c9d0c2fb76b98ddd9f118c0e4a12c859a4281a04a0870d5de12c8"
+    },
+    {
+      "path": "docs/assets/icon-star-half.svg",
+      "purpose": "Half rating star in the supported-car catalogue.",
+      "recommendation": "Keep with CARS.md",
+      "logical_bytes_following_symlink": 2508,
+      "content_sha256": "cdf5e7ae57626f4cda35973873a4696252babbbe473913fe0aafdd8ba39d7fc3"
+    },
+    {
+      "path": "docs/assets/icon-youtube.svg",
+      "purpose": "Video-link icon in the supported-car catalogue.",
+      "recommendation": "Keep with CARS.md",
+      "logical_bytes_following_symlink": 1278,
+      "content_sha256": "6cb64f9da10b818c56763a7c48347f6043da20a2a77fb14f6d60d9457c575b6b"
+    },
+    {
+      "path": "docs/assets/three-back.svg",
+      "purpose": "Picture of comma-device connectors used by the connection tutorial.",
+      "recommendation": "Keep with comma connection tutorial, otherwise removal candidate",
+      "logical_bytes_following_symlink": 121394,
+      "content_sha256": "8a5245f9458982b608fee67fc689d899ca638a405ff62bf9db5e4978b177ef3e"
+    }
+  ],
+  "tracked_entries": 29,
+  "logical_bytes_following_symlink": 390999,
+  "coverage": "All tracked paths inventoried; prose read except generated CARS rows sampled; website source inspected selectively for dependencies, not full code/security audit; binary image not visually inspected.",
+  "dependency_evidence": [
+    "tools/op.sh docs command invokes docs/serve.py",
+    "serve.py loads template.html and has fixed navigation paths",
+    "template.html references favicon.svg and comma-logo.png",
+    "car documentation generator references star/video icons",
+    "repo-maintenance workflow stages docs/CARS.md",
+    "comma connection tutorial references assets/three-back.svg"
+  ],
+  "status": "recommendations only; no docs deletion/edit or remote push; no runtime tests",
+  "notebook_validation": {
+    "result": "pass",
+    "memory_layout": "regular project directory",
+    "documents": 111,
+    "relative_links": 355,
+    "optional_workspace_links": 240,
+    "source_repositories": 8,
+    "indexed_entries": 4254,
+    "whitespace": "pass"
+  }
+}
