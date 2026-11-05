@@ -1,3 +1,15 @@
+## QA-20261105-09 — Inspect Chimera inside ocelot
+
+**Date:** November 5, 2026 UTC.
+
+**Owner question (original):** see inside ocelot folder about it
+
+**Answer:** Inspected the actual Ocelot firmware, board support, Python host, desktop bridge, hardware guide and retained image/candidate files. Chimera main.c owns USB/health/config/sensor processing and startup; can.h owns raw mailboxes/queues; gateway.h owns CAN GPIO and transceiver-enable pins. The GATEWAY build enables all3transceivers via PC1/PC13/PA0 and initializes controllers at500kbit/s/non-silent. All3RX handlers call can_rx, which queues raw frames for USB endpoint0x81 independently of stored sensor mappings. Thus empty sensor configuration alone does not suppress raw USB CAN in this source. Health voltage/current and safety17 are hardcoded, so zero voltage/current are not power measurements and17is not modern enforcement proof. Actual can_send lacks safety_tx_hook and0xDCchanges relay request. Stored speed fields do not set startup bitrate;0xDEacts only on bus0. The default Core Config is a native read-only WebKit/site window; the guarded Tk tool is separate. Its lower-level USB helper drops partial data on timeout, unlike the Sunnypilot receiver that preserves timeout bytes; this is a desktop diagnostic limitation, not a proven cause of the previous capture. hardware/chimera contains a photo/guide, no dedicated schematic; ocelot-gateway design files are a separate reference and do not prove the actual Chimera power tree.
+
+**Implemented versus proposed:** Read-only local investigation and memory update only. Ocelot pre-existing tracked/untracked changes preserved. No device script imported/executed, USB handle, build, CAN action, patch, flash or push. test_relay_chimera.py sends a safety request and repeated heartbeats and was not run. Next resolve actual installed-nightly behavior and physical receive path before any targeted implementation.
+
+**Evidence/source pin:** Ocelotd87892fa25ef2a2474110b97bfb5245ee818b534 with pre-existing dirty Chimera main.c/chimera.h; Sunnypilot5c5785872cd05857c0ca828b0c60ad6b7e53c848. Student Ai/Evidence/chimera-ocelot-source-review-20261105.json hashes16selected source files and records exact Git status. Saved nightly ZIP SHA8158f29132e88bff946cbe23b72d269fa2e6aeb4d6ca5aba7b9539ac04ec043c contains Chimera image27976bytes/SHAe35df778ad0d865d6eab5b7763b9a9081b3923bea11fbb8c2949a40d37796a9b. Exactde193215commit is absent from local Git objects; local source is not proven installed code. Existing failed-float-candidate/recovery records remain applicable. Source-driven/documentation/Git workflow reused; no new REA result or hardware compatibility claim. Documentation/source-hash checks recorded in session/ledger. Upstream updates remain paused; this does not resolve measured rails/ACK/bitrate/connector state.
+
 ## QA-20261105-08 — Resume Chimera and explain teacher knowledge
 
 **Date:** November 5, 2026 UTC.

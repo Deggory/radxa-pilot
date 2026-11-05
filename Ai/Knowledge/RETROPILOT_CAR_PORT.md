@@ -1,3 +1,48 @@
+## 2026-11-05 — Direct Ocelot Chimera source review
+
+Owner asked to inspect inside ocelot. Local HEADd87892fa,pre-existing dirty
+Chimera main.c/chimera.h; selected byte hashes/status in student evidence receipt.
+
+- firmware/chimera/main.c: USB mailbox endpoint,health/config/sensor extraction,
+  IRQs,TIM3generated messages and main startup. CAN1/2/3RX handlers all call
+  can_rx(0/1/2); main.c560queues CAN3raw receive after inspecting configured signals.
+- firmware/chimera/can.h: can_rx tags bus and pushes raw mailbox to can_rx_q;
+  main.c174–183drains it to endpoint0x81. Raw receive is independent of valid
+  signal mappings. Empty configuration alone is not a zero-raw-frame explanation.
+- firmware/SConscript selects STM32F413/Cortex-M4/GATEWAY. board.h selects
+  board_gateway; boards/gateway.h gateway_init enables all3transceivers and
+  normal pin modes. Enable outputs are active-low PC1/PC13/PA0. This proves
+  source intent, not actual board rails,GPIO levels or installed-nightly behavior.
+- Startup500kbit/s/non-silent is explicit; maskFFis used by reinitialization.
+  get_health_pkt hardcodes voltage/current0and safety17; these are not power
+  measurements or a negotiated/enforced modern safety profile. TX has no
+  safety_tx_hook;0xDCchanges relay_req_usb. No reviewed path installs modern safety.
+- Current SYS_CFG speed fields are not consumed at startup; runtime0xDEonly bus0.
+  Configured CAN extraction is on MCUCAN3, with existing integer scale/endian/RPM
+  limitations already in the hardware guide. Configured extraction and raw RX
+  are distinct paths. can_init initializes ret=false,so its reported result is
+  alwaysfalse even though &=evaluates both operations; startup uses llcan directly.
+- Core Config default launcher uses offline site/WebKit plus read-only native
+  bridge; guarded Tk app remains separate. usb_transport.py266–277returns empty
+  on libusb timeout without retaining partial actual bytes. Modern Sunnypilot
+  ChimeraReceiver retains USBErrorTimeout.received. Desktop limitation is source
+  evidence, not root cause of November4modern-reader zero-frame captures.
+- hardware/chimera contains photo/guide only; ocelot-gateway schematic/BOM/layout
+  describe a separately named reference. No exact Chimera schematic/power tree
+  found. Do not conclude USB-only transceiver supply sufficiency from these files.
+- Saved nightly ZIP matches SHA8158f291; its Chimera27976-byte signed member
+  matches SHAe35df778. Exactde193215Git object is absent locally. Patched public
+  main and float-layout candidates remain distinct, with recorded failed float
+  boot/original-nightly restore. No new image readback or binary analysis.
+- test_relay_chimera.py is active: safetyTOYOTArequest plus repeated heartbeat.
+  It was read, not executed. Legacy Python exposes writes/config/flash APIs;
+  do not import/run scripts as a passive test merely because named test.
+
+Read-only investigation only. No Ocelot source edit/build/device action. Existing
+source-driven/documentation/Git skills and REA source-first routing reused; no new
+REA artifact result needed. QA-20261105-09 retains answer, versions and limits.
+Next actual installed behavior/physical receive qualification, noOutput retained.
+
 ## 2026-11-05 — Teacher-first Chimera reconciliation
 
 Owner resumed Chimera knowledge/receive work. Fresh lsusb/sysfs shows bbaa:ddcc,

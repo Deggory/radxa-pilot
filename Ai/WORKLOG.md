@@ -1,3 +1,15 @@
+## November 5 — Ocelot Chimera source inspected directly
+
+QA-20261105-09 records source map and receive-path findings. Local raw RX on all
+3buses feeds USB regardless of configured signal mappings. GATEWAY init enables
+transceivers; health voltage/current and safety17are constants, not measurements
+or enforcement proof. Stored bitrate fields do not set startup speed. Default
+Core Config is read-only WebKit; separate Tk tool has guarded writes. Retained
+nightly image27976bytes matches saved hash; exactde193215source absent locally.
+Ocelot’s pre-existing dirty files preserved; no source/device/build/flash action.
+Next: installed-behavior and physical CAN receive qualification; noOutput and
+relay/actuation limits retained, upstream updates paused.
+
 ## November 5 — Chimera teacher review; physical receive is next
 
 Owner resumed Chimera and requested everything the teacher knows. QA-20261105-08
