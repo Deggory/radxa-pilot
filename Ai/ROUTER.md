@@ -1,3 +1,12 @@
+## November 5 — Development-folder cleanup explanation
+
+Owner wants folder purposes before project cleanup. Inspected .github/.idea/.run/
+.vscode; all171350bytes. JetBrains .idea+.run are removable candidates for VS Code
+use (6251bytes); retain .vscode and recommend retaining GitHub workflow/templates.
+Nothing deleted, moved or hidden. QA-20261105-03 and the source/size inventory record
+recommendations separately from implementation. No new runtime/hardware test/push.
+Next: explain next selected folders; keep Chimera diagnostics and update holds.
+
 ## November 5 — GitHub comparison direction corrected
 
 Owner wants Radxa compared against official master. GitHub default changed from

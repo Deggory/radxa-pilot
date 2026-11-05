@@ -1,3 +1,22 @@
+## November 5, 2026 — First four development folders inspected
+
+Basee9275765d9eb8bc2670b1f453589213c353fe28e. Owner asked for a smaller project
+and folder-by-folder explanation. Current phase explains existing contents before
+any deletion. [File/size/hash inventory](../Evidence/editor-folder-audit-20261105.json).
+
+| Folder | Actual contents | Recommendation for this VS Code setup |
+| --- | --- | --- |
+| .github | Issue templates/labels and test, model-build, release, documentation and maintenance workflows;162408bytes. | Keep for GitHub development; optional for local runtime. |
+| .idea | CLion custom SCons targets and external build/clean tools;2639bytes. | Removable candidate if JetBrains editors are unused. |
+| .run | JetBrains Debug/Release and BIG/SMALL UI launch shortcuts;3612bytes. | Removable alongside .idea if those editor shortcuts are unused. |
+| .vscode | Editor formatting/search exclusions, extension recommendations and debugging shortcuts;2691bytes. | Keep for the owner's VS Code use. |
+
+All four total171350logical bytes; removing the two JetBrains folders saves6251.
+The release file selector already excludes .idea/.run/.github/workflows. None of
+these folders changed. Native runtime/build/vehicle behavior was not tested or
+changed. This narrow review does not authorize pruning other folders by name.
+Source-first Git/documentation workflow used; no unrelated REA binary claim.
+
 # Documentation and Radxa cleanup assessment
 
 Reviewed 2026-11-03 at base d17dc3cd1e71fef7187b5a6267266a51f17a4c81.

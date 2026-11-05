@@ -1,0 +1,195 @@
+{
+  "date": "2026-11-05",
+  "project_head": "e9275765d9eb8bc2670b1f453589213c353fe28e",
+  "child_head": "150f937198ceab43c43b39f94b9bdea63fcb633c",
+  "folders": [
+    {
+      "folder": ".github",
+      "file_count": 26,
+      "logical_bytes": 162408,
+      "files": [
+        {
+          "path": ".github/ISSUE_TEMPLATE/bug_report.yml",
+          "sha256": "4dd2953dd0f1d2738d91cd85fad4190d852e35e35edeb63a0fd7dc920c682c88"
+        },
+        {
+          "path": ".github/ISSUE_TEMPLATE/config.yml",
+          "sha256": "c0eea255ccd70886084f6a3728752ebefeae8418968d197244469e9e8db7bbf3"
+        },
+        {
+          "path": ".github/ISSUE_TEMPLATE/pc_bug_report.yml",
+          "sha256": "fc0a2a7334a3f036ca30970bf06e5503fda7bcff4ebdb1ee78808238b9d519db"
+        },
+        {
+          "path": ".github/labeler.yaml",
+          "sha256": "777cb581188a5b2571dbbfad01b1dbb36a8ea9b58712414ab5a6d4f0cdeeecb0"
+        },
+        {
+          "path": ".github/workflows/auto_pr_review.yaml",
+          "sha256": "773589589ca5a3c74c3a885669dbee83eaf9d30d3f028914579a411158d659c4"
+        },
+        {
+          "path": ".github/workflows/build-all-tinygrad-models.yaml",
+          "sha256": "fedeabcaaccaca2ff2cb5f931a1341f9de45e72dc7d6b8a5d859502cd29da3e4"
+        },
+        {
+          "path": ".github/workflows/build-default-models.yaml",
+          "sha256": "926e0ebb70bdfd768166185ab4287ec6465274a388fac9c6d8cfc2ba3307e842"
+        },
+        {
+          "path": ".github/workflows/build-single-tinygrad-model.yaml",
+          "sha256": "ea016d8f00e0f99c2bd5025c27254696b3cef72c6dc6e4af799f71f587796fd0"
+        },
+        {
+          "path": ".github/workflows/cereal_validation.yaml",
+          "sha256": "0e87d8b8a80e34658098e3767024de8cfce693f9481813966af663ceddef9467"
+        },
+        {
+          "path": ".github/workflows/compile-warp-kernels.yaml",
+          "sha256": "f13028084062decd5ab00fc19452b43414756abfe3392db94138e6e5122733ac"
+        },
+        {
+          "path": ".github/workflows/diff_report.yaml",
+          "sha256": "7e137a5c911b56bd51c624d6d53c61238dba55034a0b749a7733c2a6b37c0c46"
+        },
+        {
+          "path": ".github/workflows/docs.yaml",
+          "sha256": "4e713bc733f46cc65ce37e595b53ea297dd8f653be9652b12b03564d5295f739"
+        },
+        {
+          "path": ".github/workflows/download-hf-model/action.yml",
+          "sha256": "c024e4bd762f6fe5f762fe0b16896a21c8656220366b2ca592de328baaa193f5"
+        },
+        {
+          "path": ".github/workflows/jenkins-pr-trigger.yaml",
+          "sha256": "a4187f3c044a71aa910152738f66aa3c1fa28b157cb0120119f755283ee1ac45"
+        },
+        {
+          "path": ".github/workflows/lfs-maintenance.yaml",
+          "sha256": "994bb59acf065fdaaf5b16ba582000199a3197df7f7f450ebce42dbefc910541"
+        },
+        {
+          "path": ".github/workflows/post-to-discourse/action.yml",
+          "sha256": "cf4f6530531417e56acd0e4a79c1a95fa2b704985a0bdd2cae746d7263fb43ce"
+        },
+        {
+          "path": ".github/workflows/release.yaml",
+          "sha256": "1738e862c6e09171b78bf51124632d40276d2e1bd26b42fd6664d153da52ff06"
+        },
+        {
+          "path": ".github/workflows/repo-maintenance.yaml",
+          "sha256": "5074c136cef19d2ffc7d242e84f543d1db415820583096edbee8329181a267bc"
+        },
+        {
+          "path": ".github/workflows/stale.yaml",
+          "sha256": "49ceb4b709d0732a78148bca21265a5d9d9de690dbe6ced6a201d27f7f471147"
+        },
+        {
+          "path": ".github/workflows/sunnypilot-build-model.yaml",
+          "sha256": "301574bf76d225f681c617ab36dd63f1df7179ae97dee598fef6e7fcaef153e3"
+        },
+        {
+          "path": ".github/workflows/sunnypilot-build-prebuilt.yaml",
+          "sha256": "9b78a07242d0fa67e616bc08a5c8ee37a9b67daf631b1469d2a69345cc2638a3"
+        },
+        {
+          "path": ".github/workflows/sunnypilot-master-dev-prep.yaml",
+          "sha256": "32148d39ebf67de5edc6c528669a4ea37b9f8209b8c5a934ab3545695b4985e1"
+        },
+        {
+          "path": ".github/workflows/test_models.yml",
+          "sha256": "97ef7150fd28978bb4ef0b6ed85337df8ea3670b0479dbf894430826bdd81f8b"
+        },
+        {
+          "path": ".github/workflows/tests.yaml",
+          "sha256": "d1c6287a68b454b363cfd03fa1ab5abe2b821a1f458447840f2a426cc84f81ce"
+        },
+        {
+          "path": ".github/workflows/ui_preview.yaml",
+          "sha256": "b3beb2e10cccaeaf18887a575b3b169db1def9d6ccbbe7badc91910a584c2d6a"
+        },
+        {
+          "path": ".github/workflows/wait-for-action/action.yaml",
+          "sha256": "84bdeedd8379f4c1265d55b73f1ae326a6a1193b8f73f6790ae71e1fb73f7865"
+        }
+      ]
+    },
+    {
+      "folder": ".idea",
+      "file_count": 2,
+      "logical_bytes": 2639,
+      "files": [
+        {
+          "path": ".idea/customTargets.xml",
+          "sha256": "8563d5f7b99b4a29f1e0d9dd3e78cdbe10c6d50e609a0db437590466563e65f3"
+        },
+        {
+          "path": ".idea/tools/External Tools.xml",
+          "sha256": "b2ab97b4080eb52df3cd4b6b0046b69316f654360b8548007dce79c6b2efdc20"
+        }
+      ]
+    },
+    {
+      "folder": ".run",
+      "file_count": 4,
+      "logical_bytes": 3612,
+      "files": [
+        {
+          "path": ".run/Build Debug.run.xml",
+          "sha256": "7a4e33c67c365f6d2bd123016da1f906259032cdb924582c395b3d1a5804337f"
+        },
+        {
+          "path": ".run/Build Release.run.xml",
+          "sha256": "80769c31d0918f4fd6341492c5b4e10b0f6aea9589ff6d99d9bcb727e347dc2b"
+        },
+        {
+          "path": ".run/Build_BIG_UI.run.xml",
+          "sha256": "232c3bc7ce54136b4b5a6f4a6d5923d2331a2f6fa689153142a2524913412dc1"
+        },
+        {
+          "path": ".run/Build_SMALL_UI.run.xml",
+          "sha256": "db6521a637dcc32a7d6546688d92e8ad4e77c429ee64b979f0d8dd52a7042eeb"
+        }
+      ]
+    },
+    {
+      "folder": ".vscode",
+      "file_count": 3,
+      "logical_bytes": 2691,
+      "files": [
+        {
+          "path": ".vscode/extensions.json",
+          "sha256": "e80989145f6c9b6102d1c9905ca03e104138419e0c15732ff148a57cdad71d5f"
+        },
+        {
+          "path": ".vscode/launch.json",
+          "sha256": "1a76af58e6af7bfc73a5a4639f9c2d4d1b0518c2a7396dbe5bbcc56a6d046b52"
+        },
+        {
+          "path": ".vscode/settings.json",
+          "sha256": "27e8cd4b82fbc2d4c5b02e191b631fbad4d80c949158e1f1e5ad9fac6acfd602"
+        }
+      ]
+    }
+  ],
+  "total_logical_bytes": 171350,
+  "source_checks": [
+    "full .idea/.run/.vscode content read",
+    "selected workflow/issue config read",
+    "tools/release/release_files.py excludes .run/.idea/.github/workflows",
+    "tracked reference search found ignore/release references and unrelated binary string match; binary not analyzed"
+  ],
+  "status": "explanation and recommendations only; none of these folders changed/deleted, no GitHub push or hardware action",
+  "tests": "not runtime-tested; source/disk-size review and documentation validation only",
+  "skills": "Git workflow, documentation/ADRs, source-first routing; no REA artifact/runtime analysis needed",
+  "documentation_validation": {
+    "result": "pass",
+    "memory_layout": "regular project directory",
+    "documents": 109,
+    "relative_links": 353,
+    "optional_workspace_links": 240,
+    "source_repositories": 8,
+    "indexed_entries": 4254,
+    "whitespace": "pass"
+  }
+}

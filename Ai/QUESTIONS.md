@@ -1,3 +1,17 @@
+## QA-20261105-03 — Explain development folders before minimizing the project
+
+**Date:** November 5, 2026 UTC.
+
+**Owner question/request (original):** see i want to minimise the folder ,delete wat is not needed ,si i want toknw wat is the puspose of these folder or file one by one.  .github , .idea ,.run ,.vscode
+
+**Answer:** These are development/GitHub settings. .github holds automated test/build/release/documentation workflows and issue templates; keep for future GitHub maintenance, though it is not needed for local driving runtime. .idea stores JetBrains/CLion build-tool settings; .run stores JetBrains debug/release and big/small UI run shortcuts. Those two are removable candidates for a VS Code-only setup. .vscode has the VS Code formatting/search settings, recommended extensions and debugging shortcuts; keep because this is the owner's editor. All four total171350logical bytes (about167KiB); .idea+.run total6251bytes (about6KiB).
+
+**Implemented versus proposed:** Inspected existing files and release exclusions; saved factual inventory and recommendations. No folder deletion/move/hiding, editor-config edit, source change or push. Current request is handled as explanation first; deletion candidates are recommendations, not completed cleanup.
+
+**Evidence/source pin:** Projecte9275765d9eb8bc2670b1f453589213c353fe28e/child150f937198ceab43c43b39f94b9bdea63fcb633c. Student Ai/Evidence/editor-folder-audit-20261105.json records file hashes/sizes; .idea/customTargets.xml, .idea/tools/External Tools.xml, four .run/*.xml, .vscode/{settings,extensions,launch}.json and selected .github workflows inspected. tools/release/release_files.py already excludes .idea/.run/.github/workflows from its stripped file selection.
+
+**Limits/next:** This is not a full repository pruning or deployment dependency audit. No runtime test or performance benefit claimed. Do not remove other code directories based on their names. Continue explaining the owner's next selected folders; Chimera diagnostics remain a separate pending task. Upstream updates stay paused.
+
 ## QA-20261105-02 — Compare Radxa against master on GitHub
 
 **Date:** November 5, 2026 UTC.
