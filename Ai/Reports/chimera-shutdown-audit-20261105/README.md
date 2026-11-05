@@ -50,3 +50,9 @@ Radxa last. No force kill/discard; physical poweroff is not asserted in advance.
 Next restart: review `chimera/tasks/plan.md`,thenT01/T02board partitions/recovery,
 identity/RPC/bus-source contracts. Inputs,3buses,onboard relay retained by scope;
 firmware/managed bridge/active profiles remain unimplemented/unqualified.
+
+## Actual requests
+
+[Shutdown receipt](shutdown-request.json): PC normal shutdown initiated andSSH
+unreachable; Radxa120snormal GNOME timer confirmedwaiting. No physical poweroff
+claim. Final handoff/request publication follows the earlier source/audit backup.

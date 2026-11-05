@@ -1,0 +1,60 @@
+{
+  "date_utc": "2026-11-05",
+  "owner_request": "audit update gituhb shutdon pc and radxa",
+  "order": [
+    "PC",
+    "Radxa"
+  ],
+  "pc": {
+    "host": "pc@10.43.0.216",
+    "trusted_host_alias": "10.42.0.216",
+    "preflight": "authenticated;desktop manager running;selected process check found no game/gateway/editor/apt/dpkg;Code backups0",
+    "unit": "chimera-pc-poweroff-20261105T212803Z",
+    "queued_utc": "2026-11-05T21:28:03.962780+00:00",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "Running timer as unit: chimera-pc-poweroff-20261105T212803Z.timer\nWill run service as unit: chimera-pc-poweroff-20261105T212803Z.service\n",
+    "method": "normal GNOME poweroff;no force or inhibitor override",
+    "physical_poweroff_observed": false,
+    "timer_readback": "NextElapseUSecMonotonic=8h 38min 59.739649s\nTriggers=chimera-pc-poweroff-20261105T212803Z.service\nActiveState=active\nSubState=waiting\n",
+    "timer_readback_exit": 0,
+    "ssh_tcp_reachable_after_request": false,
+    "last_check_utc": "2026-11-05T21:30:04.963199+00:00",
+    "first_request_limit": "CLI timed out; SSH stayed up; GNOME GetInhibitors empty",
+    "retry": {
+      "unit": "chimera-pc-confirmed-poweroff-20261105T212936Z",
+      "returncode": 255,
+      "stderr": "ssh: connect to host 10.43.0.216 port 22: Connection timed out\n",
+      "method": "normal GNOME poweroff --no-prompt; no --force; owner explicitly requested shutdown"
+    },
+    "request_status": "Original normal GNOME shutdown started; SSH became unreachable before retry could connect. Retry was not delivered. Physical power state not directly observed."
+  },
+  "radxa": {
+    "method": "normal GNOME poweroff --no-prompt; respects session inhibitors; no --force",
+    "editor_autosave": "afterDelay",
+    "editor_backup_files": 0,
+    "explicit_save_all_verified": false,
+    "unit": "chimera-radxa-poweroff-20261105T213004Z",
+    "queued_utc": "2026-11-05T21:30:05.019798+00:00",
+    "delay_s": 120,
+    "returncode": 0,
+    "stderr": "Running timer as unit: chimera-radxa-poweroff-20261105T213004Z.timer\nWill run service as unit: chimera-radxa-poweroff-20261105T213004Z.service\n",
+    "command": [
+      "systemd-run",
+      "--user",
+      "--unit=chimera-radxa-poweroff-20261105T213004Z",
+      "--on-active=120s",
+      "--setenv=DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus",
+      "/usr/bin/gnome-session-quit",
+      "--power-off",
+      "--no-prompt"
+    ],
+    "physical_poweroff_observed": false,
+    "timer_readback": "NextElapseUSecMonotonic=9h 38.710378s\nTriggers=chimera-radxa-poweroff-20261105T213004Z.service\nActiveState=active\nSubState=waiting\n",
+    "confirmed_waiting": true
+  },
+  "shutdown_requested": true,
+  "physical_poweroff_observed": false,
+  "forced_discard_or_kill": false,
+  "status": "PC shutdown initiated and SSH unreachable; Radxa normal shutdown timer queued"
+}

@@ -1,3 +1,17 @@
+## QA-20261105-14 — Audit, update GitHub and shut down both computers
+
+**Date:** November 5, 2026 UTC.
+
+**Owner question (original):** audit update gituhb shutdon pc and radxa
+
+**Answer (plain-English record):** Audited the saved Chimera/Sunnypilot work and published all nine previously unpushed notebook/research commits plus the fresh audit to Deggory/radxa-pilot, branch radxa/q8b, at967082679a2b3f96cef5c92c24df1457c218574e. Created the private Deggory/chimera repository and published the board evidence/roadmap at initial evidence306c0c8e1fc073d12af9f6d4f6c2d93c90a0a2a7 and closeout77464e015d60b873bb6101350a43fef14708ea43, default planning/modern-usb, with Actions disabled. The public audit README blob independently matches GitHub; private backup REST/Git readback matches. Fresh21software tests,189mailbox/336modern vectors,94source entries/93copies and recovery-image checks pass. Ocelot dirty work and Panda/opendbc pins are preserved; runtime source is unchanged. Initial audit runs used the wrong Python/import context; retained errors were resolved by using the existing project venv,without product changes. PC is reachable through its saved trusted host alias. Original normal PC shutdown started and SSH became unreachable; the attempted no-prompt retry could not connect and was not delivered. Radxa normal GNOME poweroff is queued with a120-second timer,read back active/waiting. No force or inhibitor override; physical poweroff is not directly observed. Final request receipt is published with this handoff.
+
+**Evidence/source pin:** Student `Ai/Reports/chimera-shutdown-audit-20261105/` contains tests/layouts/native-build/hash/scan/publication evidence; notebook checks and final local commit validation follow. Teacher `/home/radxa/comma/Ai/Reports/chimera-shutdown-audit-20261105/shutdown.json` and `final-publication.json` record actual shutdown request/readbacks and final branch SHA. Public master932ff06d/defaultmaster and support150f9371 are preserved. Private GitHub app access returned404; authenticated gh REST/Git verified the backup.157selected files passed a narrow credential-signature scan; not a complete secret audit.
+
+**Implemented versus pending/limits:** Audit and initial publication completed. PC shutdown initiated/SSH unreachable; Radxa shutdown timer queued and confirmed waiting. This final notebook/request receipt is published next; final remote SHA is in teacher final-publication.json. No forced shutdown,discard,firmware/config/CAN/relay/vehicle action,upstream update or active-control implementation. Local editor autosaveafterDelay/backups0; explicit SaveAll/physical poweroff not independently verified. Next restart remains Chimera roadmap review followed by T01/T02partition/recovery/identity/RPC/bus-source contracts. Onboard relay preservation is in scope; actuation remains unqualified.
+
+---
+
 ## QA-20261105-13 — Roadmap for modern USB Chimera on Radxa Sunnypilot
 
 **Date:** November 5, 2026 UTC.

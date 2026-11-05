@@ -1,3 +1,13 @@
+## 2026-11-05 — Fresh audit before GitHub publication/shutdown
+
+21tests with fresh native fixture,189legacy/336modern vectors,94source entries/
+93copies andnightlyimage pass. Wrong systemPython/import-context attempts are
+retained and resolved with projectvenv; no code/test suppression. Limited157file
+credential scan nohits; protected repos unchanged. See
+[audit](Reports/chimera-shutdown-audit-20261105/README.md) and
+[shutdown session](Sessions/2026-11-05-chimera-audit-publication-shutdown.md).
+Final notebook/Git/QAchecks and actual validation are attached to the local commit.
+
 ## 2026-11-05 — Chimera roadmap / frozen reference integrity
 
 94entries/93copied inputs,75prior source hashes,nightlyZIP/image andOBD-C PDF

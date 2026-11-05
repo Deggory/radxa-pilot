@@ -1,3 +1,26 @@
+## Actual shutdown request checkpoint — 2026-11-05
+
+PC original normal GNOME shutdown initiated; SSH now unreachable. A retry failed
+to connect and was not delivered. Radxa normal GNOME poweroff timer queued and
+confirmed active/waiting,120s delay,unitchimera-radxa-poweroff-20261105T213004Z.
+No force/discard/inhibitor override; physical poweroff not directly observed.
+Student Reports/chimera-shutdown-audit-20261105/shutdown-request.json and teacher
+receipt record actual results. Chimera private closeout77464e0published; source
+snapshot306c0c8 unchanged. Final notebook push follows; next roadmapreview/T01/T02.
+
+## November 5 — Audit published; ordered shutdown closeout
+
+Owner requested audit,GitHub update,then PC and Radxa shutdown. Fresh21software
+checks plus189/336codec vectors and94source entries/93copies pass. Published
+audit967082679 on public Deggory/radxa-pilot:radxa/q8b; private Deggory/chimera
+306c0c8/defaultplanning/modern-usb verified. Master932ff06d/defaultmaster and
+support150f9371 preserved. Final notebook commit follows; actual final remote SHA
+and normal PC-first/Radxa-last requests/readbacks are in teacher shutdown receipt.
+No force discard/kill; physical poweroff not inferred. Runtime/firmware unchanged,
+Ocelot dirty work preserved,upstream updates paused. QA-20261105-14.
+Next restart: review chimera/tasks/plan.md,then T01/T02board-memory/recovery,
+identity/RPC/bus-source contracts. Modernization remains proposed,not installed.
+
 ## November 5 — Modern Chimera roadmap and dedicated board folder
 
 QA-20261105-13 records the owner's USB modernization goal and research-first

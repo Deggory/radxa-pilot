@@ -1,3 +1,16 @@
+## November 5 — Audit published; ordered shutdown closeout
+
+Owner requested audit,GitHub update,then PC and Radxa shutdown. Fresh21software
+checks plus189/336codec vectors and94source entries/93copies pass. Published
+audit967082679 on public Deggory/radxa-pilot:radxa/q8b; private Deggory/chimera
+306c0c8/defaultplanning/modern-usb verified. Master932ff06d/defaultmaster and
+support150f9371 preserved. Final notebook commit follows; actual final remote SHA
+and normal PC-first/Radxa-last requests/readbacks are in teacher shutdown receipt.
+No force discard/kill; physical poweroff not inferred. Runtime/firmware unchanged,
+Ocelot dirty work preserved,upstream updates paused. QA-20261105-14.
+Next restart: review chimera/tasks/plan.md,then T01/T02board-memory/recovery,
+identity/RPC/bus-source contracts. Modernization remains proposed,not installed.
+
 # Chimera modernization roadmap — 2026-11-05
 
 Owner wants the F413 board connected by USB to our Radxa Sunnypilot, preserving

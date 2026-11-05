@@ -1,0 +1,15 @@
+{
+  "project": "Deggory/radxa-pilot",
+  "branch": "radxa/q8b",
+  "published_audit_commit": "967082679a2b3f96cef5c92c24df1457c218574e",
+  "audit_readme_blob": "134f9c0a6b6bce351318d58e99173e4609300222",
+  "github_connector_readback": "match",
+  "master_expected": "932ff06d9316e4351d6b6b9f1dd422d5b639badf",
+  "child_expected": "150f937198ceab43c43b39f94b9bdea63fcb633c",
+  "chimera": "Deggory/chimera",
+  "chimera_private": true,
+  "final_handoff_commit": "follows this receipt; final Git SHA/readback saved in teacher closeout",
+  "forced_push": false,
+  "chimera_initial_evidence_head": "306c0c8e1fc073d12af9f6d4f6c2d93c90a0a2a7",
+  "chimera_head": "77464e015d60b873bb6101350a43fef14708ea43"
+}
