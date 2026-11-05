@@ -1,3 +1,16 @@
+## November 5 — Modern Chimera roadmap and dedicated board folder
+
+QA-20261105-13 records the owner's USB modernization goal and research-first
+scope. Created `/home/radxa/comma/chimera/` with94source entries,93copied inputs,
+board/OBD-C/recovery evidence and20proposed implementation tasks. Two-sided work:
+F413 modern classical USB framing plus nativeUSB/managed host support,Core Config
+transport/schema adaptation,explicit bus0/1/2source ownership and all-TX MCU policy.
+Preserve IGN/VSS/CPS/BRAKE/ADC1/2and onboard relay; earlier relay exclusion is
+superseded only for this circuit's preservation/qualification roadmap. OBD-C code
+exists(PA2/PB1),electrical mapping unverified; relay does not prove all-load cutoff.
+No functional source/device/flash/config/relay/TXaction,push or upstream update.
+Next owner review of roadmap,then T01/T02partition/recovery/identity/bus contracts.
+
 ## November 5 — Deep Panda/legacy/Chimera reference saved
 
 QA-20261105-12 records teacher-first review of current Panda8a16e089,C2and mailbox

@@ -1,3 +1,9 @@
+## 2026-11-05 — Owner-selected modern Chimera roadmap
+
+[Chimera modernization](CHIMERA_MODERNIZATION.md) records the new board folder,proposed two-sided USB migration,Core Config
+work and onboard relay preservation/qualification scope. QA-20261105-13; no
+firmware/host implementation or device action yet. Earlier scope remains historical.
+
 ## 2026-11-05 — Current Panda/legacy/Chimera deep source review
 
 Owner requested detailed understanding with teacher retrieval first. Current

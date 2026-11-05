@@ -1,3 +1,12 @@
+## 2026-11-05 — Chimera roadmap / frozen reference integrity
+
+94entries/93copied inputs,75prior source hashes,nightlyZIP/image andOBD-C PDF
+match;14newboard/reportdocs28links;student121docs365relative links,8repos4254
+entries;QA13synchronized;protectedsource/stateunchanged. Freshchecksareartifact/
+documentationonly;no firmwarebuild/device/runtimequalification. See
+[session](Sessions/2026-11-05-chimera-modernization-roadmap.md) and
+[board evidence](/home/radxa/comma/chimera/evidence/validation.json).
+
 ## 2026-11-03 — C2 history-led Radxa adaptation checkpoint
 
 Owner confirmed existing Radxa Q8B. Full C2 history/submodules now mapped:

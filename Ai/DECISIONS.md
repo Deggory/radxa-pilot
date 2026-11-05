@@ -1,3 +1,11 @@
+## 2026-11-05 — Chimera preservation scope; architecture proposed
+
+Owner selected dedicated chimera/board folder and research-before-change roadmap.
+Preserve3buses,direct inputs,onboard relay,Core Config; relay preservation is now
+in scope,not relay operation or external Relay Core work. Proposed F413modernUSB
+plus nativehostUSB,distinct identity,explicit sources and versionedconfig; no
+implementation/activeprofile accepted by this document. See QA-20261105-13.
+
 ## 2026-11-05 — Master is GitHub default and comparison baseline
 
 Owner corrected the desired branch layout. Set master as default; select
