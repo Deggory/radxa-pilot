@@ -1,3 +1,15 @@
+## QA-20261105-07 — What is rednose_repo?
+
+**Date:** November 5, 2026 UTC.
+
+**Owner question (faithful paraphrase):** rednose_repo @28d4a7f https://github.com/commaai/rednose/tree/28d4a7f69e80e1c3e0d24ca0733d7daeaeade3d0 wat is this
+
+**Answer:** Keep rednose_repo. It is Sunnypilot's mathematical estimation library, using Kalman filters to combine noisy readings into steadier estimates. The pose filter combines IMU readings and camera motion estimates for orientation, velocity, rotation and acceleration estimates. The car filter helps estimate steering ratio/offset and vehicle response from vehicle data. Radxa needs this software too. @28d4a7f is the pinned external submodule version. Transporting our BeamNG IMU data does not by itself integrate it into these filters.
+
+**Implemented/evidence:** Source explanation only; no update/deletion, code change, push or runtime test. Parent4d6b4c87eee71150c76c5c1684c9071d39d631de. Local rednose, parent gitlink and GitHub match28d4a7f69e80e1c3e0d24ca0733d7daeaeade3d0. Inspected README, SConstruct build/rednose_filter tool and pyproject editable dependency; locationd/SConscript generates pose/car filters; models/pose_kf.py and car_kf.py import Rednose; locationd.py and paramsd.py use those estimators.
+
+**Limits:** This is required dependency/source evidence, not a new Radxa sensor-fusion test or a measured steering calibration. BeamNG IMU provider/localization integration remains unfinished. Git/documentation skills and source-first routing reused; no REA artifact question or runtime claim. Upstream updates stay paused.
+
 ## QA-20261105-06 — What is msgq_repo?
 
 **Date:** November 5, 2026 UTC.

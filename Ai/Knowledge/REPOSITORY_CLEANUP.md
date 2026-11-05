@@ -1,3 +1,19 @@
+## November 5 — rednose_repo is required, keep it
+
+Owner asked what rednose_repo@28d4a7f is. Source confirms Kalman-filter estimation
+used by localization and vehicle-parameter learning; build and Python imports
+require it on Radxa. Parent4d6b4c87; child28d4a7f69e80e1c3e0d24ca0733d7daeaeade3d0
+matches GitHub. QA-20261105-07 records purpose, consumers and unqualified sensor
+integration limits. No source/submodule change, push or runtime test. Next owner
+folder question; upstream updates stay paused and Chimera work remains separate.
+
+Dependency evidence: SConstruct loads rednose_filter/REDNOSE_ROOT and builds
+rednose's SConscript; pyproject installs rednose editable. locationd generates
+PoseKalman/CarKalman filters. Pose observations include gyroscope, accelerometer
+and camera odometry; paramsd uses vehicle speed/steering and motion estimates to
+learn steering ratio/angle offset and stiffness. These are algorithms and build
+infrastructure, not comma-only hardware files. Do not delete the dependency.
+
 ## November 5 — msgq_repo is required, keep it
 
 Owner asked what msgq_repo@e7396e7 is. Source confirms core process messaging and
