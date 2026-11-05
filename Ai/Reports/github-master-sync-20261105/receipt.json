@@ -1,0 +1,41 @@
+{
+  "temporary_repository": "/tmp/radxa-master-sync-20261105-ai1gfmme/repo.git",
+  "upstream": "https://github.com/sunnypilot/sunnypilot.git",
+  "target": "https://github.com/Deggory/radxa-pilot.git",
+  "old_master": "8cf6ff9a33c94bdf2fcb02e228a9aef1a7e6dc7f",
+  "new_master": "932ff06d9316e4351d6b6b9f1dd422d5b639badf",
+  "protected_radxa": "f193a3cbaa0c5abcad971a34e7b754929ba0e907",
+  "protected_opendbc": "150f937198ceab43c43b39f94b9bdea63fcb633c",
+  "push_records": [
+    {
+      "dry_run": true,
+      "returncode": 0,
+      "stdout": "To https://github.com/Deggory/radxa-pilot.git\n \t932ff06d9316e4351d6b6b9f1dd422d5b639badf:refs/heads/master\t8cf6ff9a3..932ff06d9\nDone\n",
+      "stderr": ""
+    },
+    {
+      "dry_run": false,
+      "returncode": 0,
+      "stdout": "To https://github.com/Deggory/radxa-pilot.git\n \t932ff06d9316e4351d6b6b9f1dd422d5b639badf:refs/heads/master\t8cf6ff9a3..932ff06d9\nDone\n",
+      "stderr": ""
+    }
+  ],
+  "updated_utc": "2026-11-05T13:02:04.712821+00:00",
+  "scope": "Only GitHub master fast-forward; protected Radxa working tree and automatic upstream timer unchanged.",
+  "upstream_parent_check": "pass: one descendant commit",
+  "changed_upstream_path": "openpilot/sunnypilot/modeld_v2/modeld.py",
+  "connector": "read/compare succeeded; update-ref403; normal Git fallback succeeded",
+  "verification": {
+    "official_master": "932ff06d9316e4351d6b6b9f1dd422d5b639badf",
+    "owner_master": "932ff06d9316e4351d6b6b9f1dd422d5b639badf",
+    "owner_radxa": "f193a3cbaa0c5abcad971a34e7b754929ba0e907",
+    "owner_opendbc": "150f937198ceab43c43b39f94b9bdea63fcb633c",
+    "upstream_tree": "a60b6b1fd8683c69de8255f58add368878a38bd7",
+    "default_branch": "radxa/q8b",
+    "timer_active": false,
+    "timer_enabled": false,
+    "working_tree_before_documentation": "clean"
+  },
+  "limitations": "Branch identity/history verification only. No upstream fix applied to radxa/q8b, no runtime/model/hardware test, no reference checkout advancement or automatic updates. Documentation closeout stays local on radxa/q8b.",
+  "investigation": "Git workflow, documentation and source-driven skills; source-first routing. No unrelated REA binary/runtime claim. GitHub connector reads succeeded; ref write403 used existing Git push fallback. Redundant isolated fetch stopped; existing object store fetch succeeded without switching branches."
+}

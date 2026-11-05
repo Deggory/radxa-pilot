@@ -2,15 +2,17 @@
 
 Repository: https://github.com/Deggory/radxa-pilot (public).
 
-GitHub opens the Radxa project branch `radxa/q8b` by default. The preserved
-`master` branch remains the original approved Sunnypilot source.
+GitHub opens the Radxa project branch `radxa/q8b` by default. The `master`
+branch contains official Sunnypilot source, separate from our Radxa changes.
 
 This is a standalone public copy with preserved Sunnypilot history, rather
 than another GitHub fork-network entry. The existing owner fork
 `Deggory/sunnypilot-pc` is untouched.
 
-- `master`: untouched Sunnypilot source at approved upstream
-  `8cf6ff9a33c94bdf2fcb02e228a9aef1a7e6dc7f`.
+- `master`: official Sunnypilot source, synchronized on November 5, 2026 to
+  `932ff06d9316e4351d6b6b9f1dd422d5b639badf` with a normal fast-forward.
+  See the [verification receipt](../Ai/Reports/github-master-sync-20261105/receipt.json).
+  This does not apply that update to the Radxa branch or enable automatic updates.
 - `radxa/q8b`: this actual Radxa project, with camera, Thneed and RetroPilot
   commits and its tracked `Ai/` notebook.
 - `opendbc/retropilot`: supporting branch containing the nested opendbc

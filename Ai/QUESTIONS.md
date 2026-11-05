@@ -1,3 +1,17 @@
+## QA-20261105-01 — Keep GitHub master equal to official Sunnypilot
+
+**Date:** November 5, 2026 UTC.
+
+**Owner question/request (original):** see can we make the master in github same as real sunnypilot
+
+**Answer:** Done: the master branch in Deggory/radxa-pilot now matches official Sunnypilot exactly at932ff06d9316e4351d6b6b9f1dd422d5b639badf. Our camera, Thneed and RetroPilot work remains on radxa/q8b. Automatic updates are still paused. GitHub still opens the Radxa branch by default; select master to see the official source.
+
+**Implemented versus proposed:** Implemented a normal fast-forward of GitHub master only, from8cf6ff9a. GitHub compare, local ancestry, push dry-run, actual push and independent readbacks passed. Remote Radxa branch remainsf193a3cbaa0c5abcad971a34e7b754929ba0e907; support branch remains150f937198ceab43c43b39f94b9bdea63fcb633c. Documentation checkpoint is local only.
+
+**Evidence/source pin:** https://github.com/sunnypilot/sunnypilot/commit/932ff06d9316e4351d6b6b9f1dd422d5b639badf and the dated github-master-sync-20261105 report/receipt in the student notebook. This corrects the historical November4master8cf6ff9a status for today's GitHub branch only.
+
+**Limits/next step:** New upstream commit fixes low-speed modeld_v2 curvature; it has not been integrated or runtime-tested on Radxa. No camera/model/DBC/firmware/hardware change. Future updates and Radxa integration still require owner approval. Continue Chimera receive diagnostics when the owner resumes that work.
+
 # New owner Q&A after the two-day backfill — 2026-11-04
 
 ## QA-20261104-08 — BeamNG shared-CAN telemetry

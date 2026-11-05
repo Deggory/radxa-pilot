@@ -1,3 +1,10 @@
+## 2026-11-05 — Synchronize public master only
+
+The owner's request authorizes making GitHub master equal official Sunnypilot.
+Fast-forward only; retain Radxa and support branch histories, default view and
+paused automatic updates. No implied Radxa source integration or recurring sync.
+Actual result932ff06d; source verification only. QA-20261105-01 records the answer.
+
 ## 2026-11-04 — RP-SIM-1 and explicit receive-only BeamNG profile
 
 Owner authorized adding missing BeamNG telemetry centrally to the shared DBC.

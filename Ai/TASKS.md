@@ -1,3 +1,14 @@
+## November 5, 2026 — GitHub master equals official Sunnypilot
+
+Owner requested GitHub master match real Sunnypilot. Completed normal fast-forward
+8cf6ff9a→932ff06d; remote masters independently verified equal. Remote Radxa
+f193a3cb and child150f9371 unchanged; default view remains radxa/q8b. Only local
+documentation follows. New upstream modeld_v2 low-speed curvature fix was discussed
+but is not applied to Radxa. Timer inactive/linked; automatic updates stay paused.
+[Report](Reports/github-master-sync-20261105/README.md).
+Next remains Chimera receive diagnostics, with noOutput/relay/actuation limits.
+Earlier shutdown entries below describe November4; this is the reopened session.
+
 ## November 4 shutdown audit — next session November 5: Chimera
 
 Audit/save and GitHub publication verified: fresh165tests pass; DBC and six PC

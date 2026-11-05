@@ -1,0 +1,14 @@
+{
+  "result": "pass",
+  "memory_layout": "regular project directory",
+  "documents": 108,
+  "relative_links": 346,
+  "optional_workspace_links": 240,
+  "source_repositories": 8,
+  "indexed_entries": 4254,
+  "qa_synchronized": true,
+  "whitespace": "pass",
+  "runtime_retests": "not needed: source unchanged",
+  "upstream_ancestry": "pass",
+  "remote_commit_identity": "pass"
+}
