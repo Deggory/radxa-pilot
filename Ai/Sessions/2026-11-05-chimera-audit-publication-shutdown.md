@@ -33,4 +33,3 @@ No force/discard/inhibitor override; physical poweroff not directly observed.
 Student Reports/chimera-shutdown-audit-20261105/shutdown-request.json and teacher
 receipt record actual results. Chimera private closeout77464e0published; source
 snapshot306c0c8 unchanged. Final notebook push follows; next roadmapreview/T01/T02.
-
