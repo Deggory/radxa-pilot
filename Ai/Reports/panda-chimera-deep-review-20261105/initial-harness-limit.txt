@@ -1,0 +1,2 @@
+Initial offline verifier failed with NameError: Panda was absent from extracted-method globals. Corrected the fake-class namespace; no product source failure or device access.
+Initial Ruff check found unused imports,line length,late-bound fake call recorder and lambda/semicolon style issues. Fixed the verifier with explicit fake-object state/methods and formatting; no suppressions added. Final Ruff and verifier pass.

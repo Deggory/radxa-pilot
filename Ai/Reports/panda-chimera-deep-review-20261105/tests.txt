@@ -1,0 +1,26 @@
+test_panda_lib_pack_unpack (panda.tests.usbprotocol.test_pandalib.PandaTestPackUnpack.test_panda_lib_pack_unpack) ... ok
+test_can_receive_usb (panda.tests.usbprotocol.test_comms.TestPandaComms.test_can_receive_usb) ... ok
+test_can_send_usb (panda.tests.usbprotocol.test_comms.TestPandaComms.test_can_send_usb) ... ok
+test_comms_reset_rx (panda.tests.usbprotocol.test_comms.TestPandaComms.test_comms_reset_rx) ... ok
+test_comms_reset_tx (panda.tests.usbprotocol.test_comms.TestPandaComms.test_comms_reset_tx) ... ok
+test_tx_queues (panda.tests.usbprotocol.test_comms.TestPandaComms.test_tx_queues) ... ok
+test_discovery_pins_serial_ignores_bootstub_and_releases_on_error (openpilot.selfdrive.pandad.tests.test_chimera.TestChimeraReceiver.test_discovery_pins_serial_ignores_bootstub_and_releases_on_error) ... ok
+test_main_default_monitor_serializes_trace_without_publisher (openpilot.selfdrive.pandad.tests.test_chimera.TestChimeraReceiver.test_main_default_monitor_serializes_trace_without_publisher) ... ok
+test_main_publishes_only_can_and_ends_session_on_unplug (openpilot.selfdrive.pandad.tests.test_chimera.TestChimeraReceiver.test_main_publishes_only_can_and_ends_session_on_unplug) ... ok
+test_only_version_health_and_bulk_in_are_used (openpilot.selfdrive.pandad.tests.test_chimera.TestChimeraReceiver.test_only_version_health_and_bulk_in_are_used) ... ok
+test_shared_vid_pid_does_not_select_interceptor_bench (openpilot.selfdrive.pandad.tests.test_chimera.TestChimeraReceiver.test_shared_vid_pid_does_not_select_interceptor_bench) ... ok
+test_timeout_preserves_transferred_bytes_and_disconnect_propagates (openpilot.selfdrive.pandad.tests.test_chimera.TestChimeraReceiver.test_timeout_preserves_transferred_bytes_and_disconnect_propagates) ... ok
+test_usb_to_cereal_to_modern_controller_candidates_without_live_output (openpilot.selfdrive.pandad.tests.test_chimera.TestChimeraReceiver.test_usb_to_cereal_to_modern_controller_candidates_without_live_output) ... ok
+test_wrong_serial_never_claims_or_reads_control (openpilot.selfdrive.pandad.tests.test_chimera.TestChimeraReceiver.test_wrong_serial_never_claims_or_reads_control) ... ok
+test_wrong_version_and_health_shape_fail_before_can_read (openpilot.selfdrive.pandad.tests.test_chimera.TestChimeraReceiver.test_wrong_version_and_health_shape_fail_before_can_read) ... ok
+test_health_is_exact_legacy_layout_and_raw_safety (openpilot.selfdrive.pandad.tests.test_chimera_protocol.TestChimeraProtocol.test_health_is_exact_legacy_layout_and_raw_safety) ... ok
+test_literal_mailbox_and_historical_board_health_vectors (openpilot.selfdrive.pandad.tests.test_chimera_protocol.TestChimeraProtocol.test_literal_mailbox_and_historical_board_health_vectors) ... ok
+test_malformed_batch_is_rejected_as_a_whole (openpilot.selfdrive.pandad.tests.test_chimera_protocol.TestChimeraProtocol.test_malformed_batch_is_rejected_as_a_whole) ... ok
+test_real_cereal_to_carstate_keeps_bus_and_enabled_angle (openpilot.selfdrive.pandad.tests.test_chimera_protocol.TestChimeraProtocol.test_real_cereal_to_carstate_keeps_bus_and_enabled_angle) ... ok
+test_returned_and_remote_records_cannot_be_vehicle_reception (openpilot.selfdrive.pandad.tests.test_chimera_protocol.TestChimeraProtocol.test_returned_and_remote_records_cannot_be_vehicle_reception) ... ok
+test_standard_extended_zero_length_and_metadata (openpilot.selfdrive.pandad.tests.test_chimera_protocol.TestChimeraProtocol.test_standard_extended_zero_length_and_metadata) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 0.842s
+
+OK

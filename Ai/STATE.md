@@ -1,3 +1,15 @@
+## November 5 — Deep Panda/legacy/Chimera reference saved
+
+QA-20261105-12 records teacher-first review of current Panda8a16e089,C2and mailbox
+legacy,Chimera and our receiver.75source hashes;189mailbox/336modern vectors and
+21existing tests with fresh native comms fixture pass. New finding: generic
+Panda connect emits9setup writes(7with disable_checksFalse)before late filtering;
+do not use it as passive Chimera probe. Current MCU safety hooks differ from
+Chimera’s unguarded TX; generatedCAN0/current parserbus2routing remains explicit.
+Exact nightly source lookup404; matching historical REA ELF reused,not installed
+proof. Production source/device state unchanged; updates/actuation holds retained.
+Next owner-selected installed-capability,managed-RXor safety work using the report.
+
 ## November 5 — Chimera native input contract explained
 
 QA-20261105-11 isolates Chimera hardware/firmware: IGN,VSS,CPS,BRAKE,ADC1/2;

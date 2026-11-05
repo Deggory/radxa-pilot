@@ -1,0 +1,32 @@
+{
+  "date_utc": "2026-11-05",
+  "existing_report": "Ai/Reports/retropilot-c2-history-20261103/rea-chimera-disassembly.json",
+  "evidence_id": "ev_6c720630735de45e83f641b76daea07ba4d1813541724750f8670e1cf723a934",
+  "sha256_matches_current_local_elf": "5ae9b4f6ea99e569028d271c4ec9c2ce59cd11375b5482adbd0781f3480e20b8",
+  "provider": {
+    "id": "gnu.objdump",
+    "name": "GNU objdump",
+    "version": null
+  },
+  "new_rea_run": false,
+  "installed_nightly_identity_claim": false,
+  "selected_functions": {
+    "get_health_pkt": {
+      "address": "080077b0",
+      "disassembly": " 80077b0:\t4a20      \tldr\tr2, [pc, #128]\t@ (8007834 <get_health_pkt+0x84>)\n 80077b2:\tf812 1ccc \tldrb.w\tr1, [r2, #-204]\n 80077b6:\tf880 1020 \tstrb.w\tr1, [r0, #32]\n 80077ba:\tf812 1ccb \tldrb.w\tr1, [r2, #-203]\n 80077be:\tf880 1021 \tstrb.w\tr1, [r0, #33]\t@ 0x21\n 80077c2:\tf892 1139 \tldrb.w\tr1, [r2, #313]\t@ 0x139\n 80077c6:\tf880 1022 \tstrb.w\tr1, [r0, #34]\t@ 0x22\n 80077ca:\tf8d2 113c \tldr.w\tr1, [r2, #316]\t@ 0x13c\n 80077ce:\t60c1      \tstr\tr1, [r0, #12]\n 80077d0:\tf8d2 1118 \tldr.w\tr1, [r2, #280]\t@ 0x118\n 80077d4:\t6101      \tstr\tr1, [r0, #16]\n 80077d6:\tf8d2 1124 \tldr.w\tr1, [r2, #292]\t@ 0x124\n 80077da:\t6141      \tstr\tr1, [r0, #20]\n 80077dc:\tf812 1cbe \tldrb.w\tr1, [r2, #-190]\n 80077e0:\tf852 3cc8 \tldr.w\tr3, [r2, #-200]\n 80077e4:\tf880 1024 \tstrb.w\tr1, [r0, #36]\t@ 0x24\n 80077e8:\tf892 1140 \tldrb.w\tr1, [r2, #320]\t@ 0x140\n 80077ec:\t6003      \tstr\tr3, [r0, #0]\n 80077ee:\tf880 1025 \tstrb.w\tr1, [r0, #37]\t@ 0x25\n 80077f2:\t2300      \tmovs\tr3, #0\n 80077f4:\t2111      \tmovs\tr1, #17\n 80077f6:\t7103      \tstrb\tr3, [r0, #4]\n 80077f8:\t7143      \tstrb\tr3, [r0, #5]\n 80077fa:\t7183      \tstrb\tr3, [r0, #6]\n 80077fc:\t71c3      \tstrb\tr3, [r0, #7]\n 80077fe:\t7203      \tstrb\tr3, [r0, #8]\n 8007800:\t7243      \tstrb\tr3, [r0, #9]\n 8007802:\t7283      \tstrb\tr3, [r0, #10]\n 8007804:\t72c3      \tstrb\tr3, [r0, #11]\n 8007806:\tf880 3023 \tstrb.w\tr3, [r0, #35]\t@ 0x23\n 800780a:\t7603      \tstrb\tr3, [r0, #24]\n 800780c:\t7643      \tstrb\tr3, [r0, #25]\n 800780e:\t7683      \tstrb\tr3, [r0, #26]\n 8007810:\t76c3      \tstrb\tr3, [r0, #27]\n 8007812:\tf880 1026 \tstrb.w\tr1, [r0, #38]\t@ 0x26\n 8007816:\tf880 3027 \tstrb.w\tr3, [r0, #39]\t@ 0x27\n 800781a:\tf880 3028 \tstrb.w\tr3, [r0, #40]\t@ 0x28\n 800781e:\tf880 302a \tstrb.w\tr3, [r0, #42]\t@ 0x2a\n 8007822:\tf892 30e8 \tldrb.w\tr3, [r2, #232]\t@ 0xe8\n 8007826:\tf880 3029 \tstrb.w\tr3, [r0, #41]\t@ 0x29\n 800782a:\tf852 3cc4 \tldr.w\tr3, [r2, #-196]\n 800782e:\t61c3      \tstr\tr3, [r0, #28]\n 8007830:\t202b      \tmovs\tr0, #43\t@ 0x2b\n 8007832:\t4770      \tbx\tlr\n 8007834:\t20001434 \t.word\t0x20001434\n"
+    },
+    "usb_cb_ep1_in": {
+      "address": "080079b8",
+      "disassembly": " 80079b8:\t2900      \tcmp\tr1, #0\n 80079ba:\tbfb8      \tit\tlt\n 80079bc:\t310f      \taddlt\tr1, #15\n 80079be:\te92d 41f0 \tstmdb\tsp!, {r4, r5, r6, r7, r8, lr}\n 80079c2:\t110c      \tasrs\tr4, r1, #4\n 80079c4:\t2c04      \tcmp\tr4, #4\n 80079c6:\tf8df 8028 \tldr.w\tr8, [pc, #40]\t@ 80079f0 <usb_cb_ep1_in+0x38>\n 80079ca:\t4606      \tmov\tr6, r0\n 80079cc:\tbfa8      \tit\tge\n 80079ce:\t2404      \tmovge\tr4, #4\n 80079d0:\t2500      \tmovs\tr5, #0\n 80079d2:\t42a5      \tcmp\tr5, r4\n 80079d4:\tea4f 1705 \tmov.w\tr7, r5, lsl #4\n 80079d8:\tda04      \tbge.n\t80079e4 <usb_cb_ep1_in+0x2c>\n 80079da:\t19f1      \tadds\tr1, r6, r7\n 80079dc:\t4640      \tmov\tr0, r8\n 80079de:\tf7fe ff75 \tbl\t80068cc <can_pop>\n 80079e2:\tb910      \tcbnz\tr0, 80079ea <usb_cb_ep1_in+0x32>\n 80079e4:\t4638      \tmov\tr0, r7\n 80079e6:\te8bd 81f0 \tldmia.w\tsp!, {r4, r5, r6, r7, r8, pc}\n 80079ea:\t3501      \tadds\tr5, #1\n 80079ec:\te7f1      \tb.n\t80079d2 <usb_cb_ep1_in+0x1a>\n 80079ee:\tbf00      \tnop\n 80079f0:\t200000c0 \t.word\t0x200000c0\n"
+    },
+    "can_send": {
+      "address": "08006e60",
+      "disassembly": " 8006e60:\tb538      \tpush\t{r3, r4, r5, lr}\n 8006e62:\t460c      \tmov\tr4, r1\n 8006e64:\tb9ea      \tcbnz\tr2, 8006ea2 <can_send+0x42>\n 8006e66:\t2903      \tcmp\tr1, #3\n 8006e68:\td81b      \tbhi.n\t8006ea2 <can_send+0x42>\n 8006e6a:\t6843      \tldr\tr3, [r0, #4]\n 8006e6c:\t4d0d      \tldr\tr5, [pc, #52]\t@ (8006ea4 <can_send+0x44>)\n 8006e6e:\tf003 030f \tand.w\tr3, r3, #15\n 8006e72:\t6043      \tstr\tr3, [r0, #4]\n 8006e74:\teb05 0381 \tadd.w\tr3, r5, r1, lsl #2\n 8006e78:\t4601      \tmov\tr1, r0\n 8006e7a:\tf8d3 0100 \tldr.w\tr0, [r3, #256]\t@ 0x100\n 8006e7e:\tf7ff fd55 \tbl\t800692c <can_push>\n 8006e82:\t4b09      \tldr\tr3, [pc, #36]\t@ (8006ea8 <can_send+0x48>)\n 8006e84:\tf8d3 2124 \tldr.w\tr2, [r3, #292]\t@ 0x124\n 8006e88:\t4425      \tadd\tr5, r4\n 8006e8a:\tf080 0001 \teor.w\tr0, r0, #1\n 8006e8e:\tfa52 f080 \tuxtab\tr0, r2, r0\n 8006e92:\tf8c3 0124 \tstr.w\tr0, [r3, #292]\t@ 0x124\n 8006e96:\tf895 00bc \tldrb.w\tr0, [r5, #188]\t@ 0xbc\n 8006e9a:\te8bd 4038 \tldmia.w\tsp!, {r3, r4, r5, lr}\n 8006e9e:\tf7ff bfcb \tb.w\t8006e38 <process_can>\n 8006ea2:\tbd38      \tpop\t{r3, r4, r5, pc}\n 8006ea4:\t20000000 \t.word\t0x20000000\n 8006ea8:\t20001434 \t.word\t0x20001434\n"
+    }
+  },
+  "limits": [
+    "The executable version and supported formats are reported as unknown because no reliable version probe was performed.",
+    "A non-zero process exit is preserved as an observed command result.",
+    "When both are available, pre-run and post-run digests detect artifact changes across the provider call but cannot prove the exact bytes consumed during the call."
+  ]
+}

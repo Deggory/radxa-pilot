@@ -1,0 +1,26 @@
+{
+  "date_utc": "2026-11-05",
+  "pinned_panda_file": {
+    "url": "https://github.com/sunnypilot/panda/blob/8a16e089b88593914823743df29e1c30b7dd3e00/python/__init__.py",
+    "blob_sha": "9d562fc1ec1de4005049658cc8b7345bd4176df5",
+    "range": [
+      214,
+      252
+    ],
+    "content": "\n    self._handle = None\n    while self._handle is None:\n      # try USB first, then SPI\n      self._context, self._handle, serial, self.bootstub = self.usb_connect(self._connect_serial, claim=claim, no_error=wait)\n      if self._handle is None:\n        self._context, self._handle, serial, self.bootstub = self.spi_connect(self._connect_serial)\n      if not wait:\n        break\n\n    if self._handle is None:\n      raise Exception(\"failed to connect to panda\")\n\n    self._serial = serial\n    self._connect_serial = serial\n    self._handle_open = True\n    self.health_version, self.can_version = self.get_packets_versions()\n    logger.debug(\"connected\")\n\n    # disable openpilot's heartbeat checks\n    if self._disable_checks:\n      self.set_heartbeat_disabled()\n      self.set_power_save(0)\n\n    # reset comms\n    self.can_reset_communications()\n\n    # disable automatic CAN-FD switching\n    for bus in range(PANDA_CAN_CNT):\n      self.set_canfd_auto(bus, False)\n\n    # set CAN speed\n    for bus in range(PANDA_CAN_CNT):\n      self.set_can_speed_kbps(bus, self._can_speed_kbps)\n\n  @property\n  def spi(self) -> bool:\n    return isinstance(self._handle, PandaSpiHandle)\n"
+  },
+  "nightly_source_lookup": {
+    "repository": "RetroPilot/ocelot",
+    "ref": "de193215490b4906aa74aae6aa426b8f4740f3fa",
+    "path": "firmware/chimera/main.c",
+    "result": {
+      "error": "GitHub API error 404: {\"message\":\"No commit found for the ref de193215490b4906aa74aae6aa426b8f4740f3fa\",\"documentation_url\":\"https://docs.github.com/v3/repos/contents/\",\"status\":\"404\"}",
+      "error_code": "NOT_FOUND",
+      "error_data": {
+        "message": "No commit found for the ref de193215490b4906aa74aae6aa426b8f4740f3fa",
+        "documentation_url": "https://docs.github.com/v3/repos/contents/",
+        "status": "404"
+      }
+    }
+  }
+}

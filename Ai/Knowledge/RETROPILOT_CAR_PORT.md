@@ -1,3 +1,36 @@
+## 2026-11-05 — Current Panda/legacy/Chimera deep source review
+
+Owner requested detailed understanding with teacher retrieval first. Current
+parentad7efa208/Panda8a16e089/child150f9371;Ocelotd87892faplus pre-existingdirty
+source. Current managed native pandad is SPI-only; Python hasUSB/SPI but performs
+setup writes on connect before later external-device filtering. Fake-method
+execution confirms9OUTwrites(default),7with heartbeat-disable optionoff; missing
+DDversions(0,0)does not stop connection setup. Wrapperstartup health and DFU/recovery
+paths precede final supported-internal selection. This corrects earlier overly
+broad external-filtering shorthand; no real device was opened in this review.
+
+Distinguish mailbox16/health43(Ocelot/demo),C2header5+USB64counter/health50,and
+currentheader6+XOR/health49; currentCANhealth64and hash versions recorded. Current
+firmware includes opendbc safety hooks on TX/RX/forwarding and heartbeat-loss
+silent/power-save handling. Local Chimera0xDCrelay request,constant safety17,
+non-hooked TX and ignition-driven relay behavior are not equivalent. C2hook is
+WIP; modernmode39production has disabled-only profile,not installed-board proof.
+GeneratedsensorreportsCAN0and currentphysical car/safetybus2need explicit route
+qualification; receiver preserves tags and filters returned/remote packets.
+
+189mailbox/336modern vectors with split/corruption checks,source layouts,and21
+existing tests with freshly compiled native communications fixture pass.75source
+file hashes with selected-function coverage,source/remote/REA receipts and full
+engineering explanation are saved in the student report. Existing localELFhash
+5ae9b4f6matches retained REA disassembly; no new REA run or installed-nightly claim.
+Exactde193215source lookup again404. No production source/firmware/config/DBCedit,
+device access,daemon start,CAN/relay/actuation,push or upstream update. Initial
+verification-harness namespace/lint defects corrected without suppressing checks.
+Unresolved installed behavior,physical state,managed lifecycle and MCU enforcement
+remain explicit. Read QA-20261105-12and dated session before follow-up answers.
+
+[Full review](../Reports/panda-chimera-deep-review-20261105/README.md)
+
 ## 2026-11-05 — Chimera native input and CAN contract
 
 Owner explicitly scoped this answer to Chimera’s own inputs and data. Ocelot

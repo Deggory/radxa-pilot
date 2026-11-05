@@ -1,0 +1,577 @@
+{
+  "date_utc": "2026-11-05",
+  "parent_before": "ad7efa20849305682e99337fff4a710c91fb7c51",
+  "panda": "8a16e089b88593914823743df29e1c30b7dd3e00",
+  "opendbc": "150f937198ceab43c43b39f94b9bdea63fcb633c",
+  "ocelot": "d87892fa25ef2a2474110b97bfb5245ee818b534",
+  "ocelot_status_before": [
+    " M README.md",
+    " M firmware/README.md",
+    " M firmware/RetroPilot_Cores/interceptor_core/json_rpc_handlers.h",
+    " M firmware/RetroPilot_Cores/interceptor_core/main.c",
+    " M firmware/RetroPilot_Cores/interceptor_core/modes/differential.h",
+    " M firmware/chimera/chimera.h",
+    " M firmware/chimera/main.c",
+    " M firmware/retropilot_cores/reports/VW_NEUTRAL_30S_PREPARATION_20261027.md",
+    " M hardware/ocelot-pro/README.MD",
+    "?? \"Core Config/\"",
+    "?? \"Interceptor Config/\"",
+    "?? RYLEYMCC_OVERKILL_INTERCEPTOR_REVIEW_20261014.md",
+    "?? RYLEYMCC_TI_RECOVERY_SEARCH_20261014.md",
+    "?? Retropilot_Core_Config",
+    "?? Retropilot_Core_Config.desktop",
+    "?? Retropilot_Interceptor_Config",
+    "?? Retropilot_Interceptor_Config.desktop",
+    "?? USB_DFU",
+    "?? USB_DFU.desktop",
+    "?? \"WebUSB DFU/\"",
+    "?? cabana/",
+    "?? firmware/BUILDING.md",
+    "?? firmware/BUILD_COMPARISON.md",
+    "?? firmware/INSPECTING_SIGNED_BIN.md",
+    "?? firmware/RetroPilot_Cores/interceptor_core/ADC_TRACE_PROTOCOL.md",
+    "?? firmware/RetroPilot_Cores/interceptor_core/STEERING_SENSOR_FIRMWARE_REVIEW.md",
+    "?? firmware/RetroPilot_Cores/interceptor_core/adc_trace.h",
+    "?? firmware/RetroPilot_Cores/interceptor_core/modes/differential_command.h",
+    "?? firmware/build_interceptor_gcc9.sh",
+    "?? firmware/build_local.sh",
+    "?? firmware/inspect_signed.py",
+    "?? firmware/inspection/",
+    "?? hardware/Actuator-Core/",
+    "?? hardware/chimera/",
+    "?? hardware/interceptor-core/",
+    "?? hardware/ocelot-pro/convert_schdoc.py",
+    "?? hardware/ocelot-pro/ocelot-pro-schematic.pdf",
+    "?? hardware/ocelot-pro/ocelot-pro_schematic.pdf",
+    "?? hardware/relay-core/"
+  ],
+  "files": [
+    {
+      "group": "current_host",
+      "workspace_path": "sunnypilot/openpilot/selfdrive/pandad/panda.cc",
+      "sha256": "ded2f5d2e210b5e93013fd331ebbac72cd15f31f52eafd9c358007316921c579",
+      "lines": 290,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_host",
+      "workspace_path": "sunnypilot/openpilot/selfdrive/pandad/panda.h",
+      "sha256": "f4aba35cd100e12282335a3e1aa075be0425a925c7c657128aa7448d0eb89a0e",
+      "lines": 98,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_host",
+      "workspace_path": "sunnypilot/openpilot/selfdrive/pandad/panda_comms.h",
+      "sha256": "4650dd369920307196aa3904d4d201630e2cf5d07a3a199f426387de2b1cef5d",
+      "lines": 55,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_host",
+      "workspace_path": "sunnypilot/openpilot/selfdrive/pandad/spi.cc",
+      "sha256": "61c0c34d4e3d843bce21fb095623994a6a16d60bacf25fad5cf29ab151d60aab",
+      "lines": 386,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_host",
+      "workspace_path": "sunnypilot/openpilot/selfdrive/pandad/pandad.cc",
+      "sha256": "191cd635ae7010209d9d37dc07dce4d9786582f708ab9b40b967e407bdc0faaa",
+      "lines": 470,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_host",
+      "workspace_path": "sunnypilot/openpilot/selfdrive/pandad/pandad.h",
+      "sha256": "a34ad6498e6a3e3e945d64bd64875f858e5c77c093e01d471980dd39f63f0344",
+      "lines": 35,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_host",
+      "workspace_path": "sunnypilot/openpilot/selfdrive/pandad/pandad.py",
+      "sha256": "25029c7ce90441054fa2db63ed8720d0a068a1ac35152fa504390be28ec5249b",
+      "lines": 145,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_host",
+      "workspace_path": "sunnypilot/openpilot/selfdrive/pandad/panda_safety.cc",
+      "sha256": "3ee06151027e3be3f1e0cf285dd77ef6e55bb8e8ef91178941b564cb18ec97fc",
+      "lines": 84,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_host",
+      "workspace_path": "sunnypilot/openpilot/selfdrive/pandad/main.cc",
+      "sha256": "a22d355939882580508344948971ba4b7354bd22acbbd5f6ed0808dc88b54f2d",
+      "lines": 22,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_host",
+      "workspace_path": "sunnypilot/openpilot/selfdrive/pandad/SConscript",
+      "sha256": "312960ac0bfd2c1e39d0d0e45fba9fb47b24425f2636e2616c4bbf6d50d7c1f0",
+      "lines": 10,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_host",
+      "workspace_path": "sunnypilot/openpilot/selfdrive/pandad/pandad_api_impl.py",
+      "sha256": "891c81f6216f4c8d1a86348865f792c20563d24411a872ea190676de495b511e",
+      "lines": 88,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_host",
+      "workspace_path": "sunnypilot/openpilot/system/manager/process_config.py",
+      "sha256": "2cf97193f3dc425ba8c66568ed1501ca6489763e5a37e75dfa7fdc332f566f62",
+      "lines": 209,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_host",
+      "workspace_path": "sunnypilot/openpilot/sunnypilot/selfdrive/pandad/rivian_long_flasher.py",
+      "sha256": "2e07e052cbe742d4b957090fc3de3a1c51ceba98d8a60768f4d4319d0887e1c9",
+      "lines": 106,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_panda",
+      "workspace_path": "sunnypilot/panda/README.md",
+      "sha256": "a6fd754578a6bffd94fe3be122bf9b4fb029e383c760fba5b59bce69e023dbec",
+      "lines": 81,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_panda",
+      "workspace_path": "sunnypilot/panda/python/__init__.py",
+      "sha256": "bbf41b79240225bbf9a2f296761cf42ec90ce8d050831221e0d51141148795dc",
+      "lines": 797,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_panda",
+      "workspace_path": "sunnypilot/panda/python/usb.py",
+      "sha256": "9df75802abefd9fd148e6b40f45c865f84e0c8322fe8abcba42294c8f63e5db9",
+      "lines": 98,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_panda",
+      "workspace_path": "sunnypilot/panda/python/spi.py",
+      "sha256": "85a3d3fce2dba5ff1e599a13cf701cb55c9c8f8b8bbf5f1a689515c90bc21575",
+      "lines": 412,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_panda",
+      "workspace_path": "sunnypilot/panda/python/base.py",
+      "sha256": "0d12f254e9acc97f292762ab7b19781bac6a3346d24c1db2dd0e52ade41744ff",
+      "lines": 61,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_panda",
+      "workspace_path": "sunnypilot/panda/python/constants.py",
+      "sha256": "c8f784982fbeff475bd803b5490565415bc869c3ebd64a3074b71c3bc0d100aa",
+      "lines": 73,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_panda",
+      "workspace_path": "sunnypilot/panda/SConscript",
+      "sha256": "b3544b66774e9a4456bbb17ff040e725460bb700a9ab2e4505e7dbafa81772f9",
+      "lines": 174,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_panda",
+      "workspace_path": "sunnypilot/panda/board/health.h",
+      "sha256": "af9e8fca563ced23bc3c478a4bc8907e519b938b83eb023b02d982a66acc83f8",
+      "lines": 65,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_panda",
+      "workspace_path": "sunnypilot/panda/board/main.c",
+      "sha256": "5ad930c0334a132b0dfd16c880e6f7853d73d74dea1274fea5166700d6a2ebd5",
+      "lines": 373,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_panda",
+      "workspace_path": "sunnypilot/panda/board/main_comms.h",
+      "sha256": "3b56277606e3db25b410b2554689318e1283f82bffbec4fdbf56a33423d99469",
+      "lines": 328,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_panda",
+      "workspace_path": "sunnypilot/panda/board/can_comms.h",
+      "sha256": "5806c9bda986d0044b6cb83ed0b79ae95b715b75f0f6fb33cbfc6e2e660841b3",
+      "lines": 146,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_panda",
+      "workspace_path": "sunnypilot/panda/board/can.h",
+      "sha256": "ee30d6a723476e5bfaf5493249af715c0f783b95fe4cdc19cb868da09b2334e8",
+      "lines": 5,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_panda",
+      "workspace_path": "sunnypilot/panda/board/comms_definitions.h",
+      "sha256": "ea2ca38a50751b0a184ce7f820684dee377f40aab42a7d91065934cb815007c5",
+      "lines": 14,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_panda",
+      "workspace_path": "sunnypilot/panda/board/drivers/spi.h",
+      "sha256": "85223a7c7675cd5022d50892de3b3ec17425062dd25812475e5ec95c51703597",
+      "lines": 198,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_panda",
+      "workspace_path": "sunnypilot/panda/board/drivers/can_common.h",
+      "sha256": "1509297d8ce4f8a527c3bf941dae3f82a26db82a4c3397fd324bd32b81ec9ec1",
+      "lines": 187,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_panda",
+      "workspace_path": "sunnypilot/panda/board/drivers/fdcan.h",
+      "sha256": "c2dc76a42e039414b1f8b384cec8e3eae47f8f4eeea68d92150b843598f6f150",
+      "lines": 272,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_panda",
+      "workspace_path": "sunnypilot/panda/board/bootstub.c",
+      "sha256": "c363f70286b1591805de82f830c7f3b0a6b9cd9ba53eb0be4bf023535f0582ef",
+      "lines": 82,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_panda",
+      "workspace_path": "sunnypilot/panda/tests/libpanda/panda.c",
+      "sha256": "bf605749d92e247003c1e59e5da0b555dd492a11073e83b42b1323cc6b41cbfe",
+      "lines": 27,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_panda",
+      "workspace_path": "sunnypilot/panda/tests/libpanda/libpanda_py.py",
+      "sha256": "8c8ef1a089370626a1b8fa817d4de08560d2d85e2ace75032f1948d793dc1f8f",
+      "lines": 83,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_panda",
+      "workspace_path": "sunnypilot/panda/tests/usbprotocol/test_comms.py",
+      "sha256": "80e1c55c729d94d94b6d3f0607dd6625bdbdf1a2daf38f71ce581df7c90de956",
+      "lines": 161,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_panda",
+      "workspace_path": "sunnypilot/panda/tests/usbprotocol/test_pandalib.py",
+      "sha256": "b44414370720c981b3b793fb3dc61e39bc6a4a65f45ea62fbddf54d0a6f32203",
+      "lines": 26,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_safety_and_car",
+      "workspace_path": "sunnypilot/opendbc_repo/opendbc/safety/can.h",
+      "sha256": "76f2ab751f89797c0a2254ab9a010a261678fe30f869d4e777cb7f2048802743",
+      "lines": 20,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_safety_and_car",
+      "workspace_path": "sunnypilot/opendbc_repo/opendbc/safety/safety.h",
+      "sha256": "5989c80595dfadcb3b9c9023831f5ba91769212302c98eff14130ae133cca4d6",
+      "lines": 551,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_safety_and_car",
+      "workspace_path": "sunnypilot/opendbc_repo/opendbc/safety/declarations.h",
+      "sha256": "40bde981216e7db62acd109574954dc3594947d4facf135a421dbb3a865ee520",
+      "lines": 375,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_safety_and_car",
+      "workspace_path": "sunnypilot/opendbc_repo/opendbc/safety/modes/retropilot.h",
+      "sha256": "a7e8c9cb5a6cd8ce51ac911ec3ed896b98dc8c4af1df84d3b6c287196d268596",
+      "lines": 74,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_safety_and_car",
+      "workspace_path": "sunnypilot/opendbc_repo/opendbc/safety/modes/retropilot_active.h",
+      "sha256": "facbb340af64667a29f8eaa75ea363b3873365c7b8e0a401125ba71f2acefd58",
+      "lines": 356,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_safety_and_car",
+      "workspace_path": "sunnypilot/opendbc_repo/opendbc/car/retropilot/values.py",
+      "sha256": "3082301e39dda4bc5a5fe57e1e4f06bbf3abfc6bea9b24d6bfdeba4b98c85fae",
+      "lines": 69,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_safety_and_car",
+      "workspace_path": "sunnypilot/opendbc_repo/opendbc/car/retropilot/interface.py",
+      "sha256": "f142bcc3a54f0cae01db4af3da5cc375a484e3ea4c664719643505f5c23e9be8",
+      "lines": 35,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_safety_and_car",
+      "workspace_path": "sunnypilot/opendbc_repo/opendbc/car/retropilot/carstate.py",
+      "sha256": "3ef5984f9270e69d244f5b138737aaff58ae9b8a1f99b77509781e4127c944d7",
+      "lines": 184,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_safety_and_car",
+      "workspace_path": "sunnypilot/opendbc_repo/opendbc/car/retropilot/carcontroller.py",
+      "sha256": "4ac812483238035524618b7e9c212d4f5ce7ba587b3439bc5f3c2e5e37a6123c",
+      "lines": 132,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_chimera_adapter",
+      "workspace_path": "sunnypilot/openpilot/selfdrive/pandad/chimera.py",
+      "sha256": "68d40878ed706c8790b1a7f1c6810a4b0838227e2789513d528c777863ca7f8b",
+      "lines": 112,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_chimera_adapter",
+      "workspace_path": "sunnypilot/openpilot/selfdrive/pandad/chimera_protocol.py",
+      "sha256": "a63293efd4a015b0883198fa9693f5d2b89794adb7ebdca28a5ad2db783bca88",
+      "lines": 65,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_chimera_adapter",
+      "workspace_path": "sunnypilot/openpilot/selfdrive/pandad/tests/test_chimera.py",
+      "sha256": "aef6d7c114ce12028ec16b20aa1a46c429629f358c770c11b173157654969b9e",
+      "lines": 211,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "current_chimera_adapter",
+      "workspace_path": "sunnypilot/openpilot/selfdrive/pandad/tests/test_chimera_protocol.py",
+      "sha256": "93c3f9054df837f45f385b3cd4cc44ad196fba91a950c47ba528b4a17c74aa1c",
+      "lines": 85,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "c2_reference",
+      "workspace_path": "retropilot/panda/c2_host/panda.cc",
+      "sha256": "47fd823cad7cb7a5ecad1f228aac61302e17aca53575c1841b5ed5e36297e121",
+      "lines": 462,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "c2_reference",
+      "workspace_path": "retropilot/panda/c2_host/panda.h",
+      "sha256": "e4cfe593083d93e3531d4d09a8847c8ddf0c90cee1e32956d798213c8ee64120",
+      "lines": 105,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "c2_reference",
+      "workspace_path": "retropilot/panda/c2_host/boardd.cc",
+      "sha256": "128141ba941b21055c90faad245f08da4f1220e5c3664ccad7715bda14a80571",
+      "lines": 655,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "c2_reference",
+      "workspace_path": "retropilot/panda/c2_host/boardd.h",
+      "sha256": "ae9f17d0831f4a485afb7439fdcdd68bd2e3505a8ea3249409ceecdcb0999f69",
+      "lines": 6,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "c2_reference",
+      "workspace_path": "retropilot/panda/c2_host/boardd.py",
+      "sha256": "613453d52eaa09514857019554c22cc04cd787840a6bc53e5077cfb5168af5f1",
+      "lines": 12,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "c2_reference",
+      "workspace_path": "retropilot/panda/c2_firmware/health.h",
+      "sha256": "db68f34178c8a97e7dfba25287e19785f3fd4dd482889c0984626880b6538835",
+      "lines": 25,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "c2_reference",
+      "workspace_path": "retropilot/panda/c2_firmware/can_definitions.h",
+      "sha256": "be9e1e4464bc7ba758b241d6fb551e936f32004ce4e22d63e814fd6b8c1dfb36",
+      "lines": 25,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "c2_reference",
+      "workspace_path": "retropilot/safety/safety_retropilot.h",
+      "sha256": "fe50de5a366d990023058cb89621ca1abadb131dc6fccb8d804f78f519837513",
+      "lines": 113,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "c2_reference",
+      "workspace_path": "retropilot/SOURCES.json",
+      "sha256": "b7c1ca157bda58fc3508107fbc6537f87466348058579f02b4ca74636e8bf9f8",
+      "lines": 389,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "legacy_mailbox_host",
+      "workspace_path": "steer_actuator_demo/openpilot_demo/source/selfdrive/boardd/panda.cc",
+      "sha256": "a2bc7e853e9fc9648b17bd38d392508d0e8791b8215753ba16d32c0cbc05cb91",
+      "lines": 317,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "legacy_mailbox_host",
+      "workspace_path": "steer_actuator_demo/openpilot_demo/source/selfdrive/boardd/panda.h",
+      "sha256": "65c30a3cdfe714ddba50428524a982259a1815a42c90e6084d8ba5d7f1e5c3b5",
+      "lines": 83,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "legacy_mailbox_host",
+      "workspace_path": "steer_actuator_demo/openpilot_demo/README.md",
+      "sha256": "511cb2e1cad1e27793170364200b169c36e149963976de109a845ae7be3dfb78",
+      "lines": 211,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "ocelot",
+      "workspace_path": "ocelot/firmware/chimera/main.c",
+      "sha256": "5d1dd3b0400ec80da9b477abfced51c9346674865ce5ad86d7e5a012c2d94883",
+      "lines": 1236,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "ocelot",
+      "workspace_path": "ocelot/firmware/chimera/can.h",
+      "sha256": "7aca434faa4a1c37d59f5b43f495ed0d213f0e22fc46e4db28c433472b757310",
+      "lines": 370,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "ocelot",
+      "workspace_path": "ocelot/firmware/chimera/chimera.h",
+      "sha256": "bccfd705363d223d86c9a0e62ccc817ba13a95e068315c22f97a40fdbf9aa413",
+      "lines": 634,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "ocelot",
+      "workspace_path": "ocelot/firmware/chimera/usb.h",
+      "sha256": "2996676fb60447a3ea3de70882e19b0a54709a65e2f3d8c935c68e074eb0612d",
+      "lines": 1077,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "ocelot",
+      "workspace_path": "ocelot/firmware/python/__init__.py",
+      "sha256": "685ad65b056a266979eacf49159678ca5881902cc10315e2526f60bd42034de4",
+      "lines": 919,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "ocelot",
+      "workspace_path": "ocelot/firmware/boards/gateway.h",
+      "sha256": "26425d76947291d4711f36330b7e700e91d803622b42fe6e79c88f687f29451f",
+      "lines": 125,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "ocelot",
+      "workspace_path": "ocelot/firmware/board.h",
+      "sha256": "aaf93aeaa7dd57dc665db4589fc8e3fc4e2375b37e3d5186cf8cefd4be688fb8",
+      "lines": 88,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "ocelot",
+      "workspace_path": "ocelot/firmware/drivers/llcan.h",
+      "sha256": "2794b5478c7fbbb8ece22eedda0a3f925262c7d7f6d9e9e221c8448d63a13d40",
+      "lines": 138,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "ocelot",
+      "workspace_path": "ocelot/firmware/crc.h",
+      "sha256": "dd21e9aff24cc24fcb42f0b0fb3674248a8e84fe8303926c7fbd3f081be894d6",
+      "lines": 45,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "ocelot",
+      "workspace_path": "ocelot/firmware/bootstub.c",
+      "sha256": "2b29e71e11379db8a76c7e0e98f957dec6b4e7a593308091471c45b06bfe69b0",
+      "lines": 118,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "ocelot",
+      "workspace_path": "ocelot/firmware/SConscript",
+      "sha256": "7f60ca0b975592c2bf633e3eb06aa1934288cd547f4a771cb58567579da88bd9",
+      "lines": 229,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "ocelot",
+      "workspace_path": "ocelot/Core Config/README.md",
+      "sha256": "b912f95d8ddf603e19bcf3e9b2f39bcb1549633135c14920ea8e0280a376caf7",
+      "lines": 354,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "ocelot",
+      "workspace_path": "ocelot/Core Config/usb_transport.py",
+      "sha256": "700fe76295a71ab1b3a34f063410fbf4bd1ec597e5c8ea1d58a3c06697fd9f3f",
+      "lines": 291,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "ocelot",
+      "workspace_path": "ocelot/Core Config/native_bridge.py",
+      "sha256": "571cc7717c3d3c4260849ccecabb906584e8d3d57bf14f47738bb3d955a76285",
+      "lines": 199,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "ocelot",
+      "workspace_path": "ocelot/firmware/inspection/chimera-jsonapi-configfix-20261004/README.md",
+      "sha256": "7d785ba07c478c88647d05fa2be8d4896968ca65f4a5db31c6ac5fad634bb7c6",
+      "lines": 35,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    },
+    {
+      "group": "ocelot",
+      "workspace_path": "ocelot/hardware/chimera/README.md",
+      "sha256": "3f64c72ef6d0f771436f55e2c2ef4e3349fd43190532fe33bd663c99c7e837dc",
+      "lines": 123,
+      "review_coverage": "Selected relevant runtime functions/definitions and surrounding lifecycle; not a claim of every-line repository review"
+    }
+  ],
+  "scope": "Current host/MCU, retained mailbox and C2 contract, Chimera, current adapter and selected safety paths; no simulator reference",
+  "no_device_access": true
+}
