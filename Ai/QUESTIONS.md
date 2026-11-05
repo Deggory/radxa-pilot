@@ -1,3 +1,15 @@
+## QA-20261105-04 — Remove JetBrains folders locally and on GitHub Q8B
+
+**Date:** November 5, 2026 UTC.
+
+**Owner request (original):** Removing `.idea` and `.run` saves only about **6 KB**. from our and github also in q8b
+
+**Answer:** Removed .idea and .run from our local Sunnypilot project and published the deletion to GitHub radxa/q8b. Six editor-settings files removed,6251logical bytes. .github and .vscode stay intact. master and the RetroPilot support branch were unchanged.
+
+**Implemented/evidence:** Cleanup commit52afd7a3bc64634a6fd1334f420f9a0ecdbc10d0; normal dry-run/actual push passed. GitHub REST and git ls-remote independently verify Radxa52afd7a3, master932ff06d and support150f9371. Folder absence, authorized deletion list, retained .github/.vscode hashes and whitespace pass. Student Ai/Evidence/editor-folder-removal-20261105.json records the actual result. Three previously local documentation commits also published in the fast-forward, as disclosed during work.
+
+**Correction/limits:** Supersedes QA-20261105-03's proposed-only cleanup status: deletion is now complete. No functional source, model, DBC, safety, firmware or runtime setting changed. No runtime tests needed for these six editor-config deletions. Historical commits retain the original files; master retains official source. No history rewrite or automatic-update resume. Current closeout documentation follows the deletion commit.
+
 ## QA-20261105-03 — Explain development folders before minimizing the project
 
 **Date:** November 5, 2026 UTC.

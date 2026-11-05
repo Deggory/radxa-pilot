@@ -1,3 +1,13 @@
+## November 5 — JetBrains folders removed and published
+
+Owner explicitly authorized local and GitHub Q8B deletion. Removed six .idea/.run
+files (6251bytes) in52afd7a3 and pushed radxa/q8b; independent REST/Git readback
+passed. .github/.vscode hashes unchanged; master932ff06d/support150f9371 untouched.
+Earlier three local documentation commits are now published too. QA-20261105-04
+and dated removal evidence supersede the proposed-only status below. No runtime
+source change/test or upstream integration. Next: owner-selected folders or the
+separate Chimera receive task, preserving noOutput/relay limits and update hold.
+
 ## November 5 — Development-folder cleanup explanation
 
 Owner wants folder purposes before project cleanup. Inspected .github/.idea/.run/

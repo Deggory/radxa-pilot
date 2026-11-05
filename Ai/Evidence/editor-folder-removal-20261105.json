@@ -1,0 +1,39 @@
+{
+  "date": "2026-11-05",
+  "owner_scope": "Remove .idea/.run locally and on GitHub radxa/q8b only",
+  "before_head": "2ba0abbf3359f25ede55cd5000f9e8dcae8d8477",
+  "deleted": [
+    ".idea/customTargets.xml",
+    ".idea/tools/External Tools.xml",
+    ".run/Build Debug.run.xml",
+    ".run/Build Release.run.xml",
+    ".run/Build_BIG_UI.run.xml",
+    ".run/Build_SMALL_UI.run.xml"
+  ],
+  "logical_bytes_removed": 6251,
+  "structure_checks": "pass",
+  "unchanged_35_file_baseline_hashes_before_deletion": "pass",
+  "retained_github_vscode_hashes_after_deletion": "pass",
+  "staged_whitespace": "pass",
+  "runtime_tests": "not needed: editor configuration deletion only",
+  "remote_publication": "verified by normal push acknowledgement, GitHub REST refs and git ls-remote",
+  "upstream_updates": "remain paused",
+  "cleanup_commit": "52afd7a3bc64634a6fd1334f420f9a0ecdbc10d0",
+  "verified_utc": "2026-11-05T13:23:41.580274+00:00",
+  "remote_refs": {
+    "refs/heads/master": "932ff06d9316e4351d6b6b9f1dd422d5b639badf",
+    "refs/heads/radxa/q8b": "52afd7a3bc64634a6fd1334f420f9a0ecdbc10d0",
+    "refs/heads/opendbc/retropilot": "150f937198ceab43c43b39f94b9bdea63fcb633c"
+  },
+  "publication_scope": "Only radxa/q8b fast-forward; includes three earlier local documentation commits. No force push. Master/support untouched.",
+  "readback_limit": "Transient connector transport and first REST attempt failed; REST retry and Git protocol readback succeeded.",
+  "notebook_validation": {
+    "result": "pass",
+    "memory_layout": "regular project directory",
+    "documents": 110,
+    "relative_links": 354,
+    "optional_workspace_links": 240,
+    "source_repositories": 8,
+    "indexed_entries": 4254
+  }
+}
