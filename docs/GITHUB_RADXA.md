@@ -2,8 +2,9 @@
 
 Repository: https://github.com/Deggory/radxa-pilot (public).
 
-GitHub opens the Radxa project branch `radxa/q8b` by default. The `master`
-branch contains official Sunnypilot source, separate from our Radxa changes.
+GitHub opens `master` by default, following the owner's November 5 preference.
+It contains official Sunnypilot source. Select `radxa/q8b` for our Radxa project;
+GitHub compares that branch's ahead/behind counts against `master`.
 
 This is a standalone public copy with preserved Sunnypilot history, rather
 than another GitHub fork-network entry. The existing owner fork

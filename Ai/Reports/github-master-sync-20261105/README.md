@@ -33,3 +33,16 @@ Next: owner-selected Chimera receive diagnostics. Keep noOutput and the existing
 relay/actuation exclusions. The latest upstream curvature fix is relevant to the
 model path but requires separate approval/review before Radxa integration. Future
 automatic upstream updates remain paused.
+
+## Follow-up: default branch and comparison direction
+
+Owner asked why master showed3ahead/113behind Radxa and wanted Radxa compared
+to master. Set GitHub default to master with gh repo edit; independent connector
+readback confirms master. Comparison master...radxa/q8b is113ahead/3behind;
+all three remote tips remain unchanged. Counts are commit-based: earlier two
+upstream changes were cherry-picked into Radxa under different hashes. No code
+merge, firmware work, automatic update, runtime retest or Radxa push. This
+supersedes the earlier Radxa-default statement. QA-20261105-02 and the separate
+default-branch.json receipt preserve the actual question, answer and metadata.
+Documentation links/whitespace checked at closeout; Git workflow/documentation
+skills and source-first routing reused. No binary analysis was necessary.

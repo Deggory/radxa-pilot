@@ -1,3 +1,12 @@
+## November 5 — GitHub comparison direction corrected
+
+Owner wants Radxa compared against official master. GitHub default changed from
+radxa/q8b to master; independent readback passed, all remote branch tips unchanged.
+Radxa shows113ahead/3behind master. Counts reflect commit identities, including
+separately cherry-picked prior upstream changes. No merge or automatic update.
+[Receipt](Reports/github-master-sync-20261105/default-branch.json).
+QA-20261105-02 supersedes earlier default-view statements. Chimera remains next.
+
 ## November 5, 2026 — GitHub master equals official Sunnypilot
 
 Owner requested GitHub master match real Sunnypilot. Completed normal fast-forward

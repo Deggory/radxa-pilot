@@ -27,3 +27,16 @@ commit is not pushed to Radxa; functional branches remain unchanged on GitHub.
 Next: owner-selected Chimera receive diagnostics; previous physical CAN0frames,
 USB-only power/termination/ACK/connector unknowns and noOutput/relay limits retained.
 The upstream curvature fix needs separate approval/review for Radxa integration.
+
+## Follow-up: default branch and comparison direction
+
+Owner asked why master showed3ahead/113behind Radxa and wanted Radxa compared
+to master. Set GitHub default to master with gh repo edit; independent connector
+readback confirms master. Comparison master...radxa/q8b is113ahead/3behind;
+all three remote tips remain unchanged. Counts are commit-based: earlier two
+upstream changes were cherry-picked into Radxa under different hashes. No code
+merge, firmware work, automatic update, runtime retest or Radxa push. This
+supersedes the earlier Radxa-default statement. QA-20261105-02 and the separate
+default-branch.json receipt preserve the actual question, answer and metadata.
+Documentation links/whitespace checked at closeout; Git workflow/documentation
+skills and source-first routing reused. No binary analysis was necessary.

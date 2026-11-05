@@ -1,3 +1,10 @@
+## 2026-11-05 — Master is GitHub default and comparison baseline
+
+Owner corrected the desired branch layout. Set master as default; select
+radxa/q8b to view custom project and compare against master. This supersedes
+the November4Radxa-default choice. Metadata-only change, remote commits retained;
+no branch merge or automatic update authorized. QA-20261105-02/dated receipt.
+
 ## 2026-11-05 — Synchronize public master only
 
 The owner's request authorizes making GitHub master equal official Sunnypilot.

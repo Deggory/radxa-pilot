@@ -1,3 +1,15 @@
+## QA-20261105-02 — Compare Radxa against master on GitHub
+
+**Date:** November 5, 2026 UTC.
+
+**Owner question (faithful paraphrase):** GitHub says master is3commits ahead and113behind radxa/q8b. Shouldn't that comparison appear on q8b against master?
+
+**Answer:** Yes. master is now the default branch. When viewing radxa/q8b, GitHub compares against master and shows113commits ahead and3behind. Previously radxa/q8b was the default, so viewing master showed the reverse. No branch code was merged or changed.
+
+**Implemented/evidence:** Changed only the default-branch setting using gh repo edit Deggory/radxa-pilot --default-branch master. Exit0 and independent GitHub repository readback verified master. Compare base master/head radxa/q8b returned ahead113/behind3. Remote tips remain master932ff06d9316e4351d6b6b9f1dd422d5b639badf, Radxaf193a3cbaa0c5abcad971a34e7b754929ba0e907, support150f937198ceab43c43b39f94b9bdea63fcb633c. See student Reports/github-master-sync-20261105/default-branch.json.
+
+**Correction/limits:** Supersedes the earlier November5answer that the default is radxa/q8b. Counts reflect commit identities; two upstream changes already have separate cherry-picked commits67876efc/a009818b in Radxa, so3behind does not mean all three features are absent. Latest modeld_v2 fix932ff06d remains unapplied to Radxa. Automatic updates remain paused; local notebook commits are not pushed. No runtime/hardware test was needed for repository metadata.
+
 ## QA-20261105-01 — Keep GitHub master equal to official Sunnypilot
 
 **Date:** November 5, 2026 UTC.

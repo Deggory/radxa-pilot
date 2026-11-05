@@ -1,0 +1,14 @@
+{
+  "result": "pass",
+  "memory_layout": "regular project directory",
+  "documents": 108,
+  "relative_links": 352,
+  "optional_workspace_links": 240,
+  "source_repositories": 8,
+  "indexed_entries": 4254,
+  "default_branch_readback": "master",
+  "comparison": "radxa/q8b113ahead/3behind master",
+  "remote_branch_tips_unchanged": true,
+  "whitespace": "pass",
+  "runtime_tests": "not run: metadata/docs only"
+}

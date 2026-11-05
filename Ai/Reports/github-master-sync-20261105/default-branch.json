@@ -1,0 +1,29 @@
+{
+  "date": "2026-11-05",
+  "repository": "Deggory/radxa-pilot",
+  "old_default": "radxa/q8b",
+  "new_default": "master",
+  "comparison": {
+    "base": "master",
+    "head": "radxa/q8b",
+    "ahead_by": 113,
+    "behind_by": 3
+  },
+  "refs": [
+    {
+      "ref": "master",
+      "sha": "932ff06d9316e4351d6b6b9f1dd422d5b639badf"
+    },
+    {
+      "ref": "radxa/q8b",
+      "sha": "f193a3cbaa0c5abcad971a34e7b754929ba0e907"
+    },
+    {
+      "ref": "opendbc/retropilot",
+      "sha": "150f937198ceab43c43b39f94b9bdea63fcb633c"
+    }
+  ],
+  "command": "gh repo edit Deggory/radxa-pilot --default-branch master",
+  "result": "exit0; independent connector readback verified master; branch tips unchanged",
+  "scope": "GitHub metadata only; local documentation follows; no merge, source update, branch push or automatic-update resume"
+}
