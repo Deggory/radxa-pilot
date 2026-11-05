@@ -1,0 +1,48 @@
+{
+  "date_utc": "2026-11-05",
+  "scope": "Teacher-first Chimera knowledge retrieval and source reconciliation; no USB device handle opened",
+  "parent_before": "9376a7f3794b34e036884f527e458bab881c7bd5",
+  "opendbc": "150f937198ceab43c43b39f94b9bdea63fcb633c",
+  "ocelot_reference_head": "d87892fa25ef2a2474110b97bfb5245ee818b534",
+  "ocelot_dirty_before": true,
+  "source_sha256": {
+    "ocelot/firmware/chimera/main.c": "5d1dd3b0400ec80da9b477abfced51c9346674865ce5ad86d7e5a012c2d94883",
+    "ocelot/firmware/chimera/can.h": "7aca434faa4a1c37d59f5b43f495ed0d213f0e22fc46e4db28c433472b757310",
+    "sunnypilot/openpilot/selfdrive/pandad/chimera.py": "68d40878ed706c8790b1a7f1c6810a4b0838227e2789513d528c777863ca7f8b",
+    "sunnypilot/openpilot/selfdrive/pandad/chimera_protocol.py": "a63293efd4a015b0883198fa9693f5d2b89794adb7ebdca28a5ad2db783bca88",
+    "sunnypilot/opendbc_repo/opendbc/safety/modes/retropilot_active.h": "facbb340af64667a29f8eaa75ea363b3873365c7b8e0a401125ba71f2acefd58",
+    "sunnypilot/openpilot/tools/sim/beamng/pc/gateway.py": "609d127a25817d4b7b12e23ef3b46f2513083427fceb318374311556d4c88acb",
+    "retropilot/dbc/ocelot_controls.dbc": "b4079670b8118fe63c6a7710ca1158afaabfec7df881ef902e43d70d70a36b67"
+  },
+  "usb_sysfs_now": {
+    "vid_pid": "bbaa:ddcc",
+    "manufacturer": "RetroPilot",
+    "product": "Chimera",
+    "serial": "3a0044001651333038373636",
+    "bus": 3,
+    "device": 6
+  },
+  "historical_version_not_reread": "v1.0.0-DEV-de193215-DEBUG",
+  "historical_physical_result": "117 genuine game samples submitted via serial; 0 Chimera CAN frames, 2026-11-04",
+  "historical_replay_result": "492/492 genuine game samples passed passive CarInterface; not CAN wire delivery",
+  "correction": "can.h can_silent=0xFF alone cannot establish startup silent state: main.c explicitly initializes CAN1/2/3 using llcan_set_speed(...,5000,false,false). can_set_speed uses mask on reinitialization. Installed de193215 exact source/state unknown.",
+  "external_sources": [
+    {
+      "url": "https://wiki.retropilot.org/index/hardware/chimera",
+      "checked": "2026-11-05",
+      "scope": "hardware pinout/bus/input roles; broad Panda-compatibility claim is not modern protocol proof"
+    },
+    {
+      "url": "https://www.ti.com/lit/an/slaaet4/slaaet4.pdf",
+      "version": "SLAAET4A April2025/revised October2026",
+      "scope": "sections5.1/5.3 ACK, termination, bitrate; generic CAN evidence, not measured Chimera behavior"
+    }
+  ],
+  "fresh_validation": "lsusb/sysfs identity and source review only; memory/whitespace validation follows",
+  "limits": [
+    "No new CAN receive acceptance or USB health/version/signature read",
+    "No firmware/config/bitrate/relay/safety command or flash",
+    "No source implementation change, runtime control or push",
+    "Automatic upstream updates remain paused; November5 inbox superseded by master-sync report"
+  ]
+}

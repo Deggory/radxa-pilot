@@ -1,3 +1,38 @@
+## 2026-11-05 — Teacher-first Chimera reconciliation
+
+Owner resumed Chimera knowledge/receive work. Fresh lsusb/sysfs shows bbaa:ddcc,
+RetroPilot Chimera, serial3a0044001651333038373636,bus3/device6. No USB handle was
+opened; de193215/health43/signature/configuration are historical observations.
+Current parent9376a7f3/child150f9371 have the standalone receive-only bridge;
+managed health/ignition/reconnect integration and MCU enforcement remain open.
+The active safety header does not supply a production profile or install itself
+into Chimera. Genuine492/492game replay and117submitted/0received wire results
+are separate November4 evidence. Canonical RP-SIM-1 DBC SHA256b4079670 remains.
+
+Dated correction to the November4silent-mode lead: local can.h declares maskFF,
+but main.c1134–1151 explicitly initializes CAN1/2/3 at5000 with loopback=false,
+silent=false. can_set_speed uses the mask on later reinitialization. No conclusion
+about installed-nightly silent state or cause of zero frames follows. Ocelot
+reference is now HEADd87892fa with pre-existing dirty Chimera sources; byte hashes
+are saved in the student evidence receipt, not labelled as exact installed source.
+
+Older hardware guide says empty config; October4isolated-recovery evidence later
+restored the original nightly and verified watchdog-off SYS_CFG across reset and
+a second write. Full776-byte readback passed then; signal writes/watchdog-on write
+safety remain unqualified. Do not infer current config without a fresh read.
+Owner’s CAN3/USB-only/removed-resistor reports remain saved facts, not measurements
+of connector label, powered transceivers or termination. Pin2CANH/3CANL/4GND and
+CAN0/1/2roles were rechecked against official wiki November5; wiki’s broad Panda
+API compatibility claim does not resolve modern mailbox/health/safety differences.
+TI SLAAET4A sections5.1/5.3 confirms ACK, matched bitrate and endpoint termination
+requirements generally; it does not identify this bench’s fault.
+
+Next establish actual connector/wiring, termination/transceiver supplies, bitrate
+and ACK, then bounded genuine telemetry receive before managed passive integration.
+No flash/config/output/relay change or physical test today. Source-first,Git and
+documentation skills used; historical REA evidence reused with its source limits,
+no new REA binary claim. QA-20261105-08 and dated session retain the answer.
+
 2026-11-04: additional explicit receive-only RETROPILOT_BEAMNG profile reads RP-SIM-1 telemetry and uses centi-km/h; generic physical RETROPILOT_RETROFIT stays unchanged. Canonical DBC adds8simulator-only messages, preserving all20legacy layouts. [Contract](../../openpilot/tools/sim/beamng/shared/CAN_CONTRACT.md). No controller output or firmware change.
 
 ## 2026-11-04 — OEM CAN plus RetroPilot through separate DBC parsers

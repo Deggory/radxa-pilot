@@ -1,3 +1,17 @@
+## November 5 — Chimera teacher review; physical receive is next
+
+Owner resumed Chimera and requested everything the teacher knows. QA-20261105-08
+synchronizes the answer. Same Chimera serial is freshly visible via lsusb/sysfs;
+versionde193215 and health43 remain historical reads. Physical receive still0
+frames after117genuine game samples;492/492software replay is separate evidence.
+Corrected silent-mode lead: can.h maskFF does not establish startup silent state;
+main.c explicitly initializes all3controllers silent=false. Exact nightly state,
+connector/termination/transceiver rails/bitrate/ACK remain unknown. October4
+nightly recovery and verified watchdog-off SYS_CFG supersede older empty-config
+wording, without a new config read. No device handle, firmware/config writes,
+source/control change or push. Upstream updates stay paused. Next: qualify the
+actual physical receive path with noOutput and relay/actuation limits retained.
+
 ## November 5 — rednose_repo is required, keep it
 
 Owner asked what rednose_repo@28d4a7f is. Source confirms Kalman-filter estimation

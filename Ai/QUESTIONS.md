@@ -1,3 +1,17 @@
+## QA-20261105-08 — Resume Chimera and explain teacher knowledge
+
+**Date:** November 5, 2026 UTC.
+
+**Owner question (original):** lets work on chimera ,ask teacher,tell everything u  knw about it
+
+**Answer:** Teacher evidence identifies Chimera as the intended USB/CAN and direct-sensor bridge for modern Sunnypilot on Radxa Q8B; Interceptor Core and Actuator Core remain selected parts. Three logical buses are CAN0/1/2, with MCU CAN1/2/3 mapping to host0/1/2. The owner’s earlier “CAN3” wording still needs physical-label confirmation. USB now enumerates the same serial3a0044001651333038373636 as RetroPilot Chimera bbaa:ddcc; the last read firmware was de193215, with mailbox16/health43. The standalone reader pins identity/version and decodes CAN into modern Cereal, but managed lifecycle/health/ignition and MCU safety remain unfinished. Yesterday492/492 genuine game samples passed software replay, while117 serial-submitted game samples produced0 physical Chimera frames. USB-only power, removed Waveshare resistor, actual termination/rails/bitrate/ACK remain unresolved. The original nightly was restored after an October candidate failed to boot; watchdog-off SYS_CFG writes passed full-block readback, but signal writes/watchdog-on behavior remain unqualified. The active safety header is software-tested and has no production profile or installed-Chimera enforcement. Next qualify physical receive, then managed passive integration.
+
+**Dated correction:** Earlier silent-mode lead is incomplete: can.h declares can_silent=0xFF, but main.c startup calls llcan_set_speed for all three controllers with silent=false. The mask is used in reinitialization paths. Neither fact establishes installed nightly state or the zero-frame cause. The old hardware README’s empty-config wording predates the documented successful SYS_CFG recovery; last verified recovery used watchdog off, not a new configuration read today.
+
+**Implemented versus proposed:** Knowledge recovery and notebook update only. This request resumes Chimera discussion/receive investigation; firmware changes, relays and physical actuation remain outside this increment. Current USB enumeration is fresh; November4 traffic/results and October recovery are historical. No USB handle opened, CAN send/read test, runtime source change, flash, push or automatic update.
+
+**Evidence/source pin:** Parent9376a7f3794b34e036884f527e458bab881c7bd5; child150f937198ceab43c43b39f94b9bdea63fcb633c. Ocelot reference HEADd87892fa25ef2a2474110b97bfb5245ee818b534 has pre-existing dirty source; selected byte hashes are in student Ai/Evidence/chimera-teacher-review-20261105.json. Teacher Chimera transport note, October4isolated-recovery session and November4BeamNG receive/shutdown reports; current source main.c1134–1151/can.h46,162 and receive adapter reviewed. Official Chimera wiki and TI SLAAET4A sections5.1/5.3 checked November5. Existing REA symbol/disassembly evidence is historical, not analysis of the installed nightly; no new REA run needed for source/documentation review. Source-driven,documentation and Git skills used. Notebook/whitespace checks recorded in dated session/ledger; no new runtime qualification. Upstream hold remains; the inbox predates November5master932ff06d and the already-discussed low-speed curvature change.
+
 ## QA-20261105-07 — What is rednose_repo?
 
 **Date:** November 5, 2026 UTC.
