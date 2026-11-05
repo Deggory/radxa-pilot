@@ -1,3 +1,11 @@
+## November 5 — msgq_repo is required, keep it
+
+Owner asked what msgq_repo@e7396e7 is. Source confirms core process messaging and
+VisionIPC camera transport, used by build/cereal/camera/model paths on Radxa.
+Parent3a4e97135; submodule e7396e76dadbb49e374d4b664ff6bbb43a39bcb0 matches GitHub.
+QA-20261105-06 records the explanation and exact consumers. No source/submodule
+change, push or runtime test. Next: further owner-selected cleanup questions.
+
 ## November 5 — Docs file-by-file cleanup advice saved
 
 Owner asked purpose/keep advice for GitHub Q8B docs. Inspected29tracked entries

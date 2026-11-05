@@ -1,3 +1,18 @@
+## November 5 — msgq_repo is required, keep it
+
+Owner asked what msgq_repo@e7396e7 is. Source confirms core process messaging and
+VisionIPC camera transport, used by build/cereal/camera/model paths on Radxa.
+Parent3a4e97135; submodule e7396e76dadbb49e374d4b664ff6bbb43a39bcb0 matches GitHub.
+QA-20261105-06 records the explanation and exact consumers. No source/submodule
+change, push or runtime test. Next: further owner-selected cleanup questions.
+
+Dependency detail: pyproject.toml installs msgq editable from msgq_repo;
+SConstruct builds its SConscript and links messaging libraries. Cereal messaging
+imports msgq; openpilot/system/camerad/webcam/camerad.py uses VisionIpcServer,
+openpilot/selfdrive/modeld/modeld.py uses VisionIpcClient. Package includes native
+queue IPC, VisionIPC and deterministic-test helpers. No device-specific removal
+is justified by its external-repository name. GitHub's @hash is the saved gitlink.
+
 ## November 5 — Every tracked docs entry reviewed for cleanup
 
 Source/public Radxa commitc93bd4197e3b0a45249be12638fb410f7e4474f1. Owner asked

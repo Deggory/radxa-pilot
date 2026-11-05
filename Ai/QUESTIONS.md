@@ -1,3 +1,17 @@
+## QA-20261105-06 — What is msgq_repo?
+
+**Date:** November 5, 2026 UTC.
+
+**Owner question (original):** msgq_repo @ e7396e7 https://github.com/sunnypilot/msgq/tree/e7396e76dadbb49e374d4b664ff6bbb43a39bcb0 wat is this foder
+
+**Answer:** Keep msgq_repo. It provides Sunnypilot's internal message delivery between programs, including vehicle-state/model messages. Its VisionIPC component transfers camera frames between camera, model and display processes. Cereal defines message structures; msgq provides transport. It is needed on Radxa as well. The GitHub @e7396e7 label is the exact external submodule version pinned by this project, not an extra backup.
+
+**Implemented versus proposed:** Explanation/source inspection only. No msgq update, removal, code edit, push or runtime/hardware action.
+
+**Evidence/source pin:** Parent3a4e97135fa2e80c1e273ba7f6bb0f15f1cff5e1; msgq gitlink, local checkout and GitHub all match e7396e76dadbb49e374d4b664ff6bbb43a39bcb0. Checked msgq README/SConscript/package exports, root .gitmodules and pyproject editable dependency; SConstruct includes/builds msgq; cereal/messaging imports it; webcam/camerad.py uses VisionIpcServer; modeld.py uses VisionIpcClient.
+
+**Limits:** Source dependency review, not new full build/runtime testing or proof of the complete camera/model/BeamNG integration. No REA binary question needed; Git/documentation and source-first workflow reused. Keep upstream updates paused and continue owner-selected folder explanations.
+
 ## QA-20261105-05 — What every docs file does and which to keep
 
 **Date:** November 5, 2026 UTC.
