@@ -1,3 +1,11 @@
+## 2026-11-05 — Wiki car CAN connection is CAN2
+
+Official Chimera wiki Installation,checked November5,explicitly routes vehicle
+CANH/CANL to Chimera CAN2. Local can.h maps hostbus2 to MCUCAN3. OBD-C is described
+for comma devices; the page does not specify car-side OBD connector pins or
+vehicle-specific signal availability. QA-20261105-10 saves the owner’s question
+and answer. No wiring/device/source action; actual connector still needs checking.
+
 ## 2026-11-05 — Direct Ocelot Chimera source review
 
 Owner asked to inspect inside ocelot. Local HEADd87892fa,pre-existing dirty

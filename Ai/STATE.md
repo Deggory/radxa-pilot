@@ -1,3 +1,10 @@
+## November 5 — Wiki vehicle-side bus clarified: CAN2
+
+QA-20261105-10: official Chimera Installation connects car CANH/CANL to CAN2
+(board/hostbus2,MCUCAN3). Separate OBD-C is described for comma devices; no
+car-side OBD pinout is specified. Documentation only; wiring/device state and
+zero-frame result unchanged. Next confirm physical label/receive path; holds stay.
+
 ## November 5 — Ocelot Chimera source inspected directly
 
 QA-20261105-09 records source map and receive-path findings. Local raw RX on all

@@ -1,3 +1,15 @@
+## QA-20261105-10 — Which Chimera bus connects to the car CAN/OBD?
+
+**Date:** November 5, 2026 UTC.
+
+**Owner question (original):** see his wiki page were did he connect the obd of car i mean which can bus
+
+**Answer:** The Chimera wiki’s Installation example connects the car’s CAN High and CAN Low to Chimera CAN2. This is board/host bus2, corresponding to MCU CAN3 in the reviewed local source. The wiki does not specify the car-side OBD connector pins or prove a particular vehicle’s OBD port exposes the required signals. Chimera’s separate OBD-C connector is described as the connection to comma devices. Thus CAN2 is the vehicle-side bus in that example; the physical label still matters when interpreting the owner’s earlier “CAN3”.
+
+**Evidence/source pin:** Official https://wiki.retropilot.org/index/hardware/chimera checked November5,2026; Installation lines103–110 explicitly lists CANH/CANL on CAN2; features/ports lines27/55 describes OBD-C. Local ocelot/firmware/chimera/can.h142–146 maps MCUCAN3 to hostbus2; reviewed referenceHEADd87892fa with pre-existing dirty work, parent0f045d5b914233c4d7a102f597331760118fa93d. Source/documentation/Git workflow reused; no REA artifact question.
+
+**Implemented versus proposed/limits:** Documentation clarification only; no wiring,source,USB/CAN,firmware/config change or push. No vehicle-specific OBD pinout, harness compatibility or signal availability established. Prior zero-frame issue and upstream-update hold remain. Next confirm actual board connector label and qualify physical receive path.
+
 ## QA-20261105-09 — Inspect Chimera inside ocelot
 
 **Date:** November 5, 2026 UTC.
