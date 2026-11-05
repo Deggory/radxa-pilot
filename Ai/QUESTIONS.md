@@ -1,3 +1,17 @@
+## QA-20261105-11 — Chimera’s own inputs and expected CAN data
+
+**Date:** November 5, 2026 UTC.
+
+**Owner question (original):** okay lets see wat are the input and can bus data chimera expect ,dont bring beamng reference here
+
+**Answer:** Chimera accepts direct ignition,VSSspeed pulses,CPScrank pulses,brake-switch and two external0–5Vanalog inputs. Saved HALL calibration selects pulses per distance for speed and reluctor/missing-tooth parameters for RPM; analog reference/tolerance mappings detect four cruise buttons. The local parser extracts vehicle CAN on boardCAN2(host2/MCUCAN3),using configurable IDs/bit fields/scaling for steering angle main/fraction/rate,speed,ignition,RPM and brake(entries1–7); there is no universal fixed OEM input-ID list or automatic OBD polling implemented by that parser. CAN0 is the Core/control-side bus,CAN1the ADAS-side bus; all3buses have a raw USB receive path. The menu advertises CAN cruise buttons11–14but this handler does not implement them; ADC buttons are implemented. The generated reports go out boardCAN0:0x50angle/DLC6,0x75engine/DLC8,0x76speed/DLC8,0x100cruise/DLC8; they are output definitions, not required incoming OEM IDs. Source timer scheduling implies nominal20Hz per enabled group,not a measured rate.
+
+**Limits:** Local integer CAN extractor ignores endian_type,does not verify actual DLC/OEM integrity/freshness,and masks CAN RPM toonebit. Some generated-output paths dereference missing configs; speed mode reads config3instead of4; CRUISE ADC placement does not prove canonical compatibility. ADC/menu and installed-image gaps remain. Source findings are not measured behavior of installedde193215. Scope stays on Chimera’s own hardware/protocol; no external simulator framing used in the answer.
+
+**Implemented versus proposed:** Read-only source/wiki explanation and durable notes. No code/config/source mapping change,device access,build,flash,CAN output or push. No new integration or physical calibration claimed.
+
+**Evidence/source pin:** Ocelotd87892fa25ef2a2474110b97bfb5245ee818b534 with pre-existing dirty main.c/chimera.h preserved; parentc67074b7a10149f84747358ace59d8b1f8f15d16. Student Ai/Evidence/chimera-native-inputs-20261105.json hashes8selected source files and records mappings/status. main.c520–560configured input,603–711generated reports,759–774ADC buttons,832–930pulse routines,1026–1056direct/HALL selection; chimera.h362extractor; stm_flash_config.py17menu. Official https://wiki.retropilot.org/index/hardware/chimera checkedNovember5for inputs,bus roles and config intent. Original20-message prefix in canonical retropilot/dbc compared as reference; source implementation differences retained. Source-driven/documentation/Git skills reused; no REA binary question or new runtime result. Documentation validation recorded in session/ledger; upstream hold unchanged.
+
 ## QA-20261105-10 — Which Chimera bus connects to the car CAN/OBD?
 
 **Date:** November 5, 2026 UTC.

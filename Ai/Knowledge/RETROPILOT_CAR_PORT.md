@@ -1,3 +1,54 @@
+## 2026-11-05 — Chimera native input and CAN contract
+
+Owner explicitly scoped this answer to Chimera’s own inputs and data. Ocelot
+referenceHEADd87892fa,pre-existing dirty main.c/chimera.h; exact installedde193215
+source absent. Read only,no hardware/config/build action. QA-20261105-11 and
+student Evidence/chimera-native-inputs-20261105.json retain the answer/pins.
+
+| External input | Firmware handling |
+| --- | --- |
+| IGN | Wiki ignition feed; PA3 active-low read behind board circuitry |
+| VSS | PA4falling-edge pulse counter/period; HALLindex4pulses per distance |
+| CPS | PA5falling-edge pulse counter/period; HALLindex6reluctor/missing teeth |
+| BRAKE | Wiki brake-switch signal; PA6active-low read behind board circuitry |
+| ADC1/ADC2 | Wiki0–5Vexternal input; PC2/PC3,ADC12/13; four configured button comparators |
+
+MCU logic polarity is not a direct MCU voltage/wiring specification. VSS/CPS
+are conditioned digital pulses per wiki,not unconditioned AC sensor signals.
+ADC mappings11cancel/12set-down/13resume-up/14on-off select physical channel0/1,
+reference and tolerance. Menu’s adc_num=index-1is wrong for these indices.
+
+Vehicle parser runs on boardCAN2=host2=MCUCAN3. Config1main angle,2fractional/add,
+3angle rate,4speed,5ignition,6RPM,7brake. Each uses configurable standard ID,byte
+count,shift,width,sign,integer scale/offset and enable;sig_type must equalindex.
+No fixed OEM IDs or automatic OBD PID request/response parser. Raw mailbox RX
+on CAN0/1/2is separate and does not require these mappings. CAN1’s documented
+ADAS role does not supply a dedicated radar decoder in this Chimera main.
+CAN config entries11–14for cruise advertised in menu/wiki are absent in CAN3RX handler;
+only ADCbuttons are implemented. No input gearbox,wheel speeds,torque or pedal
+position extraction slots in this handler; arbitrary raw frames may still pass.
+
+CAN extractor folds bytes in big-endian order then shifts/masks;endian_type is
+unused. CAN RPM is wrongly masked&1. No actual-DLC/OEMchecksum/counter/freshness
+validation in these conditions. Hall speed intends km/h*100,with1.6mile factor;
+CAN speed units must be configured,not inferred from ID. All3controllers start
+500kbit/s/non-silent in local source; actual image/board behavior unverified.
+
+Source generates on MCUCAN1/boardCAN0:0x50DLC6angle/rate,0x75DLC8engine/ignition/
+brake/crank,0x76DLC8speed/pulses,0x100DLC8buttons/ADC. All contain checksum in
+byte0and a4-bit counter; enabled by SYS can_out_en bits1/2/4/8respectively.
+crc.h uses CRC8poly1D,initFF,xorFFover bytes1..end. TIM3configured100Hz rotates
+modulo5,so nominal20Hz per group,not100Hz per message and not measured timing.
+These are generated outputs,not mandatory incoming IDs. Original canonical
+DBC prefix used for comparison only; report names do not prove full compliance.
+Speed report reads mode from signal_configs[3],not4;steer/speed cases dereference
+cfg before checking output enable/null. Existing CRUISEADC DBC placements differ
+from simple byte-aligned source writes. No complete generated-frame qualification.
+
+No firmware correction implemented by this explanation. Source-driven/documentation/
+Git workflow and source-first REA routing reused; no binary analysis needed.
+Next owner-selected mapping/installed-image review,with existing hardware holds.
+
 ## 2026-11-05 — Wiki car CAN connection is CAN2
 
 Official Chimera wiki Installation,checked November5,explicitly routes vehicle

@@ -1,0 +1,112 @@
+{
+  "date_utc": "2026-11-05",
+  "scope": "Chimera native inputs, configured vehicle CAN extraction and generated CAN messages only",
+  "ocelot_head": "d87892fa25ef2a2474110b97bfb5245ee818b534",
+  "parent_before": "c67074b7a10149f84747358ace59d8b1f8f15d16",
+  "ocelot_status": [
+    " M README.md",
+    " M firmware/README.md",
+    " M firmware/RetroPilot_Cores/interceptor_core/json_rpc_handlers.h",
+    " M firmware/RetroPilot_Cores/interceptor_core/main.c",
+    " M firmware/RetroPilot_Cores/interceptor_core/modes/differential.h",
+    " M firmware/chimera/chimera.h",
+    " M firmware/chimera/main.c",
+    " M firmware/retropilot_cores/reports/VW_NEUTRAL_30S_PREPARATION_20261027.md",
+    " M hardware/ocelot-pro/README.MD",
+    "?? \"Core Config/\"",
+    "?? \"Interceptor Config/\"",
+    "?? RYLEYMCC_OVERKILL_INTERCEPTOR_REVIEW_20261014.md",
+    "?? RYLEYMCC_TI_RECOVERY_SEARCH_20261014.md",
+    "?? Retropilot_Core_Config",
+    "?? Retropilot_Core_Config.desktop",
+    "?? Retropilot_Interceptor_Config",
+    "?? Retropilot_Interceptor_Config.desktop",
+    "?? USB_DFU",
+    "?? USB_DFU.desktop",
+    "?? \"WebUSB DFU/\"",
+    "?? cabana/",
+    "?? firmware/BUILDING.md",
+    "?? firmware/BUILD_COMPARISON.md",
+    "?? firmware/INSPECTING_SIGNED_BIN.md",
+    "?? firmware/RetroPilot_Cores/interceptor_core/ADC_TRACE_PROTOCOL.md",
+    "?? firmware/RetroPilot_Cores/interceptor_core/STEERING_SENSOR_FIRMWARE_REVIEW.md",
+    "?? firmware/RetroPilot_Cores/interceptor_core/adc_trace.h",
+    "?? firmware/RetroPilot_Cores/interceptor_core/modes/differential_command.h",
+    "?? firmware/build_interceptor_gcc9.sh",
+    "?? firmware/build_local.sh",
+    "?? firmware/inspect_signed.py",
+    "?? firmware/inspection/",
+    "?? hardware/Actuator-Core/",
+    "?? hardware/chimera/",
+    "?? hardware/interceptor-core/",
+    "?? hardware/ocelot-pro/convert_schdoc.py",
+    "?? hardware/ocelot-pro/ocelot-pro-schematic.pdf",
+    "?? hardware/ocelot-pro/ocelot-pro_schematic.pdf",
+    "?? hardware/relay-core/"
+  ],
+  "source_sha256": {
+    "firmware/chimera/main.c": "5d1dd3b0400ec80da9b477abfced51c9346674865ce5ad86d7e5a012c2d94883",
+    "firmware/chimera/chimera.h": "bccfd705363d223d86c9a0e62ccc817ba13a95e068315c22f97a40fdbf9aa413",
+    "firmware/chimera/can.h": "7aca434faa4a1c37d59f5b43f495ed0d213f0e22fc46e4db28c433472b757310",
+    "firmware/crc.h": "dd21e9aff24cc24fcb42f0b0fb3674248a8e84fe8303926c7fbd3f081be894d6",
+    "firmware/boards/gateway.h": "26425d76947291d4711f36330b7e700e91d803622b42fe6e79c88f687f29451f",
+    "firmware/drivers/llcan.h": "2794b5478c7fbbb8ece22eedda0a3f925262c7d7f6d9e9e221c8448d63a13d40",
+    "stm_flash_config.py": "840fca9b46f867121243977ce7e9d9cd3fdbdc169346172162aa7e98e47203d5",
+    "hardware/chimera/README.md": "3f64c72ef6d0f771436f55e2c2ef4e3349fd43190532fe33bd663c99c7e837dc"
+  },
+  "wiki": "https://wiki.retropilot.org/index/hardware/chimera",
+  "wiki_checked": "2026-11-05",
+  "installed_image_limits": "Exact installed de193215 source absent; no configuration/version/device read today",
+  "extracted_can_inputs": {
+    "bus": "boardCAN2/host2/MCUCAN3",
+    "identifier_handling": "RIR >>21, standard11bit extraction path; raw mailbox path distinct",
+    "config_indices": {
+      "1": "steering angle main",
+      "2": "steering angle fractional/additional",
+      "3": "steering angle rate",
+      "4": "vehicle speed",
+      "5": "ignition",
+      "6": "engine RPM",
+      "7": "brake pressed"
+    },
+    "fixed_oem_ids": false,
+    "cruise_can_indices_11_14_implemented": false
+  },
+  "direct_inputs": {
+    "IGN": "wiki vehicle ignition input; PA3 active-low MCU read behind board circuitry",
+    "VSS": "falling-edge pulses PA4; pulses per km/mile configuration",
+    "CPS": "falling-edge pulses PA5; reluctor/missing-teeth configuration",
+    "BRAKE": "brake-switch input PA6 active-low MCU read behind board circuitry",
+    "ADC1_ADC2": "wiki0..5V external analog inputs, PC2/PC3, channels12/13; four reference/tolerance cruise-button comparators"
+  },
+  "generated_can": {
+    "bus": "boardCAN0/host0/MCUCAN1",
+    "frames": {
+      "0x50": {
+        "length": 6,
+        "meaning": "angle/rate/state/counter/CRC"
+      },
+      "0x75": {
+        "length": 8,
+        "meaning": "crank interval/count,RPM,ignition/brake,state/counter/CRC"
+      },
+      "0x76": {
+        "length": 8,
+        "meaning": "speed,pulse interval/count,mode/counter/CRC"
+      },
+      "0x100": {
+        "length": 8,
+        "meaning": "four cruise buttons,two ADC readings,state/counter/CRC"
+      }
+    },
+    "nominal_source_rate": "TIM3 configured100Hz; modulo5turns -> nominal20Hz per enabled group, not measured"
+  },
+  "limits": [
+    "No source modification, build or USB/CAN/device action",
+    "Local configured extractor ignores endian_type and uses integer scaling",
+    "CAN RPM result is masked to1bit; cruise CAN mappings absent",
+    "Input DLC/checksum/counter/freshness not validated by generic extractor",
+    "Source generated-output speed mode reads config3 rather than speed4; null config reads and CRUISE DBC ADC placement require separate qualification",
+    "No new REA artifact/runtime analysis required"
+  ]
+}

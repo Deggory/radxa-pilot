@@ -1,3 +1,12 @@
+## November 5 — Chimera native input contract explained
+
+QA-20261105-11 isolates Chimera hardware/firmware: IGN,VSS,CPS,BRAKE,ADC1/2;
+configurable CAN2vehicle angle/rate/speed/ignition/RPM/brake entries1–7. CAN cruise
+menu11–14is not implemented by RX handler; ADC button matching exists. CAN0
+reports0x50/75/76/100are generated outputs,not fixed OEM input IDs. Local integer/
+endian/RPM/integrity/output-path limits retained. No source/device action; next
+owner-selected mapping/installed-image review,upstream/actuation holds unchanged.
+
 ## November 5 — Wiki vehicle-side bus clarified: CAN2
 
 QA-20261105-10: official Chimera Installation connects car CANH/CANL to CAN2
