@@ -1,3 +1,11 @@
+## November6 — Remove all pandad SPI backend code
+
+Owner correction QA31 supersedes generic SPI retention: pandad has pinned USB
+construction/startup only on every platform. Remove SPI source/class/build/listing,
+generic wrapper and bare entry. Historical protocol counters named spi remain
+wire data; vendor firmware/reference/Panda Python outside pandad stay separate.
+Metadata/consumer work continues next; no normal publication/hardware action.
+
 ## November6,2026 — Legacy status conversion remains an invalid offline preview
 
 Implemented T08b2b policy: map only evidenced enum meanings; reject conflicting

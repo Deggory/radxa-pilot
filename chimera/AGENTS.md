@@ -24,6 +24,7 @@ Owner transport decision, November 6: Radxa connects to Chimera/selected legacy
 Panda over USB only. Do not add SPI wiring, probing or automatic fallback to this
 deployment. T08 must replace inherited SPI construction with qualified pinned USB
 selection; refusal/disconnect must remain disconnected instead of trying SPI.
-Existing generic SPI source is historical support, not a requirement or a reason
-to delay USB integration. Do not describe the current SPI constructor as already
-working USB startup.
+Owner correction, November6: remove SPI from pandad source, build, classes,
+constructors, discovery and fallback paths. Earlier generic-SPI preservation
+wording is superseded. Keep pinned USB as its only backend/entry on all platforms.
+Retained source/firmware statistics named spi are protocol data, not a transport.

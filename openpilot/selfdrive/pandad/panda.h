@@ -14,6 +14,7 @@
 #include "panda/board/health.h"
 #include "panda/board/can.h"
 #include "selfdrive/pandad/panda_comms.h"
+#include "selfdrive/pandad/panda_identification.h"
 
 #define USB_TX_SOFT_LIMIT   (0x100U)
 #define USBPACKET_MAX_SIZE  (0x40)
@@ -48,16 +49,13 @@ private:
   std::unique_ptr<PandaCommsHandle> handle;
 
 public:
-  Panda(std::string serial);
+  explicit Panda(const PandaIdentificationPin &pin);
 
   cereal::PandaState::PandaType hw_type = cereal::PandaState::PandaType::UNKNOWN;
 
   bool connected();
   bool comms_healthy();
   std::string hw_serial();
-
-  // Static functions
-  static std::vector<std::string> list();
 
   // Panda functionality
   cereal::PandaState::PandaType get_hw_type();

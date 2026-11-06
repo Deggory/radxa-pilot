@@ -2,10 +2,8 @@
 from collections.abc import Mapping
 
 
-def usb_status_command(radxa: bool, environ: Mapping[str, str], executable: str) -> list[str] | None:
+def usb_status_command(environ: Mapping[str, str], executable: str) -> list[str]:
   keys = ('PANDAD_USB_SERIAL', 'PANDAD_USB_VERSION')
-  if not radxa and not any(key in environ for key in keys):
-    return None
   serial, version = (environ.get(key, '') for key in keys)
   if not 1 <= len(serial) <= 64 or not all('!' <= ch <= '~' for ch in serial):
     raise ValueError('USB startup requires PANDAD_USB_SERIAL (1..64 printable non-space ASCII characters)')

@@ -1,3 +1,13 @@
+## November6 — Pandad SPI removed; metadata increment in progress
+
+QA31: owner corrected generic-SPI retention. Removed pandad SPI source/class/build/
+listing and both generic entries; all platforms require pinned USB. Current Panda
+constructor qualifies USB and performs no reset/config.10native/42Python checks
+plus strict fake-USB sanitizers pass. ASan reproduced/fixed short-header heap read;
+exact tests/output in receipt. Metadata test is RED/uncommitted; continue next.
+No hardware/update/push; firmware23hashes preserved. Earlier SPI-retention notes
+are superseded. [Session](Sessions/2026-11-06-chimera-remove-spi.md).
+
 ## November6 — Offline legacy PandaState preview implemented
 
 QA30/T08b2b: pure C++ conversion maps24common fields and all25fields of each

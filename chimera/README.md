@@ -1,3 +1,7 @@
+**Owner correction, November6:** SPI is removed from pandad's source/build,
+classes, constructors, discovery and fallback. All platforms use pinned USB.
+[Removal and validation](docs/PANDAD_USB_ONLY.md). Metadata/consumer work continues.
+
 **November6, T08b2b:** offline legacy F4-to-PandaState preview conversion now
 passes native/sanitizer/source checks. Conflicting safety IDs and unrepresentable
 faults are rejected; six unavailable fields stay explicit and every preview is

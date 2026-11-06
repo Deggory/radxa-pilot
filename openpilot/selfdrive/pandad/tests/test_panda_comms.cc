@@ -3,13 +3,14 @@
 
 #include "common/tests/native_test.h"
 #include "selfdrive/pandad/panda_comms.h"
+#include "selfdrive/pandad/panda_usb.h"
 
 static_assert(std::is_abstract_v<PandaCommsHandle>);
-static_assert(std::is_base_of_v<PandaCommsHandle, PandaSpiHandle>);
+static_assert(std::is_base_of_v<PandaCommsHandle, PandaUsbHandle>);
 static_assert(std::has_virtual_destructor_v<PandaCommsHandle>);
 
 // No device is opened. Verify transport ownership and error propagation through
-// the interface that both SPI and the future USB backend will implement.
+// the interface implemented by the pinned USB backend.
 class DisconnectedHandle : public PandaCommsHandle {
 public:
   explicit DisconnectedHandle(bool &destroyed) : destroyed_(destroyed) {

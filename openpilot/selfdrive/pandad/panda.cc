@@ -1,4 +1,5 @@
 #include "selfdrive/pandad/panda.h"
+#include "selfdrive/pandad/panda_usb.h"
 
 #include <unistd.h>
 
@@ -12,12 +13,15 @@
 
 const bool PANDAD_MAXOUT = getenv("PANDAD_MAXOUT") != nullptr;
 
-Panda::Panda(std::string serial) {
-  handle = std::make_unique<PandaSpiHandle>(serial);
-  LOGW("connected to %s over SPI", serial.c_str());
-
-  hw_type = get_hw_type();
-  can_reset_communications();
+Panda::Panda(const PandaIdentificationPin &pin) {
+  auto usb = PandaUsbHandle::open(pin);
+  const auto &id = usb->identification();
+  if (id.protocol != PandaProtocol::CURRENT || !id.hardware_type) {
+    throw std::runtime_error("Managed Panda requires qualified current USB status; use the legacy observation session for F4");
+  }
+  hw_type = cereal::PandaState::PandaType(*id.hardware_type);
+  handle = std::move(usb);
+  LOGW("connected to pinned %s over USB", pin.serial.c_str());
 }
 
 bool Panda::connected() {
@@ -32,9 +36,6 @@ std::string Panda::hw_serial() {
   return handle->hw_serial;
 }
 
-std::vector<std::string> Panda::list() {
-  return PandaSpiHandle::list();
-}
 
 void Panda::set_safety_model(cereal::CarParams::SafetyModel safety_model, uint16_t safety_param) {
   handle->control_write(0xdc, (uint16_t)safety_model, safety_param);
@@ -85,13 +86,13 @@ void Panda::set_ir_pwr(uint16_t ir_pwr) {
 }
 
 std::optional<health_t> Panda::get_state() {
-  health_t health {0};
+  health_t health{};
   int err = handle->control_read(0xd2, 0, 0, (unsigned char*)&health, sizeof(health));
   return err >= 0 ? std::make_optional(health) : std::nullopt;
 }
 
 std::optional<can_health_t> Panda::get_can_state(uint16_t can_number) {
-  can_health_t can_health {0};
+  can_health_t can_health{};
   int err = handle->control_read(0xc2, can_number, 0, (unsigned char*)&can_health, sizeof(can_health));
   return err >= 0 ? std::make_optional(can_health) : std::nullopt;
 }
@@ -167,7 +168,7 @@ static uint8_t len_to_dlc(uint8_t len) {
 
 void Panda::pack_can_buffer(const capnp::List<cereal::CanData>::Reader &can_data_list,
                             std::function<void(uint8_t *, size_t)> write_func) {
-  int32_t pos = 0;
+  size_t pos = 0;
   uint8_t send_buf[2 * USB_TX_SOFT_LIMIT];
 
   for (const auto &cmsg : can_data_list) {
@@ -240,9 +241,9 @@ void Panda::can_reset_communications() {
 }
 
 bool Panda::unpack_can_buffer(uint8_t *data, uint32_t &size, std::vector<can_frame> &out_vec) {
-  int pos = 0;
+  size_t pos = 0;
 
-  while (pos <= size - sizeof(can_header)) {
+  while (pos + sizeof(can_header) <= size) {
     can_header header;
     memcpy(&header, &data[pos], sizeof(can_header));
 

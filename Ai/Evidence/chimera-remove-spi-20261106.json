@@ -1,0 +1,233 @@
+{
+  "date_utc": "2026-11-06T22:54:38.883977+00:00",
+  "baseline": "17f933a82d1139738c8673ed9951f477cf29a1bc",
+  "scope": "Owner correction: remove pandad SPI source/build/classes/discovery/generic entry; pinned USB only on all platforms. Metadata/consumer step continues separately.",
+  "sources_sha256": {
+    "chimera/AGENTS.md": "a8f56cd2e0b013ce44618fb2a3b30d93f73e938cdf7617660b5c401ad3c312f6",
+    "chimera/README.md": "cd3c7e1d5733c87184e85bba1b2b8b344e794ca47d23e83bb3c3c792385f5bf0",
+    "chimera/docs/USB_ONLY_STARTUP.md": "934e7033b010cc0829a640461ae22e3e0ae9b987cad64709dc51a07fdcf6fdaa",
+    "chimera/tasks/plan.md": "c2725ed206bb6c572be7bb79cec8bf5fac93a75d8fc11e1203ad28b54c6525a6",
+    "openpilot/selfdrive/pandad/SConscript": "f2bdad08c7929591050783f1e8523c2e4dd98484059477e4c7e5599b78ef815e",
+    "openpilot/selfdrive/pandad/main.cc": "a17676bd3019d4ca1566214cb1fa4b0b065112280c225507b7838fa2693b00f7",
+    "openpilot/selfdrive/pandad/panda.cc": "2559c861e10eb475aeb689859a56fb8c8ade4c46e6b4b8c42d342cc4d937e1af",
+    "openpilot/selfdrive/pandad/panda.h": "f8b5711a1248e88043c8476dd3cebe65a5b30b6f4999ac85e83e23fe360aff54",
+    "openpilot/selfdrive/pandad/panda_comms.h": "636c5926fd1450c6f6c17ee51acfe9d4eea995484cce709a9253663a2c9cf533",
+    "openpilot/selfdrive/pandad/pandad.cc": "8a74d3e87b58dda193eb171e202b52f6b00904c81c1fb4783536da4afd341a85",
+    "openpilot/selfdrive/pandad/pandad.h": "e6c90e984f549871012cba2072eb11b15b3e4e500112492d0e3a7388477db72d",
+    "openpilot/selfdrive/pandad/pandad.py": "68cfe791c40e46b7b0495eb1e447aeaa5fcccf93563255107ce5213138645274",
+    "openpilot/selfdrive/pandad/tests/test_panda_comms.cc": "49b9fc9bfdac3478b94452a3139a688a81726c0c1ebc4c7f0251b53abf56073a",
+    "openpilot/selfdrive/pandad/tests/test_panda_usb.cc": "0ff18f591cde814234517029064214849de7827178d49c3c755112e451d3fdf3",
+    "openpilot/selfdrive/pandad/tests/test_usb_startup.py": "6eef17e304eafa793a2e12ac863fc13f56f2d720cba6e4b8ac343ca359c03eb0",
+    "openpilot/selfdrive/pandad/usb_startup.py": "e91990207faa4601b9e645ec53e5dcb02452392f76270372c85eb2a557c9ba6f",
+    "chimera/docs/PANDAD_USB_ONLY.md": "5971805f67f5a5e64aa01d9d7de6e246600cc6855c87301c6fec04527c1c00ff"
+  },
+  "deleted_sources_sha256_at_baseline": {
+    "openpilot/selfdrive/pandad/spi.cc": "61c0c34d4e3d843bce21fb095623994a6a16d60bacf25fad5cf29ab151d60aab",
+    "openpilot/selfdrive/pandad/tests/test_pandad.py": "51f5a5f09eabd9402c3cbbfe64f9abfaf265f8e893b49ebdca09895d8c33c13b",
+    "openpilot/selfdrive/pandad/tests/test_pandad_spi.py": "758f29fb5c8f340bee9033c54920d4f9ee44d9bd4d2e8e4528fb373701e32eea"
+  },
+  "checks": {
+    "remove-spi-native.json": {
+      "test_panda_usb": {
+        "exit": 0,
+        "stdout": "33 USB scenario groups passed; no real USB calls\nUSB status session: full samples, failure latching/release, profile rejection and explicit reopen pass; no real USB calls\nopenpilot/selfdrive/pandad/panda.cc: connected to pinned selected over USB\n",
+        "stderr": ""
+      },
+      "test_panda_usb_link": {
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "test_panda_identification": {
+        "exit": 0,
+        "stdout": "19 supported fixtures; 421 rejected fixtures; 3 invalid transports; zero writes\n",
+        "stderr": ""
+      },
+      "test_panda_health": {
+        "exit": 0,
+        "stdout": "Legacy F4 health59: exact source/golden layout, 256 flag combinations, 2032 invalid booleans, integer/float/unaligned cases and bounded single-read failures passed; no hardware calls\n",
+        "stderr": ""
+      },
+      "test_panda_can_health": {
+        "exit": 0,
+        "stdout": "Legacy F4 CAN-health5: 26 fields/64 bytes, 3 selectors x 64 flag combinations, 1524 invalid booleans, 1024 LEC cases, 65533 invalid selectors and bounded reads pass; no hardware calls\n",
+        "stderr": ""
+      },
+      "test_panda_comms": {
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "test_pandad_canprotocol": {
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "test_panda_usb_can": {
+        "exit": 0,
+        "stdout": "USB classical RX: 324 records/all split positions, receipt filtering, corruption/bounds/time latching pass\n",
+        "stderr": ""
+      },
+      "test_panda_usb_publish": {
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "test_panda_state_legacy": {
+        "exit": 0,
+        "stdout": "Legacy F4 state preview: full-width/fractional values, all65536 alternative masks, 32fault bits, 256safety/hardware codes and invalid enums/selectors pass; always invalid, no device IO\n",
+        "stderr": ""
+      }
+    },
+    "remove-spi-symbols.json": {
+      "no_PandaSpiHandle_symbols": true,
+      "archive_members": "panda.o\npanda_identification.o\npanda_usb.o\npanda_health.o\npanda_usb_status.o\npanda_usb_can.o\npanda_usb_publish.o\npanda_state_legacy.o\n"
+    },
+    "remove-spi-cli.json": [
+      {
+        "args": [],
+        "exit": 2
+      },
+      {
+        "args": [
+          "--usb-status"
+        ],
+        "exit": 2
+      },
+      {
+        "args": [
+          "--usb-status",
+          "serial"
+        ],
+        "exit": 2
+      },
+      {
+        "args": [
+          "--usb-status",
+          "",
+          "version"
+        ],
+        "exit": 2
+      },
+      {
+        "args": [
+          "legacy-serial"
+        ],
+        "exit": 2
+      }
+    ],
+    "remove-spi-sanitizers.json": {
+      "command": [
+        "c++",
+        "-Iopendbc_repo",
+        "-Imsgq_repo",
+        "-Iopenpilot/cereal/gen/cpp",
+        "-I.venv/lib/python3.12/site-packages/capnproto/install/include",
+        "-std=c++17",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-g",
+        "-Iopenpilot",
+        "-I.",
+        "-I/home/radxa/comma/sunnypilot/.venv/lib/python3.12/site-packages/libusb/install/include",
+        "-DPANDA_HEALTH_VERSION_HASH=0xca8f9eafU",
+        "-DPANDA_CAN_VERSION_HASH=0x75abf276U",
+        "openpilot/selfdrive/pandad/panda.cc",
+        "openpilot/selfdrive/pandad/panda_usb.cc",
+        "openpilot/selfdrive/pandad/panda_identification.cc",
+        "openpilot/selfdrive/pandad/panda_health.cc",
+        "openpilot/selfdrive/pandad/panda_usb_can.cc",
+        "openpilot/selfdrive/pandad/panda_usb_status.cc",
+        "openpilot/selfdrive/pandad/tests/test_panda_usb.cc",
+        "-o",
+        "chimera/build/remove-spi-usb-sanitized",
+        "openpilot/common/libcommon.a",
+        "openpilot/cereal/libsocketmaster.a",
+        "msgq_repo/libmsgq.a",
+        "-L.venv/lib/python3.12/site-packages/capnproto/install/lib",
+        "-L.venv/lib/python3.12/site-packages/json11/install/lib",
+        "-L.venv/lib/python3.12/site-packages/zeromq/install/lib",
+        "-ljson11",
+        "-lzmq",
+        "-lcapnp",
+        "-lkj",
+        "-lpthread"
+      ],
+      "compile_exit": 0,
+      "compile_output": "",
+      "initial_compile_output": "In file included from openpilot/selfdrive/pandad/panda.h:15,\n                 from openpilot/selfdrive/pandad/panda.cc:1:\n./panda/board/can.h:5:10: fatal error: opendbc/safety/can.h: No such file or directory\n    5 | #include \"opendbc/safety/can.h\"\n      |          ^~~~~~~~~~~~~~~~~~~~~~\ncompilation terminated.\nIn file included from openpilot/selfdrive/pandad/panda.h:15,\n                 from openpilot/selfdrive/pandad/tests/test_panda_usb.cc:11:\n./panda/board/can.h:5:10: fatal error: opendbc/safety/can.h: No such file or directory\n    5 | #include \"opendbc/safety/can.h\"\n      |          ^~~~~~~~~~~~~~~~~~~~~~\ncompilation terminated.\n",
+      "test_exit": 0,
+      "stdout": "33 USB scenario groups passed; no real USB calls\nUSB status session: full samples, failure latching/release, profile rejection and explicit reopen pass; no real USB calls\nopenpilot/selfdrive/pandad/panda.cc: connected to pinned selected over USB\n",
+      "stderr": ""
+    },
+    "remove-spi-short-header-red.json": {
+      "command": [
+        "c++",
+        "-Iopendbc_repo",
+        "-Imsgq_repo",
+        "-Iopenpilot/cereal/gen/cpp",
+        "-I.venv/lib/python3.12/site-packages/capnproto/install/include",
+        "-std=c++17",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-g",
+        "-Iopenpilot",
+        "-I.",
+        "-I/home/radxa/comma/sunnypilot/.venv/lib/python3.12/site-packages/libusb/install/include",
+        "-DPANDA_HEALTH_VERSION_HASH=0xca8f9eafU",
+        "-DPANDA_CAN_VERSION_HASH=0x75abf276U",
+        "openpilot/selfdrive/pandad/panda.cc",
+        "openpilot/selfdrive/pandad/panda_usb.cc",
+        "openpilot/selfdrive/pandad/panda_identification.cc",
+        "openpilot/selfdrive/pandad/panda_health.cc",
+        "openpilot/selfdrive/pandad/panda_usb_can.cc",
+        "openpilot/selfdrive/pandad/panda_usb_status.cc",
+        "openpilot/selfdrive/pandad/tests/test_panda_usb.cc",
+        "-o",
+        "chimera/build/remove-spi-usb-sanitized",
+        "openpilot/common/libcommon.a",
+        "openpilot/cereal/libsocketmaster.a",
+        "msgq_repo/libmsgq.a",
+        "-L.venv/lib/python3.12/site-packages/capnproto/install/lib",
+        "-L.venv/lib/python3.12/site-packages/json11/install/lib",
+        "-L.venv/lib/python3.12/site-packages/zeromq/install/lib",
+        "-ljson11",
+        "-lzmq",
+        "-lcapnp",
+        "-lkj",
+        "-lpthread"
+      ],
+      "compile_exit": 0,
+      "compile_output": "",
+      "initial_compile_output": "In file included from openpilot/selfdrive/pandad/panda.h:15,\n                 from openpilot/selfdrive/pandad/panda.cc:1:\n./panda/board/can.h:5:10: fatal error: opendbc/safety/can.h: No such file or directory\n    5 | #include \"opendbc/safety/can.h\"\n      |          ^~~~~~~~~~~~~~~~~~~~~~\ncompilation terminated.\nIn file included from openpilot/selfdrive/pandad/panda.h:15,\n                 from openpilot/selfdrive/pandad/tests/test_panda_usb.cc:11:\n./panda/board/can.h:5:10: fatal error: opendbc/safety/can.h: No such file or directory\n    5 | #include \"opendbc/safety/can.h\"\n      |          ^~~~~~~~~~~~~~~~~~~~~~\ncompilation terminated.\n",
+      "initial_project_warnings": "openpilot/selfdrive/pandad/panda.cc: In member function \u2018std::optional<health_t> Panda::get_state()\u2019:\nopenpilot/selfdrive/pandad/panda.cc:89:21: error: missing initializer for member \u2018health_t::voltage_pkt\u2019 [-Werror=missing-field-initializers]\n   89 |   health_t health {0};\n      |                     ^\nopenpilot/selfdrive/pandad/panda.cc:89:21: error: missing initializer for member \u2018health_t::current_pkt\u2019 [-Werror=missing-field-initializers]\nopenpilot/selfdrive/pandad/panda.cc:89:21: error: missing initializer for member \u2018health_t::safety_tx_blocked_pkt\u2019 [-Werror=missing-field-initializers]\nopenpilot/selfdrive/pandad/panda.cc:89:21: error: missing initializer for member \u2018health_t::safety_rx_invalid_pkt\u2019 [-Werror=missing-field-initializers]\nopenpilot/selfdrive/pandad/panda.cc:89:21: error: missing initializer for member \u2018health_t::tx_buffer_overflow_pkt\u2019 [-Werror=missing-field-initializers]\nopenpilot/selfdrive/pandad/panda.cc:89:21: error: missing initializer for member \u2018health_t::rx_buffer_overflow_pkt\u2019 [-Werror=missing-field-initializers]\nopenpilot/selfdrive/pandad/panda.cc:89:21: error: missing initializer for member \u2018health_t::faults_pkt\u2019 [-Werror=missing-field-initializers]\nopenpilot/selfdrive/pandad/panda.cc:89:21: error: missing initializer for member \u2018health_t::flags_pkt\u2019 [-Werror=missing-field-initializers]\nopenpilot/selfdrive/pandad/panda.cc:89:21: error: missing initializer for member \u2018health_t::car_harness_status_pkt\u2019 [-Werror=missing-field-initializers]\nopenpilot/selfdrive/pandad/panda.cc:89:21: error: missing initializer for member \u2018health_t::safety_mode_pkt\u2019 [-Werror=missing-field-initializers]\nopenpilot/selfdrive/pandad/panda.cc:89:21: error: missing initializer for member \u2018health_t::safety_param_pkt\u2019 [-Werror=missing-field-initializers]\nopenpilot/selfdrive/pandad/panda.cc:89:21: error: missing initializer for member \u2018health_t::fault_status_pkt\u2019 [-Werror=missing-field-initializers]\nopenpilot/selfdrive/pandad/panda.cc:89:21: error: missing initializer for member \u2018health_t::alternative_experience_pkt\u2019 [-Werror=missing-field-initializers]\nopenpilot/selfdrive/pandad/panda.cc:89:21: error: missing initializer for member \u2018health_t::interrupt_load_pkt\u2019 [-Werror=missing-field-initializers]\nopenpilot/selfdrive/pandad/panda.cc:89:21: error: missing initializer for member \u2018health_t::fan_power\u2019 [-Werror=missing-field-initializers]\nopenpilot/selfdrive/pandad/panda.cc:89:21: error: missing initializer for member \u2018health_t::spi_error_count_pkt\u2019 [-Werror=missing-field-initializers]\nopenpilot/selfdrive/pandad/panda.cc:89:21: error: missing initializer for member \u2018health_t::sbu1_voltage_mV\u2019 [-Werror=missing-field-initializers]\nopenpilot/selfdrive/pandad/panda.cc:89:21: error: missing initializer for member \u2018health_t::sbu2_voltage_mV\u2019 [-Werror=missing-field-initializers]\nopenpilot/selfdrive/pandad/panda.cc:89:21: error: missing initializer for member \u2018health_t::sound_output_level_pkt\u2019 [-Werror=missing-field-initializers]\nopenpilot/selfdrive/pandad/panda.cc:89:21: error: missing initializer for member \u2018health_t::temperature_pkt\u2019 [-Werror=missing-field-initializers]\nopenpilot/selfdrive/pandad/panda.cc:89:21: error: missing initializer for member \u2018health_t::controls_allowed_sp_pkt\u2019 [-Werror=missing-field-initializers]\nopenpilot/selfdrive/pandad/panda.cc: In member function \u2018std::optional<can_health_t> Panda::get_can_state(uint16_t)\u2019:\nopenpilot/selfdrive/pandad/panda.cc:95:29: error: missing initializer for member \u2018can_health_t::bus_off_cnt\u2019 [-Werror=missing-field-initializers]\n   95 |   can_health_t can_health {0};\n      |                             ^\nopenpilot/selfdrive/pandad/panda.cc:95:29: error: missing initializer for member \u2018can_health_t::error_warning\u2019 [-Werror=missing-field-initializers]\nopenpilot/selfdrive/pandad/panda.cc:95:29: error: missing initializer for member \u2018can_health_t::error_passive\u2019 [-Werror=missing-field-initializers]\nopenpilot/selfdrive/pandad/panda.cc:95:29: error: missing initializer for member \u2018can_health_t::last_error\u2019 [-Werror=missing-field-initializers]\nopenpilot/selfdrive/pandad/panda.cc:95:29: error: missing initializer for member \u2018can_health_t::last_stored_error\u2019 [-Werror=missing-field-initializers]\nopenpilot/selfdrive/pandad/panda.cc:95:29: error: missing initializer for member \u2018can_health_t::last_data_error\u2019 [-Werror=missing-field-initializers]\nopenpilot/selfdrive/pandad/panda.cc:95:29: error: missing initializer for member \u2018can_health_t::last_data_stored_error\u2019 [-Werror=missing-field-initializers]\nopenpilot/selfdrive/pandad/panda.cc:95:29: error: missing initializer for member \u2018can_health_t::receive_error_cnt\u2019 [-Werror=missing-field-initializers]\nopenpilot/selfdrive/pandad/panda.cc:95:29: error: missing initializer for member \u2018can_health_t::transmit_error_cnt\u2019 [-Werror=missing-field-initializers]\nopenpilot/selfdrive/pandad/panda.cc:95:29: error: missing initializer for member \u2018can_health_t::total_error_cnt\u2019 [-Werror=missing-field-initializers]\nopenpilot/selfdrive/pandad/panda.cc:95:29: error: missing initializer for member \u2018can_health_t::total_tx_lost_cnt\u2019 [-Werror=missing-field-initializers]\nopenpilot/selfdrive/pandad/panda.cc:95:29: error: missing initializer for member \u2018can_health_t::total_rx_lost_cnt\u2019 [-Werror=missing-field-initializers]\nopenpilot/selfdrive/pandad/panda.cc:95:29: error: missing initializer for member \u2018can_health_t::total_tx_cnt\u2019 [-Werror=missing-field-initializers]\nopenpilot/selfdrive/pandad/panda.cc:95:29: error: missing initializer for member \u2018can_health_t::total_rx_cnt\u2019 [-Werror=missing-field-initializers]\nopenpilot/selfdrive/pandad/panda.cc:95:29: error: missing initializer for member \u2018can_health_t::total_fwd_cnt\u2019 [-Werror=missing-field-initializers]\nopenpilot/selfdrive/pandad/panda.cc:95:29: error: missing initializer for member \u2018can_health_t::total_tx_checksum_error_cnt\u2019 [-Werror=missing-field-initializers]\nopenpilot/selfdrive/pandad/panda.cc:95:29: error: missing initializer for member \u2018can_health_t::can_speed\u2019 [-Werror=missing-field-initializers]\nopenpilot/selfdrive/pandad/panda.cc:95:29: error: missing initializer for member \u2018can_health_t::can_data_speed\u2019 [-Werror=missing-field-initializers]\nopenpilot/selfdrive/pandad/panda.cc:95:29: error: missing initializer for member \u2018can_health_t::canfd_enabled\u2019 [-Werror=missing-field-initializers]\nopenpilot/selfdrive/pandad/panda.cc:95:29: error: missing initializer for member \u2018can_health_t::brs_enabled\u2019 [-Werror=missing-field-initializers]\nopenpilot/selfdrive/pandad/panda.cc:95:29: error: missing initializer for member \u2018can_health_t::canfd_non_iso\u2019 [-Werror=missing-field-initializers]\nopenpilot/selfdrive/pandad/panda.cc:95:29: error: missing initializer for member \u2018can_health_t::irq0_call_rate\u2019 [-Werror=missing-field-initializers]\nopenpilot/selfdrive/pandad/panda.cc:95:29: error: missing initializer for member \u2018can_health_t::irq1_call_rate\u2019 [-Werror=missing-field-initializers]\nopenpilot/selfdrive/pandad/panda.cc:95:29: error: missing initializer for member \u2018can_health_t::irq2_call_rate\u2019 [-Werror=missing-field-initializers]\nopenpilot/selfdrive/pandad/panda.cc:95:29: error: missing initializer for member \u2018can_health_t::can_core_reset_cnt\u2019 [-Werror=missing-field-initializers]\nopenpilot/selfdrive/pandad/panda.cc: In member function \u2018void Panda::pack_can_buffer(const capnp::List<cereal::CanData, capnp::Kind::STRUCT>::Reader&, std::function<void(unsigned char*, long unsigned int)>)\u2019:\nopenpilot/selfdrive/pandad/panda.cc:201:13: error: comparison of integer expressions of different signedness: \u2018int32_t\u2019 {aka \u2018int\u2019} and \u2018unsigned int\u2019 [-Werror=sign-compare]\n  201 |     if (pos >= USB_TX_SOFT_LIMIT) {\nopenpilot/selfdrive/pandad/panda.cc: In member function \u2018bool Panda::unpack_can_buffer(uint8_t*, uint32_t&, std::vector<can_frame>&)\u2019:\nopenpilot/selfdrive/pandad/panda.cc:246:14: error: comparison of integer expressions of different signedness: \u2018int\u2019 and \u2018long unsigned int\u2019 [-Werror=sign-compare]\n  246 |   while (pos <= size - sizeof(can_header)) {\n      |          ~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~\ncc1plus: all warnings being treated as errors\n",
+      "test_exit": 1,
+      "stdout": "",
+      "stderr": "=================================================================\n==4345==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x502000005ff0 at pc 0xaaaac14af1fc bp 0xffffd47115a0 sp 0xffffd4711590\nREAD of size 6 at 0x502000005ff0 thread T0\n    #0 0xaaaac14af1f8 in Panda::unpack_can_buffer(unsigned char*, unsigned int&, std::vector<can_frame, std::allocator<can_frame> >&) openpilot/selfdrive/pandad/panda.cc:248\n    #1 0xaaaac1537afc in test_short_current_can_headers() openpilot/selfdrive/pandad/tests/test_panda_usb.cc:507\n    #2 0xaaaac1537f98 in operator() openpilot/selfdrive/pandad/tests/test_panda_usb.cc:518\n    #3 0xaaaac153827c in run_native_test<main()::<lambda()> > openpilot/common/tests/native_test.h:19\n    #4 0xaaaac15381d0 in main openpilot/selfdrive/pandad/tests/test_panda_usb.cc:513\n    #5 0xffffb3a184c0  (/lib/aarch64-linux-gnu/libc.so.6+0x284c0) (BuildId: 27027b96e5b8c475fc327aa445bea1c71d37b4e2)\n    #6 0xffffb3a18594 in __libc_start_main (/lib/aarch64-linux-gnu/libc.so.6+0x28594) (BuildId: 27027b96e5b8c475fc327aa445bea1c71d37b4e2)\n    #7 0xaaaac14a762c in _start (/home/radxa/comma/sunnypilot/chimera/build/remove-spi-usb-sanitized+0x13762c) (BuildId: 7e9e1ca79ce8c0a3b2e40431b8f64548cd6ec808)\n\n0x502000005ff1 is located 0 bytes after 1-byte region [0x502000005ff0,0x502000005ff1)\nallocated by thread T0 here:\n    #0 0xffffb4688324 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:95\n    #1 0xaaaac14c08c4 in std::__new_allocator<unsigned char>::allocate(unsigned long, void const*) /usr/include/c++/13/bits/new_allocator.h:151\n    #2 0xaaaac14bea80 in std::allocator_traits<std::allocator<unsigned char> >::allocate(std::allocator<unsigned char>&, unsigned long) /usr/include/c++/13/bits/alloc_traits.h:482\n    #3 0xaaaac14bea80 in std::_Vector_base<unsigned char, std::allocator<unsigned char> >::_M_allocate(unsigned long) /usr/include/c++/13/bits/stl_vector.h:381\n    #4 0xaaaac14bc108 in std::_Vector_base<unsigned char, std::allocator<unsigned char> >::_M_create_storage(unsigned long) /usr/include/c++/13/bits/stl_vector.h:398\n    #5 0xaaaac14b8e64 in std::_Vector_base<unsigned char, std::allocator<unsigned char> >::_Vector_base(unsigned long, std::allocator<unsigned char> const&) /usr/include/c++/13/bits/stl_vector.h:335\n    #6 0xaaaac15432cc in std::vector<unsigned char, std::allocator<unsigned char> >::vector(unsigned long, unsigned char const&, std::allocator<unsigned char> const&) /usr/include/c++/13/bits/stl_vector.h:571\n    #7 0xaaaac153795c in test_short_current_can_headers() openpilot/selfdrive/pandad/tests/test_panda_usb.cc:504\n    #8 0xaaaac1537f98 in operator() openpilot/selfdrive/pandad/tests/test_panda_usb.cc:518\n    #9 0xaaaac153827c in run_native_test<main()::<lambda()> > openpilot/common/tests/native_test.h:19\n    #10 0xaaaac15381d0 in main openpilot/selfdrive/pandad/tests/test_panda_usb.cc:513\n    #11 0xffffb3a184c0  (/lib/aarch64-linux-gnu/libc.so.6+0x284c0) (BuildId: 27027b96e5b8c475fc327aa445bea1c71d37b4e2)\n    #12 0xffffb3a18594 in __libc_start_main (/lib/aarch64-linux-gnu/libc.so.6+0x28594) (BuildId: 27027b96e5b8c475fc327aa445bea1c71d37b4e2)\n    #13 0xaaaac14a762c in _start (/home/radxa/comma/sunnypilot/chimera/build/remove-spi-usb-sanitized+0x13762c) (BuildId: 7e9e1ca79ce8c0a3b2e40431b8f64548cd6ec808)\n\nSUMMARY: AddressSanitizer: heap-buffer-overflow openpilot/selfdrive/pandad/panda.cc:248 in Panda::unpack_can_buffer(unsigned char*, unsigned int&, std::vector<can_frame, std::allocator<can_frame> >&)\nShadow bytes around the buggy address:\n  0x502000005d00: fa fa fd fd fa fa fd fa fa fa fd fd fa fa fd fa\n  0x502000005d80: fa fa fd fa fa fa fd fd fa fa fd fa fa fa fd fa\n  0x502000005e00: fa fa fd fa fa fa fd fa fa fa 00 fa fa fa fd fa\n  0x502000005e80: fa fa fd fd fa fa fd fa fa fa fd fd fa fa fd fa\n  0x502000005f00: fa fa fd fa fa fa 00 00 fa fa fd fa fa fa 00 fa\n=>0x502000005f80: fa fa 00 fa fa fa 00 fa fa fa 00 fa fa fa[01]fa\n  0x502000006000: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa\n  0x502000006080: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa\n  0x502000006100: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa\n  0x502000006180: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa\n  0x502000006200: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa\nShadow byte legend (one shadow byte represents 8 application bytes):\n  Addressable:           00\n  Partially addressable: 01 02 03 04 05 06 07 \n  Heap left redzone:       fa\n  Freed heap region:       fd\n  Stack left redzone:      f1\n  Stack mid redzone:       f2\n  Stack right redzone:     f3\n  Stack after return:      f5\n  Stack use after scope:   f8\n  Global redzone:          f9\n  Global init order:       f6\n  Poisoned by user:        f7\n  Container overflow:      fc\n  Array cookie:            ac\n  Intra object redzone:    bb\n  ASan internal:           fe\n  Left alloca redzone:     ca\n  Right alloca redzone:    cb\n==4345==ABORTING\n"
+    },
+    "wrapper_python_42_tests": "test_fault_bit_names_and_unrepresentable_sound_dma (openpilot.selfdrive.pandad.tests.test_legacy_state_sources.TestLegacyStateSources.test_fault_bit_names_and_unrepresentable_sound_dma) ... ok\ntest_frozen_reference_hashes_and_git_blobs (openpilot.selfdrive.pandad.tests.test_legacy_state_sources.TestLegacyStateSources.test_frozen_reference_hashes_and_git_blobs) ... ok\ntest_name_matched_safety_ids_and_conflicts (openpilot.selfdrive.pandad.tests.test_legacy_state_sources.TestLegacyStateSources.test_name_matched_safety_ids_and_conflicts) ... ok\ntest_schema_coverage_requires_explicit_unavailable_fields (openpilot.selfdrive.pandad.tests.test_legacy_state_sources.TestLegacyStateSources.test_schema_coverage_requires_explicit_unavailable_fields) ... ok\ntest_either_ignition_input_on_recognized_board (openpilot.system.hardware.tests.test_panda_state.TestPandaPowerState.test_either_ignition_input_on_recognized_board) ... ok\ntest_empty_updates_clear_ignition_and_retain_shutdown_context (openpilot.system.hardware.tests.test_panda_state.TestPandaPowerState.test_empty_updates_clear_ignition_and_retain_shutdown_context) ... ok\ntest_invalid_event_does_not_read_untrusted_fields (openpilot.system.hardware.tests.test_panda_state.TestPandaPowerState.test_invalid_event_does_not_read_untrusted_fields) ... ok\ntest_invalid_harness_cannot_replace_last_valid_shutdown_context (openpilot.system.hardware.tests.test_panda_state.TestPandaPowerState.test_invalid_harness_cannot_replace_last_valid_shutdown_context) ... ok\ntest_invalid_ignition_cannot_start_or_keep_system_onroad (openpilot.system.hardware.tests.test_panda_state.TestPandaPowerState.test_invalid_ignition_cannot_start_or_keep_system_onroad) ... ok\ntest_primary_harness_is_independent_of_ignition (openpilot.system.hardware.tests.test_panda_state.TestPandaPowerState.test_primary_harness_is_independent_of_ignition) ... ok\ntest_secondary_ignition_and_primary_harness_semantics_preserved (openpilot.system.hardware.tests.test_panda_state.TestPandaPowerState.test_secondary_ignition_and_primary_harness_semantics_preserved) ... ok\ntest_serialized_event_validity_and_recovery (openpilot.system.hardware.tests.test_panda_state.TestPandaPowerState.test_serialized_event_validity_and_recovery) ... ok\ntest_unknown_board_cannot_assert_ignition_or_harness_presence (openpilot.system.hardware.tests.test_panda_state.TestPandaPowerState.test_unknown_board_cannot_assert_ignition_or_harness_presence) ... ok\ntest_unknown_primary_does_not_hide_secondary_ignition (openpilot.system.hardware.tests.test_panda_state.TestPandaPowerState.test_unknown_primary_does_not_hide_secondary_ignition) ... ok\ntest_unknown_primary_retains_last_valid_harness_context (openpilot.system.hardware.tests.test_panda_state.TestPandaPowerState.test_unknown_primary_retains_last_valid_harness_context) ... ok\ntest_valid_primary_disconnect_replaces_previous_harness_context (openpilot.system.hardware.tests.test_panda_state.TestPandaPowerState.test_valid_primary_disconnect_replaces_previous_harness_context) ... ok\ntest_exact_arguments_without_shell_or_historical_defaults (openpilot.selfdrive.pandad.tests.test_usb_startup.UsbStartupTests.test_exact_arguments_without_shell_or_historical_defaults) ... ok\ntest_exec_failure_and_return_never_start_another_backend (openpilot.selfdrive.pandad.tests.test_usb_startup.UsbStartupTests.test_exec_failure_and_return_never_start_another_backend) ... ok\ntest_no_spi_backend_source_class_or_build_target (openpilot.selfdrive.pandad.tests.test_usb_startup.UsbStartupTests.test_no_spi_backend_source_class_or_build_target) ... ok\ntest_requires_both_pins_on_every_platform (openpilot.selfdrive.pandad.tests.test_usb_startup.UsbStartupTests.test_requires_both_pins_on_every_platform) ... ok\ntest_wrapper_cannot_import_legacy_device_or_recovery_clients (openpilot.selfdrive.pandad.tests.test_usb_startup.UsbStartupTests.test_wrapper_cannot_import_legacy_device_or_recovery_clients) ... ok\ntest_wrapper_executes_only_explicit_usb_command (openpilot.selfdrive.pandad.tests.test_usb_startup.UsbStartupTests.test_wrapper_executes_only_explicit_usb_command) ... ok\ntest_wrapper_rejects_missing_pins_without_exec (openpilot.selfdrive.pandad.tests.test_usb_startup.UsbStartupTests.test_wrapper_rejects_missing_pins_without_exec) ... ok\ntest_discovery_pins_serial_ignores_bootstub_and_releases_on_error (openpilot.selfdrive.pandad.tests.test_chimera.TestChimeraReceiver.test_discovery_pins_serial_ignores_bootstub_and_releases_on_error) ... ok\ntest_main_default_monitor_serializes_trace_without_publisher (openpilot.selfdrive.pandad.tests.test_chimera.TestChimeraReceiver.test_main_default_monitor_serializes_trace_without_publisher) ... ok\ntest_main_publishes_only_can_and_ends_session_on_unplug (openpilot.selfdrive.pandad.tests.test_chimera.TestChimeraReceiver.test_main_publishes_only_can_and_ends_session_on_unplug) ... ok\ntest_only_version_health_and_bulk_in_are_used (openpilot.selfdrive.pandad.tests.test_chimera.TestChimeraReceiver.test_only_version_health_and_bulk_in_are_used) ... ok\ntest_shared_vid_pid_does_not_select_interceptor_bench (openpilot.selfdrive.pandad.tests.test_chimera.TestChimeraReceiver.test_shared_vid_pid_does_not_select_interceptor_bench) ... ok\ntest_timeout_preserves_transferred_bytes_and_disconnect_propagates (openpilot.selfdrive.pandad.tests.test_chimera.TestChimeraReceiver.test_timeout_preserves_transferred_bytes_and_disconnect_propagates) ... ok\ntest_usb_to_cereal_to_modern_controller_candidates_without_live_output (openpilot.selfdrive.pandad.tests.test_chimera.TestChimeraReceiver.test_usb_to_cereal_to_modern_controller_candidates_without_live_output) ... ok\ntest_wrong_serial_never_claims_or_reads_control (openpilot.selfdrive.pandad.tests.test_chimera.TestChimeraReceiver.test_wrong_serial_never_claims_or_reads_control) ... ok\ntest_wrong_version_and_health_shape_fail_before_can_read (openpilot.selfdrive.pandad.tests.test_chimera.TestChimeraReceiver.test_wrong_version_and_health_shape_fail_before_can_read) ... ok\ntest_health_is_exact_legacy_layout_and_raw_safety (openpilot.selfdrive.pandad.tests.test_chimera_protocol.TestChimeraProtocol.test_health_is_exact_legacy_layout_and_raw_safety) ... ok\ntest_literal_mailbox_and_historical_board_health_vectors (openpilot.selfdrive.pandad.tests.test_chimera_protocol.TestChimeraProtocol.test_literal_mailbox_and_historical_board_health_vectors) ... ok\ntest_malformed_batch_is_rejected_as_a_whole (openpilot.selfdrive.pandad.tests.test_chimera_protocol.TestChimeraProtocol.test_malformed_batch_is_rejected_as_a_whole) ... ok\ntest_real_cereal_to_carstate_keeps_bus_and_enabled_angle (openpilot.selfdrive.pandad.tests.test_chimera_protocol.TestChimeraProtocol.test_real_cereal_to_carstate_keeps_bus_and_enabled_angle) ... ok\ntest_returned_and_remote_records_cannot_be_vehicle_reception (openpilot.selfdrive.pandad.tests.test_chimera_protocol.TestChimeraProtocol.test_returned_and_remote_records_cannot_be_vehicle_reception) ... ok\ntest_standard_extended_zero_length_and_metadata (openpilot.selfdrive.pandad.tests.test_chimera_protocol.TestChimeraProtocol.test_standard_extended_zero_length_and_metadata) ... ok\ntest_bad_packets_and_restart_do_not_leave_false_live_values (openpilot.selfdrive.modeld.thneed_q8b.test_telemetry.TestTimingTelemetry.test_bad_packets_and_restart_do_not_leave_false_live_values) ... ok\ntest_first_draw_ignores_redraws_and_matches_frame_metadata (openpilot.selfdrive.modeld.thneed_q8b.test_telemetry.TestTimingTelemetry.test_first_draw_ignores_redraws_and_matches_frame_metadata) ... ok\ntest_publisher_counts_actual_inferences_and_diagnostic_failure_is_isolated (openpilot.selfdrive.modeld.thneed_q8b.test_telemetry.TestTimingTelemetry.test_publisher_counts_actual_inferences_and_diagnostic_failure_is_isolated) ... ok\ntest_source_endpoints_sequence_rate_and_staleness (openpilot.selfdrive.modeld.thneed_q8b.test_telemetry.TestTimingTelemetry.test_source_endpoints_sequence_rate_and_staleness) ... ok\n\n----------------------------------------------------------------------\nRan 42 tests in 0.103s\n\nOK\n",
+    "build": "scons: Reading SConscript files ...\nkj/filesystem-disk-unix.c++:1734: warning: PWD environment variable doesn't match current directory; pwd = /home/radxa/comma/sunnypilot\nscons: done reading SConscript files.\nscons: Building targets ...\nprogress: 3.0\nprogress: 6.0\nprogress: 8.9\nprogress: 11.9\nprogress: 14.9\nprogress: 17.9\nprogress: 20.8\nprogress: 23.8\nprogress: 26.8\nprogress: 29.8\nprogress: 32.7\nprogress: 35.7\nprogress: 38.7\nprogress: 41.7\nprogress: 44.6\nprogress: 47.6\nprogress: 50.6\nprogress: 53.6\nprogress: 56.5\nprogress: 59.5\nprogress: 62.5\nprogress: 65.5\nprogress: 68.5\nprogress: 71.4\nprogress: 74.4\nprogress: 77.4\nprogress: 80.4\nscons: `openpilot/selfdrive/pandad/pandad' is up to date.\nprogress: 83.3\nscons: `openpilot/selfdrive/pandad/tests/test_panda_usb' is up to date.\nprogress: 86.3\n  [CXX] openpilot/selfdrive/pandad/tests/test_panda_usb_link.o\n  [CXX] openpilot/selfdrive/pandad/tests/test_panda_identification.o\n  [LINK] openpilot/selfdrive/pandad/tests/test_panda_usb_link\nprune_cache_dir([\"openpilot/selfdrive/pandad/tests/test_panda_usb_link\"], [\"openpilot/selfdrive/pandad/tests/test_panda_usb_link.o\"])\nprogress: 89.3\n  [CXX] openpilot/selfdrive/pandad/tests/test_panda_health.o\n  [LINK] openpilot/selfdrive/pandad/tests/test_panda_health\nprune_cache_dir([\"openpilot/selfdrive/pandad/tests/test_panda_health\"], [\"openpilot/selfdrive/pandad/tests/test_panda_health.o\"])\n  [CXX] openpilot/selfdrive/pandad/tests/test_panda_can_health.o\nprogress: 92.3\n  [LINK] openpilot/selfdrive/pandad/tests/test_panda_identification\nprune_cache_dir([\"openpilot/selfdrive/pandad/tests/test_panda_identification\"], [\"openpilot/selfdrive/pandad/tests/test_panda_identification.o\"])\nscons: `openpilot/selfdrive/pandad/tests/test_panda_comms' is up to date.\nprogress: 95.2\nscons: `openpilot/selfdrive/pandad/tests/test_pandad_canprotocol' is up to date.\n  [LINK] openpilot/selfdrive/pandad/tests/test_panda_usb_can\nprune_cache_dir([\"openpilot/selfdrive/pandad/tests/test_panda_usb_can\"], [\"openpilot/selfdrive/pandad/tests/test_panda_usb_can.o\"])\nprogress: 98.2\n  [CXX] openpilot/selfdrive/pandad/tests/test_panda_usb_publish.o\n  [LINK] openpilot/selfdrive/pandad/tests/test_panda_can_health\nprune_cache_dir([\"openpilot/selfdrive/pandad/tests/test_panda_can_health\"], [\"openpilot/selfdrive/pandad/tests/test_panda_can_health.o\"])\nprogress: 100.0\n  [CXX] openpilot/selfdrive/pandad/tests/test_panda_state_legacy.o\n  [LINK] openpilot/selfdrive/pandad/tests/test_panda_usb_publish\nprune_cache_dir([\"openpilot/selfdrive/pandad/tests/test_panda_usb_publish\"], [\"openpilot/selfdrive/pandad/tests/test_panda_usb_publish.o\"])\n  [LINK] openpilot/selfdrive/pandad/tests/test_panda_state_legacy\nprune_cache_dir([\"openpilot/selfdrive/pandad/tests/test_panda_state_legacy\"], [\"openpilot/selfdrive/pandad/tests/test_panda_state_legacy.o\"])\nscons: done building targets.\n",
+    "final_parser_rebuild": "scons: Reading SConscript files ...\nkj/filesystem-disk-unix.c++:1734: warning: PWD environment variable doesn't match current directory; pwd = /home/radxa/comma/sunnypilot\nscons: done reading SConscript files.\nscons: Building targets ...\nprogress: 3.5\nprogress: 7.0\nprogress: 10.6\nprogress: 14.1\nprogress: 17.6\nprogress: 21.1\nprogress: 24.6\nprogress: 28.2\nprogress: 31.7\nprogress: 35.2\nprogress: 38.7\nprogress: 42.3\nprogress: 45.8\nprogress: 49.3\nprogress: 52.8\nprogress: 56.3\n  [CXX] openpilot/selfdrive/pandad/panda.o\nprogress: 59.9\nprogress: 63.4\nprogress: 66.9\nprogress: 70.4\nprogress: 73.9\nprogress: 77.5\nprogress: 81.0\nprogress: 84.5\nprogress: 88.0\nprogress: 91.5\nprogress: 95.1\nprogress: 98.6\n  [CXX] openpilot/selfdrive/pandad/tests/test_panda_usb.o\n  [AR] openpilot/selfdrive/pandad/libpanda.a\n  [RANLIB] openpilot/selfdrive/pandad/libpanda.a\n  [LINK] openpilot/selfdrive/pandad/pandad\nprune_cache_dir([\"openpilot/selfdrive/pandad/pandad\"], [\"openpilot/selfdrive/pandad/main.o\", \"openpilot/selfdrive/pandad/pandad.o\", \"openpilot/selfdrive/pandad/panda_safety.o\"])\nprogress: 100.0\n  [LINK] openpilot/selfdrive/pandad/tests/test_pandad_canprotocol\nprune_cache_dir([\"openpilot/selfdrive/pandad/tests/test_pandad_canprotocol\"], [\"openpilot/selfdrive/pandad/tests/test_pandad_canprotocol.o\"])\n  [LINK] openpilot/selfdrive/pandad/tests/test_panda_usb\nprune_cache_dir([\"openpilot/selfdrive/pandad/tests/test_panda_usb\"], [\"openpilot/selfdrive/pandad/tests/test_panda_usb.o\"])\nscons: done building targets.\n",
+    "red": "test_exact_arguments_without_shell_or_historical_defaults (openpilot.selfdrive.pandad.tests.test_usb_startup.UsbStartupTests.test_exact_arguments_without_shell_or_historical_defaults) ... ERROR\ntest_exec_failure_and_return_never_start_another_backend (openpilot.selfdrive.pandad.tests.test_usb_startup.UsbStartupTests.test_exec_failure_and_return_never_start_another_backend) ... ok\ntest_no_spi_backend_source_class_or_build_target (openpilot.selfdrive.pandad.tests.test_usb_startup.UsbStartupTests.test_no_spi_backend_source_class_or_build_target) ... FAIL\ntest_requires_both_pins_on_every_platform (openpilot.selfdrive.pandad.tests.test_usb_startup.UsbStartupTests.test_requires_both_pins_on_every_platform) ... \n  test_requires_both_pins_on_every_platform (openpilot.selfdrive.pandad.tests.test_usb_startup.UsbStartupTests.test_requires_both_pins_on_every_platform) (env={}) ... ERROR\n  test_requires_both_pins_on_every_platform (openpilot.selfdrive.pandad.tests.test_usb_startup.UsbStartupTests.test_requires_both_pins_on_every_platform) (env={'PANDAD_USB_SERIAL': 'selected'}) ... ERROR\n  test_requires_both_pins_on_every_platform (openpilot.selfdrive.pandad.tests.test_usb_startup.UsbStartupTests.test_requires_both_pins_on_every_platform) (env={'PANDAD_USB_VERSION': 'version'}) ... ERROR\n  test_requires_both_pins_on_every_platform (openpilot.selfdrive.pandad.tests.test_usb_startup.UsbStartupTests.test_requires_both_pins_on_every_platform) (env={'PANDAD_USB_SERIAL': '', 'PANDAD_USB_VERSION': 'version'}) ... ERROR\ntest_wrapper_cannot_import_legacy_device_or_recovery_clients (openpilot.selfdrive.pandad.tests.test_usb_startup.UsbStartupTests.test_wrapper_cannot_import_legacy_device_or_recovery_clients) ... FAIL\ntest_wrapper_executes_only_explicit_usb_command (openpilot.selfdrive.pandad.tests.test_usb_startup.UsbStartupTests.test_wrapper_executes_only_explicit_usb_command) ... ok\ntest_wrapper_rejects_missing_pins_without_exec (openpilot.selfdrive.pandad.tests.test_usb_startup.UsbStartupTests.test_wrapper_rejects_missing_pins_without_exec) ... ok\n\n======================================================================\nERROR: test_exact_arguments_without_shell_or_historical_defaults (openpilot.selfdrive.pandad.tests.test_usb_startup.UsbStartupTests.test_exact_arguments_without_shell_or_historical_defaults)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/home/radxa/comma/sunnypilot/openpilot/selfdrive/pandad/tests/test_usb_startup.py\", line 24, in test_exact_arguments_without_shell_or_historical_defaults\n    self.assertEqual(usb_status_command(env, expected[0]), expected)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: usb_status_command() missing 1 required positional argument: 'executable'\n\n======================================================================\nERROR: test_requires_both_pins_on_every_platform (openpilot.selfdrive.pandad.tests.test_usb_startup.UsbStartupTests.test_requires_both_pins_on_every_platform) (env={})\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/home/radxa/comma/sunnypilot/openpilot/selfdrive/pandad/tests/test_usb_startup.py\", line 19, in test_requires_both_pins_on_every_platform\n    usb_status_command(env, '/native/pandad')\nTypeError: usb_status_command() missing 1 required positional argument: 'executable'\n\n======================================================================\nERROR: test_requires_both_pins_on_every_platform (openpilot.selfdrive.pandad.tests.test_usb_startup.UsbStartupTests.test_requires_both_pins_on_every_platform) (env={'PANDAD_USB_SERIAL': 'selected'})\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/home/radxa/comma/sunnypilot/openpilot/selfdrive/pandad/tests/test_usb_startup.py\", line 19, in test_requires_both_pins_on_every_platform\n    usb_status_command(env, '/native/pandad')\nTypeError: usb_status_command() missing 1 required positional argument: 'executable'\n\n======================================================================\nERROR: test_requires_both_pins_on_every_platform (openpilot.selfdrive.pandad.tests.test_usb_startup.UsbStartupTests.test_requires_both_pins_on_every_platform) (env={'PANDAD_USB_VERSION': 'version'})\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/home/radxa/comma/sunnypilot/openpilot/selfdrive/pandad/tests/test_usb_startup.py\", line 19, in test_requires_both_pins_on_every_platform\n    usb_status_command(env, '/native/pandad')\nTypeError: usb_status_command() missing 1 required positional argument: 'executable'\n\n======================================================================\nERROR: test_requires_both_pins_on_every_platform (openpilot.selfdrive.pandad.tests.test_usb_startup.UsbStartupTests.test_requires_both_pins_on_every_platform) (env={'PANDAD_USB_SERIAL': '', 'PANDAD_USB_VERSION': 'version'})\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/home/radxa/comma/sunnypilot/openpilot/selfdrive/pandad/tests/test_usb_startup.py\", line 19, in test_requires_both_pins_on_every_platform\n    usb_status_command(env, '/native/pandad')\nTypeError: usb_status_command() missing 1 required positional argument: 'executable'\n\n======================================================================\nFAIL: test_no_spi_backend_source_class_or_build_target (openpilot.selfdrive.pandad.tests.test_usb_startup.UsbStartupTests.test_no_spi_backend_source_class_or_build_target)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/home/radxa/comma/sunnypilot/openpilot/selfdrive/pandad/tests/test_usb_startup.py\", line 68, in test_no_spi_backend_source_class_or_build_target\n    self.assertFalse((root / 'spi.cc').exists())\nAssertionError: True is not false\n\n======================================================================\nFAIL: test_wrapper_cannot_import_legacy_device_or_recovery_clients (openpilot.selfdrive.pandad.tests.test_usb_startup.UsbStartupTests.test_wrapper_cannot_import_legacy_device_or_recovery_clients)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/home/radxa/comma/sunnypilot/openpilot/selfdrive/pandad/tests/test_usb_startup.py\", line 64, in test_wrapper_cannot_import_legacy_device_or_recovery_clients\n    self.assertEqual(imported, {'os', 'openpilot.common.basedir', 'openpilot.selfdrive.pandad.usb_startup'})\nAssertionError: Items in the first set but not the second:\n'usb1'\n'openpilot.common.swaglog'\n'openpilot.common.params'\n'subprocess'\n'panda'\n'signal'\n'time'\n'openpilot.common.hardware'\n'openpilot.common.platform'\n'openpilot.sunnypilot.selfdrive.pandad.rivian_long_flasher'\n\n----------------------------------------------------------------------\nRan 7 tests in 0.211s\n\nFAILED (failures=2, errors=5)\n"
+  },
+  "limits": [
+    "No physical USB, flash/reset/config/CAN TX or new current/legacy admission",
+    "Generic managed helper remains unexposed at executable entry",
+    "Historical firmware statistics named spi are retained data, not an available backend",
+    "Vendor Panda Python/firmware and preserved references outside pandad unchanged",
+    "New metadata test is uncommitted pending next increment",
+    "Interrupted build resumed; vendored libusb/include paths fixed, initial warnings fixed without suppression; sanitizer-reproduced short-header overflow fixed",
+    "Native test results before final parser fix are supplemented by final USB/CAN-protocol rerun and sanitizers",
+    "Updates held; no fetch/update/push"
+  ],
+  "firmware_preserved": {
+    "sources": 23,
+    "raw_sha256": "d5f7a3f9d0299da28fa7c78c662cefd4deb60c5e748b7e553926c77b8e9c2698"
+  }
+}

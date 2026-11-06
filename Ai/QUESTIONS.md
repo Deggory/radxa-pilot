@@ -1,3 +1,31 @@
+## QA-20261106-31 — Remove SPI from pandad; continue metadata checks
+
+**Date:** November6,2026 UTC.
+
+**Owner request (faithful quote):** i already told we have to remove spi ,look into pandad ,Next: field-availability metadata and consumer checks before normal publication. Hardware remains untested.
+
+**Answer, first increment:** Corrected earlier retention: deleted spi.cc,
+PandaSpiHandle, SPI buffers/build/listing; native/Python startup now requires
+explicit USB pins on all platforms, no generic fallback/auto-recovery/flash.
+Current Panda construction uses qualified USB only, performs no reset/config
+and rejects legacy before writes; legacy stays passive. Associated obsolete
+SPI/internal-auto-recovery hardware tests removed with their features, fully
+preserved in Git17f933a8. Replacement fake-USB/startup coverage passes.10native/
+42Python checks and strict ASan/UBSan pass. New short-header test reproduced an
+old heap over-read in the retained CAN parser; bounds fixed and regression passes.
+
+**Evidence/status:** Baseline17f933a82d1139738c8673ed9951f477cf29a1bc;
+student Ai/Evidence/chimera-remove-spi-20261106.json, PANDAD_USB_ONLY.md. Source/
+GNU symbols/archive, fake libusb and actual builds; no physical/REA provider
+claim. No PandaSpiHandle symbol or spi.o member, five invalid CLI exits2. Paused
+build resumed; normal vendored linking/includes restored, warnings corrected with
+zero-init/unsigned positions, no suppressions. Firmware23hashes preserved.
+Metadata/consumer step remains active with its new RED test uncommitted. No
+normal publication, hardware/flash/reset/config/TX/upstream update/push. Earlier
+permission to retain generic SPI is superseded by this explicit correction.
+
+---
+
 ## QA-20261106-30 — Proceed with legacy PandaState mapping
 
 **Date:** November6,2026 UTC.

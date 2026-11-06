@@ -15,6 +15,7 @@ Pinned current/parent targets distinguish stock Panda selection from Chimera
 GPIO/acquisition. DD forwarding/version collision and health43 signedness feed
 future T02/T05/T08 fixtures; no new firmware integration or task completion.
 
+- [x] T08USB Remove pandad SPI backend/source/classes/build/discovery and generic entry; pinned USB on all platforms.
 - [x] S00 Create the in-project home, retain source map/provenance and establish the sequence.
 - [x] T06a Shared native USB/SPI transport interface; existing SPI backend retained, native build and offline ownership/codec checks pass.
 - [x] T02a Pinned read-only native identification and profile selection; exact versions/health lengths and negative fixtures checked offline.

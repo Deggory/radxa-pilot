@@ -36,10 +36,10 @@ bool process_mads_heartbeat(SubMaster *sm) {
   return sm->allAliveAndValid({"selfdriveStateSP"}) && mads.getEnabled();
 }
 
-Panda *connect(std::string serial) {
+Panda *connect(const PandaIdentificationPin &pin) {
   std::unique_ptr<Panda> panda;
   try {
-    panda = std::make_unique<Panda>(serial);
+    panda = std::make_unique<Panda>(pin);
   } catch (std::exception &e) {
     return nullptr;
   }
@@ -441,22 +441,12 @@ void pandad_run(Panda *panda) {
   send_thread.join();
 }
 
-void pandad_main_thread(std::string serial) {
-  if (serial.empty()) {
-    auto serials = Panda::list();
-
-    if (serials.empty()) {
-      LOGW("no pandas found, exiting");
-      return;
-    }
-    serial = serials[0];
-  }
-
-  LOGW("connecting to panda: %s", serial.c_str());
+void pandad_main_thread(const PandaIdentificationPin &pin) {
+  LOGW("connecting to pinned USB panda: %s", pin.serial.c_str());
 
   Panda *panda = nullptr;
   while (!do_exit) {
-    panda = connect(serial);
+    panda = connect(pin);
     if (panda) break;
     util::sleep_for(100);
   }

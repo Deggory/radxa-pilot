@@ -8,6 +8,7 @@
 
 #include "common/tests/native_test.h"
 #include "selfdrive/pandad/panda_usb.h"
+#include "selfdrive/pandad/panda.h"
 #include "selfdrive/pandad/panda_usb_status.h"
 
 // Complete libusb's opaque types for fake C API implementations. This test does
@@ -476,11 +477,45 @@ void test_usb_status() {
   std::cout << "USB status session: full samples, failure latching/release, profile rejection and explicit reopen pass; no real USB calls\n";
 }
 
+void test_current_panda_usb_constructor() {
+  reset();
+  bool rejected = false;
+  try { Panda panda(PIN); } catch (const std::runtime_error &) { rejected = true; }
+  CHECK(rejected && usb.control_out == 0 && usb.contexts == 0);
+  reset();
+  usb.devices[0].hardware = 7;
+  usb.devices[0].versions = {0xaf, 0x9e, 0x8f, 0xca, 0x76, 0xf2, 0xab, 0x75};
+  usb.devices[0].health_size = 49;
+  {
+    Panda panda(PIN);
+    CHECK(panda.hw_type == cereal::PandaState::PandaType::RED_PANDA);
+    CHECK(panda.connected() && panda.comms_healthy() && panda.hw_serial() == PIN.serial);
+    CHECK(usb.control_out == 0 && usb.bulk_calls == 0);  // Opening never resets or configures.
+  }
+  CHECK(usb.contexts == 0 && usb.claims == usb.releases && usb.opens == usb.closes);
+}
+
+void test_short_current_can_headers() {
+  struct Codec : Panda {
+    Codec() : Panda() {}
+    using Panda::unpack_can_buffer;
+  } codec;
+  for (uint32_t length = 0; length < sizeof(can_header); ++length) {
+    std::vector<uint8_t> fragment(std::max<uint32_t>(1, length), 0);
+    auto remaining = length;
+    std::vector<can_frame> frames;
+    CHECK(codec.unpack_can_buffer(fragment.data(), remaining, frames));
+    CHECK(remaining == length && frames.empty());
+  }
+}
+
 int main() {
   return run_native_test([] {
     try {
       test_usb();
       test_usb_status();
+      test_current_panda_usb_constructor();
+      test_short_current_can_headers();
     } catch (...) {
       std::cerr << "USB scenario group " << scenarios << '\n';
       throw;
