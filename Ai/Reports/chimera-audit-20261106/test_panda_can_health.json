@@ -1,0 +1,8 @@
+{
+  "command": [
+    "openpilot/selfdrive/pandad/tests/test_panda_can_health"
+  ],
+  "exit": 0,
+  "stdout": "Legacy F4 CAN-health5: 26 fields/64 bytes, 3 selectors x 64 flag combinations, 1524 invalid booleans, 1024 LEC cases, 65533 invalid selectors and bounded reads pass; no hardware calls\n",
+  "stderr": ""
+}

@@ -1,0 +1,8 @@
+{
+  "command": [
+    "openpilot/selfdrive/pandad/tests/test_panda_usb_can"
+  ],
+  "exit": 0,
+  "stdout": "USB classical RX: 324 records/all split positions, receipt filtering, corruption/bounds/time latching pass\n",
+  "stderr": ""
+}

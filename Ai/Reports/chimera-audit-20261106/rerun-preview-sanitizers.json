@@ -1,0 +1,10 @@
+{
+  "command": [
+    "chimera/build/availability-preview-sanitized"
+  ],
+  "exit": 0,
+  "stdout": "Legacy F4 state preview: full-width/fractional values, all65536 alternative masks, 32fault bits, 256safety/hardware codes and invalid enums/selectors pass; always invalid, no device IO\n",
+  "stderr": "",
+  "binary_sha256": "dc539482bdba8b9eba5ead3150ee1854ea9222649627ff8bba6806f5d86ae434",
+  "qualification": "Rerun existing strict sanitizer binary; prior compile/source recipe retained in availability receipt, production sources unchanged."
+}

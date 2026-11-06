@@ -1,0 +1,15 @@
+{
+  "result": "pass",
+  "firmware_source_hashes": 23,
+  "image_bytes": 7448,
+  "image_sha256": "d5f7a3f9d0299da28fa7c78c662cefd4deb60c5e748b7e553926c77b8e9c2698",
+  "ocelot_dirty_entries": 39,
+  "ocelot_source_hashes": 19,
+  "reference_hashes": 5,
+  "canonical_dbc_sha256": "b4079670b8118fe63c6a7710ca1158afaabfec7df881ef902e43d70d70a36b67",
+  "archive_clean_at": "224cfa645134db91103c55d8188d87e7976b0ba4",
+  "statsd_sha256": "800024e7d4e27fe5a4f4955af2570d9937aceea74847699bfaba39cee4a466ce",
+  "statsd_unchanged_since_last_publication": true,
+  "no_spi_or_preview_in_native_binary": true,
+  "native_binary_sha256": "2721e709e4a8c0970ba09a4d158b57eefbee90ca61b74949d824e8fee08ea91a"
+}

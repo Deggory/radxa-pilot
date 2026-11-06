@@ -1,0 +1,52 @@
+{
+  "date_utc": "2026-11-06T23:14:39.579089+00:00",
+  "audited_implementation_head": "05a33eb1c556fd5d7bf489056ce1782330671e6f",
+  "scope": "Audit/evidence/README/handoff only, no application feature change",
+  "fresh_python_tests": 152,
+  "native_programs": 10,
+  "existing_sanitizer_binaries_rerun": 2,
+  "expected_nonpass_artifacts": {
+    "control_regressions.json": "68 assertions pass, process stuck at metrics teardown and terminated with SIGTERM(-15)",
+    "control-cleanup-diagnosis.json": "bounded61test reproduction times out at StatLogSP shared context term; stack retained"
+  },
+  "passing_control_exit_receipt": "control-clean-exit.json",
+  "checks": {
+    "notebook": {
+      "command": [
+        ".venv/bin/python",
+        "Ai/verify_memory.py",
+        "--workspace",
+        "/home/radxa/comma"
+      ],
+      "exit": 0,
+      "stdout": "{\n  \"result\": \"pass\",\n  \"memory_layout\": \"regular project directory\",\n  \"documents\": 154,\n  \"relative_links\": 572,\n  \"optional_workspace_links\": 246,\n  \"source_repositories\": 8,\n  \"indexed_entries\": 4254\n}\n",
+      "stderr": ""
+    },
+    "ruff": {
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "Ai/Reports/chimera-audit-20261106/run_control_regressions.py"
+      ],
+      "exit": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    },
+    "whitespace": {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  },
+  "qa33_synchronized": true,
+  "links": "pass",
+  "preservation_receipt": "preservation.json",
+  "shutdown_receipt": "pc-shutdown.json",
+  "publication": "Pending commit and normal push; actual remote readback follows in publication receipt",
+  "next": "2026-11-07 T08b2d passive normal-status publication and disconnect/reconnect handling; retain observation-only legacy/no operational admission"
+}

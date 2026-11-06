@@ -1,0 +1,575 @@
+{
+  "baseline_remote": "c1811280466b2eb410db03599e24350003060d0e",
+  "head": "05a33eb1c556fd5d7bf489056ce1782330671e6f",
+  "unpushed_commits": [
+    {
+      "sha": "1de05205b21775d1943351e01b44c1a636882dd8",
+      "subject": "docs(retropilot): record CarrotPilot F4 Panda and USB findings",
+      "latest_validation": {
+        "at": "2026-11-06T13:09:01.935097+00:00",
+        "command": "python3 Ai/verify_memory.py --workspace /home/radxa/comma",
+        "result": "pass",
+        "evidence": "/home/radxa/comma/sunnypilot/Ai/Reports/carrot-wip-panda-20261106/closeout.json"
+      }
+    },
+    {
+      "sha": "141128993d58213f894405b9814f21a9645441b4",
+      "subject": "docs(retropilot): record Chimera evidence locations",
+      "latest_validation": {
+        "at": "2026-11-06T13:18:35.562091+00:00",
+        "command": "python3 Ai/verify_memory.py --workspace /home/radxa/comma",
+        "result": "pass",
+        "evidence": "/home/radxa/comma/Ai/Evidence/chimera-locations-20261106.json"
+      }
+    },
+    {
+      "sha": "91f51ff143ac84c6dab5eb212f751f1f17467306",
+      "subject": "docs(retropilot): distinguish saved Chimera references from missing evidence",
+      "latest_validation": {
+        "at": "2026-11-06T13:24:39.234320+00:00",
+        "command": "python3 Ai/verify_memory.py --workspace /home/radxa/comma",
+        "result": "pass",
+        "evidence": "/home/radxa/comma/sunnypilot/Ai/Evidence/chimera-completeness-validation-20261106.json"
+      }
+    },
+    {
+      "sha": "e5b14da471404c2cb064a53e066fa2438201b6d3",
+      "subject": "docs: retain original Chimera firmware map and correct evidence gaps",
+      "latest_validation": {
+        "at": "2026-11-06T13:32:18.267781+00:00",
+        "command": "python3 Ai/verify_memory.py --workspace /home/radxa/comma",
+        "result": "pass",
+        "evidence": "/home/radxa/comma/sunnypilot/Ai/Evidence/chimera-firmware-map-validation-20261106.json"
+      }
+    },
+    {
+      "sha": "044772ac169069105763c2547484324a372fbead",
+      "subject": "docs: acknowledge missed existing Chimera teacher evidence",
+      "latest_validation": {
+        "at": "2026-11-06T13:53:02.724069+00:00",
+        "command": "python3 Ai/verify_memory.py --workspace /home/radxa/comma",
+        "result": "pass",
+        "evidence": "/home/radxa/comma/Ai/Reports/chimera-teacher-retrieval-20261106.json"
+      }
+    },
+    {
+      "sha": "0834e890fbd8d24da3bafab30427d422bcb98387",
+      "subject": "chore(chimera): create implementation home inside Sunnypilot",
+      "latest_validation": {
+        "at": "2026-11-06T14:00:19.770953+00:00",
+        "command": "folder/reference/link checks and python3 Ai/verify_memory.py --workspace /home/radxa/comma",
+        "result": "pass",
+        "evidence": "/home/radxa/comma/sunnypilot/Ai/Evidence/chimera-folder-20261106.json"
+      }
+    },
+    {
+      "sha": "1120411362fd52b462ddee656061f23b78422b58",
+      "subject": "docs(chimera): explain board layout and minimal build increments",
+      "latest_validation": {
+        "at": "2026-11-06T14:56:24.226648+00:00",
+        "command": "python3 Ai/verify_memory.py --workspace /home/radxa/comma; git diff --check",
+        "result": "pass",
+        "evidence": "/home/radxa/comma/Ai/Reports/chimera-build-explanation-20261106.json"
+      }
+    },
+    {
+      "sha": "538e46a892b33e03b8d056b5fac9b861b1f1d46b",
+      "subject": "refactor(pandad,chimera): share the native Panda transport interface",
+      "latest_validation": {
+        "at": "2026-11-06T15:06:38.703096+00:00",
+        "command": "activated-venv SCons native pandad + tests; native transport/CAN tests; 15 Chimera Python tests; notebook/whitespace",
+        "result": "pass",
+        "evidence": "/home/radxa/comma/sunnypilot/Ai/Evidence/chimera-legacy-transport-20261106.json"
+      }
+    },
+    {
+      "sha": "b76db53c3ea69da38d55bc0056c32c325f0329b3",
+      "subject": "docs(chimera): explain SPI preservation and legacy USB sequence",
+      "latest_validation": {
+        "at": "2026-11-06T15:09:19.592354+00:00",
+        "command": "python3 Ai/verify_memory.py --workspace /home/radxa/comma; git diff --check",
+        "result": "pass",
+        "evidence": "/home/radxa/comma/Ai/Reports/chimera-usb-sequence-explanation-20261106.json"
+      }
+    },
+    {
+      "sha": "96ea6bd7960374bbf4ebcb23e1cad9bc4b81b864",
+      "subject": "feat(pandad,chimera): identify pinned Panda protocols without writes",
+      "latest_validation": {
+        "at": "2026-11-06T15:21:27.777909+00:00",
+        "command": "native pandad/identification/interface/CAN build-tests; ASan-UBSan 443 cases; 15 Chimera Python tests; notebook/links/whitespace",
+        "result": "pass",
+        "evidence": "/home/radxa/comma/sunnypilot/Ai/Evidence/chimera-identification-20261106.json"
+      }
+    },
+    {
+      "sha": "cd62e21d6757662ef16b86418157fd50966e85d7",
+      "subject": "feat(pandad,chimera): add a pinned native USB connection",
+      "latest_validation": {
+        "at": "2026-11-06T15:37:04.894092+00:00",
+        "command": "native build; 33 fake USB groups + ASan/UBSan; vendored real-lib pin-guard link; 443 identification cases; interface/CAN tests; 15 Python tests; notebook/links/whitespace",
+        "result": "pass",
+        "evidence": "/home/radxa/comma/sunnypilot/Ai/Evidence/chimera-usb-20261106.json"
+      }
+    },
+    {
+      "sha": "f8cd9177b9e37bfc656b72aeaa61acf59f0440f5",
+      "subject": "docs(chimera): link host code and clarify pending board firmware",
+      "latest_validation": {
+        "at": "2026-11-06T15:46:54.101958+00:00",
+        "command": "README link/firmware inventory checks; python3 Ai/verify_memory.py --workspace /home/radxa/comma; git diff --check",
+        "result": "pass",
+        "evidence": "/home/radxa/comma/Ai/Reports/chimera-code-locations-20261106.json"
+      }
+    },
+    {
+      "sha": "9fa1f81108d2102830d13c0fc03c22b9db6e73d0",
+      "subject": "docs(chimera): clarify completed setup and pending MCU implementation",
+      "latest_validation": {
+        "at": "2026-11-06T15:48:43.780473+00:00",
+        "command": "python3 Ai/verify_memory.py --workspace /home/radxa/comma; git diff --check",
+        "result": "pass",
+        "evidence": "/home/radxa/comma/Ai/Reports/chimera-readme-sequence-20261106.json"
+      }
+    },
+    {
+      "sha": "0bc14bcfda34a5d087278737fe6293efbfaeac24",
+      "subject": "feat(chimera): add offline F413 bootstrap target",
+      "latest_validation": {
+        "at": "2026-11-06T16:08:10.226299+00:00",
+        "command": "CHIMERA_TOOLCHAIN_PREFIX=/home/radxa/.local/ocelot-build-tools/usr/bin/arm-none-eabi- python3 -m unittest discover -s chimera/firmware/tests -v; python3 chimera/firmware/build.py --toolchain-prefix /home/radxa/.local/ocelot-build-tools/usr/bin/arm-none-eabi-; .venv/bin/ruff check chimera/firmware; python3 Ai/verify_memory.py --workspace /home/radxa/comma; git diff --cached --check",
+        "result": "pass",
+        "evidence": "/home/radxa/comma/sunnypilot/Ai/Evidence/chimera-f413-bootstrap-20261106.json"
+      }
+    },
+    {
+      "sha": "f65ab3639119f9a3e006aa76547d531310e56552",
+      "subject": "feat(chimera): define bootstrap identity and read-only requests",
+      "latest_validation": {
+        "at": "2026-11-06T16:26:00.403410+00:00",
+        "command": "CHIMERA_TOOLCHAIN_PREFIX=/home/radxa/.local/ocelot-build-tools/usr/bin/arm-none-eabi- python3 -m unittest discover -s chimera/firmware/tests -v; python3 chimera/firmware/build.py --toolchain-prefix /home/radxa/.local/ocelot-build-tools/usr/bin/arm-none-eabi-; .venv/bin/ruff check chimera/firmware; python3 Ai/verify_memory.py --workspace /home/radxa/comma; git diff --cached --check",
+        "result": "pass",
+        "evidence": "/home/radxa/comma/sunnypilot/Ai/Evidence/chimera-identity-contract-20261106.json"
+      }
+    },
+    {
+      "sha": "fcdbecdd6f706d21074363b8cca869ce85dace40",
+      "subject": "feat(chimera): add classical CAN codec and bounded stream decoder",
+      "latest_validation": {
+        "at": "2026-11-06T16:39:41.572827+00:00",
+        "command": "CHIMERA_TOOLCHAIN_PREFIX=/home/radxa/.local/ocelot-build-tools/usr/bin/arm-none-eabi- python3 -m unittest discover -s chimera/firmware/tests -v; python3 chimera/firmware/build.py --toolchain-prefix /home/radxa/.local/ocelot-build-tools/usr/bin/arm-none-eabi-; .venv/bin/ruff check chimera/firmware; python3 Ai/verify_memory.py --workspace /home/radxa/comma; git diff --cached --check",
+        "result": "pass",
+        "evidence": "/home/radxa/comma/sunnypilot/Ai/Evidence/chimera-can-codec-20261106.json"
+      }
+    },
+    {
+      "sha": "7d749a4125affa96f260c8059384ff9b823086f6",
+      "subject": "feat(chimera): add detached USB preparation and endpoint zero model",
+      "latest_validation": {
+        "at": "2026-11-06T17:53:37.121954+00:00",
+        "command": "Project cwd: CHIMERA_TOOLCHAIN_PREFIX=/home/radxa/.local/ocelot-build-tools/usr/bin/arm-none-eabi- python3 -m unittest discover -s chimera/firmware/tests -v; python3 chimera/firmware/build.py --toolchain-prefix /home/radxa/.local/ocelot-build-tools/usr/bin/arm-none-eabi-; .venv/bin/ruff check chimera/firmware; python3 Ai/verify_memory.py --workspace /home/radxa/comma; Markdown links and SHA256 readback; git diff --cached --check",
+        "result": "pass",
+        "evidence": "/home/radxa/comma/sunnypilot/Ai/Evidence/chimera-usb-bootstrap-20261106.json"
+      }
+    },
+    {
+      "sha": "6b83b2e632bc95c53ec58fda748ee87d93b50be6",
+      "subject": "docs(chimera): study Ocelot legacy Panda and board-specific inputs",
+      "latest_validation": {
+        "at": "2026-11-06T18:03:34.932456+00:00",
+        "command": "Project cwd: python3 chimera/reference/ocelot-panda-docker-20261106/verify_reference.py; .venv/bin/ruff check chimera/reference/ocelot-panda-docker-20261106/verify_reference.py; python3 Ai/verify_memory.py --workspace /home/radxa/comma; 57 active Markdown links; Ocelot/firmware SHA256 and authored-file staged diff checks (exact original snapshots preserved)",
+        "result": "pass",
+        "evidence": "/home/radxa/comma/sunnypilot/Ai/Evidence/ocelot-panda-docker-20261106.json"
+      }
+    },
+    {
+      "sha": "f75b1e831e4190e7f62eb21f70bf0f7606976015",
+      "subject": "feat(chimera): add polling USB packet driver and ordered MMIO backend",
+      "latest_validation": {
+        "at": "2026-11-06T18:17:49.932056+00:00",
+        "command": "Project cwd: CHIMERA_TOOLCHAIN_PREFIX=/home/radxa/.local/ocelot-build-tools/usr/bin/arm-none-eabi- python3 -m unittest discover -s chimera/firmware/tests -v; python3 chimera/firmware/build.py --toolchain-prefix /home/radxa/.local/ocelot-build-tools/usr/bin/arm-none-eabi-; .venv/bin/ruff check chimera/firmware; python3 Ai/verify_memory.py --workspace /home/radxa/comma; 91 active Markdown links; source/test/reference SHA256 readback; git diff --cached --check",
+        "result": "pass",
+        "evidence": "/home/radxa/comma/sunnypilot/Ai/Evidence/chimera-usb-driver-20261106.json"
+      }
+    },
+    {
+      "sha": "10fbf46341d6acadc768cea296c7e36044416750",
+      "subject": "feat(chimera): define USB startup requirements and read-only boot facts",
+      "latest_validation": {
+        "at": "2026-11-06T18:26:54.219226+00:00",
+        "command": "Project cwd: CHIMERA_TOOLCHAIN_PREFIX=/home/radxa/.local/ocelot-build-tools/usr/bin/arm-none-eabi- python3 -m unittest discover -s chimera/firmware/tests -v; python3 chimera/firmware/build.py --toolchain-prefix /home/radxa/.local/ocelot-build-tools/usr/bin/arm-none-eabi-; .venv/bin/ruff check chimera/firmware; python3 Ai/verify_memory.py --workspace /home/radxa/comma; 102 active Markdown links; code/source/recovery/config archive hash readback; git diff --cached --check",
+        "result": "pass",
+        "evidence": "/home/radxa/comma/sunnypilot/Ai/Evidence/chimera-usb-prerequisites-20261106.json"
+      }
+    },
+    {
+      "sha": "e586191ac39e663727aac2cbd453937477350ef8",
+      "subject": "feat(chimera): compose detached USB startup and service lifecycle",
+      "latest_validation": {
+        "at": "2026-11-06T19:11:09.230099+00:00",
+        "command": "Project cwd: CHIMERA_TOOLCHAIN_PREFIX=/home/radxa/.local/ocelot-build-tools/usr/bin/arm-none-eabi- python3 -m unittest discover -s chimera/firmware/tests -v; python3 chimera/firmware/build.py --toolchain-prefix /home/radxa/.local/ocelot-build-tools/usr/bin/arm-none-eabi-; .venv/bin/ruff check chimera/firmware; python3 Ai/verify_memory.py --workspace /home/radxa/comma; 112 active Markdown links; code/test/reference SHA256 readback; git diff --cached --check",
+        "result": "pass",
+        "evidence": "/home/radxa/comma/sunnypilot/Ai/Evidence/chimera-usb-service-20261106.json"
+      }
+    },
+    {
+      "sha": "9ada248e6ba7160723623fb62ba07e1d6aa67d63",
+      "subject": "Validate Chimera bootstrap discovery and status contract",
+      "latest_validation": {
+        "at": "2026-11-06T19:37:31.608742+00:00",
+        "command": "28-test Chimera firmware/discovery suite; ARM build and deterministic artifact checks; ASan/UBSan C-response interoperability; reserved-field mutation; Ruff; memory verifier; 124 Markdown links; source/preservation hashes; git diff --check",
+        "result": "pass",
+        "evidence": "/home/radxa/comma/sunnypilot/Ai/Evidence/chimera-status-contract-20261106.json"
+      }
+    },
+    {
+      "sha": "c668f6757da3e6a693d9738e99bdc0b5b81b7529",
+      "subject": "feat(chimera): decode pinned legacy F4 Panda health",
+      "latest_validation": {
+        "at": "2026-11-06T19:56:22.192297+00:00",
+        "command": "Native pandad and six host fixtures built; six native executables pass; strict ASan/UBSan health59 fixture; 15 Python receiver tests; profile-guard mutation; SCons AST/context comparison; memory verifier; 138 links; source/artifact/preservation hashes; git diff --check. Generic Ruff F821 on SCons injected names remains baseline tooling limitation, not a pass.",
+        "result": "pass",
+        "evidence": "/home/radxa/comma/sunnypilot/Ai/Evidence/chimera-legacy-health-20261106.json"
+      }
+    },
+    {
+      "sha": "3f0c75e99430f02ca7f3d0d7fa9b6343d9f3be1c",
+      "subject": "docs(chimera): require USB-only Radxa transport",
+      "latest_validation": {
+        "at": "2026-11-06T20:10:07.942089+00:00",
+        "command": "Documentation-only USB scope correction: memory verifier144 docs/482 links; 135 active Markdown links; 9 source/doc hashes; tracked diff Markdown-only and whitespace checks. No runtime tests/build claimed.",
+        "result": "pass",
+        "evidence": "/home/radxa/comma/sunnypilot/Ai/Evidence/chimera-usb-only-20261106.json"
+      }
+    },
+    {
+      "sha": "288479ccaad916286376fac6fc86ad7dd6c69e85",
+      "subject": "docs(chimera): summarize tested foundations and remaining integration",
+      "latest_validation": {
+        "at": "2026-11-06T20:42:27.173731+00:00",
+        "command": "Summary/docs only: memory145 documents/493 relative links; 135 active Markdown links; Markdown-only diff and whitespace checks. Saved runtime receipts reviewed; no new runtime tests or build.",
+        "result": "pass",
+        "evidence": "/home/radxa/comma/sunnypilot/Ai/Sessions/2026-11-06-chimera-progress-summary.md"
+      }
+    },
+    {
+      "sha": "86678975460572b26a03af3354cb0fcc0f7f24c6",
+      "subject": "feat(chimera): decode legacy per-controller CAN health",
+      "latest_validation": {
+        "at": "2026-11-06T21:41:46.501328+00:00",
+        "command": "Native pandad/seven fixtures build and execute; strict ASan/UBSan health59 and CAN-health5; selector-bound mutation; exact source/current/golden layouts; SCons AST; memory146 docs/502 links; 146 active Markdown links; source/artifact/preservation hashes; git diff --check. No hardware/Python/firmware run.",
+        "result": "pass",
+        "evidence": "/home/radxa/comma/sunnypilot/Ai/Evidence/chimera-can-health-20261106.json"
+      }
+    },
+    {
+      "sha": "ca409374b1102233acc6ad99c108c628a4ffba9f",
+      "subject": "feat(chimera): route Radxa startup into pinned USB status sessions",
+      "latest_validation": {
+        "at": "2026-11-06T21:57:47.118604+00:00",
+        "command": "Native pandad/seven fixtures build and execute; 21 Python tests; strict ASan/UBSan real USB/session with fake libusb and no SPI source; failure-close mutation; five invalid native CLI exits and Q8B object no legacy-thread reference; Ruff/SCons AST; memory147 docs/511 links; 162 active links; source/artifact/preservation hashes; git diff --check. No valid hardware session/pin installation.",
+        "result": "pass",
+        "evidence": "/home/radxa/comma/sunnypilot/Ai/Evidence/chimera-usb-startup-20261106.json"
+      }
+    },
+    {
+      "sha": "bc99ae0d917a99b925840c31a11c3cb34ed5f7e0",
+      "subject": "feat(pandad): receive passive legacy USB CAN with isolated diagnostics",
+      "latest_validation": {
+        "at": "2026-11-06T22:10:03.905762+00:00",
+        "command": "Native pandad/9 native programs; 25 Python regressions; parser and fake-USB ASan/UBSan; checksum mutation; invalid CLI, Ruff and memory checks",
+        "result": "pass",
+        "evidence": "/home/radxa/comma/sunnypilot/Ai/Evidence/chimera-usb-receive-20261106.json"
+      }
+    },
+    {
+      "sha": "faf1f8140fab872ee20225813e17e8d724ea8e7a",
+      "subject": "fix(hardwared): reject invalid or empty Panda ignition updates",
+      "latest_validation": {
+        "at": "2026-11-06T22:17:41.459501+00:00",
+        "command": "37 focused Python tests including 12 new ignition tests; 28 power/fan regressions; validity mutation; 7 selected hardwared branch cases; Ruff, compile, preservation and memory checks",
+        "result": "pass",
+        "evidence": "/home/radxa/comma/sunnypilot/Ai/Evidence/chimera-panda-validity-20261106.json"
+      }
+    },
+    {
+      "sha": "47c8cc2cec32df43b4d535e50a56d84c41c207c7",
+      "subject": "feat(pandad): add strict offline legacy PandaState preview mapping",
+      "latest_validation": {
+        "at": "2026-11-06T22:40:15.023533+00:00",
+        "command": "Native pandad and 10 native programs; 41 Python tests; converter ASan/UBSan; validity mutation and native/Python ignition gate; authored whitespace passes, original attributed reference trailing spaces preserved and hash-checked",
+        "result": "pass",
+        "evidence": "/home/radxa/comma/sunnypilot/Ai/Evidence/chimera-legacy-state-20261106.json"
+      }
+    },
+    {
+      "sha": "17f933a82d1139738c8673ed9951f477cf29a1bc",
+      "subject": "docs(chimera): record preserved reference whitespace in validation",
+      "latest_validation": {
+        "at": "2026-11-06T22:40:15.125479+00:00",
+        "command": "Documentation/provenance correction only; source/artifact hashes and authored whitespace pass; implementation tests inherited unchanged from 47c8cc2c: 10 native, 41 Python, converter ASan/UBSan and validity mutation",
+        "result": "pass",
+        "evidence": "/home/radxa/comma/sunnypilot/Ai/Evidence/chimera-legacy-state-20261106.json"
+      }
+    },
+    {
+      "sha": "0fedef7b04226796ba5785bed24496c1320aaea3",
+      "subject": "refactor(pandad): remove SPI and require pinned USB on every entry",
+      "latest_validation": {
+        "at": "2026-11-06T22:55:08.163036+00:00",
+        "command": "10 native/42 Python; strict fake-USB ASan/UBSan including short-header regression; CLI/nm/ar; authored whitespace and memory; no hardware",
+        "result": "pass",
+        "evidence": "/home/radxa/comma/sunnypilot/Ai/Evidence/chimera-remove-spi-20261106.json"
+      }
+    },
+    {
+      "sha": "05a33eb1c556fd5d7bf489056ce1782330671e6f",
+      "subject": "Declare Panda status availability and guard consumers",
+      "latest_validation": {
+        "at": "2026-11-06T23:08:10.013432+00:00",
+        "command": ".venv/bin/python -W error -m unittest openpilot.selfdrive.pandad.tests.test_panda_state_availability openpilot.selfdrive.pandad.tests.test_panda_consumers openpilot.selfdrive.pandad.tests.test_legacy_state_sources openpilot.system.hardware.tests.test_panda_state openpilot.selfdrive.pandad.tests.test_usb_startup openpilot.selfdrive.pandad.tests.test_chimera openpilot.selfdrive.pandad.tests.test_chimera_protocol openpilot.selfdrive.modeld.thneed_q8b.test_telemetry -v",
+        "result": "pass",
+        "evidence": "/home/radxa/comma/sunnypilot/Ai/Evidence/chimera-availability-20261106.json"
+      }
+    }
+  ],
+  "delta_file_count": 234,
+  "existing_file_hashes": {
+    ".gitignore": "8b4a569c3b5f731a7af9f09a8aadaedd8ef9e04fb3258a0262dcc870d28e3b1e",
+    "Ai/DECISIONS.md": "f69d1771d832dd29d4aa0442a03851b08960e40300241343fcbb55d4730b89b1",
+    "Ai/Evidence/chimera-availability-20261106.json": "df0313c12c54d4ffa9b6567de3d7e6b6acd04e0924a77dbbc2ee54c93025b03e",
+    "Ai/Evidence/chimera-can-codec-20261106.json": "fad01808379cae45c28b4d1a73c3d9d6c5099231d7a587e4d4766fa2dc769ab4",
+    "Ai/Evidence/chimera-can-health-20261106.json": "768c09db18cf70ab3f4a4a476f1926b4ff3dd5de5b086aab6e3d20f28eaf709b",
+    "Ai/Evidence/chimera-completeness-20261106.json": "e843b5f8321df551bd8f5a019e9b849801b531263679e052b901a19f950a6106",
+    "Ai/Evidence/chimera-completeness-validation-20261106.json": "da18662c5588a380253700a294d75bc5ba2bc5ac5c9b8e479242f9317703efa2",
+    "Ai/Evidence/chimera-f413-bootstrap-20261106.json": "8f0a552ce4b9daf35f4fa572ea940c49f444f690ba368c223ff7ccf4d8782269",
+    "Ai/Evidence/chimera-firmware-map-validation-20261106.json": "3337f74a0fea1e0cb93ab80ddc165f9762d4997f00226c716231ea3d6d5addfc",
+    "Ai/Evidence/chimera-folder-20261106.json": "3155012f117a5e4f6950224bab61597a0b97aea6c1be7988b872e0fef3c7c098",
+    "Ai/Evidence/chimera-identification-20261106.json": "f875f8b7137d49c62b297369122cd73077cda961925ca725d50a49d8738664a5",
+    "Ai/Evidence/chimera-identity-contract-20261106.json": "e89932fa05ae5c0a5fd9557445736a455a0b7a5e76c347fed5f7a068bcff1cb1",
+    "Ai/Evidence/chimera-legacy-health-20261106.json": "f7208b147c322eaf073e14da454c12da2a9c102df30a6ef5c78475212bfcc1ad",
+    "Ai/Evidence/chimera-legacy-state-20261106.json": "727f6372bef37f97136c61edffe82fd21eb9d0d406cb1879fc73dbfb4de55593",
+    "Ai/Evidence/chimera-legacy-transport-20261106.json": "69bf5e3195680ff5f3c8f5360795266d9fd1d07f7f69f32dc9de1b154f003c5d",
+    "Ai/Evidence/chimera-panda-validity-20261106.json": "791c4c1736a41fc3a908f638e36aa8cc275812ff5e411f0f426ed2de6213689f",
+    "Ai/Evidence/chimera-remove-spi-20261106.json": "f092845b563a8c84808b2f128b074f9d39d00ae3faded881b4fb768a9156c2e3",
+    "Ai/Evidence/chimera-status-contract-20261106.json": "762599dd3c9dbf8b3f5a17c32f4122d47f81877980aedc3abfe7b2b8d7eab13a",
+    "Ai/Evidence/chimera-usb-20261106.json": "98e44a71ce7f63e1722177fb158ab044c48ffaa82c040a14d8b0ad9013c9af5f",
+    "Ai/Evidence/chimera-usb-bootstrap-20261106.json": "784ca8cca0a37b2eaa78f4f6f29de124a673fadea79a1c30cc77a47a240e7587",
+    "Ai/Evidence/chimera-usb-driver-20261106.json": "a8e4a9541ec6fb1f6be3b9f832b126cd8a299a045a92aa219fc6679d3de33a04",
+    "Ai/Evidence/chimera-usb-only-20261106.json": "9b0fc2db21425a134e8bc7a593a691476bb886145e3c9647f1576064947dcd20",
+    "Ai/Evidence/chimera-usb-prerequisites-20261106.json": "1d07f3d3e811076b6d03ccaf893c6867f78ed95dabfd435af19f00390f6d9ebf",
+    "Ai/Evidence/chimera-usb-receive-20261106.json": "565040773b9c283ed36ecda53e972a0aa0a6848755f5f9363a596b22a18d9073",
+    "Ai/Evidence/chimera-usb-service-20261106.json": "bb8fbbdc2c65699f89123b0062e6b4b9ad7229e7794accaea6328fe41e9fe652",
+    "Ai/Evidence/chimera-usb-startup-20261106.json": "498ac713f17accc94fa3291edaccbbfcfc8c15664996c0e5b22ef14bd3d5b6ea",
+    "Ai/Evidence/ocelot-panda-docker-20261106.json": "61b5ac3597cc27b2ac610154cf78f758080cacd631e2814c072d9cad0b7ad293",
+    "Ai/HANDOFF.md": "85d32fbdfb079af83f846933ae5a7d50ae01da56e3b77e6c13052cc71861fddd",
+    "Ai/Knowledge/CHIMERA_DATA_GAPS.md": "5e1c15958257c4377bf3d790ed8d950ec4e8fa6badcf05c611c9d394ddd75dda",
+    "Ai/Knowledge/CHIMERA_FIRMWARE_SOURCE_MAP.md": "ca9f72a85753ffbbc8f86aa3b6a1cf5f38e14f3cb56a27cd2d5ad5d1f9589c21",
+    "Ai/Knowledge/CHIMERA_MODERNIZATION.md": "3b781e5c84e706825264862aa0976b9c3105550abe1259e4067eeb68490e13b8",
+    "Ai/QUESTIONS.md": "26717cadcd566236584dfd8a41e437547d0a8d46497929db87b46b579fca0dc9",
+    "Ai/ROUTER.md": "60303e7e408afdfde9b65e71118ec185c89fb8785348bf8b7178e235e0938c66",
+    "Ai/Reports/carrot-wip-panda-20261106/README.md": "4d82c4fae51b2145a057729ecacaaaf45ae2b1443a560c67ce3823796ac185ab",
+    "Ai/Reports/carrot-wip-panda-20261106/SOURCES.json": "67a4f1cb0415d0d2a87c09b2f6dad9a600e4b15bb32506be6ea2293bad0b90b7",
+    "Ai/Reports/carrot-wip-panda-20261106/closeout.json": "489fedb078883d2e267e14f9cb4b815d416e5f48253a6e5da21d525b4f543169",
+    "Ai/Reports/carrot-wip-panda-20261106/tooling-limits.txt": "646b91861f57807e192d0c6201971da9ee4c3094ed3158e200e48bd1bbd56d9b",
+    "Ai/Reports/carrot-wip-panda-20261106/validation.json": "86f9e017b4ede0e5234dd79c1b46bc6c065e2e32df1eaa3552398b68406360f3",
+    "Ai/STATE.md": "e7d83550f6a7b7d1454d2059bb58be5bb7ff588df625871aec5128f988e45e0c",
+    "Ai/Sessions/2026-11-06-carrot-wip-panda.md": "d89c564a0f58a55a863ba42d0956539e64795dea723e5f18bf54236ec2830e18",
+    "Ai/Sessions/2026-11-06-chimera-availability.md": "c9e7e3ae2439585e224b805860d638fc7670b0f6aa0a59eb536314a2e5f964a8",
+    "Ai/Sessions/2026-11-06-chimera-can-codec.md": "1729f1091df849e26b360d6c23301d51eca5d369b87b0cbe132bcf379ab4d44d",
+    "Ai/Sessions/2026-11-06-chimera-can-health.md": "5a0acabf40adda45d4b9956e349077718f1c78618bf352ab8ead1cd94fbfd706",
+    "Ai/Sessions/2026-11-06-chimera-completeness.md": "ce3c347f4c9dde66185e47e6c5c228ffb60e7ffda2242450f61dead53e11eb7a",
+    "Ai/Sessions/2026-11-06-chimera-f413-bootstrap.md": "9a165932e655be886a293a999d80dadb7372fcf2f440e48931d92ef85f1281d3",
+    "Ai/Sessions/2026-11-06-chimera-firmware-map.md": "19123cd2aa104bd60690a18944b19072e0ba9a6db8dcb55a85ded8c410b590b0",
+    "Ai/Sessions/2026-11-06-chimera-identification.md": "011130a0debf02f6924a047305bd13ddc69fc9eeb94e090c29a0ca33a8f22131",
+    "Ai/Sessions/2026-11-06-chimera-identity-contract.md": "143bf1ce1160962df77e6fa0b9e10cae299968bd9b861675c0c2f538a7a2acb5",
+    "Ai/Sessions/2026-11-06-chimera-in-project.md": "e6e5e23b4c0ee20d2a6957dc5d4c505e9aa84b795f14607d7c984898b01e483d",
+    "Ai/Sessions/2026-11-06-chimera-legacy-health.md": "49b73b16a3c7afdd3251e346fbe90b07abd5ade463b0f3ab3337ea6c3e1aeba2",
+    "Ai/Sessions/2026-11-06-chimera-legacy-state.md": "a939353466284ec26e3b60b04ebb24e425ebe9dd4f1c900593dc9d905f5a5bc5",
+    "Ai/Sessions/2026-11-06-chimera-legacy-transport.md": "9256da9c94e87031a89b4311feb7e6223f76e88f48cdcfd5f1801adad255ac8f",
+    "Ai/Sessions/2026-11-06-chimera-panda-validity.md": "63c56152ab1ebb7b27caaf4353794ba3f3d6d346a57ab905db2d1fac510b3f82",
+    "Ai/Sessions/2026-11-06-chimera-progress-summary.md": "d961165b0030edbdecdc0cdb6b6185d034972344df5e1fec1a932a29de9bae11",
+    "Ai/Sessions/2026-11-06-chimera-remove-spi.md": "e195b0f360f2a7a1418c7aef0aefed328c85f6ebea4d7721b31dd4335707dc10",
+    "Ai/Sessions/2026-11-06-chimera-status-contract.md": "ff16cebd0d51c395fe3280fd03e8522bbbe2a46d67ac647351c9d53ac0d6bb66",
+    "Ai/Sessions/2026-11-06-chimera-usb-bootstrap.md": "fcb5f27d51a75595ce5fd926621a249e74dac4f18f44a3c56e08b04a91bb1641",
+    "Ai/Sessions/2026-11-06-chimera-usb-driver.md": "ad8835df4343894f149ff57032a1339c428d3f7556367be4782f608fa4f1549f",
+    "Ai/Sessions/2026-11-06-chimera-usb-only.md": "154746439fd67803f41e2776630cbb02c72b806307558db4bd9e21ea6925ba5d",
+    "Ai/Sessions/2026-11-06-chimera-usb-prerequisites.md": "7b8c5ba9a5b8ea9998cb0150410414b5502b110561052ea964b89cb1816edeed",
+    "Ai/Sessions/2026-11-06-chimera-usb-receive.md": "300ff81367071cd4fe616acfe338609105bfd8e32b4fc60353458b2e9dd63353",
+    "Ai/Sessions/2026-11-06-chimera-usb-service.md": "d8e75d757ae1c6f1b31fc88859fa2fc43ded52d0b48c8ed159b8d76dd001aa68",
+    "Ai/Sessions/2026-11-06-chimera-usb-startup.md": "ad0c44fb7b16e8a760c0184124b34953ceb282826e5a4944519f00204fe738ea",
+    "Ai/Sessions/2026-11-06-chimera-usb.md": "8a3b37565b561f6202147a8dab864dce7f59c267512ad81f4bd8608966883bc3",
+    "Ai/Sessions/2026-11-06-ocelot-panda-docker.md": "5218cdf887e15a874889724b9f942fd525cea5a7683a0b6de0ac6f7d8fac3d43",
+    "Ai/TASKS.md": "1ec41e874d9f7d2ba8d2be3c5ac450b1be6d8a400f8c1597b32c202a1f6c7fe0",
+    "Ai/VALIDATION.md": "388bce9edcd82fb3fab6f4b74e3e4ec06bc4c8ac72dc0a1de424a59c27dc90dd",
+    "Ai/WORKLOG.md": "546772e5ff5c0c1f70f6a6e6e092ab78c5b44c175dd2bc4d75c0ba072b92643f",
+    "chimera/.gitignore": "02b463a4457dacb2570073ccea788d08d18190f0151ead8dd35d3e6a4608d211",
+    "chimera/AGENTS.md": "a8f56cd2e0b013ce44618fb2a3b30d93f73e938cdf7617660b5c401ad3c312f6",
+    "chimera/README.md": "46ef086281d35504039cf9b27cee121f10ee9ceff05309e74638d3e421240d41",
+    "chimera/docs/BOARD_FLASH_CONTRACT.md": "e2ae16bb077cec319ea744212fc33a1941eb8a4a8131b2e3ebe137ca6b70a2e9",
+    "chimera/docs/BUS_INPUT_CONTRACT.md": "f7beac42166bf448b9ab992fcb28f4725e40b6022009835e856223eeab2694c9",
+    "chimera/docs/CAN_CODEC_CONTRACT.md": "5c9923b601d7547a46b74609bd5fc6cb2c8dede7aa285039d242e73d0deb4f04",
+    "chimera/docs/FIRMWARE_SOURCE_MAP.md": "ca9f72a85753ffbbc8f86aa3b6a1cf5f38e14f3cb56a27cd2d5ad5d1f9589c21",
+    "chimera/docs/LEGACY_F4_CAN_HEALTH.md": "c9ff83b4c583f942be67f725a4044e25399fd3e52c07cb71d4adaa90e737c355",
+    "chimera/docs/LEGACY_F4_HEALTH.md": "9728f5ea31b0ed1db0a94cbe81a41f231310945779f300fcc27cee91a3f0e667",
+    "chimera/docs/LEGACY_F4_PANDA_STATE.md": "ea919aee01f1068ec6d12b7ca64a94bfe3b08edda6b698be5703cad0d39eee26",
+    "chimera/docs/LEGACY_PANDA_SUPPORT.md": "987a8da5bf6ffba7e4a5be836e9d1336ad7c058a2c5432891010f9ab41b2395f",
+    "chimera/docs/OCELOT_PANDA_DOCKER_REVIEW.md": "f3d006ed022d7ca282429d2591a8d968317b62c7282adc7b88c9384be95e0914",
+    "chimera/docs/PANDAD_USB_ONLY.md": "5971805f67f5a5e64aa01d9d7de6e246600cc6855c87301c6fec04527c1c00ff",
+    "chimera/docs/PANDA_IGNITION_VALIDITY.md": "23a28bd7f6c049f162de020134ca1824c99fe068e99b00568a4767e6ee3c72d7",
+    "chimera/docs/PANDA_STATE_AVAILABILITY.md": "0b31884f572aa7536059cd6140d441527130f5cef13c6d645578f01ae812fc86",
+    "chimera/docs/PROGRESS_EXPLAINED.md": "cf85a80a2f3b29a3f02f8fa28368c59650b31a942d675bd010cf2c9b17823439",
+    "chimera/docs/PROVENANCE.md": "03ed678519cc9318a53370ce42442493396120a294a7bd8d96fa2990fbc0b06f",
+    "chimera/docs/STATUS_CAPABILITY_CONTRACT.md": "6632bbc5960454dc5b105538a358d97e2f19658f176c313a11c0959685ec3779",
+    "chimera/docs/USB_BOOTSTRAP.md": "f2396171cf935c4b52578f0b8537825e54d62fe9ef00ea8499c6c1f139f33262",
+    "chimera/docs/USB_IDENTITY_CONTRACT.md": "078657f01df9ab13458632fe0f92ebed965fa0e21d64d8a98d8b2c10b253ea89",
+    "chimera/docs/USB_ONLY_STARTUP.md": "934e7033b010cc0829a640461ae22e3e0ae9b987cad64709dc51a07fdcf6fdaa",
+    "chimera/docs/USB_PACKET_DRIVER.md": "8821015968d82c8382dc841cce06e00d28329532297a9acb2fe3bb8925cc1c73",
+    "chimera/docs/USB_PASSIVE_RECEIVE.md": "f9e3668069ff9f7411ee02a780a53aa256857836d20eeff9f259038607bf7426",
+    "chimera/docs/USB_SERVICE.md": "08d65a174a5a010b5d288c3bbedf367140a530b2f60f10a68c56d39eea2de611",
+    "chimera/docs/USB_STARTUP_REQUIREMENTS.md": "99eeee1e63a00a7d8256b7609d2a72137eb610373e31b735824e9a33bab7456f",
+    "chimera/docs/firmware-source-map-20261106.json": "a6303d3a0e52cff0b3f36cc8d9424e1b0e0dddbd829adeaad82ebe9b6240bf34",
+    "chimera/firmware/README.md": "ac7bec6a0ec02d1df9b4979ce0c6f1efc0e340deeadc89ebff68d6a9eee48b6d",
+    "chimera/firmware/board.c": "dd4902ea9b4e048bc221ccd1548f5eb38277a860a52f89b524f78db734bceb8c",
+    "chimera/firmware/board.h": "0c531a8bb4c7ff205812b44507b639f063085cb48f973f732f3ee5428d12284d",
+    "chimera/firmware/boot_facts.c": "76e9c59af5e387eb7173992a246a9b8be8c676b80a77126dc2492beb6ac2a92b",
+    "chimera/firmware/boot_facts.h": "a5dff207500f43677af7688aedaeacb30e903c6966e533e366b6c0a7814355ae",
+    "chimera/firmware/build.py": "851e3881d7c1746f06256696e996214e20c57469901495fc179d26a3a61bed18",
+    "chimera/firmware/can_codec.c": "e9313054c3a628b5d3828d12ad5eeefe09c38d60b48dbc0e999fa39d59d3f94c",
+    "chimera/firmware/can_codec.h": "87491ae3a73cd7b267815f2532361514cb9899c9c5231045526f54d3d98c554a",
+    "chimera/firmware/main.c": "d3bfbc5d63028d606967b7a3db6b7db9bc973e0fad1b2354113747ea9e146813",
+    "chimera/firmware/protocol.c": "47f8745bc8a774aa0674dd8a500c20769908e30efd9f6109b44e1d958abcceea",
+    "chimera/firmware/protocol.h": "45fb8a73d39bc6a6cf9efeb270af57472012af3af48c82d74180a48d0ee09e95",
+    "chimera/firmware/startup.S": "be9bc724c7e9a395ad12140d5a89d5e334efd074e992e1fad98aacb809cfa688",
+    "chimera/firmware/stm32f413.ld": "7922edf18bd50be11721d465a8e87ec3de84bcaf28819cf6bb1c8df280346ab6",
+    "chimera/firmware/tests/board_test.c": "028977ed9227a8f0db08b2bd15c8786fc7d5415374ccba8b1802aa8bab8f77cb",
+    "chimera/firmware/tests/boot_facts_test.c": "3c60b5949d9a1285815fc9a800e7f1def89483093f297a6a46a4951f254145d3",
+    "chimera/firmware/tests/can_codec_test.c": "c65a6ee40c0bf824b4eaf60e6cedd09053968c9e90a404f0143095fbf26aa0c3",
+    "chimera/firmware/tests/identity_reply_test.c": "e90c27623ea9904eb7ce30fabea19c16dcab4a3cefd0ec5f64c86c7853537981",
+    "chimera/firmware/tests/protocol_test.c": "27d43e7c4ee93d1866693b7211302e1dba6859c39137a07d2b00b471a2ed4301",
+    "chimera/firmware/tests/test_boot_facts.py": "7c33d4c440e4354bab5189d002adfada331417bd9c97e61c90bc695b1ad351c4",
+    "chimera/firmware/tests/test_bootstrap_identity.py": "61cebb3fb7b8caa5072a0c1ea14302464308f4850aa0eee7cca4470db692d511",
+    "chimera/firmware/tests/test_can_codec.py": "4d4cfe8f5d2f84052f2b1c2a15c31710e007906f645827e4de037c60eb4b0cda",
+    "chimera/firmware/tests/test_firmware.py": "53388aeb2f6f718eed357dde87d22ddc053f9a97866ab452770ef8e9e2d150a0",
+    "chimera/firmware/tests/test_usb.py": "30158e14fd5a422df31b6f6fb75a2ef77885df5cad29a3aede2a046a434099a2",
+    "chimera/firmware/tests/test_usb_driver.py": "d8f741812d1e32b55705bb21f03f0bb1e797c746f0ce412e6dcc36a7548aaede",
+    "chimera/firmware/tests/test_usb_service.py": "cc026797893a488a6c5645e17dac183bd669175abbdb8c0ba789e807bc22f8ac",
+    "chimera/firmware/tests/usb_driver_test.c": "1186b576de559399354503900d27a87c0dc5a6c203e5d266b9681e9d1ce6e8f9",
+    "chimera/firmware/tests/usb_service_test.c": "6d05c1bd627ac97999072996ecafa9d677ee97042e472b40c05b8b189bd5f7cb",
+    "chimera/firmware/tests/usb_test.c": "de3f0153e62a48e8c982027c8f781ef17b94e1e28be64adfc6027b4bec5edec3",
+    "chimera/firmware/tests/usb_time_test.c": "800bfd3b29c535d7c67d3bcc06a8af0f1c03a06f0f3020e4d7fdba60d349b762",
+    "chimera/firmware/usb_driver.c": "3307fd44768b6e8861c8ae20b005aa73846ebc7c0b965f546716cc35e9026c91",
+    "chimera/firmware/usb_driver.h": "32b924347849f42192b5e14e051022f39e729880d0069aa2c67af0509673844f",
+    "chimera/firmware/usb_ep0.c": "0e6a5fd2c9f9011b266f873ec630ac11716e995d224dbd98e4a2fae6551f83f3",
+    "chimera/firmware/usb_ep0.h": "d3341a4ded5c63e3edfc7e79c5315d5bd339c6d2447445263fb5a81746a4a6e7",
+    "chimera/firmware/usb_hw.c": "d36b31b542239b5f75181fcaba3886177b1452dc2274ac7312cefd7d0f2c190c",
+    "chimera/firmware/usb_hw.h": "919d83e6a771b5a9e0092414ca9711809300110588396b297171dfe4b6664a5a",
+    "chimera/firmware/usb_mmio.c": "31bcdd3a98057f67e8d74dd8dc65f8289384798be38a421080d39af8d0d3d0b0",
+    "chimera/firmware/usb_service.c": "c44f6854e89e1ff5c102a22ffd2d0fdb7ef70281ce987bc8318e9ac74440e2c6",
+    "chimera/firmware/usb_service.h": "090475efafd7a06f0cd3bcab74d554e5f155ae39dd9d925c7d44aef38da4a2ba",
+    "chimera/firmware/usb_time.c": "8807804da361f61363ea72c5bb251dae117442f549e124d2a719c4c510a45dd1",
+    "chimera/firmware/usb_time.h": "375429d82c6bd180e476192f97e439223a548b2c0de5b69418fead9efc4cc36c",
+    "chimera/reference/carrot-f4-health-v17/LICENSE": "0f8f541ee42cf97353a043105a3108c2d599fe381d4b90ff0e82e328ffc5d8f5",
+    "chimera/reference/carrot-f4-health-v17/README.md": "bcf2e7d991190bb1868b0c731e74aeefc3db93c14bf8839072de5a0acef7dd83",
+    "chimera/reference/carrot-f4-health-v17/SOURCES.json": "5b699e44522a99c147bc9cd9aca2a1c03c620b3d7b20905661e0d73ecdb751c1",
+    "chimera/reference/carrot-f4-health-v17/health.h": "bd8ec57900ea5c717014badc2d281fff8cfeeede0bd985a272bf08f7c1ae1a40",
+    "chimera/reference/carrot-f4-state-v17/README.md": "b72e7058bb935edb2977e5828465a2a8d781af9cdf6db474a45a63e26f7b86bc",
+    "chimera/reference/carrot-f4-state-v17/SOURCES.json": "132138fcd2ecf307a3865e6d51d1e05fa638b2fb840d6432bbabcb28d477bd02",
+    "chimera/reference/carrot-f4-state-v17/opendbc_repo/LICENSE": "6543c4a66b46affddae1b9ae1e1992687f0b7191e74ba3a7235388b9f42a6d13",
+    "chimera/reference/carrot-f4-state-v17/opendbc_repo/opendbc/safety/safety.h": "a8b2b54271dd1fb3fd7f6998b0473a939dce1bfec56a644fc64cd649cfd825aa",
+    "chimera/reference/carrot-f4-state-v17/panda/LICENSE": "0f8f541ee42cf97353a043105a3108c2d599fe381d4b90ff0e82e328ffc5d8f5",
+    "chimera/reference/carrot-f4-state-v17/panda/board/drivers/harness_declarations.h": "8ce01b617abbbe75e350cb06cd4d180adf6f13eaba49e2b7854ebd81ea92649a",
+    "chimera/reference/carrot-f4-state-v17/panda/board/faults_declarations.h": "85b6e85a9d033f433764e5a090294902cfc714edb6ae326a9a5718ee2e4ad276",
+    "chimera/reference/ocelot-panda-docker-20261106/Dockerfile": "ded16c2a35fcc7f2bfb3375798ae535b4a7ef097e72e3a25e5249e66a4461556",
+    "chimera/reference/ocelot-panda-docker-20261106/PROVENANCE.md": "bd188b8ad5aae3f2ec24ec7304fa3f544ef266137034ac31da935831eee9d33c",
+    "chimera/reference/ocelot-panda-docker-20261106/README.md": "d085fafd17e943f8c1c19885a0b7f54706119b5c741f93abe20498e49cfc1f2d",
+    "chimera/reference/ocelot-panda-docker-20261106/build_container.sh": "533de9f0ba90ddf469ad231dc7464fe8d2d94e1d18c0e51b0f99d49ef36a6399",
+    "chimera/reference/ocelot-panda-docker-20261106/build_project.sh": "d9e4a0bdb131e27e08cef7c4b71f21e7d4429773106549562959da7af196fc44",
+    "chimera/reference/ocelot-panda-docker-20261106/firmware/SConscript": "8d19cd0b8a5f556ca503cea00cf501c9202da6cdb932db4870c26fc3cb8ee64d",
+    "chimera/reference/ocelot-panda-docker-20261106/firmware/board.h": "0195a4a37fe2f42de37ba294df786bf03c7c1892c2c68cc7b47f91aa4abd87c7",
+    "chimera/reference/ocelot-panda-docker-20261106/firmware/board_declarations.h": "70dfe8c679450290123292b51c0c10e649d170aeeebdd1c3dd5ad88f057a4774",
+    "chimera/reference/ocelot-panda-docker-20261106/firmware/boards/common.h": "adba0922187b13c5099d72a4b435c54ae3ac8f5f3be6720975686a1c9cffa26a",
+    "chimera/reference/ocelot-panda-docker-20261106/firmware/boards/gateway.h": "26425d76947291d4711f36330b7e700e91d803622b42fe6e79c88f687f29451f",
+    "chimera/reference/ocelot-panda-docker-20261106/firmware/bootstub.c": "abda73f7cc83e0f9cb3d1c2828faebebab88aa7c4fbc2431119cf780b793d5da",
+    "chimera/reference/ocelot-panda-docker-20261106/firmware/config.h": "8d362901ff6b778072442ae6e2b69f084aca1867524bd31b452392be1a4d247c",
+    "chimera/reference/ocelot-panda-docker-20261106/firmware/drivers/adc.h": "02531ce02676e7c1dfb78114c967af561542da7ee2016601cf9f3c8251229827",
+    "chimera/reference/ocelot-panda-docker-20261106/firmware/drivers/can.h": "e06f272057c32af7aeac8ec4a196327d8229ca9d78c68550623c19d4de5d52c6",
+    "chimera/reference/ocelot-panda-docker-20261106/firmware/drivers/clock.h": "27bfd83d179c78166860f9043d2cc4fac0ca77f108b44af699836d4f86250752",
+    "chimera/reference/ocelot-panda-docker-20261106/firmware/drivers/harness.h": "fbaeb8134a637766b98800e87e6f693192b0da081183b20995ddac885c043170",
+    "chimera/reference/ocelot-panda-docker-20261106/firmware/drivers/usb.h": "56d2f4fb11408cdd64b71e93bef2146b1993b186fe57cca308daa4a76676bf90",
+    "chimera/reference/ocelot-panda-docker-20261106/firmware/main_declarations.h": "0d0a74cdcc2e21b66654a99c5d1934fd8f692539741650958e70a5dcf8ea9654",
+    "chimera/reference/ocelot-panda-docker-20261106/firmware/panda/main.c": "2b8c8430c689ceb8a27ea2492d13a3dc9e60150da74e9e6813f73a7e31d561ee",
+    "chimera/reference/ocelot-panda-docker-20261106/firmware/panda/safety.h": "9ecf8d7c88e49efa1c93e715cad45da941ce85296b8b502258d2651e60399147",
+    "chimera/reference/ocelot-panda-docker-20261106/firmware/panda/safety/safety_defaults.h": "93903f16d5edb5da4b8f02105e54f6b590ee07040622f968d1668b5305314e91",
+    "chimera/reference/ocelot-panda-docker-20261106/firmware/power_saving.h": "16eff6d065b791f256f6d03df5796f826939bfaac31197d943fd2e0d4c38ae61",
+    "chimera/reference/ocelot-panda-docker-20261106/firmware/python/__init__.py": "c05d458694213ed9e3daecc75e811bd8d7e7ee1affc78d91b4c5ee49bcb92e1c",
+    "chimera/reference/ocelot-panda-docker-20261106/flash_docker.sh": "c79461fd73c2226224c1a852ab3b92c314fe5085088dec235129c0bd813ba9e1",
+    "chimera/reference/ocelot-panda-docker-20261106/parent-98de83bb/README.md": "f9432bcb9f90ff17521d51a3fd0b4dfcf4eb007fea27f8e84e290d44ce4cbf31",
+    "chimera/reference/ocelot-panda-docker-20261106/parent-98de83bb/firmware/SConscript": "3b581f31f9145368b6c77ad2b80756734e3a3bdc52c7732e9f0a212a66716082",
+    "chimera/reference/ocelot-panda-docker-20261106/parent-98de83bb/firmware/chimera/can.h": "7aca434faa4a1c37d59f5b43f495ed0d213f0e22fc46e4db28c433472b757310",
+    "chimera/reference/ocelot-panda-docker-20261106/parent-98de83bb/firmware/chimera/chimera.h": "76ed71dcff37ef590242244b839cf9205d755b3d66836a092ed4b56961f03f5a",
+    "chimera/reference/ocelot-panda-docker-20261106/parent-98de83bb/firmware/chimera/main.c": "77a6b2b54a6985376e07d9214869b50cdeb76bc2736aa1760284e027d8761cdc",
+    "chimera/reference/ocelot-panda-docker-20261106/parent-98de83bb/firmware/chimera/usb.h": "2996676fb60447a3ea3de70882e19b0a54709a65e2f3d8c935c68e074eb0612d",
+    "chimera/reference/ocelot-panda-docker-20261106/parent-98de83bb/firmware/panda/main.c": "2b8c8430c689ceb8a27ea2492d13a3dc9e60150da74e9e6813f73a7e31d561ee",
+    "chimera/reference/ocelot-panda-docker-20261106/recover.sh": "6ca8f86d565b02f8711d7f81370c2fd920b9ee208f2dc4883482bb575def8be5",
+    "chimera/reference/ocelot-panda-docker-20261106/remote-checks.json": "8166b925ac6177eef4896cc757dff624493de9f2d25c45c9d7b9ffb5de5b71af",
+    "chimera/reference/ocelot-panda-docker-20261106/retrieval.json": "0c1dbd64cfdf2d3b2a51e0b3c3cee887e65ea0188a3b8f874d60061ca4db6263",
+    "chimera/reference/ocelot-panda-docker-20261106/validation.json": "8af009ce0670ebe6267de2ff7ea776b34a29aba165de845a60c4020f0e828e2b",
+    "chimera/reference/ocelot-panda-docker-20261106/verify_reference.py": "8cf2ab80996f873fe7e3472e3a6eb900b16af3d3733f824365db0745fd026da4",
+    "chimera/tasks/plan.md": "9f3084b266d2974bb84735211e2d3cdb6e8bf176be617dbf6bd6faa2230b9f43",
+    "openpilot/cereal/log.capnp": "bfebca1aaac720b6e77b148c06efa95e30036099cf6caee5d70fd7812c975e7a",
+    "openpilot/cereal/services.py": "5fd88b32189a2d94c3829e128e96c6aa3be96a3afd80575e16a67a99676e8b3b",
+    "openpilot/selfdrive/pandad/.gitignore": "08df7affc7ec7eb1bb5dd44e8c8b7d507606d9ac2088419b2b43210c92dae2f2",
+    "openpilot/selfdrive/pandad/SConscript": "f2bdad08c7929591050783f1e8523c2e4dd98484059477e4c7e5599b78ef815e",
+    "openpilot/selfdrive/pandad/chimera_identity.py": "034d9194296b2056b6e1f803570f825cbc28de82987f164fca5cef6bf74aa037",
+    "openpilot/selfdrive/pandad/main.cc": "a17676bd3019d4ca1566214cb1fa4b0b065112280c225507b7838fa2693b00f7",
+    "openpilot/selfdrive/pandad/panda.cc": "f29e343a6e578ba781667e2a8762f0f667ef818f6696077fb417dac05ef8c22f",
+    "openpilot/selfdrive/pandad/panda.h": "f8b5711a1248e88043c8476dd3cebe65a5b30b6f4999ac85e83e23fe360aff54",
+    "openpilot/selfdrive/pandad/panda_comms.h": "636c5926fd1450c6f6c17ee51acfe9d4eea995484cce709a9253663a2c9cf533",
+    "openpilot/selfdrive/pandad/panda_health.cc": "6bbe88be1f4ec585cba14569545fb41b6eb4cc7e45762394eaab1a5068f646fe",
+    "openpilot/selfdrive/pandad/panda_health.h": "acd6eba3a7441be1a1b2c4efbfbf72ba71afaa83fc706562e8bbc803e3467a9e",
+    "openpilot/selfdrive/pandad/panda_identification.cc": "6d67f7e565cef893adbce6008f9ebed7126773f167d77fd7b98b2e14c98e7627",
+    "openpilot/selfdrive/pandad/panda_identification.h": "05367daba1e103738760a4b23a45237c18de04ad30584f1f438698e865447cae",
+    "openpilot/selfdrive/pandad/panda_state.py": "666cafef1c59aebd1195f64185e938f99c2f7e662b6d310331eb5ddbfbacf818",
+    "openpilot/selfdrive/pandad/panda_state_legacy.cc": "e071fe4320e60f51e9016feafacf3f42ccdd553fdd2a4695abf012984c2420b0",
+    "openpilot/selfdrive/pandad/panda_state_legacy.h": "115d7456663a008694dcbd399e639858707766046332265eb6debe95ed9ef85a",
+    "openpilot/selfdrive/pandad/panda_usb.cc": "e71fbc4b98826c0704882971a93f831eb7ec98bc738549b0913b1a69a1232508",
+    "openpilot/selfdrive/pandad/panda_usb.h": "3d31c398d6b41c9ecc581be1a1a6836f6ef53844e09745476dfad473d81c6839",
+    "openpilot/selfdrive/pandad/panda_usb_can.cc": "ab61224480d9df97eac17f0b0215db22e17d2bbbf6f1fac605c7de7b35b26b4e",
+    "openpilot/selfdrive/pandad/panda_usb_can.h": "334c1f794be4b936df21050043a73413ead1150b49293360b42104a0e17da94e",
+    "openpilot/selfdrive/pandad/panda_usb_publish.cc": "53c4c7ce072ab39fdf1cb6b6af97fb757fe2d2899e5587dee560e9ac33ee24e8",
+    "openpilot/selfdrive/pandad/panda_usb_publish.h": "78eb912a5001701d3258aa9a79d786f7c4da904bc0903584cc3439109fe97877",
+    "openpilot/selfdrive/pandad/panda_usb_status.cc": "595df39a7a9b61f909160a549a975e938c55e2d333fd82685b21264537159306",
+    "openpilot/selfdrive/pandad/panda_usb_status.h": "97eb0cfceba2a4d826d68db5b74277086279f2cf6a7235cc19a8491fcb9647e3",
+    "openpilot/selfdrive/pandad/pandad.cc": "84346f905b752754b7d5afd75fd1a25e184bc7c2514994bede4e0fb798b41d76",
+    "openpilot/selfdrive/pandad/pandad.h": "e6c90e984f549871012cba2072eb11b15b3e4e500112492d0e3a7388477db72d",
+    "openpilot/selfdrive/pandad/pandad.py": "68cfe791c40e46b7b0495eb1e447aeaa5fcccf93563255107ce5213138645274",
+    "openpilot/selfdrive/pandad/tests/test_legacy_state_sources.py": "0a684def7dd3e97611d4b7d3616714309849e1de54c03feecf0c30b58d37b9af",
+    "openpilot/selfdrive/pandad/tests/test_panda_can_health.cc": "b119f7400df60e3ba266e3f5ae34c9289a619a9d6ca2571d32eaf48c0f2295b5",
+    "openpilot/selfdrive/pandad/tests/test_panda_comms.cc": "49b9fc9bfdac3478b94452a3139a688a81726c0c1ebc4c7f0251b53abf56073a",
+    "openpilot/selfdrive/pandad/tests/test_panda_consumers.py": "07798c9c50ffd3da972fe569ae2f9b088bc16a769bc23aa8f34f065b61597c6e",
+    "openpilot/selfdrive/pandad/tests/test_panda_health.cc": "5fbc7f5e9fbd938c08798b39a5e03ae73b582ef0e7de7f818f310489db34385e",
+    "openpilot/selfdrive/pandad/tests/test_panda_identification.cc": "d51aa3356918feb1088fad5adb79c966fc9b0c8d88d96669c46a13a5c40dc87a",
+    "openpilot/selfdrive/pandad/tests/test_panda_state_availability.py": "9f7de581d48aa01b6f007f57fbac0f490691fb9f1390eecf0d157cd8d5a2170a",
+    "openpilot/selfdrive/pandad/tests/test_panda_state_legacy.cc": "befcd33faad1d277e43685abf278676f4aa69b86a907a8ec748e60d55a3a0c1d",
+    "openpilot/selfdrive/pandad/tests/test_panda_usb.cc": "4c592bf3d49b850ec1a16db1e67f726a66d178e7c056b3f244fb8fa6afc835fd",
+    "openpilot/selfdrive/pandad/tests/test_panda_usb_can.cc": "0bf97134fad40a7d762f227122ea61196753877e229279953ee7d49904fbfbe8",
+    "openpilot/selfdrive/pandad/tests/test_panda_usb_link.cc": "a89b9c9729d19a916442dbb70c368d104c18bc7ea17a9ffa0c0c8e0c611f616c",
+    "openpilot/selfdrive/pandad/tests/test_panda_usb_publish.cc": "9c1c47a87d1355c26979982e33128b39464b1a6b158f23ab276913e48b284398",
+    "openpilot/selfdrive/pandad/tests/test_usb_startup.py": "6eef17e304eafa793a2e12ac863fc13f56f2d720cba6e4b8ac343ca359c03eb0",
+    "openpilot/selfdrive/pandad/usb_startup.py": "e91990207faa4601b9e645ec53e5dcb02452392f76270372c85eb2a557c9ba6f",
+    "openpilot/selfdrive/selfdrived/selfdrived.py": "14c9ae108baab7d1159029ce742077a2b9da92593857b816b55ed616bd025d5c",
+    "openpilot/selfdrive/ui/ui_state.py": "700c75f6d3498c81b0194b8a6252f4a4ccb22707cf743d313c1089fae50d11bf",
+    "openpilot/sunnypilot/mads/mads.py": "48d741437f47501905e2d877632a5e98e907ccf89a03d69278903db683b28087",
+    "openpilot/sunnypilot/mads/tests/test_mads_steering_mode.py": "a9965622d5f8919b6773a1b6a32e30504867fc06443929bcd30f89bbc92cf4e4",
+    "openpilot/system/hardware/hardwared.py": "c3234a96998ce5824b7550a2a4434140ae93d55218e356c607490d79066bc435",
+    "openpilot/system/hardware/panda_state.py": "9ba84532e6c03f6a2417e6e24fc65a8290c0db0e3c922bfdfcb52ca4f08c3812",
+    "openpilot/system/hardware/tests/test_panda_state.py": "162b0b499064394a2cffeaa56aff2a35b7c2437f37fd375ac219119bd2e95abd",
+    "openpilot/system/manager/manager.py": "39af0629cf790d90b26b17f5bdff2782ff91a85ff190bfbb197ae024b334be68"
+  },
+  "limited_credential_scan": {
+    "patterns": "Private key PEM/OpenSSH, GitHub token and AWS access-key signatures; tracked delta only; not comprehensive secret proof",
+    "hits": []
+  },
+  "validation_missing_or_latest_not_pass": []
+}

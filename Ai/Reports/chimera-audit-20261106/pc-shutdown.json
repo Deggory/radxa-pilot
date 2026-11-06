@@ -1,0 +1,11 @@
+{
+  "owner_requested": "PC shutdown",
+  "target": "pc@10.43.0.216",
+  "trusted_host_alias": "10.42.0.216",
+  "primary_probe_exit": 255,
+  "primary_probe_stderr": "ssh: connect to host 10.43.0.216 port 22: No route to host",
+  "alternate_probe_receipt": "pc-alternate-probes.json",
+  "shutdown_delivered": false,
+  "physical_poweroff_observed": false,
+  "status": "No authenticated PC connection; request not delivered. Owner asked whether off/address changed. Current Radxa not requested for shutdown."
+}

@@ -1,0 +1,8 @@
+{
+  "command": [
+    "openpilot/selfdrive/pandad/tests/test_panda_health"
+  ],
+  "exit": 0,
+  "stdout": "Legacy F4 health59: exact source/golden layout, 256 flag combinations, 2032 invalid booleans, integer/float/unaligned cases and bounded single-read failures passed; no hardware calls\n",
+  "stderr": ""
+}

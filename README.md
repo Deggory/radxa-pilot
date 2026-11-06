@@ -5,7 +5,21 @@
 This branch contains the Radxa Sunnypilot port. Original Sunnypilot source is
 preserved on `master`; project development is on `radxa/q8b`.
 
-| Area | Tested state — November 4, 2026 |
+**Chimera checkpoint — November 6, 2026:** the implementation lives in
+[`chimera/`](chimera/README.md), with Radxa host support in
+`openpilot/selfdrive/pandad/`. Pandad is USB only. Pinned legacy F4 identification,
+passive CAN/isolated diagnostics, exact status decoding and field-availability
+consumer checks are implemented and tested offline. The independent F413
+bootstrap and detached USB components are also tested offline; its main still
+parks with USB/CAN disabled. No new firmware has been flashed or physically
+qualified, and ordinary legacy `pandaStates` publication remains pending.
+
+The [saved audit](Ai/Reports/chimera-audit-20261106/README.md) records completed
+work, source pins, test evidence and remaining gaps. **Resume November 7:**
+passive normal-status publication and disconnect/reconnect handling, keeping
+legacy observations nonoperational. Start with the [handoff](Ai/HANDOFF.md).
+
+| Area | Earlier bench snapshot — November 4, 2026 |
 | --- | --- |
 | Camera / Thneed | Existing Radxa camera/model bench work retained; BeamNG optical alignment remains to be qualified. |
 | BeamNG telemetry | Read-only PC Lua/Waveshare gateway, RP-SIM-1 DBC and Radxa decoder implemented. Real game capture:492/492valid passive car-state samples. |
@@ -13,8 +27,8 @@ preserved on `master`; project development is on `radxa/q8b`.
 | Chimera hardware link | Last genuine117sample serial attempt received0CAN frames. Physical reception remains unresolved. |
 | Control | Receive-only/noOutput. Vehicle tuning, simulator IMU integration, managed bridge and command return are pending. |
 
-Fresh shutdown audit: **165tests passed**. Next session, **November 5: Chimera**.
-See the [audit and next steps](Ai/Reports/beamng-shutdown-audit-20261104/README.md),
+The November 4 shutdown audit recorded **165tests passed**.
+See that [earlier audit](Ai/Reports/beamng-shutdown-audit-20261104/README.md),
 [BeamNG files](openpilot/tools/sim/beamng/README.md), [setup](install.md),
 [GitHub clone guide](docs/GITHUB_RADXA.md) and [current handoff](Ai/HANDOFF.md).
 

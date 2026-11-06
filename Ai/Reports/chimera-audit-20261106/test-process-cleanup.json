@@ -1,0 +1,17 @@
+[
+  {
+    "pid": 5319,
+    "command": ".venv/bin/python -m unittest openpilot.selfdrive.selfdrived.tests.test_state_machine openpilot.sunnypilot.mads.tests.test_mads_state_machine openpilot.sunnypilot.mads.tests.test_mads_steering_mode openpilot.system.hardware.tests.test_power_monitoring openpilot.system.hardware.tests.test_fan_controller -v ",
+    "action": "SIGTERM to own completed-assertion test process stuck in cleanup"
+  },
+  {
+    "pid": 5528,
+    "command": ".venv/bin/python -m unittest openpilot.selfdrive.selfdrived.tests.test_state_machine openpilot.sunnypilot.mads.tests.test_mads_state_machine openpilot.sunnypilot.mads.tests.test_mads_steering_mode openpilot.system.hardware.tests.test_power_monitoring openpilot.system.hardware.tests.test_fan_controller -v ",
+    "action": "SIGTERM to own completed-assertion test process stuck in cleanup"
+  },
+  {
+    "pid": 6715,
+    "command": ".venv/bin/python -W error -m unittest openpilot.selfdrive.selfdrived.tests.test_state_machine openpilot.sunnypilot.mads.tests.test_mads_state_machine openpilot.sunnypilot.mads.tests.test_mads_steering_mode openpilot.system.hardware.tests.test_fan_controller openpilot.system.hardware.tests.test_power_monitoring -v ",
+    "action": "SIGTERM to own completed-assertion test process stuck in cleanup"
+  }
+]

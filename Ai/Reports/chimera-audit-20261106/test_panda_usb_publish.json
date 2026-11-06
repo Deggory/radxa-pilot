@@ -1,0 +1,8 @@
+{
+  "command": [
+    "openpilot/selfdrive/pandad/tests/test_panda_usb_publish"
+  ],
+  "exit": 0,
+  "stdout": "",
+  "stderr": ""
+}

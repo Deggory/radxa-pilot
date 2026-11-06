@@ -1,3 +1,24 @@
+## November6 — Chimera audit saved; November7 restart fixed
+
+Owner requested audit/save/GitHub update/PC shutdown and tomorrow continuation.
+Baseline05a33eb1c;33local commits after remotec1811280, all with latest passing
+validation. Fresh56host+68control assertions+28firmware tests (152total),10native
+and2existing sanitizer binaries pass offline. Audit found bare control runner
+hangs at existing StatLogSP shared-ZMQ destructor; bounded stack saved. After-suite
+closure of both metrics sockets gives clean exit0 without altering assertions or
+production code. Historical68pass reports established assertions, not clean exit;
+production stats teardown remains unresolved.23firmware hashes/7448-byte image,
+Ocelot39dirty entries/19hashes, references/archive/DBC and camera/model/Thneed
+preserved. No board/runtime/upstream integration. Main README now shows Chimera
+state and next step. Publish authorized toDeggory/radxa-pilot:radxa/q8b, normal
+push only; retain defaultmaster. Actual publication/shutdown follows closeout.
+PC10.43.0.216 unreachable;10.42.0.216 times out;192.168.1.104 refusesSSH. No PC
+shutdown delivered; owner asked for current status/address. Current Radxacomma
+not selected for shutdown by this request. Tomorrow November7: T08b2d passive
+normal-status publication and disconnect/reconnect handling; retain invalid/
+observation-only legacy status, no stale reuse/SPI fallback/control admission.
+[Session](../Sessions/2026-11-06-chimera-audit-closeout.md).
+
 ## November6 — PandaState availability and consumers verified
 
 QA32/T08b2c: appended typed statusAvailability metadata; legacy preview remains

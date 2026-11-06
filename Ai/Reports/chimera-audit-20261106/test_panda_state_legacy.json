@@ -1,0 +1,9 @@
+{
+  "command": [
+    "openpilot/selfdrive/pandad/tests/test_panda_state_legacy",
+    "/home/radxa/comma/sunnypilot/Ai/Reports/chimera-audit-20261106/legacy-preview.bin"
+  ],
+  "exit": 0,
+  "stdout": "Legacy F4 state preview: full-width/fractional values, all65536 alternative masks, 32fault bits, 256safety/hardware codes and invalid enums/selectors pass; always invalid, no device IO\n",
+  "stderr": ""
+}

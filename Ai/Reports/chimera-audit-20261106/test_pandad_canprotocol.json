@@ -1,0 +1,8 @@
+{
+  "command": [
+    "openpilot/selfdrive/pandad/tests/test_pandad_canprotocol"
+  ],
+  "exit": 0,
+  "stdout": "",
+  "stderr": ""
+}

@@ -1,0 +1,8 @@
+{
+  "command": [
+    "openpilot/selfdrive/pandad/tests/test_panda_usb"
+  ],
+  "exit": 0,
+  "stdout": "33 USB scenario groups passed; no real USB calls\nUSB status session: full samples, failure latching/release, profile rejection and explicit reopen pass; no real USB calls\n",
+  "stderr": ""
+}

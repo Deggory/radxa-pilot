@@ -1,0 +1,10 @@
+{
+  "command": [
+    "chimera/build/availability-usb-sanitized"
+  ],
+  "exit": 0,
+  "stdout": "33 USB scenario groups passed; no real USB calls\nUSB status session: full samples, failure latching/release, profile rejection and explicit reopen pass; no real USB calls\nopenpilot/selfdrive/pandad/panda.cc: connected to pinned selected over USB\nopenpilot/selfdrive/pandad/panda.cc: connected to pinned selected over USB\nopenpilot/selfdrive/pandad/panda.cc: connected to pinned selected over USB\nopenpilot/selfdrive/pandad/panda.cc: connected to pinned selected over USB\nopenpilot/selfdrive/pandad/panda.cc: connected to pinned selected over USB\nopenpilot/selfdrive/pandad/panda.cc: connected to pinned selected over USB\nopenpilot/selfdrive/pandad/panda.cc: connected to pinned selected over USB\nopenpilot/selfdrive/pandad/panda.cc: connected to pinned selected over USB\nopenpilot/selfdrive/pandad/panda.cc: connected to pinned selected over USB\nopenpilot/selfdrive/pandad/panda.cc: connected to pinned selected over USB\n",
+  "stderr": "",
+  "binary_sha256": "1ab52712cab3658148e4fabe9266443e3469012b9ed823038a90881d5226fc40",
+  "qualification": "Rerun existing strict sanitizer binary; prior compile/source recipe retained in availability receipt, production sources unchanged."
+}

@@ -1,3 +1,35 @@
+## QA-20261106-33 — Audit, save, publish and PC shutdown
+
+**Date:** November6,2026 UTC.
+
+**Owner request (faithful quote):** i knw chimera is not complete ,i want u to audit wat we did so far ,save it,i want u to update the github page if sunnypilt ,shutdown the pc ,we should continue wat we left tom ,Next: passive normal-status publication and disconnect/reconnect handling.
+
+**Answer at audit checkpoint:** Audited33local commits since publishedc1811280;
+all have latest passing validation. Saved component status, source/hash evidence,
+limits and November7next step; updated main GitHub-facing README. Fresh56host+
+68control assertions+28firmware tests (152total),10native checks and existing
+sanitizer reruns pass. The bare control runner hangs during existing metrics
+shared-context destruction; explicit after-suite socket cleanup gives clean exit0,
+with all assertions preserved. Production stats teardown remains unresolved.
+Earlier68pass reports did not establish process exit; correction is saved here.
+
+**Evidence/source pin:** Implementation05a33eb1c556fd5d7bf489056ce1782330671e6f;
+student Ai/Reports/chimera-audit-20261106/README.md, source-audit.json,
+control-cleanup-diagnosis.json, control-clean-exit.json, preservation.json and
+per-suite receipts. Full git refs and test commands retained. Teacher/student
+logs synchronized; no REA provider/delegated/physical integration claim.
+
+**Implemented/proposed/limits:** Audit and restart saved; authorized normal push
+toDeggory/radxa-pilot:radxa/q8b follows and actual readback will be added. No master
+update or upstream integration. Strict PCSSH to10.43.0.216 fails(no route),
+10.42.0.216 times out,192.168.1.104 refuses; no PC shutdown delivered. Owner asked
+whether already off/address changed. Radxacomma is separate. Hardware/new firmware
+untested/unflashed; legacy observations remain nonoperational. Tomorrow T08b2d:
+passive normal-status publication and disconnect/reconnect handling, retaining
+pinned identity/exclusive ownership/no stale reuse/no SPI or control admission.
+
+---
+
 ## QA-20261106-32 — Availability and consumer increment completed
 
 **Date:** November6,2026 UTC.

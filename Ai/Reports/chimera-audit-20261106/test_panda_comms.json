@@ -1,0 +1,8 @@
+{
+  "command": [
+    "openpilot/selfdrive/pandad/tests/test_panda_comms"
+  ],
+  "exit": 0,
+  "stdout": "",
+  "stderr": ""
+}

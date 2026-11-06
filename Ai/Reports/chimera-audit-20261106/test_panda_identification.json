@@ -1,0 +1,8 @@
+{
+  "command": [
+    "openpilot/selfdrive/pandad/tests/test_panda_identification"
+  ],
+  "exit": 0,
+  "stdout": "19 supported fixtures; 421 rejected fixtures; 3 invalid transports; zero writes\n",
+  "stderr": ""
+}
