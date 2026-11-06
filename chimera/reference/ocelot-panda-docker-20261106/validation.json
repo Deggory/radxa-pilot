@@ -1,0 +1,32 @@
+{
+  "result": "pass",
+  "verified_source_files": 31,
+  "targets": {
+    "current": [
+      "panda"
+    ],
+    "parent-98de83bb/": [
+      "pedal",
+      "ibst",
+      "smart_dsu",
+      "eps_gw",
+      "gpio_example",
+      "steer_actuator_demo",
+      "rsg_gateway",
+      "interceptor_core",
+      "actuator_core",
+      "relay_core",
+      "panda",
+      "sascm",
+      "chimera"
+    ]
+  },
+  "health_bytes": 43,
+  "safety_param_offset": 39,
+  "legacy_sender_parser_vectors": 189,
+  "legacy_can_bytes": 3024,
+  "config_preprocessor": "STM32F4 without GATEWAY defines PANDA",
+  "signedness_fixture": "C -1 versus legacy Python 65535",
+  "python": "3.12.3",
+  "scope": "source/host-only; no full firmware build, Docker, USB imports, devices or hardware tests"
+}

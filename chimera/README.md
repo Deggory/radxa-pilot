@@ -36,6 +36,7 @@ BRAKE, both analog inputs, the onboard relay and OBD-C hardware interfaces.
 - [Existing firmware map](docs/FIRMWARE_SOURCE_MAP.md): recovered GPIO/CAN/config/build behavior.
 - [Source provenance](docs/PROVENANCE.md): reference versions and archive locations.
 - [Legacy Panda support](docs/LEGACY_PANDA_SUPPORT.md): shared USB/SPI transport with distinct firmware/status profiles.
+- [Ocelot Panda Docker review](docs/OCELOT_PANDA_DOCKER_REVIEW.md): pinned legacy Panda and parent Chimera source, analog/relay/OBD-C mapping and protocol conflicts.
 
 Completed: folder/source map, T01a source-backed board/flash boundaries, T03a
 minimal offline F413 build, T02b identity/request/source contracts and T04 classical

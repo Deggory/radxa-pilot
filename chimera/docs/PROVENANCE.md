@@ -24,3 +24,13 @@ The full source snapshots, nightly recovery bundle and historical Core Config
 backups remain in the optional Comma workspace `chimera/` archive. Future
 implementation imports must retain source/license/version provenance and bring
 required build inputs into this project rather than depending on that archive.
+
+Owner-supplied follow-up: Deggory/Ocelot_Panda_docker
+`04b56ba0145588d91ff70e1b35b47b7f2652d4db` and parent
+`98de83bb54746d057e6e4bff707eab6cd8c179d9`. A selected31-file source snapshot,
+complete current tree/selected history and reproducible offline checks are
+retained inside this project under
+[reference provenance](../reference/ocelot-panda-docker-20261106/PROVENANCE.md).
+The [review](OCELOT_PANDA_DOCKER_REVIEW.md) distinguishes its older Panda target
+from the parent Chimera acquisition/relay/OBD-C target. No production source
+import, full legacy build, physical compatibility or licensing grant is inferred.

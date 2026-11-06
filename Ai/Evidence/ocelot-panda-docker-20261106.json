@@ -1,0 +1,83 @@
+{
+  "date_utc": "2026-11-06",
+  "scope": "Owner-supplied repository source study; inactive attributed snapshots and pure host checks only",
+  "baseline": "7d749a4125affa96f260c8059384ff9b823086f6",
+  "repository": "https://github.com/Deggory/Ocelot_Panda_docker",
+  "commit": "04b56ba0145588d91ff70e1b35b47b7f2652d4db",
+  "parent": "98de83bb54746d057e6e4bff707eab6cd8c179d9",
+  "retrieval": "GitHub connector metadata/commit/tree/selected files/history/branches/Actions GET only",
+  "source_manifest": "chimera/reference/ocelot-panda-docker-20261106/retrieval.json",
+  "actual_validation": {
+    "result": "pass",
+    "verified_source_files": 31,
+    "targets": {
+      "current": [
+        "panda"
+      ],
+      "parent-98de83bb/": [
+        "pedal",
+        "ibst",
+        "smart_dsu",
+        "eps_gw",
+        "gpio_example",
+        "steer_actuator_demo",
+        "rsg_gateway",
+        "interceptor_core",
+        "actuator_core",
+        "relay_core",
+        "panda",
+        "sascm",
+        "chimera"
+      ]
+    },
+    "health_bytes": 43,
+    "safety_param_offset": 39,
+    "legacy_sender_parser_vectors": 189,
+    "legacy_can_bytes": 3024,
+    "config_preprocessor": "STM32F4 without GATEWAY defines PANDA",
+    "signedness_fixture": "C -1 versus legacy Python 65535",
+    "python": "3.12.3",
+    "scope": "source/host-only; no full firmware build, Docker, USB imports, devices or hardware tests"
+  },
+  "sha256": {
+    "chimera/reference/ocelot-panda-docker-20261106/retrieval.json": "0c1dbd64cfdf2d3b2a51e0b3c3cee887e65ea0188a3b8f874d60061ca4db6263",
+    "chimera/reference/ocelot-panda-docker-20261106/verify_reference.py": "8cf2ab80996f873fe7e3472e3a6eb900b16af3d3733f824365db0745fd026da4",
+    "chimera/reference/ocelot-panda-docker-20261106/validation.json": "8af009ce0670ebe6267de2ff7ea776b34a29aba165de845a60c4020f0e828e2b",
+    "chimera/reference/ocelot-panda-docker-20261106/remote-checks.json": "8166b925ac6177eef4896cc757dff624493de9f2d25c45c9d7b9ffb5de5b71af"
+  },
+  "comparisons": {
+    "parent_current_panda_main": "identical",
+    "parent_chimera_main_vs_ocelot_HEAD_d87892fa": "identical",
+    "active_firmware_sources_vs_QA17": "all retained source SHA256 unchanged",
+    "ocelot_dirty39_all19pinned_sources": "unchanged",
+    "archive": "clean unchanged",
+    "canonical_dbc_sha256": "b4079670b8118fe63c6a7710ca1158afaabfec7df881ef902e43d70d70a36b67"
+  },
+  "ruff": "pass on new verifier",
+  "docs_links": {
+    "result": "pass",
+    "resolved": 57
+  },
+  "limits": [
+    "No Docker/full firmware build or device access",
+    "Source does not prove historic physical board compatibility or addition chronology",
+    "Old mailbox16/health43 Panda profile remains unsupported by current native selector",
+    "No firmware/host/policy/config implementation changed; next T03b2 unchanged",
+    "No SDK/restricted linker/debug private signing key copied; source licensing not resolved for production import",
+    "No REA provider/runtime claim",
+    "No upstream/reference advance, installation, flash, actuation or push"
+  ],
+  "fixture_corrections": [
+    "Macro assertion now allows compiler trailing whitespace without changing macro identity",
+    "Explicit source concatenation satisfies Ruff; no rule suppression"
+  ],
+  "memory_check": {
+    "result": "pass",
+    "documents": 138,
+    "relative_links": 428,
+    "optional_workspace_links": 246,
+    "source_repositories": 8,
+    "indexed_entries": 4254
+  },
+  "diff_gate": "New authored docs/notebooks/verifier/JSON checked; original frozen source whitespace preserved exactly and verified by Git blob/SHA256 rather than normalized."
+}

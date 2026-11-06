@@ -1,3 +1,17 @@
+## QA-20261106-18 — Learn from Ocelot Panda Docker
+
+**Date:** November 6, 2026 UTC.
+
+**Owner request (original):** “[https://github.com/Deggory/Ocelot_Panda_docker](https://github.com/Deggory/Ocelot_Panda_docker) teacher i want you to learn about this ,the same board was ones made to work as old panda ,but he added the anlog input to this ,and relay and obdc ,maybe this can help use agnet skills”
+
+**Answer:** Reviewed the supplied repository and its parent using source-driven/documentation skills. It helps: the parent contains both a real older Panda application and the separate Chimera application with PC2/PC3 analog inputs, PA3 ignition, PA4 speed, PA5 crank, PA6 brake, PB0 relay, PA2 OBD-C request and PB1 OBD-C ignition output. Parent Chimera main.c matches our committed Ocelot source exactly. Current main04b56ba0 removed the Chimera application; its panda target removes GATEWAY and uses stock Panda board detection. Thus we can reuse evidence about legacy USB/policy architecture while keeping our explicit Chimera board support. The Panda application uses mailbox16/health43 and actual safety-hook selection; DD changes forwarding rather than reading modern protocol versions. The parent PB0 loop follows ignition with request gating commented out, so heartbeat-controlled actuator cutoff is not established. OBD-C is a source-level accessory request/ignition interface; physical load paths remain unknown.
+
+**Evidence/source pins:** Deggory/Ocelot_Panda_docker04b56ba0145588d91ff70e1b35b47b7f2652d4db and parent98de83bb54746d057e6e4bff707eab6cd8c179d9, retrieved via GitHub connector.31exact original selected files/tree/history/Git blob/SHA256 receipts in sunnypilot/chimera/reference/ocelot-panda-docker-20261106/. Review chimera/docs/OCELOT_PANDA_DOCKER_REVIEW.md and session2026-11-06-ocelot-panda-docker.md. Offline source verifier passes189sender/parser vectors, both target/flag tables, config preprocessing, compiled health43/signed-field offset39 and C-versus-Python signedness fixture. Current application baseline7d749a412; Ocelotd87892fa plus original dirty files preserved. No REA provider/runtime analysis claimed.
+
+**Implemented versus proposed/limits:** Research, retained attributed sources, reproducible offline verifier and both notebook updates only. No active MCU/host/safety/config implementation changed or task marked newly complete. No proof of the owner's historic physical board operation or exact hardware-addition chronology, no full Docker/legacy firmware build, CI runs or physical test. New code remains our offline USB foundation; next T03b2 unchanged. Stock ADC supply scaling/harness relay/EON-only heartbeat fallback and forwarding bypass must not silently replace Chimera behavior. Core Config/acquisition/relay/OBD-C and modern profile admission still require implementation/qualification. Canonical DBC/Ocelot/archive unchanged; no hardware/flash/actuation/install/upstream update/push. Earlier unanswered entries remain preserved. “Learn” here means durable project notebooks and pinned evidence, not background model training.
+
+---
+
 ## QA-20261106-17 — Proceed with USB clock and endpoint zero
 
 **Date:** November 6, 2026 UTC.

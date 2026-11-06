@@ -6,6 +6,13 @@ the reviewed CarrotPilot source: white, grey, black, UNO and DOS. Their hardware
 generation does not determine the installed USB protocol. Other old firmware
 generations require their own pinned contract before selection.
 
+November6 source follow-up: [Ocelot Panda Docker](OCELOT_PANDA_DOCKER_REVIEW.md)
+04b56ba0 retains an older mailbox16/health43 Panda application. Its DD request
+changes CAN forwarding rather than returning versions; its target selects stock
+Panda board detection, not Chimera acquisition. The parent98de83bb retains the
+separate Chimera target. This is an additional reference profile, not admitted
+by the current selector or interchangeable with Carrot F4's health59 contract.
+
 ## What the SPI and USB paths mean
 
 SPI is a direct hardware connection used by integrated Panda hardware. The

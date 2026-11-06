@@ -1,3 +1,14 @@
+## November 6 — Owner-supplied Ocelot Panda Docker source reviewed
+
+QA-20261106-18: pinned Deggory/Ocelot_Panda_docker main04b56ba0 and parent98de83bb.
+Current panda target removes GATEWAY/uses stock Panda detection; parent retains
+separate Chimera inputs/outputs. Parent Chimera main matches Ocelot committed
+source.31exact source files saved;189pure sender/parser vectors, health43/offset39,
+flag/preprocessor and signedness checks pass. DD means forwarding in this older
+Panda, not versions; stock harness relay differs from PB0. See [session](../Sessions/2026-11-06-ocelot-panda-docker.md).
+Research only; no runtime/board code changed, no Docker/build/device/flash/CAN/
+update/push. Next remains T03b2; analog/Core Config/relay/OBD-C qualification open.
+
 ## November 6 — Detached USB foundation implemented offline
 
 QA-20261106-17: T03b1 adds USB48 clock/detached core preparation and a pure EP0
