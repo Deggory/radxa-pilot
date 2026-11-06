@@ -1,3 +1,19 @@
+## QA-20261106-08 — Build Sunnypilot to support legacy Panda alongside Chimera
+
+**Date:** November 6, 2026 UTC.
+
+**Owner request (original):** build in a way our sunnypilot supoort the legency panda
+
+**Answer:** Made legacy Panda support an explicit host design requirement alongside Chimera. Initial legacy target is the reviewed Carrot F4 hardware family (white/grey/black/UNO/DOS), with firmware-specific protocol profiles rather than assuming every old Panda uses one layout. Current native pandad is SPI-only; current status49/hash versions, Carrot status59/numeric17/4/5 and original Chimera mailbox16/status43 are distinct. First implemented T06a: a shared native PandaCommsHandle interface, current PandaSpiHandle implements it, and Panda owns the interface. This allows a later USB backend without tying host logic to SPI. Current constructor/listing, SPI wire implementation, buffer limits, firmware updater and safety behavior are unchanged. A compatibility matrix and remaining USB/status/discovery/lifecycle slices are saved in chimera/docs/LEGACY_PANDA_SUPPORT.md.
+
+**Actual verification:** Native interface test first failed because the shared type did not exist, then passed after implementation. ARM64 SCons build of pandad and both native tests passed; native interface and CAN codec tests passed; 15 existing Chimera Python tests passed. Initial build attempts used an unsupported --extras flag and then missed capnpc on PATH; reading the project options and activating the existing venv resolved those invocation errors. No tool installation, compiler suppression or product workaround. No daemon/device was opened by these tests.
+
+**Evidence/source pins:** Baseline Sunnypilot1120411362fd52b462ddee656061f23b78422b58, Panda8a16e089/opendbc150f9371; Carrot source69a2d3be provides reference transport structure/F4 contracts; Ocelotd87892fa dirty source remains unchanged. New native changes: pandad/panda_comms.h, panda.h, SConscript, .gitignore and tests/test_panda_comms.cc. Existing reports and explicit compatibility doc retain the source distinctions. Validation receipt Ai/Evidence/chimera-legacy-transport-20261106.json.
+
+**Implemented versus proposed/limits:** T06a shared host boundary completed; full T06 stays partial. No USB backend, legacy59-byte decoder, automatic profile selection or managed legacy support is implemented yet. Unknown/other old firmware is not declared compatible. T01/T02/T03 board/flash/contracts/build work remains pending; next freeze read-only identity/protocol contracts and implement bounded USB transport before managed external selection. No firmware/DBC edit, flash/config/CAN/GPIO/relay action, upstream update or push. This is an incremental support foundation, not a live legacy-Panda or vehicle qualification.
+
+---
+
 ## QA-20261106-07 — What do board/flash layout and minimal F413 build mean?
 
 **Date:** November 6, 2026 UTC.

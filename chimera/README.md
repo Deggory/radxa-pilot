@@ -12,10 +12,15 @@ BRAKE, both analog inputs, the onboard relay and OBD-C hardware interfaces.
 - [Roadmap](tasks/plan.md): one verified increment at a time.
 - [Existing firmware map](docs/FIRMWARE_SOURCE_MAP.md): recovered GPIO/CAN/config/build behavior.
 - [Source provenance](docs/PROVENANCE.md): reference versions and archive locations.
+- [Legacy Panda support](docs/LEGACY_PANDA_SUPPORT.md): shared USB/SPI transport with distinct firmware/status profiles.
 
 Completed: folder structure, source map and implementation sequence. There is no
 new firmware target or compiled image in this folder yet. Next: T01 board/flash
 layout, followed by T02 USB identity and bus/source contracts.
+
+Legacy F4 Panda support is now an explicit host requirement alongside Chimera.
+The first host increment adds a shared transport interface with the existing
+SPI backend; USB, legacy status adaptation and managed selection remain pending.
 
 The workspace-level `../../chimera/` remains the original evidence/recovery
 archive. It is optional development evidence, not a runtime dependency. Required

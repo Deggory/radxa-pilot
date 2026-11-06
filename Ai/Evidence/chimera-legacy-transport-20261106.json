@@ -1,0 +1,62 @@
+{
+  "date_utc": "2026-11-06T15:06:24.968206+00:00",
+  "baseline": "1120411362fd52b462ddee656061f23b78422b58",
+  "scope": "T06a shared host transport only; USB/backend/status/lifecycle pending. No device or daemon run.",
+  "tdd_red": {
+    "command": "c++ -std=c++17 -Wall -Wextra -Werror -Iopenpilot -I. openpilot/selfdrive/pandad/tests/test_panda_comms.cc -o /tmp/chimera-test-panda-comms-red",
+    "exit_code": 1,
+    "expected_failure": "PandaCommsHandle not declared before implementation"
+  },
+  "standalone_green": {
+    "strict_compile_exit_code": 0,
+    "test_exit_code": 0
+  },
+  "native_build": {
+    "command": "source .venv/bin/activate\nscons -j2 openpilot/selfdrive/pandad/pandad openpilot/selfdrive/pandad/tests/test_panda_comms openpilot/selfdrive/pandad/tests/test_pandad_canprotocol",
+    "exit_code": 0,
+    "architecture": "aarch64",
+    "compiler": "c++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0"
+  },
+  "native_test_results": {
+    "test_panda_comms": 0,
+    "test_pandad_canprotocol": 0
+  },
+  "existing_python_tests": {
+    "command": ".venv/bin/python -m unittest openpilot.selfdrive.pandad.tests.test_chimera openpilot.selfdrive.pandad.tests.test_chimera_protocol",
+    "run": 15,
+    "failures": 0,
+    "errors": 0,
+    "exit_code": 0
+  },
+  "invocation_failures_corrected": [
+    "--extras unsupported; SConstruct enables extras by default here",
+    "capnpc missing on PATH until existing venv activated"
+  ],
+  "existing_build_warning": "PWD environment variable does not match current directory; did not fail build",
+  "review": "Shared virtual destructor retains SPI cleanup; SPI wire implementation/selection untouched; no USB/legacy-ready claim. No findings requiring changes.",
+  "notebook": {
+    "result": "pass",
+    "memory_layout": "regular project directory",
+    "documents": 131,
+    "relative_links": 382,
+    "optional_workspace_links": 246,
+    "source_repositories": 8,
+    "indexed_entries": 4254
+  },
+  "whitespace_and_chimera_links": "pass",
+  "reference_preservation": "Original Chimera clean; Ocelot 39-line dirty state matches original manifest",
+  "source_hashes": {
+    "openpilot/selfdrive/pandad/panda_comms.h": "08fa8e6d628be14be6ab18077ae63ab6bd7fc294b63788ca289570d869a36324",
+    "openpilot/selfdrive/pandad/panda.h": "94f09b9a7ea15e85772407bd171bbf2c2c545634315b3461ffd176a76515b21d",
+    "openpilot/selfdrive/pandad/SConscript": "7bd9f15049b9f746e31cb242ffa307a56eff31f0520753d17e5704a7da7670e7",
+    "openpilot/selfdrive/pandad/.gitignore": "044e06471c951a5dbbccad73174b3bbbf291692eea206aed800853e9fa5dcffa",
+    "openpilot/selfdrive/pandad/tests/test_panda_comms.cc": "20efecee59576307784b9c9b0d3ac43e891c84e626de757097918ef7397d263e",
+    "chimera/docs/LEGACY_PANDA_SUPPORT.md": "9013341aacec108deaee054f00d5d59022888fa95995c7583889422d0b5f392f",
+    "chimera/tasks/plan.md": "587c6fd70e11edd8f2c059d4f80555232372006f10e112b1fd58fb059f43683e"
+  },
+  "ignored_native_artifact_hashes": {
+    "openpilot/selfdrive/pandad/pandad": "d31ced74049fe6cc7d3af1c5ac334a1afe19b1b6cc133f1870252dc9808ccd3c",
+    "openpilot/selfdrive/pandad/tests/test_panda_comms": "ebccbe5e463a51742a52e1cbfa8afffc4aa836db4ff068ddbe5156de02bde458",
+    "openpilot/selfdrive/pandad/tests/test_pandad_canprotocol": "0440cf8f79091a00b0cb874046cf333369f6211ef0c305f13b9974d1d19f8330"
+  }
+}

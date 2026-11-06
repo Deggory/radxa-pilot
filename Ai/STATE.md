@@ -1,3 +1,13 @@
+## November 6 — Legacy Panda compatibility; shared native transport implemented
+
+QA-20261106-08: owner wants older Panda support alongside Chimera. T06a adds
+PandaCommsHandle and keeps SPI as its current implementation; Panda now owns the
+interface. Native pandad + interface/codec tests build/pass; 15 existing Chimera
+Python tests pass. Compatibility matrix distinguishes current49/hash, Carrot
+F4 59/numeric versions and Chimera16-mailbox/43. T06 is partial: USB, status
+adapters and protected discovery/managed lifecycle remain pending. T01/T02/T03
+still required. No live device/firmware/DBC/upstream/push action.
+
 ## November 6 — Active Chimera home created inside Sunnypilot
 
 QA-20261106-06: owner requested folder-first, incremental implementation.
