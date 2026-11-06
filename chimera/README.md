@@ -5,7 +5,7 @@ November 6, 2026. It uses this repository's Git history; it is a regular directo
 
 ## Where the code is
 
-The code written so far runs on the Radxa. Shared Panda host code belongs in
+Shared Panda host code runs on the Radxa and belongs in
 the existing `openpilot/selfdrive/pandad/` module, where Sunnypilot builds it:
 
 | Code | Location |
@@ -16,9 +16,9 @@ the existing `openpilot/selfdrive/pandad/` module, where Sunnypilot builds it:
 | Existing original-Chimera Python receiver | [chimera.py](../openpilot/selfdrive/pandad/chimera.py), [decoder](../openpilot/selfdrive/pandad/chimera_protocol.py) |
 | Offline native USB tests | [test_panda_usb.cc](../openpilot/selfdrive/pandad/tests/test_panda_usb.cc) |
 
-**New STM32F413 board firmware has not been written yet.** The `firmware/`
-directory currently contains its README only. This folder holds the board plan,
-source map and provenance; new board firmware will be developed under `firmware/`.
+**The first STM32F413 firmware target is implemented in [firmware/](firmware/README.md).**
+It builds an unsigned offline bootstrap with its own startup, GPIO initialization
+and linker. USB/CAN communication and input acquisition are later increments.
 The original firmware remains preserved in the optional workspace Ocelot reference.
 
 The goal is STM32F413 Chimera firmware with modern Panda USB communication,
@@ -26,15 +26,17 @@ native Sunnypilot USB support and usable RetroPilot Core Config. Preserve CAN0
 Cores/control = host 0, CAN1 ADAS = host 1, CAN2 vehicle = host 2; IGN, VSS, CPS,
 BRAKE, both analog inputs, the onboard relay and OBD-C hardware interfaces.
 
-- [Firmware area](firmware/README.md): implementation starts here after the board/build contract.
+- [Firmware area](firmware/README.md): source, offline build and tests.
+- [Board/flash contract](docs/BOARD_FLASH_CONTRACT.md): source-defined levels, preserved areas and recovery limits.
 - [Roadmap](tasks/plan.md): one verified increment at a time.
 - [Existing firmware map](docs/FIRMWARE_SOURCE_MAP.md): recovered GPIO/CAN/config/build behavior.
 - [Source provenance](docs/PROVENANCE.md): reference versions and archive locations.
 - [Legacy Panda support](docs/LEGACY_PANDA_SUPPORT.md): shared USB/SPI transport with distinct firmware/status profiles.
 
-Completed: folder structure, source map and implementation sequence. There is no
-new firmware target or compiled image in this folder yet. Next: T01 board/flash
-layout, followed by T02 USB identity and bus/source contracts.
+Completed: folder/source map, T01a source-backed board/flash boundaries and T03a
+minimal offline F413 build. Next board slice: T02 distinct USB identity, request
+matrix and bus/input source contracts before adding communication. Physical
+boot/recovery and electrical qualification remain open.
 
 Legacy F4 Panda support is now an explicit host requirement alongside Chimera.
 Host increments now include the shared transport interface, pinned native USB

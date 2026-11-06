@@ -1,3 +1,19 @@
+## QA-20261106-14 — Proceed with the first board firmware increment
+
+**Date:** November 6, 2026 UTC.
+
+**Owner request (original):** let proceed
+
+**Context:** Continue the board-side step explained after QA13; actual firmware belongs inside Sunnypilot, with teacher evidence and incremental checks.
+
+**Answer:** Implemented the first F413 application under sunnypilot/chimera/firmware/: original startup, board GPIO initialization, minimal parked application, linker, offline builder and tests. The build preserves the original bootstub/config boundaries and boot flag, budgets the legacy signing envelope, and explicitly loads the stack before C. It reserves all existing bus/input/relay/OBD-C interfaces; this target sets source-defined inactive output levels and input modes only. Nine offline tests pass and the deterministic unsigned image is1064bytes. This is the first board code, not modern USB compatibility yet; next are the distinct identity/request/bus-source contracts and USB/CAN implementation. Host status adaptation and managed USB use remain pending.
+
+**Evidence/source pins:** Baseline9fa1f81108d2102830d13c0fc03c22b9db6e73d0; Ocelotd87892fa with preserved dirty working-file hashes, ST headerV2.6.0 and source bootstub/signer. Source contract chimera/docs/BOARD_FLASH_CONTRACT.md; exact tests/tool/source hashes in Sunnypilot Ai/Evidence/chimera-f413-bootstrap-20261106.json; detailed session2026-11-06-chimera-f413-bootstrap.md. Existing GCC13.2.1/binutils2.42, native sanitizer tests and ARM artifact inspection used. No REA provider result claimed.
+
+**Implemented versus proposed/limits:** T01a/T03a complete offline and saved locally. Dated status update to QA12/13: those earlier answers accurately described a README-only firmware directory; real source/build now exists. GPIO fixtures/build checks do not prove power-on/electrical states or runtime operation. Installed bootstub/signature identity, recovery/watchdog and physical qualification remain unresolved. No flash, hardware/actuation, config/DBC write, upstream update or push. Unanswered questions below remain untouched.
+
+---
+
 ## QA-20261106-13 — Is README completion required before Chimera code?
 
 **Date:** November 6, 2026 UTC.

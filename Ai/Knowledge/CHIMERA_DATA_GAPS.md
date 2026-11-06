@@ -1,3 +1,11 @@
+## November 6 — Offline target gap narrowed
+
+T01a/T03a now implemented: original F413 startup/linker/GPIO/build, raw1064bytes,
+nine offline tests pass. New build reproducibility is demonstrated across source
+and output paths with GCC13.2.1; physical boot/recovery/electrical qualification,
+signed release and modern USB/CAN/input implementation remain open. See
+[the bootstrap session](../Sessions/2026-11-06-chimera-f413-bootstrap.md).
+
 # Chimera data completeness — November 6, 2026
 
 ## November 6 correction — firmware pin map and legacy build are available

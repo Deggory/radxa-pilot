@@ -8,12 +8,14 @@ checks, a local commit and a notebook handoff before expanding the scope.
 - [x] T06a Shared native USB/SPI transport interface; existing SPI backend retained, native build and offline ownership/codec checks pass.
 - [x] T02a Pinned read-only native identification and profile selection; exact versions/health lengths and negative fixtures checked offline.
 - [x] T06b Native USB factory/backend, exclusive pinned selection, bounded I/O and cleanup; fake USB and real-library link checks pass.
+- [x] T01a Source-backed board GPIO/flash/RAM contract; physical recovery and electrical qualification remain open.
+- [x] T03a Original minimal F413 startup/linker/build, inactive outputs, nine offline tests and deterministic raw image.
 
 | Task | Next deliverable | Status |
 | --- | --- | --- |
-| T01 | Board GPIO/reset behavior, flash/config partitions and recovery boundaries | Next; known GPIO/build facts already recovered |
+| T01 | Board GPIO/reset behavior, flash/config partitions and recovery boundaries | T01a source contract complete; installed bootstub/recovery and electrical qualification pending |
 | T02 | Distinct identity, legacy/current protocol profiles, RPC matrix and explicit bus/input source contracts | Partial: T02a selector complete; full RPC/new Chimera identity and source contracts pending |
-| T03 | Minimal F413 target, reviewed support/linker and offline image budget | Pending |
+| T03 | Minimal F413 target, reviewed support/linker and offline image budget | T03a offline bootstrap complete; signed release/runtime qualification pending |
 | T04 | Modern six-byte/XOR classical CAN USB codec with stream/vector checks | Pending |
 | T05 | Exact identity/version/health responses, legacy F4 status adaptation and fail-disabled state | Pending |
 | T06 | Native Sunnypilot USB transport and offline failure tests | Offline transport implemented (T06a/b); managed use remains T08 |
@@ -37,7 +39,8 @@ at `../chimera/tasks/plan.md`, relative to the Sunnypilot repository root.
 This sequence carries the implementation forward without requiring that archive
 at runtime. Slice boundaries may split a task; a partial task stays pending.
 
-Next slice: T01 source-backed board/flash contract. Electrical unknowns block
+Next board slice: T02 distinct identity/request matrix and bus/input source contract,
+then T04 modern CAN codec and the USB clock/endpoint increment. Electrical unknowns block
 claims or hardware loading that depend on them; they do not erase known source
 assignments or prevent bounded offline engineering.
 

@@ -1,3 +1,13 @@
+## November 6 — First F413 firmware target implemented
+
+QA-20261106-14: T01a source board/flash contract and T03a offline bootstrap now
+implemented in chimera/firmware/, baseline9fa1f8110. Original startup/GPIO/main/
+linker/build; raw1064bytes, nine tests with sanitizers/negative artifacts and
+copied-tree determinism pass. No USB/CAN/acquisition or physical qualification.
+Source pins and limits: [session](Sessions/2026-11-06-chimera-f413-bootstrap.md).
+Next board T02 identity/RPC/bus-input contract; host T05/T08 still pending.
+No hardware/config/DBC/update/push. Ocelot and workspace archive preserved.
+
 ## November 6 — Native pinned USB factory/backend implemented
 
 QA-20261106-11: T06b adds exclusive pinned USB discovery and bounded I/O, then

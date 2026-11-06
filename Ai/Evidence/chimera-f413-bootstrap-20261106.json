@@ -1,0 +1,187 @@
+{
+  "date_utc": "2026-11-06T16:05:52.976341+00:00",
+  "baseline": "9fa1f81108d2102830d13c0fc03c22b9db6e73d0",
+  "scope": "T01a source board/flash contract and T03a offline application-only F413 bootstrap",
+  "source_pins": {
+    "ocelot_head": "d87892fa25ef2a2474110b97bfb5245ee818b534",
+    "panda": "8a16e089b88593914823743df29e1c30b7dd3e00",
+    "opendbc": "150f937198ceab43c43b39f94b9bdea63fcb633c"
+  },
+  "ocelot_status_preserved": [
+    " M README.md",
+    " M firmware/README.md",
+    " M firmware/RetroPilot_Cores/interceptor_core/json_rpc_handlers.h",
+    " M firmware/RetroPilot_Cores/interceptor_core/main.c",
+    " M firmware/RetroPilot_Cores/interceptor_core/modes/differential.h",
+    " M firmware/chimera/chimera.h",
+    " M firmware/chimera/main.c",
+    " M firmware/retropilot_cores/reports/VW_NEUTRAL_30S_PREPARATION_20261027.md",
+    " M hardware/ocelot-pro/README.MD",
+    "?? \"Core Config/\"",
+    "?? \"Interceptor Config/\"",
+    "?? RYLEYMCC_OVERKILL_INTERCEPTOR_REVIEW_20261014.md",
+    "?? RYLEYMCC_TI_RECOVERY_SEARCH_20261014.md",
+    "?? Retropilot_Core_Config",
+    "?? Retropilot_Core_Config.desktop",
+    "?? Retropilot_Interceptor_Config",
+    "?? Retropilot_Interceptor_Config.desktop",
+    "?? USB_DFU",
+    "?? USB_DFU.desktop",
+    "?? \"WebUSB DFU/\"",
+    "?? cabana/",
+    "?? firmware/BUILDING.md",
+    "?? firmware/BUILD_COMPARISON.md",
+    "?? firmware/INSPECTING_SIGNED_BIN.md",
+    "?? firmware/RetroPilot_Cores/interceptor_core/ADC_TRACE_PROTOCOL.md",
+    "?? firmware/RetroPilot_Cores/interceptor_core/STEERING_SENSOR_FIRMWARE_REVIEW.md",
+    "?? firmware/RetroPilot_Cores/interceptor_core/adc_trace.h",
+    "?? firmware/RetroPilot_Cores/interceptor_core/modes/differential_command.h",
+    "?? firmware/build_interceptor_gcc9.sh",
+    "?? firmware/build_local.sh",
+    "?? firmware/inspect_signed.py",
+    "?? firmware/inspection/",
+    "?? hardware/Actuator-Core/",
+    "?? hardware/chimera/",
+    "?? hardware/interceptor-core/",
+    "?? hardware/ocelot-pro/convert_schdoc.py",
+    "?? hardware/ocelot-pro/ocelot-pro-schematic.pdf",
+    "?? hardware/ocelot-pro/ocelot-pro_schematic.pdf",
+    "?? hardware/relay-core/"
+  ],
+  "source_map_19_hashes": "pass: unchanged",
+  "reference_files": {
+    "ocelot/firmware/SConscript": "7f60ca0b975592c2bf633e3eb06aa1934288cd547f4a771cb58567579da88bd9",
+    "ocelot/firmware/bootstub.c": "2b29e71e11379db8a76c7e0e98f957dec6b4e7a593308091471c45b06bfe69b0",
+    "ocelot/firmware/crypto/sign.py": "f709ce88ba49fb8e05d0c80129a260734c6207e0ffe5ec68f0599a55b5220bda",
+    "ocelot/firmware/crypto/rsa.h": "5ff2bc34eedff7f9c57c26ef1f0741a398b71b1c67462cc34a5d376e25252c1a",
+    "ocelot/firmware/gpio.h": "7aa4b95a75ef3f9885925444decdec13417d16f591fc115ce4b547d7cef82ecf",
+    "ocelot/firmware/startup_stm32f413xx.s": "ce33c05523b5806b0d909fdda5a5741f7c9399dafad0231bc322236f9ce6062c",
+    "ocelot/firmware/boards/gateway.h": "26425d76947291d4711f36330b7e700e91d803622b42fe6e79c88f687f29451f",
+    "ocelot/firmware/chimera/main.c": "5d1dd3b0400ec80da9b477abfced51c9346674865ce5ad86d7e5a012c2d94883",
+    "ocelot/firmware/chimera/chimera.h": "bccfd705363d223d86c9a0e62ccc817ba13a95e068315c22f97a40fdbf9aa413",
+    "ocelot/firmware/inc/stm32f413xx.h": "7c2cb1deecee360e4e8069c4215f05f652e14c70bd88f9bd072dc5502a5fd530"
+  },
+  "archive": {
+    "head": "224cfa645134db91103c55d8188d87e7976b0ba4",
+    "status": ""
+  },
+  "build": {
+    "undefined_symbols": [],
+    "load_segments": [
+      {
+        "offset": 4096,
+        "virtual": 134234112,
+        "physical": 134234112,
+        "file_bytes": 1060,
+        "memory_bytes": 1060
+      },
+      {
+        "offset": 8192,
+        "virtual": 536870912,
+        "physical": 134235172,
+        "file_bytes": 4,
+        "memory_bytes": 8
+      }
+    ],
+    "reset_vector": 134234625,
+    "stack_top": 537001976,
+    "globals_bytes": 8,
+    "stack_reserved_bytes": 4096,
+    "target": "chimera-f413-offline-bootstrap",
+    "signed": false,
+    "raw_bytes": 1064,
+    "reserved_envelope_bytes": 136,
+    "projected_legacy_bytes": 1200,
+    "application_budget_bytes": 114688,
+    "sha256": "7d634696ba464d04e13164f09714fe20e85375befa4d5ff37eb884bdb2a9398e",
+    "sources_sha256": {
+      "startup.S": "be9bc724c7e9a395ad12140d5a89d5e334efd074e992e1fad98aacb809cfa688",
+      "board.c": "dd4902ea9b4e048bc221ccd1548f5eb38277a860a52f89b524f78db734bceb8c",
+      "main.c": "d3bfbc5d63028d606967b7a3db6b7db9bc973e0fad1b2354113747ea9e146813",
+      "board.h": "0c531a8bb4c7ff205812b44507b639f063085cb48f973f732f3ee5428d12284d",
+      "stm32f413.ld": "df3479fe33f8d302d5619ef2d40d70da548fdbcb61bee4fee4c8424fb764e477",
+      "build.py": "48647b00eaca31de8215f67d8cddb84d95557c15412abbcd33c394f843b3209c"
+    },
+    "compiler": "arm-none-eabi-gcc (15:13.2.rel1-2) 13.2.1 20231009",
+    "objcopy": "GNU objcopy (2.42-1ubuntu1+23) 2.42",
+    "flags": [
+      "-mcpu=cortex-m4",
+      "-mthumb",
+      "-mfloat-abi=soft",
+      "-Os",
+      "-std=c11",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-fno-common",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-fno-unwind-tables",
+      "-fno-asynchronous-unwind-tables",
+      "-Wall",
+      "-Wextra",
+      "-Wstrict-prototypes",
+      "-Werror",
+      "-nostdlib"
+    ],
+    "limits": "Unsigned offline build; no installed bootstub, electrical or runtime qualification."
+  },
+  "build_command": "python3 chimera/firmware/build.py --toolchain-prefix /home/radxa/.local/ocelot-build-tools/usr/bin/arm-none-eabi-",
+  "test_command": "CHIMERA_TOOLCHAIN_PREFIX=/home/radxa/.local/ocelot-build-tools/usr/bin/arm-none-eabi- python3 -m unittest discover -s chimera/firmware/tests -v",
+  "tests": {
+    "result": "pass",
+    "tests": 9,
+    "gpio_patterns": 3,
+    "native_sanitizers": "address,undefined",
+    "vector_mutations": 6,
+    "elf_mutations": 6,
+    "raw_truncation_or_overflow": 3,
+    "linker_overflows": [
+      "flash",
+      "RAM/stack"
+    ],
+    "copied_checkout_identical_raw": true,
+    "startup_msp_before_c": "pass: objdump and automated ordering check"
+  },
+  "test_sources_sha256": {
+    "chimera/firmware/tests/board_test.c": "028977ed9227a8f0db08b2bd15c8786fc7d5415374ccba8b1802aa8bab8f77cb",
+    "chimera/firmware/tests/test_firmware.py": "e7c78aa11a3f361475fbedcacb41103befe32dfdcf1bf4856711bda8cf24cef1"
+  },
+  "native_cc": "cc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "ruff": {
+    "command": ".venv/bin/ruff check chimera/firmware",
+    "result": "pass"
+  },
+  "tdd_and_corrections": [
+    "Initial RED: test setup failed because build.py did not exist; tests preceded source implementation.",
+    "Strict orphan rejection exposed linker-generated glue/PLT sections; glue placed explicitly, dynamic sections asserted empty.",
+    "Distant NOLOAD stack distorted RAM ELF memory extent; replaced with stack symbols and collision assertion.",
+    "ELF RWE negative fixture failed before fixing combined readelf flag parsing; all nine tests subsequently passed."
+  ],
+  "primary_docs": {
+    "datasheet": {
+      "url": "https://www.st.com/resource/en/datasheet/stm32f413vh.pdf",
+      "version": "DS11581 Rev7 January2025",
+      "used": "Family CPU/internal16MHz oscillator, not installed MCU identification"
+    },
+    "manual": {
+      "url": "https://www.st.com/resource/en/reference_manual/rm0430-stm32f413423-advanced-armbased-32bit-mcus-stmicroelectronics.pdf",
+      "result": "Not retrieved: web size limit and direct30second timeout; no partial manual review claimed"
+    },
+    "registers": "Pinned ST stm32f413xx.h V2.6.0"
+  },
+  "workflow": "Teacher/student notes and Ocelot source; TDD, incremental, source-driven, interface, debugging, Git and code-review skills. ARM GNU artifact commands; no REA provider analysis needed for these checks.",
+  "canonical_dbc": "Unchanged; no CAN payload implementation or DBC import in this slice.",
+  "limits": [
+    "Unsigned raw image only; no bootstub/key/installed firmware identity qualification.",
+    "No device access, flashing, config erase/write, relay operation or vehicle actuation.",
+    "No USB/CAN communication, input acquisition, watchdog/recovery or electrical qualification.",
+    "No daemon/managed selection change, upstream update, installation or push."
+  ],
+  "next": "Board T02 identity/RPC/bus-input source contract, then T04 modern codec and USB clock/endpoints; host T05 status and T08 managed lifecycle remain pending.",
+  "documentation_checks": {
+    "memory": "pass:134 documents,391relative links,246optional workspace links,8repositories/4254entries",
+    "chimera_relative_links": 25,
+    "ruff": "pass",
+    "git_diff_check": "pass"
+  }
+}
