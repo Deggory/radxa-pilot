@@ -1,3 +1,8 @@
+**November 6 update:** T08b1 adds passive classical CAN RX and isolated legacy
+USB diagnostics to the pinned USB entry. Native build/9native programs,
+25Python regressions and sanitizer checks pass offline. No pandaStates admission
+or physical board qualification. See [receive contract](docs/USB_PASSIVE_RECEIVE.md).
+
 # Chimera for Radxa Sunnypilot
 
 This is the active Chimera implementation home inside Sunnypilot, created

@@ -1,3 +1,17 @@
+## November 6 — Passive USB CAN and isolated diagnostics implemented
+
+QA28/T08b1: pinned legacy F4v17 USB entry now receives classical CAN and publishes
+`can` plus complete JSON diagnostics on `customReservedRawData1`. No pandaStates:
+hardwared reads ignition without Event.valid gating. RawData0/Thneed untouched.
+Fragment age500ms, bounded RX and strict parser errors close ownership; no TX,
+reset/retry/cache/SPI fallback. Native build/9native programs,25Python regressions,
+ASan/UBSan and checksum mutation check pass offline. No physical USB/IPC session,
+pins, firmware or onroad admission.23firmware hashes/7448-byte image, Ocelot39dirty
+entries/19hashes, archive and canonical DBC preserved. Updates held; no push.
+Next T08b2: profile-aware pandaStates admission, supported-field validity/ignition
+and reconnect/backoff policy. New Chimera operational firmware/bench work remain.
+[Session](Sessions/2026-11-06-chimera-usb-receive.md).
+
 ## November 6 — Radxa USB-only status startup implemented
 
 QA27/T08a: Radxa wrapper/native entry bypass legacy reset/flash/SPI for mandatory

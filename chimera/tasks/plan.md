@@ -28,6 +28,7 @@ future T02/T05/T08 fixtures; no new firmware integration or task completion.
 - [x] T03b3a Power/VBUS/UID/watchdog/recovery requirements and read-only UID/reset/option snapshot helper; twenty-one offline tests pass. No startup/attachment.
 - [x] T03b3b Composed detached preparation/poll/release service; twenty-three tests/44integration scenarios pass. Not called by main; physical attachment unqualified.
 - [x] T05a Bootstrap status/capability contract and strict pure decoder; response interoperability/rejection fixtures pass offline. No operational health/profile admission.
+- [x] T08b1 Passive classical CAN RX plus isolated customReservedRawData1 diagnostics; strict fragment/error handling and offline tests. No pandaStates admission.
 - [x] T08a Radxa USB-only pinned status startup/session; bypass legacy reset/flash/SPI, legacy F4 typed sampling with immediate failure release; no CAN/pandaStates publication.
 - [x] T05c Legacy F4 CAN-health5/64 typed decoder and bounded selector0..2 reader; exact layouts, golden data, sanitizer and rejection fixtures pass offline. No managed publication.
 - [x] T05b Legacy F4 health59 typed native decoder and bounded read helper; exact retained header/golden bytes, sanitizer and failure tests pass offline. No managed publisher/startup.
@@ -79,3 +80,5 @@ transport boundary was extracted first; it does not depend on a flashed Chimera
 image. See [the compatibility slices](../docs/LEGACY_PANDA_SUPPORT.md). T06a/b and
 T02a/T05b/T05c are checked offline; publication, managed lifecycle and
 physical testing still follow. See the [health59 contract](../docs/LEGACY_F4_HEALTH.md).
+
+Next: T08b2 profile-aware pandaStates admission, supported-field validity/ignition and reconnect policy. [Contract](../docs/USB_PASSIVE_RECEIVE.md).

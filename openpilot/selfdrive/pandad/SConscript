@@ -18,7 +18,7 @@ if arch != "Darwin":
     ('PANDA_CAN_VERSION_HASH', f"0x{version_hash('#opendbc_repo/opendbc/safety/can.h'):08x}U"),
   ])
   libs = [common, messaging, 'pthread']
-  panda = protocol_env.Library('panda', ['panda.cc', 'spi.cc', 'panda_identification.cc', 'panda_usb.cc', 'panda_health.cc', 'panda_usb_status.cc'])
+  panda = protocol_env.Library('panda', ['panda.cc', 'spi.cc', 'panda_identification.cc', 'panda_usb.cc', 'panda_health.cc', 'panda_usb_status.cc', 'panda_usb_can.cc', 'panda_usb_publish.cc'])
 
   usb_env.Program('pandad', ['main.cc', 'pandad.cc', 'panda_safety.cc'], LIBS=[panda, 'usb-1.0'] + libs)
 
@@ -31,3 +31,6 @@ if arch != "Darwin":
     # The test defines fake libusb C symbols and does not link/open real libusb.
     usb_env.Program('tests/test_panda_usb', ['tests/test_panda_usb.cc'], LIBS=[panda])
     usb_env.Program('tests/test_panda_usb_link', ['tests/test_panda_usb_link.cc'], LIBS=[panda, 'usb-1.0'])
+
+    env.Program('tests/test_panda_usb_can', ['tests/test_panda_usb_can.cc'], LIBS=[panda])
+    env.Program('tests/test_panda_usb_publish', ['tests/test_panda_usb_publish.cc'], LIBS=[panda] + libs)

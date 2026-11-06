@@ -1,3 +1,46 @@
+## QA-20261106-28 — Proceed with passive USB CAN and diagnostics
+
+**Date:** November 6, 2026 UTC.
+
+**Owner request (original):** proced
+
+**Context:** Continue after T08a USB-only pinned status startup. Teacher-first
+source evidence and USB-only/no SPI fallback remain accepted.
+
+**Answer:** T08b1 adds bounded classical CAN RX, fragmented-frame handling and
+normal Cereal CAN publication to the legacy F4v17 USB entry. Complete supported
+health/controller reports publish on isolated customReservedRawData1 JSON schema1,
+with exact pins, query timestamps, operational=false and explicit failed/closed
+payloads. hardwared consumes ignition from nonempty pandaStates without checking
+Event.valid, so we publish no pandaStates pending explicit admission/validity
+policy. RawData0 belongs to Thneed and is unchanged. RX/parser/status failure
+closes ownership, discards partials and exits without reset/retry/SPI fallback.
+Native build/9native programs,25Python regressions (including Thneed), parser and
+backend/session ASan/UBSan pass. Removing checksum rejection is detected.
+
+**Evidence/source pins:** Baseline ca409374b1102233acc6ad99c108c628a4ffba9f;
+Panda8a16e089, opendbc150f9371, Carrot69a2d3be; actual source/artifact/test pins
+and results in student Ai/Evidence/chimera-usb-receive-20261106.json and
+chimera/docs/USB_PASSIVE_RECEIVE.md. Selected local source/native/GNU evidence;
+no new REA provider/network/fresh-context agent result claimed. Used incremental,
+TDD, API/interface, code-review, Git and documentation skills.
+
+**Implemented versus proposed/limits:** Passive host observation implemented and
+tested offline, not physical/end-to-end integration. This dated extension
+supersedes T08a's status-only/no-CAN description from its earlier commit. Only
+legacy F4v17 admitted; no new Chimera/original/current Panda admission. CAN6 has
+no RTR field; host cannot distinguish/filter legacy remote records. XOR has
+collisions; timestamps are host reception, status sequential and can delay RX.
+Abrupt death needs consumer liveness checks. No sendcan/TX/safety/heartbeat/reset/
+config/flash/SPI fallback or real USB/IPC/vehicle session/pins installed. Firmware
+23hashes/7448-byte retained artifact, Ocelot39dirty entries/19source hashes/archive/
+DBC preserved. No updates/fetch/push. T08b2 pandaStates supported-field validity/
+ignition and reconnect/backoff policy, operational firmware and bench qualification
+remain proposed. Initial toolchain invocation/header issues corrected without
+suppression; earlier unanswered entries preserved separately.
+
+---
+
 ## QA-20261106-27 — Proceed with USB-only startup/status ownership
 
 **Date:** November 6, 2026 UTC.

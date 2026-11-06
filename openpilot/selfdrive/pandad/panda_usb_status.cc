@@ -1,6 +1,7 @@
 #include "selfdrive/pandad/panda_usb_status.h"
 
 #include <algorithm>
+#include <chrono>
 #include <stdexcept>
 
 namespace {
@@ -50,6 +51,25 @@ std::optional<LegacyF4StatusSample> PandaUsbStatusSession::sample() {
       can[i] = *state;
     }
     return LegacyF4StatusSample{*health, can};
+  } catch (...) {
+    close();
+    throw;
+  }
+}
+
+std::optional<std::vector<PandaUsbCanFrame>> PandaUsbStatusSession::receive() {
+  if (!handle_) return std::nullopt;
+  try {
+    std::array<uint8_t, 4096> buffer;
+    const int size = handle_->bulk_read(0x81, buffer.data(), buffer.size(), 10);
+    if (size < 0 || static_cast<size_t>(size) > buffer.size() || !handle_->comms_healthy.load()) {
+      close();
+      return std::nullopt;
+    }
+    const auto now = std::chrono::steady_clock::now().time_since_epoch();
+    auto frames = rx_.feed(buffer.data(), size, std::chrono::duration_cast<std::chrono::nanoseconds>(now).count());
+    if (!frames) close();
+    return frames;
   } catch (...) {
     close();
     throw;

@@ -5,21 +5,24 @@
 The offline foundation is built; most operational integration and all new-firmware
 physical qualification remain. The7448-byte unsigned image has never been flashed
 and main parks with USB/CAN disabled. Radxa USB libraries/identification and legacy
-health59 decoding exist. Radxa now has pinned USB-only status startup;
-CAN/status publication, other profile admission and reconnect policy remain pending. No SPI probing/fallback belongs in the target setup.
+health59 decoding exist. Radxa now has pinned USB-only startup with passive classical CAN reception and
+isolated legacy status diagnostics. Normal pandaStates admission, other profiles
+and reconnect policy remain pending. No SPI probing/fallback belongs in the target setup.
 
-Saved results:28firmware/discovery tests; native pandad build, six native fixtures,
-ASan/UBSan and15existing Python receiver tests. These are separate offline runs,
-not a combined physical end-to-end test. No new runtime run for this summary.
+Saved results:28firmware/discovery tests; current native pandad build and9native programs,
+parser/backend ASan/UBSan and25Python regressions including Thneed telemetry. These are separate offline runs,
+not a combined physical end-to-end test. No physical USB/IPC/board run is claimed.
 
-Remaining: per-bus status; operational USB/CAN/health binding; USB-only host
+Remaining: normal pandaStates validity/ignition policy; operational USB/CAN/health binding; USB-only host
 lifecycle; qualified power/VBUS/recovery/image packaging and passive bench tests;
 digital/pulse/ADC acquisition and reports; MCU TX enforcement; Core Config and
 recoverable settings/watchdog; relay/OBD-C qualification and release/soak testing.
 Active driving is separate later scope. Unequal slices and unresolved electrical
 work do not support a reliable completion percentage. T08a USB-only legacy F4 status startup/session now passes offline tests.
-Next T08b adds passive CAN reception and validity-aware status publication.
+T08b1 passive CAN/isolated diagnostics passes offline; next T08b2 specifies normal
+pandaStates admission, supported-field validity/ignition and reconnect policy.
 
+See the [passive receive contract](USB_PASSIVE_RECEIVE.md) for limitations.
 The detailed component history below explains what each piece does.
 
 
@@ -37,7 +40,7 @@ board's inputs, power relay and OBD-C behavior.
 | Piece | Plain meaning | What has actually been verified |
 | --- | --- | --- |
 | Evidence and board map | Identify the chip, three buses, inputs and reserved flash areas | Original source/wiki/history reviewed and pinned; electrical gaps recorded |
-| Radxa USB connection library | Give the Radxa setup its required USB-only path | Q8B USB status entry tested offline; CAN/status publication pending |
+| Radxa USB connection library | Give the Radxa setup its required USB-only path | Q8B passive CAN/isolated diagnostic publication tested offline; normal pandaStates admission pending |
 | Firmware build/startup | Compile our own small F413 program, preserve bootstub/settings space and initialize source-defined inactive outputs | ARM builds and offline register/artifact tests; never loaded to the board |
 | CAN codec | Encode/decode classical CAN records in the newer Panda wire format | Current-source interoperability and malformed/chunked record tests; not connected to real CAN controllers |
 | USB identity/control model | Supply the board name, serial format and supported read-only queries | Descriptor/request/state tests; control endpoint only |

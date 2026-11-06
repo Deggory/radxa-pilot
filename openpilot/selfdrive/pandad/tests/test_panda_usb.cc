@@ -41,6 +41,7 @@ struct FakeUsb {
   bool corrupt_health = false, corrupt_can = false;
   bool throw_transfer = false;
   std::vector<std::pair<uint8_t, uint16_t>> requests;
+  std::vector<uint8_t> bulk_data;
 } usb;
 const PandaIdentificationPin PIN{"selected", "pinned-version"};
 int scenarios = 0;
@@ -176,6 +177,12 @@ int LIBUSB_CALL libusb_bulk_transfer(libusb_device_handle *, unsigned char endpo
   require(timeout > 0 && timeout <= 1000 && usb.claims > usb.releases);
   usb.last_timeout = timeout;
   ++usb.bulk_calls;
+  if ((endpoint & 0x80) && !usb.bulk_data.empty()) {
+    require(usb.bulk_data.size() <= static_cast<size_t>(length));
+    *transferred = usb.bulk_data.size();
+    std::copy(usb.bulk_data.begin(), usb.bulk_data.end(), data);
+    return usb.bulk_result;
+  }
   *transferred = usb.transferred;
   if ((endpoint & 0x80) && *transferred >= 0 && *transferred <= length) std::fill_n(data, *transferred, 0x5a);
   return usb.bulk_result;
@@ -442,6 +449,29 @@ void test_usb_status() {
   reset();
   { auto session = PandaUsbStatusSession::open(PIN); CHECK(session->sample()); }
   { auto session = PandaUsbStatusSession::open(PIN); CHECK(session->sample()); }
+  reset();
+  {
+    auto session = PandaUsbStatusSession::open(PIN);
+    usb.bulk_data = {0x12, 0x18, 9, 0};
+    CHECK(session->receive()->empty());
+    CHECK(usb.last_timeout == 10);
+    usb.bulk_data.clear(); usb.transferred = 0; usb.bulk_result = LIBUSB_ERROR_TIMEOUT;
+    CHECK(session->receive()->empty() && session->active());
+    usb.bulk_data = {0, 0xa9, 0xaa};
+    auto frames = session->receive();
+    CHECK(frames && frames->size() == 1 && frames->at(0).address == 0x123 && frames->at(0).bus == 1);
+    CHECK(frames->at(0).length == 1 && frames->at(0).data[0] == 0xaa);
+    usb.bulk_data = {0x12, 0x18, 9, 0, 0, 0xa9, 0xab};
+    CHECK(!session->receive() && !session->active() && usb.contexts == 0);
+    const int calls = usb.bulk_calls;
+    CHECK(!session->receive() && usb.bulk_calls == calls && usb.control_out == 0);
+  }
+  reset();
+  {
+    auto session = PandaUsbStatusSession::open(PIN);
+    usb.bulk_result = LIBUSB_ERROR_NO_DEVICE;
+    CHECK(!session->receive() && !session->active() && usb.contexts == 0);
+  }
   reset();
   std::cout << "USB status session: full samples, failure latching/release, profile rejection and explicit reopen pass; no real USB calls\n";
 }

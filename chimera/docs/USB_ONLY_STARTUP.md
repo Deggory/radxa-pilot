@@ -39,7 +39,7 @@ explicit USB flag to use this route; use the correct target build.
 
 [PandaUsbStatusSession](../../openpilot/selfdrive/pandad/panda_usb_status.h)
 owns the actual [pinned USB backend](../../openpilot/selfdrive/pandad/panda_usb.cc).
-It exposes only sample/close/active; no raw handle or TX operation. Factory
+It exposes only sample/receive/close/active; no raw handle or TX operation. Factory
 identification requires exclusive interface0, configuration1, exact serial/version,
 hardware/protocol qualification and initial health length. This session additionally
 requires `LEGACY_F4_V17` and valid typed initial health59 before returning.
@@ -57,8 +57,9 @@ fallback. Any read/validation failure closes the session immediately; exceptions
 also close before propagation. Repeated sample after close does no IO. Reopen is
 explicit and repeats full identification, never substituting another serial.
 
-Native mode logs completed samples, waits1000ms between cycles and closes on
-SIGINT/SIGTERM or error. It issues no OUT/bulk/reset/config writes. A failed
+Native mode now receives classical CAN and publishes isolated legacy diagnostics;
+see [T08b1 contract](USB_PASSIVE_RECEIVE.md) for cadence, fragment age and validity.
+It issues no OUT/bulk-write/reset/config writes. A failed
 session exits2, without internal retry/recovery/SPI fallback. The existing manager
 may relaunch the process; no new restart/backoff policy is claimed. Per-transfer
 timeouts do not establish a measured whole-startup or shutdown deadline.
@@ -78,7 +79,6 @@ Native invalid-argument checks exit before device IO; the Q8B main object has no
 legacy-thread reference. Exact outputs/hashes are in [the receipt](../../Ai/Evidence/chimera-usb-startup-20261106.json).
 Source/CLI/GNU evidence; no real USB enumeration, daemon monitoring or hardware run.
 
-T08a startup/status ownership is implemented offline. Next T08b is profile-aware
-passive CAN reception and status publication with explicit validity/freshness,
-exact-read hardening and reconnect policy. Full Sunnypilot operation, current/
-original/new-Chimera profile integration and MCU enforcement remain pending.
+T08a and T08b1 startup/passive observation are implemented offline. Normal
+pandaStates admission, supported-field/ignition validity, reconnect policy and
+physical qualification remain pending; no operational Sunnypilot claim.

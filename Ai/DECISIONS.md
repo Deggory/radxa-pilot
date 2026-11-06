@@ -1,3 +1,15 @@
+## 2026-11-06 — Isolate legacy USB diagnostics before pandaStates admission
+
+Implemented T08b1 decision: allocate existing reserved Data field/service
+customReservedRawData1 to panda-usb-status JSON schema1. Preserve raw0's Thneed
+ownership. Publish decoded classical CAN on can, complete legacy status only on
+the diagnostic service. hardwared reads ignition from pandaStates without checking
+Event.valid, and PandaState has no per-field validity, so incomplete legacy
+pandaStates publication is deferred. Diagnostic validity means complete decoded
+observation, not readiness; operational=false. No CAN protocol/DBC change. See
+QA-20261106-28 and USB_PASSIVE_RECEIVE.md. Profile admission/ignition policy remain
+next work, not a tested operational integration.
+
 ## 2026-11-06 — USB-only Radxa-to-Chimera/Panda deployment
 
 Accepted owner clarification QA-20261106-24: use USB only. Exclude SPI wiring,

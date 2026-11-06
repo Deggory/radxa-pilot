@@ -106,3 +106,6 @@ SKILL.md
 !.idea/customTargets.xml
 !.idea/tools/*
 !.run/*
+
+openpilot/selfdrive/pandad/tests/test_panda_usb_can
+openpilot/selfdrive/pandad/tests/test_panda_usb_publish
