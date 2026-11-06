@@ -1,3 +1,10 @@
+## November 6 — README completion is not a remaining gate
+
+November6 QA-20261106-13: README/setup already complete, not a remaining coding
+gate. Host USB code exists; future MCU code belongs in sunnypilot/chimera/firmware/
+and is still pending the board/flash/build contract. Explanation only; no new
+implementation, build or hardware action.
+
 ## November 6 — Host code locations versus pending board firmware
 
 November6 QA-20261106-12: clarified actual code locations. New host USB and

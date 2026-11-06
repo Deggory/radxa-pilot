@@ -1,3 +1,17 @@
+## QA-20261106-13 — Is README completion required before Chimera code?
+
+**Date:** November 6, 2026 UTC.
+
+**Owner question (original):** so after readme is done only then we make it in chimera suynny
+
+**Answer:** The README/folder setup is already done; it is not a remaining gate or a substitute for implementation. Actual Radxa-side USB/identification code has already been written in Sunnypilot's existing pandad module. The new code that runs on the Chimera MCU belongs in sunnypilot/chimera/firmware/ and has not started yet. That firmware step needs the source-backed board/flash/build contract, not more README completion. Documentation is kept alongside verified code increments. Host and MCU work are two parts of the same Sunnypilot project.
+
+**Evidence/source pin:** Fresh folder/README/roadmap inventory at f8cd9177b9e37bfc656b72aeaa61acf59f0440f5; firmware contains README.md only, while pandad has committed panda_usb and panda_identification sources. See QA11/12 for actual implementation and validation limits.
+
+**Implemented versus proposed/limits:** Explanation and notebook only; no runtime source/build/device/update/push action. Existing host backend and offline tests remain as saved; MCU firmware T01/T03 and host status/managed integration remain pending. No new scope or automatic flashing inferred from this question.
+
+---
+
 ## QA-20261106-12 — Where the Chimera code is being written
 
 **Date:** November 6, 2026 UTC.

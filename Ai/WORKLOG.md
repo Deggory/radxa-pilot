@@ -1055,3 +1055,8 @@ identification are in Sunnypilot openpilot/selfdrive/pandad/, not the board
 firmware directory. New F413 firmware is not written; chimera/firmware/ has only
 README. Added clickable host-code map and explicit status to chimera/README.md.
 No source move/duplicate, product change or new runtime test; next T05 unchanged.
+
+November6 QA-20261106-13: README/setup already complete, not a remaining coding
+gate. Host USB code exists; future MCU code belongs in sunnypilot/chimera/firmware/
+and is still pending the board/flash/build contract. Explanation only; no new
+implementation, build or hardware action.
