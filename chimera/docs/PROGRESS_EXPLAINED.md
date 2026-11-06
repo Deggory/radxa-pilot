@@ -14,7 +14,7 @@ board's inputs, power relay and OBD-C behavior.
 | Piece | Plain meaning | What has actually been verified |
 | --- | --- | --- |
 | Evidence and board map | Identify the chip, three buses, inputs and reserved flash areas | Original source/wiki/history reviewed and pinned; electrical gaps recorded |
-| Radxa USB connection library | Give Sunnypilot a USB path alongside its existing SPI connection | Fake-device/native checks; managed startup still uses SPI |
+| Radxa USB connection library | Give the Radxa setup its required USB-only path | Fake-device/native checks; managed startup still uses SPI |
 | Firmware build/startup | Compile our own small F413 program, preserve bootstub/settings space and initialize source-defined inactive outputs | ARM builds and offline register/artifact tests; never loaded to the board |
 | CAN codec | Encode/decode classical CAN records in the newer Panda wire format | Current-source interoperability and malformed/chunked record tests; not connected to real CAN controllers |
 | USB identity/control model | Supply the board name, serial format and supported read-only queries | Descriptor/request/state tests; control endpoint only |

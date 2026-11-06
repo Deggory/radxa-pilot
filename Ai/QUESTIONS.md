@@ -1,3 +1,17 @@
+## QA-20261106-24 — USB only; no SPI requirement
+
+**Date:** November 6, 2026 UTC.
+
+**Owner request (original):** no spi is needed since we will use usb only
+
+**Answer:** The Radxa-to-Chimera/selected legacy Panda deployment is USB only. SPI wiring, probing and automatic fallback are excluded from the target. Updated active README, roadmap, compatibility/status docs and Chimera instructions. Existing decoders and USB backend remain useful. The inherited native Panda constructor/list still open SPI; replacing those with qualified pinned USB startup remains T08 implementation work. Earlier references to preserving SPI described inherited generic code, not a hardware requirement for this setup.
+
+**Evidence/source pin:** Baselinec668f6757da3e6a693d9738e99bdc0b5b81b7529; native panda.cc constructor/list explicitly select PandaSpiHandle; panda_usb.h supplies separate pinned USB factory. Owner statement is the authority for USB-only scope. Exact source/doc hashes and validation in student Ai/Evidence/chimera-usb-only-20261106.json.
+
+**Implemented versus proposed/limits:** Requirement and plan correction saved, not runtime startup switching or SPI-source deletion. No code/build/firmware/hardware changes or new runtime tests; documentation/link/memory checks only. T05c per-bus health remains next, T08 must test no SPI probe/fallback and remain disconnected on USB failure. Physical USB/recovery and managed compatibility remain unqualified. No update/push; earlier unanswered entries preserved. This dated correction supersedes any earlier implication that SPI support is needed for the owner's deployment.
+
+---
+
 ## QA-20261106-23 — Proceed with legacy F4 health59 decoding
 
 **Date:** November 6, 2026 UTC.

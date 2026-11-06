@@ -1,3 +1,12 @@
+## 2026-11-06 — USB-only Radxa-to-Chimera/Panda deployment
+
+Accepted owner clarification QA-20261106-24: use USB only. Exclude SPI wiring,
+probing and automatic fallback from this deployment. Generic SPI source may remain
+historical support; it is not a target requirement. T08 must replace inherited
+SPI construction/listing with pinned USB selection and fail disconnected on USB
+failure. Earlier preservation wording does not authorize a mixed-transport path.
+Requirement/roadmap updated; runtime migration pending, no hardware action.
+
 ## 2026-11-05 — Chimera preservation scope; architecture proposed
 
 Owner selected dedicated chimera/board folder and research-before-change roadmap.

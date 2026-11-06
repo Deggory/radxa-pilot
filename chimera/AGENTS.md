@@ -19,3 +19,11 @@ Keep board identity distinct from stock H7 Panda. Guard every eventual CAN TX
 path with MCU policy, including generated reports and maintenance traffic.
 Offline implementation does not authorize flashing, relay operation or vehicle
 actuation. Record source pins, actual checks and limits in the project notebook.
+
+Owner transport decision, November 6: Radxa connects to Chimera/selected legacy
+Panda over USB only. Do not add SPI wiring, probing or automatic fallback to this
+deployment. T08 must replace inherited SPI construction with qualified pinned USB
+selection; refusal/disconnect must remain disconnected instead of trying SPI.
+Existing generic SPI source is historical support, not a requirement or a reason
+to delay USB integration. Do not describe the current SPI constructor as already
+working USB startup.

@@ -6,6 +6,11 @@ November 6, 2026. It uses this repository's Git history; it is a regular directo
 Start with [the plain-language progress guide](docs/PROGRESS_EXPLAINED.md) for
 what has been written, what has actually been tested and what is still pending.
 
+**Connection requirement, November 6: USB only between the Radxa and Chimera or
+selected legacy Panda.** No SPI wiring, probing or fallback for this setup.
+The inherited native daemon still opens SPI today; T08 must replace that startup
+with pinned USB selection. USB managed startup is not implemented yet.
+
 ## Where the code is
 
 Shared Panda host code runs on the Radxa and belongs in
@@ -44,7 +49,7 @@ BRAKE, both analog inputs, the onboard relay and OBD-C hardware interfaces.
 - [Roadmap](tasks/plan.md): one verified increment at a time.
 - [Existing firmware map](docs/FIRMWARE_SOURCE_MAP.md): recovered GPIO/CAN/config/build behavior.
 - [Source provenance](docs/PROVENANCE.md): reference versions and archive locations.
-- [Legacy Panda support](docs/LEGACY_PANDA_SUPPORT.md): shared USB/SPI transport with distinct firmware/status profiles.
+- [Legacy Panda support](docs/LEGACY_PANDA_SUPPORT.md): USB-only Radxa target with distinct firmware/status profiles.
 - [Legacy F4 health59](docs/LEGACY_F4_HEALTH.md): exact typed decoding and one bounded read; no health49 cast or manufactured current-only fields.
 - [Ocelot Panda Docker review](docs/OCELOT_PANDA_DOCKER_REVIEW.md): pinned legacy Panda and parent Chimera source, analog/relay/OBD-C mapping and protocol conflicts.
 
@@ -65,7 +70,7 @@ Legacy F4 Panda support is now an explicit host requirement alongside Chimera.
 Host increments now include the shared transport interface, pinned native USB
 factory/backend, identification and legacy health59 decoding/read tests. Legacy
 publication/per-bus health and managed selection remain pending; current startup
-still uses its existing SPI path.
+still has inherited SPI construction that T08 must replace for this USB-only setup.
 
 The workspace-level `../../chimera/` remains the original evidence/recovery
 archive. It is optional development evidence, not a runtime dependency. Required

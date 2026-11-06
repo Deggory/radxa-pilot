@@ -13,17 +13,19 @@ Panda board detection, not Chimera acquisition. The parent98de83bb retains the
 separate Chimera target. This is an additional reference profile, not admitted
 by the current selector or interchangeable with Carrot F4's health59 contract.
 
-## What the SPI and USB paths mean
+## USB-only Radxa connection
 
-SPI is a direct hardware connection used by integrated Panda hardware. The
-existing native host opens that connection through PandaSpiHandle. Keeping it
-means existing SPI users still have their transport available. It does not mean
-the Radxa-to-Chimera connection should use SPI: that connection will use USB.
+Owner clarified November6: Radxa connects to Chimera and the selected legacy
+Panda by USB only. No SPI wiring/probe/fallback belongs in this deployment.
+`PandaUsbHandle` implements the common control/bulk interface with explicit
+serial/version qualification. Sharing an interface does not require using both
+transports.
 
-The common interface gives the native host one set of control/bulk methods.
-PandaUsbHandle now implements them using libusb alongside PandaSpiHandle, with
-an explicitly pinned connection factory. Managed startup still selects SPI;
-connecting the USB factory to that lifecycle is a separate integration step.
+The inherited native `Panda` constructor/list still select `PandaSpiHandle`.
+That is a remaining T08 integration gap, not the intended deployment path.
+T08 must use pinned USB selection, exclusive ownership and bounded reconnect;
+missing/rejected/disconnected USB must stay disconnected without trying SPI.
+Existing generic SPI source need not be extended for this project.
 
 The existing chimera_protocol.py handles original mailbox16/health43 decoding
 for the separate Python receiver. It is not the new native USB backend or an
@@ -35,8 +37,8 @@ F4 health59 decoder. Preserve that distinction when reusing its tests.
 - Protocol profiles define CAN framing, status layouts, versions and commands.
 - Board support defines MCU, GPIO, inputs, relay and firmware/recovery policy.
 
-Use one native host transport interface for SPI and USB. Preserve current SPI
-framing, buffer limits and device selection while adding the USB backend later.
+Use the existing common host interface with the USB backend for this Radxa
+deployment. Preserve qualified protocol framing/bounds and explicit selection.
 Chimera retains its own board definition. Do not substitute Panda harness GPIO
 or black-Panda power controls for Chimera's input and OBD-C assignments.
 
@@ -71,7 +73,7 @@ policy; discovering an external F4 or Chimera must never invoke an H7 flash path
    separate from opening/initializing a supported board.
 4. **T05 legacy status adapter:** exact 59-byte F4 status decoder alongside the
    current status contract, with pinned field/length/version fixtures.
-5. **T08 lifecycle:** explicit external USB selection, exclusive ownership and
+5. **T08 lifecycle:** USB-only pinned selection, no SPI probing/fallback, exclusive ownership and
    correct board policy before managed passive RX tests. Unknown firmware stays
    unsupported; no broad reset/DFU/flash sweep.
 

@@ -1,3 +1,12 @@
+## November 6 — Owner requires USB only for Radxa/Chimera
+
+QA-20261106-24: owner says “no spi is needed since we will use usb only”.
+USB-only target excludes SPI wiring/probing/fallback. Updated active plan/rules;
+inherited native constructor still opens SPI and awaits T08 pinned USB startup.
+Requirement correction only, no runtime/code/hardware change. Next remains T05c
+per-bus health, then USB-only managed lifecycle. Upstream updates held.
+[Session](../Sessions/2026-11-06-chimera-usb-only.md).
+
 ## November 6 — Legacy F4 health59 decoder/read helper verified
 
 QA-20261106-23: T05b adds native LegacyF4Health, exact59-byte decoding and one

@@ -4,6 +4,11 @@ November 6, 2026. Active project location: `sunnypilot/chimera/`.
 The existing T01–T20 task identities are retained. Each slice gets appropriate
 checks, a local commit and a notebook handoff before expanding the scope.
 
+Owner clarification, November6: Radxa-to-Chimera/selected legacy Panda is USB only.
+T08 must select pinned USB explicitly, never probe/fall back to SPI, and remain
+disconnected on USB failure. Existing generic SPI source is not a deployment
+requirement. Native construction still opens SPI until T08 replaces it.
+
 Additional November6 source evidence: [Ocelot Panda Docker review](../docs/OCELOT_PANDA_DOCKER_REVIEW.md).
 Pinned current/parent targets distinguish stock Panda selection from Chimera
 GPIO/acquisition. DD forwarding/version collision and health43 signedness feed
@@ -33,7 +38,7 @@ future T02/T05/T08 fixtures; no new firmware integration or task completion.
 | T05 | Exact identity/version/health responses, legacy F4 status adaptation and fail-disabled state | T05a bootstrap and T05b F4health59 decoder/read helper complete offline; per-bus health, publication and new Chimera operational health pending |
 | T06 | Native Sunnypilot USB transport and offline failure tests | Offline transport implemented (T06a/b); managed use remains T08 |
 | T07 | Isolated passive receive qualification on each physical bus | Pending separate bench scope |
-| T08 | Protected current/F4/Chimera managed passive lifecycle, reconnect and exclusive ownership | Pending |
+| T08 | USB-only current/F4/Chimera managed passive lifecycle, pinned selection, reconnect and exclusive ownership; no SPI probe/fallback | Pending |
 | T09 | Preserve digital/pulse acquisition and qualify invalid/stopped states | Pending |
 | T10 | Preserve ADC acquisition, calibration and button handling | Pending |
 | T11 | Configured vehicle CAN extraction, integrity and freshness | Pending |

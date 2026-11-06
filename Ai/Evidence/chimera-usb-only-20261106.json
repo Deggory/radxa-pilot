@@ -1,0 +1,33 @@
+{
+  "date_utc": "2026-11-06T20:09:41.758021+00:00",
+  "baseline": "c668f6757da3e6a693d9738e99bdc0b5b81b7529",
+  "scope": "USB-only owner requirement/roadmap/rules correction; documentation only",
+  "owner_quote": "no spi is needed since we will use usb only",
+  "sources_sha256": {
+    "chimera/AGENTS.md": "cba8c96e73dee4423dd8a92726818cd14e0deadc9032dcfd669d80c7cb586a0f",
+    "chimera/README.md": "4b138d3ec750492325ec4468908c49afc1425380cd4483db8d1e33b9898c2659",
+    "chimera/tasks/plan.md": "30bf635cbbe5f63d734efef85e1b5a2390a0763dd95e02a967bfe110a8cba17a",
+    "chimera/docs/LEGACY_PANDA_SUPPORT.md": "384e30f858530faad83f32e9639acd88b2f054db2c2d581e0710a5b328f90b6e",
+    "chimera/docs/PROGRESS_EXPLAINED.md": "c588cb3e7da4ffa79b510c1e6361cc444d4c81a8ea3b1d2347ec9163c35ad967",
+    "chimera/docs/USB_IDENTITY_CONTRACT.md": "0471d780e4eea752fd7459677ed8ec32c4d225e0671e5e9f1e0770b30e3d3284",
+    "chimera/docs/STATUS_CAPABILITY_CONTRACT.md": "236559097f48c9883a20448582c1c835e00b53c39a6d4c22cb9b368e7a610aca",
+    "openpilot/selfdrive/pandad/panda.cc": "ded2f5d2e210b5e93013fd331ebbac72cd15f31f52eafd9c358007316921c579",
+    "openpilot/selfdrive/pandad/panda_usb.h": "3d31c398d6b41c9ecc581be1a1a6836f6ef53844e09745476dfad473d81c6839"
+  },
+  "implemented": "USB-only requirement, no SPI probe/fallback acceptance condition, synchronized teacher/student Q&A24 and decisions",
+  "pending": "T08 runtime constructor/listing USB integration still pending; T05c next",
+  "limits": [
+    "No runtime/code/build/hardware change",
+    "No new tests/build run; prior runtime validation historical",
+    "Inherited native startup still selects SPI, not ready for USB-only deployment",
+    "No hardware/update/push; no REA provider run required"
+  ],
+  "agent": "OpenAI Codex; no additional agents/model inference",
+  "validation": {
+    "memory": "pass:144documents/482relative links",
+    "active_markdown_links": 135,
+    "source_hashes": "9/9 pass",
+    "git_diff_check": "pass",
+    "tracked_change_scope": "Markdown only; no runtime tests/build needed"
+  }
+}

@@ -27,7 +27,8 @@ The new image does not impersonate stock Panda C1 hardware types. Local manifest
 board-family1 means **our Chimera F413 target**, not a silicon DBGMCU_IDCODE or a
 Panda enumeration. Original `Chimera`/mailbox43 and current/F4 Panda profiles stay
 distinct. Existing native selection does not support this bootstrap; it must
-continue rejecting incomplete/unknown combinations. Managed startup stays SPI.
+continue rejecting incomplete/unknown combinations. Inherited managed startup still opens SPI; T08 must replace it with USB-only
+selection for this setup, without SPI probing/fallback.
 
 The future explicit host path must match descriptor serial to the requested pin,
 read D6 and A0, validate exact lengths/schema/phase/reserved fields and qualify
