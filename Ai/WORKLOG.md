@@ -1,3 +1,17 @@
+## November 6 — Legacy F4 health59 decoder/read helper verified
+
+QA-20261106-23: T05b adds native LegacyF4Health, exact59-byte decoding and one
+bounded D2 read; full widths/fractional load retained, no current-only defaults.
+Native pandad builds;6native executables, ASan/UBSan and15existing Python tests
+pass. Mutation detects missing profile guard. Exact Carrot69a2d3be header/license
+retained in project test fixtures. Firmware23source hashes/7448-byte retained
+image unchanged; no fresh ARM build or firmware suite this slice. Managed startup
+and get_state unchanged; per-bus health/publication still pending. Next T05c
+CAN-health5 compatibility, then T08 lifecycle. Current short-read hardening remains
+required there. Upstream updates held; no hardware/update/push. Ocelot/archive/DBC
+preserved; physical power/VBUS/current recovery unqualified.
+[Session](Sessions/2026-11-06-chimera-legacy-health.md) records exact checks/limits.
+
 ## November 6 — Bootstrap status/capability contract verified
 
 QA-20261106-22: T05a adds strict pure A0/D6 discovery decoding and a status

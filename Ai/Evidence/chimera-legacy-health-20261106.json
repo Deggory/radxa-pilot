@@ -1,0 +1,213 @@
+{
+  "date_utc": "2026-11-06T19:55:38.042854+00:00",
+  "baseline": "9ada248e6ba7160723623fb62ba07e1d6aa67d63",
+  "scope": "T05b pure typed legacy F4 health17/59 decoder plus bounded D2 read helper, compiled native library/test; no managed use or Chimera firmware change",
+  "source_pins": {
+    "carrot": "69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7",
+    "panda": "8a16e089b88593914823743df29e1c30b7dd3e00",
+    "opendbc": "150f937198ceab43c43b39f94b9bdea63fcb633c",
+    "ocelot": "d87892fa25ef2a2474110b97bfb5245ee818b534",
+    "archive": "224cfa645134db91103c55d8188d87e7976b0ba4"
+  },
+  "sources_sha256": {
+    "openpilot/selfdrive/pandad/panda_health.h": "7c3c8a006937517b98897ad6ec12e1f33753fbb8f59b0f752fda01da2974cd7c",
+    "openpilot/selfdrive/pandad/panda_health.cc": "ab5cd0001bf6a59bcbdabb579e2de6d8f7c1934b80de312c1137b4fb9b6bee77",
+    "openpilot/selfdrive/pandad/tests/test_panda_health.cc": "5fbc7f5e9fbd938c08798b39a5e03ae73b582ef0e7de7f818f310489db34385e",
+    "openpilot/selfdrive/pandad/SConscript": "18ae064e4e5c4eff69cf8784a6cff831f8edbb0cc15648feea9b9272cb3a70c8",
+    "openpilot/selfdrive/pandad/.gitignore": "c6ac3f5d83aef43b4343c05acd0bcf4abd84c1ed70d3db2bc50eed61f89c08d2",
+    "chimera/reference/carrot-f4-health-v17/health.h": "bd8ec57900ea5c717014badc2d281fff8cfeeede0bd985a272bf08f7c1ae1a40",
+    "chimera/reference/carrot-f4-health-v17/LICENSE": "0f8f541ee42cf97353a043105a3108c2d599fe381d4b90ff0e82e328ffc5d8f5",
+    "chimera/reference/carrot-f4-health-v17/SOURCES.json": "5b699e44522a99c147bc9cd9aca2a1c03c620b3d7b20905661e0d73ecdb751c1",
+    "chimera/docs/LEGACY_F4_HEALTH.md": "9bf6a063092f2a3ff1e37f4b1c12b8c88c161a51d6520e641b262799cba38378",
+    "openpilot/selfdrive/pandad/panda_identification.cc": "6d67f7e565cef893adbce6008f9ebed7126773f167d77fd7b98b2e14c98e7627",
+    "openpilot/selfdrive/pandad/panda.cc": "ded2f5d2e210b5e93013fd331ebbac72cd15f31f52eafd9c358007316921c579",
+    "panda/board/health.h": "af9e8fca563ced23bc3c478a4bc8907e519b938b83eb023b02d982a66acc83f8"
+  },
+  "retained_source_reads": {
+    "chimera/reference/carrot-wip-20261106/source/panda/board/main_comms.h": "79fe6ea3e7512d227b426db673bb6874d4d0973c21b080f964cdbf57c561839d",
+    "chimera/reference/carrot-wip-20261106/source/panda/python/__init__.py": "43557e70230eac7efd25550e6f4b64fc56f503de10676d00fedb60bdcf8b4058"
+  },
+  "copied_reference": {
+    "repository": "ajouatom/openpilot",
+    "commit": "69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7",
+    "purpose": "Unchanged health header and MIT license, only for host decoder fixtures; not firmware or runtime dependency",
+    "files": [
+      {
+        "path": "panda/board/health.h",
+        "git_blob": "5ee5b4c23bed02e9bc4ed2d17caf8589a28d4551",
+        "url": "https://github.com/ajouatom/openpilot/blob/69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7/panda/board/health.h",
+        "encoding": "utf-8",
+        "expected_text_length": 2264,
+        "bytes": 2264,
+        "sha256": "bd8ec57900ea5c717014badc2d281fff8cfeeede0bd985a272bf08f7c1ae1a40",
+        "coverage": "Selected relevant functions/definitions and surrounding lifecycle; copying is not an every-line review",
+        "local_path": "health.h"
+      },
+      {
+        "path": "panda/LICENSE",
+        "git_blob": "8a6c6976b70de306b675f426761f3f9a39b8fb21",
+        "url": "https://github.com/ajouatom/openpilot/blob/69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7/panda/LICENSE",
+        "encoding": "utf-8",
+        "expected_text_length": 1059,
+        "bytes": 1059,
+        "sha256": "0f8f541ee42cf97353a043105a3108c2d599fe381d4b90ff0e82e328ffc5d8f5",
+        "coverage": "Selected relevant functions/definitions and surrounding lifecycle; copying is not an every-line review",
+        "local_path": "LICENSE"
+      }
+    ]
+  },
+  "checks": {
+    "tdd_red": {
+      "exit_code": 1,
+      "output": "openpilot/selfdrive/pandad/tests/test_panda_health.cc:7:10: fatal error: selfdrive/pandad/panda_health.h: No such file or directory\n    7 | #include \"selfdrive/pandad/panda_health.h\"\n      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\ncompilation terminated.\n",
+      "expected": "new panda_health.h absent before implementation"
+    },
+    "native_build_command": ". .venv/bin/activate; scons -j2 openpilot/selfdrive/pandad/pandad openpilot/selfdrive/pandad/tests/test_panda_health openpilot/selfdrive/pandad/tests/test_panda_comms openpilot/selfdrive/pandad/tests/test_panda_identification openpilot/selfdrive/pandad/tests/test_panda_usb openpilot/selfdrive/pandad/tests/test_panda_usb_link openpilot/selfdrive/pandad/tests/test_pandad_canprotocol",
+    "native_build": {
+      "exit_code": 0,
+      "initial_output": "scons: Reading SConscript files ...\nkj/filesystem-disk-unix.c++:1734: warning: PWD environment variable doesn't match current directory; pwd = /home/radxa/comma/sunnypilot\nscons: done reading SConscript files.\nscons: Building targets ...\nprogress: 3.4\nprogress: 6.8\nprogress: 10.3\nprogress: 13.7\nprogress: 17.1\nprogress: 20.5\nprogress: 24.0\nprogress: 27.4\nprogress: 30.8\nprogress: 34.2\nprogress: 37.7\nprogress: 41.1\nprogress: 44.5\nprogress: 47.9\nprogress: 51.4\nprogress: 54.8\nprogress: 58.2\n  [CXX] openpilot/selfdrive/pandad/panda_health.o\nprogress: 61.6\nprogress: 65.1\nprogress: 68.5\nprogress: 71.9\nprogress: 75.3\nprogress: 78.8\nprogress: 82.2\nprogress: 85.6\nprogress: 89.0\n  [CXX] openpilot/selfdrive/pandad/tests/test_panda_health.o\n  [AR] openpilot/selfdrive/pandad/libpanda.a\nprogress: 92.5\nscons: `openpilot/selfdrive/pandad/tests/test_panda_comms' is up to date.\nprogress: 95.9\n  [RANLIB] openpilot/selfdrive/pandad/libpanda.a\nprogress: 99.3\n  [LINK] openpilot/selfdrive/pandad/tests/test_panda_usb_link\n  [LINK] openpilot/selfdrive/pandad/tests/test_panda_usb\nprune_cache_dir([\"openpilot/selfdrive/pandad/tests/test_panda_usb_link\"], [\"openpilot/selfdrive/pandad/tests/test_panda_usb_link.o\"])\nprune_cache_dir([\"openpilot/selfdrive/pandad/tests/test_panda_usb\"], [\"openpilot/selfdrive/pandad/tests/test_panda_usb.o\"])\n  [LINK] openpilot/selfdrive/pandad/tests/test_panda_identification\n  [LINK] openpilot/selfdrive/pandad/tests/test_pandad_canprotocol\nprune_cache_dir([\"openpilot/selfdrive/pandad/tests/test_panda_identification\"], [\"openpilot/selfdrive/pandad/tests/test_panda_identification.o\"])\n  [LINK] openpilot/selfdrive/pandad/pandad\nprune_cache_dir([\"openpilot/selfdrive/pandad/tests/test_pandad_canprotocol\"], [\"openpilot/selfdrive/pandad/tests/test_pandad_canprotocol.o\"])\nprogress: 100.0\n  [LINK] openpilot/selfdrive/pandad/tests/test_panda_health\nprune_cache_dir([\"openpilot/selfdrive/pandad/tests/test_panda_health\"], [\"openpilot/selfdrive/pandad/tests/test_panda_health.o\"])\nprune_cache_dir([\"openpilot/selfdrive/pandad/pandad\"], [\"openpilot/selfdrive/pandad/main.o\", \"openpilot/selfdrive/pandad/pandad.o\", \"openpilot/selfdrive/pandad/panda_safety.o\"])\nscons: done building targets.\n",
+      "final_output": "scons: Reading SConscript files ...\nkj/filesystem-disk-unix.c++:1734: warning: PWD environment variable doesn't match current directory; pwd = /home/radxa/comma/sunnypilot\nscons: done reading SConscript files.\nscons: Building targets ...\nprogress: 3.8\nprogress: 7.6\nprogress: 11.5\nprogress: 15.3\nprogress: 19.1\nprogress: 22.9\nprogress: 26.7\nprogress: 30.5\nprogress: 34.4\nprogress: 38.2\nprogress: 42.0\nprogress: 45.8\nprogress: 49.6\nprogress: 53.4\nprogress: 57.3\nprogress: 61.1\nprogress: 64.9\nprogress: 68.7\nprogress: 72.5\nprogress: 76.3\nprogress: 80.2\nprogress: 84.0\nprogress: 87.8\nprogress: 91.6\nprogress: 95.4\nprogress: 99.2\nscons: `openpilot/selfdrive/pandad/pandad' is up to date.\n  [CXX] openpilot/selfdrive/pandad/tests/test_panda_health.o\nprogress: 100.0\n  [LINK] openpilot/selfdrive/pandad/tests/test_panda_health\nprune_cache_dir([\"openpilot/selfdrive/pandad/tests/test_panda_health\"], [\"openpilot/selfdrive/pandad/tests/test_panda_health.o\"])\nscons: done building targets.\n",
+      "note": "Final build after test assertion strengthening; current sources restored after separate mutation compile."
+    },
+    "native_executables": {
+      "test_panda_health": {
+        "exit_code": 0,
+        "stdout": "Legacy F4 health59: exact source/golden layout, 256 flag combinations, 2032 invalid booleans, integer/float/unaligned cases and bounded single-read failures passed; no hardware calls\n",
+        "stderr": ""
+      },
+      "test_panda_comms": {
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "test_panda_identification": {
+        "exit_code": 0,
+        "stdout": "19 supported fixtures; 421 rejected fixtures; 3 invalid transports; zero writes\n",
+        "stderr": ""
+      },
+      "test_panda_usb": {
+        "exit_code": 0,
+        "stdout": "33 USB scenario groups passed; no real USB calls\n",
+        "stderr": ""
+      },
+      "test_panda_usb_link": {
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "test_pandad_canprotocol": {
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    "sanitizers": {
+      "command": "c++ -std=c++17 -Wall -Wextra -Werror -fsanitize=address,undefined -fno-omit-frame-pointer -g -Iopenpilot -I. openpilot/selfdrive/pandad/panda_health.cc openpilot/selfdrive/pandad/tests/test_panda_health.cc -o chimera/build/test-panda-health-sanitized; chimera/build/test-panda-health-sanitized",
+      "exit_code": 0,
+      "output": "Legacy F4 health59: exact source/golden layout, 256 flag combinations, 2032 invalid booleans, integer/float/unaligned cases and bounded single-read failures passed; no hardware calls\n"
+    },
+    "coverage": "All 27 fields against unchanged source header plus independent golden bytes; 256 flag combinations twice (aligned/unaligned), 2032 noncanonical boolean values, 7 u32 boundary sets, 5 additional finite float values, invalid lengths/profiles/null/negative-nonfinite loads, one-call transport failures/disconnect/health/no-cache/no-write guards",
+    "mutation": {
+      "change": "remove decoder profile guard (void-cast solely prevents unused-argument compile failure in experiment)",
+      "compile": 0,
+      "test_exit_code": 1,
+      "output": "openpilot/selfdrive/pandad/tests/test_panda_health.cc:127: check failed: !decode_legacy_f4_health(profile, valid.data(), valid.size())\n",
+      "restored": true
+    },
+    "existing_python": {
+      "command": ".venv/bin/python -m unittest openpilot.selfdrive.pandad.tests.test_chimera openpilot.selfdrive.pandad.tests.test_chimera_protocol",
+      "tests": 15,
+      "exit_code": 0,
+      "output": "...............\n----------------------------------------------------------------------\nRan 15 tests in 0.069s\n\nOK\n"
+    },
+    "scons_lint": {
+      "syntax_ast": "pass",
+      "generic_ruff_comparison": {
+        "baseline": {
+          "returncode": 1,
+          "codes": [
+            "F821"
+          ],
+          "diagnostics": 11,
+          "names": [
+            "Undefined name `File`",
+            "Undefined name `GetOption`",
+            "Undefined name `Import`",
+            "Undefined name `arch`",
+            "Undefined name `common`",
+            "Undefined name `env`",
+            "Undefined name `messaging`"
+          ]
+        },
+        "current": {
+          "returncode": 1,
+          "codes": [
+            "F821"
+          ],
+          "diagnostics": 12,
+          "names": [
+            "Undefined name `File`",
+            "Undefined name `GetOption`",
+            "Undefined name `Import`",
+            "Undefined name `arch`",
+            "Undefined name `common`",
+            "Undefined name `env`",
+            "Undefined name `messaging`"
+          ]
+        }
+      },
+      "limit": "Direct generic Ruff F821 diagnostics are the same injected-symbol names as baseline (11 then12 occurrences due new env target). Actual SCons evaluation/build succeeds; no ignores/suppressions/config weakening. Do not call this a Ruff pass."
+    },
+    "gnu_artifacts": "file: native pandad ELF64 LSB aarch64; nm -C confirms both decoder/read helper symbols in native test. No daemon or real USB call.",
+    "compiler": "c++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "git_diff_check": "pass",
+    "review": "Reviewed 27 offsets/types, bounds before read, exact profile gating, float bits/alignment, typed absent current-only fields, no retry/cache/write path, injected-SCons lint context and test mutation. No blocking source finding.",
+    "memory_verifier": {
+      "result": "pass",
+      "documents": 143,
+      "relative_links": 474,
+      "optional_workspace_links": 246,
+      "source_repositories": 8,
+      "indexed_entries": 4254
+    },
+    "active_markdown_links": 138,
+    "source_hash_readback": "12/12 pass",
+    "artifact_hash_readback": "3/3 pass"
+  },
+  "artifacts_sha256": {
+    "openpilot/selfdrive/pandad/pandad": "d31ced74049fe6cc7d3af1c5ac334a1afe19b1b6cc133f1870252dc9808ccd3c",
+    "openpilot/selfdrive/pandad/tests/test_panda_health": "70fb34d612ca2d1c5638c730f0b6ab31b0d4fc92a2ca49e1c2a4b8b112706f9a",
+    "chimera/build/test-panda-health-sanitized": "f438c74980fae0b6845411460ccd1a3fd647075fc27e68f024f5b678dfdec841"
+  },
+  "preservation": {
+    "ocelot_dirty_entries": 39,
+    "ocelot_source_hashes_verified": 19,
+    "original_archive_clean": true,
+    "canonical_dbc_sha256": "b4079670b8118fe63c6a7710ca1158afaabfec7df881ef902e43d70d70a36b67",
+    "firmware_source_hashes_unchanged": 23,
+    "retained_firmware_raw_sha256": "d5f7a3f9d0299da28fa7c78c662cefd4deb60c5e748b7e553926c77b8e9c2698",
+    "retained_firmware_raw_bytes": 7448,
+    "fresh_arm_build_or_28test_suite_this_increment": false
+  },
+  "workflow": {
+    "skills": [
+      "incremental-implementation",
+      "test-driven-development",
+      "api-and-interface-design",
+      "source-driven-development",
+      "git-workflow-and-versioning",
+      "code-review-and-quality"
+    ],
+    "analysis": "Teacher/student routers/Q&A then retained official source, focused CLI/GNU native artifact checks; no new network or REA provider result",
+    "agent": "OpenAI Codex; no additional agents/model inference"
+  },
+  "limits": [
+    "Decoder/read helper not called by managed Panda/get_state or startup; SPI path unchanged",
+    "Profile enum requires prior explicit identification and serialized transport ownership; not authentication or concurrency protection",
+    "Unknown enum/mode/alternative values remain raw; command semantics/publication compatibility unimplemented",
+    "Current-only fields absent, not fabricated; no per-bus CAN-health5 decoder yet",
+    "Current get_state/get_can_state non-exact read acceptance unchanged; hardening required before managed profile integration",
+    "No board access, flash/reset, config/CAN/relay/actuation, install, upstream update or push; power/VBUS/current recovery unqualified"
+  ],
+  "next": "T05c per-bus CAN-health5 decode/compatibility before T08 managed selection/publication/reconnect; new Chimera operational firmware still separate"
+}

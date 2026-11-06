@@ -1,0 +1,29 @@
+{
+  "repository": "ajouatom/openpilot",
+  "commit": "69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7",
+  "purpose": "Unchanged health header and MIT license, only for host decoder fixtures; not firmware or runtime dependency",
+  "files": [
+    {
+      "path": "panda/board/health.h",
+      "git_blob": "5ee5b4c23bed02e9bc4ed2d17caf8589a28d4551",
+      "url": "https://github.com/ajouatom/openpilot/blob/69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7/panda/board/health.h",
+      "encoding": "utf-8",
+      "expected_text_length": 2264,
+      "bytes": 2264,
+      "sha256": "bd8ec57900ea5c717014badc2d281fff8cfeeede0bd985a272bf08f7c1ae1a40",
+      "coverage": "Selected relevant functions/definitions and surrounding lifecycle; copying is not an every-line review",
+      "local_path": "health.h"
+    },
+    {
+      "path": "panda/LICENSE",
+      "git_blob": "8a6c6976b70de306b675f426761f3f9a39b8fb21",
+      "url": "https://github.com/ajouatom/openpilot/blob/69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7/panda/LICENSE",
+      "encoding": "utf-8",
+      "expected_text_length": 1059,
+      "bytes": 1059,
+      "sha256": "0f8f541ee42cf97353a043105a3108c2d599fe381d4b90ff0e82e328ffc5d8f5",
+      "coverage": "Selected relevant functions/definitions and surrounding lifecycle; copying is not an every-line review",
+      "local_path": "LICENSE"
+    }
+  ]
+}

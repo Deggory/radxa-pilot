@@ -43,9 +43,9 @@ or black-Panda power controls for Chimera's input and OBD-C assignments.
 | Reference profile | CAN records | Health/version contract | Current project status |
 | --- | --- | --- | --- |
 | Current Panda, 8a16e089 | Six-byte header, payload, XOR | 49-byte health; DD returns two 32-bit layout hashes | Existing native SPI path |
-| Carrot F4 reference, 69a2d3be | Six-byte header, payload, XOR; F4 classical CAN | 59-byte health; DD returns numeric health17/CAN4/CAN-health5 | Offline USB factory/backend implemented; status/lifecycle pending |
+| Carrot F4 reference, 69a2d3be | Six-byte header, payload, XOR; F4 classical CAN | 59-byte health; DD returns numeric health17/CAN4/CAN-health5 | Offline USB/identification and typed health59 decoder/read helper implemented; publication/per-bus health/lifecycle pending |
 | Original Chimera, d87892fa plus dirty source | 16-byte mailbox | 43-byte health; no matching modern DD handler | Separate Python receiver and native read-only USB transport; not managed Panda support |
-| New Chimera target | Pinned modern classical CAN framing | Explicit identity and current status contract, still to implement | Firmware and host integration pending |
+| New Chimera target | Pinned modern classical CAN codec, unbound | Implemented phase0 A0/D6 contract; no operational health | Offline firmware/service/decoder pieces; startup and operational host integration pending |
 
 Same framing does not make different health layouts interchangeable. Verify
 identity, exact response lengths and the applicable versions before selecting a
@@ -157,3 +157,13 @@ Carrot backend remains a reference; its retry and constructor policy is not copi
 
 Next: exact legacy status adaptation (T05), then protected managed USB selection
 (T08). The USB factory is not invoked by current Panda construction or startup.
+
+## T05b legacy health increment — November 6
+
+The native library now contains a pure health59 decoder and a one-call bounded
+D2 reader. Full32-bit voltage/current, fractional load, separate boolean flags
+and legacy-only wake/fan-stall/SOM-reset fields are retained in a distinct type.
+No cast to current health49 or current-only defaults. Actual pinned packed header
+and independent golden bytes, sanitizers and invalid-read cases pass offline.
+Managed get_state/publication, per-bus health and lifecycle remain pending.
+See the [field/error contract](LEGACY_F4_HEALTH.md).

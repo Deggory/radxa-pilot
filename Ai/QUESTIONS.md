@@ -1,3 +1,19 @@
+## QA-20261106-23 — Proceed with legacy F4 health59 decoding
+
+**Date:** November 6, 2026 UTC.
+
+**Owner request (original):** proceed
+
+**Context:** Continue the T05b host status slice after QA22.
+
+**Answer:** Added a distinct native LegacyF4Health type, pure exact59-byte decoder and one bounded D2 read helper. Full32-bit voltage/current/counters, fractional load, eight checked boolean bytes and legacy-only fields are preserved; unknown enum numbers stay raw. No cast to current health49 or current-only defaults. Reader requires the previously qualified legacy profile and healthy exclusive transport; it makes one64-byte/1000ms control-IN read and rejects non-exact, malformed or unhealthy results without retries, cache or writes. Native pandad and six test executables build/pass, ASan/UBSan passes,15existing receiver tests pass, and removing the decoder profile guard is caught. Next T05c is per-bus CAN-health5 qualification before managed selection/publication/reconnect.
+
+**Evidence/source pins:** Baseline9ada248e6ba7160723623fb62ba07e1d6aa67d63; Carrot69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7 health17 header/producer/Python mapping. Exact header and MIT license copied into project test references with verified Git blobs/SHA256, no network. Sources/commands/output/artifact hashes in student Ai/Evidence/chimera-legacy-health-20261106.json and contract chimera/docs/LEGACY_F4_HEALTH.md. Tests compare all27fields with original header plus independent golden bytes;256flag combinations,2032invalid booleans, high integer/float/unaligned and bounded failure cases. Native GNU file/nm evidence; no new REA provider result.
+
+**Implemented versus proposed/limits:** T05b typed decoding/read helper complete offline, T05 overall partial. Managed get_state/startup remains unchanged, per-bus health/publication/enum-command compatibility pending. Reader's profile is a caller contract after pinned identification, not authentication; caller serializes ownership. Transport exceptions propagate. Current get_state/get_can_state still accept non-exact nonnegative replies; future managed integration must harden them. Generic Ruff on SConscript reports injected-name F821 just as baseline; actual SCons build and syntax pass, no suppressions added. All23firmware source hashes and retained7448-byte artifact unchanged; prior28-test firmware result is historical, not rerun here. Ocelot39dirty entries/19hashes, archive and canonical DBC preserved. No hardware/flash/reset/CAN/config/relay/install/update/push; physical power/VBUS/current-recovery still open. Earlier unanswered entries retained.
+
+---
+
 ## QA-20261106-22 — Proceed with bootstrap status/capability contract
 
 **Date:** November 6, 2026 UTC.

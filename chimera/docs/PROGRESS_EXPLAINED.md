@@ -71,3 +71,13 @@ or health. Tests use replies produced by the actual firmware C function. The new
 firmware image and parked startup are unchanged; no board was connected/flashed.
 Next is the separate legacy Panda health59 decoder, before managed use. See the
 [status contract](STATUS_CAPABILITY_CONTRACT.md).
+
+## November 6 — Old Panda health reply understood by native code
+
+T05b adds the Radxa-side decoder for the selected older Panda firmware's59-byte
+health reply. It preserves the actual measurements and flags, and refuses wrong
+profiles, malformed data or failed/partial reads. This helps our legacy Panda
+compatibility work; it does not make the new Chimera firmware emit health.
+Native pandad builds and offline tests pass. Managed startup still uses SPI and
+no board was accessed. Next is the per-bus CAN-health5 contract, then managed
+selection/publication/reconnect work. [Details](LEGACY_F4_HEALTH.md).
