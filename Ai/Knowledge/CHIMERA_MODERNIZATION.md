@@ -1,3 +1,15 @@
+## November 6 — Chimera completeness audited; remaining gaps recorded
+
+QA-20261106-03: sufficient source references for offline work, not a complete
+verified hardware/installed dataset. Found 17 historical config/quarantine files
+outside chimera and archived exact bytes; eight CRC-valid blocks plus one erased
+incident sample. No restore or board access. Full schematic/current recovery,
+exact nightly source, reproducible new build, physical CAN/input/relay evidence
+and interface decisions remain open. See DATA_GAPS and student CHIMERA_DATA_GAPS.
+Next T01/T02 unchanged; no runtime source, hardware, update or push action.
+
+[Detailed student gap note](CHIMERA_DATA_GAPS.md).
+
 ## November 6 — CarrotPilot F413 and native USB source fetched
 
 QA-20261106-01: interpreted owner spelling as ajouatom/openpilot:carrot-wip.

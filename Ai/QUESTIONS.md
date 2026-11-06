@@ -1,3 +1,21 @@
+## QA-20261106-03 — Do we have all Chimera data, or is anything missing?
+
+**Date:** November 6, 2026 UTC.
+
+**Owner question (original):** so we have all the data for chimera right ,did we miss somrthing
+
+**Answer:** We have a substantial source/reference base, enough to begin bounded offline engineering, but not all verified board or installed-firmware data. Missing/unverified items include the exact owner-board schematic/revision/power and OBD-C map; exact source/build provenance for the saved nightly; a complete current installed bootstub/configuration recovery set; full reproducible new F413 build inputs and signed partition budget; measured three-bus receive behavior, input calibration and actual vehicle signal definitions; relay/load/fault measurements; and final protocol/source/configuration decisions. Existing original nightly and past application restoration evidence are present, so recovery is not wholly absent. Local build bootstubs are not installed bootstub dumps. Selected source snapshots and offline codec checks are not a finished firmware/managed integration.
+
+**Collection gap found and closed:** The host still held 17 historical Core Config backup/quarantine files outside the new Chimera folder. Copied exact bytes and provenance to `chimera/recovery/legacy-core-config-20261106/`; eight config blocks have valid magic/CRC32 and one erased-flash block is retained as incident evidence. Originals are unchanged. These are historical backups, not a fresh current-board read or authorization to restore/watchdog-enable/clear quarantine.
+
+**Evidence/source pins:** Local audit against `chimera/SPEC.md`, roadmap/checklist, hardware/research/config notes, earlier teacher recovery records and Core Config user-data directory. Audit receipt `chimera/evidence/completeness-20261106.json`; gap checklist `chimera/docs/DATA_GAPS.md`; student `Ai/Knowledge/CHIMERA_DATA_GAPS.md`. Prior source pins remain current Panda8a16e089/opendbc150f9371, Ocelotd87892fa plus preserved dirty bytes and Carrot69a2d3be. Local Chimera ELF still matches retained REA hash5ae9b4f6; no new REA or installed-image claim.
+
+**Saved archive/gap checkpoint:** Local Chimera commit `603ea76aceaa17e75adeb57cd498f974cf0333c8`; not pushed.
+
+**Implemented versus proposed/limits:** Documentation and local archival only. No device handle, USB/CAN/config write/restore, flash, GPIO/relay/actuator action, runtime source change, install or push. Next T01/T02 resolves board/partition/recovery and identity/RPC/bus-source contracts; OBD-C and active-control qualification are later gates. Exact old source helps reproduction but need not block all new known-source offline work. Existence, completeness and tested integration remain separate.
+
+---
+
 ## QA-20261106-02 — Where Chimera evidence and references are saved
 
 **Date:** November 6, 2026 UTC.

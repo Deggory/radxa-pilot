@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-06",
+  "result": "pass",
+  "historical_files_archived_and_originals_unchanged": 17,
+  "crc_valid_configuration_blocks": 8,
+  "erased_incident_blocks_retained": 1,
+  "prior_reference_hashes_unchanged": 94,
+  "carrot_reference_hashes_unchanged": 31,
+  "qa_20261106_03": "identical",
+  "protected_repo_dirty_states": "unchanged",
+  "board_documents_checked": 5,
+  "board_links_checked": 21,
+  "student_notebook_documents": 127,
+  "student_notebook_relative_links": 381,
+  "student_notebook_workspace_links": 246,
+  "source_repositories": 8,
+  "indexed_entries": 4254,
+  "hardware_access": false,
+  "settings_restored_or_quarantine_activated": false,
+  "runtime_or_firmware_change": false,
+  "push": false
+}

@@ -1,0 +1,45 @@
+{
+  "date_utc": "2026-11-06",
+  "review": "local completeness audit against saved requirements and teacher evidence",
+  "configuration_archive_files": 17,
+  "valid_historical_config_blocks": 8,
+  "erased_incident_blocks": 1,
+  "historical_quarantine_record_archived": true,
+  "local_build_artifacts": [
+    {
+      "path": "ocelot/firmware/obj/chimera/chimera.elf",
+      "bytes": 163912,
+      "sha256": "5ae9b4f6ea99e569028d271c4ec9c2ce59cd11375b5482adbd0781f3480e20b8",
+      "status": "local build artifact; not an installed bootstub dump or exact-nightly source proof",
+      "copied_to_recovery": false
+    },
+    {
+      "path": "ocelot/firmware/obj/bootstub.bin",
+      "bytes": 11176,
+      "sha256": "353f1070113c78743b89364c105f0a3a7c397d276b4c74d0db9329731ba7436b",
+      "status": "local build artifact; not an installed bootstub dump or exact-nightly source proof",
+      "copied_to_recovery": false
+    },
+    {
+      "path": "ocelot/firmware/obj/bootstub.elf",
+      "bytes": 104068,
+      "sha256": "e944d02c0b96bda95271fc05d1d4311e358ba5ab78e18f155e54f98907da6b11",
+      "status": "local build artifact; not an installed bootstub dump or exact-nightly source proof",
+      "copied_to_recovery": false
+    }
+  ],
+  "known_missing": [
+    "Exact owner-board schematic/revision/power and OBD-C electrical map",
+    "Exact source for installed de193215 nightly",
+    "Verified complete current-device recovery set including installed bootstub and current configuration",
+    "Full reproducible new F413 build inputs and signed partition budget",
+    "Measured direct-input calibration and vehicle CAN signal mapping",
+    "All-three-bus physical reception and relay/fault qualification",
+    "Completed protocol/source-authority/configuration contracts and managed hardware integration"
+  ],
+  "offline_work_can_proceed": true,
+  "new_hardware_access": false,
+  "source_or_firmware_changes": false,
+  "restored_or_activated_settings": false,
+  "push": false
+}
