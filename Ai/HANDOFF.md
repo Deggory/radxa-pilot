@@ -1,3 +1,11 @@
+## November 6 — Board/build steps explained
+
+November6 QA-20261106-07: explained T01 as board GPIO plus bootstub/application/
+config ownership and T03 as a minimal offline F413 image/build/size check. Legacy
+app0x08004000/config0x08020000 are source facts; this is not a new build or
+installed dump. Modern USB/host compatibility follows later. Owner asked for
+meaning; no implementation advanced. Next T01/T02/T03 unchanged.
+
 ## November 6 — Active Chimera home created inside Sunnypilot
 
 QA-20261106-06: owner requested folder-first, incremental implementation.

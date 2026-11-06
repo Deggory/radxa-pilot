@@ -19,3 +19,9 @@ boundaries; T02 contracts precede T03 minimal offline F413 target.
 Validation: copied-byte equality, local doc links, regular directory/no nested
 Git, ignored build outputs, document whitespace and notebook verifier. Actual
 results are saved in `Ai/Evidence/chimera-folder-20261106.json` before commit.
+
+November6 QA-20261106-07: explained T01 as board GPIO plus bootstub/application/
+config ownership and T03 as a minimal offline F413 image/build/size check. Legacy
+app0x08004000/config0x08020000 are source facts; this is not a new build or
+installed dump. Modern USB/host compatibility follows later. Owner asked for
+meaning; no implementation advanced. Next T01/T02/T03 unchanged.

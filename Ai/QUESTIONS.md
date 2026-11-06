@@ -1,3 +1,17 @@
+## QA-20261106-07 — What do board/flash layout and minimal F413 build mean?
+
+**Date:** November 6, 2026 UTC.
+
+**Owner question (labelled paraphrase):** What will we actually do in the proposed board/flash-layout and minimal F413-build steps?
+
+**Answer:** First turn the already known Chimera GPIO assignments into the new board definition and specify which flash regions belong to startup/recovery, application and saved settings. The legacy source reserves the first16KiB for the bootstub, starts the application at0x08004000 and stores configuration in sector5 at0x08020000. A new linker/build must keep the complete signed application within its selected space and preserve configuration; exact total MCU capacity/installed-image proof remain separate. Then add a small STM32F413 startup/build target inside sunnypilot/chimera/firmware/, configure the CPU/clocks/vector table and defined initial GPIO behavior, compile it into ELF/binary, and inspect its addresses/size. This proves our new project can produce a correctly laid-out F413 image; it does not yet implement modern USB or Sunnypilot compatibility. The existing Ocelot build is already known to exist. USB codec/status and native host support come in later verified increments. This question requests an explanation; no firmware implementation or flashing was performed.
+
+**Evidence/source pins:** Project0834e890f, chimera/tasks/plan.md T01–T03, chimera/firmware/README.md; Ocelotd87892fa dirty reference, firmware/stm32_flash.ld (_app_start and MEMORY), firmware/bootstub.c and firmware/chimera/chimera.h (sector5/config address). Existing GPIO/build facts retained by QA04/05. These addresses describe the legacy intended layout, not a freshly verified installed flash dump.
+
+**Implemented versus proposed/limits:** Explanation and notebook only. S00 folder remains complete; T01–T03 still pending. No build, source/DBC behavior change, device action, update or push. Next remains T01 then T02 contracts and T03 minimal offline target; no modern communication compatibility claim.
+
+---
+
 ## QA-20261106-06 — Create Chimera inside Sunnypilot and build incrementally
 
 **Date:** November 6, 2026 UTC.
