@@ -87,7 +87,7 @@ could not be retrieved this session (web size limit/direct download timeout);
 register offsets and masks used here were checked against the pinned ST header.
 No claim of complete manual review is made.
 
-Nine offline tests cover three inherited GPIO register patterns with sanitizers,
+The original T03a nine offline tests cover three inherited GPIO register patterns with sanitizers,
 raw vectors/size, six vector corruptions, six ELF mutations, startup instruction
 ordering, flash overflow, RAM/stack collision and identical binaries from a copied
 checkout. The build rejects unplaced sections, dynamic linkage, undefined symbols,
@@ -95,6 +95,7 @@ writable executable segments and load bytes outside its flash budget. Stack is
 reserved by symbols/assertions, not an artificial load segment. These are source,
 compiler and artifact checks; there was no device execution or REA provider run.
 
-Next: T02 new Chimera identity/request matrix and explicit bus/input source
-contract, then modern CAN codec and USB clock/endpoint work. Host T05 legacy
+T02b now adds the [identity/request contract](USB_IDENTITY_CONTRACT.md), pure
+handler and source contract; the combined suite has twelve tests. Next: modern
+classical CAN codec, then USB clock/endpoint work. Host T05 legacy
 status decoding and T08 managed selection remain separate pending increments.

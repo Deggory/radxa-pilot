@@ -13,6 +13,7 @@ workspace reference checkout, keys, signer or flasher is needed to build.
 | [startup.S](startup.S) | Vectors, interrupt masking and explicit MSP reload before C |
 | [main.c](main.c) | RAM initialization, inherited IRQ cleanup, bounded HSI selection and parked state |
 | [board.c](board.c) | Inactive relay/OBD-C/transceiver levels; digital/analog input modes |
+| [protocol.c](protocol.c), [header](protocol.h) | Distinct identity/manifest and pure read-only vendor-request handler; not wired to USB yet |
 | [stm32f413.ld](stm32f413.ld) | Conservative application/RAM reservations and overflow assertions |
 | [build.py](build.py) | Compile, inspect ELF/vectors and publish artifacts with hashes |
 | [tests](tests/test_firmware.py) | Native GPIO checks, real ARM builds and negative image/linker fixtures |
@@ -38,9 +39,17 @@ link map and JSON receipt. The binary has a normal stack pointer in vector word
 zero; no legacy length/signature packaging is performed. Never feed this raw
 bootstrap to the legacy updater as a signed release.
 
-November 6 validation: GCC13.2.1/binutils2.42, nine tests pass, raw1064bytes;
+November 6 current validation: GCC13.2.1/binutils2.42, twelve tests pass, raw1240bytes;
 two different source/output paths produce identical bytes. GPIO tests use fake
 registers, and disassembly verifies the MSP reload precedes C. No board execution
 or electrical state was measured. USB/CAN clocks are gated, interrupts stay masked
 and no acquisition or config access is implemented. All physical interfaces
 remain reserved for subsequent slices.
+
+T02b adds D6 version and A0 manifest queries with exact vendor/device/IN checks,
+zero parameters and bounded full responses.458920 native request cases pass
+under ASan/UBSan; no writes/health/config/reset operation is accepted. Identity
+and handler are retained in the ARM image for offline verification/future EP0
+wiring. Operational capabilities/layout hashes are zero. See
+[the identity contract](../docs/USB_IDENTITY_CONTRACT.md). There is no USB
+enumeration/interrupt/endpoint implementation or new native host profile yet.

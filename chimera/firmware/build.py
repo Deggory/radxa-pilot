@@ -14,7 +14,8 @@ APP = 0x08004000
 CONFIG = 0x08020000
 ENVELOPE = 136
 STACK = 0x2001FFF8
-SOURCES = ("startup.S", "board.c", "main.c", "board.h", "stm32f413.ld", "build.py")
+COMPILATION_SOURCES = ("startup.S", "board.c", "main.c", "protocol.c")
+SOURCES = (*COMPILATION_SOURCES, "board.h", "protocol.h", "stm32f413.ld", "build.py")
 
 
 def command(*args):
@@ -80,7 +81,8 @@ def check_elf(elf, raw, prefix):
 
 def build(out, prefix="arm-none-eabi-"):
   out = Path(out).resolve()
-  flags = ["-mcpu=cortex-m4", "-mthumb", "-mfloat-abi=soft", "-Os", "-std=c11",
+  # Wire buffers have byte alignment; do not rely on inherited UNALIGN_TRP state.
+  flags = ["-mcpu=cortex-m4", "-mthumb", "-mfloat-abi=soft", "-mno-unaligned-access", "-Os", "-std=c11",
            "-ffreestanding", "-fno-builtin", "-fno-common", "-ffunction-sections", "-fdata-sections",
            "-fno-unwind-tables", "-fno-asynchronous-unwind-tables", "-Wall", "-Wextra",
            "-Wstrict-prototypes", "-Werror", "-nostdlib"]
@@ -89,7 +91,7 @@ def build(out, prefix="arm-none-eabi-"):
     elf, binary = temp / "chimera.elf", temp / "chimera.bin"
     command(prefix + "gcc", *flags, "-T", str(ROOT / "stm32f413.ld"),
             "-Wl,--gc-sections,--build-id=none,--orphan-handling=error", "-Wl,-Map=" + str(temp / "chimera.map"),
-            *(str(ROOT / name) for name in SOURCES[:3]), "-o", str(elf))
+            *(str(ROOT / name) for name in COMPILATION_SOURCES), "-o", str(elf))
     command(prefix + "objcopy", "-O", "binary", str(elf), str(binary))
     raw = binary.read_bytes()
     check_vectors(raw)

@@ -1,3 +1,19 @@
+## QA-20261106-15 — Continue the board identity and request contract
+
+**Date:** November 6, 2026 UTC.
+
+**Owner request (original):** proceed
+
+**Context:** Continue after QA14 with the distinct USB identity/request and bus/input source contract, then implement the next testable firmware piece.
+
+**Answer:** Added a distinct Chimera F413 bootstrap identity, a32-byte versioned manifest and a pure read-only firmware request handler. D6 returns the bootstrap version and A0 returns the manifest; all other vendor requests, control OUT and malformed queries are rejected without changing the reply buffer. The manifest preserves the three-bus/nine-interface source topology but advertises zero operational capabilities/layout hashes. Request and bus/input source contracts explain the future selection, freshness, Core Config and MCU policy boundaries. The handler is compiled and retained in the ARM image;12offline tests pass, including458920sanitized request cases. The raw image is now1240bytes. USB enumeration/EP0/endpoints and native host admission are still unimplemented. Next is the modern classical CAN codec.
+
+**Evidence/source pins:** Baseline0bc14bcfda34a5d087278737fe6293efbfaeac24; Panda8a16e089/opendbc150f9371; original Ocelot dirty sources preserved. Exact hashes, commands/results and source pins in Sunnypilot Ai/Evidence/chimera-identity-contract-20261106.json and session2026-11-06-chimera-identity-contract.md. New contracts in chimera/docs/USB_IDENTITY_CONTRACT.md and BUS_INPUT_CONTRACT.md. GCC13.2.1/binutils2.42; ARM disassembly exposed an alignment dependency, now corrected/tested with -mno-unaligned-access. Official libusb SETUP/type docs support wire interpretation; A0/manifest and rejection policy are new design choices.
+
+**Implemented versus proposed/limits:** T02b pure handler/metadata and source contracts implemented offline; operational health/capability/hash/config ABI and USB wiring/host selection remain pending. ABI version strings are not cryptographic binary attestation. No sampling, relay/OBD-C operation, CAN TX, physical qualification, hardware/flash/config/DBC write, install, upstream update or push. Earlier QA14's1064-byte image describes its original snapshot; this increment is1240bytes. Full T02/T05/T08 and hardware readiness are not complete. Preserve unanswered items below.
+
+---
+
 ## QA-20261106-14 — Proceed with the first board firmware increment
 
 **Date:** November 6, 2026 UTC.

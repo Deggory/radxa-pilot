@@ -21,6 +21,11 @@ SECTIONS {
     . = ALIGN(512);
   } > FLASH :flash
   .text : {
+    /* Pure protocol entry is retained for offline checks and future EP0 wiring.
+     * Nothing calls it from the parked application in this increment.
+     */
+    KEEP(*(.text.chimera_control_read))
+    KEEP(*(.rodata.chimera_*))
     *(.text*) *(.rodata*)
     *(.glue_7) *(.glue_7t) *(.vfp11_veneer) *(.v4_bx)
     . = ALIGN(4);

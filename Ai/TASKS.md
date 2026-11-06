@@ -1,3 +1,12 @@
+## November 6 — Chimera bootstrap identity/query contract implemented
+
+QA-20261106-15: T02b adds protocol.c/.h and USB/source contracts; pure A0manifest/
+D6version handler, no operational capabilities or USB wiring.12tests/458920sanitized
+request cases pass; ARM byte-load check fixes inherited alignment dependency.
+Raw1240bytes. [Session](Sessions/2026-11-06-chimera-identity-contract.md) pins evidence.
+Next board T04modern classical CAN codec; USBclock/EP0/status and hostT05/T08 pending.
+No device/flash/config/DBC/actuation/update/push. Main/GPIO and references preserved.
+
 ## November 6 — First F413 firmware target implemented
 
 QA-20261106-14: T01a source board/flash contract and T03a offline bootstrap now

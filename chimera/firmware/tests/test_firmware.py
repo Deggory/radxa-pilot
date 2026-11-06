@@ -36,6 +36,32 @@ class FirmwareTests(unittest.TestCase):
     result = run(str(exe))
     self.assertEqual(result.returncode, 0, result.stderr)
 
+  def test_read_only_control_contract(self):
+    exe = self.out / "protocol_test"
+    result = run("cc", "-std=c11", "-Wall", "-Wextra", "-Wstrict-prototypes", "-Werror",
+                 "-fsanitize=address,undefined", "-I", str(ROOT), str(ROOT / "protocol.c"),
+                 str(ROOT / "tests/protocol_test.c"), "-o", str(exe))
+    self.assertEqual(result.returncode, 0, result.stderr)
+    result = run(str(exe))
+    self.assertEqual(result.returncode, 0, result.stderr)
+    print(result.stdout.strip())
+
+  def test_protocol_entry_and_identity_retained_in_arm_image(self):
+    result = run(PREFIX + "nm", "--defined-only", str(self.out / "first/chimera.elf"))
+    self.assertEqual(result.returncode, 0, result.stderr)
+    symbols = {line.split()[-1] for line in result.stdout.splitlines()}
+    self.assertTrue({"chimera_control_read", "chimera_manifest", "chimera_usb_product",
+                     "chimera_firmware_version"}.issubset(symbols))
+    self.assertIn(b"CHMR\x01\x20\x01\x00" + bytes(12) + b"\x03\x08\x00\x00\xff\x01" + bytes(6), self.raw)
+    self.assertIn(b"Chimera F413\x00", self.raw)
+    self.assertIn(b"chimera-f413-bootstrap-v1\x00", self.raw)
+
+  def test_control_setup_uses_byte_reads_for_unaligned_wire_buffer(self):
+    result = run(PREFIX + "objdump", "-d", "--disassemble=chimera_control_read",
+                 str(self.out / "first/chimera.elf"))
+    self.assertEqual(result.returncode, 0, result.stderr)
+    self.assertNotIn("ldrh", result.stdout.lower())
+
   def test_real_image_fits_reserved_envelope(self):
     stack, reset = struct.unpack_from("<II", self.raw)
     self.assertEqual(stack, 0x2001FFF8)

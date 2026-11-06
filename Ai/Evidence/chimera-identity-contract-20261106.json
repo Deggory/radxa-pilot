@@ -1,0 +1,192 @@
+{
+  "date_utc": "2026-11-06T16:23:25.112020+00:00",
+  "baseline": "0bc14bcfda34a5d087278737fe6293efbfaeac24",
+  "scope": "T02b identity/request/source contracts and pure firmware query handler; not a USB runtime implementation",
+  "source_pins": {
+    "panda": "8a16e089b88593914823743df29e1c30b7dd3e00",
+    "opendbc": "150f937198ceab43c43b39f94b9bdea63fcb633c",
+    "ocelot": "d87892fa25ef2a2474110b97bfb5245ee818b534",
+    "archive": "224cfa645134db91103c55d8188d87e7976b0ba4"
+  },
+  "reference_sha256": {
+    "ocelot/firmware/chimera/main.c": "5d1dd3b0400ec80da9b477abfced51c9346674865ce5ad86d7e5a012c2d94883",
+    "ocelot/firmware/chimera/usb.h": "2996676fb60447a3ea3de70882e19b0a54709a65e2f3d8c935c68e074eb0612d",
+    "ocelot/firmware/chimera/chimera.h": "bccfd705363d223d86c9a0e62ccc817ba13a95e068315c22f97a40fdbf9aa413",
+    "ocelot/firmware/boards/gateway.h": "26425d76947291d4711f36330b7e700e91d803622b42fe6e79c88f687f29451f",
+    "sunnypilot/panda/board/main_comms.h": "3b56277606e3db25b410b2554689318e1283f82bffbec4fdbf56a33423d99469",
+    "sunnypilot/panda/board/health.h": "af9e8fca563ced23bc3c478a4bc8907e519b938b83eb023b02d982a66acc83f8",
+    "sunnypilot/opendbc_repo/opendbc/safety/can.h": "76f2ab751f89797c0a2254ab9a010a261678fe30f869d4e777cb7f2048802743",
+    "sunnypilot/openpilot/selfdrive/pandad/panda_identification.cc": "6d67f7e565cef893adbce6008f9ebed7126773f167d77fd7b98b2e14c98e7627",
+    "sunnypilot/openpilot/selfdrive/pandad/panda_usb.cc": "e71fbc4b98826c0704882971a93f831eb7ec98bc738549b0913b1a69a1232508",
+    "retropilot/dbc/ocelot_controls.dbc": "b4079670b8118fe63c6a7710ca1158afaabfec7df881ef902e43d70d70a36b67"
+  },
+  "ocelot_dirty_status_preserved": [
+    " M README.md",
+    " M firmware/README.md",
+    " M firmware/RetroPilot_Cores/interceptor_core/json_rpc_handlers.h",
+    " M firmware/RetroPilot_Cores/interceptor_core/main.c",
+    " M firmware/RetroPilot_Cores/interceptor_core/modes/differential.h",
+    " M firmware/chimera/chimera.h",
+    " M firmware/chimera/main.c",
+    " M firmware/retropilot_cores/reports/VW_NEUTRAL_30S_PREPARATION_20261027.md",
+    " M hardware/ocelot-pro/README.MD",
+    "?? \"Core Config/\"",
+    "?? \"Interceptor Config/\"",
+    "?? RYLEYMCC_OVERKILL_INTERCEPTOR_REVIEW_20261014.md",
+    "?? RYLEYMCC_TI_RECOVERY_SEARCH_20261014.md",
+    "?? Retropilot_Core_Config",
+    "?? Retropilot_Core_Config.desktop",
+    "?? Retropilot_Interceptor_Config",
+    "?? Retropilot_Interceptor_Config.desktop",
+    "?? USB_DFU",
+    "?? USB_DFU.desktop",
+    "?? \"WebUSB DFU/\"",
+    "?? cabana/",
+    "?? firmware/BUILDING.md",
+    "?? firmware/BUILD_COMPARISON.md",
+    "?? firmware/INSPECTING_SIGNED_BIN.md",
+    "?? firmware/RetroPilot_Cores/interceptor_core/ADC_TRACE_PROTOCOL.md",
+    "?? firmware/RetroPilot_Cores/interceptor_core/STEERING_SENSOR_FIRMWARE_REVIEW.md",
+    "?? firmware/RetroPilot_Cores/interceptor_core/adc_trace.h",
+    "?? firmware/RetroPilot_Cores/interceptor_core/modes/differential_command.h",
+    "?? firmware/build_interceptor_gcc9.sh",
+    "?? firmware/build_local.sh",
+    "?? firmware/inspect_signed.py",
+    "?? firmware/inspection/",
+    "?? hardware/Actuator-Core/",
+    "?? hardware/chimera/",
+    "?? hardware/interceptor-core/",
+    "?? hardware/ocelot-pro/convert_schdoc.py",
+    "?? hardware/ocelot-pro/ocelot-pro-schematic.pdf",
+    "?? hardware/ocelot-pro/ocelot-pro_schematic.pdf",
+    "?? hardware/relay-core/"
+  ],
+  "original_19_source_hashes": "pass: unchanged",
+  "bootstrap_startup_board_main": "pass: unchanged from previous build hashes",
+  "archive_status": "",
+  "build": {
+    "undefined_symbols": [],
+    "load_segments": [
+      {
+        "offset": 4096,
+        "virtual": 134234112,
+        "physical": 134234112,
+        "file_bytes": 1236,
+        "memory_bytes": 1236
+      },
+      {
+        "offset": 8192,
+        "virtual": 536870912,
+        "physical": 134235348,
+        "file_bytes": 4,
+        "memory_bytes": 8
+      }
+    ],
+    "reset_vector": 134234801,
+    "stack_top": 537001976,
+    "globals_bytes": 8,
+    "stack_reserved_bytes": 4096,
+    "target": "chimera-f413-offline-bootstrap",
+    "signed": false,
+    "raw_bytes": 1240,
+    "reserved_envelope_bytes": 136,
+    "projected_legacy_bytes": 1376,
+    "application_budget_bytes": 114688,
+    "sha256": "5f47ad450bd18a254605fec2d1902beecc187eac5c0310af0447f48471dcac5f",
+    "sources_sha256": {
+      "startup.S": "be9bc724c7e9a395ad12140d5a89d5e334efd074e992e1fad98aacb809cfa688",
+      "board.c": "dd4902ea9b4e048bc221ccd1548f5eb38277a860a52f89b524f78db734bceb8c",
+      "main.c": "d3bfbc5d63028d606967b7a3db6b7db9bc973e0fad1b2354113747ea9e146813",
+      "protocol.c": "47f8745bc8a774aa0674dd8a500c20769908e30efd9f6109b44e1d958abcceea",
+      "board.h": "0c531a8bb4c7ff205812b44507b639f063085cb48f973f732f3ee5428d12284d",
+      "protocol.h": "45fb8a73d39bc6a6cf9efeb270af57472012af3af48c82d74180a48d0ee09e95",
+      "stm32f413.ld": "a8a1a001cc5140a3f60825c20a9c9a67943efa8de768e9f98d8ad59519e9da1a",
+      "build.py": "0019349b767a81d55aad33d02525cb541252677e931b3942c5082974b236fabf"
+    },
+    "compiler": "arm-none-eabi-gcc (15:13.2.rel1-2) 13.2.1 20231009",
+    "objcopy": "GNU objcopy (2.42-1ubuntu1+23) 2.42",
+    "flags": [
+      "-mcpu=cortex-m4",
+      "-mthumb",
+      "-mfloat-abi=soft",
+      "-mno-unaligned-access",
+      "-Os",
+      "-std=c11",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-fno-common",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-fno-unwind-tables",
+      "-fno-asynchronous-unwind-tables",
+      "-Wall",
+      "-Wextra",
+      "-Wstrict-prototypes",
+      "-Werror",
+      "-nostdlib"
+    ],
+    "limits": "Unsigned offline build; no installed bootstub, electrical or runtime qualification."
+  },
+  "build_command": "python3 chimera/firmware/build.py --toolchain-prefix /home/radxa/.local/ocelot-build-tools/usr/bin/arm-none-eabi-",
+  "tests": {
+    "command": "CHIMERA_TOOLCHAIN_PREFIX=/home/radxa/.local/ocelot-build-tools/usr/bin/arm-none-eabi- python3 -m unittest discover -s chimera/firmware/tests -v",
+    "result": "pass",
+    "tests": 12,
+    "native_request_cases": 458920,
+    "sanitizers": [
+      "address",
+      "undefined"
+    ],
+    "gpio_inherited_patterns": 3,
+    "deterministic_copied_checkout": "pass",
+    "retained_arm_symbols_and_bytes": "pass",
+    "byte_only_setup_loads": "pass: targeted ARM objdump check",
+    "existing_vector_elf_link_overflow_startup_checks": "pass"
+  },
+  "test_sources_sha256": {
+    "chimera/firmware/tests/board_test.c": "028977ed9227a8f0db08b2bd15c8786fc7d5415374ccba8b1802aa8bab8f77cb",
+    "chimera/firmware/tests/protocol_test.c": "27d43e7c4ee93d1866693b7211302e1dba6859c39137a07d2b00b471a2ed4301",
+    "chimera/firmware/tests/test_firmware.py": "0773cdce4a0c66b56786e8f5ed2fc109bdb9c698cc375b3eb83dcc187bea13e0"
+  },
+  "identity": {
+    "product": "Chimera F413",
+    "D6": "chimera-f413-bootstrap-v1",
+    "A0_manifest_bytes": 32,
+    "phase": 0,
+    "operational_capabilities": 0,
+    "can_layout_hash": 0,
+    "health_layout_hash": 0,
+    "physical_bus_count": 3,
+    "physical_interface_mask": 511,
+    "usb_runtime_implemented": false,
+    "new_native_host_profile": false
+  },
+  "tdd_red": [
+    "Two new tests failed before protocol source/header and linked identities existed.",
+    "Unaligned-wire disassembly test failed on generated LDRH before adding -mno-unaligned-access."
+  ],
+  "review_corrections": [
+    "A patch initially moved the existing GPIO execution check into a new test; restored it before the first green full suite. No skipped checks.",
+    "GCC combined byte accesses into a halfword load; target flag now forces alignment-independent wire decoding, verified by failing-then-passing ARM artifact test."
+  ],
+  "primary_docs": [
+    "https://libusb.sourceforge.io/api-1.0/structlibusb__control__setup.html",
+    "https://libusb.sourceforge.io/api-1.0/group__libusb__misc.html"
+  ],
+  "docs_note": "Official libusb1.0.30 field/type definitions; host vendored1.0.29.post103 definitions agree. A0/manifest/phase policy is our new design, not an upstream USB/Panda ABI.",
+  "workflow": "Teacher/student source evidence; TDD, interface, incremental, source-driven, security, debugging, documentation, Git and code review skills. Source/ARM GNU artifact commands; no REA provider run claimed.",
+  "remaining": [
+    "T04 current six-byte/XOR classical CAN codec.",
+    "USB clocks/controller/standard enumeration/serial/descriptors/EP0 and endpoints.",
+    "Operational health, capability/hash contracts and protected native host admission.",
+    "Acquisition/freshness/selected-source/report delivery, MCU TX policy and Core Config maintenance.",
+    "Installed bootstub/recovery/watchdog and electrical/physical qualification."
+  ],
+  "excluded": "No hardware/device access, USB enumeration, flashing, config/DBC changes, relay operation, vehicle actuation, package installation, upstream update or push.",
+  "ruff": "pass: .venv/bin/ruff check chimera/firmware",
+  "documentation_checks": {
+    "notebook": "pass:135documents/401relative links/246optional links/8repositories/4254entries",
+    "chimera_relative_links": 36,
+    "diff_check": "pass"
+  }
+}

@@ -1,3 +1,10 @@
+## November 6 — Identity contract and pure handler now available
+
+T02b adds distinct bootstrap identity/manifest, a strict read-only handler and
+explicit bus/input source requirements.12offline tests pass; raw1240bytes.
+Actual USB enumeration/EP0/endpoints, operational status/capabilities and native
+profile admission remain open. See [session](../Sessions/2026-11-06-chimera-identity-contract.md).
+
 ## November 6 — Offline target gap narrowed
 
 T01a/T03a now implemented: original F413 startup/linker/GPIO/build, raw1064bytes,
