@@ -1,3 +1,13 @@
+## November 6 — Owner progress summary
+
+QA-20261106-25: offline foundations implemented; most operational integration
+and all new-firmware physical qualification remain. Saved28firmware/discovery,
+6native/15Python/sanitizer results are offline, not end-to-end. Image7448bytes
+unflashed/parked; USB-only managed startup still pending. Inputs/Core Config/
+MCU policy/relay/OBD-C and bench/release work remain. No reliable percentage.
+Next T05c per-bus health. Summary/docs only; no runtime/hardware/update/push.
+[Session](../Sessions/2026-11-06-chimera-progress-summary.md).
+
 ## November 6 — Owner requires USB only for Radxa/Chimera
 
 QA-20261106-24: owner says “no spi is needed since we will use usb only”.

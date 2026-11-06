@@ -1,3 +1,17 @@
+## QA-20261106-25 — Summarize progress and remaining work
+
+**Date:** November 6, 2026 UTC.
+
+**Owner question (original):** summrize wat we got done tillnow and how much is left
+
+**Answer:** The offline software foundation is built, but most operational integration and all new-firmware physical qualification remain. Completed work includes in-project Chimera code/evidence/roadmap; source-backed F413 GPIO/flash/three-bus/input mapping; original standalone firmware build/startup; current classical CAN codec; distinct USB identity/read-only control replies, packet driver, timing/UID helpers and detached service; native Radxa USB backend/pinned identification; bootstrap decoder and legacy F4 health59 decoder/bounded reader. Saved validation is28firmware/discovery tests, native pandad build/six native executable tests, sanitizers and15existing Python receiver tests. These are offline/source/fake-register results, not physical USB-CAN operation. Current image is7448bytes, unsigned, unflashed; main parks with USB/CAN disabled. Host still has inherited SPI construction awaiting USB-only integration. USB only/no SPI fallback is the accepted deployment. Remaining stages: per-bus status, operational firmware health/bulk endpoints/CAN controller binding, USB-only managed startup/publication/reconnect/exact-read hardening, qualified power/VBUS/current recovery and safe image packaging/bench bring-up, input acquisition/calibration/reports, MCU TX policy, Core Config/read/write persistence/watchdog, relay/OBD-C electrical behavior and release/soak tests. Active driving is a separate later scope. There is no defensible percentage from unequal roadmap slices; most work needed to make this usable on the board is still ahead. Next is T05c per-bus CAN-health5, then USB-only managed integration alongside pending board work.
+
+**Evidence/source pins:** Baseline3f0c75e99430f02ca7f3d0d7fa9b6343d9f3be1c, clean radxa/q8b; current chimera/tasks/plan.md and docs/PROGRESS_EXPLAINED.md; saved Ai/Evidence/chimera-status-contract-20261106.json, chimera-legacy-health-20261106.json and chimera-usb-only-20261106.json. main.c parks; panda.cc constructor/list select SPI. Saved validation ledger at baseline passes. Firmware SHA256d5f7a3f9d0299da28fa7c78c662cefd4deb60c5e748b7e553926c77b8e9c2698. Teacher/student notes read first.
+
+**Implemented versus proposed/limits:** Status explanation and progress-guide refresh only; no new runtime/code/hardware work, percentage estimate, completion/physical readiness claim or repeated runtime tests. Existing inputs/relay/OBD-C are retained in design, not operationally reimplemented. Original Chimera43, F4health59 and new bootstrap stay separate. Power/recovery gaps, managed lifecycle and new MCU policy remain open. No flash/reset/actuation/install/update/push; upstream checks held. Earlier unanswered entries preserved.
+
+---
+
 ## QA-20261106-24 — USB only; no SPI requirement
 
 **Date:** November 6, 2026 UTC.

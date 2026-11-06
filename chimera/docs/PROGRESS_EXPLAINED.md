@@ -1,5 +1,27 @@
 # Chimera progress in plain language
 
+## Current overall status — November 6
+
+The offline foundation is built; most operational integration and all new-firmware
+physical qualification remain. The7448-byte unsigned image has never been flashed
+and main parks with USB/CAN disabled. Radxa USB libraries/identification and legacy
+health59 decoding exist, but USB-only managed startup/publication/reconnect is
+pending. No SPI probing/fallback belongs in the target setup.
+
+Saved results:28firmware/discovery tests; native pandad build, six native fixtures,
+ASan/UBSan and15existing Python receiver tests. These are separate offline runs,
+not a combined physical end-to-end test. No new runtime run for this summary.
+
+Remaining: per-bus status; operational USB/CAN/health binding; USB-only host
+lifecycle; qualified power/VBUS/recovery/image packaging and passive bench tests;
+digital/pulse/ADC acquisition and reports; MCU TX enforcement; Core Config and
+recoverable settings/watchdog; relay/OBD-C qualification and release/soak testing.
+Active driving is separate later scope. Unequal slices and unresolved electrical
+work do not support a reliable completion percentage. Next T05c per-bus CAN-health5.
+
+The detailed component history below explains what each piece does.
+
+
 November 6, 2026. The goal is to connect the existing Chimera board to the Radxa
 over its USB Type-B port, let our Sunnypilot exchange CAN data with it, and later
 retain direct inputs and RetroPilot Core Config.
