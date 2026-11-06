@@ -109,3 +109,4 @@ SKILL.md
 
 openpilot/selfdrive/pandad/tests/test_panda_usb_can
 openpilot/selfdrive/pandad/tests/test_panda_usb_publish
+openpilot/selfdrive/pandad/tests/test_panda_state_legacy

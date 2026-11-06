@@ -1,3 +1,8 @@
+**November6, T08b2b:** offline legacy F4-to-PandaState preview conversion now
+passes native/sanitizer/source checks. Conflicting safety IDs and unrepresentable
+faults are rejected; six unavailable fields stay explicit and every preview is
+invalid. [Mapping contract](docs/LEGACY_F4_PANDA_STATE.md). No normal publication.
+
 **November 6, T08b2a:** normal host ignition now rejects invalid/empty Panda
 updates, with shutdown harness history preserved.65Python tests pass this slice.
 Legacy PandaState mapping/admission remains pending.

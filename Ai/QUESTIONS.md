@@ -1,3 +1,56 @@
+## QA-20261106-30 — Proceed with legacy PandaState mapping
+
+**Date:** November6,2026 UTC.
+
+**Owner request (faithful quote):** proceed
+
+**Context:** Continue after the host ignition-validity prerequisite; USB-only,
+teacher-first evidence and one verified increment at a time remain accepted.
+
+**Answer:** T08b2b adds an offline source-backed legacy F4-to-Cereal PandaState
+preview. It maps24common fields plus all25fields in each of3controller structs,
+preserves UInt32 measurements, fractional loads, volts and raw firmware booleans.
+All33active PandaState fields are accounted for;6are explicitly unavailable,
+including the broader SPI error count and current-only sound/reset/lateral/
+longitudinal fields. Every preview has Event.valid=false. Legacy safety25/26
+mean STELLANTIS/FAW, conflicting with current volkswagenMlb/hongqi; converter
+rejects them. Fault bit27=SOUND_DMA is absent from the schema; bits27..31 reject
+the whole preview. alternativeExperience32768..65535 rejects instead of signed
+truncation. Complete raw values remain isolated diagnostics. Validation failures
+leave the builder untouched. No publisher or transport is called; managed pandad
+has no converter symbol.10native programs,41Python tests, converter ASan/UBSan
+and validity mutation pass. Native preview read by Python cannot enable ignition.
+
+**Evidence/source pins:** Baseline faf1f8140fab872ee20225813e17e8d724ea8e7a;
+Carrot69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7, Panda8a16e089,
+opendbc150f9371. Exact seven read-only connected GitHub file queries at that ref,
+5retained files/licenses and matching Git blobs/SHA256 are recorded in
+student Ai/Evidence/chimera-legacy-state-20261106.json and
+chimera/reference/carrot-f4-state-v17/SOURCES.json. Contract:
+chimera/docs/LEGACY_F4_PANDA_STATE.md. Source-first/GNU/native/Cereal evidence;
+no REA provider/delegated/fresh-context review claimed. Relevant incremental/TDD/
+API/review/Git/docs skills used. Source checks cover name-matched safety IDs,
+fault ordinals, complete field accounting and frozen bytes.
+
+**Implemented versus proposed/limits:** Offline preview conversion complete;
+ordinary PandaState publication/admission still pending. Six serialized default
+placeholders are unavailable, not measured zero/false; availability metadata is
+not embedded in the Event. Matching labels do not qualify hooks/params or control.
+Current Panda also defines sound-DMA bit27; existing managed fault list allocates
+from all bits but fills0..26, a separate source-level risk saved for later review,
+not repaired here. ASan/UBSan instruments converter/test with existing unsanitized
+support libraries; no USB/SPI source linked. No normal status/Params/schema/profile/
+pin/USB/IPC/hardware/flash/reset/config/relay/CAN TX/SPI/actuation/update/push.
+Physical recovery/board firmware still unqualified and parked.23firmware hashes/
+7448-byte image, Ocelot39dirty entries/19hashes/archive/DBC and protected runtime/
+camera/model/Thneed preserved. Exact pinned GitHub reads are research, not branch
+updates/fetch/updater checks. Initial SCons dry-run option/generated-include issue
+corrected without suppression. Next T08b2c supported-field admission metadata and
+consumer review before publication; reconnect/backoff follows. Earlier unanswered
+items remain intact.
+
+---
+
 ## QA-20261106-29 — Proceed with Panda ignition validity prerequisite
 
 **Date:** November 6, 2026 UTC.

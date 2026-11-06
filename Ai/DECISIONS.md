@@ -1,3 +1,15 @@
+## November6,2026 — Legacy status conversion remains an invalid offline preview
+
+Implemented T08b2b policy: map only evidenced enum meanings; reject conflicting
+legacy safety25/26, unrepresentable fault27+, unknown enums and unsigned-to-signed
+alternativeExperience overflow. Preserve all raw samples in isolated diagnostics.
+All33active PandaState fields have explicit mapping/unavailability coverage, but
+six unavailable fields are zero/false placeholders and metadata is outside Cereal.
+Every preview stays invalid; no ordinary publication/normal admission yet. A
+checksum-only SPI count does not become the broader spiErrorCount. Next is
+supported-field metadata and consumer review; no inferred command/hardware scope.
+QA-20261106-30 and student mapping contract/evidence carry exact tests/source pins.
+
 ## 2026-11-06 — Invalid Panda updates revoke ignition; retain shutdown context
 
 Implemented T08b2a: every updated pandaStates event is checked with its actual

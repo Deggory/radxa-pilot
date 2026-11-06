@@ -1,3 +1,18 @@
+## November6 — Offline legacy PandaState preview implemented
+
+QA30/T08b2b: pure C++ conversion maps24common fields and all25fields of each
+of3controllers;6current fields explicitly unavailable. Preview always invalid,
+unreferenced by managed pandad. Safety25/26 conflicts and fault27+/unsigned-alt
+Int16 overflow rejected; raw isolated diagnostics retained. Native build/10native
+programs,41Python tests, converter ASan/UBSan and validity mutation pass. Native
+preview read in Python cannot enable ignition. Exact Carrot69a2d3be source queries
+and5retained reference/license files pinned. No runtime admission/IPC/hardware run.
+Firmware23hashes/7448-byte image, Ocelot39dirty entries/19hashes, archive/DBC and
+protected runtime/camera/model/Thneed preserved. Updates held/no push. Next T08b2c
+supported-field admission metadata and consumer review before normal publication;
+reconnect/backoff, other profiles and operational firmware/bench work remain.
+[Session](Sessions/2026-11-06-chimera-legacy-state.md).
+
 ## November 6 — Panda ignition validity prerequisite implemented
 
 QA29/T08b2a: hardwared now passes SubMaster Event.valid into a pure reducer for

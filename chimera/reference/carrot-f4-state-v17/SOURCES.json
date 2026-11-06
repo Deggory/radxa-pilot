@@ -1,0 +1,42 @@
+{
+  "repository": "ajouatom/openpilot",
+  "commit": "69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7",
+  "files": [
+    {
+      "path": "panda/board/faults_declarations.h",
+      "git_blob": "eab9fcc08bb770606a5ea3e87caae0f07546611c",
+      "url": "https://github.com/ajouatom/openpilot/blob/69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7/panda/board/faults_declarations.h",
+      "bytes": 1921,
+      "sha256": "85b6e85a9d033f433764e5a090294902cfc714edb6ae326a9a5718ee2e4ad276"
+    },
+    {
+      "path": "panda/board/drivers/harness_declarations.h",
+      "git_blob": "953941f6214bc8f3eeef156097596d1a9354340d",
+      "url": "https://github.com/ajouatom/openpilot/blob/69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7/panda/board/drivers/harness_declarations.h",
+      "bytes": 880,
+      "sha256": "8ce01b617abbbe75e350cb06cd4d180adf6f13eaba49e2b7854ebd81ea92649a"
+    },
+    {
+      "path": "opendbc_repo/opendbc/safety/safety.h",
+      "git_blob": "36aa0c875a5920ae027bbcc12ea151ba767d2f41",
+      "url": "https://github.com/ajouatom/openpilot/blob/69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7/opendbc_repo/opendbc/safety/safety.h",
+      "bytes": 32823,
+      "sha256": "a8b2b54271dd1fb3fd7f6998b0473a939dce1bfec56a644fc64cd649cfd825aa"
+    },
+    {
+      "path": "opendbc_repo/LICENSE",
+      "git_blob": "f1fd199c632b14a8917580bbb2e2624291d6a428",
+      "url": "https://github.com/ajouatom/openpilot/blob/69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7/opendbc_repo/LICENSE",
+      "bytes": 1059,
+      "sha256": "6543c4a66b46affddae1b9ae1e1992687f0b7191e74ba3a7235388b9f42a6d13"
+    },
+    {
+      "path": "panda/LICENSE",
+      "git_blob": "8a6c6976b70de306b675f426761f3f9a39b8fb21",
+      "sha256": "0f8f541ee42cf97353a043105a3108c2d599fe381d4b90ff0e82e328ffc5d8f5",
+      "bytes": 1059,
+      "source": "previously pinned local Carrot MIT license"
+    }
+  ],
+  "scope": "Selected enum/constant review; full safety file retained for standalone source checks, not full hook review or installed firmware evidence"
+}

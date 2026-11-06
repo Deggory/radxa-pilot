@@ -62,9 +62,8 @@ customReservedRawData1 diagnostics, with no pandaStates or TX/control threads.
 No schema, USB profile, runtime pins or device configuration changes occur here.
 A valid event alone is not proof of MCU safety policy or physical readiness.
 
-Next T08b2b: audit source-backed legacy fault/enum mappings and define supported-
-field semantics, then add a tested offline PandaState conversion. Missing current
-fields, raw safety values and unsigned alternativeExperience must not silently
-become valid current defaults or signed truncations. Other consumers also need
-admission review before ordinary status publication. Reconnect/backoff and full
-physical/firmware qualification remain later work. USB only, no SPI fallback.
+T08b2b now adds the tested [offline legacy mapping](LEGACY_F4_PANDA_STATE.md),
+with explicit unsupported fields and always-invalid previews. Next T08b2c is
+ordinary admission/supported-field metadata and consumer review before publication.
+Reconnect/backoff and full physical/firmware qualification remain later work.
+USB only, no SPI fallback.

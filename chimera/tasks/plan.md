@@ -28,6 +28,7 @@ future T02/T05/T08 fixtures; no new firmware integration or task completion.
 - [x] T03b3a Power/VBUS/UID/watchdog/recovery requirements and read-only UID/reset/option snapshot helper; twenty-one offline tests pass. No startup/attachment.
 - [x] T03b3b Composed detached preparation/poll/release service; twenty-three tests/44integration scenarios pass. Not called by main; physical attachment unqualified.
 - [x] T05a Bootstrap status/capability contract and strict pure decoder; response interoperability/rejection fixtures pass offline. No operational health/profile admission.
+- [x] T08b2b Offline source-backed legacy PandaState preview, explicit unavailable fields and strict conflict/fault/width validation; no publication/admission.
 - [x] T08b2a Normal host ignition validity gate, invalid/empty update revocation and retained shutdown context; 65Python tests pass. No USB PandaState admission.
 - [x] T08b1 Passive classical CAN RX plus isolated customReservedRawData1 diagnostics; strict fragment/error handling and offline tests. No pandaStates admission.
 - [x] T08a Radxa USB-only pinned status startup/session; bypass legacy reset/flash/SPI, legacy F4 typed sampling with immediate failure release; no CAN/pandaStates publication.
@@ -66,8 +67,8 @@ T05a [status/capability contract](../docs/STATUS_CAPABILITY_CONTRACT.md) and pur
 bootstrap decoder and T05b legacy F4 health59 decoder/read helper are complete
 offline, along with T05c [CAN-health5](../docs/LEGACY_F4_CAN_HEALTH.md).
 T08a/b1 are implemented for pinned legacy F4 passive CAN and isolated diagnostics.
-T08b2a adds normal host ignition validity. Next T08b2b is source-backed PandaState
-conversion/supported-field semantics before ordinary publication; reconnect and
+T08b2a adds normal host ignition validity. T08b2b adds tested source-backed PandaState preview conversion. Next T08b2c is
+ordinary admission/supported-field metadata and consumer review before publication; reconnect and
 physical qualification remain pending, retaining no SPI probing/fallback. New Chimera
 operational health and bulk CAN/controller binding remain pending.
 [Detached service](../docs/USB_SERVICE.md) now composes existing modules.
@@ -83,4 +84,4 @@ image. See [the compatibility slices](../docs/LEGACY_PANDA_SUPPORT.md). T06a/b a
 T02a/T05b/T05c are checked offline; publication, managed lifecycle and
 physical testing still follow. See the [health59 contract](../docs/LEGACY_F4_HEALTH.md).
 
-Next: T08b2b audit legacy fault/enum mappings and supported-field semantics, then test offline PandaState conversion. [Contract](../docs/USB_PASSIVE_RECEIVE.md).
+Next: T08b2c define/test normal admission with supported-field metadata and review all consumers before publication. [Mapping contract](../docs/LEGACY_F4_PANDA_STATE.md). [Contract](../docs/USB_PASSIVE_RECEIVE.md).
