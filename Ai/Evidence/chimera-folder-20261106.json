@@ -1,0 +1,52 @@
+{
+  "scope": "S00 folder setup, no firmware/hardware test",
+  "baseline": "044772ac169069105763c2547484324a372fbead",
+  "regular_directory_no_symlinks_or_nested_git": "pass",
+  "copied_references_equal": 2,
+  "local_markdown_links": 5,
+  "ignored_build_examples": 2,
+  "whitespace": "pass",
+  "notebook": {
+    "result": "pass",
+    "memory_layout": "regular project directory",
+    "documents": 130,
+    "relative_links": 382,
+    "optional_workspace_links": 246,
+    "source_repositories": 8,
+    "indexed_entries": 4254
+  },
+  "folder_files": [
+    {
+      "path": "chimera/.gitignore",
+      "sha256": "02b463a4457dacb2570073ccea788d08d18190f0151ead8dd35d3e6a4608d211"
+    },
+    {
+      "path": "chimera/AGENTS.md",
+      "sha256": "5e976292d9e2d03bb64b2d79f2687a8d1d3cb84be56ff15e95dc8079299b8cea"
+    },
+    {
+      "path": "chimera/README.md",
+      "sha256": "e3d93e0fad7e85b50ba8066a89b4be92c803a4c46bdd94fc8bb6f246fa04fca0"
+    },
+    {
+      "path": "chimera/docs/FIRMWARE_SOURCE_MAP.md",
+      "sha256": "ca9f72a85753ffbbc8f86aa3b6a1cf5f38e14f3cb56a27cd2d5ad5d1f9589c21"
+    },
+    {
+      "path": "chimera/docs/PROVENANCE.md",
+      "sha256": "18f1f243cb9a116ad0028e08755990cff836aed24702b3f94a0afc456f89ab0f"
+    },
+    {
+      "path": "chimera/docs/firmware-source-map-20261106.json",
+      "sha256": "a6303d3a0e52cff0b3f36cc8d9424e1b0e0dddbd829adeaad82ebe9b6240bf34"
+    },
+    {
+      "path": "chimera/firmware/README.md",
+      "sha256": "b7e4376388996808c269774a26e848f152ec7f82fd2dd081984e3e4de9f278ec"
+    },
+    {
+      "path": "chimera/tasks/plan.md",
+      "sha256": "a4f2ede62a8e04e51a6c774182ab50bc281365fc94b03aac94703a1fd33b2061"
+    }
+  ]
+}

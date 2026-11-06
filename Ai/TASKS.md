@@ -1,3 +1,13 @@
+## November 6 — Active Chimera home created inside Sunnypilot
+
+QA-20261106-06: owner requested folder-first, incremental implementation.
+S00 complete: regular `sunnypilot/chimera/`, no nested Git/symlink; README,
+firmware area, T01–T20 sequence, exact source map/receipt and provenance saved.
+Workspace `chimera/` stays the preserved evidence archive; active implementation
+now belongs inside Sunnypilot. No firmware/build target or host behavior change.
+Next T01 source-backed GPIO/reset and flash/config/recovery contract, then T02
+identity/bus-source contracts and T03 offline target. No hardware/update/push.
+
 ## November 6 — Chimera completeness audited; remaining gaps recorded
 
 QA-20261106-03: sufficient source references for offline work, not a complete

@@ -1,0 +1,152 @@
+{
+  "date_utc": "2026-11-06T13:31:19.922622+00:00",
+  "scope": "Selected readable-source review; no build, device access or REA run. Hashing a shared header does not claim every-line review.",
+  "ocelot_head": "d87892fa25ef2a2474110b97bfb5245ee818b534",
+  "ocelot_status_porcelain": [
+    " M README.md",
+    " M firmware/README.md",
+    " M firmware/RetroPilot_Cores/interceptor_core/json_rpc_handlers.h",
+    " M firmware/RetroPilot_Cores/interceptor_core/main.c",
+    " M firmware/RetroPilot_Cores/interceptor_core/modes/differential.h",
+    " M firmware/chimera/chimera.h",
+    " M firmware/chimera/main.c",
+    " M firmware/retropilot_cores/reports/VW_NEUTRAL_30S_PREPARATION_20261027.md",
+    " M hardware/ocelot-pro/README.MD",
+    "?? \"Core Config/\"",
+    "?? \"Interceptor Config/\"",
+    "?? RYLEYMCC_OVERKILL_INTERCEPTOR_REVIEW_20261014.md",
+    "?? RYLEYMCC_TI_RECOVERY_SEARCH_20261014.md",
+    "?? Retropilot_Core_Config",
+    "?? Retropilot_Core_Config.desktop",
+    "?? Retropilot_Interceptor_Config",
+    "?? Retropilot_Interceptor_Config.desktop",
+    "?? USB_DFU",
+    "?? USB_DFU.desktop",
+    "?? \"WebUSB DFU/\"",
+    "?? cabana/",
+    "?? firmware/BUILDING.md",
+    "?? firmware/BUILD_COMPARISON.md",
+    "?? firmware/INSPECTING_SIGNED_BIN.md",
+    "?? firmware/RetroPilot_Cores/interceptor_core/ADC_TRACE_PROTOCOL.md",
+    "?? firmware/RetroPilot_Cores/interceptor_core/STEERING_SENSOR_FIRMWARE_REVIEW.md",
+    "?? firmware/RetroPilot_Cores/interceptor_core/adc_trace.h",
+    "?? firmware/RetroPilot_Cores/interceptor_core/modes/differential_command.h",
+    "?? firmware/build_interceptor_gcc9.sh",
+    "?? firmware/build_local.sh",
+    "?? firmware/inspect_signed.py",
+    "?? firmware/inspection/",
+    "?? hardware/Actuator-Core/",
+    "?? hardware/chimera/",
+    "?? hardware/interceptor-core/",
+    "?? hardware/ocelot-pro/convert_schdoc.py",
+    "?? hardware/ocelot-pro/ocelot-pro-schematic.pdf",
+    "?? hardware/ocelot-pro/ocelot-pro_schematic.pdf",
+    "?? hardware/relay-core/"
+  ],
+  "original_manifest_entries_verified": 94,
+  "original_snapshot_copies_verified": 93,
+  "files": [
+    {
+      "workspace_path": "ocelot/firmware/chimera/main.c",
+      "bytes": 37462,
+      "sha256": "5d1dd3b0400ec80da9b477abfced51c9346674865ce5ad86d7e5a012c2d94883"
+    },
+    {
+      "workspace_path": "ocelot/firmware/chimera/can.h",
+      "bytes": 9956,
+      "sha256": "7aca434faa4a1c37d59f5b43f495ed0d213f0e22fc46e4db28c433472b757310"
+    },
+    {
+      "workspace_path": "ocelot/firmware/chimera/chimera.h",
+      "bytes": 17452,
+      "sha256": "bccfd705363d223d86c9a0e62ccc817ba13a95e068315c22f97a40fdbf9aa413"
+    },
+    {
+      "workspace_path": "ocelot/firmware/chimera/usb.h",
+      "bytes": 38232,
+      "sha256": "2996676fb60447a3ea3de70882e19b0a54709a65e2f3d8c935c68e074eb0612d"
+    },
+    {
+      "workspace_path": "ocelot/firmware/boards/gateway.h",
+      "bytes": 3093,
+      "sha256": "26425d76947291d4711f36330b7e700e91d803622b42fe6e79c88f687f29451f"
+    },
+    {
+      "workspace_path": "ocelot/firmware/boards/common.h",
+      "bytes": 2712,
+      "sha256": "adba0922187b13c5099d72a4b435c54ae3ac8f5f3be6720975686a1c9cffa26a"
+    },
+    {
+      "workspace_path": "ocelot/firmware/board.h",
+      "bytes": 2978,
+      "sha256": "aaf93aeaa7dd57dc665db4589fc8e3fc4e2375b37e3d5186cf8cefd4be688fb8"
+    },
+    {
+      "workspace_path": "ocelot/firmware/config.h",
+      "bytes": 928,
+      "sha256": "8d362901ff6b778072442ae6e2b69f084aca1867524bd31b452392be1a4d247c"
+    },
+    {
+      "workspace_path": "ocelot/firmware/drivers/clock.h",
+      "bytes": 1221,
+      "sha256": "27bfd83d179c78166860f9043d2cc4fac0ca77f108b44af699836d4f86250752"
+    },
+    {
+      "workspace_path": "ocelot/firmware/drivers/timer.h",
+      "bytes": 212,
+      "sha256": "609d90d97d9a9fc6232bc6c656c72be1715d2dcb1ad1fbdfcbe9800b70452865"
+    },
+    {
+      "workspace_path": "ocelot/firmware/drivers/llcan.h",
+      "bytes": 4309,
+      "sha256": "2794b5478c7fbbb8ece22eedda0a3f925262c7d7f6d9e9e221c8448d63a13d40"
+    },
+    {
+      "workspace_path": "ocelot/firmware/drivers/adc.h",
+      "bytes": 1045,
+      "sha256": "02531ce02676e7c1dfb78114c967af561542da7ee2016601cf9f3c8251229827"
+    },
+    {
+      "workspace_path": "ocelot/firmware/drivers/json_rpc.h",
+      "bytes": 6613,
+      "sha256": "28e36bfaea4545e57eedfee6d9ab8e9d5e6abd68558bfe9dee846d0944a16a7d"
+    },
+    {
+      "workspace_path": "ocelot/firmware/SConscript",
+      "bytes": 6314,
+      "sha256": "7f60ca0b975592c2bf633e3eb06aa1934288cd547f4a771cb58567579da88bd9"
+    },
+    {
+      "workspace_path": "ocelot/firmware/stm32_flash.ld",
+      "bytes": 4785,
+      "sha256": "4a37678a3ff897e97a370f5354a5ce9363da1f9be572229689aff8063e599f5a"
+    },
+    {
+      "workspace_path": "ocelot/firmware/build_local.sh",
+      "bytes": 1615,
+      "sha256": "8d4a07a2764908a333c70933e35d289c0609ffc9276a37f2adeccbed2ccf8d03"
+    },
+    {
+      "workspace_path": "ocelot/firmware/BUILDING.md",
+      "bytes": 4842,
+      "sha256": "249e9655fd999ba5a4a1b08bae28e081625836e54021d051596aea4f6b409461"
+    },
+    {
+      "workspace_path": "ocelot/build_project.sh",
+      "bytes": 238,
+      "sha256": "11bd23f4fb42cfcaa73c0da6e01a6cd7c1d5ab879cbbaffb8bad39d7f3620c58"
+    },
+    {
+      "workspace_path": "ocelot/firmware/inc/stm32f413xx.h",
+      "bytes": 1145325,
+      "sha256": "7c2cb1deecee360e4e8069c4215f05f652e14c70bd88f9bd072dc5502a5fd530"
+    }
+  ],
+  "tool_versions": {
+    "gcc": "13.2.1 20231009 (15:13.2.rel1-2)",
+    "scons": "4.5.2",
+    "objcopy": "2.42"
+  },
+  "tool_check_limit": "Direct scons --version initially failed without local PYTHONPATH; rerun with the same two library directories used by build_local.sh passed. No installation or build performed.",
+  "result": "pass: original source hashes/snapshots and Ocelot dirty state preserved"
+}

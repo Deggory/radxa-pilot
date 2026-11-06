@@ -1,3 +1,17 @@
+## QA-20261106-06 — Create Chimera inside Sunnypilot and build incrementally
+
+**Date:** November 6, 2026 UTC.
+
+**Owner request (original):** let first make chimera folder inside sunnypilot ,lets build one by one
+
+**Answer:** Created the regular tracked directory `sunnypilot/chimera/` as the active implementation home, using Sunnypilot's existing Git history. It contains a README, local instructions, firmware destination, incremental T01–T20 roadmap, exact copied firmware source map/hash receipt and starting provenance. The original workspace `chimera/` archive and dirty Ocelot source remain preserved. Required implementation inputs will be imported with provenance as needed; the new implementation will not require outside workspace folders at runtime.
+
+**Evidence/source pins:** Sunnypilot baseline044772ac169069105763c2547484324a372fbead, workspace Chimera224cfa645134db91103c55d8188d87e7976b0ba4; source map retains Ocelotd87892fa plus dirty bytes. Current Panda8a16e089/opendbc150f9371 and Carrot69a2d3be references remain unchanged. See project `chimera/docs/PROVENANCE.md` and `chimera/tasks/plan.md`.
+
+**Implemented versus proposed/limits:** S00 folder setup completed. No new firmware/build target or host behavior, flash/config/device/relay action, upstream update or push. Next slice T01 records source-backed GPIO/reset and flash/config/recovery boundaries, then T02 identity/RPC/bus-source contracts and T03 minimal offline F413 target. The original detailed roadmap remains evidence; active implementation now belongs inside Sunnypilot. Folder checks verify real directories, local links, copied-byte equality and ignore rules; they are not firmware/hardware tests.
+
+---
+
 ## QA-20261106-05 — Why were already recorded firmware facts missed?
 
 **Date:** November 6, 2026 UTC.
