@@ -4,6 +4,11 @@ November 6, 2026 — T03b2 implemented and verified offline. The new driver link
 the existing EP0 model to controller register/FIFO operations. No routine is
 called from startup, and no USB device has been attached, flashed or exercised.
 
+T03b3a now establishes [power/UID/recovery requirements](USB_STARTUP_REQUIREMENTS.md)
+and a read-only boot-facts helper;21combined offline tests pass. The19-test result
+below is the original T03b2 snapshot. Next software work is detached startup/
+service composition; physical attachment still needs the separate qualifications.
+
 ## Backend and call contract
 
 [usb_mmio.c](../firmware/usb_mmio.c) provides ordered volatile32-bit register

@@ -99,6 +99,11 @@ class FirmwareTests(unittest.TestCase):
       self.assertEqual(result.returncode, 0, result.stderr)
       self.assertRegex(result.stdout, r"\b" + barrier + r"\b")
 
+  def test_boot_facts_reader_retained_in_arm_image(self):
+    result = run(PREFIX + "nm", "--defined-only", str(self.out / "first/chimera.elf"))
+    self.assertEqual(result.returncode, 0, result.stderr)
+    self.assertIn("chimera_boot_read_facts", {line.split()[-1] for line in result.stdout.splitlines()})
+
   def test_boot_vectors_reject_corruption(self):
     for offset, value in ((0, 0x20020000), (4, 0x08000001), (4, 0x08004200),
                           (7 * 4, 1), (117 * 4, 0), (117 * 4, 0x08020001)):

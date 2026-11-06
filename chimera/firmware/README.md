@@ -19,6 +19,7 @@ workspace reference checkout, keys, signer or flasher is needed to build.
 | [usb_ep0.c](usb_ep0.c), [header](usb_ep0.h) | Descriptor/control-transfer state model, deferred commits and canceled-transfer generations |
 | [usb_driver.c](usb_driver.c), [header](usb_driver.h) | Polling EP0 event/FIFO driver with bounded cancellation, reset and failure handling |
 | [usb_mmio.c](usb_mmio.c), [timing](usb_time.c), [header](usb_time.h) | Ordered ARM MMIO and bounded nominal16MHz cycle-counter delays; no startup call |
+| [boot_facts.c](boot_facts.c), [header](boot_facts.h) | Read-only UID/reset/option snapshot, stable-ID checks; no startup call or write |
 | [stm32f413.ld](stm32f413.ld) | Conservative application/RAM reservations and overflow assertions |
 | [build.py](build.py) | Compile, inspect ELF/vectors and publish artifacts with hashes |
 | [tests](tests/test_firmware.py) | Native GPIO checks, real ARM builds and negative image/linker fixtures |
@@ -46,7 +47,7 @@ link map and JSON receipt. The binary has a normal stack pointer in vector word
 zero; no legacy length/signature packaging is performed. Never feed this raw
 bootstrap to the legacy updater as a signed release.
 
-November 6 current validation: GCC13.2.1/binutils2.42, nineteen tests pass, raw6420bytes;
+November 6 current validation: GCC13.2.1/binutils2.42, twenty-one tests pass, raw6608bytes;
 two different source/output paths produce identical bytes. GPIO tests use fake
 registers, and disassembly verifies the MSP reload precedes C. No board execution
 or electrical state was measured. USB/CAN clocks are gated, interrupts stay masked
@@ -80,3 +81,9 @@ headers,390descriptor transfers,15controller fault cases and51delay durations
 pass offline; the ARM image retains MMIO barriers and API symbols. No routine is
 called by main; next is T03b3 power/VBUS/UID/recovery prerequisites and separately
 reviewed startup/attachment work. See [the driver contract](../docs/USB_PACKET_DRIVER.md).
+
+T03b3a adds [power/UID/recovery requirements](../docs/USB_STARTUP_REQUIREMENTS.md)
+and a read-only boot-facts helper.65536fake snapshots and UID/serial/flag-preservation
+checks pass; no physical UID read, flag clearing or option/watchdog write. Main
+remains parked. Next is detached startup/service composition; physical attachment
+requires the separate electrical and current recovery evidence in that contract.

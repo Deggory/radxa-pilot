@@ -1,3 +1,17 @@
+## QA-20261106-20 — Explain the work and establish startup prerequisites
+
+**Date:** November 6, 2026 UTC.
+
+**Owner request (original):** can u sumrise wat we did ,since i dont wat u have done ,please expian and proceed Next: establish power/VBUS, UID and recovery requirements before wiring USB into startup. to this
+
+**Answer:** We are building two cooperating programs: firmware on Chimera and USB host support inside Sunnypilot on the Radxa. So far we have source/board/flash evidence, a standalone F413 build with inactive output initialization, modern classical CAN byte encoding, USB identity/control requests, ordered register/timing access and a polling EP0 packet driver. Host USB/identification libraries also exist, but managed startup still uses SPI. These are offline-tested pieces; the new image has never been flashed and its startup still parks with USB/CAN disabled. Direct inputs/relay/OBD-C are preserved in the design; acquisition, Core Config, operational status/bulk endpoints, managed host admission and MCU TX policy remain unfinished. Added a plain-language guide. For this next slice, established the power/VBUS/UID/watchdog/recovery requirements and added a read-only helper for UID and raw reset/option registers.21offline tests pass, including65536snapshot vectors; image6608bytes. VBUS means host USB power, UID provides a stable serial, and recovery means verified rollback/bootstub/settings and an independent way back. Exact VBUS routing and supply/current profile remain unknown; old code forces session-valid rather than proving detection. Next software work can compose a detached startup/service module while attachment waits for the recorded electrical/current-recovery qualifications.
+
+**Evidence/source pins:** Baselinef75b1e831e4190e7f62eb21f70bf0f7606976015; Ocelotd87892fa plus preserved dirty source; ST F413 CMSIS UID/CSR/OPTCR fields; ST HAL flash_ex.h6ef30cf0, bloba8217d36; official Chimera wiki recheckedNovember6. Historical October4 recovery session, exact nightly bundle/application/bootstub hashes and17archived config file hashes verified without device access. Current code/docs at chimera/firmware/boot_facts.c and chimera/docs/PROGRESS_EXPLAINED.md, USB_STARTUP_REQUIREMENTS.md; exact21-test output/build/source pins in Ai/Evidence/chimera-usb-prerequisites-20261106.json. No REA provider result claimed.
+
+**Implemented versus proposed/limits:** T03b3a contract/helper complete offline; no startup/attachment enabled. UID helper has eight reads on success, rejects blank/unstable IDs and never calls write32; real MCU reads are untested. Raw flags may have been changed by bootstub and cannot prove software-started watchdog is stopped. The saved bundle bootstub is a build, not the installed16KiB-region dump. Historical restore/readback is not current board qualification. New raw image still lacks legacy length/VERS/signature packaging; no loading permitted by code availability. Main/driver/host/board/input/DBC sources unchanged; old archive/Ocelot preserved. No board read/write, flash, reset, option/config migration, actuation, install, upstream update or push. QA19's6420bytes remains its historical image; current6608bytes. Unanswered items below preserved.
+
+---
+
 ## QA-20261106-19 — Continue Chimera's next USB stage
 
 **Date:** November 6, 2026 UTC.

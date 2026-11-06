@@ -1,0 +1,191 @@
+{
+  "date_utc": "2026-11-06T18:24:54.130679+00:00",
+  "baseline": "f75b1e831e4190e7f62eb21f70bf0f7606976015",
+  "scope": "T03b3a requirements/summary and read-only UID/reset/option helper; no startup or USB attachment",
+  "source_pins": {
+    "panda": "8a16e089b88593914823743df29e1c30b7dd3e00",
+    "opendbc": "150f937198ceab43c43b39f94b9bdea63fcb633c",
+    "ocelot": "d87892fa25ef2a2474110b97bfb5245ee818b534",
+    "archive": "224cfa645134db91103c55d8188d87e7976b0ba4"
+  },
+  "source_sha256": {
+    "ocelot/firmware/chimera/main.c": "5d1dd3b0400ec80da9b477abfced51c9346674865ce5ad86d7e5a012c2d94883",
+    "ocelot/firmware/chimera/usb.h": "2996676fb60447a3ea3de70882e19b0a54709a65e2f3d8c935c68e074eb0612d",
+    "ocelot/firmware/boards/common.h": "adba0922187b13c5099d72a4b435c54ae3ac8f5f3be6720975686a1c9cffa26a",
+    "ocelot/firmware/inc/stm32f413xx.h": "7c2cb1deecee360e4e8069c4215f05f652e14c70bd88f9bd072dc5502a5fd530",
+    "ocelot/firmware/bootstub.c": "2b29e71e11379db8a76c7e0e98f957dec6b4e7a593308091471c45b06bfe69b0",
+    "ocelot/firmware/gpio.h": "7aa4b95a75ef3f9885925444decdec13417d16f591fc115ce4b547d7cef82ecf",
+    "ocelot/firmware/crypto/sign.py": "f709ce88ba49fb8e05d0c80129a260734c6207e0ffe5ec68f0599a55b5220bda",
+    "ocelot/firmware/drivers/clock.h": "27bfd83d179c78166860f9043d2cc4fac0ca77f108b44af699836d4f86250752",
+    "ocelot/hardware/chimera/README.md": "3f64c72ef6d0f771436f55e2c2ef4e3349fd43190532fe33bd663c99c7e837dc",
+    "Ai/Sessions/2026-10-04-chimera-isolated-bench-recovery.md": "473d3b7d2080294084a63a901ea32f4feee6ec0a58a7e9425e10d746034cc832",
+    "retropilot/dbc/ocelot_controls.dbc": "b4079670b8118fe63c6a7710ca1158afaabfec7df881ef902e43d70d70a36b67"
+  },
+  "primary_sources": [
+    {
+      "url": "https://wiki.retropilot.org/index/hardware/chimera",
+      "retrieval": "Web open November6; selected power/IGN/USB/relay descriptions",
+      "limits": "No exact Chimera power schematic/VBUS detector/current-draw evidence; broad Panda compatibility claim is not modern ABI proof"
+    },
+    {
+      "url": "https://github.com/STMicroelectronics/stm32f4xx-hal-driver/blob/6ef30cf0ef6cc29ad518f37b9e6de89b6b815f90/Inc/stm32f4xx_hal_flash_ex.h",
+      "blob": "a8217d36ce6f385bafab96b34e8a6df23e131b27",
+      "sha256": "ec432eb3ee203e9c76bb5e91c99afef2e95f2165618418c6c09d5ae9cdf7aed6",
+      "bytes": 65035,
+      "coverage": "OB_IWDG source selector definitions, compared with local ST CMSIS WDG_SW/reset/UID register definitions",
+      "retrieval": "GitHub connector; ignored source reference only"
+    }
+  ],
+  "historical_recovery": {
+    "bundle_sha256": "8158f29132e88bff946cbe23b72d269fa2e6aeb4d6ca5aba7b9539ac04ec043c",
+    "selected_members": [
+      {
+        "member": "bootstub.bin",
+        "bytes": 11204,
+        "sha256": "2533c53d853826c1fa4e9198d1126446ae5a412adc6ba03c1d5a8171287353ca"
+      },
+      {
+        "member": "chimera.bin.signed",
+        "bytes": 27976,
+        "sha256": "e35df778ad0d865d6eab5b7763b9a9081b3923bea11fbb8c2949a40d37796a9b"
+      }
+    ],
+    "config_files_hash_verified": 17,
+    "valid_blocks_historical": 8,
+    "erased_incident_blocks_historical": 1,
+    "limits": "Read local archived files only; bundle bootstub is a build, not installed dump; no fresh board/settings/signature read"
+  },
+  "build": {
+    "undefined_symbols": [],
+    "load_segments": [
+      {
+        "offset": 4096,
+        "virtual": 134234112,
+        "physical": 134234112,
+        "file_bytes": 6604,
+        "memory_bytes": 6604
+      },
+      {
+        "offset": 12288,
+        "virtual": 536870912,
+        "physical": 134240716,
+        "file_bytes": 4,
+        "memory_bytes": 8
+      }
+    ],
+    "reset_vector": 134239065,
+    "stack_top": 537001976,
+    "globals_bytes": 8,
+    "stack_reserved_bytes": 4096,
+    "target": "chimera-f413-offline-bootstrap",
+    "signed": false,
+    "raw_bytes": 6608,
+    "reserved_envelope_bytes": 136,
+    "projected_legacy_bytes": 6744,
+    "application_budget_bytes": 114688,
+    "sha256": "409c0940a0ae7f4603c06b408ae3ee305cec3ee0efebcbba3391f116f249fb48",
+    "sources_sha256": {
+      "startup.S": "be9bc724c7e9a395ad12140d5a89d5e334efd074e992e1fad98aacb809cfa688",
+      "board.c": "dd4902ea9b4e048bc221ccd1548f5eb38277a860a52f89b524f78db734bceb8c",
+      "main.c": "d3bfbc5d63028d606967b7a3db6b7db9bc973e0fad1b2354113747ea9e146813",
+      "protocol.c": "47f8745bc8a774aa0674dd8a500c20769908e30efd9f6109b44e1d958abcceea",
+      "can_codec.c": "e9313054c3a628b5d3828d12ad5eeefe09c38d60b48dbc0e999fa39d59d3f94c",
+      "usb_hw.c": "d36b31b542239b5f75181fcaba3886177b1452dc2274ac7312cefd7d0f2c190c",
+      "usb_ep0.c": "0e6a5fd2c9f9011b266f873ec630ac11716e995d224dbd98e4a2fae6551f83f3",
+      "usb_time.c": "8807804da361f61363ea72c5bb251dae117442f549e124d2a719c4c510a45dd1",
+      "usb_mmio.c": "31bcdd3a98057f67e8d74dd8dc65f8289384798be38a421080d39af8d0d3d0b0",
+      "usb_driver.c": "3307fd44768b6e8861c8ae20b005aa73846ebc7c0b965f546716cc35e9026c91",
+      "boot_facts.c": "76e9c59af5e387eb7173992a246a9b8be8c676b80a77126dc2492beb6ac2a92b",
+      "board.h": "0c531a8bb4c7ff205812b44507b639f063085cb48f973f732f3ee5428d12284d",
+      "protocol.h": "45fb8a73d39bc6a6cf9efeb270af57472012af3af48c82d74180a48d0ee09e95",
+      "can_codec.h": "87491ae3a73cd7b267815f2532361514cb9899c9c5231045526f54d3d98c554a",
+      "usb_hw.h": "919d83e6a771b5a9e0092414ca9711809300110588396b297171dfe4b6664a5a",
+      "usb_ep0.h": "d3341a4ded5c63e3edfc7e79c5315d5bd339c6d2447445263fb5a81746a4a6e7",
+      "usb_time.h": "375429d82c6bd180e476192f97e439223a548b2c0de5b69418fead9efc4cc36c",
+      "usb_driver.h": "32b924347849f42192b5e14e051022f39e729880d0069aa2c67af0509673844f",
+      "boot_facts.h": "a5dff207500f43677af7688aedaeacb30e903c6966e533e366b6c0a7814355ae",
+      "stm32f413.ld": "7922edf18bd50be11721d465a8e87ec3de84bcaf28819cf6bb1c8df280346ab6",
+      "build.py": "b3d4516ce8215dfdf898bcb755178f3bf3e68846042a3803c156097982b312fe"
+    },
+    "compiler": "arm-none-eabi-gcc (15:13.2.rel1-2) 13.2.1 20231009",
+    "objcopy": "GNU objcopy (2.42-1ubuntu1+23) 2.42",
+    "flags": [
+      "-mcpu=cortex-m4",
+      "-mthumb",
+      "-mfloat-abi=soft",
+      "-mno-unaligned-access",
+      "-Os",
+      "-std=c11",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-fno-common",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-fno-unwind-tables",
+      "-fno-asynchronous-unwind-tables",
+      "-Wall",
+      "-Wextra",
+      "-Wstrict-prototypes",
+      "-Werror",
+      "-nostdlib"
+    ],
+    "limits": "Unsigned offline build; no installed bootstub, electrical or runtime qualification."
+  },
+  "tests": {
+    "command": "CHIMERA_TOOLCHAIN_PREFIX=/home/radxa/.local/ocelot-build-tools/usr/bin/arm-none-eabi- python3 -m unittest discover -s chimera/firmware/tests -v",
+    "result": "pass",
+    "tests": 21,
+    "actual_output": "test_read_only_identity_and_reset_snapshot (test_boot_facts.BootFactsTests.test_read_only_identity_and_reset_snapshot) ... ok\ntest_sanitized_codec_and_current_panda_wire_interoperability (test_can_codec.CanCodecTests.test_sanitized_codec_and_current_panda_wire_interoperability) ... ok\ntest_boot_facts_reader_retained_in_arm_image (test_firmware.FirmwareTests.test_boot_facts_reader_retained_in_arm_image) ... ok\ntest_boot_vectors_reject_corruption (test_firmware.FirmwareTests.test_boot_vectors_reject_corruption) ... ok\ntest_build_is_independent_of_checkout_and_output_path (test_firmware.FirmwareTests.test_build_is_independent_of_checkout_and_output_path) ... ok\ntest_can_codec_entries_retained_in_arm_image (test_firmware.FirmwareTests.test_can_codec_entries_retained_in_arm_image) ... ok\ntest_control_setup_uses_byte_reads_for_unaligned_wire_buffer (test_firmware.FirmwareTests.test_control_setup_uses_byte_reads_for_unaligned_wire_buffer) ... ok\ntest_elf_rejects_unsafe_load_segments_and_identity (test_firmware.FirmwareTests.test_elf_rejects_unsafe_load_segments_and_identity) ... ok\ntest_gpio_contract_from_reset_and_inherited_state (test_firmware.FirmwareTests.test_gpio_contract_from_reset_and_inherited_state) ... ok\ntest_linker_rejects_flash_overflow (test_firmware.FirmwareTests.test_linker_rejects_flash_overflow) ... ok\ntest_linker_rejects_ram_stack_collision (test_firmware.FirmwareTests.test_linker_rejects_ram_stack_collision) ... ok\ntest_protocol_entry_and_identity_retained_in_arm_image (test_firmware.FirmwareTests.test_protocol_entry_and_identity_retained_in_arm_image) ... ok\ntest_read_only_control_contract (test_firmware.FirmwareTests.test_read_only_control_contract) ... ok\ntest_real_image_fits_reserved_envelope (test_firmware.FirmwareTests.test_real_image_fits_reserved_envelope) ... ok\ntest_startup_masks_interrupts_and_loads_msp_before_c (test_firmware.FirmwareTests.test_startup_masks_interrupts_and_loads_msp_before_c) ... ok\ntest_truncated_and_oversized_images_rejected (test_firmware.FirmwareTests.test_truncated_and_oversized_images_rejected) ... ok\ntest_usb_clock_core_and_ep0_entries_retained_in_arm_image (test_firmware.FirmwareTests.test_usb_clock_core_and_ep0_entries_retained_in_arm_image) ... ok\ntest_usb_driver_backend_symbols_and_mmio_barriers (test_firmware.FirmwareTests.test_usb_driver_backend_symbols_and_mmio_barriers) ... ok\ntest_clock_detached_core_and_ep0_with_sanitizers (test_usb.UsbTests.test_clock_detached_core_and_ep0_with_sanitizers) ... ok\ntest_bounded_cycle_counter_backend (test_usb_driver.UsbDriverTests.test_bounded_cycle_counter_backend) ... ok\ntest_polling_ep0_packet_driver (test_usb_driver.UsbDriverTests.test_polling_ep0_packet_driver) ... ok\n\n----------------------------------------------------------------------\nRan 21 tests in 15.424s\n\nOK\nBoot facts: 65536 read-only snapshots, three UID instability faults, blank IDs, serial order and canaries passed; no writes\nSUMMARY vectors=648 splits=4536 corruptions=17280 headers=65536 fuzz=10000 known_xor_collisions=2\nCurrent Panda source: 189 exact pack vectors, 648 unpack vectors; no hardware calls\n458920 request cases passed; no hardware calls\nUSB fake-register scenarios=19 SETUP cases=458797; no hardware calls\nUSB time: 51 delay durations, wrap, stalled/absent counter and clock/ownership guards passed\nUSB packet matrix: 32768 RX headers, 390 descriptor-length transfers, 15 controller faults passed\nUSB packet driver: reset/enumeration, descriptors, address/config, vendor query, STALL recovery and SETUP cancellation passed\n",
+    "boot_fact_vectors": 65536,
+    "uid_instability_faults": 3,
+    "successful_read_calls": 8,
+    "device_writes": 0,
+    "physical_device_reads": 0,
+    "arm": "Retained helper symbol and all earlier artifact/driver/codec/bounds/reproducibility checks pass"
+  },
+  "test_sources_sha256": {
+    "chimera/firmware/tests/board_test.c": "028977ed9227a8f0db08b2bd15c8786fc7d5415374ccba8b1802aa8bab8f77cb",
+    "chimera/firmware/tests/boot_facts_test.c": "3c60b5949d9a1285815fc9a800e7f1def89483093f297a6a46a4951f254145d3",
+    "chimera/firmware/tests/can_codec_test.c": "c65a6ee40c0bf824b4eaf60e6cedd09053968c9e90a404f0143095fbf26aa0c3",
+    "chimera/firmware/tests/protocol_test.c": "27d43e7c4ee93d1866693b7211302e1dba6859c39137a07d2b00b471a2ed4301",
+    "chimera/firmware/tests/test_boot_facts.py": "7c33d4c440e4354bab5189d002adfada331417bd9c97e61c90bc695b1ad351c4",
+    "chimera/firmware/tests/test_can_codec.py": "4d4cfe8f5d2f84052f2b1c2a15c31710e007906f645827e4de037c60eb4b0cda",
+    "chimera/firmware/tests/test_firmware.py": "1cdb9c0720ce71c28b4690e1fb9843aa48eec0d028cd112fe86f87bb528edd12",
+    "chimera/firmware/tests/test_usb.py": "30158e14fd5a422df31b6f6fb75a2ef77885df5cad29a3aede2a046a434099a2",
+    "chimera/firmware/tests/test_usb_driver.py": "d8f741812d1e32b55705bb21f03f0bb1e797c746f0ce412e6dcc36a7548aaede",
+    "chimera/firmware/tests/usb_driver_test.c": "1186b576de559399354503900d27a87c0dc5a6c203e5d266b9681e9d1ce6e8f9",
+    "chimera/firmware/tests/usb_test.c": "de3f0153e62a48e8c982027c8f781ef17b94e1e28be64adfc6027b4bec5edec3",
+    "chimera/firmware/tests/usb_time_test.c": "800bfd3b29c535d7c67d3bcc06a8af0f1c03a06f0f3020e4d7fdba60d349b762"
+  },
+  "preservation": {
+    "existing_main_startup_board_protocol_codec_usb_driver_backend": "SHA256 unchanged from QA19",
+    "host_safety_DBC": "unchanged",
+    "ocelot_dirty39_all19pinned_files": "unchanged",
+    "archive": "clean unchanged"
+  },
+  "tdd": "RED missing boot_facts implementation/header; GREEN sanitizer fixture and retained ARM API. No skipped tests, rule suppression or relaxed checks.",
+  "ruff": "pass",
+  "limits": [
+    "No physical UID/reset/option read or atomic whole-device snapshot; raw flags may predate startup",
+    "UID is not authenticated firmware identity; blank/unstable checks do not authorize attachment",
+    "Exact power tree, VBUS detector, descriptor supply/draw and current bootstub/recovery set still unqualified",
+    "No watchdog start/feed/disable, flag clear, option write, flash/config migration or hardware operation",
+    "Main remains parked, no USB startup/attachment or host admission, capabilities/hashes zero",
+    "No full manual/compliance review or REA provider result claimed",
+    "No installation/upstream reference advance/push"
+  ],
+  "next": "T03b3b detached startup/service composition; physical attachment requires qualified power/VBUS/current-recovery evidence",
+  "documentation_links": {
+    "result": "pass",
+    "resolved": 102
+  },
+  "memory_check": {
+    "result": "pass",
+    "documents": 140,
+    "relative_links": 447,
+    "optional_workspace_links": 246,
+    "source_repositories": 8,
+    "indexed_entries": 4254
+  },
+  "git_diff_check": "pass"
+}

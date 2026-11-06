@@ -1,3 +1,16 @@
+## November 6 — Progress explained; USB startup requirements established
+
+QA-20261106-20: added plain-language progress guide and power/VBUS/UID/watchdog/
+recovery contract. T03b3a adds read-only boot facts (UID/raw reset/options), no
+startup call.21tests pass incl65536snapshot vectors; raw6608bytes, globals8bytes.
+Original USB forces session-valid, PA9 is assigned UART in common init; actual
+VBUS route/supply profile unknown. Historical nightly/bootstub bundle and17config
+file hashes verified; bundle bootstub is not an installed dump. [Session](Sessions/2026-11-06-chimera-usb-prerequisites.md)
+pins details. Next T03b3b detached startup/service composition. Actual attachment
+requires qualified power/VBUS/current-recovery evidence. Main/driver/host/DBC and
+Ocelot/archive unchanged. No board read/write/flash/config/actuation/install/
+update/push; upstream remains held. Preserved inputs are not yet sampled.
+
 ## November 6 — USB packet driver and ordered backend implemented offline
 
 QA-20261106-19: T03b2 adds ARM MMIO/DWT timing and polling EP0/FIFO driver under

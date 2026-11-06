@@ -27,6 +27,7 @@ SECTIONS {
     KEEP(*(.text.chimera_control_read))
     KEEP(*(.text.chimera_can_*))
     KEEP(*(.text.chimera_usb_*))
+    KEEP(*(.text.chimera_boot_read_facts))
     KEEP(*(.rodata.chimera_*))
     *(.text*) *(.rodata*)
     *(.glue_7) *(.glue_7t) *(.vfp11_veneer) *(.v4_bx)

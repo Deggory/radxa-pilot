@@ -12,9 +12,11 @@ enumeration, host selection or modern operational compatibility is claimed.
 Development descriptor contract: retain the legacy normal-mode VID:PID
 `bbaa:ddcc`, use product **Chimera F413**, and require a stable, nonempty serial
 derived from the MCU unique identity. T03b1 now implements lowercase UID serial
-formatting and a control-only descriptor model; hardware UID read/publication
-is still future work. This reuses the board's existing development IDs; it is not a
-claim of USB-IF allocation or permission for a new commercial VID.
+formatting and a control-only descriptor model. T03b3a adds a
+[read-only UID/reset/option helper](../firmware/boot_facts.c); actual hardware
+reading and serial publication from startup remain future work. This reuses the
+board's existing development IDs; it is not a claim of USB-IF allocation or
+permission for a new commercial VID.
 
 The firmware version response is `chimera-f413-bootstrap-v1`,25ASCIIbytes without
 a NUL. It labels this bootstrap ABI, not a unique binary digest or authenticated
