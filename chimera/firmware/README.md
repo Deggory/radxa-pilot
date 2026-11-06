@@ -48,7 +48,7 @@ link map and JSON receipt. The binary has a normal stack pointer in vector word
 zero; no legacy length/signature packaging is performed. Never feed this raw
 bootstrap to the legacy updater as a signed release.
 
-November 6 current validation: GCC13.2.1/binutils2.42, twenty-three tests pass, raw7448bytes;
+November 6 current validation: GCC13.2.1/binutils2.42, twenty-eight tests pass, raw7448bytes;
 two different source/output paths produce identical bytes. GPIO tests use fake
 registers, and disassembly verifies the MSP reload precedes C. No board execution
 or electrical state was measured. USB/CAN clocks are gated, interrupts stay masked
@@ -93,3 +93,7 @@ T03b3b adds [the detached service](../docs/USB_SERVICE.md), combining real boot-
 facts/timing/clock/core/driver calls with owned cleanup and failure latching.
 44integration scenarios pass; no main/GPIO/IRQ/attachment change. Next board work
 is the exact status/capability contract before operational health/endpoints.
+
+T05a adds five discovery/response tests: real C replies feed the pure host
+decoder; unsupported status stays unavailable. All firmware sources and ARM
+image bytes are unchanged. See the [status contract](../docs/STATUS_CAPABILITY_CONTRACT.md).

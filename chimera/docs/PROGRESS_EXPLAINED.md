@@ -60,3 +60,14 @@ Main still does not call it. Clearing USB soft-disconnect requires qualified
 power/VBUS and recovery evidence. Next board work defines exact health/status
 semantics, followed by endpoints and managed host support. This remains a gradual
 firmware port, not a released board image.
+
+## November 6 — Bootstrap discovery checked
+
+T05a adds a small Radxa-side decoder for the new firmware's identification reply.
+It checks the exact version and board description, and rejects altered or unknown
+replies. It can describe the three CAN connections and reserved input/output
+connections; it does not claim these are operating or measure ignition, voltage
+or health. Tests use replies produced by the actual firmware C function. The new
+firmware image and parked startup are unchanged; no board was connected/flashed.
+Next is the separate legacy Panda health59 decoder, before managed use. See the
+[status contract](STATUS_CAPABILITY_CONTRACT.md).

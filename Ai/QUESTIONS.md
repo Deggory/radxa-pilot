@@ -1,3 +1,19 @@
+## QA-20261106-22 — Proceed with bootstrap status/capability contract
+
+**Date:** November 6, 2026 UTC.
+
+**Owner request (original):** proceed
+
+**Context:** Continue T05a after the detached USB service in QA21.
+
+**Answer:** Added a pure Radxa-side decoder for the new bootstrap's existing A0/D6 replies and documented exactly what they establish. It validates the complete version/schema/phase/topology, zero operational capabilities/layout hashes and reserved fields. Unknown or altered profiles fail; no measurement, ignition, controls-allowed or ready state is manufactured. A real C-handler fixture feeds its replies to Python and verifies health/safety requests remain unavailable. All28offline tests pass, including five new tests. Firmware sources and7448-byte ARM image are unchanged. Next is source-backed legacy F4health59 decoding/adaptation before managed use; new Chimera operational health/controller/bulk binding remain separate work.
+
+**Evidence/source pins:** Baselinee586191ac39e663727aac2cbd453937477350ef8; current Panda8a16e089 health header, Sunnypilot native consumer/identifier and actual bootstrap protocol.c. Exact hashes,28-test output (16.253s), ARM build/hash and mutation check in student Ai/Evidence/chimera-status-contract-20261106.json. Decoder openpilot/selfdrive/pandad/chimera_identity.py; contract chimera/docs/STATUS_CAPABILITY_CONTRACT.md.8160manifest/6375version alterations,256incorrect lengths and12invalid-type arguments are rejected. Native ASan/UBSan interoperability passes. Removed reserved-byte validation is detected in a temporary mutation and restored. Source/CLI and GNU ARM artifact evidence used; no new REA provider result claimed.
+
+**Implemented versus proposed/limits:** T05a bootstrap contract/decoder complete offline; not an operational health profile, authentication, admission or managed lifecycle. Descriptor/serial/transport qualification belongs to future callers. Original health43 and legacy59 stay separate. Main remains parked; no attachment, measurement acquisition, CAN/relay/OBD-C/config/flash/reset/device/install/update/push. Missing physical power/VBUS/current-recovery and watchdog qualifications remain. Ocelot39dirty entries/19hashes, archive and canonical DBC preserved. Upstream checks remain held; earlier unanswered entries retained.
+
+---
+
 ## QA-20261106-21 — Proceed with detached startup/service composition
 
 **Date:** November 6, 2026 UTC.

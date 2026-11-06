@@ -15,6 +15,7 @@ the existing `openpilot/selfdrive/pandad/` module, where Sunnypilot builds it:
 | --- | --- |
 | New native USB connection | [panda_usb.cc](../openpilot/selfdrive/pandad/panda_usb.cc), [header](../openpilot/selfdrive/pandad/panda_usb.h) |
 | New board/protocol identification | [panda_identification.cc](../openpilot/selfdrive/pandad/panda_identification.cc), [header](../openpilot/selfdrive/pandad/panda_identification.h) |
+| New bootstrap discovery decoder | [chimera_identity.py](../openpilot/selfdrive/pandad/chimera_identity.py), pure/offline; no managed profile |
 | Shared transport interface | [panda_comms.h](../openpilot/selfdrive/pandad/panda_comms.h) |
 | Existing original-Chimera Python receiver | [chimera.py](../openpilot/selfdrive/pandad/chimera.py), [decoder](../openpilot/selfdrive/pandad/chimera_protocol.py) |
 | Offline native USB tests | [test_panda_usb.cc](../openpilot/selfdrive/pandad/tests/test_panda_usb.cc) |
@@ -38,6 +39,7 @@ BRAKE, both analog inputs, the onboard relay and OBD-C hardware interfaces.
 - [USB packet driver](docs/USB_PACKET_DRIVER.md): polling EP0 event/FIFO library and ordered MMIO/timing backend, verified offline; startup attachment pending.
 - [Power/UID/recovery requirements](docs/USB_STARTUP_REQUIREMENTS.md): attachment prerequisites, known historical recovery evidence and read-only boot facts.
 - [Detached USB service](docs/USB_SERVICE.md): coordinated preparation/polling/release with failure latching; not called from main.
+- [Status/capability contract](docs/STATUS_CAPABILITY_CONTRACT.md): strict bootstrap decoder, health limits and firmware-response fixtures.
 - [Roadmap](tasks/plan.md): one verified increment at a time.
 - [Existing firmware map](docs/FIRMWARE_SOURCE_MAP.md): recovered GPIO/CAN/config/build behavior.
 - [Source provenance](docs/PROVENANCE.md): reference versions and archive locations.
@@ -50,8 +52,9 @@ CAN codec with offline interoperability/stream checks. T03b1 adds detached USB
 preparation and the pure EP0 model. T03b2 adds the polling controller packet driver
 and ordered MMIO/timing backend. T03b3a establishes the power/VBUS/UID/recovery
 requirements and adds a read-only boot-facts helper. T03b3b composes these into a
-detached startup/service module, still uncalled by main. Next: exact status/
-capability contracts, then operational health/endpoints. Qualified attachment
+detached startup/service module, still uncalled by main. T05a adds bootstrap
+discovery decoding and status/capability semantics. Next: legacy F4 health59
+decoding; new Chimera operational health/endpoints remain pending. Qualified attachment
 still requires the recorded electrical/recovery evidence. Physical
 boot/recovery and electrical qualification remain open.
 

@@ -91,6 +91,11 @@ Capability0 and hashes0 deliberately prevent operational negotiation. A later
 phase must define bit assignments, exact health validity semantics and hash inputs
 before setting capabilities; this document does not pre-authorize those changes.
 
+T05a adds the [status/capability contract](STATUS_CAPABILITY_CONTRACT.md) and a
+strict pure host decoder for these exact bootstrap bytes. It grants no managed
+admission or operation. All capability bits remain reserved/zero; new values
+require a reviewed profile. Health and every other request above remain STALL.
+
 Target CAN framing remains the pinned current six-byte/XOR classical format;
 current host hash is derived from opendbc/safety/can.h rather than a firmware
 constant copied blindly. Health49 versus F4health59 versus oldChimera43 remains a

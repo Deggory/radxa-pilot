@@ -1,3 +1,15 @@
+## November 6 — Bootstrap status/capability contract verified
+
+QA-20261106-22: T05a adds strict pure A0/D6 discovery decoding and a status
+contract; actual firmware replies decode, unsupported health/safety stays STALL.
+28offline tests pass (five new); mutation review detects missing reserved checks.
+Firmware sources/image unchanged:7448bytes, SHA d5f7a3f9d0299da28fa7c78c662cefd4deb60c5e748b7e553926c77b8e9c2698.
+No operational readiness/measurements, managed admission or startup attachment.
+Next T05b source-backed legacy F4health59 decoding/adaptation before managed use;
+Chimera operational health/bulk/controller binding and physical power/VBUS/current
+recovery remain pending. Upstream checks held; no hardware/update/push.
+[Session](../Sessions/2026-11-06-chimera-status-contract.md) records sources/tests/limits.
+
 ## November 6 — Detached USB service composed and verified
 
 QA-20261106-21: T03b3b adds usb_service.c/.h, real facts/timing/clock/core/EP0

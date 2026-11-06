@@ -21,6 +21,7 @@ future T02/T05/T08 fixtures; no new firmware integration or task completion.
 - [x] T03b2 Ordered ARM MMIO/DWT timing backend and polling EP0 event/FIFO driver; nineteen offline tests pass. Startup/attachment and physical qualification pending.
 - [x] T03b3a Power/VBUS/UID/watchdog/recovery requirements and read-only UID/reset/option snapshot helper; twenty-one offline tests pass. No startup/attachment.
 - [x] T03b3b Composed detached preparation/poll/release service; twenty-three tests/44integration scenarios pass. Not called by main; physical attachment unqualified.
+- [x] T05a Bootstrap status/capability contract and strict pure decoder; response interoperability/rejection fixtures pass offline. No operational health/profile admission.
 
 | Task | Next deliverable | Status |
 | --- | --- | --- |
@@ -28,7 +29,7 @@ future T02/T05/T08 fixtures; no new firmware integration or task completion.
 | T02 | Distinct identity, legacy/current protocol profiles, RPC matrix and explicit bus/input source contracts | T02a/b complete offline; operational health/capability/config ABI and new-profile host admission remain pending |
 | T03 | Minimal F413 target, reviewed support/linker and offline image budget | T03a/b1/b2/b3a/b3b complete offline; unbound detached service exists; actual startup/attachment and qualified power/VBUS/recovery remain pending |
 | T04 | Modern six-byte/XOR classical CAN USB codec with stream/vector checks | Complete offline; no endpoint/CAN-controller binding or TX permission |
-| T05 | Exact identity/version/health responses, legacy F4 status adaptation and fail-disabled state | Pending |
+| T05 | Exact identity/version/health responses, legacy F4 status adaptation and fail-disabled state | T05a bootstrap contract/decoder complete offline; operational health and legacy F4 adaptation pending |
 | T06 | Native Sunnypilot USB transport and offline failure tests | Offline transport implemented (T06a/b); managed use remains T08 |
 | T07 | Isolated passive receive qualification on each physical bus | Pending separate bench scope |
 | T08 | Protected current/F4/Chimera managed passive lifecycle, reconnect and exclusive ownership | Pending |
@@ -50,9 +51,11 @@ at `../chimera/tasks/plan.md`, relative to the Sunnypilot repository root.
 This sequence carries the implementation forward without requiring that archive
 at runtime. Slice boundaries may split a task; a partial task stays pending.
 
-Next board software slice: T05a exact status/capability semantics and offline
-response fixtures before operational health advertisement, then bulk CAN/controller
-binding. [Detached service](../docs/USB_SERVICE.md) now composes existing modules.
+T05a [status/capability contract](../docs/STATUS_CAPABILITY_CONTRACT.md) and pure
+bootstrap decoder are complete offline. Next independent software slice: T05b
+exact legacy F4 health59 decoding/adaptation before managed use. New Chimera
+operational health and bulk CAN/controller binding remain pending.
+[Detached service](../docs/USB_SERVICE.md) now composes existing modules.
 [Requirements](../docs/USB_STARTUP_REQUIREMENTS.md) retain missing physical power/
 VBUS/current-recovery evidence. Qualified startup/attachment follows those gates.
 Electrical unknowns block
