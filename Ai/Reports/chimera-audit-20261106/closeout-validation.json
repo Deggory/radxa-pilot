@@ -1,0 +1,31 @@
+{
+  "utc": "2026-11-06T23:16:00.832307+00:00",
+  "scope": "Actual audit publication/readback and unreachable PC shutdown result; documentation/evidence only",
+  "audited_source_head": "05a33eb1c556fd5d7bf489056ce1782330671e6f",
+  "published_audit_head": "148f77d272e81eccfb7b7f9a195ce9acb8a4f783",
+  "checks": {
+    "notebook": {
+      "command": [
+        ".venv/bin/python",
+        "Ai/verify_memory.py",
+        "--workspace",
+        "/home/radxa/comma"
+      ],
+      "exit": 0,
+      "stdout": "{\n  \"result\": \"pass\",\n  \"memory_layout\": \"regular project directory\",\n  \"documents\": 154,\n  \"relative_links\": 574,\n  \"optional_workspace_links\": 246,\n  \"source_repositories\": 8,\n  \"indexed_entries\": 4254\n}\n"
+    },
+    "whitespace": {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit": 0
+    },
+    "qa33_sync": "pass"
+  },
+  "publication_receipt": "publication.json",
+  "pc_receipt": "pc-shutdown.json",
+  "no_shutdown_delivery": true,
+  "next": "2026-11-07 T08b2d passive normal-status publication and disconnect/reconnect; retain nonoperational legacy observations"
+}

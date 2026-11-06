@@ -1,3 +1,15 @@
+## November6 — GitHub verified; PC shutdown unreachable
+
+**Actual publication closeout, November6:** Audit148f77d272e81eccfb7b7f9a195ce9acb8a4f783
+pushed normally toDeggory/radxa-pilot:radxa/q8b. Remote SHA matches; GitHub
+connector README blobc0f96337cd2a3b1410d2096bc23f52580fd416f1 matches localGit.
+Supporting opendbc ref150f9371 already matches. Defaultmaster/upstream preserved.
+Final strict PC10.43.0.216 attempt again returns255/no route; alternate refusals/
+timeout saved. No authenticated PC shutdown delivered, physical power unknown.
+Owner's address/status question remains unanswered. No Radxa shutdown requested.
+This follow-up saves actual publication and failed shutdown delivery; next remains
+November7 T08b2d passive normal-status publication and disconnect/reconnect.
+
 ## November6 — Chimera audit saved; November7 restart fixed
 
 Owner requested audit/save/GitHub update/PC shutdown and tomorrow continuation.

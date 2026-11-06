@@ -7,5 +7,24 @@
   "alternate_probe_receipt": "pc-alternate-probes.json",
   "shutdown_delivered": false,
   "physical_poweroff_observed": false,
-  "status": "No authenticated PC connection; request not delivered. Owner asked whether off/address changed. Current Radxa not requested for shutdown."
+  "status": "No authenticated PC connection; request not delivered. Owner asked whether off/address changed. Current Radxa not requested for shutdown.",
+  "final_primary_probe": {
+    "utc": "2026-11-06T23:15:20.796827+00:00",
+    "command": [
+      "ssh",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "StrictHostKeyChecking=yes",
+      "-o",
+      "HostKeyAlias=10.42.0.216",
+      "-o",
+      "ConnectTimeout=6",
+      "pc@10.43.0.216",
+      "hostname; id -un"
+    ],
+    "exit": 255,
+    "stdout": "",
+    "stderr": "ssh: connect to host 10.43.0.216 port 22: No route to host\n"
+  }
 }

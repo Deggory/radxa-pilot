@@ -74,19 +74,19 @@ managed stack, upstream update or merge was performed.
 
 ## Publication, shutdown and tomorrow
 
-Publish this source/history and README to the existing owner repository
-`Deggory/radxa-pilot:radxa/q8b` by normal push. Its default branch remains `master`
+Audit commit `148f77d272e81eccfb7b7f9a195ce9acb8a4f783` was published to
+`Deggory/radxa-pilot:radxa/q8b` by normal push. Remote SHA and the GitHub README
+blob match local Git. See [actual publication](publication.json). Its default branch remains `master`
 under the owner's saved preference. Supporting opendbc remote ref already matches
 the submodule. The GitHub connector can inspect metadata but cannot upload local
-Git objects; Git handles that transfer. Actual push and remote-SHA readback are
-recorded in a later closeout receipt, not asserted in advance here.
+Git objects; Git handles that transfer. The following documentation commit saves that actual readback.
 
 PC preflight: strict trusted-host SSH cannot reach10.43.0.216 (no route),
 10.42.0.216 times out, and historical192.168.1.104 refuses SSH. No authenticated
 PC shutdown command has been delivered. The owner was asked whether the PC is
 already off or has a new address. Radxa is the current `comma` host; only the
 separate PC was named for shutdown in this request. Physical power state is
-unobserved. Any later result belongs in the shutdown receipt.
+unobserved. The final retry also returned no route; see [shutdown receipt](pc-shutdown.json).
 
 **Resume November 7, T08b2d: passive normal-status publication and
 disconnect/reconnect handling.** Read both handoffs and live Git/status/validation.
