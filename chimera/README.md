@@ -31,7 +31,8 @@ BRAKE, both analog inputs, the onboard relay and OBD-C hardware interfaces.
 - [USB identity/request contract](docs/USB_IDENTITY_CONTRACT.md): distinct bootstrap identity and implemented read-only handler.
 - [Bus/input source contract](docs/BUS_INPUT_CONTRACT.md): preserved routing and future validity/source requirements.
 - [CAN codec contract](docs/CAN_CODEC_CONTRACT.md): tested current framing, bounded stream behavior and integrity limits.
-- [USB bootstrap](docs/USB_BOOTSTRAP.md): detached clock/core preparation and EP0 request model; hardware packet handling still pending.
+- [USB bootstrap](docs/USB_BOOTSTRAP.md): detached clock/core preparation and EP0 request model.
+- [USB packet driver](docs/USB_PACKET_DRIVER.md): polling EP0 event/FIFO library and ordered MMIO/timing backend, verified offline; startup attachment pending.
 - [Roadmap](tasks/plan.md): one verified increment at a time.
 - [Existing firmware map](docs/FIRMWARE_SOURCE_MAP.md): recovered GPIO/CAN/config/build behavior.
 - [Source provenance](docs/PROVENANCE.md): reference versions and archive locations.
@@ -41,8 +42,9 @@ BRAKE, both analog inputs, the onboard relay and OBD-C hardware interfaces.
 Completed: folder/source map, T01a source-backed board/flash boundaries, T03a
 minimal offline F413 build, T02b identity/request/source contracts and T04 classical
 CAN codec with offline interoperability/stream checks. T03b1 adds detached USB
-preparation and the pure EP0 model. Next: T03b2 controller event/FIFO/EP0 packet
-handling and backend/attach prerequisites, then operational health/endpoints. Physical
+preparation and the pure EP0 model. T03b2 adds the polling controller packet driver
+and ordered MMIO/timing backend. Next: T03b3 power/VBUS/UID/recovery prerequisites
+and reviewed startup/attachment, then operational health/endpoints. Physical
 boot/recovery and electrical qualification remain open.
 
 Legacy F4 Panda support is now an explicit host requirement alongside Chimera.

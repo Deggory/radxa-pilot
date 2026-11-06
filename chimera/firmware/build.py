@@ -14,8 +14,10 @@ APP = 0x08004000
 CONFIG = 0x08020000
 ENVELOPE = 136
 STACK = 0x2001FFF8
-COMPILATION_SOURCES = ("startup.S", "board.c", "main.c", "protocol.c", "can_codec.c", "usb_hw.c", "usb_ep0.c")
-SOURCES = (*COMPILATION_SOURCES, "board.h", "protocol.h", "can_codec.h", "usb_hw.h", "usb_ep0.h", "stm32f413.ld", "build.py")
+COMPILATION_SOURCES = ("startup.S", "board.c", "main.c", "protocol.c", "can_codec.c", "usb_hw.c", "usb_ep0.c",
+                       "usb_time.c", "usb_mmio.c", "usb_driver.c")
+SOURCES = (*COMPILATION_SOURCES, "board.h", "protocol.h", "can_codec.h", "usb_hw.h", "usb_ep0.h",
+           "usb_time.h", "usb_driver.h", "stm32f413.ld", "build.py")
 
 
 def command(*args):

@@ -87,6 +87,18 @@ class FirmwareTests(unittest.TestCase):
     self.assertLessEqual(len(self.raw) + 136, 0x1C000)
     self.assertEqual(self.report["undefined_symbols"], [])
 
+  def test_usb_driver_backend_symbols_and_mmio_barriers(self):
+    elf = str(self.out / "first/chimera.elf")
+    result = run(PREFIX + "nm", "--defined-only", elf)
+    self.assertEqual(result.returncode, 0, result.stderr)
+    symbols = {line.split()[-1] for line in result.stdout.splitlines()}
+    self.assertTrue({"chimera_usb_time16_init", "chimera_usb_delay16", "chimera_usb_mmio_init",
+                     "chimera_usb_driver_init", "chimera_usb_driver_poll"}.issubset(symbols))
+    for name, barrier in [("read32", "dmb"), ("write32", "dsb")]:
+      result = run(PREFIX + "objdump", "-d", "--disassemble=" + name, elf)
+      self.assertEqual(result.returncode, 0, result.stderr)
+      self.assertRegex(result.stdout, r"\b" + barrier + r"\b")
+
   def test_boot_vectors_reject_corruption(self):
     for offset, value in ((0, 0x20020000), (4, 0x08000001), (4, 0x08004200),
                           (7 * 4, 1), (117 * 4, 0), (117 * 4, 0x08020001)):

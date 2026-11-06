@@ -2,8 +2,9 @@
 
 November 6, 2026 — T02b. The compiled bootstrap contains a pure, read-only vendor
 request handler and identity data. T03b1 adds detached clock/core preparation and
-a descriptor/EP0 model; MMIO/timing binding, FIFO/event handling and startup
-connection remain pending. This contract defines the EP0 connection; no board
+a descriptor/EP0 model; T03b2 adds the ordered MMIO/timing backend and polling
+FIFO/event library. Startup connection remains pending. This contract defines
+the EP0 connection; no board
 enumeration, host selection or modern operational compatibility is claimed.
 
 ## Separate identity before interpreting requests
@@ -130,4 +131,6 @@ T03b1 adds [USB preparation/EP0 state](USB_BOOTSTRAP.md), expanding the combined
 suite to sixteen tests. The EP0 wrapper permits D6/A0 only after configuration1;
 the standalone vendor handler ABI remains unchanged. Its bootstrap descriptor
 advertises zero bulk endpoints. The planned IN81/OUT03 operational interface is
-not enabled, and the model is not yet connected to a hardware packet driver.
+not enabled. T03b2 connects the model to the polling
+[packet-driver library](USB_PACKET_DRIVER.md), with nineteen combined offline
+tests. Driver/backend startup and physical attachment remain pending.

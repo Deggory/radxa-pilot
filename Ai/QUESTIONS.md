@@ -1,3 +1,19 @@
+## QA-20261106-19 — Continue Chimera's next USB stage
+
+**Date:** November 6, 2026 UTC.
+
+**Owner request (original):** lets continue with chimera next stage
+
+**Context:** Continue T03b2 after the USB foundation and owner-supplied Ocelot Panda Docker source study.
+
+**Answer:** Implemented the ordered ARM MMIO backend, bounded DWT cycle-counter delays at nominal HCLK16 and a polling control-endpoint packet driver. It connects the existing model to SETUP reception, FIFO replies, address/configuration status completion, reset and STALL recovery. Transfer cancellation waits for active IN disable, flushes old FIFO contents and clears old event flags before rearming.19offline tests pass, including32768RX headers,390descriptor-length transfers,15controller faults and51delay durations. The raw ARM image is6420bytes; global RAM remains8bytes. Startup remains parked and USB stays disconnected. Next T03b3 is the power/VBUS/UID and watchdog/recovery prerequisites, followed by separately reviewed startup/service/attachment integration.
+
+**Evidence/source pins:** Sunnypilot baseline6b83b2e632bc95c53ec58fda748ee87d93b50be6; Panda8a16e089/opendbc150f9371/Ocelotd87892fa with original dirty sources preserved. ST HAL PCD/LL USB6ef30cf0, middleware2df324bd, ST CMSIS core_cm4/F413 register definitions and retained Ocelot Panda Docker source used. Exact source/test hashes, actual19-test output and ARM build/tool pins in Sunnypilot Ai/Evidence/chimera-usb-driver-20261106.json; contract chimera/docs/USB_PACKET_DRIVER.md and session2026-11-06-chimera-usb-driver.md. Native ASan/UBSan and real ARM symbol/barrier/link/vector/bounds/reproducibility checks; no REA provider/hardware runtime analysis claimed.
+
+**Implemented versus proposed/limits:** T03b2 packet/backend library complete offline; full T03 and Sunnypilot compatibility remain partial. No GPIO/IRQ/startup attachment, physical UID read, qualified supply/VBUS behavior or real USB enumeration. Delay accuracy uses nominal16MHz; real oscillator, scheduling, endpoint/address/status timing and event ordering remain unmeasured. Suspend disconnects; wake/session end/watchdog/recovery still unqualified. Event/read budgets bound operations, not elapsed service deadlines. Current phase0 capabilities/hashes stay zero; no bulk/health/CAN binding, host profile admission, Core Config/input sampling or MCU TX policy added. Main/board/protocol/codec/USB model/linker and original references/DBC unchanged. No hardware/flash/config/actuation/install/upstream update/push. QA17's4060-byte image remains its historical artifact; current image6420bytes. Earlier unanswered entries remain preserved.
+
+---
+
 ## QA-20261106-18 — Learn from Ocelot Panda Docker
 
 **Date:** November 6, 2026 UTC.

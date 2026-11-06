@@ -4,10 +4,16 @@ November 6, 2026 — T03b1 implemented offline. The new library is linked into t
 F413 image but not called by main. No USB GPIO, controller interrupt, device
 attachment, hardware UID read or physical enumeration has occurred.
 
+T03b2 now adds the [ordered backend and polling packet driver](USB_PACKET_DRIVER.md),
+with19offline tests. Main remains parked; next T03b3 power/VBUS/UID/recovery
+prerequisites and reviewed startup/attachment work. The16-test result below
+records the original T03b1 foundation.
+
 ## Clock and detached core
 
 [usb_hw.c](../firmware/usb_hw.c) uses a caller-supplied ordered register backend
-and calibrated delay. There is no production MMIO/timer adapter yet. Poll budgets
+and nominal cycle-counter delay. T03b2 supplies an ARM MMIO/DWT adapter; no adapter
+is called from startup. Poll budgets
 are bounded read counts1..1000000, not elapsed-time guarantees. The backend must
 be nonblocking except for the explicit delay and exclusively own USB/main PLL.
 
@@ -41,11 +47,11 @@ cancels pending work. Completion calls require the generation saved when that
 transfer was armed; stale generations cannot advance/commit a newer transfer.
 Counter exhaustion disables the context instead of reusing a token.
 
-The future controller driver must also cancel transfers and clear stale hardware
-events before rearming. Tokens do not label controller interrupts automatically.
-It must qualify DCFG address programming/status-handshake timing, handle USB reset,
-STALL recovery and status phases, and synchronize model changes with actual
-hardware. The model is not a complete control endpoint packet driver.
+The T03b2 controller driver cancels transfers and clears stale hardware events
+before rearming. Tokens do not label controller interrupts automatically. The
+driver handles reset, STALL and status phases offline; DCFG/status-handshake
+timing and hardware event sequencing still need physical qualification. The
+pure model remains separate from the control endpoint packet driver.
 
 | Descriptor/property | Implemented model |
 | --- | --- |
@@ -84,7 +90,7 @@ for request/state handling. No ST implementation is copied into this MIT library
 This selected-source review is not full USB2.0 compliance or a reviewed complete
 RM0430 manual. No REA provider/runtime claim is made for source/fake-register checks.
 
-Next T03b2: ordered MMIO/timing backend, controller event/FIFO/EP0 packet handling,
-reset/cancellation/STALL tests and qualified attach prerequisites. Main stays
+Next T03b3: power/VBUS/UID and watchdog/recovery prerequisites, then reviewed
+startup/service/attachment integration. T03b2 is implemented offline. Main stays
 parked, CAN disabled, phase0 capabilities/hashes zero. Operational endpoints,
 health/native host admission and independent MCU TX policy remain later work.

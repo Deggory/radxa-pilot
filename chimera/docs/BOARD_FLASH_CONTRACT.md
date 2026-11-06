@@ -98,8 +98,9 @@ compiler and artifact checks; there was no device execution or REA provider run.
 
 T02b now adds the [identity/request contract](USB_IDENTITY_CONTRACT.md), pure
 handler and source contract. T04 adds the [classical CAN codec](CAN_CODEC_CONTRACT.md);
-T03b1 adds [detached USB preparation/EP0 state](USB_BOOTSTRAP.md), making sixteen
-tests in the combined suite. Main still uses the original HSI-only parked path;
-the new HSE/PLL preparation is compiled but not invoked. Next: USB event/FIFO/
-packet driver and attach prerequisites, then status/endpoints. Host T05 legacy
+T03b1 adds [detached USB preparation/EP0 state](USB_BOOTSTRAP.md). T03b2 adds the
+[ordered backend and packet driver](USB_PACKET_DRIVER.md), making nineteen tests
+in the combined suite. Main still uses the original HSI-only parked path; the
+HSE/PLL/backend/driver code is compiled but not invoked. Next: power/VBUS/UID and
+watchdog/recovery prerequisites and reviewed startup/attachment, then status/endpoints. Host T05 legacy
 status decoding and T08 managed selection remain separate pending increments.

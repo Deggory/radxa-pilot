@@ -1,3 +1,15 @@
+## November 6 — USB packet driver and ordered backend implemented offline
+
+QA-20261106-19: T03b2 adds ARM MMIO/DWT timing and polling EP0/FIFO driver under
+chimera/firmware/.19tests pass,32768RX headers/390descriptor transfers/15controller
+faults/51delay durations; raw6420bytes, globals8bytes. Reset/SETUP cancellation,
+coalesced completions, STALL recovery and bounded fault handling tested. Main/
+startup/board/protocol/codec/USB model remain unchanged; no attachment or host
+admission. [Session](Sessions/2026-11-06-chimera-usb-driver.md) pins details. Next
+T03b3 power/VBUS/UID and watchdog/recovery prerequisites, then reviewed startup/
+service/attachment. No hardware/flash/config/DBC/actuation/install/update/push;
+Ocelot/archive preserved, upstream checks still held. T03 overall remains partial.
+
 ## November 6 — Owner-supplied Ocelot Panda Docker source reviewed
 
 QA-20261106-18: pinned Deggory/Ocelot_Panda_docker main04b56ba0 and parent98de83bb.
