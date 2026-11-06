@@ -495,6 +495,30 @@ void test_current_panda_usb_constructor() {
   CHECK(usb.contexts == 0 && usb.claims == usb.releases && usb.opens == usb.closes);
 }
 
+void test_current_exact_status_reads() {
+  for (uint8_t request : {0xd2, 0xc2}) {
+    for (int length : {0, 1, 48, 63}) {
+      reset();
+      usb.devices[0].hardware = 7;
+      usb.devices[0].versions = {0xaf, 0x9e, 0x8f, 0xca, 0x76, 0xf2, 0xab, 0x75};
+      usb.devices[0].health_size = 49;
+      Panda panda(PIN);
+      CHECK(panda.get_state() && panda.get_can_state(0));
+      usb.fail_request = request; usb.sample_failure = length;
+      CHECK(request == 0xd2 ? !panda.get_state() : !panda.get_can_state(0));
+    }
+  }
+  reset();
+  usb.devices[0].hardware = 7;
+  usb.devices[0].versions = {0xaf, 0x9e, 0x8f, 0xca, 0x76, 0xf2, 0xab, 0x75};
+  usb.devices[0].health_size = 49;
+  {
+    Panda panda(PIN);
+    const int calls = usb.control_in;
+    CHECK(!panda.get_can_state(3) && usb.control_in == calls);
+  }
+}
+
 void test_short_current_can_headers() {
   struct Codec : Panda {
     Codec() : Panda() {}
@@ -516,6 +540,7 @@ int main() {
       test_usb_status();
       test_current_panda_usb_constructor();
       test_short_current_can_headers();
+      test_current_exact_status_reads();
     } catch (...) {
       std::cerr << "USB scenario group " << scenarios << '\n';
       throw;

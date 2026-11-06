@@ -93,6 +93,7 @@ LegacyF4StateError build_legacy_f4_panda_state_preview(MessageBuilder &message, 
   auto event = message.initEvent(false);
   event.setLogMonoTime(timestamp);
   auto state = event.initPandaStates(1)[0];
+  set_legacy_f4_availability(state);
   state.setPandaType(cereal::PandaState::PandaType(hardware));
   state.setSafetyModel(*safety);
   state.setHarnessStatus(cereal::PandaState::HarnessStatus(health.harness_status_raw));

@@ -575,6 +575,30 @@ struct PandaState @0xa7649e2575e4591e {
   nmiReset @40 :Bool;
   hardfaultReset @41 :Bool;
 
+  # Absent on historical current-format producers; present producers must declare
+  # their profile and unavailable fields. Observation-only data is not admission.
+  statusAvailability @42 :StatusAvailability;
+
+  struct StatusAvailability {
+    profile @0 :Profile;
+    observationOnly @1 :Bool;
+    unavailableFields @2 :List(Field);
+
+    enum Profile {
+      unknown @0;
+      current @1;
+      legacyF4v17 @2;
+    }
+    enum Field {
+      spiErrorCount @0;
+      soundOutputLevel @1;
+      controlsAllowedLateral @2;
+      controlsAllowedLongitudinal @3;
+      nmiReset @4;
+      hardfaultReset @5;
+    }
+  }
+
   enum FaultStatus {
     none @0;
     faultTemp @1;

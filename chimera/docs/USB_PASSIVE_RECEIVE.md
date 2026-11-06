@@ -1,3 +1,8 @@
+November6 T08b2c update: isolated schema1 JSON adds availability.observationOnly
+and availability.unavailablePandaFields (all six current-only fields). Native
+preview metadata and normal consumer guards are implemented offline; this USB
+entry still emits no pandaStates. [Availability contract](PANDA_STATE_AVAILABILITY.md).
+
 # Passive USB CAN and legacy status observation
 
 November 6, 2026 — T08b1. Extends [USB-only startup](USB_ONLY_STARTUP.md)

@@ -8,24 +8,26 @@ and main parks with USB/CAN disabled. Radxa USB libraries/identification and leg
 health59 decoding exist. Radxa now has pinned USB-only startup with passive classical CAN reception and
 isolated legacy status diagnostics. The normal host ignition gate now rejects
 invalid/empty Panda updates. A strict offline legacy PandaState preview converter
-now exists; ordinary pandaStates admission, other profiles and reconnect policy
+now exists, with typed availability metadata and consumer checks; ordinary
+pandaStates publication/admission, other profiles and reconnect policy
 remain pending. No SPI probing/fallback belongs in the target setup.
 
-Current increment: native pandad build/10native programs,41Python regressions and
-converter ASan/UBSan pass. Earlier saved checkpoints include28firmware/discovery
+Current increment: native pandad build/10native programs,124Python tests,
+USB/current-reader and converter ASan/UBSan plus mutation checks pass. Earlier saved checkpoints include28firmware/discovery
 tests, parser/backend sanitizers and65Python ignition/power/fan regressions. These
 are separate offline runs, not a combined physical end-to-end test. No physical
 USB/IPC/board run is claimed.
 
-Remaining: normal pandaStates supported-field semantics/admission; operational USB/CAN/health binding; USB-only host
+Remaining: passive normal pandaStates publication and explicit operational admission; operational USB/CAN/health binding; USB-only host
 lifecycle; qualified power/VBUS/recovery/image packaging and passive bench tests;
 digital/pulse/ADC acquisition and reports; MCU TX enforcement; Core Config and
 recoverable settings/watchdog; relay/OBD-C qualification and release/soak testing.
 Active driving is separate later scope. Unequal slices and unresolved electrical
 work do not support a reliable completion percentage. T08a USB-only legacy F4 status startup/session now passes offline tests.
 T08b1 passive CAN/isolated diagnostics and T08b2a host ignition validity pass
-offline. T08b2b provides a strict offline preview converter, always invalid. Next T08b2c
-defines normal admission/supported-field metadata and reviews consumers. Reconnect policy remains.
+offline. T08b2b provides a strict offline preview converter, always invalid. T08b2c adds supported-field metadata and guards ignition/UI/core/MADS consumers.
+Next is passive publication and disconnect/reconnect policy; legacy observations
+remain nonoperational. [Availability contract](PANDA_STATE_AVAILABILITY.md).
 
 See the [legacy state mapping](LEGACY_F4_PANDA_STATE.md),
 [ignition validity prerequisite](PANDA_IGNITION_VALIDITY.md) and

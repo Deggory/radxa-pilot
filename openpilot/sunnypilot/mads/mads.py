@@ -6,6 +6,7 @@ See the LICENSE.md file in the root directory for more details.
 """
 
 from openpilot.cereal import log, custom
+from openpilot.selfdrive.pandad.panda_state import usable_panda_states
 
 from opendbc.car import structs
 from opendbc.car.hyundai.values import HyundaiFlags
@@ -110,10 +111,13 @@ class ModularAssistiveDrivingSystem:
     # we want to disengage sunnypilot. However the status from the panda goes through
     # another socket other than the CAN messages and one can arrive earlier than the other.
     # Therefore we allow a mismatch for two samples, then we trigger the disengagement.
+    sm = self.selfdrive.sm
+    panda_states = usable_panda_states(sm['pandaStates'], valid=sm.valid['pandaStates'] and sm.alive['pandaStates'],
+                                       required_fields=('controlsAllowedLateral', 'safetyModel'))
     if not self.active or self.selfdrive.enabled:
       self.lateral_mismatch_counter = 0
-    elif any(not ps.controlsAllowedLateral for ps in self.selfdrive.sm['pandaStates']
-             if ps.safetyModel not in IGNORED_SAFETY_MODES):
+    elif not panda_states or any(not ps.controlsAllowedLateral for ps in panda_states
+                                if ps.safetyModel not in IGNORED_SAFETY_MODES):
       self.lateral_mismatch_counter += 1
 
   def update_events(self, CS: structs.CarState):

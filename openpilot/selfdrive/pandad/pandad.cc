@@ -118,6 +118,7 @@ void can_recv(Panda *panda, PubMaster *pm) {
 }
 
 void fill_panda_state(cereal::PandaState::Builder &ps, cereal::PandaState::PandaType hw_type, const health_t &health) {
+  ps.initStatusAvailability().setProfile(cereal::PandaState::StatusAvailability::Profile::CURRENT);
   ps.setVoltage(health.voltage_pkt);
   ps.setCurrent(health.current_pkt);
   ps.setUptime(health.uptime_pkt);

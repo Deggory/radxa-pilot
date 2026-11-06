@@ -1,6 +1,13 @@
+**November6, T08b2c:** field-availability metadata and consumer checks are
+implemented. Invalid/stale/observation-only status cannot supply normal ignition
+or control checks; missing lateral support is explicit. Native build,10native
+programs,124Python tests, ASan/UBSan and mutation checks pass offline.
+[Availability contract](docs/PANDA_STATE_AVAILABILITY.md). Normal USB pandaStates
+publication and hardware qualification remain pending.
+
 **Owner correction, November6:** SPI is removed from pandad's source/build,
 classes, constructors, discovery and fallback. All platforms use pinned USB.
-[Removal and validation](docs/PANDAD_USB_ONLY.md). Metadata/consumer work continues.
+[Removal and validation](docs/PANDAD_USB_ONLY.md). Metadata/consumer checks are now implemented.
 
 **November6, T08b2b:** offline legacy F4-to-PandaState preview conversion now
 passes native/sanitizer/source checks. Conflicting safety IDs and unrepresentable
@@ -9,7 +16,7 @@ invalid. [Mapping contract](docs/LEGACY_F4_PANDA_STATE.md). No normal publicatio
 
 **November 6, T08b2a:** normal host ignition now rejects invalid/empty Panda
 updates, with shutdown harness history preserved.65Python tests pass this slice.
-Legacy PandaState mapping/admission remains pending.
+Legacy mapping is now implemented offline; operational admission remains pending.
 [Validity contract](docs/PANDA_IGNITION_VALIDITY.md).
 
 **November 6 update:** T08b1 adds passive classical CAN RX and isolated legacy
@@ -87,7 +94,8 @@ detached startup/service module, still uncalled by main. T05a adds bootstrap
 discovery decoding and status/capability semantics. T05b adds native legacy F4
 health59 decoding/read support. T05c adds CAN-health5 decoding/read support.
 T08a routes Radxa startup into a pinned legacy F4 USB status session.
-Next: passive CAN reception and profile-aware status publication; new
+Passive CAN reception and availability/consumer checks are implemented offline.
+Next: passive normal-status publication/lifecycle policy; new
 Chimera operational health/endpoints remain pending. Qualified attachment
 still requires the recorded electrical/recovery evidence. Physical
 boot/recovery and electrical qualification remain open.
@@ -96,8 +104,7 @@ Legacy F4 Panda support is now an explicit host requirement alongside Chimera.
 Host increments now include the shared transport interface, pinned native USB
 factory/backend, identification and legacy health59 decoding/read tests. Legacy
 CAN-health5 decoding/read support is also tested. Publication and managed
-operational profile selection remain pending. The Radxa entry path bypasses
-legacy SPI construction; the new status session currently accepts legacy F4v17
+operational profile selection remain pending. SPI construction has been removed from pandad; the new status session currently accepts legacy F4v17
 only and publishes no CAN/pandaStates. No device has been opened by this work.
 
 The workspace-level `../../chimera/` remains the original evidence/recovery

@@ -3,7 +3,9 @@
 
 #include <unistd.h>
 
+#include <array>
 #include <cassert>
+#include <cstring>
 #include <stdexcept>
 #include <vector>
 
@@ -86,15 +88,21 @@ void Panda::set_ir_pwr(uint16_t ir_pwr) {
 }
 
 std::optional<health_t> Panda::get_state() {
+  if (!handle || !handle->connected || !handle->comms_healthy) return std::nullopt;
+  std::array<uint8_t, USBPACKET_MAX_SIZE> buffer{};
+  const int size = handle->control_read(0xd2, 0, 0, buffer.data(), buffer.size(), 1000);
+  if (size != static_cast<int>(sizeof(health_t)) || !handle->connected || !handle->comms_healthy) return std::nullopt;
   health_t health{};
-  int err = handle->control_read(0xd2, 0, 0, (unsigned char*)&health, sizeof(health));
-  return err >= 0 ? std::make_optional(health) : std::nullopt;
+  std::memcpy(&health, buffer.data(), sizeof(health));
+  return health;
 }
 
 std::optional<can_health_t> Panda::get_can_state(uint16_t can_number) {
-  can_health_t can_health{};
-  int err = handle->control_read(0xc2, can_number, 0, (unsigned char*)&can_health, sizeof(can_health));
-  return err >= 0 ? std::make_optional(can_health) : std::nullopt;
+  if (can_number >= PANDA_CAN_CNT || !handle || !handle->connected || !handle->comms_healthy) return std::nullopt;
+  can_health_t health{};
+  const int size = handle->control_read(0xc2, can_number, 0, reinterpret_cast<uint8_t *>(&health), sizeof(health), 1000);
+  if (size != static_cast<int>(sizeof(health)) || !handle->connected || !handle->comms_healthy) return std::nullopt;
+  return health;
 }
 
 void Panda::set_loopback(bool loopback) {

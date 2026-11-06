@@ -33,9 +33,9 @@ def make_car_state(brake_pressed=False, regen_braking=False, standstill=False, v
 
 
 def make_panda_state(mocker, controls_allowed_lateral=True):
-  ps = mocker.MagicMock()
+  ps = log.PandaState.new_message()
   ps.controlsAllowedLateral = controls_allowed_lateral
-  ps.safetyModel = SafetyModel.hyundai
+  ps.safetyModel = "hyundai"
   return ps
 
 
@@ -62,7 +62,11 @@ def make_mads(mocker, steering_mode):
   sd.enabled_prev = False
   sd.initialized = True
   sd.CS_prev = make_car_state()
-  sd.sm = {'pandaStates': [make_panda_state(mocker)]}
+  class Samples(dict):
+    valid = {'pandaStates': True}
+    alive = {'pandaStates': True}
+
+  sd.sm = Samples(pandaStates=[make_panda_state(mocker)])
   sd.state_machine = mocker.MagicMock()
 
   mads = ModularAssistiveDrivingSystem(sd)

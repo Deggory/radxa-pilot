@@ -1,3 +1,46 @@
+## QA-20261106-32 — Availability and consumer increment completed
+
+**Date:** November6,2026 UTC.
+
+**Owner request (faithful quote):** i already told we have to remove spi ,look into pandad ,Next: field-availability metadata and consumer checks before normal publication. Hardware remains untested.
+
+**Context:** Second increment of the same request; QA31 records the SPI removal.
+
+**Answer:** SPI source/build/class/discovery/implicit entry removal is committed
+as0fedef7b0. Now statusAvailability metadata explicitly marks legacyF4v17,
+observationOnly and all6missing current fields. A shared consumer guard rejects
+invalid/stale/unknown/incomplete/observation data, preserving complete batch
+indices. hardwared, manager, UI, core controls/replay and MADS lateral checks use
+it. Current D2/C2 reads now reject partial status instead of returning zero-filled
+values. Legacy preview remains invalid and USB emits no normal pandaStates.
+
+**Evidence/status:** Implemented and verified offline: native pandad build,
+10native programs,56focused+68control/MADS/power/fan Python tests, USB/current
+read and converter ASan/UBSan, native-to-Python metadata and mutation checks.
+Source pins: Panda8a16e089, opendbc150f9371, Carrot69a2d3be; source hashes and
+commands in student Ai/Evidence/chimera-availability-20261106.json; contract
+chimera/docs/PANDA_STATE_AVAILABILITY.md. Source/GNU/fake-USB/Cereal evidence;
+no REA provider/delegated/full daemon/GUI/hardware claim. All23firmware sources,
+7448-byte parked image, Ocelot39dirty entries/19hashes,5reference files,
+archive/canonical DBC and camera/model/Thneed preserved.
+
+**Limits/next:** No physical USB/flash/reset/config/CAN TX/live IPC/update/push.
+Metadata describes declared field support, not authentication or controls
+permission. Historical current messages without metadata keep their old contract.
+Normal passive publication and disconnect/reconnect policy, other profiles, new
+operational firmware and power/VBUS/recovery/bench work remain. Existing generic
+current fault27/schema limitation remains source-only and unexposed. No completion
+percentage or hardware readiness is claimed.
+
+**Dated correction:** QA30 described33active PandaState fields and availability
+outside Cereal at that checkpoint. The schema now has34active fields including
+this metadata struct; the six unavailable values remain unavailable. The previous
+SPI session had a broken self-link and its first saved notebook check failed;
+this increment fixes the link and reruns the full notebook verifier. Native/
+Python/SPI checks from QA31 remain independently recorded.
+
+---
+
 ## QA-20261106-31 — Remove SPI from pandad; continue metadata checks
 
 **Date:** November6,2026 UTC.

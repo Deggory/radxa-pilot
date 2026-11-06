@@ -1,3 +1,24 @@
+## November6 — PandaState availability and consumers verified
+
+QA32/T08b2c: appended typed statusAvailability metadata; legacy preview remains
+invalid and observationOnly with all6missing current fields. Shared all-or-none
+batch guard checks validity/profile/required fields; retained consumers check
+liveness. hardwared/manager/UI/core/MADS now use it; missing lateral support
+cannot look like a measured false. Historical metadata-absent current producers
+retain their prior contract, not authentication. Current D2/C2 reads require
+exact49/64bytes and bounded healthy ownership. Native build/10native programs,
+56focused+68control/power/fan Python tests, two ASan/UBSan suites, native/Python
+serialization and7-failure observation mutation pass offline. Existing MADS
+fixtures now use real Cereal plus valid/alive metadata; no assertions suppressed.
+Pandad SPI removal is committed as0fedef7b0; final binary has no SPI handle or
+preview symbol. USB still emits no pandaStates and grants no operational legacy
+admission. Hardware/live IPC untested.23firmware hashes/7448-byte image,
+Ocelot39dirty entries/19hashes,5reference hashes, archive/DBC and camera/model/
+Thneed preserved. Updates held; no push/device/flash/config/TX. Next T08b2d:
+passive normal-status publication and disconnect/reconnect policy, keeping
+legacy observations nonoperational; operational firmware/bench work remains.
+[Session](../Sessions/2026-11-06-chimera-availability.md).
+
 ## November6 — Offline legacy PandaState preview implemented
 
 QA30/T08b2b: pure C++ conversion maps24common fields and all25fields of each

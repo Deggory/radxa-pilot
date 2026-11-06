@@ -6,7 +6,7 @@ constructor qualifies USB and performs no reset/config.10native/42Python checks
 plus strict fake-USB sanitizers pass. ASan reproduced/fixed short-header heap read;
 exact tests/output in receipt. Metadata test is RED/uncommitted; continue next.
 No hardware/update/push; firmware23hashes preserved. Earlier SPI-retention notes
-are superseded. [Session](Sessions/2026-11-06-chimera-remove-spi.md).
+are superseded. [This session](2026-11-06-chimera-remove-spi.md).
 
 Scope/test/source pins and deleted-file hashes are in the receipt. Skills:
 migration/incremental/TDD/API/review/Git/docs, source-first fast path. No delegated

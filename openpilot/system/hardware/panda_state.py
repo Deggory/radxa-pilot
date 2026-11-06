@@ -1,4 +1,5 @@
 from openpilot.cereal import log
+from openpilot.selfdrive.pandad.panda_state import IGNITION_FIELDS, usable_panda_states
 
 
 def panda_power_state(panda_states, *, valid: bool, in_car: bool = False) -> tuple[bool, bool]:
@@ -9,7 +10,8 @@ def panda_power_state(panda_states, *, valid: bool, in_car: bool = False) -> tup
   this history does not assert that a Panda is currently connected. The caller
   retains the existing disconnect grace when there is no new event.
   """
-  if not valid or not panda_states:
+  panda_states = usable_panda_states(panda_states, valid=valid, required_fields=IGNITION_FIELDS)
+  if not panda_states:
     return False, in_car
 
   unknown = log.PandaState.PandaType.unknown

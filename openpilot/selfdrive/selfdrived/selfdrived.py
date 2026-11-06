@@ -17,6 +17,7 @@ from openpilot.common.swaglog import cloudlog
 from openpilot.common.gps import get_gps_location_service
 
 from openpilot.selfdrive.car.car_events import CarEvents
+from openpilot.selfdrive.pandad.panda_state import CONTROL_FIELDS, usable_panda_states
 from openpilot.selfdrive.locationd.helpers import PoseCalibrator, Pose
 from openpilot.selfdrive.selfdrived.events import Events, ET
 from openpilot.selfdrive.selfdrived.helpers import ExcessiveActuationCheck
@@ -375,7 +376,11 @@ class SelfdriveD:
     elif lane_turn_direction == TurnDirection.turnRight:
       self.events_sp.add(custom.OnroadEventSP.EventName.laneTurnRight)
 
-    for i, pandaState in enumerate(self.sm['pandaStates']):
+    panda_states = usable_panda_states(self.sm['pandaStates'], valid=self.sm.valid['pandaStates'] and self.sm.alive['pandaStates'],
+                                       required_fields=CONTROL_FIELDS)
+    if not panda_states:
+      self.events.add(EventName.controlsMismatch)
+    for i, pandaState in enumerate(panda_states):
       # All pandas must match the list of safetyConfigs, and if outside this list, must be silent or noOutput
       if i < len(self.CP.safetyConfigs):
         safety_mismatch = pandaState.safetyModel != self.CP.safetyConfigs[i].safetyModel or \
@@ -525,6 +530,8 @@ class SelfdriveD:
     CS = _car_state.carState if _car_state else self.CS_prev
 
     self.sm.update(0)
+    panda_states = usable_panda_states(self.sm['pandaStates'], valid=self.sm.valid['pandaStates'] and self.sm.alive['pandaStates'],
+                                       required_fields=CONTROL_FIELDS)
 
     if not self.initialized:
       all_valid = CS.canValid and self.sm.all_checks()
@@ -538,7 +545,7 @@ class SelfdriveD:
           self.sm.ignore_alive.append('wideRoadCameraState')
           self.sm.ignore_valid.append('wideRoadCameraState')
 
-        if REPLAY and any(ps.controlsAllowed for ps in self.sm['pandaStates']):
+        if REPLAY and any(ps.controlsAllowed for ps in panda_states):
           self.state_machine.state = State.enabled
 
         self.initialized = True
@@ -561,8 +568,8 @@ class SelfdriveD:
       self.mismatch_counter = 0
 
     # All pandas not in silent mode must have controlsAllowed when openpilot is enabled
-    if self.enabled and any(not ps.controlsAllowed for ps in self.sm['pandaStates']
-           if ps.safetyModel not in IGNORED_SAFETY_MODES):
+    if self.enabled and (not panda_states or any(not ps.controlsAllowed for ps in panda_states
+           if ps.safetyModel not in IGNORED_SAFETY_MODES)):
       self.mismatch_counter += 1
 
     return CS

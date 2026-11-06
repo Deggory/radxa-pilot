@@ -1,4 +1,5 @@
 #include "selfdrive/pandad/panda_usb_publish.h"
+#include "selfdrive/pandad/panda_state_legacy.h"
 
 #include <stdexcept>
 #include "json11/json11.hpp"
@@ -95,11 +96,13 @@ void build_usb_status_message(MessageBuilder &message, const PandaIdentification
   if (start == 0 || end < start || (sample != nullptr) != observing) {
     throw std::invalid_argument("invalid USB diagnostic observation");
   }
-  Json::array controllers;
+  Json::array controllers, missing_fields;
+  for (const auto &field : LEGACY_F4_UNAVAILABLE_PANDA_FIELDS) missing_fields.push_back(field.name);
   if (sample) for (const auto &can : sample->can) controllers.push_back(can_json(can));
   const auto payload = Json(Json::object{
     {"kind", "panda-usb-status"}, {"schema", 1}, {"profile", "legacyF4v17"},
     {"serial", pin.serial}, {"version", pin.firmware_version}, {"operational", false},
+    {"availability", Json::object{{"observationOnly", true}, {"unavailablePandaFields", missing_fields}}},
     {"state", observing ? "observing" : state == UsbObservationState::FAILED ? "failed" : "closed"},
     {"startNanos", std::to_string(start)}, {"endNanos", std::to_string(end)},
     {"health", sample ? health_json(sample->health) : Json()}, {"controllers", controllers},

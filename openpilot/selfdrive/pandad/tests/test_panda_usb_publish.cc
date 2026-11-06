@@ -45,6 +45,9 @@ void test_messages() {
   CHECK(json["health"]["ignition_line"].bool_value() && json["health"]["controls_allowed"].bool_value());
   CHECK(json["health"]["safety_mode_raw"].int_value() == 0xfd && json["health"]["interrupt_load"].number_value() == 0.375);
   CHECK(json["health"]["sound_output_level"].is_null());
+  CHECK(json["availability"]["observationOnly"].bool_value());
+  CHECK(json["availability"]["unavailablePandaFields"].array_items().size() == 6);
+  CHECK(json["availability"]["unavailablePandaFields"][0].string_value() == "spiErrorCount");
   CHECK(json["health"].object_items().size() == 27 && json["controllers"].array_items().size() == 3);
   CHECK(json["controllers"][0].object_items().size() == 27);
   CHECK(json["controllers"][2]["total_rx_cnt"].number_value() == 4294967295.0);

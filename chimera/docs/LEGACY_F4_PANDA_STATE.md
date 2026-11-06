@@ -40,11 +40,12 @@ health49 cast, packed-struct reinterpretation or SPI fallback is involved.
 
 These six active current fields remain **unavailable**: spiErrorCount,
 soundOutputLevel, controlsAllowedLateral, controlsAllowedLongitudinal, nmiReset,
-hardfaultReset. The header exposes their names explicitly. Their serialized
-zero/false placeholders are not measurements, and that availability list is not
-embedded in Cereal. A preview must not be published as ordinary operational
-status or made valid. All33active PandaState fields are accounted for as24mapped
-fields,3controller structs and6unavailable fields; deprecated fields are excluded.
+hardfaultReset. The header pairs names with typed metadata enums. Their serialized
+zero/false placeholders are not measurements. T08b2c embeds the list in Cereal
+statusAvailability with legacyF4v17 and observationOnly=true. A preview must not
+be made operational. All34active PandaState fields are accounted for as24mapped
+fields,3controller structs,6unavailable fields and1metadata struct; deprecated
+fields are excluded. See [consumer checks](PANDA_STATE_AVAILABILITY.md).
 
 Keep complete raw samples in the existing isolated JSON diagnostics. Those retain
 legacy-only wake_on_can, fan_stall_count, som_reset_triggered and
@@ -93,7 +94,8 @@ hashes and actual commands/results. Firmware sources/image, Ocelot/archive/DBC,
 camera/model/Thneed, runtime startup/transport and the ignition gate are unchanged.
 No physical USB, flash/reset/config/relay/CAN TX/upstream update/push action occurred.
 
-Next T08b2c: define/test ordinary PandaState admission with explicit supported-field
-metadata and review all consumers before wiring a publisher. Keep this preview
-invalid. Reconnect/backoff, other profiles, operational Chimera firmware and
+T08b2c metadata and consumer checks are implemented and tested offline; see the
+linked contract for current validation. Keep this preview invalid and
+observation-only. Next is passive publication/lifecycle policy. Reconnect/backoff,
+other profiles, operational Chimera firmware and
 power/VBUS/recovery/bench qualification remain separate outstanding work.

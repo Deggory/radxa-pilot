@@ -83,6 +83,13 @@ void test_values() {
   CHECK(s.getPowerSaveEnabled() && s.getHeartbeatLost() && s.getSafetyRxChecksInvalid() && s.getFanPower() == 88);
   CHECK(s.getSpiErrorCount() == 0);  // Placeholder is unavailable, never measured zero.
   CHECK(LEGACY_F4_UNAVAILABLE_PANDA_FIELDS.size() == 6);
+  CHECK(s.hasStatusAvailability());
+  const auto metadata = s.getStatusAvailability();
+  CHECK(metadata.getObservationOnly() && metadata.getProfile() == cereal::PandaState::StatusAvailability::Profile::LEGACY_F4V17);
+  CHECK(metadata.getUnavailableFields().size() == LEGACY_F4_UNAVAILABLE_PANDA_FIELDS.size());
+  for (size_t i = 0; i < LEGACY_F4_UNAVAILABLE_PANDA_FIELDS.size(); ++i) {
+    CHECK(metadata.getUnavailableFields()[i] == LEGACY_F4_UNAVAILABLE_PANDA_FIELDS[i].field);
+  }
   for (float load : {0.0f, 2.5f, std::numeric_limits<float>::max()}) {
     auto input = sample(); input.health.interrupt_load = load;
     MessageBuilder m;

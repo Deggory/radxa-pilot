@@ -53,7 +53,7 @@ class TestLegacyStateSources(unittest.TestCase):
     # Only quoted names inside the metadata array, not include paths.
     self.assertEqual(len(unavailable), 6)
     preview = SOURCE.split('LegacyF4StateError build_legacy_f4_panda_state_preview', 1)[1]
-    mapped = {name[0].lower() + name[1:] for name in re.findall(r'state\.(?:set|init)(\w+)\(', preview)}
+    mapped = {name[0].lower() + name[1:] for name in re.findall(r'state\.(?:set|init)(\w+)\(', preview + HEADER)}
     fields = set(log.PandaState.schema.fields) - {'deprecated'}
     self.assertEqual(mapped | unavailable, fields)
     self.assertFalse(mapped & unavailable)

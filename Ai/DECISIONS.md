@@ -1,3 +1,16 @@
+## November6 — Declare status support before normal publication
+
+Append PandaState ordinal42 metadata with known profiles, observationOnly and
+six typed unavailable fields. Retain absent-metadata compatibility for historical
+current-format producers; reject explicit unknown/malformed/incomplete declarations.
+Use one shared all-or-none guard so indices continue to match safetyConfigs.
+Consumer-specific required fields and liveness prevent missing lateral support or
+invalid observations entering ignition/control logic. The legacy preview always
+remains invalid/observation-only; no managed publisher/admission is enabled.
+Current exact-size health reads are a prerequisite, not a new legacy cast.
+Metadata is neither firmware authentication nor control authorization. Evidence:
+student Ai/Evidence/chimera-availability-20261106.json. No physical qualification.
+
 ## November6 — Remove all pandad SPI backend code
 
 Owner correction QA31 supersedes generic SPI retention: pandad has pinned USB

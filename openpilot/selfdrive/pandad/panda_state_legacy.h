@@ -4,10 +4,26 @@
 #include "selfdrive/pandad/panda_usb_status.h"
 
 // These current PandaState placeholders are unavailable, not measured zero/false.
-inline constexpr std::array<const char *, 6> LEGACY_F4_UNAVAILABLE_PANDA_FIELDS{
-  "spiErrorCount", "soundOutputLevel", "controlsAllowedLateral",
-  "controlsAllowedLongitudinal", "nmiReset", "hardfaultReset",
-};
+using UnavailableField = cereal::PandaState::StatusAvailability::Field;
+struct LegacyF4UnavailableField { const char *name; UnavailableField field; };
+inline constexpr std::array<LegacyF4UnavailableField, 6> LEGACY_F4_UNAVAILABLE_PANDA_FIELDS{{
+  {"spiErrorCount", UnavailableField::SPI_ERROR_COUNT},
+  {"soundOutputLevel", UnavailableField::SOUND_OUTPUT_LEVEL},
+  {"controlsAllowedLateral", UnavailableField::CONTROLS_ALLOWED_LATERAL},
+  {"controlsAllowedLongitudinal", UnavailableField::CONTROLS_ALLOWED_LONGITUDINAL},
+  {"nmiReset", UnavailableField::NMI_RESET},
+  {"hardfaultReset", UnavailableField::HARDFAULT_RESET},
+}};
+
+inline void set_legacy_f4_availability(cereal::PandaState::Builder state) {
+  auto info = state.initStatusAvailability();
+  info.setProfile(cereal::PandaState::StatusAvailability::Profile::LEGACY_F4V17);
+  info.setObservationOnly(true);
+  auto missing = info.initUnavailableFields(LEGACY_F4_UNAVAILABLE_PANDA_FIELDS.size());
+  for (size_t i = 0; i < LEGACY_F4_UNAVAILABLE_PANDA_FIELDS.size(); ++i) {
+    missing.set(i, LEGACY_F4_UNAVAILABLE_PANDA_FIELDS[i].field);
+  }
+}
 
 enum class LegacyF4StateError {
   NONE, PROFILE, HARDWARE, TIMESTAMP, SAFETY_MODEL, HARNESS, FAULT_STATUS,
