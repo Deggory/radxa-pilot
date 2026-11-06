@@ -6,11 +6,12 @@ checks, a local commit and a notebook handoff before expanding the scope.
 
 - [x] S00 Create the in-project home, retain source map/provenance and establish the sequence.
 - [x] T06a Shared native USB/SPI transport interface; existing SPI backend retained, native build and offline ownership/codec checks pass.
+- [x] T02a Pinned read-only native identification and profile selection; exact versions/health lengths and negative fixtures checked offline.
 
 | Task | Next deliverable | Status |
 | --- | --- | --- |
 | T01 | Board GPIO/reset behavior, flash/config partitions and recovery boundaries | Next; known GPIO/build facts already recovered |
-| T02 | Distinct identity, legacy/current protocol profiles, RPC matrix and explicit bus/input source contracts | Pending; compatibility direction recorded |
+| T02 | Distinct identity, legacy/current protocol profiles, RPC matrix and explicit bus/input source contracts | Partial: T02a selector complete; full RPC/new Chimera identity and source contracts pending |
 | T03 | Minimal F413 target, reviewed support/linker and offline image budget | Pending |
 | T04 | Modern six-byte/XOR classical CAN USB codec with stream/vector checks | Pending |
 | T05 | Exact identity/version/health responses, legacy F4 status adaptation and fail-disabled state | Pending |

@@ -1,3 +1,13 @@
+## November 6 — Native read-only identification implemented with teacher evidence
+
+QA-20261106-10: owner reaffirmed proceed and teacher-first reliability. T02a
+requires matching descriptor/transport serial and explicit version pin, exact
+hardware/version/health contracts; Chimera has no C1/DD calls. Native/sanitized
+checks:19accepted/421rejected/3invalid transports,zero writes; native codec and
+interface tests plus15Chimera Python tests pass. Selector is in the library,
+not startup. Next bounded USB transport/factory then status/managed integration;
+full T02/T06 and board T01/T03 remain pending. No device/firmware/update/push.
+
 ## November 6 — SPI/USB meaning and next slices explained
 
 November6 QA-20261106-09: SPI means the retained integrated-board connection;

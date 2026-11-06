@@ -76,3 +76,32 @@ Sources: project `Ai/Reports/carrot-wip-panda-20261106/README.md` and
 selected Carrot files are retained in the original workspace archive. Current
 native `panda.cc`, `panda.h`, `panda_comms.h` and `spi.cc` are the implementation
 baseline. No Carrot SPI implementation or stock board initialization is imported.
+
+## T02a identification increment — November 6
+
+Native `panda_identification.{h,cc}` now provides a bounded, control-IN-only
+selector. A caller must supply a normal-mode descriptor identity and an explicit
+serial/firmware-version pin. The transport serial must match the descriptor and
+pin. Bootstub/DFU, unknown vendors, empty pins and invalid version strings are
+rejected before vendor I/O.
+
+Panda candidates use D6 version, one-byte C1 hardware, exact DD versions and D2
+health length. F4 hardware 1/2/3/5/6 requires DD17/4/5 and health59; current
+hardware 7/9/10/B1 requires the two hashes derived at build time from our current
+Panda health and opendbc CAN headers plus health49. Both known Panda VIDs are
+eligible; VID/PID alone never selects a profile.
+
+Original Chimera requires bbaa:ddcc, product `Chimera`, the retained nightly
+version `v1.0.0-DEV-de193215-DEBUG`, the explicit serial/version pins, D6 and
+health43. Arbitrary new Chimera version pins do not select the old protocol. It does not receive unsupported C1/DD requests. The result retains
+raw initial health, without treating it as a modern safety or readiness state.
+Each read has a one-second timeout and no automatic retries. An exact version
+string is a reported-version check, not cryptographic image attestation.
+
+Offline tests cover 19 accepted fixtures, 421 rejected fixtures and three invalid
+transport cases; fake handles reject every vendor OUT/bulk operation. Native and
+address/undefined-behavior-sanitized runs pass. This selector is built into the
+native library but is not wired into startup yet. Existing Panda construction
+and updater flows retain their previous behavior until protected USB selection
+is integrated. USB backend, legacy status decoding, complete RPC/source contracts
+and real-device qualification remain pending.

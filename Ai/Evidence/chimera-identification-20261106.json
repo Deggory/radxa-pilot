@@ -1,0 +1,74 @@
+{
+  "date_utc": "2026-11-06T15:21:03.198690+00:00",
+  "baseline": "b76db53c3ea69da38d55bc0056c32c325f0329b3",
+  "scope": "T02a standalone native library selector; not connected to startup. No hardware/daemon/USB enumeration or writes.",
+  "tdd_red": {
+    "exit_code": 1,
+    "failure": "panda_identification.h/API did not exist before implementation"
+  },
+  "native_build": {
+    "command": "source .venv/bin/activate\nscons -j2 openpilot/selfdrive/pandad/pandad openpilot/selfdrive/pandad/tests/test_panda_identification openpilot/selfdrive/pandad/tests/test_panda_comms openpilot/selfdrive/pandad/tests/test_pandad_canprotocol",
+    "result": "pass",
+    "architecture": "aarch64",
+    "existing_warning": "PWD environment mismatch, non-fatal"
+  },
+  "identification_test": {
+    "result": "pass",
+    "supported_fixtures": 19,
+    "rejected_fixtures": 421,
+    "invalid_transports": 3,
+    "total_cases": 443,
+    "vendor_out_and_bulk_calls": 0
+  },
+  "sanitizers": {
+    "command": "c++ -std=c++17 -Wall -Wextra -Werror -fsanitize=address,undefined -Iopenpilot -I. -DPANDA_HEALTH_VERSION_HASH=0xca8f9eafU -DPANDA_CAN_VERSION_HASH=0x75abf276U openpilot/selfdrive/pandad/panda_identification.cc openpilot/selfdrive/pandad/tests/test_panda_identification.cc -o /tmp/chimera-identification-sanitized",
+    "build_exit_code": 0,
+    "run_exit_code": 0,
+    "cases": "same 443, no sanitizer diagnostics"
+  },
+  "regressions": {
+    "test_panda_comms": 0,
+    "test_pandad_canprotocol": 0,
+    "python_command": ".venv/bin/python -m unittest openpilot.selfdrive.pandad.tests.test_chimera openpilot.selfdrive.pandad.tests.test_chimera_protocol",
+    "python_run": 15,
+    "python_failures": 0,
+    "python_errors": 0
+  },
+  "current_layout_versions": {
+    "panda/board/health.h": 3398409903,
+    "opendbc_repo/opendbc/safety/can.h": 1974202998
+  },
+  "review": [
+    "Read length bounded before indexing; exact current hashes/legacy versions and health sizes; no zero-version fallback",
+    "Original Chimera requires saved nightly version, descriptor/serial/version/health43; no C1/DD guesses",
+    "Transport serial bound to descriptor and explicit pin; caller must exclusively own handle",
+    "Test script errors use logic_error so unexpected I/O cannot be mistaken for expected runtime rejection",
+    "Selector result retains raw health only and does not grant initialization/readiness/actuation; startup is unchanged"
+  ],
+  "notebook": {
+    "result": "pass",
+    "memory_layout": "regular project directory",
+    "documents": 132,
+    "relative_links": 382,
+    "optional_workspace_links": 246,
+    "source_repositories": 8,
+    "indexed_entries": 4254
+  },
+  "documentation_links_and_whitespace": "pass",
+  "reference_preservation": "Ocelot dirty status and clean original Chimera archive unchanged",
+  "source_hashes": {
+    "openpilot/selfdrive/pandad/panda_identification.h": "05367daba1e103738760a4b23a45237c18de04ad30584f1f438698e865447cae",
+    "openpilot/selfdrive/pandad/panda_identification.cc": "6d67f7e565cef893adbce6008f9ebed7126773f167d77fd7b98b2e14c98e7627",
+    "openpilot/selfdrive/pandad/tests/test_panda_identification.cc": "d51aa3356918feb1088fad5adb79c966fc9b0c8d88d96669c46a13a5c40dc87a",
+    "openpilot/selfdrive/pandad/SConscript": "60b8f32c0ba12f886eb48beb2e0f59d658e15a13f0ede47a2cad951dcb9915c8",
+    "chimera/docs/LEGACY_PANDA_SUPPORT.md": "02a4ec8ff43bcd40118caefe74fa0d53aa418fde4132c2d461f79b88f8af09ed",
+    "panda/board/health.h": "af9e8fca563ced23bc3c478a4bc8907e519b938b83eb023b02d982a66acc83f8",
+    "opendbc_repo/opendbc/safety/can.h": "76f2ab751f89797c0a2254ab9a010a261678fe30f869d4e777cb7f2048802743"
+  },
+  "ignored_native_artifact_hashes": {
+    "openpilot/selfdrive/pandad/pandad": "d31ced74049fe6cc7d3af1c5ac334a1afe19b1b6cc133f1870252dc9808ccd3c",
+    "openpilot/selfdrive/pandad/tests/test_panda_identification": "2f494a971fefe12be1b5900df43a1810a610f494ae791e3f96e93fdd40bc142b",
+    "openpilot/selfdrive/pandad/tests/test_panda_comms": "ebccbe5e463a51742a52e1cbfa8afffc4aa836db4ff068ddbe5156de02bde458",
+    "openpilot/selfdrive/pandad/tests/test_pandad_canprotocol": "0440cf8f79091a00b0cb874046cf333369f6211ef0c305f13b9974d1d19f8330"
+  }
+}

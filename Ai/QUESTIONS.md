@@ -1,3 +1,19 @@
+## QA-20261106-10 — Proceed reliably and keep using teacher evidence
+
+**Date:** November 6, 2026 UTC.
+
+**Owner request (original):** see u hvae to make this happen it should not fail ,prced ,take teachers help all the time
+
+**Answer:** Proceeded with the next agreed code increment, consulting the teacher's source reports throughout. Implemented T02a, a native identification/profile selector requiring an explicit serial/version pin, matching descriptor and transport serial, supported normal-mode identity, exact reported versions and exact initial health length. Current Panda, reviewed Carrot F4 and original Chimera have separate branches. Chimera uses its descriptor/D6/health43 contract and is not sent unsupported C1/DD requests. All identification operations are bounded control-IN reads; failures throw without initialization, reset, CAN, configuration or flash writes. Current protocol hashes are derived during the native build from the same source headers used by firmware. Caller must exclusively own the transport and supply descriptors from that device.
+
+**Actual validation:** Test first failed because the new header/API did not exist. Native pandad and identification/interface/CAN codec test binaries build. Identification tests accept19 source-based fixtures, reject421 malformed/incompatible fixtures and reject3 invalid transports; fake transport forbids all OUT and bulk operations and reports zero writes. Address/undefined-behavior-sanitized strict build/run passes the same cases. Existing native transport/CAN tests and15 Chimera Python tests pass. Tests cover descriptor/pin mismatch, bootstub/DFU, short/overlong/failed reads, hash/numeric-version mismatch, disconnect and unsupported board types. This is source/CPU validation, not a guarantee of hardware success.
+
+**Evidence/source pins:** Baseline b76db53c3ea69da38d55bc0056c32c325f0329b3; Panda8a16e089/opendbc150f9371, Carrot69a2d3be and Ocelotd87892fa dirty references. Used teacher November5 deep review and November6 Carrot/source map; no new REA artifact analysis was needed. Native sources panda_identification.h/.cc, focused native test and pandad SConscript/ignore. Compatibility doc and roadmap retain incomplete task status. Receipt Ai/Evidence/chimera-identification-20261106.json.
+
+**Implemented versus proposed/limits:** T02a completed; T02 overall remains partial. Selector is in the native library but not yet used by startup. Existing generic Panda/updater behavior is unchanged and must not be described as protected by this new helper. Next USB transport/factory must provide real descriptor identity and call this selector before initialization; status decoding and protected managed selection remain pending. T01/T03 board/flash/build remains separate. No device/daemon/USB enumeration, firmware/DBC/config/relay/actuation, upstream update or push. Teacher-first use is reaffirmed; reported firmware text is not cryptographic image attestation and live compatibility remains unqualified.
+
+---
+
 ## QA-20261106-09 — Meaning of keeping SPI and how to complete legacy USB
 
 **Date:** November 6, 2026 UTC.
