@@ -1,3 +1,17 @@
+## QA-20261106-09 — Meaning of keeping SPI and how to complete legacy USB
+
+**Date:** November 6, 2026 UTC.
+
+**Owner question (labelled paraphrase):** What does keeping the current SPI backend mean, and how do we proceed with device/protocol identification, USB backend and legacy status decoding?
+
+**Answer:** SPI is the existing direct-hardware transport used for integrated Panda hardware. Keeping it preserves that connection option; our Radxa-to-Chimera link will use USB. The completed common interface exposes control/bulk operations, but the native constructor/list still choose SPI, so it cannot yet connect through USB. Next define and test read-only device/protocol identification against pinned current/F4/Chimera replies; add bounded libusb control/bulk transport with fake short-read/timeout/unplug/cleanup tests; decode each supported status layout into host state with exact-length/version checks; then integrate protected selection and managed passive RX. Current health49, reviewed Carrot F4 health59 and original Chimera health43/mailbox16 are separate profiles. Existing chimera_protocol.py serves the old separate Python receiver, not the new native USB driver or F4 status decoder. A hardware family alone does not identify installed firmware. Initial identification must not perform generic initialization/flash writes, and no H7 automatic update path may select an F4/Chimera device. Real-device passive qualification follows the offline pieces.
+
+**Evidence/source pins:** Sunnypilot538e46a89, native panda.cc constructor/list, panda_comms.h interface, Python Panda.connect setup writes, chimera_protocol.py decoder and the compatibility document. Carrot69a2d3be profile59/numeric17/4/5; current Panda8a16e089/opendbc150f9371 profile49/hash versions; Ocelotd87892fa dirty source profile43/mailbox16. Actual T06a checks remain in Ai/Evidence/chimera-legacy-transport-20261106.json.
+
+**Implemented versus proposed/limits:** This turn explains and documents the sequence; it does not implement a USB backend, identify a device or decode new status. T06a remains complete, the other slices pending. Immediate next implementation is read-only identification/profile validation with fake replies; board flash/build T01/T03 remains a separate stream. No hardware/build/firmware/DBC/update/push action.
+
+---
+
 ## QA-20261106-08 — Build Sunnypilot to support legacy Panda alongside Chimera
 
 **Date:** November 6, 2026 UTC.

@@ -31,3 +31,10 @@ needs profile validation, USB I/O/status and protected lifecycle. Next T02
 read-only identity/profile contracts then T06b USB; board T01/T03 stays separate.
 No hardware/daemon/CAN/relay/config/flash/upstream/push action. Validation receipt
 Ai/Evidence/chimera-legacy-transport-20261106.json records actual checks.
+
+November6 QA-20261106-09: SPI means the retained integrated-board connection;
+Radxa/Chimera will use USB. Explained common interface versus actual backend,
+old Python mailbox decoder versus native integration, and the sequence:
+read-only identity/profile tests → bounded USB backend → status adaptation →
+protected managed passive lifecycle → separate hardware qualification.
+Explanation/doc update only; no implementation advanced. Next profile tests.

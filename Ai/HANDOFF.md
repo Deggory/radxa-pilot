@@ -1,3 +1,12 @@
+## November 6 — SPI/USB meaning and next slices explained
+
+November6 QA-20261106-09: SPI means the retained integrated-board connection;
+Radxa/Chimera will use USB. Explained common interface versus actual backend,
+old Python mailbox decoder versus native integration, and the sequence:
+read-only identity/profile tests → bounded USB backend → status adaptation →
+protected managed passive lifecycle → separate hardware qualification.
+Explanation/doc update only; no implementation advanced. Next profile tests.
+
 ## November 6 — Legacy Panda compatibility; shared native transport implemented
 
 QA-20261106-08: owner wants older Panda support alongside Chimera. T06a adds

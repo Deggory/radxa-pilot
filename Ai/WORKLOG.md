@@ -1022,3 +1022,10 @@ config ownership and T03 as a minimal offline F413 image/build/size check. Legac
 app0x08004000/config0x08020000 are source facts; this is not a new build or
 installed dump. Modern USB/host compatibility follows later. Owner asked for
 meaning; no implementation advanced. Next T01/T02/T03 unchanged.
+
+November6 QA-20261106-09: SPI means the retained integrated-board connection;
+Radxa/Chimera will use USB. Explained common interface versus actual backend,
+old Python mailbox decoder versus native integration, and the sequence:
+read-only identity/profile tests → bounded USB backend → status adaptation →
+protected managed passive lifecycle → separate hardware qualification.
+Explanation/doc update only; no implementation advanced. Next profile tests.

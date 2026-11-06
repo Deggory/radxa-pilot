@@ -6,6 +6,21 @@ the reviewed CarrotPilot source: white, grey, black, UNO and DOS. Their hardware
 generation does not determine the installed USB protocol. Other old firmware
 generations require their own pinned contract before selection.
 
+## What the SPI and USB paths mean
+
+SPI is a direct hardware connection used by integrated Panda hardware. The
+existing native host opens that connection through PandaSpiHandle. Keeping it
+means existing SPI users still have their transport available. It does not mean
+the Radxa-to-Chimera connection should use SPI: that connection will use USB.
+
+The completed interface gives the native host one set of control/bulk methods.
+A future PandaUsbHandle will implement those methods using libusb, alongside
+the current PandaSpiHandle. The interface alone cannot discover or use USB.
+
+The existing chimera_protocol.py handles original mailbox16/health43 decoding
+for the separate Python receiver. It is not the new native USB backend or an
+F4 health59 decoder. Preserve that distinction when reusing its tests.
+
 ## Separate transport, protocol and board behavior
 
 - Transport moves control/bulk bytes over USB or SPI.
