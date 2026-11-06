@@ -3,6 +3,24 @@
 This is the active Chimera implementation home inside Sunnypilot, created
 November 6, 2026. It uses this repository's Git history; it is a regular directory.
 
+## Where the code is
+
+The code written so far runs on the Radxa. Shared Panda host code belongs in
+the existing `openpilot/selfdrive/pandad/` module, where Sunnypilot builds it:
+
+| Code | Location |
+| --- | --- |
+| New native USB connection | [panda_usb.cc](../openpilot/selfdrive/pandad/panda_usb.cc), [header](../openpilot/selfdrive/pandad/panda_usb.h) |
+| New board/protocol identification | [panda_identification.cc](../openpilot/selfdrive/pandad/panda_identification.cc), [header](../openpilot/selfdrive/pandad/panda_identification.h) |
+| Shared transport interface | [panda_comms.h](../openpilot/selfdrive/pandad/panda_comms.h) |
+| Existing original-Chimera Python receiver | [chimera.py](../openpilot/selfdrive/pandad/chimera.py), [decoder](../openpilot/selfdrive/pandad/chimera_protocol.py) |
+| Offline native USB tests | [test_panda_usb.cc](../openpilot/selfdrive/pandad/tests/test_panda_usb.cc) |
+
+**New STM32F413 board firmware has not been written yet.** The `firmware/`
+directory currently contains its README only. This folder holds the board plan,
+source map and provenance; new board firmware will be developed under `firmware/`.
+The original firmware remains preserved in the optional workspace Ocelot reference.
+
 The goal is STM32F413 Chimera firmware with modern Panda USB communication,
 native Sunnypilot USB support and usable RetroPilot Core Config. Preserve CAN0
 Cores/control = host 0, CAN1 ADAS = host 1, CAN2 vehicle = host 2; IGN, VSS, CPS,

@@ -1,3 +1,11 @@
+## November 6 — Host code locations versus pending board firmware
+
+November6 QA-20261106-12: clarified actual code locations. New host USB and
+identification are in Sunnypilot openpilot/selfdrive/pandad/, not the board
+firmware directory. New F413 firmware is not written; chimera/firmware/ has only
+README. Added clickable host-code map and explicit status to chimera/README.md.
+No source move/duplicate, product change or new runtime test; next T05 unchanged.
+
 ## November 6 — Native pinned USB factory/backend implemented
 
 QA-20261106-11: T06b adds exclusive pinned USB discovery and bounded I/O, then

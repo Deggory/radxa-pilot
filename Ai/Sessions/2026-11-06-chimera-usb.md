@@ -40,3 +40,9 @@ SPI. T05 legacy59-byte status adapter next, then T08 protected managed USB
 selection; physical qualification and T01/T03 firmware remain separate gates.
 No hardware/daemon/USB enumeration, firmware/DBC/config/CAN/relay, push or update.
 Exact checks and hashes: Ai/Evidence/chimera-usb-20261106.json.
+
+November6 QA-20261106-12: clarified actual code locations. New host USB and
+identification are in Sunnypilot openpilot/selfdrive/pandad/, not the board
+firmware directory. New F413 firmware is not written; chimera/firmware/ has only
+README. Added clickable host-code map and explicit status to chimera/README.md.
+No source move/duplicate, product change or new runtime test; next T05 unchanged.

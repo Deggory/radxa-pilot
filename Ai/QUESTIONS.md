@@ -1,3 +1,17 @@
+## QA-20261106-12 — Where the Chimera code is being written
+
+**Date:** November 6, 2026 UTC.
+
+**Owner question (original):** i dont see the chimera codes in sunnypilot were r u making it
+
+**Answer:** All new implementation is inside the actual Sunnypilot project. The Radxa-side USB/backend code is in openpilot/selfdrive/pandad/panda_usb.cc/.h; identification in panda_identification.cc/.h; shared interface in panda_comms.h and Panda's handle declaration in panda.h. Existing chimera.py/chimera_protocol.py provide the separate original-board Python receiver/decoder. sunnypilot/chimera/ currently holds the plan, source map, provenance and a firmware README; no new STM32F413 application source/build target has been written there yet. Recent work prioritized shared host compatibility after the legacy Panda request. The original firmware remains in preserved workspace ocelot/firmware/chimera/. Added direct in-repository code links and explicit firmware status to chimera/README.md; files were not moved or duplicated.
+
+**Evidence/source pins:** Fresh rg inventory and Git show at cd62e21d6757662ef16b86418157fd50966e85d7 confirm code/tests are committed under Sunnypilot, branch radxa/q8b. Firmware directory inventory contains README.md only. Existing source pins/checks remain those in QA11.
+
+**Implemented versus proposed/limits:** Documentation/navigation clarification only. Host backend exists and is tested offline; managed startup and legacy status adaptation are still pending. New MCU firmware remains unimplemented. No product source, build, device, update or push action. Next planned host slice stays T05; board T01/T03 remains separate pending work.
+
+---
+
 ## QA-20261106-11 — Proceed with native USB connection and failure handling
 
 **Date:** November 6, 2026 UTC.

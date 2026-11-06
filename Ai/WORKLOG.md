@@ -1049,3 +1049,9 @@ old Python mailbox decoder versus native integration, and the sequence:
 read-only identity/profile tests → bounded USB backend → status adaptation →
 protected managed passive lifecycle → separate hardware qualification.
 Explanation/doc update only; no implementation advanced. Next profile tests.
+
+November6 QA-20261106-12: clarified actual code locations. New host USB and
+identification are in Sunnypilot openpilot/selfdrive/pandad/, not the board
+firmware directory. New F413 firmware is not written; chimera/firmware/ has only
+README. Added clickable host-code map and explicit status to chimera/README.md.
+No source move/duplicate, product change or new runtime test; next T05 unchanged.
