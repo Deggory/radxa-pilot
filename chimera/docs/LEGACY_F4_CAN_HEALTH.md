@@ -84,7 +84,7 @@ restored. Native SCons and strict ASan/UBSan results plus exact source/artifact
 hashes are in [the receipt](../../Ai/Evidence/chimera-can-health-20261106.json).
 Source/CLI/GNU artifact route; no new REA provider or physical device result.
 
-Next T08a: USB-only session/startup integration with explicit pins and exclusive
-ownership, no SPI probing/fallback. Managed health publication, exact-read
-hardening and reconnect remain to implement. Full T05 stays partial because new
-Chimera operational health is absent; new firmware still parks/unflashed.
+T08a now adds [USB-only status startup/session](USB_ONLY_STARTUP.md), with explicit
+pins and no SPI fallback. Next T08b is passive reception and validity-aware status
+publication/exact-read/freshness/reconnect. Full T05 remains partial: new Chimera
+operational health is absent and the new firmware still parks/unflashed.

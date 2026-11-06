@@ -1,3 +1,19 @@
+## QA-20261106-27 — Proceed with USB-only startup/status ownership
+
+**Date:** November 6, 2026 UTC.
+
+**Owner request (original):** proceed
+
+**Context:** Continue T08a, retaining USB-only/no SPI fallback.
+
+**Answer:** Radxa launcher now requires explicit PANDAD_USB_SERIAL/PANDAD_USB_VERSION and execs native --usb-status before legacy device probes/reset/flash/DFU. Native Q8B entry rejects bare/legacy invocation. A new status-only session owns the pinned USB backend, qualifies typed legacy F4v17 initial health and samples health plus all3controllers; any failure/exception closes immediately, no stale-cache/retry/SPI fallback. Explicit reopen repeats identification.21Python tests (6new),7native executables, actual native build and strict ASan/UBSan pass. Five invalid native invocations exit2 before device access; main.o has no legacy-thread reference. Removing immediate failure cleanup is caught. Next T08b is passive CAN reception and validity-aware publication/exact-read/freshness/reconnect work.
+
+**Evidence/source pins:** Baseline86678975460572b26a03af3354cb0fcc0f7f24c6; exact existing Radxa identity, wrapper/main/backend and prior health contracts. Saved actual source/artifact hashes/commands/results at student Ai/Evidence/chimera-usb-startup-20261106.json; startup contract chimera/docs/USB_ONLY_STARTUP.md. Real backend/session exercised with fake libusb, no SPI source linked into sanitizer fixture. No new REA provider/network result or fresh-context review claimed.
+
+**Implemented versus proposed/limits:** T08a startup/status ownership complete offline, not full managed Sunnypilot integration. Session currently accepts legacy F4v17 only; current Panda/original Chimera/new bootstrap remain rejected. No CAN/pandaStates/Params publication, sendcan/safety/heartbeat threads, TX or firmware writes. Earlier answers saying Radxa entry still opens SPI are superseded by this dated implementation; generic Panda SPI constructor remains but Radxa entry bypasses it. Missing pins fail closed; no pins installed or historical defaults. Reviewed compatible firmware is required, since unknown older IN commands may have side effects; version match is not authentication. Sample is sequential, not atomic/freshness-qualified; active means ownership only. No valid session/hardware/flash/reset/config/actuation/install/update/push run. Firmware23hashes/7448-byte retained artifact, Ocelot39dirty entries/19hashes/archive/DBC preserved. Native test enum-list compile defect fixed explicitly without suppression. Earlier unanswered entries preserved.
+
+---
+
 ## QA-20261106-26 — Proceed with per-controller CAN-health5
 
 **Date:** November 6, 2026 UTC.

@@ -8,6 +8,7 @@
 
 #include "common/tests/native_test.h"
 #include "selfdrive/pandad/panda_usb.h"
+#include "selfdrive/pandad/panda_usb_status.h"
 
 // Complete libusb's opaque types for fake C API implementations. This test does
 // not link libusb, enumerate the host or open a real USB device.
@@ -34,6 +35,12 @@ struct FakeUsb {
   std::optional<int> control_result;
   int bulk_result = 0, transferred = 4;
   unsigned int last_timeout = 0;
+  std::optional<uint8_t> fail_request;
+  uint16_t fail_selector = 0;
+  int sample_failure = LIBUSB_ERROR_TIMEOUT;
+  bool corrupt_health = false, corrupt_can = false;
+  bool throw_transfer = false;
+  std::vector<std::pair<uint8_t, uint16_t>> requests;
 } usb;
 const PandaIdentificationPin PIN{"selected", "pinned-version"};
 int scenarios = 0;
@@ -128,7 +135,7 @@ int LIBUSB_CALL libusb_release_interface(libusb_device_handle *, int interface) 
   return 0;
 }
 int LIBUSB_CALL libusb_control_transfer(libusb_device_handle *handle, uint8_t type, uint8_t request,
-                                        uint16_t, uint16_t, unsigned char *data, uint16_t length,
+                                        uint16_t value, uint16_t index, unsigned char *data, uint16_t length,
                                         unsigned int timeout) {
   require(timeout > 0 && timeout <= 1000 && usb.claims > usb.releases);
   usb.last_timeout = timeout;
@@ -139,14 +146,26 @@ int LIBUSB_CALL libusb_control_transfer(libusb_device_handle *handle, uint8_t ty
   }
   require(type == 0xc0);
   ++usb.control_in;
+  if (usb.throw_transfer) throw std::runtime_error("scripted transfer exception");
+  usb.requests.emplace_back(request, value);
   ++handle->device->reads;
   if (usb.control_result) return *usb.control_result;
+  if (usb.fail_request == request && value == usb.fail_selector) return usb.sample_failure;
   std::vector<uint8_t> reply;
   switch (request) {
     case 0xd6: reply.assign(handle->device->version.begin(), handle->device->version.end()); break;
     case 0xc1: reply = {handle->device->hardware}; break;
     case 0xdd: reply = handle->device->versions; break;
-    case 0xd2: reply.resize(handle->device->health_size); break;
+    case 0xd2:
+      reply.resize(handle->device->health_size);
+      if (usb.corrupt_health && reply.size() == 59) reply[35] = 2;
+      break;
+    case 0xc2:
+      require(value < 3 && index == 0 && length == 64);
+      reply.resize(64);
+      reply[1] = value + 1;
+      if (usb.corrupt_can) reply[7] = 255;
+      break;
     default: reply = {0xa5}; break;
   }
   std::copy_n(reply.begin(), std::min<size_t>(length, reply.size()), data);
@@ -328,10 +347,110 @@ void test_usb() {
   std::cout << scenarios << " USB scenario groups passed; no real USB calls\n";
 }
 
+void test_usb_status() {
+  reset();
+  const char *args[] = {"pandad", "--usb-status", "selected", "pinned-version"};
+  CHECK(parse_panda_usb_status_args(4, args).serial == PIN.serial);
+  for (int argc : {-1, 0, 1, 2, 3, 5}) {
+    bool failed = false;
+    try { parse_panda_usb_status_args(argc, args); } catch (const std::invalid_argument &) { failed = true; }
+    CHECK(failed);
+  }
+  for (const auto &invalid : std::vector<std::string>{"", "has space", "bad\nvalue", std::string(65, 'x'), std::string(1, '\x80')}) {
+    bool failed = false;
+    try { PandaUsbStatusSession::open({invalid, PIN.firmware_version}); } catch (const std::invalid_argument &) { failed = true; }
+    CHECK(failed && usb.init_calls == 0);
+  }
+  for (const auto &invalid : std::vector<std::string>{"", "bad\nversion", std::string(65, 'x'), std::string(1, '\x80')}) {
+    bool failed = false;
+    try { PandaUsbStatusSession::open({PIN.serial, invalid}); } catch (const std::invalid_argument &) { failed = true; }
+    CHECK(failed && usb.init_calls == 0);
+  }
+  {
+    auto session = PandaUsbStatusSession::open(PIN);
+    CHECK(session->active() && usb.control_in == 4);
+    auto snapshot = session->sample();
+    CHECK(snapshot && usb.control_in == 8);
+    const std::vector<std::pair<uint8_t, uint16_t>> expected = {{0xd2, 0}, {0xc2, 0}, {0xc2, 1}, {0xc2, 2}};
+    CHECK(std::vector(usb.requests.end() - 4, usb.requests.end()) == expected);
+    for (unsigned i = 0; i < 3; ++i) {
+      CHECK(snapshot->can[i].can_number == i && snapshot->can[i].bus_off_cnt == i + 1);
+    }
+    session->close();
+    session->close();
+    const int reads = usb.control_in;
+    CHECK(!session->active() && !session->sample() && usb.control_in == reads);
+    CHECK(usb.contexts == 0 && usb.claims == usb.releases && usb.opens == usb.closes);
+    CHECK(usb.control_out == 0 && usb.bulk_calls == 0);
+  }
+  for (auto [request, selector] : std::vector<std::pair<uint8_t, uint16_t>>{{0xd2, 0}, {0xc2, 0}, {0xc2, 1}, {0xc2, 2}}) {
+    for (int failure : std::initializer_list<int>{LIBUSB_ERROR_TIMEOUT, LIBUSB_ERROR_NO_DEVICE, LIBUSB_ERROR_PIPE, 0, 58, 63, 65}) {
+      reset();
+      auto session = PandaUsbStatusSession::open(PIN);
+      CHECK(session->sample());  // A previous good value must never become a fallback.
+      usb.fail_request = request;
+      usb.fail_selector = selector;
+      usb.sample_failure = failure;
+      CHECK(!session->sample() && !session->active());
+      const int reads = usb.control_in;
+      CHECK(!session->sample() && usb.control_in == reads);
+      CHECK(usb.contexts == 0 && usb.claims == usb.releases && usb.opens == usb.closes);
+      CHECK(usb.control_out == 0 && usb.bulk_calls == 0);
+    }
+  }
+  for (bool main_health : {false, true}) {
+    reset();
+    auto session = PandaUsbStatusSession::open(PIN);
+    usb.corrupt_health = main_health;
+    usb.corrupt_can = !main_health;
+    CHECK(!session->sample() && !session->active() && usb.contexts == 0);
+  }
+  reset();
+  {
+    auto session = PandaUsbStatusSession::open(PIN);
+    usb.throw_transfer = true;
+    bool threw = false;
+    try { session->sample(); } catch (const std::runtime_error &) { threw = true; }
+    CHECK(threw && !session->active() && usb.contexts == 0 && usb.claims == usb.releases);
+  }
+  reset();
+  usb.corrupt_health = true;
+  bool rejected = false;
+  try { PandaUsbStatusSession::open(PIN); } catch (const std::runtime_error &) { rejected = true; }
+  CHECK(rejected && usb.contexts == 0);
+  for (bool current : {false, true}) {
+    reset();
+    auto &d = usb.devices[0];
+    if (current) {
+      d.hardware = 7; d.versions = {0xaf, 0x9e, 0x8f, 0xca, 0x76, 0xf2, 0xab, 0x75}; d.health_size = 49;
+    } else {
+      d.vendor = 0xbbaa; d.product = "Chimera"; d.version = "v1.0.0-DEV-de193215-DEBUG"; d.health_size = 43;
+    }
+    bool failed = false;
+    try { PandaUsbStatusSession::open({"selected", d.version}); } catch (const std::runtime_error &) { failed = true; }
+    CHECK(failed && usb.contexts == 0 && usb.claims == usb.releases);
+    CHECK(usb.control_out == 0 && usb.bulk_calls == 0);
+  }
+  reset();
+  usb.devices[0].product = "Chimera F413";
+  usb.devices[0].version = "chimera-f413-bootstrap-v1";
+  usb.devices[0].hardware = 0;
+  bool bootstrap_rejected = false;
+  try { PandaUsbStatusSession::open({"selected", usb.devices[0].version}); }
+  catch (const std::runtime_error &) { bootstrap_rejected = true; }
+  CHECK(bootstrap_rejected && usb.contexts == 0 && usb.control_out == 0 && usb.bulk_calls == 0);
+  reset();
+  { auto session = PandaUsbStatusSession::open(PIN); CHECK(session->sample()); }
+  { auto session = PandaUsbStatusSession::open(PIN); CHECK(session->sample()); }
+  reset();
+  std::cout << "USB status session: full samples, failure latching/release, profile rejection and explicit reopen pass; no real USB calls\n";
+}
+
 int main() {
   return run_native_test([] {
     try {
       test_usb();
+      test_usb_status();
     } catch (...) {
       std::cerr << "USB scenario group " << scenarios << '\n';
       throw;

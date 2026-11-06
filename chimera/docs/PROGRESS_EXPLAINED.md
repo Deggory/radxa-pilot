@@ -5,8 +5,8 @@
 The offline foundation is built; most operational integration and all new-firmware
 physical qualification remain. The7448-byte unsigned image has never been flashed
 and main parks with USB/CAN disabled. Radxa USB libraries/identification and legacy
-health59 decoding exist, but USB-only managed startup/publication/reconnect is
-pending. No SPI probing/fallback belongs in the target setup.
+health59 decoding exist. Radxa now has pinned USB-only status startup;
+CAN/status publication, other profile admission and reconnect policy remain pending. No SPI probing/fallback belongs in the target setup.
 
 Saved results:28firmware/discovery tests; native pandad build, six native fixtures,
 ASan/UBSan and15existing Python receiver tests. These are separate offline runs,
@@ -17,8 +17,8 @@ lifecycle; qualified power/VBUS/recovery/image packaging and passive bench tests
 digital/pulse/ADC acquisition and reports; MCU TX enforcement; Core Config and
 recoverable settings/watchdog; relay/OBD-C qualification and release/soak testing.
 Active driving is separate later scope. Unequal slices and unresolved electrical
-work do not support a reliable completion percentage. Next T08a USB-only session/startup integration; T05c per-controller health decoding
-and bounded reads now pass offline.
+work do not support a reliable completion percentage. T08a USB-only legacy F4 status startup/session now passes offline tests.
+Next T08b adds passive CAN reception and validity-aware status publication.
 
 The detailed component history below explains what each piece does.
 
@@ -37,7 +37,7 @@ board's inputs, power relay and OBD-C behavior.
 | Piece | Plain meaning | What has actually been verified |
 | --- | --- | --- |
 | Evidence and board map | Identify the chip, three buses, inputs and reserved flash areas | Original source/wiki/history reviewed and pinned; electrical gaps recorded |
-| Radxa USB connection library | Give the Radxa setup its required USB-only path | Fake-device/native checks; managed startup still uses SPI |
+| Radxa USB connection library | Give the Radxa setup its required USB-only path | Q8B USB status entry tested offline; CAN/status publication pending |
 | Firmware build/startup | Compile our own small F413 program, preserve bootstub/settings space and initialize source-defined inactive outputs | ARM builds and offline register/artifact tests; never loaded to the board |
 | CAN codec | Encode/decode classical CAN records in the newer Panda wire format | Current-source interoperability and malformed/chunked record tests; not connected to real CAN controllers |
 | USB identity/control model | Supply the board name, serial format and supported read-only queries | Descriptor/request/state tests; control endpoint only |
@@ -101,8 +101,8 @@ T05b adds the Radxa-side decoder for the selected older Panda firmware's59-byte
 health reply. It preserves the actual measurements and flags, and refuses wrong
 profiles, malformed data or failed/partial reads. This helps our legacy Panda
 compatibility work; it does not make the new Chimera firmware emit health.
-Native pandad builds and offline tests pass. Managed startup still uses SPI and
-no board was accessed. Next is the per-bus CAN-health5 contract, then managed
+Native pandad builds and offline tests pass. At T05b startup still used SPI;
+T08a below supersedes that status. No board was accessed. Next is the per-bus CAN-health5 contract, then managed
 selection/publication/reconnect work. [Details](LEGACY_F4_HEALTH.md).
 
 ## November 6 — Per-controller CAN health decoded
@@ -114,3 +114,13 @@ connect USB startup, enable CAN, establish wiring or make Chimera emit health.
 Legacy bus-off count also increases during polling, so we preserve that behavior
 without calling it a count of distinct faults. Next is USB-only session/startup
 integration, with no SPI probing/fallback. [Details](LEGACY_F4_CAN_HEALTH.md).
+
+## November 6 — Radxa startup now chooses USB status monitoring
+
+T08a routes Radxa startup to a native USB session using explicit serial/version
+pins, before old Panda reset/flashing/recovery logic. Missing pins or USB/status
+failure stops that path without trying SPI. It reads legacy F4 health and all
+three controller reports, closes on failure, and can be stopped normally.
+This is not yet CAN reception or pandaStates publication; current/original/new
+Chimera profiles stay rejected by this session. No pins were installed and no
+board/monitor process was run. [Contract](USB_ONLY_STARTUP.md).

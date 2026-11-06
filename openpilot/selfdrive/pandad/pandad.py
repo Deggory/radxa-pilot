@@ -10,7 +10,9 @@ from panda import Panda, PandaDFU, PandaProtocolMismatch, McuType, FW_PATH
 from openpilot.common.basedir import BASEDIR
 from openpilot.common.params import Params
 from openpilot.common.hardware import HARDWARE
+from openpilot.common.platform import RADXA_Q8B
 from openpilot.common.swaglog import cloudlog
+from openpilot.selfdrive.pandad.usb_startup import usb_status_command
 
 from openpilot.sunnypilot.selfdrive.pandad.rivian_long_flasher import flash_rivian_long
 
@@ -77,6 +79,12 @@ def check_panda_support(panda_serials: list[str]) -> list[str]:
 
 
 def main() -> None:
+  usb_command = usb_status_command(RADXA_Q8B, os.environ, os.path.join(BASEDIR, 'openpilot/selfdrive/pandad/pandad'))
+  if usb_command is not None:
+    # Replace this wrapper before legacy constructors, probes, DFU or recovery.
+    os.execv(usb_command[0], usb_command)
+    raise RuntimeError('USB startup exec returned without replacing the process')
+
   # signal pandad to close the relay and exit
   def signal_handler(signum, frame):
     cloudlog.info(f"Caught signal {signum}, exiting")

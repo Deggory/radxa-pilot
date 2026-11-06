@@ -1,0 +1,231 @@
+{
+  "date_utc": "2026-11-06T21:56:14.378185+00:00",
+  "baseline": "86678975460572b26a03af3354cb0fcc0f7f24c6",
+  "scope": "T08a actual Radxa wrapper/native USB-only status startup and exclusive legacy F4 status session; no CAN/pandaStates publication or control threads",
+  "source_pins": {
+    "panda": "8a16e089b88593914823743df29e1c30b7dd3e00",
+    "opendbc": "150f937198ceab43c43b39f94b9bdea63fcb633c",
+    "carrot": "69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7",
+    "ocelot": "d87892fa25ef2a2474110b97bfb5245ee818b534",
+    "archive": "224cfa645134db91103c55d8188d87e7976b0ba4"
+  },
+  "sources_sha256": {
+    "openpilot/selfdrive/pandad/panda_usb_status.h": "8fafc10bf05db48f5ad39b6a34f535a9e7488053d2d826ef49d6bad2888719a1",
+    "openpilot/selfdrive/pandad/panda_usb_status.cc": "4ea08e90842ecd8ca0a2a20a79b52f07b30d022bbd8b8171ac45aec6c8889273",
+    "openpilot/selfdrive/pandad/usb_startup.py": "305926493f2966a20c766145def5da325003e2e90d2e6735314f4bcf7c7f2d99",
+    "openpilot/selfdrive/pandad/main.cc": "bd45e1b9e8e8e3316583e0c115c3ed5fa0a21cec2db858a801308f24ffb40bfb",
+    "openpilot/selfdrive/pandad/pandad.py": "fcaa7cc0b47b4a26d8317ad7ac888635f88775742981a54cd53ba446e01d64db",
+    "openpilot/selfdrive/pandad/tests/test_panda_usb.cc": "d8b043615f4cf1559026a1a6e08650f2089045da944729b054c271f9f060edcb",
+    "openpilot/selfdrive/pandad/tests/test_usb_startup.py": "fd8c14a6481e04a1d14a9a756b902f8532316e8f1cca9dac07a6edb688f1e489",
+    "openpilot/selfdrive/pandad/SConscript": "2cdfd23f2e534f10629e24071f4f40ca507a47bd1b53247eb1bc61a61bf05a62",
+    "chimera/docs/USB_ONLY_STARTUP.md": "46496f87b4f24110614fbb47fb1510adde70fac82f7a7f083e6905081cd63266",
+    "openpilot/common/platform.py": "8e488946ac222f05929f4f2db24f2af55dcbe0141169d3e133d685077c9fbd16",
+    "openpilot/common/hardware/hw.h": "90340f68951fd8cc7c1913ba042eff30607e3794e7dc1992e346b4818fef33a3"
+  },
+  "artifact_sha256": {
+    "openpilot/selfdrive/pandad/pandad": "f41b37c7a9be2112c4f9fb4cc00ebc4509605d3e79e0d98597cb31f8d2a1d29a",
+    "openpilot/selfdrive/pandad/main.o": "0e707c10c3e7a6cb9b94ee3f892f0e667c8c2bc7790baa999e9a6b8257891307",
+    "openpilot/selfdrive/pandad/tests/test_panda_usb": "23911ee46fd8d9d1be7c1c9789b02e8032ec3d58b23106c2222b5ebcca22415e",
+    "chimera/build/test-usb-status-sanitized": "b220165bb1804a51f0bcf9337d25900122d7b93688920e001f149b0cdcd4566c"
+  },
+  "checks": {
+    "python_TDD_red": "test_usb_startup (unittest.loader._FailedTest.test_usb_startup) ... ERROR\n\n======================================================================\nERROR: test_usb_startup (unittest.loader._FailedTest.test_usb_startup)\n----------------------------------------------------------------------\nImportError: Failed to import test module: test_usb_startup\nTraceback (most recent call last):\n  File \"/home/radxa/.local/share/uv/python/cpython-3.12.13-linux-aarch64-gnu/lib/python3.12/unittest/loader.py\", line 137, in loadTestsFromName\n    module = __import__(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/radxa/comma/sunnypilot/openpilot/selfdrive/pandad/tests/test_usb_startup.py\", line 5, in <module>\n    from openpilot.selfdrive.pandad.usb_startup import usb_status_command\nModuleNotFoundError: No module named 'openpilot.selfdrive.pandad.usb_startup'\n\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nFAILED (errors=1)\n",
+    "native_TDD_red": "openpilot/selfdrive/pandad/tests/test_panda_usb.cc:11:10: fatal error: selfdrive/pandad/panda_usb_status.h: No such file or directory\n   11 | #include \"selfdrive/pandad/panda_usb_status.h\"\n      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\ncompilation terminated.\n",
+    "native_build": {
+      "command": ". .venv/bin/activate\nscons -j2 openpilot/selfdrive/pandad/pandad openpilot/selfdrive/pandad/tests/test_panda_usb openpilot/selfdrive/pandad/tests/test_panda_usb_link openpilot/selfdrive/pandad/tests/test_panda_identification openpilot/selfdrive/pandad/tests/test_panda_health openpilot/selfdrive/pandad/tests/test_panda_can_health openpilot/selfdrive/pandad/tests/test_panda_comms openpilot/selfdrive/pandad/tests/test_pandad_canprotocol",
+      "initial_failure": "New test mixed libusb_error enum/int initializer list; corrected explicit initializer_list<int>, no suppressions",
+      "initial_failure_output_excerpt": "unable to deduce std::initializer_list<auto> from enum values and integer literals",
+      "green_output": "scons: Reading SConscript files ...\nkj/filesystem-disk-unix.c++:1734: warning: PWD environment variable doesn't match current directory; pwd = /home/radxa/comma/sunnypilot\nscons: done reading SConscript files.\nscons: Building targets ...\nprogress: 3.3\nprogress: 6.6\nprogress: 9.9\nprogress: 13.2\nprogress: 16.4\nprogress: 19.7\nprogress: 23.0\nprogress: 26.3\nprogress: 29.6\nprogress: 32.9\nprogress: 36.2\nprogress: 39.5\nprogress: 42.8\nprogress: 46.1\nprogress: 49.3\nprogress: 52.6\nprogress: 55.9\nprogress: 59.2\nprogress: 62.5\nprogress: 65.8\nprogress: 69.1\nprogress: 72.4\nprogress: 75.7\nprogress: 78.9\nprogress: 82.2\nprogress: 85.5\nscons: `openpilot/selfdrive/pandad/pandad' is up to date.\nprogress: 88.8\n  [CXX] openpilot/selfdrive/pandad/tests/test_panda_usb.o\nscons: `openpilot/selfdrive/pandad/tests/test_panda_usb_link' is up to date.\nprogress: 92.1\nscons: `openpilot/selfdrive/pandad/tests/test_panda_identification' is up to date.\nprogress: 95.4\nscons: `openpilot/selfdrive/pandad/tests/test_panda_health' is up to date.\nscons: `openpilot/selfdrive/pandad/tests/test_panda_can_health' is up to date.\nprogress: 98.7\nscons: `openpilot/selfdrive/pandad/tests/test_panda_comms' is up to date.\nprogress: 100.0\nscons: `openpilot/selfdrive/pandad/tests/test_pandad_canprotocol' is up to date.\n  [LINK] openpilot/selfdrive/pandad/tests/test_panda_usb\nprune_cache_dir([\"openpilot/selfdrive/pandad/tests/test_panda_usb\"], [\"openpilot/selfdrive/pandad/tests/test_panda_usb.o\"])\nscons: done building targets.\n",
+      "exit_code": 0
+    },
+    "native_tests": {
+      "test_panda_usb": {
+        "exit_code": 0,
+        "stdout": "33 USB scenario groups passed; no real USB calls\nUSB status session: full samples, failure latching/release, profile rejection and explicit reopen pass; no real USB calls\n",
+        "stderr": ""
+      },
+      "test_panda_usb_link": {
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "test_panda_identification": {
+        "exit_code": 0,
+        "stdout": "19 supported fixtures; 421 rejected fixtures; 3 invalid transports; zero writes\n",
+        "stderr": ""
+      },
+      "test_panda_health": {
+        "exit_code": 0,
+        "stdout": "Legacy F4 health59: exact source/golden layout, 256 flag combinations, 2032 invalid booleans, integer/float/unaligned cases and bounded single-read failures passed; no hardware calls\n",
+        "stderr": ""
+      },
+      "test_panda_can_health": {
+        "exit_code": 0,
+        "stdout": "Legacy F4 CAN-health5: 26 fields/64 bytes, 3 selectors x 64 flag combinations, 1524 invalid booleans, 1024 LEC cases, 65533 invalid selectors and bounded reads pass; no hardware calls\n",
+        "stderr": ""
+      },
+      "test_panda_comms": {
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "test_pandad_canprotocol": {
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    "python_tests": {
+      "command": ".venv/bin/python -m unittest openpilot.selfdrive.pandad.tests.test_usb_startup openpilot.selfdrive.pandad.tests.test_chimera openpilot.selfdrive.pandad.tests.test_chimera_protocol -v",
+      "tests": 21,
+      "new_startup_tests": 6,
+      "exit_code": 0,
+      "output": "test_exact_arguments_without_shell_or_historical_defaults (openpilot.selfdrive.pandad.tests.test_usb_startup.UsbStartupTests.test_exact_arguments_without_shell_or_historical_defaults) ... ok\ntest_non_radxa_without_usb_pins_retains_legacy_entry (openpilot.selfdrive.pandad.tests.test_usb_startup.UsbStartupTests.test_non_radxa_without_usb_pins_retains_legacy_entry) ... ok\ntest_requires_both_pins_for_radxa_or_any_usb_request (openpilot.selfdrive.pandad.tests.test_usb_startup.UsbStartupTests.test_requires_both_pins_for_radxa_or_any_usb_request) ... ok\ntest_returning_exec_is_an_error_and_never_enters_legacy_path (openpilot.selfdrive.pandad.tests.test_usb_startup.UsbStartupTests.test_returning_exec_is_an_error_and_never_enters_legacy_path) ... ok\ntest_wrapper_executes_usb_before_any_legacy_probe_or_recovery (openpilot.selfdrive.pandad.tests.test_usb_startup.UsbStartupTests.test_wrapper_executes_usb_before_any_legacy_probe_or_recovery) ... ok\ntest_wrapper_never_falls_through_on_missing_pins_or_exec_failure (openpilot.selfdrive.pandad.tests.test_usb_startup.UsbStartupTests.test_wrapper_never_falls_through_on_missing_pins_or_exec_failure) ... ok\ntest_discovery_pins_serial_ignores_bootstub_and_releases_on_error (openpilot.selfdrive.pandad.tests.test_chimera.TestChimeraReceiver.test_discovery_pins_serial_ignores_bootstub_and_releases_on_error) ... ok\ntest_main_default_monitor_serializes_trace_without_publisher (openpilot.selfdrive.pandad.tests.test_chimera.TestChimeraReceiver.test_main_default_monitor_serializes_trace_without_publisher) ... ok\ntest_main_publishes_only_can_and_ends_session_on_unplug (openpilot.selfdrive.pandad.tests.test_chimera.TestChimeraReceiver.test_main_publishes_only_can_and_ends_session_on_unplug) ... ok\ntest_only_version_health_and_bulk_in_are_used (openpilot.selfdrive.pandad.tests.test_chimera.TestChimeraReceiver.test_only_version_health_and_bulk_in_are_used) ... ok\ntest_shared_vid_pid_does_not_select_interceptor_bench (openpilot.selfdrive.pandad.tests.test_chimera.TestChimeraReceiver.test_shared_vid_pid_does_not_select_interceptor_bench) ... ok\ntest_timeout_preserves_transferred_bytes_and_disconnect_propagates (openpilot.selfdrive.pandad.tests.test_chimera.TestChimeraReceiver.test_timeout_preserves_transferred_bytes_and_disconnect_propagates) ... ok\ntest_usb_to_cereal_to_modern_controller_candidates_without_live_output (openpilot.selfdrive.pandad.tests.test_chimera.TestChimeraReceiver.test_usb_to_cereal_to_modern_controller_candidates_without_live_output) ... ok\ntest_wrong_serial_never_claims_or_reads_control (openpilot.selfdrive.pandad.tests.test_chimera.TestChimeraReceiver.test_wrong_serial_never_claims_or_reads_control) ... ok\ntest_wrong_version_and_health_shape_fail_before_can_read (openpilot.selfdrive.pandad.tests.test_chimera.TestChimeraReceiver.test_wrong_version_and_health_shape_fail_before_can_read) ... ok\ntest_health_is_exact_legacy_layout_and_raw_safety (openpilot.selfdrive.pandad.tests.test_chimera_protocol.TestChimeraProtocol.test_health_is_exact_legacy_layout_and_raw_safety) ... ok\ntest_literal_mailbox_and_historical_board_health_vectors (openpilot.selfdrive.pandad.tests.test_chimera_protocol.TestChimeraProtocol.test_literal_mailbox_and_historical_board_health_vectors) ... ok\ntest_malformed_batch_is_rejected_as_a_whole (openpilot.selfdrive.pandad.tests.test_chimera_protocol.TestChimeraProtocol.test_malformed_batch_is_rejected_as_a_whole) ... ok\ntest_real_cereal_to_carstate_keeps_bus_and_enabled_angle (openpilot.selfdrive.pandad.tests.test_chimera_protocol.TestChimeraProtocol.test_real_cereal_to_carstate_keeps_bus_and_enabled_angle) ... ok\ntest_returned_and_remote_records_cannot_be_vehicle_reception (openpilot.selfdrive.pandad.tests.test_chimera_protocol.TestChimeraProtocol.test_returned_and_remote_records_cannot_be_vehicle_reception) ... ok\ntest_standard_extended_zero_length_and_metadata (openpilot.selfdrive.pandad.tests.test_chimera_protocol.TestChimeraProtocol.test_standard_extended_zero_length_and_metadata) ... ok\n\n----------------------------------------------------------------------\nRan 21 tests in 0.111s\n\nOK\n"
+    },
+    "sanitizers": {
+      "command": [
+        "c++",
+        "-std=c++17",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-g",
+        "-Iopenpilot",
+        "-I.",
+        "-I/home/radxa/comma/sunnypilot/.venv/lib/python3.12/site-packages/libusb/install/include",
+        "-DPANDA_HEALTH_VERSION_HASH=0xca8f9eafU",
+        "-DPANDA_CAN_VERSION_HASH=0x75abf276U",
+        "openpilot/selfdrive/pandad/panda_usb.cc",
+        "openpilot/selfdrive/pandad/panda_identification.cc",
+        "openpilot/selfdrive/pandad/panda_health.cc",
+        "openpilot/selfdrive/pandad/panda_usb_status.cc",
+        "openpilot/selfdrive/pandad/tests/test_panda_usb.cc",
+        "-o",
+        "chimera/build/test-usb-status-sanitized"
+      ],
+      "compile_exit": 0,
+      "test_exit": 0,
+      "stdout": "33 USB scenario groups passed; no real USB calls\nUSB status session: full samples, failure latching/release, profile rejection and explicit reopen pass; no real USB calls\n",
+      "stderr": "",
+      "SPI_source_linked": false
+    },
+    "mutation": {
+      "change": "remove immediate close when D2 sample fails",
+      "compile_exit": 0,
+      "test_exit": 1,
+      "output": "33 USB scenario groups passed; no real USB calls\nUSB scenario group 35\nopenpilot/selfdrive/pandad/tests/test_panda_usb.cc:394: check failed: !session->sample() && !session->active()\n",
+      "restored": true
+    },
+    "native_entry": {
+      "Q8B_main_has_legacy_thread_reference": false,
+      "invalid_argument_runs": [
+        {
+          "arguments": [],
+          "exit_code": 2,
+          "stdout": "openpilot/selfdrive/pandad/main.cc: starting pandad\nopenpilot/selfdrive/pandad/main.cc: Radxa startup requires --usb-status SERIAL VERSION; SPI is disabled for this entry point\n",
+          "stderr": ""
+        },
+        {
+          "arguments": [
+            "--usb-status"
+          ],
+          "exit_code": 2,
+          "stdout": "openpilot/selfdrive/pandad/main.cc: starting pandad\nopenpilot/selfdrive/pandad/main.cc: USB status startup: USB startup requires --usb-status SERIAL VERSION\n",
+          "stderr": ""
+        },
+        {
+          "arguments": [
+            "--usb-status",
+            "",
+            "v"
+          ],
+          "exit_code": 2,
+          "stdout": "openpilot/selfdrive/pandad/main.cc: starting pandad\nopenpilot/selfdrive/pandad/main.cc: USB status startup: USB startup requires bounded printable serial and exact firmware version pins\n",
+          "stderr": ""
+        },
+        {
+          "arguments": [
+            "--usb-status",
+            "selected",
+            ""
+          ],
+          "exit_code": 2,
+          "stdout": "openpilot/selfdrive/pandad/main.cc: starting pandad\nopenpilot/selfdrive/pandad/main.cc: USB status startup: USB startup requires bounded printable serial and exact firmware version pins\n",
+          "stderr": ""
+        },
+        {
+          "arguments": [
+            "--usb-status",
+            "selected",
+            "v",
+            "extra"
+          ],
+          "exit_code": 2,
+          "stdout": "openpilot/selfdrive/pandad/main.cc: starting pandad\nopenpilot/selfdrive/pandad/main.cc: USB status startup: USB startup requires --usb-status SERIAL VERSION\n",
+          "stderr": ""
+        }
+      ],
+      "valid_pinned_invocation_run": false
+    },
+    "lint": {
+      "command": ".venv/bin/ruff check openpilot/selfdrive/pandad/usb_startup.py openpilot/selfdrive/pandad/pandad.py openpilot/selfdrive/pandad/tests/test_usb_startup.py",
+      "result": "pass",
+      "SCons": "AST/actual build pass; no generic Ruff context suppression"
+    },
+    "git_diff_check": "pass",
+    "review": "Reviewed entry order and fail-closed pin/exec handling, Q8B preprocessor branch, no legacy-thread reference in main.o, all four sample failure positions/exception cleanup, profile rejection, full reidentification on reopen and absence of handle/TX exposure. Tests/mutation catch missing resource close. No blocking finding.",
+    "compiler": "c++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "memory_verifier": {
+      "result": "pass",
+      "documents": 147,
+      "relative_links": 511,
+      "optional_workspace_links": 246,
+      "source_repositories": 8,
+      "indexed_entries": 4254
+    },
+    "active_markdown_links": 162,
+    "source_hash_readback": "11/11 pass",
+    "artifact_hash_readback": "4/4 pass"
+  },
+  "behavior": {
+    "Radxa_wrapper": "Mandatory explicit PANDAD_USB_SERIAL/PANDAD_USB_VERSION, validation before legacy device constructor/probe/reset/DFU/flash code; execv argument list, no defaults or pin installation",
+    "native_mode": "--usb-status SERIAL VERSION; Q8B bare/legacy entry exits2 before legacy startup; generic other-target legacy entry retained",
+    "session": "LegacyF4v17 only, typed initial health qualification; owns real pinned USB factory, one D2 + C2(0,1,2) sequential sample; any failure closes, no cache/retry/fallback; exceptions close then propagate",
+    "monitor": "Logs complete status, 1000ms wait; normal signal exit releases owned resources; errors exit2. No CAN/pandaStates/Params publication or sendcan/safety/heartbeat/output threads. No measured whole-startup/shutdown deadline",
+    "known_IN_collision": "Version pins must refer to reviewed compatible firmware; arbitrary old firmware can give IN command numbers side effects (saved DD-forwarding evidence). Descriptor/version match is not authentication."
+  },
+  "preservation": {
+    "ocelot_dirty_entries": 39,
+    "ocelot_source_hashes": 19,
+    "archive_clean": true,
+    "canonical_DBC_sha256": "b4079670b8118fe63c6a7710ca1158afaabfec7df881ef902e43d70d70a36b67",
+    "firmware_source_hashes_unchanged": 23,
+    "retained_firmware_bytes": 7448,
+    "retained_firmware_sha256": "d5f7a3f9d0299da28fa7c78c662cefd4deb60c5e748b7e553926c77b8e9c2698",
+    "fresh_ARM_or_firmware_tests": false
+  },
+  "workflow": {
+    "skills": [
+      "incremental-implementation",
+      "test-driven-development",
+      "api-and-interface-design",
+      "debugging-and-error-recovery",
+      "code-review-and-quality",
+      "git-workflow-and-versioning",
+      "documentation-and-adrs"
+    ],
+    "route": "Teacher/student notes then exact wrapper/main/backend/source, focused CLI/GNU object/native tests. No new network or REA provider result; no fresh-context review claimed.",
+    "agent": "OpenAI Codex; no additional agents or model inference"
+  },
+  "limits": [
+    "Current Panda/original Chimera rejected by status session; new bootstrap rejected by native identification",
+    "Radxa without explicit pins now fails before legacy startup; configured path is status only and cannot run full Sunnypilot onroad pipeline yet",
+    "No valid pinned session/monitor invocation against hardware; only invalid CLI invocations exit2 and fake libusb tests",
+    "Sequential samples not atomic or freshness-qualified; active means owned handle not readiness; no automatic in-session reopen or new manager backoff policy",
+    "Status-only host requests do not prove autonomous board CAN silence or firmware authenticity",
+    "No installed pins, board/flash/reset/config/CAN/relay/actuation/install/upstream update/push; physical recovery/power/VBUS/watchdog unqualified"
+  ],
+  "next": "T08b profile-aware passive CAN reception and status publication with explicit validity/freshness, exact-read hardening and reconnect policy; current/original/new-Chimera admission and MCU enforcement separate"
+}

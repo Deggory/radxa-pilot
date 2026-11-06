@@ -78,6 +78,6 @@ qualification is caught. [Receipt](../../Ai/Evidence/chimera-legacy-health-20261
 records actual commands/results/hashes.
 
 T05c now adds [CAN-health5 decoding/read support](LEGACY_F4_CAN_HEALTH.md), verified
-offline. Next T08a USB-only session/startup ownership; managed publication/reconnect
-and exact-read hardening remain pending. Full T05 stays partial because new Chimera
+offline. T08a now adds [USB-only status startup](USB_ONLY_STARTUP.md); next T08b
+passive reception/publication, reconnect and exact-read hardening remain pending. Full T05 stays partial because new Chimera
 operational health is absent. Physical attachment remains separately unqualified.

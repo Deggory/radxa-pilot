@@ -1,3 +1,14 @@
+## November 6 — Radxa USB-only status startup implemented
+
+QA27/T08a: Radxa wrapper/native entry bypass legacy reset/flash/SPI for mandatory
+serial/version-pinned USB status session. Legacy F4v17 only; no CAN/pandaStates/
+control threads or ready claim. Failure closes; no cache/retry/SPI fallback.
+21Python/7native/sanitizer checks pass; five invalid native invocations exit2,
+main.o has no legacy-thread reference. No pins installed or valid hardware run.
+Firmware/Ocelot/archive/DBC preserved; updates held. Next T08b passive CAN and
+validity-aware publication/exact-read/freshness/reconnect. Other profiles pending.
+[Session](Sessions/2026-11-06-chimera-usb-startup.md).
+
 ## November 6 — Legacy CAN-health5 decoder/read helper verified
 
 QA-20261106-26: T05c adds all26fields/64bytes plus caller selector, strict legacy

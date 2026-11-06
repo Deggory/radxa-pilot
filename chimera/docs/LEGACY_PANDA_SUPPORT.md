@@ -21,10 +21,11 @@ Panda by USB only. No SPI wiring/probe/fallback belongs in this deployment.
 serial/version qualification. Sharing an interface does not require using both
 transports.
 
-The inherited native `Panda` constructor/list still select `PandaSpiHandle`.
-That is a remaining T08 integration gap, not the intended deployment path.
-T08 must use pinned USB selection, exclusive ownership and bounded reconnect;
-missing/rejected/disconnected USB must stay disconnected without trying SPI.
+The generic native `Panda` constructor/list retain `PandaSpiHandle`, but T08a
+bypasses them in the Radxa launcher/native entry. Pinned USB status monitoring
+now owns a legacy F4 session and closes on failure. CAN/status publication and
+other profile admission remain pending. Missing/rejected/disconnected USB must
+stay disconnected without trying SPI.
 Existing generic SPI source need not be extended for this project.
 
 The existing chimera_protocol.py handles original mailbox16/health43 decoding
@@ -178,3 +179,10 @@ at pinned sources, while profile/version gates remain separate. Invalid selector
 fail before IO. Counter polling semantics and physical routing limits are explicit.
 See the [contract](LEGACY_F4_CAN_HEALTH.md). Next T08a USB-only session/startup
 ownership; no SPI probe/fallback or managed-readiness claim.
+
+## T08a USB-only status startup — November 6
+
+The Radxa wrapper/native entry now reaches a pinned legacy F4 USB status session
+before legacy probe/reset/flash/DFU/SPI paths. Exact health/CAN samples or immediate
+close; no TX, CAN/pandaStates publication or physical-ready claim. Other profiles
+remain unsupported in this session. [Startup contract](USB_ONLY_STARTUP.md).

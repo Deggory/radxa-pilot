@@ -18,7 +18,7 @@ if arch != "Darwin":
     ('PANDA_CAN_VERSION_HASH', f"0x{version_hash('#opendbc_repo/opendbc/safety/can.h'):08x}U"),
   ])
   libs = [common, messaging, 'pthread']
-  panda = protocol_env.Library('panda', ['panda.cc', 'spi.cc', 'panda_identification.cc', 'panda_usb.cc', 'panda_health.cc'])
+  panda = protocol_env.Library('panda', ['panda.cc', 'spi.cc', 'panda_identification.cc', 'panda_usb.cc', 'panda_health.cc', 'panda_usb_status.cc'])
 
   usb_env.Program('pandad', ['main.cc', 'pandad.cc', 'panda_safety.cc'], LIBS=[panda, 'usb-1.0'] + libs)
 

@@ -7,7 +7,8 @@ checks, a local commit and a notebook handoff before expanding the scope.
 Owner clarification, November6: Radxa-to-Chimera/selected legacy Panda is USB only.
 T08 must select pinned USB explicitly, never probe/fall back to SPI, and remain
 disconnected on USB failure. Existing generic SPI source is not a deployment
-requirement. Native construction still opens SPI until T08 replaces it.
+requirement. T08a now routes Radxa wrapper/native startup to pinned USB status
+monitoring; generic legacy SPI construction is bypassed for that entry path.
 
 Additional November6 source evidence: [Ocelot Panda Docker review](../docs/OCELOT_PANDA_DOCKER_REVIEW.md).
 Pinned current/parent targets distinguish stock Panda selection from Chimera
@@ -27,6 +28,7 @@ future T02/T05/T08 fixtures; no new firmware integration or task completion.
 - [x] T03b3a Power/VBUS/UID/watchdog/recovery requirements and read-only UID/reset/option snapshot helper; twenty-one offline tests pass. No startup/attachment.
 - [x] T03b3b Composed detached preparation/poll/release service; twenty-three tests/44integration scenarios pass. Not called by main; physical attachment unqualified.
 - [x] T05a Bootstrap status/capability contract and strict pure decoder; response interoperability/rejection fixtures pass offline. No operational health/profile admission.
+- [x] T08a Radxa USB-only pinned status startup/session; bypass legacy reset/flash/SPI, legacy F4 typed sampling with immediate failure release; no CAN/pandaStates publication.
 - [x] T05c Legacy F4 CAN-health5/64 typed decoder and bounded selector0..2 reader; exact layouts, golden data, sanitizer and rejection fixtures pass offline. No managed publication.
 - [x] T05b Legacy F4 health59 typed native decoder and bounded read helper; exact retained header/golden bytes, sanitizer and failure tests pass offline. No managed publisher/startup.
 
@@ -39,7 +41,7 @@ future T02/T05/T08 fixtures; no new firmware integration or task completion.
 | T05 | Exact identity/version/health responses, legacy F4 status adaptation and fail-disabled state | T05a bootstrap, T05b health59 and T05c CAN-health5 decode/read helpers complete offline; publication and new Chimera operational health pending |
 | T06 | Native Sunnypilot USB transport and offline failure tests | Offline transport implemented (T06a/b); managed use remains T08 |
 | T07 | Isolated passive receive qualification on each physical bus | Pending separate bench scope |
-| T08 | USB-only current/F4/Chimera managed passive lifecycle, pinned selection, reconnect and exclusive ownership; no SPI probe/fallback | Pending |
+| T08 | USB-only current/F4/Chimera managed passive lifecycle, pinned selection, reconnect and exclusive ownership; no SPI probe/fallback | T08a legacy F4 USB status startup/session complete offline; CAN/status publication, other profiles and reconnect policy pending |
 | T09 | Preserve digital/pulse acquisition and qualify invalid/stopped states | Pending |
 | T10 | Preserve ADC acquisition, calibration and button handling | Pending |
 | T11 | Configured vehicle CAN extraction, integrity and freshness | Pending |
@@ -60,8 +62,10 @@ at runtime. Slice boundaries may split a task; a partial task stays pending.
 
 T05a [status/capability contract](../docs/STATUS_CAPABILITY_CONTRACT.md) and pure
 bootstrap decoder and T05b legacy F4 health59 decoder/read helper are complete
-offline, along with T05c [CAN-health5](../docs/LEGACY_F4_CAN_HEALTH.md). Next T08a:
-USB-only pinned session/startup ownership, no SPI probing/fallback. New Chimera
+offline, along with T05c [CAN-health5](../docs/LEGACY_F4_CAN_HEALTH.md).
+T08a is now implemented for legacy F4 status monitoring only. Next T08b is
+passive CAN reception/profile-aware publication and exact-read/freshness/reconnect
+handling, retaining no SPI probing/fallback. New Chimera
 operational health and bulk CAN/controller binding remain pending.
 [Detached service](../docs/USB_SERVICE.md) now composes existing modules.
 [Requirements](../docs/USB_STARTUP_REQUIREMENTS.md) retain missing physical power/

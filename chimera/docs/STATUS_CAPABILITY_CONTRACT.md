@@ -27,8 +27,8 @@ This function performs no device access. Descriptor VID/PID/product, requested
 serial pin, handle serial and transport ownership remain the future caller's
 responsibility. Successful decoding is neither authentication nor permission for
 managed use. The existing native identifier still rejects this bootstrap because
-C1 is unavailable. Inherited startup still opens SPI and awaits T08 USB-only selection; no SPI
-probe/fallback belongs in the target deployment. Original mailbox16/health43
+C1 is unavailable. T08a Radxa entry now bypasses generic SPI startup for a pinned USB-only legacy
+F4 status session; bootstrap/operational publication remain unsupported. Original mailbox16/health43
 stays separate.
 
 ## Health requires implemented producers

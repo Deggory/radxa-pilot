@@ -8,8 +8,9 @@ what has been written, what has actually been tested and what is still pending.
 
 **Connection requirement, November 6: USB only between the Radxa and Chimera or
 selected legacy Panda.** No SPI wiring, probing or fallback for this setup.
-The inherited native daemon still opens SPI today; T08 must replace that startup
-with pinned USB selection. USB managed startup is not implemented yet.
+Radxa startup now requires explicit serial/version pins and enters a USB-only
+status session before legacy reset/flashing logic. This is status monitoring
+only; managed CAN/status publication remains unfinished.
 
 ## Where the code is
 
@@ -18,6 +19,7 @@ the existing `openpilot/selfdrive/pandad/` module, where Sunnypilot builds it:
 
 | Code | Location |
 | --- | --- |
+| USB-only status startup | [contract](docs/USB_ONLY_STARTUP.md), [session](../openpilot/selfdrive/pandad/panda_usb_status.cc), [launcher selector](../openpilot/selfdrive/pandad/usb_startup.py) |
 | New native USB connection | [panda_usb.cc](../openpilot/selfdrive/pandad/panda_usb.cc), [header](../openpilot/selfdrive/pandad/panda_usb.h) |
 | New board/protocol identification | [panda_identification.cc](../openpilot/selfdrive/pandad/panda_identification.cc), [header](../openpilot/selfdrive/pandad/panda_identification.h) |
 | New bootstrap discovery decoder | [chimera_identity.py](../openpilot/selfdrive/pandad/chimera_identity.py), pure/offline; no managed profile |
@@ -47,6 +49,7 @@ BRAKE, both analog inputs, the onboard relay and OBD-C hardware interfaces.
 - [Power/UID/recovery requirements](docs/USB_STARTUP_REQUIREMENTS.md): attachment prerequisites, known historical recovery evidence and read-only boot facts.
 - [Detached USB service](docs/USB_SERVICE.md): coordinated preparation/polling/release with failure latching; not called from main.
 - [Status/capability contract](docs/STATUS_CAPABILITY_CONTRACT.md): strict bootstrap decoder, health limits and firmware-response fixtures.
+- [USB-only startup](docs/USB_ONLY_STARTUP.md): pinned Radxa status session, failure/ownership boundaries and rejected profiles.
 - [Roadmap](tasks/plan.md): one verified increment at a time.
 - [Existing firmware map](docs/FIRMWARE_SOURCE_MAP.md): recovered GPIO/CAN/config/build behavior.
 - [Source provenance](docs/PROVENANCE.md): reference versions and archive locations.
@@ -64,7 +67,8 @@ requirements and adds a read-only boot-facts helper. T03b3b composes these into 
 detached startup/service module, still uncalled by main. T05a adds bootstrap
 discovery decoding and status/capability semantics. T05b adds native legacy F4
 health59 decoding/read support. T05c adds CAN-health5 decoding/read support.
-Next: USB-only session/startup integration; new
+T08a routes Radxa startup into a pinned legacy F4 USB status session.
+Next: passive CAN reception and profile-aware status publication; new
 Chimera operational health/endpoints remain pending. Qualified attachment
 still requires the recorded electrical/recovery evidence. Physical
 boot/recovery and electrical qualification remain open.
@@ -73,8 +77,9 @@ Legacy F4 Panda support is now an explicit host requirement alongside Chimera.
 Host increments now include the shared transport interface, pinned native USB
 factory/backend, identification and legacy health59 decoding/read tests. Legacy
 CAN-health5 decoding/read support is also tested. Publication and managed
-selection remain pending; current startup
-still has inherited SPI construction that T08 must replace for this USB-only setup.
+operational profile selection remain pending. The Radxa entry path bypasses
+legacy SPI construction; the new status session currently accepts legacy F4v17
+only and publishes no CAN/pandaStates. No device has been opened by this work.
 
 The workspace-level `../../chimera/` remains the original evidence/recovery
 archive. It is optional development evidence, not a runtime dependency. Required
