@@ -21,6 +21,7 @@ board's inputs, power relay and OBD-C behavior.
 | USB packet driver | Move control requests and replies through the USB controller's packet buffers | Fake-controller reset/cancellation/STALL/FIFO tests; not called by startup |
 | Register/timing backend | Provide ordered MCU register access and bounded16MHz cycle-based delays | ARM code/barriers inspected and timing logic tested with fake registers |
 | Boot facts reader, added now | Read the chip's UID and raw reset/option settings without changing them |65536fake snapshots, blank/unstable ID rejection and serial-order checks |
+| Detached USB service | Put preparation, polling and cleanup into one coordinated library |44real-component register scenarios; main still does not call it |
 
 Everything above lives inside the actual Sunnypilot project. Firmware is in
 `chimera/firmware/`; the host libraries are in `openpilot/selfdrive/pandad/`.
@@ -54,7 +55,8 @@ source facts, historical bench results and missing current electrical/recovery
 evidence. We do not choose a supply mode, VBUS pin or signing method by guesswork.
 The new reader is available for a future startup sequence; it is not invoked now.
 
-Next software increment can assemble the tested pieces into a **detached**
-startup/service sequence. Clearing USB soft-disconnect requires the qualified
-power/VBUS and recovery prerequisites below. Status/endpoints and managed host
-support follow. This remains a gradual firmware port, not a released board image.
+The tested pieces now form a [detached startup/service library](USB_SERVICE.md).
+Main still does not call it. Clearing USB soft-disconnect requires qualified
+power/VBUS and recovery evidence. Next board work defines exact health/status
+semantics, followed by endpoints and managed host support. This remains a gradual
+firmware port, not a released board image.

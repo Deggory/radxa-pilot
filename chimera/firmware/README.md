@@ -20,6 +20,7 @@ workspace reference checkout, keys, signer or flasher is needed to build.
 | [usb_driver.c](usb_driver.c), [header](usb_driver.h) | Polling EP0 event/FIFO driver with bounded cancellation, reset and failure handling |
 | [usb_mmio.c](usb_mmio.c), [timing](usb_time.c), [header](usb_time.h) | Ordered ARM MMIO and bounded nominal16MHz cycle-counter delays; no startup call |
 | [boot_facts.c](boot_facts.c), [header](boot_facts.h) | Read-only UID/reset/option snapshot, stable-ID checks; no startup call or write |
+| [usb_service.c](usb_service.c), [header](usb_service.h) | Composed detached preparation/poll/release with fault latching; not called by main |
 | [stm32f413.ld](stm32f413.ld) | Conservative application/RAM reservations and overflow assertions |
 | [build.py](build.py) | Compile, inspect ELF/vectors and publish artifacts with hashes |
 | [tests](tests/test_firmware.py) | Native GPIO checks, real ARM builds and negative image/linker fixtures |
@@ -47,7 +48,7 @@ link map and JSON receipt. The binary has a normal stack pointer in vector word
 zero; no legacy length/signature packaging is performed. Never feed this raw
 bootstrap to the legacy updater as a signed release.
 
-November 6 current validation: GCC13.2.1/binutils2.42, twenty-one tests pass, raw6608bytes;
+November 6 current validation: GCC13.2.1/binutils2.42, twenty-three tests pass, raw7448bytes;
 two different source/output paths produce identical bytes. GPIO tests use fake
 registers, and disassembly verifies the MSP reload precedes C. No board execution
 or electrical state was measured. USB/CAN clocks are gated, interrupts stay masked
@@ -87,3 +88,8 @@ and a read-only boot-facts helper.65536fake snapshots and UID/serial/flag-preser
 checks pass; no physical UID read, flag clearing or option/watchdog write. Main
 remains parked. Next is detached startup/service composition; physical attachment
 requires the separate electrical and current recovery evidence in that contract.
+
+T03b3b adds [the detached service](../docs/USB_SERVICE.md), combining real boot-
+facts/timing/clock/core/driver calls with owned cleanup and failure latching.
+44integration scenarios pass; no main/GPIO/IRQ/attachment change. Next board work
+is the exact status/capability contract before operational health/endpoints.

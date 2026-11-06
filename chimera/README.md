@@ -37,6 +37,7 @@ BRAKE, both analog inputs, the onboard relay and OBD-C hardware interfaces.
 - [USB bootstrap](docs/USB_BOOTSTRAP.md): detached clock/core preparation and EP0 request model.
 - [USB packet driver](docs/USB_PACKET_DRIVER.md): polling EP0 event/FIFO library and ordered MMIO/timing backend, verified offline; startup attachment pending.
 - [Power/UID/recovery requirements](docs/USB_STARTUP_REQUIREMENTS.md): attachment prerequisites, known historical recovery evidence and read-only boot facts.
+- [Detached USB service](docs/USB_SERVICE.md): coordinated preparation/polling/release with failure latching; not called from main.
 - [Roadmap](tasks/plan.md): one verified increment at a time.
 - [Existing firmware map](docs/FIRMWARE_SOURCE_MAP.md): recovered GPIO/CAN/config/build behavior.
 - [Source provenance](docs/PROVENANCE.md): reference versions and archive locations.
@@ -48,9 +49,10 @@ minimal offline F413 build, T02b identity/request/source contracts and T04 class
 CAN codec with offline interoperability/stream checks. T03b1 adds detached USB
 preparation and the pure EP0 model. T03b2 adds the polling controller packet driver
 and ordered MMIO/timing backend. T03b3a establishes the power/VBUS/UID/recovery
-requirements and adds a read-only boot-facts helper. Next: a detached startup/
-service module, with qualified attachment still gated by the recorded electrical/
-recovery gaps; then operational health/endpoints. Physical
+requirements and adds a read-only boot-facts helper. T03b3b composes these into a
+detached startup/service module, still uncalled by main. Next: exact status/
+capability contracts, then operational health/endpoints. Qualified attachment
+still requires the recorded electrical/recovery evidence. Physical
 boot/recovery and electrical qualification remain open.
 
 Legacy F4 Panda support is now an explicit host requirement alongside Chimera.

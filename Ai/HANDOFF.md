@@ -1,3 +1,16 @@
+## November 6 — Detached USB service composed and verified
+
+QA-20261106-21: T03b3b adds usb_service.c/.h, real facts/timing/clock/core/EP0
+composition with owned IO, pre/post detached guards, failure latching and checked
+release.23tests/44pipeline scenarios pass; raw7448bytes, globals8bytes. Main and
+all prior helpers/linker unchanged; no service instance/startup call/attachment.
+[Session](Sessions/2026-11-06-chimera-usb-service.md) pins exact output/limits.
+Next board T05a status/capability semantics and offline response fixtures before
+operational health; bulk CAN binding and host legacy status/lifecycle pending.
+Actual startup/attachment still requires power/VBUS/current-recovery evidence.
+No device/flash/reset/config/actuation/install/update/push; Ocelot/archive/DBC
+preserved, upstream checks held. Full T03 and end-to-end integration stay partial.
+
 ## November 6 — Progress explained; USB startup requirements established
 
 QA-20261106-20: added plain-language progress guide and power/VBUS/UID/watchdog/

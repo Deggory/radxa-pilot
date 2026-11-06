@@ -4,6 +4,10 @@ November 6, 2026 — T03b3a requirements and read-only boot-facts helper complet
 offline. T03b3 attachment/startup qualification remains partial. This contract is
 not a flashing procedure or permission to operate hardware.
 
+T03b3b now supplies the [detached startup/service library](USB_SERVICE.md), with
+23combined offline tests. Main remains parked; the qualification gaps below are
+unchanged. Next board software work is the status/capability contract.
+
 ## Decisions established from the evidence
 
 1. Radxa's normal data connection is Chimera's USB Type-B port. OBD-C remains a
@@ -120,8 +124,8 @@ Startup/USB driver/board/CAN code remains unchanged, bootstrap capabilities zero
 Exact source, historical-asset checks and actual tests are in
 [the receipt](../../Ai/Evidence/chimera-usb-prerequisites-20261106.json).
 
-Next software slice: compose the tested helpers into a detached startup/service
-module with fault fixtures. Keep main's attachment disabled. In parallel resolve
+The detached service module with fault fixtures now exists. Keep main's
+attachment disabled. Next define exact status/capability semantics. In parallel resolve
 the power/VBUS and installed-recovery evidence before any connected profile is
 enabled. Full modern status/bulk CAN endpoints, managed host integration, signal
 acquisition, Core Config and MCU TX policy remain pending. No new board operation,

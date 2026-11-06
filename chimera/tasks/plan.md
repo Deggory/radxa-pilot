@@ -20,12 +20,13 @@ future T02/T05/T08 fixtures; no new firmware integration or task completion.
 - [x] T03b1 Backend-driven USB clock/detached-core preparation and pure descriptor/EP0 model; sixteen offline tests pass. No packet driver/startup attachment yet.
 - [x] T03b2 Ordered ARM MMIO/DWT timing backend and polling EP0 event/FIFO driver; nineteen offline tests pass. Startup/attachment and physical qualification pending.
 - [x] T03b3a Power/VBUS/UID/watchdog/recovery requirements and read-only UID/reset/option snapshot helper; twenty-one offline tests pass. No startup/attachment.
+- [x] T03b3b Composed detached preparation/poll/release service; twenty-three tests/44integration scenarios pass. Not called by main; physical attachment unqualified.
 
 | Task | Next deliverable | Status |
 | --- | --- | --- |
 | T01 | Board GPIO/reset behavior, flash/config partitions and recovery boundaries | T01a source contract complete; installed bootstub/recovery and electrical qualification pending |
 | T02 | Distinct identity, legacy/current protocol profiles, RPC matrix and explicit bus/input source contracts | T02a/b complete offline; operational health/capability/config ABI and new-profile host admission remain pending |
-| T03 | Minimal F413 target, reviewed support/linker and offline image budget | T03a/b1/b2/b3a complete offline; next detached startup/service composition; qualified power/VBUS/recovery and attachment remain pending |
+| T03 | Minimal F413 target, reviewed support/linker and offline image budget | T03a/b1/b2/b3a/b3b complete offline; unbound detached service exists; actual startup/attachment and qualified power/VBUS/recovery remain pending |
 | T04 | Modern six-byte/XOR classical CAN USB codec with stream/vector checks | Complete offline; no endpoint/CAN-controller binding or TX permission |
 | T05 | Exact identity/version/health responses, legacy F4 status adaptation and fail-disabled state | Pending |
 | T06 | Native Sunnypilot USB transport and offline failure tests | Offline transport implemented (T06a/b); managed use remains T08 |
@@ -49,12 +50,12 @@ at `../chimera/tasks/plan.md`, relative to the Sunnypilot repository root.
 This sequence carries the implementation forward without requiring that archive
 at runtime. Slice boundaries may split a task; a partial task stays pending.
 
-Next board software slice: T03b3b detached startup/service composition with fault
-fixtures, keeping attachment disabled. [Requirements](../docs/USB_STARTUP_REQUIREMENTS.md)
-now separate known facts and missing physical power/VBUS/current-recovery evidence.
-Qualified attachment follows those gates. See [the packet driver](../docs/USB_PACKET_DRIVER.md).
-Status/capability and endpoint
-binding follow. Electrical unknowns block
+Next board software slice: T05a exact status/capability semantics and offline
+response fixtures before operational health advertisement, then bulk CAN/controller
+binding. [Detached service](../docs/USB_SERVICE.md) now composes existing modules.
+[Requirements](../docs/USB_STARTUP_REQUIREMENTS.md) retain missing physical power/
+VBUS/current-recovery evidence. Qualified startup/attachment follows those gates.
+Electrical unknowns block
 claims or hardware loading that depend on them; they do not erase known source
 assignments or prevent bounded offline engineering.
 

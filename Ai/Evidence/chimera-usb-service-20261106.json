@@ -1,0 +1,175 @@
+{
+  "date_utc": "2026-11-06T19:09:30.123535+00:00",
+  "baseline": "10fbf46341d6acadc768cea296c7e36044416750",
+  "scope": "T03b3b detached USB startup/service composition as an unbound library; no main/attachment change",
+  "source_pins": {
+    "panda": "8a16e089b88593914823743df29e1c30b7dd3e00",
+    "opendbc": "150f937198ceab43c43b39f94b9bdea63fcb633c",
+    "ocelot": "d87892fa25ef2a2474110b97bfb5245ee818b534",
+    "archive": "224cfa645134db91103c55d8188d87e7976b0ba4"
+  },
+  "build": {
+    "undefined_symbols": [],
+    "load_segments": [
+      {
+        "offset": 4096,
+        "virtual": 134234112,
+        "physical": 134234112,
+        "file_bytes": 7444,
+        "memory_bytes": 7444
+      },
+      {
+        "offset": 12288,
+        "virtual": 536870912,
+        "physical": 134241556,
+        "file_bytes": 4,
+        "memory_bytes": 8
+      }
+    ],
+    "reset_vector": 134239505,
+    "stack_top": 537001976,
+    "globals_bytes": 8,
+    "stack_reserved_bytes": 4096,
+    "target": "chimera-f413-offline-bootstrap",
+    "signed": false,
+    "raw_bytes": 7448,
+    "reserved_envelope_bytes": 136,
+    "projected_legacy_bytes": 7584,
+    "application_budget_bytes": 114688,
+    "sha256": "d5f7a3f9d0299da28fa7c78c662cefd4deb60c5e748b7e553926c77b8e9c2698",
+    "sources_sha256": {
+      "startup.S": "be9bc724c7e9a395ad12140d5a89d5e334efd074e992e1fad98aacb809cfa688",
+      "board.c": "dd4902ea9b4e048bc221ccd1548f5eb38277a860a52f89b524f78db734bceb8c",
+      "main.c": "d3bfbc5d63028d606967b7a3db6b7db9bc973e0fad1b2354113747ea9e146813",
+      "protocol.c": "47f8745bc8a774aa0674dd8a500c20769908e30efd9f6109b44e1d958abcceea",
+      "can_codec.c": "e9313054c3a628b5d3828d12ad5eeefe09c38d60b48dbc0e999fa39d59d3f94c",
+      "usb_hw.c": "d36b31b542239b5f75181fcaba3886177b1452dc2274ac7312cefd7d0f2c190c",
+      "usb_ep0.c": "0e6a5fd2c9f9011b266f873ec630ac11716e995d224dbd98e4a2fae6551f83f3",
+      "usb_time.c": "8807804da361f61363ea72c5bb251dae117442f549e124d2a719c4c510a45dd1",
+      "usb_mmio.c": "31bcdd3a98057f67e8d74dd8dc65f8289384798be38a421080d39af8d0d3d0b0",
+      "usb_driver.c": "3307fd44768b6e8861c8ae20b005aa73846ebc7c0b965f546716cc35e9026c91",
+      "boot_facts.c": "76e9c59af5e387eb7173992a246a9b8be8c676b80a77126dc2492beb6ac2a92b",
+      "usb_service.c": "c44f6854e89e1ff5c102a22ffd2d0fdb7ef70281ce987bc8318e9ac74440e2c6",
+      "board.h": "0c531a8bb4c7ff205812b44507b639f063085cb48f973f732f3ee5428d12284d",
+      "protocol.h": "45fb8a73d39bc6a6cf9efeb270af57472012af3af48c82d74180a48d0ee09e95",
+      "can_codec.h": "87491ae3a73cd7b267815f2532361514cb9899c9c5231045526f54d3d98c554a",
+      "usb_hw.h": "919d83e6a771b5a9e0092414ca9711809300110588396b297171dfe4b6664a5a",
+      "usb_ep0.h": "d3341a4ded5c63e3edfc7e79c5315d5bd339c6d2447445263fb5a81746a4a6e7",
+      "usb_time.h": "375429d82c6bd180e476192f97e439223a548b2c0de5b69418fead9efc4cc36c",
+      "usb_driver.h": "32b924347849f42192b5e14e051022f39e729880d0069aa2c67af0509673844f",
+      "boot_facts.h": "a5dff207500f43677af7688aedaeacb30e903c6966e533e366b6c0a7814355ae",
+      "usb_service.h": "090475efafd7a06f0cd3bcab74d554e5f155ae39dd9d925c7d44aef38da4a2ba",
+      "stm32f413.ld": "7922edf18bd50be11721d465a8e87ec3de84bcaf28819cf6bb1c8df280346ab6",
+      "build.py": "851e3881d7c1746f06256696e996214e20c57469901495fc179d26a3a61bed18"
+    },
+    "compiler": "arm-none-eabi-gcc (15:13.2.rel1-2) 13.2.1 20231009",
+    "objcopy": "GNU objcopy (2.42-1ubuntu1+23) 2.42",
+    "flags": [
+      "-mcpu=cortex-m4",
+      "-mthumb",
+      "-mfloat-abi=soft",
+      "-mno-unaligned-access",
+      "-Os",
+      "-std=c11",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-fno-common",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-fno-unwind-tables",
+      "-fno-asynchronous-unwind-tables",
+      "-Wall",
+      "-Wextra",
+      "-Wstrict-prototypes",
+      "-Werror",
+      "-nostdlib"
+    ],
+    "limits": "Unsigned offline build; no installed bootstub, electrical or runtime qualification."
+  },
+  "tests": {
+    "command": "CHIMERA_TOOLCHAIN_PREFIX=/home/radxa/.local/ocelot-build-tools/usr/bin/arm-none-eabi- python3 -m unittest discover -s chimera/firmware/tests -v",
+    "result": "pass",
+    "tests": 23,
+    "actual_output": "test_read_only_identity_and_reset_snapshot (test_boot_facts.BootFactsTests.test_read_only_identity_and_reset_snapshot) ... ok\ntest_sanitized_codec_and_current_panda_wire_interoperability (test_can_codec.CanCodecTests.test_sanitized_codec_and_current_panda_wire_interoperability) ... ok\ntest_boot_facts_reader_retained_in_arm_image (test_firmware.FirmwareTests.test_boot_facts_reader_retained_in_arm_image) ... ok\ntest_boot_vectors_reject_corruption (test_firmware.FirmwareTests.test_boot_vectors_reject_corruption) ... ok\ntest_build_is_independent_of_checkout_and_output_path (test_firmware.FirmwareTests.test_build_is_independent_of_checkout_and_output_path) ... ok\ntest_can_codec_entries_retained_in_arm_image (test_firmware.FirmwareTests.test_can_codec_entries_retained_in_arm_image) ... ok\ntest_control_setup_uses_byte_reads_for_unaligned_wire_buffer (test_firmware.FirmwareTests.test_control_setup_uses_byte_reads_for_unaligned_wire_buffer) ... ok\ntest_detached_usb_service_retained_without_startup_call (test_firmware.FirmwareTests.test_detached_usb_service_retained_without_startup_call) ... ok\ntest_elf_rejects_unsafe_load_segments_and_identity (test_firmware.FirmwareTests.test_elf_rejects_unsafe_load_segments_and_identity) ... ok\ntest_gpio_contract_from_reset_and_inherited_state (test_firmware.FirmwareTests.test_gpio_contract_from_reset_and_inherited_state) ... ok\ntest_linker_rejects_flash_overflow (test_firmware.FirmwareTests.test_linker_rejects_flash_overflow) ... ok\ntest_linker_rejects_ram_stack_collision (test_firmware.FirmwareTests.test_linker_rejects_ram_stack_collision) ... ok\ntest_protocol_entry_and_identity_retained_in_arm_image (test_firmware.FirmwareTests.test_protocol_entry_and_identity_retained_in_arm_image) ... ok\ntest_read_only_control_contract (test_firmware.FirmwareTests.test_read_only_control_contract) ... ok\ntest_real_image_fits_reserved_envelope (test_firmware.FirmwareTests.test_real_image_fits_reserved_envelope) ... ok\ntest_startup_masks_interrupts_and_loads_msp_before_c (test_firmware.FirmwareTests.test_startup_masks_interrupts_and_loads_msp_before_c) ... ok\ntest_truncated_and_oversized_images_rejected (test_firmware.FirmwareTests.test_truncated_and_oversized_images_rejected) ... ok\ntest_usb_clock_core_and_ep0_entries_retained_in_arm_image (test_firmware.FirmwareTests.test_usb_clock_core_and_ep0_entries_retained_in_arm_image) ... ok\ntest_usb_driver_backend_symbols_and_mmio_barriers (test_firmware.FirmwareTests.test_usb_driver_backend_symbols_and_mmio_barriers) ... ok\ntest_clock_detached_core_and_ep0_with_sanitizers (test_usb.UsbTests.test_clock_detached_core_and_ep0_with_sanitizers) ... ok\ntest_bounded_cycle_counter_backend (test_usb_driver.UsbDriverTests.test_bounded_cycle_counter_backend) ... ok\ntest_polling_ep0_packet_driver (test_usb_driver.UsbDriverTests.test_polling_ep0_packet_driver) ... ok\ntest_real_component_pipeline_with_register_faults (test_usb_service.UsbServiceTests.test_real_component_pipeline_with_register_faults) ... ok\n\n----------------------------------------------------------------------\nRan 23 tests in 16.024s\n\nOK\nBoot facts: 65536 read-only snapshots, three UID instability faults, blank IDs, serial order and canaries passed; no writes\nSUMMARY vectors=648 splits=4536 corruptions=17280 headers=65536 fuzz=10000 known_xor_collisions=2\nCurrent Panda source: 189 exact pack vectors, 648 unpack vectors; no hardware calls\n458920 request cases passed; no hardware calls\nUSB fake-register scenarios=19 SETUP cases=458797; no hardware calls\nUSB time: 51 delay durations, wrap, stalled/absent counter and clock/ownership guards passed\nUSB packet matrix: 32768 RX headers, 390 descriptor-length transfers, 15 controller faults passed\nUSB packet driver: reset/enumeration, descriptors, address/config, vendor query, STALL recovery and SETUP cancellation passed\nUSB service: 44 real-component startup scenarios passed; attachment disabled\n",
+    "composed_pipeline_scenarios": 44,
+    "sanitizers": "ASan/UBSan on native actual helper composition with register callbacks, no success stubs",
+    "arm": "Retained service symbols, no service call in chimera_reset disassembly, all prior ELF/vector/bounds/barrier/copied-tree checks"
+  },
+  "test_sources_sha256": {
+    "chimera/firmware/tests/board_test.c": "028977ed9227a8f0db08b2bd15c8786fc7d5415374ccba8b1802aa8bab8f77cb",
+    "chimera/firmware/tests/boot_facts_test.c": "3c60b5949d9a1285815fc9a800e7f1def89483093f297a6a46a4951f254145d3",
+    "chimera/firmware/tests/can_codec_test.c": "c65a6ee40c0bf824b4eaf60e6cedd09053968c9e90a404f0143095fbf26aa0c3",
+    "chimera/firmware/tests/protocol_test.c": "27d43e7c4ee93d1866693b7211302e1dba6859c39137a07d2b00b471a2ed4301",
+    "chimera/firmware/tests/test_boot_facts.py": "7c33d4c440e4354bab5189d002adfada331417bd9c97e61c90bc695b1ad351c4",
+    "chimera/firmware/tests/test_can_codec.py": "4d4cfe8f5d2f84052f2b1c2a15c31710e007906f645827e4de037c60eb4b0cda",
+    "chimera/firmware/tests/test_firmware.py": "53388aeb2f6f718eed357dde87d22ddc053f9a97866ab452770ef8e9e2d150a0",
+    "chimera/firmware/tests/test_usb.py": "30158e14fd5a422df31b6f6fb75a2ef77885df5cad29a3aede2a046a434099a2",
+    "chimera/firmware/tests/test_usb_driver.py": "d8f741812d1e32b55705bb21f03f0bb1e797c746f0ce412e6dcc36a7548aaede",
+    "chimera/firmware/tests/test_usb_service.py": "cc026797893a488a6c5645e17dac183bd669175abbdb8c0ba789e807bc22f8ac",
+    "chimera/firmware/tests/usb_driver_test.c": "1186b576de559399354503900d27a87c0dc5a6c203e5d266b9681e9d1ce6e8f9",
+    "chimera/firmware/tests/usb_service_test.c": "6d05c1bd627ac97999072996ecafa9d677ee97042e472b40c05b8b189bd5f7cb",
+    "chimera/firmware/tests/usb_test.c": "de3f0153e62a48e8c982027c8f781ef17b94e1e28be64adfc6027b4bec5edec3",
+    "chimera/firmware/tests/usb_time_test.c": "800bfd3b29c535d7c67d3bcc06a8af0f1c03a06f0f3020e4d7fdba60d349b762"
+  },
+  "preservation": {
+    "all_preexisting_firmware_C_headers_startup_linker": "SHA256 unchanged from QA20; only build.py and test_firmware.py updated among existing implementation/test files",
+    "main_no_service_call": "ARM disassembly test pass; main source unchanged",
+    "ocelot_dirty39_all19source_hashes": "unchanged",
+    "archive": "clean unchanged",
+    "native_host_safety_canonical_dbc": "unchanged"
+  },
+  "lifecycle": {
+    "states": [
+      "STOPPED",
+      "DETACHED",
+      "FAILED"
+    ],
+    "start": "argument/ownership preflight, facts, DWT, USB48, detached core, EP0 driver, invariant guard",
+    "poll": "bounded driver work with pre/post detached and CPU-clock checks",
+    "release": "owned accessible core disconnect/masks/PHY off, then hold RCC reset/gate clock with readback",
+    "profile": "caller test parameters only, no qualified real-board power profile",
+    "failure": "latches until explicit stop; failed cleanup retains ownership and failure",
+    "counter_bounds": "read/event counts, not elapsed-time guarantees"
+  },
+  "tdd_review": [
+    "RED missing service implementation/header; GREEN actual component pipeline",
+    "RED runtime CPU-clock drift not detected; added boundary profile check without weakening fixture",
+    "Expanded pre/post-poll detach, IRQ/DMA, forced session, PHY, clock/reset and driver faults",
+    "Explicit failed cleanup, no automatic retry, copied IO and stop/restart fixtures",
+    "Corrected fake USB address range to exclude Cortex debug registers; retained peripheral-access guard"
+  ],
+  "ruff": "pass",
+  "workflow": [
+    "teacher/student evidence first",
+    "incremental implementation",
+    "TDD",
+    "API/interface design",
+    "Git",
+    "self code review",
+    "source-first REA routing; no provider result fabricated"
+  ],
+  "limits": [
+    "Main still parked; service uninstantiated and not called by startup; no physical device operation",
+    "No attachment/GPIO/NVIC/watchdog/config/flash/CAN write API, zero capabilities/layout hashes",
+    "Caller supplies trusted stable callbacks/context and exclusive quiet board/clock ownership",
+    "No restoration of PLL/HSE/debug bits; cleanup readback is not electrical cutoff proof",
+    "Exact power/VBUS/supply/installed bootstub/recovery evidence still unqualified",
+    "No scheduler/elapsed deadline, inherited watchdog, actual service timing, VBUS/session/resume/reconnect qualification",
+    "No new external/ST/manual/compliance/REA runtime result claimed for composing existing code",
+    "No install, flash, actuation, upstream/reference advance or push"
+  ],
+  "next": "T05a exact board status/capability semantics and offline response fixtures before health advertisement; bulk CAN/controller binding and separate host legacy status/lifecycle follow",
+  "documentation_links": {
+    "result": "pass",
+    "resolved": 112
+  },
+  "memory_check": {
+    "result": "pass",
+    "documents": 141,
+    "relative_links": 456,
+    "optional_workspace_links": 246,
+    "source_repositories": 8,
+    "indexed_entries": 4254
+  },
+  "git_diff_check": "pass"
+}

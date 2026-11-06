@@ -1,3 +1,19 @@
+## QA-20261106-21 — Proceed with detached startup/service composition
+
+**Date:** November 6, 2026 UTC.
+
+**Owner request (original):** proceed
+
+**Context:** Continue the detached startup/service composition after QA20; actual attachment remains subject to its power/VBUS/recovery requirements.
+
+**Answer:** Combined the tested boot-facts, timing, USB48 clock/core and EP0 driver modules into one detached service library. Start performs argument/ownership checks and the real preparation sequence; polling checks detached and CPU-clock invariants before and after driver work. Failure disables polling, attempts owned USB disconnect/masking/PHY-off and holds reset/gates the clock with checked readbacks. Failed cleanup stays latched; explicit successful stop is required before restarting.23offline tests pass, including44real-component pipeline scenarios. The ARM image is7448bytes with8bytes global RAM. The library is not instantiated/called by main and no attachment API is added. Next board work is the exact status/capability contract and offline response fixtures, followed by operational endpoints/controller binding.
+
+**Evidence/source pins:** Baseline10fbf46341d6acadc768cea296c7e36044416750 on radxa/q8b; same Panda8a16e089/opendbc150f9371/Ocelotd87892fa and pinned ST evidence underlying existing helpers. Exact source/test hashes, actual23-test output, ARM symbol/no-startup-call and ELF bounds/reproducibility results in Ai/Evidence/chimera-usb-service-20261106.json. API/lifecycle contract chimera/docs/USB_SERVICE.md; session2026-11-06-chimera-usb-service.md. Native ASan/UBSan exercises real composed C functions against register callbacks; no success stubs or physical MMIO execution. No new REA provider/compliance/manual result claimed.
+
+**Implemented versus proposed/limits:** T03b3b unbound detached service complete offline; whole T03/startup/physical qualification and Sunnypilot integration remain partial. Caller must zero-initialize/stabilize context, serialize calls and exclusively own a quiet board/PLL/affected clock domain; callbacks/context are trusted and live. Copied IO methods do not extend callback-context lifetime. Descriptor values are caller test inputs, not a qualified board supply profile. Cleanup checks register intent/readback, not physical cutoff, and leaves PLL/HSE/debug settings. No GPIO/IRQ/CAN/watchdog/flash/config or native host change; capabilities/hashes0. Actual power/VBUS/current-recovery, inherited watchdog, scheduling/resume/session/reconnect and physical timing remain open. No board read/write/flash/reset, actuation, install, upstream update or push; originals/DBC preserved. QA20's6608-byte artifact remains its historical result; current7448bytes. Earlier unanswered entries preserved.
+
+---
+
 ## QA-20261106-20 — Explain the work and establish startup prerequisites
 
 **Date:** November 6, 2026 UTC.

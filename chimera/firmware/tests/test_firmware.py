@@ -104,6 +104,16 @@ class FirmwareTests(unittest.TestCase):
     self.assertEqual(result.returncode, 0, result.stderr)
     self.assertIn("chimera_boot_read_facts", {line.split()[-1] for line in result.stdout.splitlines()})
 
+  def test_detached_usb_service_retained_without_startup_call(self):
+    elf = str(self.out / "first/chimera.elf")
+    result = run(PREFIX + "nm", "--defined-only", elf)
+    self.assertEqual(result.returncode, 0, result.stderr)
+    self.assertTrue({"chimera_usb_service_start", "chimera_usb_service_poll", "chimera_usb_service_stop"}.issubset(
+      {line.split()[-1] for line in result.stdout.splitlines()}))
+    result = run(PREFIX + "objdump", "-d", "--disassemble=chimera_reset", elf)
+    self.assertEqual(result.returncode, 0, result.stderr)
+    self.assertNotIn("chimera_usb_service", result.stdout)
+
   def test_boot_vectors_reject_corruption(self):
     for offset, value in ((0, 0x20020000), (4, 0x08000001), (4, 0x08004200),
                           (7 * 4, 1), (117 * 4, 0), (117 * 4, 0x08020001)):
