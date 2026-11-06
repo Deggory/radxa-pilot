@@ -26,6 +26,7 @@ from openpilot.system.loggerd.config import get_available_percent
 from openpilot.common.swaglog import cloudlog
 from openpilot.sunnypilot.system.statsd import statlog
 from openpilot.system.hardware.power_monitoring import PowerMonitoring
+from openpilot.system.hardware.panda_state import panda_power_state
 from openpilot.system.hardware.fan_controller import FanController
 from openpilot.system.hardware.chestnut.monitoring import chestnut_state_thread
 from openpilot.system.hardware.chestnut.status import ChestnutStatus
@@ -265,14 +266,8 @@ def hardware_thread(end_event, hw_queue) -> None:
       offroad_cycle_count = sm.frame
     onroad_conditions["not_onroad_cycle"] = (sm.frame - offroad_cycle_count) >= ONROAD_CYCLE_TIME * SERVICE_LIST['pandaStates'].frequency
 
-    if sm.updated['pandaStates'] and len(pandaStates) > 0:
-
-      # Set ignition based on any panda connected
-      onroad_conditions["ignition"] = any(ps.ignitionLine or ps.ignitionCan for ps in pandaStates if ps.pandaType != log.PandaState.PandaType.unknown)
-
-      pandaState = pandaStates[0]
-
-      in_car = pandaState.harnessStatus != log.PandaState.HarnessStatus.notConnected
+    if sm.updated['pandaStates']:
+      onroad_conditions["ignition"], in_car = panda_power_state(pandaStates, valid=sm.valid['pandaStates'], in_car=in_car)
 
     elif (time.monotonic() - sm.recv_time['pandaStates']) > DISCONNECT_TIMEOUT:
       if onroad_conditions["ignition"]:

@@ -6,23 +6,27 @@ The offline foundation is built; most operational integration and all new-firmwa
 physical qualification remain. The7448-byte unsigned image has never been flashed
 and main parks with USB/CAN disabled. Radxa USB libraries/identification and legacy
 health59 decoding exist. Radxa now has pinned USB-only startup with passive classical CAN reception and
-isolated legacy status diagnostics. Normal pandaStates admission, other profiles
+isolated legacy status diagnostics. The normal host ignition gate now rejects
+invalid/empty Panda updates;65Python tests pass this slice. Legacy field mapping,
+normal pandaStates admission, other profiles
 and reconnect policy remain pending. No SPI probing/fallback belongs in the target setup.
 
 Saved results:28firmware/discovery tests; current native pandad build and9native programs,
 parser/backend ASan/UBSan and25Python regressions including Thneed telemetry. These are separate offline runs,
 not a combined physical end-to-end test. No physical USB/IPC/board run is claimed.
 
-Remaining: normal pandaStates validity/ignition policy; operational USB/CAN/health binding; USB-only host
+Remaining: normal pandaStates supported-field semantics/admission; operational USB/CAN/health binding; USB-only host
 lifecycle; qualified power/VBUS/recovery/image packaging and passive bench tests;
 digital/pulse/ADC acquisition and reports; MCU TX enforcement; Core Config and
 recoverable settings/watchdog; relay/OBD-C qualification and release/soak testing.
 Active driving is separate later scope. Unequal slices and unresolved electrical
 work do not support a reliable completion percentage. T08a USB-only legacy F4 status startup/session now passes offline tests.
-T08b1 passive CAN/isolated diagnostics passes offline; next T08b2 specifies normal
-pandaStates admission, supported-field validity/ignition and reconnect policy.
+T08b1 passive CAN/isolated diagnostics and T08b2a host ignition validity pass
+offline. Next T08b2b maps legacy PandaState fields/enum/faults with explicit
+supported-field semantics before ordinary publication. Reconnect policy remains.
 
-See the [passive receive contract](USB_PASSIVE_RECEIVE.md) for limitations.
+See the [ignition validity prerequisite](PANDA_IGNITION_VALIDITY.md) and
+[passive receive contract](USB_PASSIVE_RECEIVE.md) for limitations.
 The detailed component history below explains what each piece does.
 
 

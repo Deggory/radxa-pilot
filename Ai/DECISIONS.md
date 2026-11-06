@@ -1,3 +1,14 @@
+## 2026-11-06 — Invalid Panda updates revoke ignition; retain shutdown context
+
+Implemented T08b2a: every updated pandaStates event is checked with its actual
+SubMaster.valid. Invalid/empty updates immediately clear ignition; no-update
+strict age>5s grace stays. Keep the last valid primary harness state during
+invalid/empty/unknown reports because clearing in_car can suppress delayed
+battery shutdown. This history is not live connectivity. A valid non-unknown
+primary report replaces it. Generic type predicate/primary harness semantics
+remain; ordinary legacy PandaState admission stays separate. QA-20261106-29,
+student chimera/docs/PANDA_IGNITION_VALIDITY.md and evidence record tests/limits.
+
 ## 2026-11-06 — Isolate legacy USB diagnostics before pandaStates admission
 
 Implemented T08b1 decision: allocate existing reserved Data field/service

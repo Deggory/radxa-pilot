@@ -1,3 +1,18 @@
+## November 6 — Panda ignition validity prerequisite implemented
+
+QA29/T08b2a: hardwared now passes SubMaster Event.valid into a pure reducer for
+every updated pandaStates event. Invalid/empty updates revoke ignition immediately;
+retain last valid primary harness for battery shutdown. Non-unknown predicate,
+primary/secondary semantics and no-update age>5s grace remain.12new tests,
+37focused plus28power/fan tests (65total), Ruff/compile and mutation checks pass.
+Seven selected actual source-branch cases reproduce both baseline bugs/preserve
+grace with fake clocks; no live thread/IPC/hardware run. USB still emits no
+pandaStates; mapping/admission/reconnect remain. Firmware23hashes/7448-byte image,
+Ocelot39dirty entries/19hashes, archive/DBC and prior host code preserved. Updates
+held; no push. Next T08b2b source-backed fault/enum/supported-field mapping and
+an offline PandaState converter before ordinary publication.
+[Session](Sessions/2026-11-06-chimera-panda-validity.md).
+
 ## November 6 — Passive USB CAN and isolated diagnostics implemented
 
 QA28/T08b1: pinned legacy F4v17 USB entry now receives classical CAN and publishes

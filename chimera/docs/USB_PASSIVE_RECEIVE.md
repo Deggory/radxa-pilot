@@ -56,11 +56,12 @@ message: consumers must check liveness as well as Event.valid.
 
 ## Why pandaStates remains deferred
 
-`hardwared.py` reads ignition from nonempty pandaStates without checking
-Event.valid. Unsupported legacy fields cannot be expressed with individual
-validity there. This increment publishes no pandaStates at all. RawData0 remains
+At the T08b1 baseline, `hardwared.py` read ignition from nonempty pandaStates
+without checking Event.valid. [T08b2a](PANDA_IGNITION_VALIDITY.md) now checks validity
+and clears ignition for invalid/empty updates, retaining shutdown harness context.
+Unsupported legacy fields cannot be expressed with individual validity there. This increment publishes no pandaStates at all. RawData0 remains
 owned by Thneed timing/UI; camera/model/Thneed code is untouched. Normal onroad
-admission, validity/ignition policy, heartbeat/safety/TX and reconnect policy remain
+admission, supported-field semantics, heartbeat/safety/TX and reconnect policy remain
 separate work. Version matching is not authentication of arbitrary old firmware.
 
 ## Verification
@@ -75,5 +76,6 @@ causes the parser test to fail. Invalid CLI checks never open a device.
 commands/results and preservation checks. No real USB/publisher session, board,
 flash, relay or vehicle test was performed. New F413 firmware remains parked.
 
-Next T08b2: specify profile-aware pandaStates admission, supported-field validity,
-ignition handling and reconnect/backoff before enabling the normal host lifecycle.
+T08b2a ignition validity is implemented. Next T08b2b: source-backed legacy
+PandaState field/enum/fault conversion and supported-field semantics, before normal
+publication; reconnect/backoff and physical qualification remain pending.

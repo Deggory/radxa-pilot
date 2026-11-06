@@ -1,3 +1,49 @@
+## QA-20261106-29 — Proceed with Panda ignition validity prerequisite
+
+**Date:** November 6, 2026 UTC.
+
+**Owner request (original):** proceed
+
+**Context:** Continue normal Panda status integration after passive USB reception;
+teacher-first evidence, USB-only deployment and incremental verification persist.
+
+**Answer:** Implemented T08b2a: hardwared now uses Event.valid for each updated
+pandaStates event. Invalid/empty updates clear ignition immediately, preventing
+invalid ignition acceptance and repeated-empty updates retaining old ignition.
+The last valid primary harness context is retained because it permits delayed
+battery/offroad shutdown; invalid/unknown reports cannot invent new harness data.
+Either ignition flag on any non-unknown Panda and primary-board harness semantics
+are preserved. Missing-message age>5s grace/logging remain.12new real-Cereal tests,
+37focused USB/Chimera/Thneed tests plus28power/fan regressions (65total) pass;
+Ruff/compile pass. Removing validity rejection fails3tests. Seven fake-clock cases
+execute selected actual baseline/current hardwared branches, reproduce both bugs
+and verify the existing deadline without running hardware_thread or sockets.
+
+**Evidence/source pins:** Baseline bc99ae0d917a99b925840c31a11c3cb34ed5f7e0,
+unchanged Panda8a16e089/opendbc150f9371/Carrot69a2d3be and firmware/source pins;
+student Ai/Evidence/chimera-panda-validity-20261106.json and
+chimera/docs/PANDA_IGNITION_VALIDITY.md record exact files, hashes, outputs and
+limits. Source-first selected local source/fake-clock evidence, not a REA provider,
+physical runtime or delegated review. Relevant incremental/TDD/API/review/Git/docs
+skills used. Initial Capnp test serialization warning fixed with separate builders,
+not suppression; final37-test run uses warnings-as-errors.
+
+**Implemented versus proposed/limits:** Host validity prerequisite complete offline;
+T08b2 overall remains partial. Dated correction to QA28: hardwared no longer trusts
+Event.valid=false or retains ignition after fresh empty updates. USB monitor still
+publishes only CAN/isolated diagnostics, no ordinary pandaStates. Non-unknown type
+check is not a new firmware/profile allowlist; valid does not prove physical
+readiness. Current-only missing fields, raw safety/fault translations and unsigned
+alternativeExperience still need explicit semantics and tested conversion before
+ordinary status admission. Reconnect/backoff follows. No device/flash/reset/config/
+TX/new profile/schema/pins/SPI fallback or upstream update/fetch/push. Native and
+firmware sources unchanged; prior9native/sanitizer/28firmware results retained,
+not fresh runs. Firmware23hashes/7448-byte image, Ocelot39dirty entries/19hashes,
+archive, DBC and protected camera/model/Thneed preserved. Earlier unanswered items
+remain unchanged.
+
+---
+
 ## QA-20261106-28 — Proceed with passive USB CAN and diagnostics
 
 **Date:** November 6, 2026 UTC.

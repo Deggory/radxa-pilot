@@ -1,3 +1,8 @@
+**November 6, T08b2a:** normal host ignition now rejects invalid/empty Panda
+updates, with shutdown harness history preserved.65Python tests pass this slice.
+Legacy PandaState mapping/admission remains pending.
+[Validity contract](docs/PANDA_IGNITION_VALIDITY.md).
+
 **November 6 update:** T08b1 adds passive classical CAN RX and isolated legacy
 USB diagnostics to the pinned USB entry. Native build/9native programs,
 25Python regressions and sanitizer checks pass offline. No pandaStates admission
@@ -14,8 +19,8 @@ what has been written, what has actually been tested and what is still pending.
 **Connection requirement, November 6: USB only between the Radxa and Chimera or
 selected legacy Panda.** No SPI wiring, probing or fallback for this setup.
 Radxa startup now requires explicit serial/version pins and enters a USB-only
-status session before legacy reset/flashing logic. This is status monitoring
-only; managed CAN/status publication remains unfinished.
+observation session before legacy reset/flashing logic. Passive CAN and isolated
+legacy diagnostics are implemented; ordinary pandaStates admission remains pending.
 
 ## Where the code is
 
