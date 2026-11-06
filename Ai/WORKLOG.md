@@ -1,3 +1,13 @@
+## November 6 correction — firmware pin map and legacy build are available
+
+QA-20261106-04: followed the owner's pointer into Ocelot firmware and its shared
+board files. The logical GPIO/CAN/transceiver mapping, input/relay/OBD-C code,
+776-byte config layout and existing F413 build script/toolchain are present.
+Earlier gap wording was too broad: electrical connector/conditioning/load-path
+proof and a qualified modern build remain open; source pin definitions and a
+legacy build path are not missing. No functional code/build/device/update/push
+action. Next use this source baseline for T01/T02 and the offline board target.
+
 ## November 6 — Chimera completeness audited; remaining gaps recorded
 
 QA-20261106-03: sufficient source references for offline work, not a complete

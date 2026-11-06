@@ -1,0 +1,15 @@
+{
+  "chimera_diff_check": "pass",
+  "sunnypilot_diff_check": "pass",
+  "notebook": {
+    "result": "pass",
+    "memory_layout": "regular project directory",
+    "documents": 129,
+    "relative_links": 382,
+    "optional_workspace_links": 246,
+    "source_repositories": 8,
+    "indexed_entries": 4254
+  },
+  "source_integrity": "pass: original source hashes/snapshots and Ocelot dirty state preserved",
+  "scope": "Documentation only; no firmware build or hardware test. Selected source claims reviewed against original definitions."
+}

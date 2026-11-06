@@ -1,3 +1,19 @@
+## QA-20261106-04 — Inspect Ocelot Chimera firmware as the board baseline
+
+**Date:** November 6, 2026 UTC.
+
+**Owner question (original):** see the firmware folder insdie the ocelot ,chimera  this will give an idea
+
+**Answer:** Yes. The four Chimera files plus shared gateway/common board files define the existing implementation: STM32F413/Cortex-M4, MCU CAN1/2/3 on host buses 0/1/2, transceiver enables, PA3 ignition, PA4 speed pulses, PA5 crank pulses, PA6 brake, PC2/PC3 analog inputs, PB0 relay, PA2 OBD-C request and PB1 OBD-C ignition. The code also supplies legacy USB mailbox/status handlers, 776-byte flash configuration and input/report timing. The existing local build helper and toolchain are present. We should use these board assignments and acquisition paths as the preservation baseline while adapting USB/status/host support and explicit MCU safety policy.
+
+**Dated correction to QA-20261106-03:** Logical source pin assignments and a legacy build path are known, not missing. Earlier gap wording was too broad. Complete electrical connector/conditioning/load-path evidence, a reproducible modern image and proof that installed nightly matches these dirty local sources remain unresolved. Relay follows ignition; USB/OBD-C request gating is commented out. Do not equate preserving this circuit with already implemented heartbeat cutoff.
+
+**Evidence/source pin:** Ocelot d87892fa25ef2a2474110b97bfb5245ee818b534 plus preserved dirty source/local helpers. Selected source map is saved as `chimera/docs/FIRMWARE_SOURCE_MAP.md` and student `Ai/Knowledge/CHIMERA_FIRMWARE_SOURCE_MAP.md`. `chimera/evidence/firmware-source-map-20261106.json` hashes 19 source/dependency files; all 94 original entries and 93 frozen copies match, and Ocelot's 39-line dirty state is unchanged. GCC13.2.1, objcopy2.42 and SCons4.5.2 version checks passed. Direct SCons initially lacked its local PYTHONPATH; rerun with build_local.sh's library directories passed without installation.
+
+**Implemented versus proposed/limits:** Source inspection, documented mapping and corrected gaps only. No firmware/application/DBC change, build, device handle, flash/config/CAN/GPIO/relay operation, new REA run, upstream update or push. Modern implementation tasks remain pending. Next use the recovered board baseline for T01/T02 and offline target design; physical/installed verification remains a distinct qualification step.
+
+---
+
 ## QA-20261106-03 — Do we have all Chimera data, or is anything missing?
 
 **Date:** November 6, 2026 UTC.

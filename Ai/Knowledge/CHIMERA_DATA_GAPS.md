@@ -1,5 +1,17 @@
 # Chimera data completeness — November 6, 2026
 
+## November 6 correction — firmware pin map and legacy build are available
+
+QA-20261106-04: followed the owner's pointer into Ocelot firmware and its shared
+board files. The logical GPIO/CAN/transceiver mapping, input/relay/OBD-C code,
+776-byte config layout and existing F413 build script/toolchain are present.
+Earlier gap wording was too broad: electrical connector/conditioning/load-path
+proof and a qualified modern build remain open; source pin definitions and a
+legacy build path are not missing. No functional code/build/device/update/push
+action. Next use this source baseline for T01/T02 and the offline board target.
+
+[Recovered firmware implementation map](CHIMERA_FIRMWARE_SOURCE_MAP.md).
+
 We have enough source/reference evidence to begin bounded offline engineering;
 we do not have a complete verified hardware/installed-firmware dataset. Review
 QA-20261106-03 before repeating a claim that all board data is available.
@@ -24,7 +36,7 @@ Remaining facts/decisions:
   image and historical application restore proof already exist.
 - A verified complete current recovery set, including installed bootstub and
   current configuration/signature consistency. Local bootstub builds are not dumps.
-- Full new F413 build inputs/toolchain/board definition and signed partition budget.
+- Reproducible modern F413 target/dependencies and signed partition budget; legacy Ocelot target/build helper and local toolchain already exist.
 - Measured physical reception on all three buses and calibrated direct inputs.
 - Actual vehicle/sensor CAN IDs, layout, units, integrity and freshness.
 - Explicit bus/source authority, generated-report delivery, modern status and
