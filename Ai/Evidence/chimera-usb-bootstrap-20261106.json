@@ -1,0 +1,199 @@
+{
+  "date_utc": "2026-11-06T17:50:54.442112+00:00",
+  "baseline": "fcdbecdd6f706d21074363b8cca869ce85dace40",
+  "scope": "T03b1 backend-driven USB clock/detached-core preparation and pure EP0 state; no hardware binding or attachment",
+  "source_pins": {
+    "panda": "8a16e089b88593914823743df29e1c30b7dd3e00",
+    "opendbc": "150f937198ceab43c43b39f94b9bdea63fcb633c",
+    "ocelot": "d87892fa25ef2a2474110b97bfb5245ee818b534",
+    "archive": "224cfa645134db91103c55d8188d87e7976b0ba4"
+  },
+  "reference_sha256": {
+    "ocelot/firmware/drivers/clock.h": "27bfd83d179c78166860f9043d2cc4fac0ca77f108b44af699836d4f86250752",
+    "ocelot/firmware/boards/common.h": "adba0922187b13c5099d72a4b435c54ae3ac8f5f3be6720975686a1c9cffa26a",
+    "ocelot/firmware/chimera/usb.h": "2996676fb60447a3ea3de70882e19b0a54709a65e2f3d8c935c68e074eb0612d",
+    "ocelot/firmware/inc/stm32f413xx.h": "7c2cb1deecee360e4e8069c4215f05f652e14c70bd88f9bd072dc5502a5fd530",
+    "sunnypilot/openpilot/selfdrive/pandad/panda_usb.cc": "e71fbc4b98826c0704882971a93f831eb7ec98bc738549b0913b1a69a1232508",
+    "retropilot/dbc/ocelot_controls.dbc": "b4079670b8118fe63c6a7710ca1158afaabfec7df881ef902e43d70d70a36b67"
+  },
+  "st_primary_files": [
+    {
+      "commit": "6ef30cf0ef6cc29ad518f37b9e6de89b6b815f90",
+      "url": "https://raw.githubusercontent.com/STMicroelectronics/stm32f4xx-hal-driver/6ef30cf0ef6cc29ad518f37b9e6de89b6b815f90/Src/stm32f4xx_ll_usb.c",
+      "sha256": "b29a513885cd53bb8fbc9a12eca5cd6fe45e73b01a3da4e11ca36b935409dba9",
+      "bytes": 67066
+    },
+    {
+      "commit": "2df324bd60d4b0bb27404fd70b1c089b467f0e09",
+      "url": "https://raw.githubusercontent.com/STMicroelectronics/stm32-mw-usb-device/2df324bd60d4b0bb27404fd70b1c089b467f0e09/Core/Src/usbd_ctlreq.c",
+      "sha256": "17e7cb8bb042adf9aaa784cac4925bdfae5659678772f7268cc4adbb1d285e40",
+      "bytes": 25154
+    }
+  ],
+  "preservation": {
+    "ocelot_manifest": "chimera/docs/firmware-source-map-20261106.json",
+    "manifest_sha256": "a6303d3a0e52cff0b3f36cc8d9424e1b0e0dddbd829adeaad82ebe9b6240bf34",
+    "dirty39and19source_hashes": "pass: unchanged",
+    "archive_status": "",
+    "startup_board_main_vendor_codec_sources": "hash-identical to T04 receipt",
+    "canonical_dbc": "unchanged"
+  },
+  "build": {
+    "undefined_symbols": [],
+    "load_segments": [
+      {
+        "offset": 4096,
+        "virtual": 134234112,
+        "physical": 134234112,
+        "file_bytes": 4056,
+        "memory_bytes": 4056
+      },
+      {
+        "offset": 8192,
+        "virtual": 536870912,
+        "physical": 134238168,
+        "file_bytes": 4,
+        "memory_bytes": 8
+      }
+    ],
+    "reset_vector": 134237285,
+    "stack_top": 537001976,
+    "globals_bytes": 8,
+    "stack_reserved_bytes": 4096,
+    "target": "chimera-f413-offline-bootstrap",
+    "signed": false,
+    "raw_bytes": 4060,
+    "reserved_envelope_bytes": 136,
+    "projected_legacy_bytes": 4196,
+    "application_budget_bytes": 114688,
+    "sha256": "aea93ff3aefc7519a3cd6471a0b3881362bee727e75a704727badaaa42071a13",
+    "sources_sha256": {
+      "startup.S": "be9bc724c7e9a395ad12140d5a89d5e334efd074e992e1fad98aacb809cfa688",
+      "board.c": "dd4902ea9b4e048bc221ccd1548f5eb38277a860a52f89b524f78db734bceb8c",
+      "main.c": "d3bfbc5d63028d606967b7a3db6b7db9bc973e0fad1b2354113747ea9e146813",
+      "protocol.c": "47f8745bc8a774aa0674dd8a500c20769908e30efd9f6109b44e1d958abcceea",
+      "can_codec.c": "e9313054c3a628b5d3828d12ad5eeefe09c38d60b48dbc0e999fa39d59d3f94c",
+      "usb_hw.c": "d36b31b542239b5f75181fcaba3886177b1452dc2274ac7312cefd7d0f2c190c",
+      "usb_ep0.c": "0e6a5fd2c9f9011b266f873ec630ac11716e995d224dbd98e4a2fae6551f83f3",
+      "board.h": "0c531a8bb4c7ff205812b44507b639f063085cb48f973f732f3ee5428d12284d",
+      "protocol.h": "45fb8a73d39bc6a6cf9efeb270af57472012af3af48c82d74180a48d0ee09e95",
+      "can_codec.h": "87491ae3a73cd7b267815f2532361514cb9899c9c5231045526f54d3d98c554a",
+      "usb_hw.h": "919d83e6a771b5a9e0092414ca9711809300110588396b297171dfe4b6664a5a",
+      "usb_ep0.h": "d3341a4ded5c63e3edfc7e79c5315d5bd339c6d2447445263fb5a81746a4a6e7",
+      "stm32f413.ld": "fdd44a6ecf42c3bca2790ce3b31072018a6ca65e83ca34035285e003ea42c4c4",
+      "build.py": "1689c6e7c92381bee0723c288978e0f73245f26638cd0efc3bd81553a1c660d8"
+    },
+    "compiler": "arm-none-eabi-gcc (15:13.2.rel1-2) 13.2.1 20231009",
+    "objcopy": "GNU objcopy (2.42-1ubuntu1+23) 2.42",
+    "flags": [
+      "-mcpu=cortex-m4",
+      "-mthumb",
+      "-mfloat-abi=soft",
+      "-mno-unaligned-access",
+      "-Os",
+      "-std=c11",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-fno-common",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-fno-unwind-tables",
+      "-fno-asynchronous-unwind-tables",
+      "-Wall",
+      "-Wextra",
+      "-Wstrict-prototypes",
+      "-Werror",
+      "-nostdlib"
+    ],
+    "limits": "Unsigned offline build; no installed bootstub, electrical or runtime qualification."
+  },
+  "build_command": "python3 chimera/firmware/build.py --toolchain-prefix /home/radxa/.local/ocelot-build-tools/usr/bin/arm-none-eabi-",
+  "tests": {
+    "command": "CHIMERA_TOOLCHAIN_PREFIX=/home/radxa/.local/ocelot-build-tools/usr/bin/arm-none-eabi- python3 -m unittest discover -s chimera/firmware/tests -v",
+    "result": "pass",
+    "tests": 16,
+    "actual_output": "test_sanitized_codec_and_current_panda_wire_interoperability (test_can_codec.CanCodecTests.test_sanitized_codec_and_current_panda_wire_interoperability) ... ok\ntest_boot_vectors_reject_corruption (test_firmware.FirmwareTests.test_boot_vectors_reject_corruption) ... ok\ntest_build_is_independent_of_checkout_and_output_path (test_firmware.FirmwareTests.test_build_is_independent_of_checkout_and_output_path) ... ok\ntest_can_codec_entries_retained_in_arm_image (test_firmware.FirmwareTests.test_can_codec_entries_retained_in_arm_image) ... ok\ntest_control_setup_uses_byte_reads_for_unaligned_wire_buffer (test_firmware.FirmwareTests.test_control_setup_uses_byte_reads_for_unaligned_wire_buffer) ... ok\ntest_elf_rejects_unsafe_load_segments_and_identity (test_firmware.FirmwareTests.test_elf_rejects_unsafe_load_segments_and_identity) ... ok\ntest_gpio_contract_from_reset_and_inherited_state (test_firmware.FirmwareTests.test_gpio_contract_from_reset_and_inherited_state) ... ok\ntest_linker_rejects_flash_overflow (test_firmware.FirmwareTests.test_linker_rejects_flash_overflow) ... ok\ntest_linker_rejects_ram_stack_collision (test_firmware.FirmwareTests.test_linker_rejects_ram_stack_collision) ... ok\ntest_protocol_entry_and_identity_retained_in_arm_image (test_firmware.FirmwareTests.test_protocol_entry_and_identity_retained_in_arm_image) ... ok\ntest_read_only_control_contract (test_firmware.FirmwareTests.test_read_only_control_contract) ... ok\ntest_real_image_fits_reserved_envelope (test_firmware.FirmwareTests.test_real_image_fits_reserved_envelope) ... ok\ntest_startup_masks_interrupts_and_loads_msp_before_c (test_firmware.FirmwareTests.test_startup_masks_interrupts_and_loads_msp_before_c) ... ok\ntest_truncated_and_oversized_images_rejected (test_firmware.FirmwareTests.test_truncated_and_oversized_images_rejected) ... ok\ntest_usb_clock_core_and_ep0_entries_retained_in_arm_image (test_firmware.FirmwareTests.test_usb_clock_core_and_ep0_entries_retained_in_arm_image) ... ok\ntest_clock_detached_core_and_ep0_with_sanitizers (test_usb.UsbTests.test_clock_detached_core_and_ep0_with_sanitizers) ... ok\n\n----------------------------------------------------------------------\nRan 16 tests in 13.339s\n\nOK\nSUMMARY vectors=648 splits=4536 corruptions=17280 headers=65536 fuzz=10000 known_xor_collisions=2\nCurrent Panda source: 189 exact pack vectors, 648 unpack vectors; no hardware calls\n458920 request cases passed; no hardware calls\nUSB fake-register scenarios=19 SETUP cases=458797; no hardware calls\n",
+    "usb_register_scenarios": 19,
+    "ep0_setup_cases": 458797,
+    "sanitizers": [
+      "address",
+      "undefined"
+    ],
+    "arm_usb_entries": 7,
+    "existing_control_query_cases": 458920,
+    "existing_classical_codec_and_bounds_suite": "pass",
+    "copied_tree_identical_raw": "pass"
+  },
+  "test_sources_sha256": {
+    "chimera/firmware/tests/board_test.c": "028977ed9227a8f0db08b2bd15c8786fc7d5415374ccba8b1802aa8bab8f77cb",
+    "chimera/firmware/tests/can_codec_test.c": "c65a6ee40c0bf824b4eaf60e6cedd09053968c9e90a404f0143095fbf26aa0c3",
+    "chimera/firmware/tests/protocol_test.c": "27d43e7c4ee93d1866693b7211302e1dba6859c39137a07d2b00b471a2ed4301",
+    "chimera/firmware/tests/test_can_codec.py": "4d4cfe8f5d2f84052f2b1c2a15c31710e007906f645827e4de037c60eb4b0cda",
+    "chimera/firmware/tests/test_firmware.py": "c4823731976b86c1f32961d1531199a5c1ff24109c4d7f6934ab263beb7d1e5f",
+    "chimera/firmware/tests/test_usb.py": "30158e14fd5a422df31b6f6fb75a2ef77885df5cad29a3aede2a046a434099a2",
+    "chimera/firmware/tests/usb_test.c": "de3f0153e62a48e8c982027c8f781ef17b94e1e28be64adfc6027b4bec5edec3"
+  },
+  "native_compiler": "cc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "tdd_red": [
+    "Absent usb_hw/usb_ep0 source/header failed native fixture before implementation.",
+    "Canceled-completion generation API missing before adding tokens.",
+    "Post-reset AHB-idle failure scenario failed before adding bounded idle waits before FIFO flushes."
+  ],
+  "review_changes": [
+    "Held and verified RCC USB reset before enabling clock; verify release before accessing controller.",
+    "Kept PHY off across core reset and SDIS before PHY power.",
+    "Added per-transfer generations, stale completion rejection and overflow invalidation; backend still must cancel/clear real pending hardware events.",
+    "Added idle-before-flush checks and reset-hold/release failure fixtures. No weakened checks or skips."
+  ],
+  "clock_contract": {
+    "hse_assumption_hz": 16000000,
+    "m": 8,
+    "n": 96,
+    "q": 4,
+    "usb_hz": 48000000,
+    "cpu_nominal_hz": 16000000,
+    "turnaround": 13,
+    "mode_settle_delay_us": 50000,
+    "delay_backend": "required but not implemented for hardware",
+    "poll_budget": "read counts1..1000000, not a calibrated timeout"
+  },
+  "descriptor_contract": {
+    "usb_bcd": "0200",
+    "vid_pid": "bbaa:ddcc",
+    "configuration": 1,
+    "interface": 0,
+    "non_control_endpoints": 0,
+    "product": "Chimera F413",
+    "serial": "24lowercase hex digits from caller UID12bytes",
+    "power": "caller-supplied qualified self-powered flag/max2mAunits, not a measurement",
+    "vendor_queries": "D6/A0 only after configuration1"
+  },
+  "limits": [
+    "No MMIO/timing adapter, USB GPIO, FIFO packet/event driver, IRQ/startup binding or attachment.",
+    "No physical UID read, VBUS-valid override, oscillator/power sourcing/draw/supply-change qualification.",
+    "Logical status commits and generations do not establish controller DCFG timing or tag hardware interrupts.",
+    "Full USB compliance, installed bootstub/recovery/watchdog and electrical qualification remain unproved.",
+    "Phase0 capability/hash fields unchanged; no native host admission, health, bulk endpoints or CAN TX policy added."
+  ],
+  "workflow": "Teacher/student notes plus pinned Ocelot ST header and selected official ST LL/device request sources. TDD/interface/incremental/security/source-driven/debugging/Git/review skills; no copied ST implementation or new REA provider run.",
+  "ruff": "pass: .venv/bin/ruff check chimera/firmware",
+  "next": "T03b2 ordered MMIO/timing and USB event/FIFO/EP0 packet layer with cancellation/STALL/reset and attach-prerequisite tests.",
+  "excluded": "No device access/enumeration, hardware/CAN/USB/daemon run, flash/config/DBC write, relay/actuation, installation, Sunnypilot upstream update or push.",
+  "documentation_checks": {
+    "memory": {
+      "result": "pass",
+      "documents": 137,
+      "relative_links": 419,
+      "optional_workspace_links": 246,
+      "source_repositories": 8,
+      "indexed_entries": 4254
+    },
+    "chimera_markdown_links": {
+      "resolved": 57,
+      "result": "pass"
+    },
+    "git_diff_check": "pass",
+    "source_test_reference_hash_readback": "pass",
+    "teacher_student_qa17": "identical, earlier unanswered items preserved"
+  }
+}

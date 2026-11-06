@@ -69,6 +69,14 @@ class FirmwareTests(unittest.TestCase):
     self.assertTrue({"chimera_can_encode_rx", "chimera_can_decode_tx", "chimera_can_stream_init",
                      "chimera_can_stream_feed"}.issubset(symbols))
 
+  def test_usb_clock_core_and_ep0_entries_retained_in_arm_image(self):
+    result = run(PREFIX + "nm", "--defined-only", str(self.out / "first/chimera.elf"))
+    self.assertEqual(result.returncode, 0, result.stderr)
+    symbols = {line.split()[-1] for line in result.stdout.splitlines()}
+    self.assertTrue({"chimera_usb_clock48", "chimera_usb_core_detached", "chimera_usb_ep0_init",
+                     "chimera_usb_ep0_setup", "chimera_usb_ep0_in_complete", "chimera_usb_ep0_out_complete",
+                     "chimera_usb_ep0_reset"}.issubset(symbols))
+
   def test_real_image_fits_reserved_envelope(self):
     stack, reset = struct.unpack_from("<II", self.raw)
     self.assertEqual(stack, 0x2001FFF8)

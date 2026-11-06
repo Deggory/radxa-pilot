@@ -12,12 +12,13 @@ checks, a local commit and a notebook handoff before expanding the scope.
 - [x] T03a Original minimal F413 startup/linker/build, inactive outputs, nine offline tests and deterministic raw image.
 - [x] T02b Distinct bootstrap identity/manifest, read-only request handler/matrix and source bus/input contract; twelve offline tests pass.
 - [x] T04 Pure current six-byte/XOR classical CAN codec; fourteen-test suite, source interoperability and bounded stream/error fixtures pass offline.
+- [x] T03b1 Backend-driven USB clock/detached-core preparation and pure descriptor/EP0 model; sixteen offline tests pass. No packet driver/startup attachment yet.
 
 | Task | Next deliverable | Status |
 | --- | --- | --- |
 | T01 | Board GPIO/reset behavior, flash/config partitions and recovery boundaries | T01a source contract complete; installed bootstub/recovery and electrical qualification pending |
 | T02 | Distinct identity, legacy/current protocol profiles, RPC matrix and explicit bus/input source contracts | T02a/b complete offline; operational health/capability/config ABI and new-profile host admission remain pending |
-| T03 | Minimal F413 target, reviewed support/linker and offline image budget | T03a offline bootstrap complete; next T03b USB clock/controller/EP0 increment; signed release/runtime qualification pending |
+| T03 | Minimal F413 target, reviewed support/linker and offline image budget | T03a/b1 offline complete; T03b2 controller event/FIFO/EP0 packet driver/backend next; startup/physical qualification pending |
 | T04 | Modern six-byte/XOR classical CAN USB codec with stream/vector checks | Complete offline; no endpoint/CAN-controller binding or TX permission |
 | T05 | Exact identity/version/health responses, legacy F4 status adaptation and fail-disabled state | Pending |
 | T06 | Native Sunnypilot USB transport and offline failure tests | Offline transport implemented (T06a/b); managed use remains T08 |
@@ -41,8 +42,9 @@ at `../chimera/tasks/plan.md`, relative to the Sunnypilot repository root.
 This sequence carries the implementation forward without requiring that archive
 at runtime. Slice boundaries may split a task; a partial task stays pending.
 
-Next board slice: T03b USB clock/controller/EP0 implementation and offline checks,
-then operational status/capability contracts and endpoint binding. Electrical unknowns block
+Next board slice: T03b2 ordered MMIO/timing backend and USB event/FIFO/EP0 packet
+handling with offline checks and attach prerequisites; then status/capability and
+endpoint binding. Electrical unknowns block
 claims or hardware loading that depend on them; they do not erase known source
 assignments or prevent bounded offline engineering.
 

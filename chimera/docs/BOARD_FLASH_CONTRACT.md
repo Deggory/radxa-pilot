@@ -61,7 +61,8 @@ Assembly masks IRQs and initializes MSP; C initializes data/BSS, disables inheri
 SysTick/NVIC IRQs, clears pending IRQs and installs VTOR. GPIO inactive levels are
 established, then CAN/USB peripheral clocks gated. HSI16MHz is selected with
 bounded readiness/switch polling before removing AHB/APB divisors. Existing flash
-wait states are retained. No HSE/PLL/USB48MHz configuration is attempted.
+wait states are retained. The parked main attempts no HSE/PLL/USB48MHz
+configuration; the newer USB preparation library below is compiled but not called.
 
 Debugger globals report boot magic`0x4348494D` and state1(parked),2(clock failure)
 or3(trap). These are not operational health responses. IRQs remain masked and
@@ -97,5 +98,8 @@ compiler and artifact checks; there was no device execution or REA provider run.
 
 T02b now adds the [identity/request contract](USB_IDENTITY_CONTRACT.md), pure
 handler and source contract. T04 adds the [classical CAN codec](CAN_CODEC_CONTRACT.md);
-the combined suite has fourteen tests. Next: USB clock/EP0, then status/endpoint work. Host T05 legacy
+T03b1 adds [detached USB preparation/EP0 state](USB_BOOTSTRAP.md), making sixteen
+tests in the combined suite. Main still uses the original HSI-only parked path;
+the new HSE/PLL preparation is compiled but not invoked. Next: USB event/FIFO/
+packet driver and attach prerequisites, then status/endpoints. Host T05 legacy
 status decoding and T08 managed selection remain separate pending increments.

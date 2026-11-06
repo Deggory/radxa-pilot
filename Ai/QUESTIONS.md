@@ -1,3 +1,19 @@
+## QA-20261106-17 — Proceed with USB clock and endpoint zero
+
+**Date:** November 6, 2026 UTC.
+
+**Owner request (original):** proceed
+
+**Context:** Continue after QA16 with the USB clock/controller/endpoint-zero foundation, using teacher evidence and offline verification before physical attachment.
+
+**Answer:** Added original firmware libraries for USB48 clock preparation, detached USB core initialization and a pure endpoint-zero request/state model. The clock uses the source-defined16MHz HSE and M8/N96/Q4 while the CPU remains HSI16. EP0 supplies bootstrap descriptors and UID-derived serial formatting, strict standard requests and configured-only A0/D6 queries. Address/configuration changes wait for status completion; generation tokens reject canceled-transfer completions.16offline tests pass, including19fake-register scenarios and458797SETUP cases. The ARM image is4060bytes, with8bytes global RAM. Nothing calls these libraries from startup yet. Next is the real timing/MMIO and controller event/FIFO packet driver, followed by status and operational endpoints.
+
+**Evidence/source pins:** Baselinefcdbecdd6f706d21074363b8cca869ce85dace40; Ocelotd87892fa original clock/USB/board sources and ST CMSIS header; official ST LL USB6ef30cf0 and device middleware2df324bd. Exact URLs/hashes, actual16-test output and tool/artifact pins in Sunnypilot Ai/Evidence/chimera-usb-bootstrap-20261106.json; design/limits in chimera/docs/USB_BOOTSTRAP.md and session2026-11-06-chimera-usb-bootstrap.md. GCC13.2.1/binutils2.42, native ASan/UBSan and ARM link/symbol checks used. No unrelated REA provider analysis claimed.
+
+**Implemented versus proposed/limits:** T03b1 complete offline; T03 remains partial. No hardware MMIO/timer adapter, GPIO USB setup, interrupts, FIFO packet pump, physical UID read, VBUS qualification or connection. Caller must supply a qualified power profile and UID. Generation tokens require the future driver to cancel/drain stale hardware events. Physical clock/address-status timing and USB compliance remain unqualified; full ST manual/USB specification review is not claimed. No bulk endpoints, operational status, host admission, CAN/input acquisition or MCU actuation policy enabled. Main/startup, phase0 capabilities, DBC/Ocelot/archive unchanged. No device/flash/config/actuation/install/update/push. QA16's1840-byte artifact remains its historical result; current image4060bytes. Unanswered entries below are preserved.
+
+---
+
 ## QA-20261106-16 — Proceed with modern classical CAN framing
 
 **Date:** November 6, 2026 UTC.

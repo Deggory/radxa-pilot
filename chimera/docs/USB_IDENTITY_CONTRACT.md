@@ -1,16 +1,18 @@
 # Chimera identity and request contract
 
 November 6, 2026 — T02b. The compiled bootstrap contains a pure, read-only vendor
-request handler and identity data. USB clock/controller/descriptors/endpoints are
-not implemented yet. This contract defines the future EP0 connection; no board
+request handler and identity data. T03b1 adds detached clock/core preparation and
+a descriptor/EP0 model; MMIO/timing binding, FIFO/event handling and startup
+connection remain pending. This contract defines the EP0 connection; no board
 enumeration, host selection or modern operational compatibility is claimed.
 
 ## Separate identity before interpreting requests
 
 Development descriptor contract: retain the legacy normal-mode VID:PID
 `bbaa:ddcc`, use product **Chimera F413**, and require a stable, nonempty serial
-derived from the MCU unique identity. Serial generation/descriptors are future
-implementation. This reuses the board's existing development IDs; it is not a
+derived from the MCU unique identity. T03b1 now implements lowercase UID serial
+formatting and a control-only descriptor model; hardware UID read/publication
+is still future work. This reuses the board's existing development IDs; it is not a
 claim of USB-IF allocation or permission for a new commercial VID.
 
 The firmware version response is `chimera-f413-bootstrap-v1`,25ASCIIbytes without
@@ -123,3 +125,9 @@ T04 now adds the [classical CAN codec](CAN_CODEC_CONTRACT.md) and expands the
 combined suite to fourteen tests. It is not connected to USB/CAN hardware; the
 bootstrap identity, phase and zero operational capability/layout fields stay as
 specified above. Code availability alone does not advertise an active interface.
+
+T03b1 adds [USB preparation/EP0 state](USB_BOOTSTRAP.md), expanding the combined
+suite to sixteen tests. The EP0 wrapper permits D6/A0 only after configuration1;
+the standalone vendor handler ABI remains unchanged. Its bootstrap descriptor
+advertises zero bulk endpoints. The planned IN81/OUT03 operational interface is
+not enabled, and the model is not yet connected to a hardware packet driver.

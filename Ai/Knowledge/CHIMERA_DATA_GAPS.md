@@ -1,3 +1,15 @@
+## November 6 — Detached USB foundation implemented offline
+
+QA-20261106-17: T03b1 adds USB48 clock/detached core preparation and a pure EP0
+request/state model under chimera/firmware/.16 offline tests pass, including19
+fake-register scenarios and458797 SETUP cases; raw4060bytes, globals8bytes.
+Main/startup and zero operational capabilities remain unchanged. Next T03b2:
+ordered MMIO/timing backend, controller event/FIFO/EP0 packet handling and
+reset/cancellation/STALL fixtures before any startup attachment. Status/bulk
+endpoints and host admission remain pending. No device/flash/CAN/actuation/
+config/DBC/install/update/push; Ocelot/archive preserved. Upstream remains held.
+See [session](../Sessions/2026-11-06-chimera-usb-bootstrap.md).
+
 ## November 6 — Offline classical codec complete
 
 T04 pure current framing/stream implementation now passes14offline tests with

@@ -107,5 +107,6 @@ runtime/REA provider run, hardware enumeration, CAN/USB traffic or flash operati
 
 The [bus/input contract](BUS_INPUT_CONTRACT.md) and canonical RetroPilot DBC
 continue to govern physical routing and CAN payloads. This increment neither
-interprets nor changes those payload definitions. Next: USB clock/controller/EP0
-implementation and offline checks, then operational status and endpoint binding.
+interprets nor changes those payload definitions. T03b1 now supplies
+[detached USB preparation/EP0 state](USB_BOOTSTRAP.md). Next: controller event/FIFO
+packet handling, backend/attach prerequisites, then status and endpoint binding.

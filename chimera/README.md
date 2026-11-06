@@ -31,6 +31,7 @@ BRAKE, both analog inputs, the onboard relay and OBD-C hardware interfaces.
 - [USB identity/request contract](docs/USB_IDENTITY_CONTRACT.md): distinct bootstrap identity and implemented read-only handler.
 - [Bus/input source contract](docs/BUS_INPUT_CONTRACT.md): preserved routing and future validity/source requirements.
 - [CAN codec contract](docs/CAN_CODEC_CONTRACT.md): tested current framing, bounded stream behavior and integrity limits.
+- [USB bootstrap](docs/USB_BOOTSTRAP.md): detached clock/core preparation and EP0 request model; hardware packet handling still pending.
 - [Roadmap](tasks/plan.md): one verified increment at a time.
 - [Existing firmware map](docs/FIRMWARE_SOURCE_MAP.md): recovered GPIO/CAN/config/build behavior.
 - [Source provenance](docs/PROVENANCE.md): reference versions and archive locations.
@@ -38,8 +39,9 @@ BRAKE, both analog inputs, the onboard relay and OBD-C hardware interfaces.
 
 Completed: folder/source map, T01a source-backed board/flash boundaries, T03a
 minimal offline F413 build, T02b identity/request/source contracts and T04 classical
-CAN codec with offline interoperability/stream checks. Next board slice: USB
-clock/controller/EP0 wiring, then operational health contracts and endpoints. Physical
+CAN codec with offline interoperability/stream checks. T03b1 adds detached USB
+preparation and the pure EP0 model. Next: T03b2 controller event/FIFO/EP0 packet
+handling and backend/attach prerequisites, then operational health/endpoints. Physical
 boot/recovery and electrical qualification remain open.
 
 Legacy F4 Panda support is now an explicit host requirement alongside Chimera.
