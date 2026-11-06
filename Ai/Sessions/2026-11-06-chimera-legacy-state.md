@@ -38,7 +38,7 @@ Chimera/Thneed). Native fixture decoded in Python is invalid and denied ignition
 while raw controls/ignition remain true and prior harness context is retained.
 Strict ASan/UBSan covers new converter/test; existing support libraries unsanitized,
 no USB/SPI source linked. A temporary mutant sets Event.valid=true and fails.
-Actual managed binary lacks converter symbol. Ruff/SCons AST and whitespace pass.
+Actual managed binary lacks converter symbol. Ruff/SCons AST and authored-source whitespace pass.
 Initial unsupported SCons dry-run -B and missing generated-header include corrected
 without suppression or lowered tests. Complete commands/hashes/output in receipt.
 
@@ -57,3 +57,9 @@ only for offline preview; normal admission remains pending.
 
 [Receipt](../Evidence/chimera-legacy-state-20261106.json).
 [Contract](../../chimera/docs/LEGACY_F4_PANDA_STATE.md).
+
+Closeout correction: the full staged whitespace check reported the original
+trailing-space line666 in the unchanged pinned safety.h source. Preserve its
+exact Git blob; authored code/docs pass a check excluding only that attributed
+reference. No runtime/test suppression or changed source bytes. A small follow-up
+documentation commit records this distinction; no history rewrite.

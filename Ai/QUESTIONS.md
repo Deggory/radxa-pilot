@@ -49,6 +49,12 @@ corrected without suppression. Next T08b2c supported-field admission metadata an
 consumer review before publication; reconnect/backoff follows. Earlier unanswered
 items remain intact.
 
+**Closeout clarification:** The complete source import retains upstream trailing
+spaces on safety.h line666. Authored code/docs pass whitespace checks excluding
+that unchanged attributed reference; exact Git blob/hash checks cover its bytes.
+The initial feature commit and a small provenance/verification correction commit
+are retained, with no history rewrite or runtime/test suppression.
+
 ---
 
 ## QA-20261106-29 — Proceed with Panda ignition validity prerequisite

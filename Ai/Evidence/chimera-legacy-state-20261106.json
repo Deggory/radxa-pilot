@@ -17,7 +17,7 @@
     "chimera/tasks/plan.md": "65bd671f46fbf2fca0623101ef8a16df6b58d75336a56b8b353d43b267c9f34a",
     "openpilot/selfdrive/pandad/SConscript": "40731dbf71038724a25e3d87e4ec684997cf6984324229a911257abcc5abef0d",
     "chimera/docs/LEGACY_F4_PANDA_STATE.md": "8aed53e047ea7b246b4306c1a8bacb35613cece894a5d2fdd4cfaa3914037f66",
-    "chimera/reference/carrot-f4-state-v17/README.md": "e2ff6751042de5c15306786db61ac4028c5745e2d219ae9a30910ada7e0ea05f",
+    "chimera/reference/carrot-f4-state-v17/README.md": "b72e7058bb935edb2977e5828465a2a8d781af9cdf6db474a45a63e26f7b86bc",
     "chimera/reference/carrot-f4-state-v17/SOURCES.json": "132138fcd2ecf307a3865e6d51d1e05fa638b2fb840d6432bbabcb28d477bd02",
     "chimera/reference/carrot-f4-state-v17/opendbc_repo/LICENSE": "6543c4a66b46affddae1b9ae1e1992687f0b7191e74ba3a7235388b9f42a6d13",
     "chimera/reference/carrot-f4-state-v17/opendbc_repo/opendbc/safety/safety.h": "a8b2b54271dd1fb3fd7f6998b0473a939dce1bfec56a644fc64cd649cfd825aa",
@@ -234,7 +234,14 @@
       "source_repositories": 8,
       "indexed_entries": 4254
     },
-    "source_artifact_hashes_and_contract_links": "pass"
+    "source_artifact_hashes_and_contract_links": "pass",
+    "whitespace": {
+      "complete_source_import_check_exit": 2,
+      "output": "chimera/reference/carrot-f4-state-v17/opendbc_repo/opendbc/safety/safety.h:666: trailing whitespace.\n+  \n",
+      "authored_check_exit": 0,
+      "exception": "chimera/reference/carrot-f4-state-v17/opendbc_repo/opendbc/safety/safety.h",
+      "reason": "Exact attributed upstream blob contains original trailing spaces at line666. Preserve bytes; do not alter runtime checks or reference hash tests."
+    }
   },
   "reference": {
     "method": "Connected GitHub fetch_file at exact prior Carrot commit, comparing blobs to saved nontruncated tree; no branch/reference updater or clone",
@@ -350,7 +357,8 @@
       "Fault27 SOUND_DMA absent from schema; current Panda also defines bit27. Preview rejects bits27..31. Existing managed fault-list allocation/fill mismatch retained as a separate source-level risk, not changed",
       "Legacy checksum-only SPI error count is not broader current spiErrorCount; six unavailable fields explicitly listed",
       "24mapped+3controller structs+6unavailable account for all33active PandaState fields; deprecated excluded"
-    ]
+    ],
+    "feature_commit": "47c8cc2cec32df43b4d535e50a56d84c41c207c7"
   },
   "preservation": {
     "ocelot_dirty_entries": 39,

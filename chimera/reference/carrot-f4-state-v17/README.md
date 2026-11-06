@@ -24,3 +24,7 @@ matching labels do not prove equivalent hooks/parameters or permit control.
 Fault bit27=SOUND_DMA has no current Cereal enum entry and is rejected, together
 with any higher bit. Current Panda also defines bit27; the schema limit is not
 unique to legacy firmware. See the [mapping contract](../../docs/LEGACY_F4_PANDA_STATE.md).
+
+Byte-preservation note: safety.h line666 contains upstream trailing spaces. Its
+exact Git blob is retained. Authored-source whitespace checks exclude this
+unchanged reference file; frozen-byte/hash tests still cover the entire file.
