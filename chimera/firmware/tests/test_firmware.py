@@ -62,6 +62,13 @@ class FirmwareTests(unittest.TestCase):
     self.assertEqual(result.returncode, 0, result.stderr)
     self.assertNotIn("ldrh", result.stdout.lower())
 
+  def test_can_codec_entries_retained_in_arm_image(self):
+    result = run(PREFIX + "nm", "--defined-only", str(self.out / "first/chimera.elf"))
+    self.assertEqual(result.returncode, 0, result.stderr)
+    symbols = {line.split()[-1] for line in result.stdout.splitlines()}
+    self.assertTrue({"chimera_can_encode_rx", "chimera_can_decode_tx", "chimera_can_stream_init",
+                     "chimera_can_stream_feed"}.issubset(symbols))
+
   def test_real_image_fits_reserved_envelope(self):
     stack, reset = struct.unpack_from("<II", self.raw)
     self.assertEqual(stack, 0x2001FFF8)

@@ -1,3 +1,11 @@
+## November 6 — Offline classical codec complete
+
+T04 pure current framing/stream implementation now passes14offline tests with
+source interop, sanitizers and ARM bounds/symbol checks; raw1840bytes. Transport
+XOR limitations are explicitly tested. USB clock/controller/EP0/endpoints,
+operational status/admission and independent MCU policy remain open; no hardware
+or payload acquisition qualified. See [session](../Sessions/2026-11-06-chimera-can-codec.md).
+
 ## November 6 — Identity contract and pure handler now available
 
 T02b adds distinct bootstrap identity/manifest, a strict read-only handler and

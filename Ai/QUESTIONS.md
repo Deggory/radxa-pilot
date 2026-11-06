@@ -1,3 +1,19 @@
+## QA-20261106-16 — Proceed with modern classical CAN framing
+
+**Date:** November 6, 2026 UTC.
+
+**Owner request (original):** procceedd
+
+**Context:** Continue the next board slice after QA15: modern classical CAN framing before USB endpoint wiring.
+
+**Answer:** Implemented the pure firmware CAN codec: current six-byte/XOR encoding, strict host-TX decoding and a bounded streaming decoder that retains partial records across chunks. It preserves buses0/1/2, accepts0..8payload bytes and standard/extended IDs, rejects FD/invalid headers/host return flags, and latches detected stream failures until explicit reset.14offline tests pass:648RX records and189TX packing vectors match the current Panda source, with4536split/chunk scenarios,17280fixed-size bit-flip rejections,65536header cases and10000random streams. The image is1840bytes. No codec is called from the parked application; USB/CAN wiring and operational health remain unfinished. Next is USB clock/controller/endpoint-zero work.
+
+**Evidence/source pins:** Baselinef65ab3639119f9a3e006aa76547d531310e56552; Panda8a16e089/opendbc150f9371. Current packed CAN header, Panda can_comms.h/Python wire functions/native panda.cc; source and test hashes plus actual output in Sunnypilot Ai/Evidence/chimera-can-codec-20261106.json. Contract chimera/docs/CAN_CODEC_CONTRACT.md; session2026-11-06-chimera-can-codec.md. GCC13.2.1/binutils2.42/native sanitizers, ARM artifact and copied-tree build checks. No REA provider analysis claimed.
+
+**Implemented versus proposed/limits:** T04 complete offline. Explicit tests show XOR can miss balanced data changes and a changed DLC can form a valid shorter stream prefix. Checksum validity is not authentication or MCU TX permission; independent policy/message integrity remains mandatory. Main/GPIO/protocol sources and zero capability/hash advertisement unchanged; canonical DBC/Ocelot/archive preserved. No actual USB/CAN traffic, hardware/flash/config/DBC/actuation/install/upstream/push action. Previous QA15's1240-byte image is its historical snapshot; current raw image1840bytes. Physical qualification, USB/status/host lifecycle, input acquisition/Core Config and MCU policy remain pending. Unanswered items below are preserved.
+
+---
+
 ## QA-20261106-15 — Continue the board identity and request contract
 
 **Date:** November 6, 2026 UTC.

@@ -107,7 +107,7 @@ confirm the wire fields and request-type interpretation. Online docs1.0.30;
 the host's existing vendored1.0.29.post103 header has the same definitions. The
 manifest, A0 choice and rejection policy are our new design, not legacy behavior.
 
-Twelve offline tests pass. The native ASan/UBSan handler fixture checks458920
+The T02b twelve-test suite passed. The native ASan/UBSan handler fixture checks458920
 cases: every bmRequestType/request pair, all65536 lengths and wValue/wIndex values
 for both queries, destination capacities, malformed SETUP sizes and null pointers.
 Two deliberately unaligned SETUP buffers also pass. Canaries verify exact response
@@ -118,3 +118,8 @@ symbols/bytes confirm the handler and identity survive linking. Original vector,
 GPIO, overflow, startup ordering and copied-tree deterministic-build tests pass.
 Handler code is deliberately retained for these checks and future wiring; nothing
 calls it from the parked application. This is not a USB runtime test.
+
+T04 now adds the [classical CAN codec](CAN_CODEC_CONTRACT.md) and expands the
+combined suite to fourteen tests. It is not connected to USB/CAN hardware; the
+bootstrap identity, phase and zero operational capability/layout fields stay as
+specified above. Code availability alone does not advertise an active interface.

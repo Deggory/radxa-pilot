@@ -1,3 +1,13 @@
+## November 6 — Chimera classical CAN codec implemented offline
+
+QA-20261106-16: T04 encoder/strict TX decoder and bounded stream state now in
+chimera/firmware/.14tests pass,648RX/189PythonTX vectors,4536chunk/split cases,
+17280fixed-size corruptions,65536headers/10000fuzz streams; XOR limits tested.
+Raw1840bytes; main/GPIO/protocol and phase0 capabilities unchanged. No USB/CAN
+binding. [Session](../Sessions/2026-11-06-chimera-can-codec.md) pins commands/hashes/limits.
+Next T03bUSBclock/controller/EP0 offline work; status/endpoints and hostT05/T08 pending.
+No device/flash/config/DBC/actuation/update/push; original references preserved.
+
 ## November 6 — Chimera bootstrap identity/query contract implemented
 
 QA-20261106-15: T02b adds protocol.c/.h and USB/source contracts; pure A0manifest/

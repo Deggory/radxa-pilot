@@ -14,8 +14,8 @@ APP = 0x08004000
 CONFIG = 0x08020000
 ENVELOPE = 136
 STACK = 0x2001FFF8
-COMPILATION_SOURCES = ("startup.S", "board.c", "main.c", "protocol.c")
-SOURCES = (*COMPILATION_SOURCES, "board.h", "protocol.h", "stm32f413.ld", "build.py")
+COMPILATION_SOURCES = ("startup.S", "board.c", "main.c", "protocol.c", "can_codec.c")
+SOURCES = (*COMPILATION_SOURCES, "board.h", "protocol.h", "can_codec.h", "stm32f413.ld", "build.py")
 
 
 def command(*args):

@@ -25,6 +25,7 @@ SECTIONS {
      * Nothing calls it from the parked application in this increment.
      */
     KEEP(*(.text.chimera_control_read))
+    KEEP(*(.text.chimera_can_*))
     KEEP(*(.rodata.chimera_*))
     *(.text*) *(.rodata*)
     *(.glue_7) *(.glue_7t) *(.vfp11_veneer) *(.v4_bx)

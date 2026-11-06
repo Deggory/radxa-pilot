@@ -96,6 +96,6 @@ reserved by symbols/assertions, not an artificial load segment. These are source
 compiler and artifact checks; there was no device execution or REA provider run.
 
 T02b now adds the [identity/request contract](USB_IDENTITY_CONTRACT.md), pure
-handler and source contract; the combined suite has twelve tests. Next: modern
-classical CAN codec, then USB clock/endpoint work. Host T05 legacy
+handler and source contract. T04 adds the [classical CAN codec](CAN_CODEC_CONTRACT.md);
+the combined suite has fourteen tests. Next: USB clock/EP0, then status/endpoint work. Host T05 legacy
 status decoding and T08 managed selection remain separate pending increments.
