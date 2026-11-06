@@ -1,3 +1,19 @@
+## QA-20261106-26 — Proceed with per-controller CAN-health5
+
+**Date:** November 6, 2026 UTC.
+
+**Owner request (original):** proceed
+
+**Context:** Continue T05c after the progress summary; USB-only deployment/no SPI fallback remains accepted.
+
+**Answer:** Added native LegacyF4CanHealth with all26wire fields plus the caller selector, exact64-byte profile-gated decoder and one bounded C2 reader for selectors0/1/2. All unsigned widths, checked flags/error codes, reported speeds/counters are retained without casting to current health or inferring physical bus roles/FD capability. Invalid selectors/profiles/unhealthy handles fail before IO; malformed/short/failed or unhealthy completed reads return no state, without retry/cache/writes. Current/legacy CAN-health layouts match at pinned sources; versions/main health/policies stay separate. Native pandad and seven native executables build/pass; strict ASan/UBSan passes new CAN health and existing health59. Removing the reader selector bound is caught. Next T08a is USB-only pinned session/startup ownership with no SPI probe/fallback; managed publication/exact-read hardening/reconnect remains.
+
+**Evidence/source pins:** Baseline288479ccaad916286376fac6fc86ad7dd6c69e85; Carrot69a2d3be actual header/C2 producer/bxcan/Python mapping, current Panda8a16e089 health header, F413 CMSIS REC mask. Exact hashes/commands/output in student Ai/Evidence/chimera-can-health-20261106.json; contract chimera/docs/LEGACY_F4_CAN_HEALTH.md. Independent golden bytes, all26offset/type assertions against both headers,3x64flags aligned/unaligned,1524invalid booleans,1024LEC cases and65533invalid selectors checked. Source/CLI/GNU native evidence; no new REA provider/network result.
+
+**Implemented versus proposed/limits:** T05c decoder/read helper complete offline, full T05 partial. Legacy bus_off_cnt increments on each producer update including C2 reads while bus-off, not distinct transitions; no rate/reset inference. F4 REC is8bits, not constrained by H7 comment. Selector has no reply echo, no role remap; FD fields are reports only. No new firmware/status producer, USB startup switch or managed-readiness claim. Firmware23source hashes/retained7448-byte artifact unchanged; no new ARM/28-test firmware or Python receiver run. Ocelot39dirty entries/19hashes, archive and canonical DBC preserved. No device/flash/reset/config/CAN/relay/install/update/push; power/VBUS/current recovery and watchdog still open. Prior unanswered entries preserved.
+
+---
+
 ## QA-20261106-25 — Summarize progress and remaining work
 
 **Date:** November 6, 2026 UTC.

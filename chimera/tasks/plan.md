@@ -27,6 +27,7 @@ future T02/T05/T08 fixtures; no new firmware integration or task completion.
 - [x] T03b3a Power/VBUS/UID/watchdog/recovery requirements and read-only UID/reset/option snapshot helper; twenty-one offline tests pass. No startup/attachment.
 - [x] T03b3b Composed detached preparation/poll/release service; twenty-three tests/44integration scenarios pass. Not called by main; physical attachment unqualified.
 - [x] T05a Bootstrap status/capability contract and strict pure decoder; response interoperability/rejection fixtures pass offline. No operational health/profile admission.
+- [x] T05c Legacy F4 CAN-health5/64 typed decoder and bounded selector0..2 reader; exact layouts, golden data, sanitizer and rejection fixtures pass offline. No managed publication.
 - [x] T05b Legacy F4 health59 typed native decoder and bounded read helper; exact retained header/golden bytes, sanitizer and failure tests pass offline. No managed publisher/startup.
 
 | Task | Next deliverable | Status |
@@ -35,7 +36,7 @@ future T02/T05/T08 fixtures; no new firmware integration or task completion.
 | T02 | Distinct identity, legacy/current protocol profiles, RPC matrix and explicit bus/input source contracts | T02a/b complete offline; operational health/capability/config ABI and new-profile host admission remain pending |
 | T03 | Minimal F413 target, reviewed support/linker and offline image budget | T03a/b1/b2/b3a/b3b complete offline; unbound detached service exists; actual startup/attachment and qualified power/VBUS/recovery remain pending |
 | T04 | Modern six-byte/XOR classical CAN USB codec with stream/vector checks | Complete offline; no endpoint/CAN-controller binding or TX permission |
-| T05 | Exact identity/version/health responses, legacy F4 status adaptation and fail-disabled state | T05a bootstrap and T05b F4health59 decoder/read helper complete offline; per-bus health, publication and new Chimera operational health pending |
+| T05 | Exact identity/version/health responses, legacy F4 status adaptation and fail-disabled state | T05a bootstrap, T05b health59 and T05c CAN-health5 decode/read helpers complete offline; publication and new Chimera operational health pending |
 | T06 | Native Sunnypilot USB transport and offline failure tests | Offline transport implemented (T06a/b); managed use remains T08 |
 | T07 | Isolated passive receive qualification on each physical bus | Pending separate bench scope |
 | T08 | USB-only current/F4/Chimera managed passive lifecycle, pinned selection, reconnect and exclusive ownership; no SPI probe/fallback | Pending |
@@ -59,7 +60,8 @@ at runtime. Slice boundaries may split a task; a partial task stays pending.
 
 T05a [status/capability contract](../docs/STATUS_CAPABILITY_CONTRACT.md) and pure
 bootstrap decoder and T05b legacy F4 health59 decoder/read helper are complete
-offline. Next T05c: per-bus CAN-health5 decoding/compatibility before managed use. New Chimera
+offline, along with T05c [CAN-health5](../docs/LEGACY_F4_CAN_HEALTH.md). Next T08a:
+USB-only pinned session/startup ownership, no SPI probing/fallback. New Chimera
 operational health and bulk CAN/controller binding remain pending.
 [Detached service](../docs/USB_SERVICE.md) now composes existing modules.
 [Requirements](../docs/USB_STARTUP_REQUIREMENTS.md) retain missing physical power/
@@ -71,5 +73,5 @@ assignments or prevent bounded offline engineering.
 Owner added legacy Panda compatibility on November 6. The independent host
 transport boundary was extracted first; it does not depend on a flashed Chimera
 image. See [the compatibility slices](../docs/LEGACY_PANDA_SUPPORT.md). T06a/b and
-T02a/T05b are checked offline; per-bus health, publication, managed lifecycle and
+T02a/T05b/T05c are checked offline; publication, managed lifecycle and
 physical testing still follow. See the [health59 contract](../docs/LEGACY_F4_HEALTH.md).

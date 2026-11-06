@@ -21,6 +21,7 @@ the existing `openpilot/selfdrive/pandad/` module, where Sunnypilot builds it:
 | New native USB connection | [panda_usb.cc](../openpilot/selfdrive/pandad/panda_usb.cc), [header](../openpilot/selfdrive/pandad/panda_usb.h) |
 | New board/protocol identification | [panda_identification.cc](../openpilot/selfdrive/pandad/panda_identification.cc), [header](../openpilot/selfdrive/pandad/panda_identification.h) |
 | New bootstrap discovery decoder | [chimera_identity.py](../openpilot/selfdrive/pandad/chimera_identity.py), pure/offline; no managed profile |
+| Legacy F4 per-controller health | [CAN-health5 contract](docs/LEGACY_F4_CAN_HEALTH.md), native typed decoder and bounded C2 reader |
 | Legacy F4 health59 decoder/read helper | [panda_health.cc](../openpilot/selfdrive/pandad/panda_health.cc), [header](../openpilot/selfdrive/pandad/panda_health.h); native library, not managed startup |
 | Shared transport interface | [panda_comms.h](../openpilot/selfdrive/pandad/panda_comms.h) |
 | Existing original-Chimera Python receiver | [chimera.py](../openpilot/selfdrive/pandad/chimera.py), [decoder](../openpilot/selfdrive/pandad/chimera_protocol.py) |
@@ -50,6 +51,7 @@ BRAKE, both analog inputs, the onboard relay and OBD-C hardware interfaces.
 - [Existing firmware map](docs/FIRMWARE_SOURCE_MAP.md): recovered GPIO/CAN/config/build behavior.
 - [Source provenance](docs/PROVENANCE.md): reference versions and archive locations.
 - [Legacy Panda support](docs/LEGACY_PANDA_SUPPORT.md): USB-only Radxa target with distinct firmware/status profiles.
+- [Legacy F4 CAN-health5](docs/LEGACY_F4_CAN_HEALTH.md): exact per-controller fields, selector validation and bounded reads.
 - [Legacy F4 health59](docs/LEGACY_F4_HEALTH.md): exact typed decoding and one bounded read; no health49 cast or manufactured current-only fields.
 - [Ocelot Panda Docker review](docs/OCELOT_PANDA_DOCKER_REVIEW.md): pinned legacy Panda and parent Chimera source, analog/relay/OBD-C mapping and protocol conflicts.
 
@@ -61,7 +63,8 @@ and ordered MMIO/timing backend. T03b3a establishes the power/VBUS/UID/recovery
 requirements and adds a read-only boot-facts helper. T03b3b composes these into a
 detached startup/service module, still uncalled by main. T05a adds bootstrap
 discovery decoding and status/capability semantics. T05b adds native legacy F4
-health59 decoding/read support. Next: per-bus CAN-health5 qualification; new
+health59 decoding/read support. T05c adds CAN-health5 decoding/read support.
+Next: USB-only session/startup integration; new
 Chimera operational health/endpoints remain pending. Qualified attachment
 still requires the recorded electrical/recovery evidence. Physical
 boot/recovery and electrical qualification remain open.
@@ -69,7 +72,8 @@ boot/recovery and electrical qualification remain open.
 Legacy F4 Panda support is now an explicit host requirement alongside Chimera.
 Host increments now include the shared transport interface, pinned native USB
 factory/backend, identification and legacy health59 decoding/read tests. Legacy
-publication/per-bus health and managed selection remain pending; current startup
+CAN-health5 decoding/read support is also tested. Publication and managed
+selection remain pending; current startup
 still has inherited SPI construction that T08 must replace for this USB-only setup.
 
 The workspace-level `../../chimera/` remains the original evidence/recovery

@@ -17,7 +17,8 @@ lifecycle; qualified power/VBUS/recovery/image packaging and passive bench tests
 digital/pulse/ADC acquisition and reports; MCU TX enforcement; Core Config and
 recoverable settings/watchdog; relay/OBD-C qualification and release/soak testing.
 Active driving is separate later scope. Unequal slices and unresolved electrical
-work do not support a reliable completion percentage. Next T05c per-bus CAN-health5.
+work do not support a reliable completion percentage. Next T08a USB-only session/startup integration; T05c per-controller health decoding
+and bounded reads now pass offline.
 
 The detailed component history below explains what each piece does.
 
@@ -103,3 +104,13 @@ compatibility work; it does not make the new Chimera firmware emit health.
 Native pandad builds and offline tests pass. Managed startup still uses SPI and
 no board was accessed. Next is the per-bus CAN-health5 contract, then managed
 selection/publication/reconnect work. [Details](LEGACY_F4_HEALTH.md).
+
+## November 6 — Per-controller CAN health decoded
+
+T05c adds native decoding for the legacy Panda CAN controller status reply and
+a bounded reader for selectors0/1/2. Tests check counters, speeds, error codes
+and flags against the original source. This reports status bytes; it does not
+connect USB startup, enable CAN, establish wiring or make Chimera emit health.
+Legacy bus-off count also increases during polling, so we preserve that behavior
+without calling it a count of distinct faults. Next is USB-only session/startup
+integration, with no SPI probing/fallback. [Details](LEGACY_F4_CAN_HEALTH.md).

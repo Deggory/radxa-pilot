@@ -45,7 +45,7 @@ or black-Panda power controls for Chimera's input and OBD-C assignments.
 | Reference profile | CAN records | Health/version contract | Current project status |
 | --- | --- | --- | --- |
 | Current Panda, 8a16e089 | Six-byte header, payload, XOR | 49-byte health; DD returns two 32-bit layout hashes | Existing native SPI path |
-| Carrot F4 reference, 69a2d3be | Six-byte header, payload, XOR; F4 classical CAN | 59-byte health; DD returns numeric health17/CAN4/CAN-health5 | Offline USB/identification and typed health59 decoder/read helper implemented; publication/per-bus health/lifecycle pending |
+| Carrot F4 reference, 69a2d3be | Six-byte header, payload, XOR; F4 classical CAN | 59-byte health; DD returns numeric health17/CAN4/CAN-health5 | Offline USB/identification and typed health59 decoder/read helper implemented; publication/lifecycle pending |
 | Original Chimera, d87892fa plus dirty source | 16-byte mailbox | 43-byte health; no matching modern DD handler | Separate Python receiver and native read-only USB transport; not managed Panda support |
 | New Chimera target | Pinned modern classical CAN codec, unbound | Implemented phase0 A0/D6 contract; no operational health | Offline firmware/service/decoder pieces; startup and operational host integration pending |
 
@@ -169,3 +169,12 @@ No cast to current health49 or current-only defaults. Actual pinned packed heade
 and independent golden bytes, sanitizers and invalid-read cases pass offline.
 Managed get_state/publication, per-bus health and lifecycle remain pending.
 See the [field/error contract](LEGACY_F4_HEALTH.md).
+
+## T05c per-controller health increment — November 6
+
+Added exact CAN-health5/64 decoding and one bounded C2 reader for selectors0..2.
+All26fields and full counters are preserved. Current/legacy field layouts match
+at pinned sources, while profile/version gates remain separate. Invalid selectors
+fail before IO. Counter polling semantics and physical routing limits are explicit.
+See the [contract](LEGACY_F4_CAN_HEALTH.md). Next T08a USB-only session/startup
+ownership; no SPI probe/fallback or managed-readiness claim.

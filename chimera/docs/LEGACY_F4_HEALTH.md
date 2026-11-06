@@ -77,7 +77,7 @@ checked. ASan/UBSan and SCons run offline. Mutation review verifies losing profi
 qualification is caught. [Receipt](../../Ai/Evidence/chimera-legacy-health-20261106.json)
 records actual commands/results/hashes.
 
-Next T05c: per-bus CAN-health5 decoding/compatibility before T08 managed selection,
-publication and reconnect. Full T05 stays partial. Current `get_state/get_can_state`
-short-read hardening is recorded for managed integration. New Chimera operational
-health and physical attachment remain pending under separate contracts.
+T05c now adds [CAN-health5 decoding/read support](LEGACY_F4_CAN_HEALTH.md), verified
+offline. Next T08a USB-only session/startup ownership; managed publication/reconnect
+and exact-read hardening remain pending. Full T05 stays partial because new Chimera
+operational health is absent. Physical attachment remains separately unqualified.

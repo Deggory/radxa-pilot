@@ -27,6 +27,7 @@ if arch != "Darwin":
     env.Program('tests/test_panda_comms', ['tests/test_panda_comms.cc'])
     env.Program('tests/test_panda_identification', ['tests/test_panda_identification.cc'], LIBS=[panda])
     env.Program('tests/test_panda_health', ['tests/test_panda_health.cc'], LIBS=[panda])
+    env.Program('tests/test_panda_can_health', ['tests/test_panda_can_health.cc'], LIBS=[panda])
     # The test defines fake libusb C symbols and does not link/open real libusb.
     usb_env.Program('tests/test_panda_usb', ['tests/test_panda_usb.cc'], LIBS=[panda])
     usb_env.Program('tests/test_panda_usb_link', ['tests/test_panda_usb_link.cc'], LIBS=[panda, 'usb-1.0'])

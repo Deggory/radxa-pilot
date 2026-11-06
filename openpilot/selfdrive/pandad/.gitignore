@@ -4,5 +4,6 @@ tests/test_pandad_canprotocol
 tests/test_panda_comms
 tests/test_panda_identification
 tests/test_panda_health
+tests/test_panda_can_health
 tests/test_panda_usb
 tests/test_panda_usb_link

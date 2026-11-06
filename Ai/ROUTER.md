@@ -1,3 +1,16 @@
+## November 6 — Legacy CAN-health5 decoder/read helper verified
+
+QA-20261106-26: T05c adds all26fields/64bytes plus caller selector, strict legacy
+profile/bounds/flags/LEC decoding and one bounded C2 IN reader for0/1/2. Native
+pandad builds;7native executables and both health/CAN-health sanitizer fixtures
+pass. Invalid-selector-before-IO mutation detected. Exact source/current layout
+size/offset/type checks pass; no shared-profile admission. Legacy bus-off count
+increments during polling; full8-bit F4 REC retained. No managed/firmware/hardware
+change; USB-only/no SPI fallback remains target. Next T08a pinned USB session/
+startup ownership; publication/exact-read/reconnect and new board status remain.
+Firmware23hashes/retained7448-byte image, Ocelot/archive/DBC preserved. Updates held.
+[Session](Sessions/2026-11-06-chimera-can-health.md).
+
 ## November 6 — Owner progress summary
 
 QA-20261106-25: offline foundations implemented; most operational integration

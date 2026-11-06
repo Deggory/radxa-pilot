@@ -52,3 +52,48 @@ std::optional<LegacyF4Health> decode_legacy_f4_health(PandaProtocol profile, con
 // non-exact or unhealthy completed reads return nullopt, never prior state.
 // Transport exceptions propagate. Not connected to managed Panda/get_state yet.
 std::optional<LegacyF4Health> read_legacy_f4_health(PandaCommsHandle &handle, PandaProtocol profile);
+
+// CAN-health5 has 26 wire fields plus the caller's C2 selector. Selector0/1/2
+// is not proof of physical routing. FD fields are firmware reports, not F4 FD
+// capability; no inferred speed, counter semantics or current-profile admission.
+struct LegacyF4CanHealth {
+  uint8_t can_number;
+  bool bus_off;
+  uint32_t bus_off_cnt;
+  bool error_warning;
+  bool error_passive;
+  uint8_t last_error;
+  uint8_t last_stored_error;
+  uint8_t last_data_error;
+  uint8_t last_data_stored_error;
+  uint8_t receive_error_cnt;
+  uint8_t transmit_error_cnt;
+  uint32_t total_error_cnt;
+  uint32_t total_tx_lost_cnt;
+  uint32_t total_rx_lost_cnt;
+  uint32_t total_tx_cnt;
+  uint32_t total_rx_cnt;
+  uint32_t total_fwd_cnt;
+  uint32_t total_tx_checksum_error_cnt;
+  uint16_t can_speed_kbps;
+  uint16_t can_data_speed_kbps;
+  bool canfd_enabled;
+  bool brs_enabled;
+  bool canfd_non_iso;
+  uint32_t irq0_call_rate;
+  uint32_t irq1_call_rate;
+  uint32_t irq2_call_rate;
+  uint32_t can_core_reset_cnt;
+};
+
+// Qualified legacy profile only; exact64 bytes, canonical booleans, LEC0..7.
+// Full u8 REC/TEC and u16/u32 fields preserved. Nullopt on malformed/profile/bus
+// mismatch. No IO or retained pointer; controller selector is supplied by caller.
+std::optional<LegacyF4CanHealth> decode_legacy_f4_can_health(PandaProtocol profile, uint16_t can_number,
+                                                         const uint8_t *data, size_t size);
+
+// One C2 IN request (value=selector0..2, index0, length64, timeout1000ms).
+// Same ownership/failure/no-cache/exception contract as the D2 reader above.
+// No SPI selection/fallback or managed publication. See LEGACY_F4_CAN_HEALTH.md.
+std::optional<LegacyF4CanHealth> read_legacy_f4_can_health(PandaCommsHandle &handle, PandaProtocol profile,
+                                                       uint16_t can_number);
