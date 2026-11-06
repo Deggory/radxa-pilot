@@ -966,3 +966,5 @@ notes and next-November5handoff saved. Final report-only commit follows, then
 normal ordered shutdown; actual requests/readbacks are in central teacher
 Ai/Reports/beamng-shutdown-audit-20261104/shutdown.json. No completed physical
 poweroff claim is recorded in advance.
+
+2026-11-06 location clarification QA-20261106-02: confirmed chimera/evidence,reference,hardware,recovery and tasks/plan.md exist. Latest Carrot snapshot is reference/carrot-wip-20261106; portable copies remain in Sunnypilot Ai/Reports. No project behavior or next-task change.

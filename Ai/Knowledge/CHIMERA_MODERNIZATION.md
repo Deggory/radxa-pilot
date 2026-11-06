@@ -65,3 +65,5 @@ all20firmware/host tasks pending. No application/firmwarechange,device/config/TX
 relayaction,push or upstreamupdate. Currentfreshvalidation is document/artifact
 integrity; historical189/336vectors+21tests are not rerun. Next owner review then
 T01/T02partitions,recovery,identity/RPCandbus-source contracts.
+
+2026-11-06 location clarification QA-20261106-02: confirmed chimera/evidence,reference,hardware,recovery and tasks/plan.md exist. Latest Carrot snapshot is reference/carrot-wip-20261106; portable copies remain in Sunnypilot Ai/Reports. No project behavior or next-task change.

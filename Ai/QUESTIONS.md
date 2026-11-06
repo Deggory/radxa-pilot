@@ -1,3 +1,15 @@
+## QA-20261106-02 — Where Chimera evidence and references are saved
+
+**Date:** November 6, 2026 UTC.
+
+**Owner question (original):** were is chimera evidence and refercne saved?
+
+**Answer:** The dedicated board home is `/home/radxa/comma/chimera/`. Verification results and scripts are in `chimera/evidence/`; frozen source/reference data in `chimera/reference/`; the latest CarrotPilot snapshot in `chimera/reference/carrot-wip-20261106/`; board documents/photo/connector drawing in `chimera/hardware/`; original nightly bundle in `chimera/recovery/`; roadmap in `chimera/tasks/plan.md`. Selected original workspace sources are under `reference/workspace/`, and the earlier deep review under `reference/prior-review/`. Sunnypilot also retains portable reports under `sunnypilot/Ai/Reports/carrot-wip-panda-20261106/` and `panda-chimera-deep-review-20261105/`.
+
+**Evidence/status/limits:** Each listed path was freshly checked to exist. Files were already saved; this answer only clarifies their locations. No firmware/application/hardware change or push. Source pins, test coverage and integration limits remain those in QA-20261106-01 and the report manifests.
+
+---
+
 ## QA-20261106-01 — Fetch CarrotPilot carrot-wip and inspect older Panda support
 
 **Date:** November 6, 2026 UTC.

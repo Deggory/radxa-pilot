@@ -35,3 +35,5 @@ F413/USBpieces; all active-control/relay/input qualification limits remain.
 Fresh closeout:125student docs/380relative links,QAequality,5board reference/plan links,prior94source hashes/protectedstates pass. Finalanalysisverifier Ruffpasses without suppression; originalremote sources untouched. Finalscript uses selectedFunctionTypebindings without executing fetchedmodule.
 
 Board reference/roadmap evidence saved locally at ea2651cb7c3576350e61c16ed79f525d10fd6736; no push.
+
+2026-11-06 location clarification QA-20261106-02: confirmed chimera/evidence,reference,hardware,recovery and tasks/plan.md exist. Latest Carrot snapshot is reference/carrot-wip-20261106; portable copies remain in Sunnypilot Ai/Reports. No project behavior or next-task change.
