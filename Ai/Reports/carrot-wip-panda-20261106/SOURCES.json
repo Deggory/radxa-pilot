@@ -1,0 +1,330 @@
+{
+  "date_utc": "2026-11-06",
+  "repository": "ajouatom/openpilot",
+  "branch": "carrot-wip",
+  "commit": "69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7",
+  "commit_date_utc": "2026-11-06T10:27:29Z",
+  "previous_review": "4a555c75b81c4ba80bfbf2260007a6baa645fcac",
+  "requested_name": "carriotpilot-wp",
+  "interpretation": "CarrotPilot carrot-wip; earlier teacher source corroborates target. No exact repository named carriotpilot-wp or carrotpilot-wp found.",
+  "scope": "Selected source snapshot; not full checkout, build, installation or hardware test.",
+  "files": [
+    {
+      "path": "openpilot/selfdrive/pandad/panda.h",
+      "git_blob": "c4c0ab4a501f5ec49d230393631f7e991eb036ae",
+      "url": "https://github.com/ajouatom/openpilot/blob/69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7/openpilot/selfdrive/pandad/panda.h",
+      "encoding": "utf-8",
+      "expected_text_length": 2952,
+      "bytes": 2952,
+      "sha256": "faebd7a679a0fc8b44ca6b42fe0c6ed9aeddb52f3d4980db5dc025e05dbdc15a",
+      "coverage": "Selected relevant functions/definitions and surrounding lifecycle; copying is not an every-line review"
+    },
+    {
+      "path": "openpilot/selfdrive/pandad/panda_comms.h",
+      "git_blob": "37c280749d333acb8d30a64bd388c4bec8a147c6",
+      "url": "https://github.com/ajouatom/openpilot/blob/69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7/openpilot/selfdrive/pandad/panda_comms.h",
+      "encoding": "utf-8",
+      "expected_text_length": 3839,
+      "bytes": 3839,
+      "sha256": "a175a00b3fb60345ddab1d81187935819999479488e07e600748453f1cfec21e",
+      "coverage": "Selected relevant functions/definitions and surrounding lifecycle; copying is not an every-line review"
+    },
+    {
+      "path": "openpilot/selfdrive/pandad/panda_comms.cc",
+      "git_blob": "ba5da331d3f5fe43007a08563b628e6d56a43e11",
+      "url": "https://github.com/ajouatom/openpilot/blob/69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7/openpilot/selfdrive/pandad/panda_comms.cc",
+      "encoding": "utf-8",
+      "expected_text_length": 6255,
+      "bytes": 6255,
+      "sha256": "acb649d58785bfa822cb413cead751cce5fd8ecb0196635e2f280e8430a38059",
+      "coverage": "Selected relevant functions/definitions and surrounding lifecycle; copying is not an every-line review"
+    },
+    {
+      "path": "openpilot/selfdrive/pandad/pandad.py",
+      "git_blob": "a4d5d74f4739d1656110692b192841ae7daeb980",
+      "url": "https://github.com/ajouatom/openpilot/blob/69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7/openpilot/selfdrive/pandad/pandad.py",
+      "encoding": "utf-8",
+      "expected_text_length": 7746,
+      "bytes": 7746,
+      "sha256": "562b49d47fb03bbd569d01b9b2ad5843c59e5a3bd060456b0438baca734443f4",
+      "coverage": "Selected relevant functions/definitions and surrounding lifecycle; copying is not an every-line review"
+    },
+    {
+      "path": "openpilot/selfdrive/pandad/pandad.cc",
+      "git_blob": "47722a18e1ecbcd4c8d322045ef68ec03126b37c",
+      "url": "https://github.com/ajouatom/openpilot/blob/69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7/openpilot/selfdrive/pandad/pandad.cc",
+      "encoding": "utf-8",
+      "expected_text_length": 24149,
+      "bytes": 24149,
+      "sha256": "8b1d52adc5809eb663f97d7899bbecd5647cea85fef4f67eb5c1a8b2ee7e1115",
+      "coverage": "Selected relevant functions/definitions and surrounding lifecycle; copying is not an every-line review"
+    },
+    {
+      "path": "openpilot/selfdrive/pandad/panda_safety.cc",
+      "git_blob": "b05f3ce5302103ebee63da527ab057334a05fd94",
+      "url": "https://github.com/ajouatom/openpilot/blob/69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7/openpilot/selfdrive/pandad/panda_safety.cc",
+      "encoding": "utf-8",
+      "expected_text_length": 2873,
+      "bytes": 2873,
+      "sha256": "f5a583f5c574c9a2bbf9e7940c6c9529a89bcd5d2f135071d3bb934827169717",
+      "coverage": "Selected relevant functions/definitions and surrounding lifecycle; copying is not an every-line review"
+    },
+    {
+      "path": "openpilot/selfdrive/pandad/SConscript",
+      "git_blob": "dbc122e7547d4dc2642410eccb47b002f9fb3f39",
+      "url": "https://github.com/ajouatom/openpilot/blob/69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7/openpilot/selfdrive/pandad/SConscript",
+      "encoding": "utf-8",
+      "expected_text_length": 567,
+      "bytes": 567,
+      "sha256": "06c7676565e24f8a97bc4a5f56b643bedbba33409449e14909ac9d965a7c60d1",
+      "coverage": "Selected relevant functions/definitions and surrounding lifecycle; copying is not an every-line review"
+    },
+    {
+      "path": "openpilot/selfdrive/pandad/panda.cc",
+      "git_blob": "40219c1618870e1b83887e7aff7f7424ba67b0bb",
+      "url": "https://github.com/ajouatom/openpilot/blob/69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7/openpilot/selfdrive/pandad/panda.cc",
+      "encoding": "utf-8",
+      "expected_text_length": 8805,
+      "bytes": 8805,
+      "sha256": "fb50fce93675ae93403b478a6bc32621af10359420281a23dc16b3e283f98089",
+      "coverage": "Selected relevant functions/definitions and surrounding lifecycle; copying is not an every-line review"
+    },
+    {
+      "path": "panda/board/health.h",
+      "git_blob": "5ee5b4c23bed02e9bc4ed2d17caf8589a28d4551",
+      "url": "https://github.com/ajouatom/openpilot/blob/69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7/panda/board/health.h",
+      "encoding": "utf-8",
+      "expected_text_length": 2264,
+      "bytes": 2264,
+      "sha256": "bd8ec57900ea5c717014badc2d281fff8cfeeede0bd985a272bf08f7c1ae1a40",
+      "coverage": "Selected relevant functions/definitions and surrounding lifecycle; copying is not an every-line review"
+    },
+    {
+      "path": "panda/board/comms_definitions.h",
+      "git_blob": "18a6d2f8134749fec86ebc3800c64282c1e43a92",
+      "url": "https://github.com/ajouatom/openpilot/blob/69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7/panda/board/comms_definitions.h",
+      "encoding": "utf-8",
+      "expected_text_length": 402,
+      "bytes": 402,
+      "sha256": "34a5fc130863b5d2da644c09c4eeb0d829a2f2b026e16318d355fd6470952d2d",
+      "coverage": "Selected relevant functions/definitions and surrounding lifecycle; copying is not an every-line review"
+    },
+    {
+      "path": "panda/board/main_comms.h",
+      "git_blob": "5f70d09ba2a56c707fb33424c69432f5a0b04fd3",
+      "url": "https://github.com/ajouatom/openpilot/blob/69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7/panda/board/main_comms.h",
+      "encoding": "utf-8",
+      "expected_text_length": 12645,
+      "bytes": 12645,
+      "sha256": "79fe6ea3e7512d227b426db673bb6874d4d0973c21b080f964cdbf57c561839d",
+      "coverage": "Selected relevant functions/definitions and surrounding lifecycle; copying is not an every-line review"
+    },
+    {
+      "path": "panda/board/can_comms.h",
+      "git_blob": "99ee968b0a0325b7dd3f54354da9d0987175a88e",
+      "url": "https://github.com/ajouatom/openpilot/blob/69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7/panda/board/can_comms.h",
+      "encoding": "utf-8",
+      "expected_text_length": 4167,
+      "bytes": 4167,
+      "sha256": "3804b31e93d8094347cf0a5a3a8239a65440e02b6c31dad5087ffc3e24a4f3a5",
+      "coverage": "Selected relevant functions/definitions and surrounding lifecycle; copying is not an every-line review"
+    },
+    {
+      "path": "panda/python/__init__.py",
+      "git_blob": "3bf858f6724c08f862440c81b630e0212fed0324",
+      "url": "https://github.com/ajouatom/openpilot/blob/69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7/panda/python/__init__.py",
+      "encoding": "utf-8",
+      "expected_text_length": 28700,
+      "bytes": 28700,
+      "sha256": "43557e70230eac7efd25550e6f4b64fc56f503de10676d00fedb60bdcf8b4058",
+      "coverage": "Selected relevant functions/definitions and surrounding lifecycle; copying is not an every-line review"
+    },
+    {
+      "path": "panda/python/constants.py",
+      "git_blob": "8b095930844113948483d372a4ab1035299178e3",
+      "url": "https://github.com/ajouatom/openpilot/blob/69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7/panda/python/constants.py",
+      "encoding": "utf-8",
+      "expected_text_length": 1366,
+      "bytes": 1366,
+      "sha256": "a2ed3128ea0b2e83613638e00c8da7b169a27575b7380bd4efe85bca26a23761",
+      "coverage": "Selected relevant functions/definitions and surrounding lifecycle; copying is not an every-line review"
+    },
+    {
+      "path": "panda/SConscript",
+      "git_blob": "9b7faacb246f01c9fdcf07353a71296eefb1c035",
+      "url": "https://github.com/ajouatom/openpilot/blob/69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7/panda/SConscript",
+      "encoding": "utf-8",
+      "expected_text_length": 5240,
+      "bytes": 5240,
+      "sha256": "44521b59c3f0f781c67e8e4b94d6703c8f4b08d193ed2904a2be690d08d36d5b",
+      "coverage": "Selected relevant functions/definitions and surrounding lifecycle; copying is not an every-line review"
+    },
+    {
+      "path": "panda/board/main.c",
+      "git_blob": "802389d6fc0f999d6a549d0844b61744f774b8a9",
+      "url": "https://github.com/ajouatom/openpilot/blob/69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7/panda/board/main.c",
+      "encoding": "utf-8",
+      "expected_text_length": 13147,
+      "bytes": 13147,
+      "sha256": "24ca55c1608ed5cd668742389e59e9b31b9b303b7d778e5c32b3ad1feab1edea",
+      "coverage": "Selected relevant functions/definitions and surrounding lifecycle; copying is not an every-line review"
+    },
+    {
+      "path": "panda/LICENSE",
+      "git_blob": "8a6c6976b70de306b675f426761f3f9a39b8fb21",
+      "url": "https://github.com/ajouatom/openpilot/blob/69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7/panda/LICENSE",
+      "encoding": "utf-8",
+      "expected_text_length": 1059,
+      "bytes": 1059,
+      "sha256": "0f8f541ee42cf97353a043105a3108c2d599fe381d4b90ff0e82e328ffc5d8f5",
+      "coverage": "Selected relevant functions/definitions and surrounding lifecycle; copying is not an every-line review"
+    },
+    {
+      "path": "LICENSE",
+      "git_blob": "7dafa9443b1545980b261dddd4184a8daec16758",
+      "url": "https://github.com/ajouatom/openpilot/blob/69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7/LICENSE",
+      "encoding": "utf-8",
+      "expected_text_length": 1059,
+      "bytes": 1059,
+      "sha256": "716ce815a0467219c59ec2433e6bce7f32efc45240725c6d3141a52b111d2558",
+      "coverage": "Selected relevant functions/definitions and surrounding lifecycle; copying is not an every-line review"
+    },
+    {
+      "path": "openpilot/selfdrive/pandad/tests/test_pandad_canprotocol.cc",
+      "git_blob": "13a2131e1b4805e86cca36c0eef9989dc0e3f85d",
+      "url": "https://github.com/ajouatom/openpilot/blob/69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7/openpilot/selfdrive/pandad/tests/test_pandad_canprotocol.cc",
+      "encoding": "utf-8",
+      "expected_text_length": 6896,
+      "bytes": 6896,
+      "sha256": "1d0a249b4e443f3ea8e07fb3c7ad00d7f7edbdbd8ff55d41b420e0a6a78ad162",
+      "coverage": "Selected relevant functions/definitions and surrounding lifecycle; copying is not an every-line review"
+    },
+    {
+      "path": "openpilot/system/manager/process_config.py",
+      "git_blob": "e2d08455917daea095fe128aa5182ceea95f01ff",
+      "url": "https://github.com/ajouatom/openpilot/blob/69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7/openpilot/system/manager/process_config.py",
+      "encoding": "utf-8",
+      "expected_text_length": 11035,
+      "bytes": 11035,
+      "sha256": "5c881a28c4c368f055452d778b256cb20c63ffcdca82ee8e4353ac69022cf7e6",
+      "coverage": "Selected relevant functions/definitions and surrounding lifecycle; copying is not an every-line review"
+    },
+    {
+      "path": "panda/board/config.h",
+      "git_blob": "6fb95ada26f29e960b1249aa79cd46b88e0b3a58",
+      "url": "https://github.com/ajouatom/openpilot/blob/69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7/panda/board/config.h",
+      "encoding": "utf-8",
+      "expected_text_length": 845,
+      "bytes": 845,
+      "sha256": "6892b7db2631e0666bce4c37346479a4321fe286a3c10d6cf83326cfa701841c",
+      "coverage": "Selected relevant functions/definitions and surrounding lifecycle; copying is not an every-line review"
+    },
+    {
+      "path": "panda/board/stm32f4/stm32f4_config.h",
+      "git_blob": "ee2759a73c48f6f85663df6da818ad3a372c7d51",
+      "url": "https://github.com/ajouatom/openpilot/blob/69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7/panda/board/stm32f4/stm32f4_config.h",
+      "encoding": "utf-8",
+      "expected_text_length": 1970,
+      "bytes": 1970,
+      "sha256": "47d929e63a8c20a3edc3c3e0fabfa511e2abe9a874a292513c6ff6f9932b0306",
+      "coverage": "Selected relevant functions/definitions and surrounding lifecycle; copying is not an every-line review"
+    },
+    {
+      "path": "panda/board/stm32f4/board.h",
+      "git_blob": "cd10c173bf1d69807e84c99f891f13a70cf8bcca",
+      "url": "https://github.com/ajouatom/openpilot/blob/69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7/panda/board/stm32f4/board.h",
+      "encoding": "utf-8",
+      "expected_text_length": 1772,
+      "bytes": 1772,
+      "sha256": "3148fb84d43bea0e667211036df5a00cae3810976f053be40c0b2123268cc3ce",
+      "coverage": "Selected relevant functions/definitions and surrounding lifecycle; copying is not an every-line review"
+    },
+    {
+      "path": "panda/board/boards/black.h",
+      "git_blob": "3f198179e01b0029b5abe1b695f926bdabb43fe3",
+      "url": "https://github.com/ajouatom/openpilot/blob/69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7/panda/board/boards/black.h",
+      "encoding": "utf-8",
+      "expected_text_length": 3566,
+      "bytes": 3566,
+      "sha256": "74ca57c9f18efe2f64501456690c350105eead898d4b8ef4601c6408a4142c0e",
+      "coverage": "Selected relevant functions/definitions and surrounding lifecycle; copying is not an every-line review"
+    },
+    {
+      "path": "panda/board/drivers/bxcan.h",
+      "git_blob": "76e114dcbfdd17281fec7dc51b444f99aab1451f",
+      "url": "https://github.com/ajouatom/openpilot/blob/69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7/panda/board/drivers/bxcan.h",
+      "encoding": "utf-8",
+      "expected_text_length": 8524,
+      "bytes": 8524,
+      "sha256": "01874579d1797ce20cc48358c225468fa9cad5899f25177c84180593d897a3c1",
+      "coverage": "Selected relevant functions/definitions and surrounding lifecycle; copying is not an every-line review"
+    },
+    {
+      "path": "panda/board/drivers/can_common.h",
+      "git_blob": "9f64285c89c64d4d3b7f494436e9fef95112640c",
+      "url": "https://github.com/ajouatom/openpilot/blob/69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7/panda/board/drivers/can_common.h",
+      "encoding": "utf-8",
+      "expected_text_length": 13038,
+      "bytes": 13038,
+      "sha256": "39d4816710d4e59a8a86a829a599884c36dee36c2ce1d72430debde4c88f4ad8",
+      "coverage": "Selected relevant functions/definitions and surrounding lifecycle; copying is not an every-line review"
+    },
+    {
+      "path": "panda/board/stm32f4/llbxcan.h",
+      "git_blob": "82794be629f9c7940b981d0e4ce4886e89b264d6",
+      "url": "https://github.com/ajouatom/openpilot/blob/69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7/panda/board/stm32f4/llbxcan.h",
+      "encoding": "utf-8",
+      "expected_text_length": 4202,
+      "bytes": 4202,
+      "sha256": "a751414db375aa6d724a74ab4745009d1054880937b6887044c71ec9f151c703",
+      "coverage": "Selected relevant functions/definitions and surrounding lifecycle; copying is not an every-line review"
+    },
+    {
+      "path": "panda/board/SConscript",
+      "git_blob": "d459a5569c207e3a65b510ea852a6c44226dcb3f",
+      "url": "https://github.com/ajouatom/openpilot/blob/69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7/panda/board/SConscript",
+      "encoding": "utf-8",
+      "expected_text_length": 484,
+      "bytes": 484,
+      "sha256": "eae1da08e51f33daa0c0846a5b59ae10f84751040234bbb6900cbfb7c68c9fa4",
+      "coverage": "Selected relevant functions/definitions and surrounding lifecycle; copying is not an every-line review"
+    },
+    {
+      "path": "panda/board/can.h",
+      "git_blob": "9b1200384de44ad6dfae2a29f059ce21cf4c9184",
+      "url": "https://github.com/ajouatom/openpilot/blob/69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7/panda/board/can.h",
+      "encoding": "utf-8",
+      "expected_text_length": 242,
+      "bytes": 242,
+      "sha256": "ed4dbeab2ec970f158899b686f8a9cf320caf4d6816ca0dbf39aa4cb056ef88c",
+      "coverage": "Selected relevant functions/definitions and surrounding lifecycle; copying is not an every-line review"
+    },
+    {
+      "path": "openpilot/selfdrive/pandad/panda_helpers.py",
+      "git_blob": "8c68420e2ea0bee79a1ca237f02287253fdc35b3",
+      "url": "https://github.com/ajouatom/openpilot/blob/69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7/openpilot/selfdrive/pandad/panda_helpers.py",
+      "encoding": "utf-8",
+      "expected_text_length": 913,
+      "bytes": 913,
+      "sha256": "168670a525095b2144d068f865ab00f49da32e188b5924daf7804c045144c2c5",
+      "coverage": "Selected relevant functions/definitions and surrounding lifecycle; copying is not an every-line review"
+    },
+    {
+      "path": "openpilot/common/version.h",
+      "git_blob": "41440556c54eef58207d01bfe410db243feab82e",
+      "url": "https://github.com/ajouatom/openpilot/blob/69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7/openpilot/common/version.h",
+      "encoding": "utf-8",
+      "expected_text_length": 31,
+      "bytes": 31,
+      "sha256": "8d618ada21dcc00618178d67f52c532b95c3eeff0736a9909379a3431e050ba6",
+      "coverage": "Selected relevant functions/definitions and surrounding lifecycle; copying is not an every-line review"
+    }
+  ],
+  "tree": {
+    "sha": "69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7",
+    "entries": 7319,
+    "truncated": false,
+    "gitmodules_present": false,
+    "legacy_panda_path_matches": []
+  }
+}

@@ -1,3 +1,11 @@
+## 2026-11-06 — CarrotPilot older-board/native USB research
+
+31Git blobs/SHA256 match.189classical frames match currentencoder,4158splitchecks
+and378checksum-corruption rejections pass. Native/Python layout sizes59/64/6/49/64
+agree; Carrot versions17/4/5. Purefunctions/declarationfixture,no device/fullARM/
+managed/FDtest. See [report](Reports/carrot-wip-panda-20261106/README.md).
+Notebook/QA/link/whitespace checks and source-state verification recorded at closeout.
+
 ## 2026-11-05 — Fresh audit before GitHub publication/shutdown
 
 21tests with fresh native fixture,189legacy/336modern vectors,94source entries/

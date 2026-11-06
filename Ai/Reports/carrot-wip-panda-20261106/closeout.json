@@ -1,0 +1,22 @@
+{
+  "result": "pass",
+  "source_commit": "69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7",
+  "source_files": 31,
+  "verification_command": "python3 chimera/evidence/carrot-wip-20261106/verify_reference.py",
+  "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "python": "Python 3.12.3",
+  "script_sha256": "119d0d0508157365a85c7358ab3032a7267dfb3f849e60197aadcbacdc8836f9",
+  "ruff": "pass after local harness fixes;no suppressions",
+  "notebook_documents": 125,
+  "notebook_relative_links": 380,
+  "notebook_workspace_links": 245,
+  "board_plan_reference_links": 5,
+  "qa_20261106_01": "identical",
+  "prior94source_hashes": "unchanged",
+  "panda_opendbc_ocelot_states": "unchanged",
+  "sunnypilot_source_scope": "Ai only",
+  "hardware_access": false,
+  "firmware_or_managed_build": false,
+  "push": false,
+  "tooling_limits": "tooling-limits.txt"
+}

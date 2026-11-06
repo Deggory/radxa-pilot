@@ -1,3 +1,21 @@
+## QA-20261106-01 — Fetch CarrotPilot carrot-wip and inspect older Panda support
+
+**Date:** November 6, 2026 UTC.
+
+**Owner question (original):** see fetch data of carriotpilot-wp ,see it is suing legacy panda ,see its code
+
+**Answer (plain-English record):** Interpreted the spelling as CarrotPilot's carrot-wip branch in ajouatom/openpilot,consistent with the teacher's earlier reference; exact-name repository searches did not find carriotpilot-wp/carrotpilot-wp. Fetched31selected files at69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7. Yes,the source retains older F4 Panda support: an STM32F413/Cortex-M4 build with app0x08004000,white/grey/black/UNO/DOS board definitions and F4/H7 Python support. It also retains a native libusb USB backend alongside SPI,unlike our current SPI-only native host. However,older hardware support does not mean the earliest USB wire format: Carrot uses6-byte/XOR CAN headers,not Chimera's16-byte mailbox format. Its status protocol is59-byte health/version17,64-byte CAN-health/version5 and CAN version4 returned as3bytes by DD; our current Panda has49-byte health and8-byte hash-version response.189classical frame encodings match our current Panda exactly. Native Carrot USB accepts3801:ddcc only,so it would not directly select our historicalbbaa:ddcc Chimera. Its automatic reset/flash/recovery flow and Panda board GPIO/harness behavior cannot be applied unchanged. F413 HAL/bxCAN and native USB transport are concrete T03/T06source candidates,with Chimera-specific identity,input/relay/config/safety and current status adaptation still required.
+
+**Evidence/source pins:** Carrot branch69a2d3be,commit time2026-11-06T10:27:29Z; prior November1 Carrot4a555c75 remains historical lateral evidence. `/home/radxa/comma/chimera/reference/carrot-wip-20261106/` contains the source and manifest; student `Ai/Reports/carrot-wip-panda-20261106/README.md` contains the self-contained report. All31Git blobs/SHA256 match the pinned,non-truncated7,319-entry tree; no root.gitmodules or legacy_panda path at this pin. Key files:panda/SConscript,board/SConscript,stm32f4/board.h,board/drivers/bxcan.h,board/health.h,python/__init__.py,andopenpilot/selfdrive/pandad/{panda.cc,panda_comms.cc,pandad.py}. Protected Sunnypilot baselinec1811280/Panda8a16e089/opendbc150f9371; Chimera77464e0before this research; Ocelotdirty reference unchanged.
+
+**Actual verification:**189classical frames across3buses/7addresses/lengths0–8 match both encoders;4,158two-decoder split checks and378checksum-corruption rejections pass. Native C++ structure fixture using unchanged headers measures59/64/6/49/64bytes and matches Python formats. This does not import Panda,open a device,build ARM firmware or qualify FD/managed hardware. Bulk source-save argument-limit and initial pragma-once fixture errors were corrected in tooling,without compiler suppression or changing fetched/product source; limits retained in the report.
+
+**Saved board reference:** Local Chimera commit `ea2651cb7c3576350e61c16ed79f525d10fd6736`; not pushed.
+
+**Implemented versus proposed/status:** Source snapshot,research report and roadmap candidate note saved; no firmware/application/DBC change,flash/config/CAN/relay action,full clone,install,push or upstream update. Existing tasks remain pending; this is a reusable source lead,not a drop-in Chimera image or evidence of live compatibility. Next review F413/USB components during T01/T02identity/partition/bus-source contracts before implementing T03/T06. Exact intended spelling remains inferred rather than owner-confirmed,but the earlier teacher source and branch name corroborate it.
+
+---
+
 ## QA-20261105-14 — Audit, update GitHub and shut down both computers
 
 **Date:** November 5, 2026 UTC.

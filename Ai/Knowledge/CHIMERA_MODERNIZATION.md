@@ -1,3 +1,16 @@
+## November 6 — CarrotPilot F413 and native USB source fetched
+
+QA-20261106-01: interpreted owner spelling as ajouatom/openpilot:carrot-wip.
+31selected files pinned69a2d3be; olderF413Panda build and nativeUSB/SPI retained.
+CAN6/XOR matches current encoder189classical frames; health59/numeric17,4,5
+instead of current49/hash versions. NativeUSB3801filter excludesbbaaChimera.
+Snapshot/report under chimera/reference/carrot-wip-20261106 and student Reports.
+4158splitchecks/378corruptions/native layouts pass; no hardware/firmware action.
+Concrete T03/T06source candidate,not a drop-in port. Next existingT01/T02contracts;
+input/relay/bus roles unchanged,updates paused,no push. Prior shutdown is historical.
+
+[Self-contained Carrot Panda report](../Reports/carrot-wip-panda-20261106/README.md) contains source URLs and validation; no runtime change.
+
 ## November 5 — Audit published; ordered shutdown closeout
 
 Owner requested audit,GitHub update,then PC and Radxa shutdown. Fresh21software

@@ -1,0 +1,23 @@
+{
+  "result": "pass",
+  "source_files": 31,
+  "git_blobs_and_sha256": "match",
+  "classical_frames_matching_current_codec": 189,
+  "two_decoder_split_checks": 4158,
+  "corrupt_checksum_rejections": 378,
+  "native_sizes_carrot_health_canhealth_header_current_health_canhealth": [
+    59,
+    64,
+    6,
+    49,
+    64
+  ],
+  "carrot_numeric_versions": {
+    "HEALTH_PACKET_VERSION": 17,
+    "CAN_PACKET_VERSION": 4,
+    "CAN_HEALTH_PACKET_VERSION": 5
+  },
+  "hardware_access": false,
+  "firmware_build_or_install": false,
+  "limits": "Pure classical-CAN functions and selected native structure declarations only; no full host/MCU or FD qualification."
+}
