@@ -1,0 +1,131 @@
+{
+  "date_utc": "2026-11-06T15:36:09.731025+00:00",
+  "baseline": "96ea6bd7960374bbf4ebcb23e1cad9bc4b81b864",
+  "scope": "T06b native USB factory/backend; no startup wiring, real USB initialization/enumeration, daemon or firmware action",
+  "native_build": {
+    "command": "source .venv/bin/activate\nscons -j2 openpilot/selfdrive/pandad/pandad openpilot/selfdrive/pandad/tests/test_panda_usb openpilot/selfdrive/pandad/tests/test_panda_usb_link openpilot/selfdrive/pandad/tests/test_panda_identification openpilot/selfdrive/pandad/tests/test_panda_comms openpilot/selfdrive/pandad/tests/test_pandad_canprotocol",
+    "result": "pass",
+    "architecture": "aarch64",
+    "existing_warning": "PWD mismatch, non-fatal"
+  },
+  "tdd_red": {
+    "exit_code": 1,
+    "expected": "panda_usb.h did not exist before implementation"
+  },
+  "corrected_tooling_limits": [
+    "Test int/enum initializer types corrected explicitly",
+    "Injected control error leaked between test iterations; scenario6 diagnostics led to resetting fake error before open",
+    "gdb command unavailable; no installation, suppression or product relaxation"
+  ],
+  "dependency": {
+    "package": "comma-deps-libusb",
+    "version": "1.0.29.post103",
+    "used": "existing vendored header/static library; no system-library whitelist change"
+  },
+  "primary_docs": [
+    "https://libusb.sourceforge.io/api-1.0/group__libusb__syncio.html",
+    "https://libusb.sourceforge.io/api-1.0/group__libusb__dev.html"
+  ],
+  "docs_version_note": "Official online docs identify 1.0.30; installed 1.0.29 header confirms used stable signatures",
+  "results": {
+    "fake_usb": {
+      "command": [
+        "openpilot/selfdrive/pandad/tests/test_panda_usb"
+      ],
+      "exit_code": 0,
+      "output": "33 USB scenario groups passed; no real USB calls\n"
+    },
+    "real_library_pin_guard": {
+      "command": [
+        "openpilot/selfdrive/pandad/tests/test_panda_usb_link"
+      ],
+      "exit_code": 0,
+      "output": ""
+    },
+    "identification": {
+      "command": [
+        "openpilot/selfdrive/pandad/tests/test_panda_identification"
+      ],
+      "exit_code": 0,
+      "output": "19 supported fixtures; 421 rejected fixtures; 3 invalid transports; zero writes\n"
+    },
+    "transport_interface": {
+      "command": [
+        "openpilot/selfdrive/pandad/tests/test_panda_comms"
+      ],
+      "exit_code": 0,
+      "output": ""
+    },
+    "can_codec": {
+      "command": [
+        "openpilot/selfdrive/pandad/tests/test_pandad_canprotocol"
+      ],
+      "exit_code": 0,
+      "output": ""
+    },
+    "sanitized_fake_usb": {
+      "command": [
+        "/tmp/chimera-usb-sanitized"
+      ],
+      "exit_code": 0,
+      "output": "33 USB scenario groups passed; no real USB calls\n"
+    },
+    "python_regressions": {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "unittest",
+        "openpilot.selfdrive.pandad.tests.test_chimera",
+        "openpilot.selfdrive.pandad.tests.test_chimera_protocol"
+      ],
+      "exit_code": 0,
+      "output": "kj/filesystem-disk-unix.c++:1734: warning: PWD environment variable doesn't match current directory; pwd = /home/radxa/comma\n...............\n----------------------------------------------------------------------\nRan 15 tests in 0.054s\n\nOK\n"
+    },
+    "notebook": {
+      "command": [
+        "python3",
+        "Ai/verify_memory.py",
+        "--workspace",
+        "/home/radxa/comma"
+      ],
+      "exit_code": 0,
+      "output": "{\n  \"result\": \"pass\",\n  \"memory_layout\": \"regular project directory\",\n  \"documents\": 133,\n  \"relative_links\": 382,\n  \"optional_workspace_links\": 246,\n  \"source_repositories\": 8,\n  \"indexed_entries\": 4254\n}\n"
+    },
+    "whitespace": {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "output": ""
+    }
+  },
+  "sanitizer_build": {
+    "command": "c++ -std=c++17 -Wall -Wextra -Werror -fsanitize=address,undefined -pthread -Iopenpilot -I. -I.venv/lib/python3.12/site-packages/libusb/install/include -DPANDA_HEALTH_VERSION_HASH=0xca8f9eafU -DPANDA_CAN_VERSION_HASH=0x75abf276U openpilot/selfdrive/pandad/panda_identification.cc openpilot/selfdrive/pandad/panda_usb.cc openpilot/selfdrive/pandad/tests/test_panda_usb.cc -o /tmp/chimera-usb-sanitized",
+    "exit_code": 0
+  },
+  "review": [
+    "No vendor OUT/bulk during factory identification; no reset/config change/kernel detach/updater APIs",
+    "Resource owners cover partial acquisition and duplicate serials; interface claim before identification",
+    "Read timeout partial bytes retained; no retries; writes with uncertain outcomes and short writes mark unhealthy",
+    "Old Chimera IN restricted by request/parameters, not merely direction; OUT denied",
+    "Native SPI constructor/list/implementation and updater unchanged; managed USB readiness still pending"
+  ],
+  "reference_preservation": "Original Chimera clean; Ocelot dirty state and archived Ocelot hashes unchanged",
+  "source_hashes": {
+    "openpilot/selfdrive/pandad/panda_usb.h": "3d31c398d6b41c9ecc581be1a1a6836f6ef53844e09745476dfad473d81c6839",
+    "openpilot/selfdrive/pandad/panda_usb.cc": "e71fbc4b98826c0704882971a93f831eb7ec98bc738549b0913b1a69a1232508",
+    "openpilot/selfdrive/pandad/tests/test_panda_usb.cc": "750833424e4059491d61b5a52aa07c18b793dacc68fa42751616580804ee906a",
+    "openpilot/selfdrive/pandad/tests/test_panda_usb_link.cc": "a89b9c9729d19a916442dbb70c368d104c18bc7ea17a9ffa0c0c8e0c611f616c",
+    "openpilot/selfdrive/pandad/SConscript": "e0a21822906f84d3c0a883bb9d41bab03aa24d7e6102dec8e27d6897dd6edb57",
+    "chimera/docs/LEGACY_PANDA_SUPPORT.md": "0923144d7909f4fb4de2acd39e4c1de3068b6379026893e7df4ab137f546a5c3"
+  },
+  "ignored_native_artifact_hashes": {
+    "openpilot/selfdrive/pandad/pandad": "d31ced74049fe6cc7d3af1c5ac334a1afe19b1b6cc133f1870252dc9808ccd3c",
+    "openpilot/selfdrive/pandad/tests/test_panda_usb": "42fe107328d782c8ef1d4ff079913c39d4560957bbeeea698482fa7e462e6281",
+    "openpilot/selfdrive/pandad/tests/test_panda_usb_link": "b2fa57549420575e66b3b7ded3210e48847dcbb0c1532e22db53bff396d889a5",
+    "openpilot/selfdrive/pandad/tests/test_panda_identification": "2f494a971fefe12be1b5900df43a1810a610f494ae791e3f96e93fdd40bc142b",
+    "/tmp/chimera-usb-sanitized": "b697e2ea4b4798937476d779c7d9189041c1211c6fd3704e7d4a5fd4d474dff9"
+  }
+}

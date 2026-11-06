@@ -13,9 +13,10 @@ existing native host opens that connection through PandaSpiHandle. Keeping it
 means existing SPI users still have their transport available. It does not mean
 the Radxa-to-Chimera connection should use SPI: that connection will use USB.
 
-The completed interface gives the native host one set of control/bulk methods.
-A future PandaUsbHandle will implement those methods using libusb, alongside
-the current PandaSpiHandle. The interface alone cannot discover or use USB.
+The common interface gives the native host one set of control/bulk methods.
+PandaUsbHandle now implements them using libusb alongside PandaSpiHandle, with
+an explicitly pinned connection factory. Managed startup still selects SPI;
+connecting the USB factory to that lifecycle is a separate integration step.
 
 The existing chimera_protocol.py handles original mailbox16/health43 decoding
 for the separate Python receiver. It is not the new native USB backend or an
@@ -35,8 +36,8 @@ or black-Panda power controls for Chimera's input and OBD-C assignments.
 | Reference profile | CAN records | Health/version contract | Current project status |
 | --- | --- | --- | --- |
 | Current Panda, 8a16e089 | Six-byte header, payload, XOR | 49-byte health; DD returns two 32-bit layout hashes | Existing native SPI path |
-| Carrot F4 reference, 69a2d3be | Six-byte header, payload, XOR; F4 classical CAN | 59-byte health; DD returns numeric health17/CAN4/CAN-health5 | Planned USB/status/lifecycle adapter |
-| Original Chimera, d87892fa plus dirty source | 16-byte mailbox | 43-byte health; no matching modern DD handler | Existing separate read-only receiver; not managed Panda support |
+| Carrot F4 reference, 69a2d3be | Six-byte header, payload, XOR; F4 classical CAN | 59-byte health; DD returns numeric health17/CAN4/CAN-health5 | Offline USB factory/backend implemented; status/lifecycle pending |
+| Original Chimera, d87892fa plus dirty source | 16-byte mailbox | 43-byte health; no matching modern DD handler | Separate Python receiver and native read-only USB transport; not managed Panda support |
 | New Chimera target | Pinned modern classical CAN framing | Explicit identity and current status contract, still to implement | Firmware and host integration pending |
 
 Same framing does not make different health layouts interchangeable. Verify
@@ -103,5 +104,49 @@ transport cases; fake handles reject every vendor OUT/bulk operation. Native and
 address/undefined-behavior-sanitized runs pass. This selector is built into the
 native library but is not wired into startup yet. Existing Panda construction
 and updater flows retain their previous behavior until protected USB selection
-is integrated. USB backend, legacy status decoding, complete RPC/source contracts
-and real-device qualification remain pending.
+is integrated. The USB backend increment below is now implemented; legacy status
+decoding, complete RPC/source contracts and real-device qualification remain pending.
+
+## T06b native USB connection — November 6
+
+`PandaUsbHandle::open(pin)` implements an explicit connection factory. It rejects
+empty pins before libusb initialization, considers only normal-mode bbaa/3801:
+ddcc devices, obtains actual serial/product descriptors, rejects duplicate
+matching serials, requires configuration 1 and claims interface 0 exclusively.
+It then runs T02a identification before returning a handle. Unreadable candidates
+are closed; every failed path releases the resources actually acquired.
+
+The factory sends no vendor OUT or bulk traffic. It does not change USB
+configuration, detach a driver, reset/clear endpoints or call an updater. A busy
+interface or unconfigured device is refused. Ownership must be handed off
+explicitly; a competing process is not evicted.
+
+Control/bulk calls are serialized and capped at one second. Bulk IN 0x81 returns
+actual received bytes, including partial timeout data. Bulk OUT 3 makes one
+attempt; a timeout is an uncertain failure and is not retried. Short writes and
+I/O failures mark communications unhealthy; disconnect marks the handle dead.
+The host lifecycle must handle these states and invalidate stale data.
+
+Original Chimera remains read-only: control OUT and bulk OUT are denied, and
+control IN is limited to D6/D2 with zero parameters. Direction alone is not a
+read-only guarantee: the inspected old application dispatches by request number
+and includes D8 reset/DC relay-request side effects. No config or accessory API
+is enabled by the passive transport. Current/F4 raw transport writes remain a
+caller-policy responsibility after identification; this adds no active profile.
+
+Tests link fake libusb C implementations and never enumerate this host. They
+cover resource cleanup, ambiguous/failed discovery, current/F4/Chimera profiles,
+claim failures, partial/short transfers, timeout/unplug/overflow, dead handles,
+idempotent cleanup and Chimera command denial. The separate real-library link
+test rejects empty pins before USB initialization. Native/sanitized tests pass;
+no physical USB link or managed readiness is claimed.
+
+Dependency: existing vendored `comma-deps-libusb` 1.0.29.post103, not a new system
+installation. Semantics checked against the installed header and the official
+[synchronous I/O](https://libusb.sourceforge.io/api-1.0/group__libusb__syncio.html)
+and [device ownership](https://libusb.sourceforge.io/api-1.0/group__libusb__dev.html)
+documentation (published API docs identify themselves as 1.0.30). The reviewed
+Carrot backend remains a reference; its retry and constructor policy is not copied.
+
+Next: exact legacy status adaptation (T05), then protected managed USB selection
+(T08). The USB factory is not invoked by current Panda construction or startup.

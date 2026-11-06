@@ -1,3 +1,13 @@
+## November 6 — Native pinned USB factory/backend implemented
+
+QA-20261106-11: T06b adds exclusive pinned USB discovery and bounded I/O, then
+T02a identification before returning. No reset/config change/detach/flash;
+original Chimera restricted to D6/D2 and CAN IN. Native build,33fake scenario
+groups, sanitizer and real-library empty-pin link check pass;443identification
+cases/native codec+interface/15Chimera Python tests pass. No real USB/daemon run.
+Current startup remains SPI; next legacy status decoder then protected managed
+USB selection. Teacher/Carrot/Ocelot/libusb evidence used; no install/update/push.
+
 ## November 6 — Native read-only identification implemented with teacher evidence
 
 QA-20261106-10: owner reaffirmed proceed and teacher-first reliability. T02a

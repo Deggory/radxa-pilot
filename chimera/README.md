@@ -19,8 +19,9 @@ new firmware target or compiled image in this folder yet. Next: T01 board/flash
 layout, followed by T02 USB identity and bus/source contracts.
 
 Legacy F4 Panda support is now an explicit host requirement alongside Chimera.
-The first host increment adds a shared transport interface with the existing
-SPI backend; USB, legacy status adaptation and managed selection remain pending.
+Host increments now include the shared transport interface, pinned native USB
+factory/backend and identification tests. Legacy status adaptation and managed
+selection remain pending; current startup still uses its existing SPI path.
 
 The workspace-level `../../chimera/` remains the original evidence/recovery
 archive. It is optional development evidence, not a runtime dependency. Required

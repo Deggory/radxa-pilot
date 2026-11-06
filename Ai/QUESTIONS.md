@@ -1,3 +1,21 @@
+## QA-20261106-11 — Proceed with native USB connection and failure handling
+
+**Date:** November 6, 2026 UTC.
+
+**Owner request (original):** proceed
+
+**Context:** Continue the next agreed native USB connection increment after T02a identification; retain teacher-first evidence and incremental checks.
+
+**Answer:** Implemented PandaUsbHandle and an explicit pinned open factory. It discovers only supported normal-mode VIDs/PID, reads actual descriptors, requires a unique matching serial/configuration1 and exclusive interface0, and runs the identification selector before returning. Every failure cleans up its list/handle/context/claim. It does not change USB configuration, detach drivers, reset devices or invoke flash/update paths. Transfers are serialized, capped at1second and not retried; timeout bulk reads retain actual partial bytes, while uncertain/short writes and other I/O errors become unhealthy. Disconnect closes the usable transport state. Original Chimera is read-only: OUT denied and IN restricted to D6/D2 zero-parameter observations, because direction alone does not establish absence of legacy command side effects. Current/F4 transport operations are available only after identification; this is not a safety-profile authorization.
+
+**Actual verification:** Native pandad builds with the existing vendored libusb1.0.29.post103.33fake-USB scenario groups pass, including descriptor/serial/config/claim/identity failures, duplicate serials, all three profile families, partial/timeout/short/unplug/overflow, cleanup and original Chimera command denial. Strict AddressSanitizer/UndefinedBehaviorSanitizer fake suite passes. A real-vendored-library link test exercises only empty-pin rejection before initialization. Existing443identification cases, native interface/CAN codec tests and15Chimera Python tests pass. Initial test compile mixed int/enum initializer types; corrected the fixture type. First fake run leaked an injected error between cases; diagnosed group6 and reset that fixture state. Neither required relaxing product behavior. gdb was unavailable; test diagnostics supplied the location, without installation.
+
+**Evidence/source pins:** Baseline96ea6bd7960374bbf4ebcb23e1cad9bc4b81b864; current Panda8a16e089/opendbc150f9371; Carrot69a2d3be USB reference and teacher reports; Ocelotd87892fa dirty main/USB sources preserve old direction/command dispatch evidence. Installed libusb header and official synchronous/device docs checked (online docs1.0.30; used API matches installed1.0.29). New panda_usb.h/.cc, fake USB and real-library link tests, native build/ignore updates; roadmap/compatibility status and both memory layers saved. Receipt Ai/Evidence/chimera-usb-20261106.json.
+
+**Implemented versus proposed/limits:** T06b offline transport/factory completed. Existing Panda construction/listing and managed startup still select SPI; new USB factory is not enabled there yet. Exact legacy status decoding (T05), protected managed selection/lifecycle (T08), physical USB/CAN/input/relay qualification and Chimera firmware T01/T03 remain pending. No real USB API initialization/enumeration/device access, daemon run, firmware/DBC/config/CAN/relay action, upstream update, install or push. Next host slice: exact legacy status decoding before managed use. Offline tests do not establish live compatibility or guaranteed hardware success.
+
+---
+
 ## QA-20261106-10 — Proceed reliably and keep using teacher evidence
 
 **Date:** November 6, 2026 UTC.

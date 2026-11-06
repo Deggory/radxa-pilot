@@ -2,6 +2,7 @@ Import('env', 'arch', 'common', 'messaging')
 
 if arch != "Darwin":
   import hashlib
+  import libusb
 
   # Match panda/SConscript and Panda.get_packets_versions without hard-coding
   # current layout hashes. Source/header changes also change the build signature.
@@ -9,16 +10,22 @@ if arch != "Darwin":
     return int.from_bytes(hashlib.sha256(File(path).get_contents().replace(b'\r', b'')).digest()[:4], 'little')
 
   protocol_env = env.Clone()
+  protocol_env.Append(CPPPATH=[libusb.INCLUDE_DIR])
+  usb_env = env.Clone()
+  usb_env.Append(CPPPATH=[libusb.INCLUDE_DIR], LIBPATH=[libusb.LIB_DIR])
   protocol_env.Append(CPPDEFINES=[
     ('PANDA_HEALTH_VERSION_HASH', f"0x{version_hash('#panda/board/health.h'):08x}U"),
     ('PANDA_CAN_VERSION_HASH', f"0x{version_hash('#opendbc_repo/opendbc/safety/can.h'):08x}U"),
   ])
   libs = [common, messaging, 'pthread']
-  panda = protocol_env.Library('panda', ['panda.cc', 'spi.cc', 'panda_identification.cc'])
+  panda = protocol_env.Library('panda', ['panda.cc', 'spi.cc', 'panda_identification.cc', 'panda_usb.cc'])
 
-  env.Program('pandad', ['main.cc', 'pandad.cc', 'panda_safety.cc'], LIBS=[panda] + libs)
+  usb_env.Program('pandad', ['main.cc', 'pandad.cc', 'panda_safety.cc'], LIBS=[panda, 'usb-1.0'] + libs)
 
   if GetOption('extras'):
     env.Program('tests/test_pandad_canprotocol', ['tests/test_pandad_canprotocol.cc'], LIBS=[panda] + libs)
     env.Program('tests/test_panda_comms', ['tests/test_panda_comms.cc'])
     env.Program('tests/test_panda_identification', ['tests/test_panda_identification.cc'], LIBS=[panda])
+    # The test defines fake libusb C symbols and does not link/open real libusb.
+    usb_env.Program('tests/test_panda_usb', ['tests/test_panda_usb.cc'], LIBS=[panda])
+    usb_env.Program('tests/test_panda_usb_link', ['tests/test_panda_usb_link.cc'], LIBS=[panda, 'usb-1.0'])

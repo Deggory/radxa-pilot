@@ -7,6 +7,7 @@ checks, a local commit and a notebook handoff before expanding the scope.
 - [x] S00 Create the in-project home, retain source map/provenance and establish the sequence.
 - [x] T06a Shared native USB/SPI transport interface; existing SPI backend retained, native build and offline ownership/codec checks pass.
 - [x] T02a Pinned read-only native identification and profile selection; exact versions/health lengths and negative fixtures checked offline.
+- [x] T06b Native USB factory/backend, exclusive pinned selection, bounded I/O and cleanup; fake USB and real-library link checks pass.
 
 | Task | Next deliverable | Status |
 | --- | --- | --- |
@@ -15,7 +16,7 @@ checks, a local commit and a notebook handoff before expanding the scope.
 | T03 | Minimal F413 target, reviewed support/linker and offline image budget | Pending |
 | T04 | Modern six-byte/XOR classical CAN USB codec with stream/vector checks | Pending |
 | T05 | Exact identity/version/health responses, legacy F4 status adaptation and fail-disabled state | Pending |
-| T06 | Native Sunnypilot USB transport and offline failure tests | Partial: T06a interface complete; USB backend pending |
+| T06 | Native Sunnypilot USB transport and offline failure tests | Offline transport implemented (T06a/b); managed use remains T08 |
 | T07 | Isolated passive receive qualification on each physical bus | Pending separate bench scope |
 | T08 | Protected current/F4/Chimera managed passive lifecycle, reconnect and exclusive ownership | Pending |
 | T09 | Preserve digital/pulse acquisition and qualify invalid/stopped states | Pending |
@@ -42,5 +43,6 @@ assignments or prevent bounded offline engineering.
 
 Owner added legacy Panda compatibility on November 6. The independent host
 transport boundary was extracted first; it does not depend on a flashed Chimera
-image. See [the compatibility slices](../docs/LEGACY_PANDA_SUPPORT.md). T06a is
-not completion of T06; native USB/status/profile/lifecycle work still follows.
+image. See [the compatibility slices](../docs/LEGACY_PANDA_SUPPORT.md). T06a/b and
+T02a are checked offline; legacy status, managed lifecycle and physical testing
+still follow. Next host slice: exact legacy status decoding before managed use.
