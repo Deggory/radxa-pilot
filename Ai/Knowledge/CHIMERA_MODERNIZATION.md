@@ -1,3 +1,11 @@
+## November 6 — Existing teacher facts were not reconciled
+
+QA-20261106-05: input/transceiver facts were already recorded November 5 and
+successful local builds October 4. Earlier completeness wording failed to reuse
+that evidence. The firmware map consolidates known facts; do not describe them
+all as newly discovered. Follow existing reports/source before calling data
+missing. Correction documented; no runtime/hardware action or push.
+
 ## November 6 correction — firmware pin map and legacy build are available
 
 QA-20261106-04: followed the owner's pointer into Ocelot firmware and its shared

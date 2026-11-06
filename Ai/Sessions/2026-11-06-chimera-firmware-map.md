@@ -39,3 +39,13 @@ locally in Chimera224cfa6. Student validation receipt:
 No firmware tests were required for this documentation-only change; no modern
 build or live compatibility result is claimed. Only notebook/documentation work
 is committed; no push. Exact student commit/ledger receipt follows in teacher.
+
+## November 6 — Existing teacher facts were not reconciled
+
+QA-20261106-05: input/transceiver facts were already recorded November 5 and
+successful local builds October 4. Earlier completeness wording failed to reuse
+that evidence. The firmware map consolidates known facts; do not describe them
+all as newly discovered. Follow existing reports/source before calling data
+missing. Correction documented; no runtime/hardware action or push.
+
+Documentation follow-up validated with notebook verifier and whitespace check.

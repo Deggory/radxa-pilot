@@ -1,3 +1,17 @@
+## QA-20261106-05 — Why were already recorded firmware facts missed?
+
+**Date:** November 6, 2026 UTC.
+
+**Owner question (original):** see techeer alreasy knw about it ,then why it didn tdo the first time
+
+**Answer:** The teacher notes already contained the information. The November 5 Ocelot note records the direct-input pins and transceiver controls; October 4 entries record the local build helper, toolchain and successful Chimera builds. The agent failed to reconcile those existing facts with the new completeness checklist and used wording that conflated unverified electrical/modern-build qualification with missing source definitions/build infrastructure. This was an evidence-retrieval and synthesis failure in the answer, not missing owner information. The owner should not have needed to point back to the firmware folder. The latest source map consolidates existing knowledge and freshly checked details; it must not be presented as all newly discovered knowledge.
+
+**Evidence/source pin:** `Ai/Knowledge/Repos/ocelot.md`, sections “2026-11-05 — Chimera native input and CAN contract”, “2026-11-05 — Direct Ocelot Chimera source review” and October 4 build/location follow-ups. Historical build source94efc673 and current reference d87892fa plus dirty bytes remain distinct. QA-20261106-04 corrects the broader gap wording.
+
+**Implemented versus proposed/limits:** Logged this accountability explanation and corrected the handoff. No firmware/host/hardware action or push. Before declaring evidence missing, follow teacher entries into their original reports/source and reconcile known versus unverified facts. This is a documented correction, not a guarantee against future retrieval mistakes or a claim of new hardware validation.
+
+---
+
 ## QA-20261106-04 — Inspect Ocelot Chimera firmware as the board baseline
 
 **Date:** November 6, 2026 UTC.
