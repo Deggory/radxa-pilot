@@ -1,0 +1,20 @@
+{
+  "utc": "2026-11-07T05:36:46.512030+00:00",
+  "source_head": "6f788e922b8487e618702f0a795cdb4a526e1065",
+  "scope": "Owner explanation/notebook only; bidirectional USB/CAN target, passive current implementation and TX prerequisites",
+  "checks": {
+    "notebook": {
+      "command": [
+        ".venv/bin/python",
+        "Ai/verify_memory.py",
+        "--workspace",
+        "/home/radxa/comma"
+      ],
+      "exit": 0,
+      "stdout": "{\n  \"result\": \"pass\",\n  \"memory_layout\": \"regular project directory\",\n  \"documents\": 155,\n  \"relative_links\": 580,\n  \"optional_workspace_links\": 246,\n  \"source_repositories\": 8,\n  \"indexed_entries\": 4254\n}\n"
+    },
+    "qa02_sync": "pass",
+    "whitespace": "pass"
+  },
+  "next": "T08b2d passive status publication/disconnect/reconnect still pending"
+}

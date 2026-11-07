@@ -1,3 +1,13 @@
+
+November7 follow-up QA-20261107-02: owner asks about complete replacement and
+bidirectional data. Confirm intended Panda-style USB/CAN role forRadxa: CAN→
+Chimera→USB→Sunnypilot and reverse through MCU TX policy. Current implementation
+remains passive/offline; bootstrap/controller binding and guarded TX/bench work
+pending. Three classical CAN buses, truthful declared capabilities; no blanket
+H7 feature/physical readiness promise. Existing board inputs/CoreConfig/relay/
+OBD-C requirements retained. Next remains T08b2d passive status/reconnect.
+Explanation only, source6f788e922; no application/hardware/test rerun/update/push.
+
 ## November7 — Status metadata/read-length explanation saved
 
 QA-20261107-01 explains the six unsupported legacy status fields and why a

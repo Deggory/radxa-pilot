@@ -1,3 +1,35 @@
+## QA-20261107-02 — Intended complete USB/CAN role for Chimera
+
+**Date:** November7,2026 UTC.
+
+**Owner question (faithful quote):** so we will be able to completery replace ,were chimera will be able to recieve and send data throuh chimera
+
+**Answer:** The intended result is Chimera serving the Panda-style USB/CAN
+interface role for this Radxa/Sunnypilot setup, with both directions: three
+classical CAN buses into Chimera then USB to Sunnypilot, and Sunnypilot USB
+commands through Chimera's MCU policy to the selected CAN bus/device. Retaining
+ignition/brake/pulse/analog inputs, Core Config and board relay/OBD-C support
+remains in scope. This is an intended outcome, not a tested complete replacement
+or a promise of every current Panda/H7 feature; the board has classical CAN.
+
+**Implemented versus proposed:** Host passive legacy CAN receive and isolated
+status paths plus codecs/USB foundations are implemented/tested offline. The new
+F413 bootstrap still parks with USB/CAN disabled; endpoint/controller binding,
+MCU enforcement on every transmit path, permitted TX handling and physical bus
+qualification remain pending. No operational TX path or actuation permission
+comes from metadata/exact status reads. Next T08b2d remains passive normal-status
+publication and disconnect/reconnect; TX integration follows in later slices.
+
+**Evidence/source pin:** Cleanradxa/q8b6f788e922b8487e618702f0a795cdb4a526e1065;
+chimera/tasks/plan.md T04/T08/T13/T20; BUS_INPUT_CONTRACT.md,
+STATUS_CAPABILITY_CONTRACT.md, CAN_CODEC_CONTRACT.md; pandad/main.cc passive
+can/customReservedRawData1 publishers and firmware/main.c parked startup. Local
+source/saved audit only; no fresh application/hardware tests or REA provider.
+This follow-up records the intended role, does not resume implementation, flash,
+change runtime/DBC/config, update upstream or push.
+
+---
+
 ## QA-20261107-01 — Explain field metadata and exact-length USB status
 
 **Date:** November7,2026 UTC.
