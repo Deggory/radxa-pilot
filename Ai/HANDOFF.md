@@ -1,3 +1,14 @@
+## November 7 — Panda / Chimera comparison (QA18)
+
+Compared older black/F413 Panda, original F413 Chimera and red/H725 Panda.
+Red adds H7/CAN FD; original Chimera has custom inputs/config/relay behavior.
+USB transport is shared but installed firmware protocols differ (original
+mailbox16/health43). The new chimera/ remains an unfinished, halted F413 rewrite;
+chimera_old/ remains preserved. No integration or physical test claimed.
+Baseline ab07117573529c2e54d74f47eb3d66c0542f5506; Panda8a16e089.
+Source-only explanation; notebook checks only, no source/build/hardware/update/push.
+Next: await owner-selected scope; no automatic resumption. See QA-20261107-18.
+
 ## November7 — Jetson Panda identity follow-up
 
 QA17: author says H7 USB; official red/H7 target is STM32H725, legacy black/F4

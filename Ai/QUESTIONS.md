@@ -1,3 +1,13 @@
+## QA-20261107-18 — Older Panda, original Chimera and red Panda comparison
+
+**Date:** November 7, 2026 UTC.
+**Owner question (faithful quote):** "compare the old panda i chimmera and new panda ,i knw it is red panda ,compare".
+**Answer:** Interpreted older Panda as black/F4 following QA17; other old colors/revisions need separate identification. Black Panda and original Chimera use STM32F413/Cortex-M4 and classic CAN; red Panda uses STM32H725/Cortex-M7 and supports classic CAN plus CAN FD. These are CAN interface MCUs, not the host running the driving model. Original Chimera adds its own analog/pulse/button inputs, persistent configuration and relay/OBD-C behavior; stock Panda harness behavior is different. All three have USB host paths, but USB alone does not make their firmware protocols interchangeable. Original Chimera retains mailbox16/health43; Panda protocol versions and status sizes depend on the installed firmware. Red H7 firmware cannot run on the F413. A firmware rewrite on the same F413 cannot add hardware CAN FD. Our new chimera/ is an unfinished, halted F413 rewrite, while chimera_old/ preserves the original; new source is not a red-Panda hardware upgrade. A host adapter for retained original firmware is a possible route, not a completed modern Sunnypilot integration.
+**Evidence/source pins:** Sunnypilot ab07117573529c2e54d74f47eb3d66c0542f5506; Panda submodule 8a16e089b88593914823743df29e1c30b7dd3e00 README.md, SConscript and board/boards/red.h; chimera_old/firmware/SConscript, chimera/{main,can}.h (application main.c), drivers/clock.h, config.h, README.md and SOURCES.json; chimera/firmware/main.c and docs/LEGACY_PANDA_SUPPORT.md. Original source provenance Ocelot d87892fa plus saved local changes. QA17 retains saved black/F4 build evidence. Official pinned Panda README/red.h also opened on the web this turn.
+**Status/limits:** Source comparison only; no firmware/host implementation, build, flash, device or vehicle test, REA runtime result, upstream change or push. Exact Jetson author's physical board/chip marking and exact C2 installed-image source remain unresolved. Modern Chimera stays halted. Notebook checks only; earlier firmware-test results were not rerun. Existing unanswered items preserved.
+
+---
+
 ## QA-20261107-17 — Jetson Panda color/STM32 and Sunnypilot fork
 
 **Date:** November7,2026 UTC.
