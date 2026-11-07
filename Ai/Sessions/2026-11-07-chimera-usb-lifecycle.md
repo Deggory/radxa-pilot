@@ -47,3 +47,13 @@ Panda8a16e089/opendbc150f9371clean, canonical DBCb4079670, frozen F4references a
 host/model/camera/Thneed. Receipt records actual preservation readback, buildinput
 hashes, tests and review pins. Project commit and maintenance ledger follow after
 notebook validation; final teacher checkpoint records exact resulting commit.
+
+## November7 — Owner halted Chimera implementation
+
+Owner: "hault this ,this is is taking too uch time why". Stop implementation;
+do not resume automatically from the earlier next-step instructions. Last verified
+code commit e71640be3f15262670e38442ec28b3f5f5a7f823; no new implementation,
+tests, hardware actions or push. The delay reflects over-fragmented increments
+and repeated audits/documentation/handoffs as well as unfinished MCU/host work.
+Offline USB lifecycle exists; board startup remains held and operational bulk/CAN
+exchange is unfinished. Stop record only; wait for an explicit new instruction.

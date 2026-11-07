@@ -1,3 +1,25 @@
+## November7 — Separate legacy Chimera copy created
+
+Owner requested `sunnypilot/chimera_old/` first. Copied76legacy source/dependency/
+build-reference/recovery files (1,964,585bytes), all SHA256 verified against the
+saved Ocelot tree/bundle. Ocelotd87892fa plus39saved dirty entries retained; no
+source changes. Exact de193215 historical-image source/C2 installed match remains
+unverified. Restricted linker/private keys/generated objects excluded, so no
+complete build claim. New README/SOURCES.json explain provenance and limits.
+Modern `chimera/` implementation remains halted. This step only preserves files;
+no host adaptation/build/device/flash/update/push. Baselinee71640be3; next await
+owner's next scoped request for the original-Chimera host route.
+
+## November7 — Owner halted Chimera implementation
+
+Owner: "hault this ,this is is taking too uch time why". Stop implementation;
+do not resume automatically from the earlier next-step instructions. Last verified
+code commit e71640be3f15262670e38442ec28b3f5f5a7f823; no new implementation,
+tests, hardware actions or push. The delay reflects over-fragmented increments
+and repeated audits/documentation/handoffs as well as unfinished MCU/host work.
+Offline USB lifecycle exists; board startup remains held and operational bulk/CAN
+exchange is unfinished. Stop record only; wait for an explicit new instruction.
+
 ## November7 — Integrated USB control lifecycle (T03c4)
 
 Owner wants a larger capability beyond the repeated25% checkpoint. Implemented

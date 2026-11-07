@@ -1,0 +1,598 @@
+{
+  "date": "2026-11-07",
+  "purpose": "Owner-requested separate original/C2-era Chimera baseline; copy only",
+  "source_repository": "Deggory/ocelot",
+  "ocelot_head": "d87892fa25ef2a2474110b97bfb5245ee818b534",
+  "ocelot_status_porcelain": [
+    " M README.md",
+    " M firmware/README.md",
+    " M firmware/RetroPilot_Cores/interceptor_core/json_rpc_handlers.h",
+    " M firmware/RetroPilot_Cores/interceptor_core/main.c",
+    " M firmware/RetroPilot_Cores/interceptor_core/modes/differential.h",
+    " M firmware/chimera/chimera.h",
+    " M firmware/chimera/main.c",
+    " M firmware/retropilot_cores/reports/VW_NEUTRAL_30S_PREPARATION_20261027.md",
+    " M hardware/ocelot-pro/README.MD",
+    "?? \"Core Config/\"",
+    "?? \"Interceptor Config/\"",
+    "?? RYLEYMCC_OVERKILL_INTERCEPTOR_REVIEW_20261014.md",
+    "?? RYLEYMCC_TI_RECOVERY_SEARCH_20261014.md",
+    "?? Retropilot_Core_Config",
+    "?? Retropilot_Core_Config.desktop",
+    "?? Retropilot_Interceptor_Config",
+    "?? Retropilot_Interceptor_Config.desktop",
+    "?? USB_DFU",
+    "?? USB_DFU.desktop",
+    "?? \"WebUSB DFU/\"",
+    "?? cabana/",
+    "?? firmware/BUILDING.md",
+    "?? firmware/BUILD_COMPARISON.md",
+    "?? firmware/INSPECTING_SIGNED_BIN.md",
+    "?? firmware/RetroPilot_Cores/interceptor_core/ADC_TRACE_PROTOCOL.md",
+    "?? firmware/RetroPilot_Cores/interceptor_core/STEERING_SENSOR_FIRMWARE_REVIEW.md",
+    "?? firmware/RetroPilot_Cores/interceptor_core/adc_trace.h",
+    "?? firmware/RetroPilot_Cores/interceptor_core/modes/differential_command.h",
+    "?? firmware/build_interceptor_gcc9.sh",
+    "?? firmware/build_local.sh",
+    "?? firmware/inspect_signed.py",
+    "?? firmware/inspection/",
+    "?? hardware/Actuator-Core/",
+    "?? hardware/chimera/",
+    "?? hardware/interceptor-core/",
+    "?? hardware/ocelot-pro/convert_schdoc.py",
+    "?? hardware/ocelot-pro/ocelot-pro-schematic.pdf",
+    "?? hardware/ocelot-pro/ocelot-pro_schematic.pdf",
+    "?? hardware/relay-core/"
+  ],
+  "historical_image_version": "v1.0.0-DEV-de193215-DEBUG",
+  "historical_image_source_commit_unrecovered": "de193215490b4906aa74aae6aa426b8f4740f3fa",
+  "recovery_zip_sha256": "8158f29132e88bff946cbe23b72d269fa2e6aeb4d6ca5aba7b9539ac04ec043c",
+  "files": [
+    {
+      "destination": "Dockerfile",
+      "source": "ocelot/Dockerfile",
+      "bytes": 483,
+      "sha256": "515e31966d47fb8ca0b9595d21837074530db0ca3b17cfae06b7ed81940a98cf",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "build_project.sh",
+      "source": "ocelot/build_project.sh",
+      "bytes": 238,
+      "sha256": "11bd23f4fb42cfcaa73c0da6e01a6cd7c1d5ab879cbbaffb8bad39d7f3620c58",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/BUILDING.md",
+      "source": "ocelot/firmware/BUILDING.md",
+      "bytes": 4842,
+      "sha256": "249e9655fd999ba5a4a1b08bae28e081625836e54021d051596aea4f6b409461",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/SConscript",
+      "source": "ocelot/firmware/SConscript",
+      "bytes": 6314,
+      "sha256": "7f60ca0b975592c2bf633e3eb06aa1934288cd547f4a771cb58567579da88bd9",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/SConstruct",
+      "source": "ocelot/firmware/SConstruct",
+      "bytes": 25,
+      "sha256": "f875cee0d07214dd0603a7f7934a1239303f9307f2dea24e04de0cfc833b9d66",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/VERSION",
+      "source": "ocelot/firmware/VERSION",
+      "bytes": 6,
+      "sha256": "2485f4d55aae6c5b073114bc4c4b1907c0abae14166281beee7d93f76ebf41fc",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/board.h",
+      "source": "ocelot/firmware/board.h",
+      "bytes": 2978,
+      "sha256": "aaf93aeaa7dd57dc665db4589fc8e3fc4e2375b37e3d5186cf8cefd4be688fb8",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/board_declarations.h",
+      "source": "ocelot/firmware/board_declarations.h",
+      "bytes": 2627,
+      "sha256": "55a8309808b0d47af9c32d88cf8bc6e8ea7d2fb4d0a51a1dc857ccff274d0e75",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/boards/black.h",
+      "source": "ocelot/firmware/boards/black.h",
+      "bytes": 6372,
+      "sha256": "0740625cf31008ef7e22a477df98d8ecd52ded29dc64f54af72ea4e3a1c0f26c",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/boards/common.h",
+      "source": "ocelot/firmware/boards/common.h",
+      "bytes": 2712,
+      "sha256": "adba0922187b13c5099d72a4b435c54ae3ac8f5f3be6720975686a1c9cffa26a",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/boards/dos.h",
+      "source": "ocelot/firmware/boards/dos.h",
+      "bytes": 6140,
+      "sha256": "d9523526b218d7e30ab4c0ffd75a374612fa5ac3519e3cdf2e4130cb8aebba2c",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/boards/gateway.h",
+      "source": "ocelot/firmware/boards/gateway.h",
+      "bytes": 3093,
+      "sha256": "26425d76947291d4711f36330b7e700e91d803622b42fe6e79c88f687f29451f",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/boards/grey.h",
+      "source": "ocelot/firmware/boards/grey.h",
+      "bytes": 1456,
+      "sha256": "4d663ae02954e9f5c1ef5900230cdf870871a6ea1cacf11c67bb6a29db1eda88",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/boards/uno.h",
+      "source": "ocelot/firmware/boards/uno.h",
+      "bytes": 7328,
+      "sha256": "08cfaf6d75039cbdff04e02b981b69b38e80c95c08824e9701da03f3476c60fd",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/boards/white.h",
+      "source": "ocelot/firmware/boards/white.h",
+      "bytes": 9574,
+      "sha256": "41dff470b4ea82e9f899dad1021694bd430a255f9be1cebfb3100a0241522b40",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/bootstub.c",
+      "source": "ocelot/firmware/bootstub.c",
+      "bytes": 2783,
+      "sha256": "2b29e71e11379db8a76c7e0e98f957dec6b4e7a593308091471c45b06bfe69b0",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/build_local.sh",
+      "source": "ocelot/firmware/build_local.sh",
+      "bytes": 1615,
+      "sha256": "8d4a07a2764908a333c70933e35d289c0609ffc9276a37f2adeccbed2ccf8d03",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/certs/debug.pub",
+      "source": "ocelot/firmware/certs/debug.pub",
+      "bytes": 225,
+      "sha256": "98be6f5fd87ab61c51e91991628d6d9f0b3fd1ef448176e5610a55f18fd4e301",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/certs/release.pub",
+      "source": "ocelot/firmware/certs/release.pub",
+      "bytes": 225,
+      "sha256": "9488d5c09307bc7ab25dfec337cb54f8788a0ae6b50e97b0c51e69b3e36cfd1c",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/chimera/can.h",
+      "source": "ocelot/firmware/chimera/can.h",
+      "bytes": 9956,
+      "sha256": "7aca434faa4a1c37d59f5b43f495ed0d213f0e22fc46e4db28c433472b757310",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/chimera/chimera.h",
+      "source": "ocelot/firmware/chimera/chimera.h",
+      "bytes": 17452,
+      "sha256": "bccfd705363d223d86c9a0e62ccc817ba13a95e068315c22f97a40fdbf9aa413",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/chimera/main.c",
+      "source": "ocelot/firmware/chimera/main.c",
+      "bytes": 37462,
+      "sha256": "5d1dd3b0400ec80da9b477abfced51c9346674865ce5ad86d7e5a012c2d94883",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/chimera/usb.h",
+      "source": "ocelot/firmware/chimera/usb.h",
+      "bytes": 38232,
+      "sha256": "2996676fb60447a3ea3de70882e19b0a54709a65e2f3d8c935c68e074eb0612d",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/config.h",
+      "source": "ocelot/firmware/config.h",
+      "bytes": 928,
+      "sha256": "8d362901ff6b778072442ae6e2b69f084aca1867524bd31b452392be1a4d247c",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/crc.h",
+      "source": "ocelot/firmware/crc.h",
+      "bytes": 977,
+      "sha256": "dd21e9aff24cc24fcb42f0b0fb3674248a8e84fe8303926c7fbd3f081be894d6",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/critical.h",
+      "source": "ocelot/firmware/critical.h",
+      "bytes": 736,
+      "sha256": "108a204141499dd37d6e9f98dc9decc68bc5776544fd6b21112e6c2b86eb7fb2",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/crypto/hash-internal.h",
+      "source": "ocelot/firmware/crypto/hash-internal.h",
+      "bytes": 2520,
+      "sha256": "7d4021b7d4735ade5a2d77cf0744f053a3bc699db6f7efaae10598bba2fbdc39",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/crypto/rsa.c",
+      "source": "ocelot/firmware/crypto/rsa.c",
+      "bytes": 10339,
+      "sha256": "2171f8a3562908854761da9360533eeb22bbd20759eefee8675c630efc7564dc",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/crypto/rsa.h",
+      "source": "ocelot/firmware/crypto/rsa.h",
+      "bytes": 2411,
+      "sha256": "5ff2bc34eedff7f9c57c26ef1f0741a398b71b1c67462cc34a5d376e25252c1a",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/crypto/sha.c",
+      "source": "ocelot/firmware/crypto/sha.c",
+      "bytes": 5113,
+      "sha256": "ccb2320fa45158452055c94072e5528a0895e25dc0c706852f4f879c49fdcfe3",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/crypto/sha.h",
+      "source": "ocelot/firmware/crypto/sha.h",
+      "bytes": 2147,
+      "sha256": "0bff080bf318baec74eeeba39124c4ffe4c3e7f29b03045bf2c55f1e7144997b",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/crypto/sign.py",
+      "source": "ocelot/firmware/crypto/sign.py",
+      "bytes": 971,
+      "sha256": "f709ce88ba49fb8e05d0c80129a260734c6207e0ffe5ec68f0599a55b5220bda",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/crypto/stdint.h",
+      "source": "ocelot/firmware/crypto/stdint.h",
+      "bytes": 122,
+      "sha256": "2d78852fad34df93c3866cc826c06d5e4b9d862a946073cc58a3472da91ee0f1",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/drivers/adc.h",
+      "source": "ocelot/firmware/drivers/adc.h",
+      "bytes": 1045,
+      "sha256": "02531ce02676e7c1dfb78114c967af561542da7ee2016601cf9f3c8251229827",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/drivers/can.h",
+      "source": "ocelot/firmware/drivers/can.h",
+      "bytes": 14219,
+      "sha256": "e06f272057c32af7aeac8ec4a196327d8229ca9d78c68550623c19d4de5d52c6",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/drivers/clock.h",
+      "source": "ocelot/firmware/drivers/clock.h",
+      "bytes": 1221,
+      "sha256": "27bfd83d179c78166860f9043d2cc4fac0ca77f108b44af699836d4f86250752",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/drivers/clock_source.h",
+      "source": "ocelot/firmware/drivers/clock_source.h",
+      "bytes": 3510,
+      "sha256": "05c0a0bf4887bc04027b3ddc14017601dc504852f702e0ed9754579205a96f46",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/drivers/dac.h",
+      "source": "ocelot/firmware/drivers/dac.h",
+      "bytes": 579,
+      "sha256": "e570f3c16eea6abad99b41296fb510ee09d1acbfb3b71fbf6911914ae1247949",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/drivers/fan.h",
+      "source": "ocelot/firmware/drivers/fan.h",
+      "bytes": 1061,
+      "sha256": "f1746732691714682c774a2b5a4fe122d81feb5f2fcec8c93faf4e55d5ca3c9d",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/drivers/gmlan_alt.h",
+      "source": "ocelot/firmware/drivers/gmlan_alt.h",
+      "bytes": 8264,
+      "sha256": "dcb83405f6aafe139ba7b6ffdf37ed3c34dae258bf3d57c7d52b24fb72b68de5",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/drivers/harness.h",
+      "source": "ocelot/firmware/drivers/harness.h",
+      "bytes": 3339,
+      "sha256": "fbaeb8134a637766b98800e87e6f693192b0da081183b20995ddac885c043170",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/drivers/interrupts.h",
+      "source": "ocelot/firmware/drivers/interrupts.h",
+      "bytes": 8720,
+      "sha256": "140463913b041b78d33ebd6a10e9b154104c284596b623343a582ff3dede91ef",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/drivers/json_rpc.h",
+      "source": "ocelot/firmware/drivers/json_rpc.h",
+      "bytes": 6613,
+      "sha256": "28e36bfaea4545e57eedfee6d9ab8e9d5e6abd68558bfe9dee846d0944a16a7d",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/drivers/kline_init.h",
+      "source": "ocelot/firmware/drivers/kline_init.h",
+      "bytes": 3123,
+      "sha256": "7be5a4381b497e9cc2717f9ab3bf344d9eac366bcbfef783b16feef7408471f6",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/drivers/llcan.h",
+      "source": "ocelot/firmware/drivers/llcan.h",
+      "bytes": 4309,
+      "sha256": "2794b5478c7fbbb8ece22eedda0a3f925262c7d7f6d9e9e221c8448d63a13d40",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/drivers/llgpio.h",
+      "source": "ocelot/firmware/drivers/llgpio.h",
+      "bytes": 1790,
+      "sha256": "57ab103f7a35112d0663253b3c29488340f5f5fa6ecdd88cf079d75397e5b42f",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/drivers/pwm.h",
+      "source": "ocelot/firmware/drivers/pwm.h",
+      "bytes": 1924,
+      "sha256": "d153816e79976ed68b01e02f454152a919be262e0070ef33f507cfd6ca895f62",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/drivers/registers.h",
+      "source": "ocelot/firmware/drivers/registers.h",
+      "bytes": 2915,
+      "sha256": "85308b8806a89d305418e9771d3a36296f8b20d8db5728412df3f23d968a54f0",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/drivers/rtc.h",
+      "source": "ocelot/firmware/drivers/rtc.h",
+      "bytes": 3629,
+      "sha256": "3f10ac5c0006f759ba0548eef0b376483e984f0dec7b9756ead738bbf2a12779",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/drivers/spi.h",
+      "source": "ocelot/firmware/drivers/spi.h",
+      "bytes": 4086,
+      "sha256": "f7e7cf1cce952bc3d60b5c19eea9966c16d8bae5ffae76261a7be10a98c9983a",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/drivers/timer.h",
+      "source": "ocelot/firmware/drivers/timer.h",
+      "bytes": 212,
+      "sha256": "609d90d97d9a9fc6232bc6c656c72be1715d2dcb1ad1fbdfcbe9800b70452865",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/drivers/uart.h",
+      "source": "ocelot/firmware/drivers/uart.h",
+      "bytes": 12656,
+      "sha256": "9a1bebf088d2343619b0c9802e58dca5fb9f2bb12394ea11145ebe0c14757900",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/drivers/usb.h",
+      "source": "ocelot/firmware/drivers/usb.h",
+      "bytes": 37683,
+      "sha256": "56d2f4fb11408cdd64b71e93bef2146b1993b186fe57cca308daa4a76676bf90",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/faults.h",
+      "source": "ocelot/firmware/faults.h",
+      "bytes": 1934,
+      "sha256": "4de47bb031217d1e698b981c8e369a5f4e8fc095564d42edd5c24baf83e86fd6",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/gpio.h",
+      "source": "ocelot/firmware/gpio.h",
+      "bytes": 1892,
+      "sha256": "7aa4b95a75ef3f9885925444decdec13417d16f591fc115ce4b547d7cef82ecf",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/inc/cmsis_compiler.h",
+      "source": "ocelot/firmware/inc/cmsis_compiler.h",
+      "bytes": 9482,
+      "sha256": "3eeeb716701baca7c9aec136ada74ac29fa5731d188c1728f66b13e54a69ab64",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/inc/cmsis_gcc.h",
+      "source": "ocelot/firmware/inc/cmsis_gcc.h",
+      "bytes": 62551,
+      "sha256": "52474855409553055f14448625416e7702edd8e104c53d1dab791e521a6b4732",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/inc/cmsis_version.h",
+      "source": "ocelot/firmware/inc/cmsis_version.h",
+      "bytes": 1677,
+      "sha256": "d649eaa2fb1c421add02950ab9c111ccabb8be27197f3d37e03f03357e817ff8",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/inc/core_cm3.h",
+      "source": "ocelot/firmware/inc/core_cm3.h",
+      "bytes": 109421,
+      "sha256": "01793bb15ec31729c8d1d4422a2e86ce5e0728b6a8834b94f08ea46c4c43b3b5",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/inc/core_cm4.h",
+      "source": "ocelot/firmware/inc/core_cm4.h",
+      "bytes": 120868,
+      "sha256": "dd13b2caea9d4490a5d49cdb86fbfa3e0d7b01343dc0ad8560c10a924626320e",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/inc/mpu_armv7.h",
+      "source": "ocelot/firmware/inc/mpu_armv7.h",
+      "bytes": 11644,
+      "sha256": "ea2a77aa3e73ed3b3ab6bef6ada721a556245054f18b23218f9d19cdd4d38424",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/inc/stm32f413xx.h",
+      "source": "ocelot/firmware/inc/stm32f413xx.h",
+      "bytes": 1145325,
+      "sha256": "7c2cb1deecee360e4e8069c4215f05f652e14c70bd88f9bd072dc5502a5fd530",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/inc/stm32f4xx.h",
+      "source": "ocelot/firmware/inc/stm32f4xx.h",
+      "bytes": 10478,
+      "sha256": "6bacf7eb5c98b53a3d6d7a1939510105114cf5c8a0c340dac1fb1df9acea3268",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/inc/stm32f4xx_hal_def.h",
+      "source": "ocelot/firmware/inc/stm32f4xx_hal_def.h",
+      "bytes": 8285,
+      "sha256": "5df62b93da61e8534a5ac79582cc34c1bf629ebaaf5bd17454d50e6cb86114b0",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/inc/stm32f4xx_hal_gpio_ex.h",
+      "source": "ocelot/firmware/inc/stm32f4xx_hal_gpio_ex.h",
+      "bytes": 81285,
+      "sha256": "64af095fe7662e0e2f5e30dee7cb931639d571a3874ecaec1dcf484ea1434c3c",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/inc/system_stm32f4xx.h",
+      "source": "ocelot/firmware/inc/system_stm32f4xx.h",
+      "bytes": 3700,
+      "sha256": "0b1639a4684b0ffefee8671550dea9f2cc0080e88be98a9388e3c27c55cc8de6",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/libc.h",
+      "source": "ocelot/firmware/libc.h",
+      "bytes": 731,
+      "sha256": "d9920e14649dc6b4927006719a51e221f5746f21f35c273469cc015f26f61469",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/main_declarations.h",
+      "source": "ocelot/firmware/main_declarations.h",
+      "bytes": 578,
+      "sha256": "0d0a74cdcc2e21b66654a99c5d1934fd8f692539741650958e70a5dcf8ea9654",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/power_saving.h",
+      "source": "ocelot/firmware/power_saving.h",
+      "bytes": 1872,
+      "sha256": "16eff6d065b791f256f6d03df5796f826939bfaac31197d943fd2e0d4c38ae61",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/provision.h",
+      "source": "ocelot/firmware/provision.h",
+      "bytes": 804,
+      "sha256": "37cdd715770e76db2f6448e81b941645d323b12b169ac898f99c538678f9008e",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/safety_declarations.h",
+      "source": "ocelot/firmware/safety_declarations.h",
+      "bytes": 5908,
+      "sha256": "e829a85aa324cdfb0a331442e9178b8868e6999a185cae9fdf6ab6094713243b",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/spi_flasher.h",
+      "source": "ocelot/firmware/spi_flasher.h",
+      "bytes": 12883,
+      "sha256": "24a7999cc244bde8a5c897a46efda780c202891c966632456ca0f1e0d9835608",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "firmware/startup_stm32f413xx.s",
+      "source": "ocelot/firmware/startup_stm32f413xx.s",
+      "bytes": 24549,
+      "sha256": "ce33c05523b5806b0d909fdda5a5741f7c9399dafad0231bc322236f9ce6062c",
+      "kind": "legacy_source_or_build_reference"
+    },
+    {
+      "destination": "recovery/chimera.bin.signed",
+      "source": "chimera/recovery/ocelot-firmware-main-de19321.zip!chimera.bin.signed",
+      "bytes": 27976,
+      "sha256": "e35df778ad0d865d6eab5b7763b9a9081b3923bea11fbb8c2949a40d37796a9b",
+      "kind": "historical_artifact_not_a_new_build"
+    },
+    {
+      "destination": "recovery/bootstub.bin",
+      "source": "chimera/recovery/ocelot-firmware-main-de19321.zip!bootstub.bin",
+      "bytes": 11204,
+      "sha256": "2533c53d853826c1fa4e9198d1126446ae5a412adc6ba03c1d5a8171287353ca",
+      "kind": "historical_artifact_not_a_new_build"
+    },
+    {
+      "destination": "recovery/manifest.json",
+      "source": "chimera/recovery/ocelot-firmware-main-de19321.zip!manifest.json",
+      "bytes": 238,
+      "sha256": "40db2c3d0b3f055b77c76c217252db4f97a9a2bb2bc98f8c39aa73e30c50acf7",
+      "kind": "historical_artifact_not_a_new_build"
+    }
+  ],
+  "excluded": [
+    "private signing keys",
+    "restricted Atollic stm32_flash.ld",
+    "generated objects and caches",
+    "unrelated board application projects",
+    "flash/recovery executables and device configuration backups"
+  ],
+  "limits": [
+    "Source includes explicitly preserved Ocelot local changes; not pristine upstream or exact historical-image source",
+    "C2-era is owner terminology; exact installed C2/Chimera source/image match unverified",
+    "Build references retained, not a complete verified signing/build environment",
+    "Copy only; no build, flash, USB access or Sunnypilot integration change",
+    "Existing individual copyright/license headers retained; no new license grant implied"
+  ]
+}

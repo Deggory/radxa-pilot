@@ -1,3 +1,43 @@
+## QA-20261107-15 — Copy original Chimera into chimera_old first
+
+**Date:** November7,2026 UTC.
+**Owner request (faithful quote):** "make new folder chimera_old we will keep the chimera from c2 ,copy wat is needed  in sunnypilot do this first".
+**Answer:** Created sunnypilot/chimera_old/ with76byte-identical legacy source,
+shared headers/drivers/CMSIS/startup/config/build references/public certificates
+and selected historical Chimera/bootstub recovery files. Added README, instructions
+and per-file source/SHA256 manifest. No modern firmware or host code changed.
+**Evidence/source pin:** Baselinee71640be3; Ocelotd87892fa plus saved local changes,
+matching19pinned sources and39dirty entries; recovery ZIP8158f29132e88bff946cbe23b72d269fa2e6aeb4d6ca5aba7b9539ac04ec043c;
+Chimera imagee35df778ad0d865d6eab5b7763b9a9081b3923bea11fbb8c2949a40d37796a9b.
+See sunnypilot/chimera_old/SOURCES.json for all76verified files.
+**Status/limits:** Copy completed only. C2-era is owner terminology; exact installed
+image match and source for de193215490b4906aa74aae6aa426b8f4740f3fa remain unverified.
+Source retains known local changes and differs from the historical image's source.
+Restricted Atollic linker, private signing keys and generated objects excluded;
+not a complete verified rebuild. No build/flash/device/host integration/update/
+push. Modern chimera/ remains halted. Earlier unanswered items preserved. Next
+host adaptation is not implemented or automatically started by this copy request.
+
+---
+
+## QA-20261107-14 — Halt Chimera and explain the delay
+
+**Date:** November7,2026 UTC.
+**Owner request (faithful quote):** "hault this ,this is is taking too uch time why".
+**Answer:** Implementation halted. Work was split into too many small USB bring-up
+increments, with excessive repeated auditing, documentation and handoffs. This
+made visible progress toward actual CAN data exchange too slow. Tests establish
+offline behavior; they have not completed board startup or the operational CAN
+path. The workflow should have grouped larger useful capabilities earlier.
+**Evidence/source pin:** e71640be3f15262670e38442ec28b3f5f5a7f823;
+chimera/docs/USB_LIFECYCLE.md and its saved36-test/92-scenario receipt. The timing
+explanation is an assessment of the work pattern, not a measured time breakdown.
+**Status/limits:** Stopped at owner's request; earlier next steps are suspended.
+No automatic resumption, new implementation/tests/hardware/update/push. Stop notes
+only saved during this turn. Existing unanswered questions remain preserved.
+
+---
+
 ## QA-20261107-13 — Deliver a larger USB capability beyond25%
 
 **Date:** November7,2026 UTC.

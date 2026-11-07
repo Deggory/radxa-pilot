@@ -5,6 +5,10 @@
 This branch contains the Radxa Sunnypilot port. Original Sunnypilot source is
 preserved on `master`; project development is on `radxa/q8b`.
 
+**November7 owner direction:** modern Chimera implementation is halted.
+The separate [chimera_old/](chimera_old/README.md) now preserves the original
+legacy/C2-era source and historical image. This step copies files only.
+
 **Chimera checkpoint — November 7, 2026:** the implementation lives in
 [`chimera/`](chimera/README.md), with USB-only Radxa host support in
 `openpilot/selfdrive/pandad/`. Legacy identification, passive CAN/diagnostics,

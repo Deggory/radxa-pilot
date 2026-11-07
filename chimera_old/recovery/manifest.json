@@ -1,0 +1,8 @@
+{
+  "actuator_core": "actuator_core.bin.signed",
+  "bootstub": "bootstub.bin",
+  "chimera": "chimera.bin.signed",
+  "ibst": "ibst.bin.signed",
+  "interceptor_core": "interceptor_core.bin.signed",
+  "relay_core": "relay_core.bin.signed"
+}
