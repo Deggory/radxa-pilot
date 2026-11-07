@@ -1,3 +1,15 @@
+## November7 — Stop now; resume Chimera this evening
+
+Owner: "please  shutown now and  will see this in evening". Save work and request
+normal shutdown of current Radxahostcomma. Baseline3ec39ebc2ed477309750727bf737d8020b8e4c70,
+clean before notebook closeout; today's two explanation commits are local, not
+pushed. No application/firmware/runtime implementation resumed. Evening next:
+T08b2d passive normal-status publication and disconnect/reconnect handling,
+keeping legacy observations nonoperational. Use normal GNOME poweroff with
+application/inhibitor cleanup; physical poweroff cannot be asserted in advance.
+Actual request/timer readback follows in the shutdown receipt. No remote-PC
+connection attempt or upstream update/push is part of this request.
+
 ## November7 — Status metadata/read-length explanation saved
 
 QA-20261107-01 explains the six unsupported legacy status fields and why a

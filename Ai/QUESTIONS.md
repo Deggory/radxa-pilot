@@ -1,3 +1,28 @@
+## QA-20261107-03 — Shut down now; continue this evening
+
+**Date:** November7,2026 UTC.
+**Owner request (faithful quote):** please  shutown now and  will see this in evening
+
+**Answer:** Save the current clean project/explanation work and evening restart
+point; request normal GNOME shutdown of the current Radxacomma host, respecting
+application cleanup/inhibitors. No force/discard. Actual queued request/result is
+recorded below and in the session receipt; physical poweroff not claimed in
+advance. Resume T08b2d passive normal-status publication/disconnect/reconnect
+this evening, with invalid/observation-only legacy status. No new engineering,
+remote-PC shutdown, source update or push.
+
+**Evidence/status:** Source baseline3ec39ebc2ed477309750727bf737d8020b8e4c70 on
+cleanradxa/q8b. Normal desktop session active and gnome-session-quit available;
+Code has a shutdown-delay cleanup inhibitor. Documentation-only notebook/QA/
+whitespace validation; no application/hardware test rerun. Source-first/saved
+normal shutdown method; no unrelated REA analysis.
+
+Actual request: normal GNOME poweroff queued as chimera-evening-poweroff-20261107T061018Z.timer,
+60second delay; readback active/waiting. No force/inhibitor override. Physical
+poweroff unobserved. Evening restart point saved before request.
+
+---
+
 ## QA-20261107-02 — Intended complete USB/CAN role for Chimera
 
 **Date:** November7,2026 UTC.
