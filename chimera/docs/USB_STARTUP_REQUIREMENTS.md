@@ -1,3 +1,11 @@
+November7 T03c4 supersedes the detached-only lifecycle limitation below:
+explicit attach, OTG cause ACK, suspend/resume, reset cancellation, session-end
+release and explicit fresh reconnect now pass offline.36firmware tests/92new
+composed scenarios; actual board startup remains held and unflashed.
+Current image9064bytes/globals264. Full-roadmap rough estimate30%, physical0%.
+Next board USB startup binding, then bulk/CAN RX and operational status.
+See [current lifecycle contract](USB_LIFECYCLE.md); earlier receipts remain historical.
+
 # Power, UID and recovery requirements before USB startup
 
 November7 T03c3b: explicit legacy no-VBUS controller/service mode is now

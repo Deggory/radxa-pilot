@@ -10,6 +10,8 @@ typedef struct {
   reg regs[48];unsigned count,reads,writes,uid_reads,failure,resets,rx_flush;
   bool cleanup_stuck,clock_gate_stuck,attach_during_poll,identity_changed_after_snapshot;
   bool clear_session_during_poll,session_write_stuck;
+  bool allow_attach,attach_write_stuck,attach_delay_stuck,gate_on_attach;
+  unsigned attaches,attach_delays;
 } fake;
 static uint32_t *cell(fake *f,uint32_t address) {
   for(unsigned i=0;i<f->count;++i) if(f->regs[i].address==address) return &f->regs[i].value;
@@ -39,15 +41,16 @@ static uint32_t rd(void *ctx,uint32_t address) {
   if(address==0x50000014 && f->failure==15) return 1;
   if(address==0x50000014 && f->attach_during_poll) *cell(f,0x50000804)=0;
   if(address==0x50000014 && f->clear_session_during_poll) *cell(f,0x50000000)&=~0xC0U;
+  if(address==0x50000014 && *cell(f,0x50000004)) *v|=4U;
   if(address==0x50000800 && f->failure==18 && f->rx_flush==1) return 0;
   return *v;
 }
 static void wr(void *ctx,uint32_t address,uint32_t value) {
   fake *f=ctx;++f->writes;
   const uint32_t allowed[]={0xE000EDFC,0xE0001000,0x40023800,0x40023804,0x40023814,0x40023834,0x40023894,
-    0x50000000,0x50000008,0x5000000C,0x50000010,0x50000014,0x50000018,0x50000024,0x50000028,
+    0x50000000,0x50000004,0x50000008,0x5000000C,0x50000010,0x50000014,0x50000018,0x50000024,0x50000028,
     0x50000038,0x50000800,0x50000804,0x50000810,0x50000814,0x5000081C,0x50000834,
-    0x50000900,0x50000908,0x50000B00,0x50000B08,0x50000B10,0x50000E00};
+    0x50000900,0x50000908,0x50000910,0x50000B00,0x50000B08,0x50000B10,0x50000E00};
   bool known=false;for(unsigned i=0;i<sizeof(allowed)/sizeof(allowed[0]);++i) known|=address==allowed[i];
   assert(known); // No GPIO/CAN/watchdog/flash/config/UID writes.
   if(address>=0x50000000 && address<0x50010000) assert((*cell(f,0x40023834)&128) && !(*cell(f,0x40023814)&128));
@@ -58,17 +61,29 @@ static void wr(void *ctx,uint32_t address,uint32_t value) {
   if(address==0x40023834 && f->clock_gate_stuck && !(value&128)) return;
   if(address==0xE0001000 && f->failure==4) return;
   if(address==0x50000038 && (value&(1U<<16))) assert(*cell(f,0x50000804)&2);
-  if(address==0x50000804) assert(value&2); // This increment cannot attach.
-  if(address==0x50000014 || address==0x50000908 || address==0x50000B08) *cell(f,address)&=~value;
+  if(address==0x50000804 && !(value&2)) {
+    assert(f->allow_attach); // Only lifecycle fixture opts into attachment.
+    if(!(*cell(f,address)&2)) { *cell(f,address)=value; return; }
+    assert(f->attach_delays && !(*cell(f,0x50000E00)&3));
+    ++f->attaches;
+    if(f->attach_write_stuck) return;
+    if(f->gate_on_attach) *cell(f,0x50000E00)=1;
+  }
+  if(address==0x50000004 || address==0x50000014 || address==0x50000908 || address==0x50000B08) *cell(f,address)&=~value;
   else *cell(f,address)=value;
+  if(address==0x50000004 && !*cell(f,address)) *cell(f,0x50000014)&=~4U;
   if(address==0x50000018 && f->failure==19 && value!=0) *cell(f,0x50000804)=0;
   if(address==0x50000010) {
-    if(value&1) { ++f->resets;*cell(f,0x50000804)=0;*cell(f,0x50000038)=0; }
+    if(value&1) {
+      ++f->resets;*cell(f,0x50000804)=0;*cell(f,0x50000038)=0;
+      if(f->allow_attach) { *cell(f,0x50000004)=0;*cell(f,0x50000014)=0; }
+    }
     if(value&16) ++f->rx_flush;
   }
 }
 static bool delay(void *ctx,uint32_t us) {
   fake *f=ctx;if(f->failure==14) return false;
+  if(us==10000) { ++f->attach_delays; if(f->attach_delay_stuck) return false; }
   chimera_usb_io io={ctx,rd,wr,NULL};return chimera_usb_delay16(&io,us);
 }
 static void base(fake *f,unsigned failure) {

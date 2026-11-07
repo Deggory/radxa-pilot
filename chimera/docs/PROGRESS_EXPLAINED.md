@@ -1,3 +1,12 @@
+November7 T03c4 correction: the larger integrated USB lifecycle is now implemented
+and checked offline: attach, enumerate, suspend/resume, cancel/reset, session end
+and explicit fresh reconnect. Revised subjective full-roadmap estimate **30% done /
+70% remaining**, physical validation **0%**. Earlier25% entries below are dated
+history, not a frozen metric.36firmware tests include92new composed scenarios and
+40reconnect cycles. T03 remains partial: default board profile still NULL and no
+physical enumeration. Next opt-in board USB startup binding, then bulk/CAN RX and
+operational status. [Current evidence](USB_LIFECYCLE.md).
+
 November7 T03c3b: the explicit legacy no-VBUS session policy is implemented and
 verified offline; physical VBUS stays UNKNOWN, board main stays held.34firmware
 tests pass with61new real-component scenarios. Stage100%; full roadmapabout25%/

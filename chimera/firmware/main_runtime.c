@@ -12,7 +12,8 @@ static bool fail(chimera_main_runtime *r, enum chimera_main_usb_error error) {
   r->state = CHIMERA_BOOT_USB_FAILED;
   revoke(r);
   // A failed service has already attempted release. Do not retry implicitly.
-  if (r->usb.phase == CHIMERA_USB_SERVICE_DETACHED) {
+  if (r->usb.phase == CHIMERA_USB_SERVICE_DETACHED || r->usb.phase == CHIMERA_USB_SERVICE_ATTACHED ||
+      r->usb.phase == CHIMERA_USB_SERVICE_SUSPENDED) {
     (void)chimera_usb_service_stop(&r->usb);
   }
   r->cleanup_ok = r->usb.cleanup_ok;
@@ -64,28 +65,42 @@ static bool present(chimera_main_runtime *r, const chimera_vbus_io *vbus) {
   return r->vbus == CHIMERA_VBUS_PRESENT;
 }
 
-int chimera_main_poll(chimera_main_runtime *r, const chimera_vbus_io *vbus) {
-  if (r == NULL || r->state != CHIMERA_BOOT_USB_DETACHED) return -1;
+static bool power_ready(chimera_main_runtime *r, const chimera_vbus_io *vbus) {
   const bool legacy = r->config.session_mode == CHIMERA_USB_SESSION_LEGACY_NO_VBUS;
   if (!chimera_usb_session_mode_valid(r->config.session_mode) ||
       r->config.session_mode != r->usb.session_mode || (legacy && vbus != NULL)) {
     (void)fail(r, CHIMERA_MAIN_USB_ARGUMENT);
-    return -1;
+    return false;
   }
   if (legacy) r->vbus = CHIMERA_VBUS_UNKNOWN;
   else if (!present(r, vbus)) {
     (void)fail(r, CHIMERA_MAIN_USB_POWER);
-    return -1;
+    return false;
   }
+  return true;
+}
+
+bool chimera_main_attach(chimera_main_runtime *r, const chimera_vbus_io *vbus) {
+  if (r == NULL || r->state != CHIMERA_BOOT_USB_DETACHED) return false;
+  if (!power_ready(r, vbus)) return false;
+  if (!chimera_usb_service_attach(&r->usb)) return fail(r, CHIMERA_MAIN_USB_START);
+  r->state = CHIMERA_BOOT_USB_ATTACHED;
+  return power_ready(r, vbus);
+}
+
+int chimera_main_poll(chimera_main_runtime *r, const chimera_vbus_io *vbus) {
+  if (r == NULL || (r->state != CHIMERA_BOOT_USB_DETACHED && r->state != CHIMERA_BOOT_USB_ATTACHED &&
+      r->state != CHIMERA_BOOT_USB_SUSPENDED)) return -1;
+  if (!power_ready(r, vbus)) return -1;
   int result = chimera_usb_service_poll(&r->usb, r->config.event_budget);
   if (result < 0) {
     (void)fail(r, CHIMERA_MAIN_USB_POLL);
     return -1;
   }
-  if (!legacy && !present(r, vbus)) {
-    (void)fail(r, CHIMERA_MAIN_USB_POWER);
-    return -1;
-  }
+  if (result == 3) return chimera_main_stop(r) ? 3 : -1;
+  if (!power_ready(r, vbus)) return -1;
+  if (r->usb.phase == CHIMERA_USB_SERVICE_ATTACHED) r->state = CHIMERA_BOOT_USB_ATTACHED;
+  else if (r->usb.phase == CHIMERA_USB_SERVICE_SUSPENDED) r->state = CHIMERA_BOOT_USB_SUSPENDED;
   return result;
 }
 

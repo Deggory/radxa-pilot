@@ -10,6 +10,8 @@ typedef struct {
   uint8_t reply[64];
   int reply_size;
   uint8_t active, setup_wait, in_armed, out_armed, out_seen;
+  uint8_t attached, suspended;
+  uint32_t last_otg;
 } chimera_usb_driver;
 
 // Caller owns prepared/detached non-DMA USB core exclusively. io/context must
@@ -19,7 +21,12 @@ typedef struct {
 bool chimera_usb_driver_init(chimera_usb_driver *state, const chimera_usb_io *io,
                              const uint8_t *uid, uint8_t self_powered,
                              uint8_t max_power_2ma, uint32_t poll_budget);
+// Service-only attachment after power/session/clock qualification and disconnect
+// delay and bounded event drain. Requires pristine EP0; reads back SDIS.
+bool chimera_usb_driver_attach(chimera_usb_driver *state);
 // Process at most1..32 events: -1=invalid call or latched failure,0=idle,1=progress,
 // 2=budget exhausted (call again). No elapsed-time or service-latency guarantee.
-// Unsupported power/mode faults disconnect; reprepare detached core to recover.
+// 3=session ended: cancels EP0 and disconnects; owning service must release core.
+// Attached suspend preserves address/config and pauses endpoint work; host wake
+// resumes it, host reset cancels old transfers. No physical cable/VBUS inference.
 int chimera_usb_driver_poll(chimera_usb_driver *state, unsigned event_budget);

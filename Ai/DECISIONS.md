@@ -1,3 +1,16 @@
+## November7 — Integrated USB lifecycle and capability-based progress correction
+
+T03c4 adds a separate explicit attach call; start still prepares DETACHED, default
+board main remains held. Preserve normal suspended USB state rather than treating
+inactivity as measured unplug; resume retains EP0, reset cancels old generation.
+Captured GOTGINT W1C avoids erasing late causes. SEDET cancels before old completion
+and fully releases; explicit start with full profile and attach requalifies after
+session end. Pre-attach service drain/invariant precedes SDIS clear. Retain strict
+power/ownership failure behavior and truthful legacy UNKNOWN. Advance the rough
+full-roadmap estimate from25% to30% for the integrated capability, not helpers/LOC
+or repeated tests; hardware remains0%. Next board startup binding then bulk/CAN RX
+and operational status. See student receipt chimera-usb-lifecycle-20261107.json.
+
 ## November7 — Explicit detached legacy policy without physical power claims
 
 T03c3b uses owner-identified base-circuit evidence and original F413 B-session

@@ -17,6 +17,7 @@ static bool clocked(const chimera_usb_service *s) {
   return (rd(s,AHB2ENR)&USB_RESET)!=0U && (rd(s,AHB2RSTR)&USB_RESET)==0U;
 }
 static void invalidate(chimera_usb_service *s) {
+  s->driver.attached=0; s->driver.suspended=0;
   s->driver.active=0; s->driver.in_armed=0; s->driver.out_armed=0; s->driver.setup_wait=0;
   if(s->driver.ep0.initialized==1U) chimera_usb_ep0_reset(&s->driver.ep0);
 }
@@ -38,10 +39,11 @@ static bool fail(chimera_usb_service *s,enum chimera_usb_service_error error) {
   invalidate(s); s->cleanup_ok=(uint8_t)release(s);
   return false;
 }
-static bool detached(const chimera_usb_service *s) {
+static bool invariant(const chimera_usb_service *s,bool attached) {
   return chimera_usb_session_mode_valid(s->session_mode) && clocked(s) &&
     (rd(s,0x40023800U)&(3U|(1U<<18)))==3U &&
-    (rd(s,0x40023808U)&255U)==0U && (rd(s,DCTL)&2U)!=0U && (rd(s,GAHBCFG)&33U)==0U &&
+    (rd(s,0x40023808U)&255U)==0U && ((rd(s,DCTL)&2U)==0U)==attached && (rd(s,GAHBCFG)&33U)==0U &&
+    (rd(s,0x50000E00U)&3U)==0U &&
     (rd(s,0x50000000U)&CHIMERA_USB_SESSION_OVERRIDE_MASK)==chimera_usb_session_override(s->session_mode) &&
     (rd(s,GCCFG)&((1U<<16)|(1U<<21)))==(1U<<16);
 }
@@ -72,16 +74,36 @@ bool chimera_usb_service_start_mode(chimera_usb_service *s,const chimera_usb_io 
   if(!chimera_usb_core_detached_mode(&s->io,poll_budget,s->session_mode)) return fail(s,CHIMERA_USB_SERVICE_CORE);
   if(!chimera_usb_driver_init(&s->driver,&s->io,s->facts.uid,self_powered,max_power_2ma,poll_budget))
     return fail(s,CHIMERA_USB_SERVICE_DRIVER);
-  if(!detached(s)) return fail(s,CHIMERA_USB_SERVICE_INVARIANT);
+  if(!invariant(s,false)) return fail(s,CHIMERA_USB_SERVICE_INVARIANT);
   s->error=CHIMERA_USB_SERVICE_OK; s->phase=CHIMERA_USB_SERVICE_DETACHED;
   return true;
 }
+bool chimera_usb_service_attach(chimera_usb_service *s) {
+  if(s==NULL || s->phase!=CHIMERA_USB_SERVICE_DETACHED) return false;
+  if(!invariant(s,false)) return fail(s,CHIMERA_USB_SERVICE_INVARIANT);
+  if(!s->io.delay_us(s->io.context,10000U)) return fail(s,CHIMERA_USB_SERVICE_TIMING);
+  if(!invariant(s,false)) return fail(s,CHIMERA_USB_SERVICE_INVARIANT);
+  int drained=chimera_usb_service_poll(s,32U);
+  if(drained<0) return false; // Poll already released; no implicit cleanup retry.
+  if(drained==2) return fail(s,CHIMERA_USB_SERVICE_DRIVER);
+  if(!chimera_usb_driver_attach(&s->driver)) return fail(s,CHIMERA_USB_SERVICE_DRIVER);
+  if(!invariant(s,true)) return fail(s,CHIMERA_USB_SERVICE_INVARIANT);
+  s->phase=CHIMERA_USB_SERVICE_ATTACHED;
+  return true;
+}
 int chimera_usb_service_poll(chimera_usb_service *s,unsigned event_budget) {
-  if(s==NULL || s->phase!=CHIMERA_USB_SERVICE_DETACHED || event_budget==0U || event_budget>32U) return -1;
-  if(!detached(s)) { (void)fail(s,CHIMERA_USB_SERVICE_INVARIANT); return -1; }
+  if(s==NULL || (s->phase!=CHIMERA_USB_SERVICE_DETACHED && s->phase!=CHIMERA_USB_SERVICE_ATTACHED &&
+     s->phase!=CHIMERA_USB_SERVICE_SUSPENDED) || event_budget==0U || event_budget>32U) return -1;
+  bool attached=s->phase!=CHIMERA_USB_SERVICE_DETACHED;
+  if(!invariant(s,attached) || (s->driver.attached!=0U)!=attached ||
+     (s->driver.suspended!=0U)!=(s->phase==CHIMERA_USB_SERVICE_SUSPENDED)) {
+    (void)fail(s,CHIMERA_USB_SERVICE_INVARIANT); return -1;
+  }
   int result=chimera_usb_driver_poll(&s->driver,event_budget);
   if(result<0) { (void)fail(s,CHIMERA_USB_SERVICE_POLL); return -1; }
-  if(!detached(s)) { (void)fail(s,CHIMERA_USB_SERVICE_INVARIANT); return -1; }
+  if(result==3) return chimera_usb_service_stop(s) ? 3:-1;
+  if(!invariant(s,attached)) { (void)fail(s,CHIMERA_USB_SERVICE_INVARIANT); return -1; }
+  if(attached) s->phase=s->driver.suspended ? CHIMERA_USB_SERVICE_SUSPENDED:CHIMERA_USB_SERVICE_ATTACHED;
   return result;
 }
 bool chimera_usb_service_stop(chimera_usb_service *s) {

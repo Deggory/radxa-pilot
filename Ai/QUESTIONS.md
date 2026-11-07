@@ -1,3 +1,45 @@
+## QA-20261107-13 — Deliver a larger USB capability beyond25%
+
+**Date:** November7,2026 UTC.
+**Owner request (faithful quote):** "Next: handle USB controller events, then implement controlled attachment and disconnect/reconnect behavior.
+ we hvae ben doing this for long time ,we need to improve more thna 25%".
+
+**Answer:** Implemented the complete offline USB control lifecycle through main,
+service and packet driver: explicit checked attachment, enumeration, OTG causes,
+suspend/resume, reset cancellation, session-end release and explicit fresh reconnect.
+Suspend retains address/configuration/armed transfer; reset cancels old work.
+Session end takes priority over reset/completion. Captured-only OTG ACK preserves
+new causes arriving during acknowledgment. Attachment uses10ms bounded disconnect
+hold, pristine EP0, pre/post power and mode/PHY/clock/gate/IRQ/DMA checks, including
+an invariant check after event drain and before attachment. Errors release and
+latch; failed cleanup retains ownership until explicit retry. Legacy physical
+VBUS remains UNKNOWN; cable removal cannot be measured by this base circuit.
+The default board startup still passes NULL profile and never attaches. New APIs
+are retained in the ARM image and main polling accepts attached/suspended states.
+
+**Evidence/source pin:** Baseline86c7349246eda89906bd37363e3979900c42f2ce;
+ST HAL6ef30cf0ef6cc29ad518f37b9e6de89b6b815f90 PCD/LL sources, local F413 CMSIS
+V2.6.0 and original Ocelot USB. Actual sources, review and build/tests pinned in
+sunnypilot/Ai/Evidence/chimera-usb-lifecycle-20261107.json and USB_LIFECYCLE.md.
+36firmware tests pass incl92new ASan/UBSan composed scenarios and40reconnect cycles;
+three copied-source mutations fail; independent final review approved and passed
+the92scenario fixture. Raw9064/globals264, unsigned/unflashed, SHA
+341ef240b4af887d74ae8a7800b892d116e8aca8ddf1af03640492d6ef83badd.
+
+**Status/limits/correction:** Implemented and tested offline; stage100%.
+Revised full-roadmap planning estimateabout30% complete/70% remaining, physical0%.
+This dated estimate supersedes the earlier25% current estimate in QA12 because
+an integrated capability is now complete; neither number measures time/effort or
+physical readiness. T03 remains partial until board binding/qualification. No
+physical enumeration, unplug deadline, continuous PLL health, bulk/CAN-controller
+binding, normal status or actuator operation is proven. Next opt-in board USB
+startup binding, then bulk/CAN RX and operational status; hostT08b2d remains queued.
+No hardware/flash/config/actuation/upstream update/push. Existing unanswered items
+preserved. Agent Skills/source/GNU ARM plus independent review used; no REA provider
+result or unrelated binary analysis fabricated.
+
+---
+
 ## QA-20261107-12 — Implement explicit legacy no-VBUS session mode
 
 **Date:** November7,2026 UTC.

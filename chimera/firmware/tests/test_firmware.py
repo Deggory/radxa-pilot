@@ -111,11 +111,20 @@ class FirmwareTests(unittest.TestCase):
     self.assertIn("<chimera_usb_mmio_bind>", result.stdout)
     self.assertIn("<chimera_main_start>", result.stdout)
     self.assertIn("<chimera_main_poll>", result.stdout)
+    self.assertNotIn("<chimera_main_attach>", result.stdout)
     self.assertNotIn("chimera_usb_service", result.stdout)
     result = run(PREFIX + "objdump", "-d", "--disassemble=chimera_main_prepare", elf)
     self.assertEqual(result.returncode, 0, result.stderr)
     self.assertIn("<chimera_boot_read_facts>", result.stdout)
     self.assertNotIn("chimera_usb_service", result.stdout)
+
+  def test_explicit_attach_calls_retained_in_arm_image(self):
+    elf = str(self.out / "first/chimera.elf")
+    for function, target in (("chimera_main_attach", "chimera_usb_service_attach"),
+                             ("chimera_usb_service_attach", "chimera_usb_driver_attach")):
+      result = run(PREFIX + "objdump", "-d", "--disassemble=" + function, elf)
+      self.assertEqual(result.returncode, 0, result.stderr)
+      self.assertIn("<" + target + ">", result.stdout)
 
   def test_main_coordinator_calls_real_usb_service(self):
     elf = str(self.out / "first/chimera.elf")

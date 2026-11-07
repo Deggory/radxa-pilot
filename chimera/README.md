@@ -1,3 +1,11 @@
+**November7, T03c4:** explicit USB attachment, OTG acknowledgment, suspend/resume,
+reset cancellation, session-end release and fresh reconnect are implemented offline.
+36firmware tests pass, including92new composed scenarios and40reconnect cycles.
+Overall rough estimate: **30% complete /70% remaining**; physical validation **0%**.
+Default board startup still supplies NULL profile and stays held. Next: opt-in board
+USB startup binding, then bulk/CAN RX and operational status.
+[Lifecycle contract](docs/USB_LIFECYCLE.md). Earlier checkpoints below are historical.
+
 **November7, T03c3b:** implemented explicit legacy no-VBUS session mode through
 core/service/main coordinator, keeping physical VBUS UNKNOWN and USB detached.
 34firmware tests pass, including61new real-component scenarios. Actual main still

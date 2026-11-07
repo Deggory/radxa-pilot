@@ -101,9 +101,11 @@ _Noreturn void chimera_reset(void) {
   if (clock_ready && chimera_usb_mmio_bind(&io)) boot_io = &io;
   (void)chimera_main_start(&chimera_boot_runtime, &chimera_boot_snapshot, boot_io, clock_ready, NULL);
   chimera_boot_state = chimera_boot_runtime.state;
-  while (chimera_boot_runtime.state == CHIMERA_BOOT_USB_DETACHED) {
-    // No verified VBUS reader exists yet. Missing observation fails closed even
-    // if a future change supplies a profile without also qualifying detection.
+  while (chimera_boot_runtime.state == CHIMERA_BOOT_USB_DETACHED ||
+         chimera_boot_runtime.state == CHIMERA_BOOT_USB_ATTACHED ||
+         chimera_boot_runtime.state == CHIMERA_BOOT_USB_SUSPENDED) {
+    // NULL profile above keeps this build held. A future qualified attachment
+    // uses explicit main_attach; legacy no-sense mode must retain UNKNOWN VBUS.
     if (chimera_main_poll(&chimera_boot_runtime, NULL) < 0) break;
   }
   chimera_boot_state = chimera_boot_runtime.state;

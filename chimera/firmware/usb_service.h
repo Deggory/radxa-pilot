@@ -4,7 +4,8 @@
 #include "usb_driver.h"
 
 enum chimera_usb_service_phase {
-  CHIMERA_USB_SERVICE_STOPPED, CHIMERA_USB_SERVICE_DETACHED, CHIMERA_USB_SERVICE_FAILED
+  CHIMERA_USB_SERVICE_STOPPED, CHIMERA_USB_SERVICE_DETACHED, CHIMERA_USB_SERVICE_FAILED,
+  CHIMERA_USB_SERVICE_ATTACHED, CHIMERA_USB_SERVICE_SUSPENDED
 };
 enum chimera_usb_service_error {
   CHIMERA_USB_SERVICE_OK, CHIMERA_USB_SERVICE_ARGUMENT, CHIMERA_USB_SERVICE_OWNERSHIP,
@@ -26,8 +27,8 @@ typedef struct {
 // must not alias state; callbacks/context remain trusted and alive. IO methods
 // are copied, driver points into this stable context. Calls must be serialized.
 // Caller owns a quiet board at HSI/HCLK16, main PLL and USB; USB starts gated.
-// Profile values are caller-supplied, not qualified by this detached-only API.
-// No main/IRQ/GPIO/attach/watchdog call. Failure latches until explicit stop.
+// Profile values are caller-supplied, not qualified by start. Start never attaches
+// or changes IRQ/GPIO/watchdog state. Failure latches until explicit stop.
 bool chimera_usb_service_start(chimera_usb_service *state, const chimera_usb_io *io,
                               uint8_t self_powered, uint8_t max_power_2ma, uint32_t poll_budget);
 // Explicit policy variant; original start always selects UNFORCED. No fallback
@@ -36,8 +37,14 @@ bool chimera_usb_service_start(chimera_usb_service *state, const chimera_usb_io 
 bool chimera_usb_service_start_mode(chimera_usb_service *state, const chimera_usb_io *io,
                                     uint8_t self_powered, uint8_t max_power_2ma, uint32_t poll_budget,
                                     enum chimera_usb_session_mode mode);
+// Explicit opt-in only. Caller qualifies board/power/pins/recovery beforehand.
+// Hold disconnect for a bounded 10ms delay, validate before/after, then attach.
+// Failure latches and releases; no auto retry. NULL-profile board main never calls.
+bool chimera_usb_service_attach(chimera_usb_service *state);
 // Same event-budget semantics as driver; invalid budget/phase does no I/O.
-// Invariants are checked before/after polling; no connection is permitted.
+// Invariants are checked before/after. 3=session end, fully stopped/released.
+// Suspend keeps configuration; reset discards it; explicit stop/start/attach
+// reconnects after session end. No cable-presence or latency guarantee.
 int chimera_usb_service_poll(chimera_usb_service *state, unsigned event_budget);
 // Explicitly release owned USB: soft-disconnect/mask/PHY-off when accessible,
 // hold reset and gate clock; check readbacks. Failure leaves context latched.

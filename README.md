@@ -9,16 +9,16 @@ preserved on `master`; project development is on `radxa/q8b`.
 [`chimera/`](chimera/README.md), with USB-only Radxa host support in
 `openpilot/selfdrive/pandad/`. Legacy identification, passive CAN/diagnostics,
 exact status decoding and availability consumer checks are tested offline.
-The new F413 startup coordinates detached USB polling, failure cleanup and
-explicit restart with selectable unforced/legacy session policy. All34firmware
-tests pass. Overall planning estimate:about25%; new-firmware hardware validation:0%.
-The board build supplies no power profile and stays held. No new firmware has been flashed.
+The new F413 main/service/driver path implements explicit USB attachment,
+OTG events, suspend/resume, reset cancellation and fresh reconnect offline.
+All36firmware tests pass, including92new composed scenarios/40reconnect cycles.
+Overall rough planning estimate: **30% complete /70% remaining**; new-firmware
+hardware validation: **0%**. Default board startup stays held; no image was flashed.
 
-**Next:** reviewed OTG cause handling and controlled attached-state lifecycle
-in offline tests. The [legacy no-VBUS mode](chimera/docs/USB_LEGACY_SESSION.md)
-is implemented; physical VBUS remains unknown and board attachment remains held.
-Actual power/pin/recovery and bench qualification are pending. Host passive status
-publication/reconnect stays queued. See the [handoff](Ai/HANDOFF.md).
+**Next:** opt-in board USB startup binding, then bulk/CAN RX and operational
+status. Physical power/current/recovery and bench qualification remain pending.
+Host passive normal-status publication/reconnect stays queued.
+See [the lifecycle contract](chimera/docs/USB_LIFECYCLE.md) and [handoff](Ai/HANDOFF.md).
 
 | Area | Earlier bench snapshot — November 4, 2026 |
 | --- | --- |

@@ -4,19 +4,18 @@ November 6, 2026. Active project location: `sunnypilot/chimera/`.
 The existing T01–T20 task identities are retained. Each slice gets appropriate
 checks, a local commit and a notebook handoff before expanding the scope.
 
-November7 owner priority: continue the new firmware path, work on main.c first.
-T03c1/c2/c3a checked snapshot, detached coordinator and sensed supervision are
-complete offline. Owner identifies Ocelot as the base circuit with I/O added.
-T01b traced both base drawings: shared5V supply and no MCU VBUS sensing route.
-T03c3b now implements explicit legacy no-VBUS session mode through detached core,
-service and main coordinator;34firmware tests/61new scenarios pass offline.
-Next: reviewed OTG cause handling and controlled attached-state lifecycle offline.
-Do not fabricate a PRESENT reader or repurpose retained inputs. Actual board
-profile/pins, attachment, installed recovery and bench qualification remain pending;
-main remains held.
-Host T08b2d stays queued. After each stage report overall estimate(about25%) and
-new-firmware physical validation(0%) separately.
-[Base power](../docs/OCELOT_BASE_POWER.md), [progress](../docs/PROGRESS_EXPLAINED.md).
+November7 owner priority: deliver a larger working capability beyond the25%
+checkpoint. T03c4 now implements explicit attach/OTG/suspend/resume/reset/session-end
+and fresh reconnect through the main/service/driver path.36firmware tests pass,
+including92new composed scenarios/40reconnect cycles. Stage100% offline; revised
+full-roadmap estimate30%/70% remaining, physical0%. Default startup stays held.
+Next opt-in board USB startup binding, then bulk/CAN RX and operational status;
+hostT08b2d remains queued. [Current contract](../docs/USB_LIFECYCLE.md).
+
+T03c4 completed capability — USB control lifecycle (offline):
+- [x] Explicit checked attachment with disconnect delay, pristine EP0 and pre/post power/session/clock invariants.
+- [x] Captured OTG acknowledgment, session-end priority, retained suspend/resume and reset cancellation.
+- [x] Explicit fresh reconnect, cleanup/retry, full firmware/ARM tests, mutation checks and independent review.
 
 T03c3b completed slice — explicit legacy no-VBUS session (offline):
 - [x] Add validated unforced(default)/legacy modes to detached core/service preparation; legacy selects only B-session override, no VBDEN/attachment, no silent fallback.
@@ -70,7 +69,7 @@ future T02/T05/T08 fixtures; no new firmware integration or task completion.
 | --- | --- | --- |
 | T01 | Board GPIO/reset behavior, flash/config partitions and recovery boundaries | T01a/b board/flash contract and owner-identified base power trace complete; no MCU VBUS detector in base; installed recovery/electrical qualification pending |
 | T02 | Distinct identity, legacy/current protocol profiles, RPC matrix and explicit bus/input source contracts | T02a/b complete offline; operational health/capability/config ABI and new-profile host admission remain pending |
-| T03 | Minimal F413 target, reviewed support/linker and offline image budget | T03a/b1/b2/b3a/b3b and c1/c2/c3a/c3b checked snapshot, coordinator, observed supervision and explicit legacy session complete offline; board profile held, attachment/power/VBUS/recovery pending |
+| T03 | Minimal F413 target, reviewed support/linker and offline image budget | Through T03c4 integrated USB control lifecycle complete offline; board startup binding, physical power/current/recovery and bench qualification pending |
 | T04 | Modern six-byte/XOR classical CAN USB codec with stream/vector checks | Complete offline; no endpoint/CAN-controller binding or TX permission |
 | T05 | Exact identity/version/health responses, legacy F4 status adaptation and fail-disabled state | T05a bootstrap, T05b health59 and T05c CAN-health5 decode/read helpers complete offline; publication and new Chimera operational health pending |
 | T06 | Native Sunnypilot USB transport and offline failure tests | Offline transport implemented (T06a/b); managed use remains T08 |
@@ -116,4 +115,4 @@ image. See [the compatibility slices](../docs/LEGACY_PANDA_SUPPORT.md). T06a/b a
 T02a/T05b/T05c are checked offline; publication, managed lifecycle and
 physical testing still follow. See the [health59 contract](../docs/LEGACY_F4_HEALTH.md).
 
-Next per November7 main-first priority: qualified main USB startup profile and recovery/fault handling before service initialization/attachment. Host T08b2d passive normal-status publication/disconnect/reconnect remains queued; keep legacy observations nonoperational. [Availability contract](../docs/PANDA_STATE_AVAILABILITY.md). [Mapping contract](../docs/LEGACY_F4_PANDA_STATE.md). [Contract](../docs/USB_PASSIVE_RECEIVE.md).
+Next per November7 main-first priority: opt-in board USB startup binding, then bulk/CAN RX and operational status; physical qualification remains separate. Host T08b2d passive normal-status publication/disconnect/reconnect remains queued; keep legacy observations nonoperational. [Availability contract](../docs/PANDA_STATE_AVAILABILITY.md). [Mapping contract](../docs/LEGACY_F4_PANDA_STATE.md). [Contract](../docs/USB_PASSIVE_RECEIVE.md).

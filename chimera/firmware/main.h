@@ -14,7 +14,9 @@ enum chimera_main_state {
   CHIMERA_BOOT_ARGUMENT_FAILED = 6,
   CHIMERA_BOOT_USB_DETACHED = 7,
   CHIMERA_BOOT_USB_FAILED = 8,
-  CHIMERA_BOOT_USB_STOPPED = 9
+  CHIMERA_BOOT_USB_STOPPED = 9,
+  CHIMERA_BOOT_USB_ATTACHED = 10,
+  CHIMERA_BOOT_USB_SUSPENDED = 11
 };
 
 typedef struct {
@@ -65,23 +67,28 @@ typedef struct {
 // State, details, IO and config must not alias. Details and trusted IO context
 // remain alive; config and callback members are copied. Same quiet-board/clock
 // ownership preconditions as usb_service.h. NULL config captures facts only and
-// leaves USB held. Explicit config permits DETACHED operation only, never attach.
+// leaves USB held. Explicit config starts DETACHED; separate main_attach opts in.
 // Start accepts RESET/USB_STOPPED only. Failures latch; explicit stop is required
 // before retry. This lifecycle is not flashing/DFU or proven hardware recovery.
 bool chimera_main_start(chimera_main_runtime *runtime, volatile chimera_boot_details *details,
                         const chimera_usb_io *io, bool clock_ready, const chimera_main_usb_config *config);
+// Separate explicit attachment after start; uses the same before/after power
+// policy as polling. No board qualification inferred from a non-NULL config.
+bool chimera_main_attach(chimera_main_runtime *runtime, const chimera_vbus_io *vbus);
 // UNFORCED requires fresh PRESENT observations before and after each service poll.
 // NULL/missing/invalid/unknown/absent observations latch USB_POWER and release the
-// detached service. Never attach. A service failure retains its cause without a
-// further sample. Non-detached states do no IO, including no power sampling.
+// service. Poll never initiates attachment. A service failure retains its cause
+// without a further sample. States other than DETACHED/ATTACHED/SUSPENDED do no
+// IO, including no power sampling.
 // The reader/context must be trusted, bounded, non-aliasing, stable and alive during the
 // call; it must report UNKNOWN if unavailable/stale/faulted. Production requires
 // an independently qualified physical source, not a cached flag or override.
 // No debounce, calibration, elapsed response bound or detector wiring implied.
-// Return service result (0 idle, 1 progress, 2 budget exhausted), or -1. Failures
+// Return service result (0 idle, 1 progress, 2 budget exhausted, 3 session ended
+// and fully stopped), or -1. Suspend preserves EP0; reset cancels it. Failures
 // revoke the external snapshot; no automatic restart on later power restoration.
 // Explicit LEGACY_NO_VBUS requires vbus==NULL and keeps the observation UNKNOWN.
-// It polls the detached service without physical power sensing; a supplied reader
+// It polls the service without physical power sensing; a supplied reader
 // or invalid/mismatched mode fails with USB_ARGUMENT, never silently falls back.
 int chimera_main_poll(chimera_main_runtime *runtime, const chimera_vbus_io *vbus);
 // Explicit cleanup/retry; success invalidates facts and permits a fresh start.

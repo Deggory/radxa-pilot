@@ -9,6 +9,10 @@
 #define STALL (1U<<21)
 #define ACTIVE (1U<<15)
 #define EVENTS ((1U<<12)|(1U<<13)|(1U<<18)|(1U<<19)|16U)
+#define SUSPEND (1U<<11)
+#define WAKE (1U<<31)
+#define OTG_KNOWN 0x1E0304U
+#define OTG_BENIGN ((1U<<18)|(1U<<19))
 
 static uint32_t rd(const chimera_usb_driver *d, uint32_t off) { return d->io->read32(d->io->context,BASE+off); }
 static void wr(const chimera_usb_driver *d, uint32_t off,uint32_t value) { d->io->write32(d->io->context,BASE+off,value); }
@@ -21,7 +25,8 @@ static bool clocked(const chimera_usb_io *io) {
          (io->read32(io->context,0x40023814U)&128U)==0U;
 }
 static int failure(chimera_usb_driver *d) {
-  d->active=0; d->in_armed=0; d->out_armed=0; d->setup_wait=0;
+  d->active=0; d->attached=0; d->suspended=0;
+  d->in_armed=0; d->out_armed=0; d->setup_wait=0;
   chimera_usb_ep0_reset(&d->ep0);
   wr(d,0x804,2U); wr(d,8,0U); wr(d,0x18,0U);
   wr(d,0x38,rd(d,0x38)&~(1U<<16));
@@ -59,7 +64,7 @@ static bool reset_bus(chimera_usb_driver *d) {
 bool chimera_usb_driver_init(chimera_usb_driver *d,const chimera_usb_io *io,
                              const uint8_t *uid,uint8_t self_powered,uint8_t max_power_2ma,uint32_t poll_budget) {
   if(d==NULL) return false;
-  d->active=0; d->io=NULL;
+  d->active=0; d->attached=0; d->suspended=0; d->last_otg=0; d->io=NULL;
   if(io==NULL || io->read32==NULL || io->write32==NULL || poll_budget==0 || poll_budget>1000000U ||
      !chimera_usb_ep0_init(&d->ep0,uid,self_powered,max_power_2ma) || !clocked(io)) return false;
   d->io=io; d->poll_budget=poll_budget;
@@ -68,6 +73,18 @@ bool chimera_usb_driver_init(chimera_usb_driver *d,const chimera_usb_io *io,
   wr(d,8,0U); // Polling only; never enable the global interrupt line.
   if(!reset_bus(d)) { (void)failure(d); return false; }
   wr(d,0x14,(1U<<12)|(1U<<13)); wr(d,0x18,EVENTS); d->active=1;
+  return true;
+}
+bool chimera_usb_driver_attach(chimera_usb_driver *d) {
+  if(d==NULL || !d->active || d->attached) return false;
+  // Owning service has drained events and checked invariants while detached.
+  if(!d->ep0.initialized || d->ep0.address || d->ep0.configuration ||
+     d->ep0.phase!=CHIMERA_EP0_IDLE || d->setup_wait || d->in_armed || d->out_armed) return false;
+  if(!clocked(d->io) || (rd(d,0x804)&2U)==0U || (rd(d,8)&33U)!=0U) return false;
+  wr(d,0x18,EVENTS|4U|SUSPEND|WAKE);
+  wr(d,0x804,rd(d,0x804)&~2U);
+  if((rd(d,0x804)&2U)!=0U) { (void)failure(d); return false; }
+  d->attached=1;
   return true;
 }
 static bool stall(chimera_usb_driver *d) {
@@ -156,18 +173,37 @@ static bool out_complete(chimera_usb_driver *d) {
 int chimera_usb_driver_poll(chimera_usb_driver *d,unsigned event_budget) {
   if(d==NULL || !d->active || event_budget==0U || event_budget>32U) return -1;
   if(!clocked(d->io)) {
-    d->active=0; d->in_armed=0; d->out_armed=0; d->setup_wait=0;
+    d->active=0; d->attached=0; d->suspended=0;
+    d->in_armed=0; d->out_armed=0; d->setup_wait=0;
     chimera_usb_ep0_reset(&d->ep0);
     return -1; // Do not access a gated/reset core.
   }
   bool progress=false;
   for(unsigned i=0;i<event_budget;++i) {
     uint32_t events=rd(d,0x14);
-    // Unsupported role/OTG summary/suspend: no qualified resume or session policy yet.
-    if((events&(1U|4U|(1U<<11)))!=0U) return failure(d);
-    if((events&(1U<<12))!=0U) {
+    // Wrong role/mode, connector-role change or unsupported LPM are fatal.
+    if((events&(3U|(1U<<27)|(1U<<28)|(1U<<29)))!=0U) return failure(d);
+    if((events&4U)!=0U) {
+      uint32_t causes=rd(d,4U); d->last_otg=causes;
+      if(causes==0U || (causes&~OTG_KNOWN)!=0U) return failure(d);
+      wr(d,4U,causes); // W1C only the observed causes, not a second read/RMW.
+      if((causes&~(OTG_BENIGN|4U))!=0U) return failure(d);
+      if((causes&4U)!=0U) {
+        if(!d->attached) return failure(d);
+        (void)failure(d); // Session end dominates reset and old completions.
+        return 3;
+      }
+    } else if((events&(1U<<12))!=0U) {
       if(!reset_bus(d)) return failure(d);
-      wr(d,0x14,1U<<12);
+      d->suspended=0;
+      wr(d,0x14,events&((1U<<12)|SUSPEND|WAKE));
+    } else if((events&(SUSPEND|WAKE))!=0U) {
+      if(!d->attached) return failure(d);
+      // Both may be coalesced: current hardware status decides, never ordering.
+      d->suspended=(uint8_t)(rd(d,0x808)&1U);
+      wr(d,0x14,events&(SUSPEND|WAKE));
+    } else if(d->suspended) {
+      return progress ? 1:0; // Retain pending control transfer through suspend.
     } else if((events&(1U<<13))!=0U) {
       if((rd(d,0x808)&6U)!=6U || !reset_bus(d)) return failure(d); // Internal FS PHY only.
       wr(d,0x804,rd(d,0x804)|(1U<<8)); // Clear inherited global IN NAK after enumeration.

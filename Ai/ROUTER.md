@@ -1,3 +1,29 @@
+## November7 — Integrated USB control lifecycle (T03c4)
+
+Owner wants a larger capability beyond the repeated25% checkpoint. Implemented
+explicit main/service/driver attachment, bounded10ms disconnect hold, pre/post
+power/invariants and pre-attach event drain, pristine EP0/SDIS readback, captured
+OTG cause ACK, suspend/resume with retained address/config/armed transfer, reset
+cancellation, session-end priority/release and explicit fresh start/attach reconnect.
+No-sense VBUS stays UNKNOWN; default ARM main keeps NULL profile/reader and held.
+Main loop now accepts ATTACHED/SUSPENDED; attach call chain is retained in ARM.
+36firmware tests pass warnings-as-errors, including92new composed ASan/UBSan
+scenarios/40reconnect cycles. Three copied-source mutations caught. Independent
+gpt-6-astra review approved final source and independently passed92scenarios;
+no required findings unresolved. Raw9064/projected9200/globals264/stack4096, SHA
+341ef240b4af887d74ae8a7800b892d116e8aca8ddf1af03640492d6ef83badd.
+Seven of25build inputs changed;18same; old8316-byte artifacts retained ignored.
+Actual hardware0%; no flash/device/config/CAN/relay/OBD-C/update/push actions.
+Revised full-roadmap rough estimate30% complete/70% remaining; lifecycle100% offline.
+This dated correction replaces25% as current planning estimate, not a measured
+fraction of time/readiness. Earlier checkpoints remain historical. Next opt-in
+board USB startup binding (pins/explicit power profile/recovery boundaries), then
+bulk/CAN RX and operational status. Physical power/current/recovery/bench proof
+remains open; hostT08b2d remains queued. No fake VBUS/cable-presence claim or live
+PLL48 health monitoring. Source baseline86c734924; contract chimera/docs/USB_LIFECYCLE.md;
+receipt student Ai/Evidence/chimera-usb-lifecycle-20261107.json. Clean/commit/ledger
+final readback saved separately in teacher layer. Prior host statsd issue untouched.
+
 ## November7 — Explicit legacy no-VBUS session implemented offline (T03c3b)
 
 Owner "proceed" continues the owner-identified Ocelot base circuit; no repeated
