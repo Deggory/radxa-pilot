@@ -144,3 +144,37 @@ separate admitted profile. Old Chimera remains Python receive-only plus native
 identity/raw transport until its own session is implemented. No hard-coded
 CAN version number is inferred from an older CAN5/CAN6 label; current identity
 uses hashes of the actual pinned headers.
+
+## November 7 — Owner scope: classic CAN only; 0xDC clarification (QA21)
+
+Owner explicitly excludes CAN FD. Plan only classic CAN with0..8payload bytes;
+FD support in a generic upstream header is reference capability, not project
+scope. No source removal or implementation was performed for this explanation.
+Source baseline ae145e4c58c9f154a46cff85b2d2d4b11742425b.
+
+Host Panda::set_safety_model(mode,param) sends vendor commandDC with wValue=mode,
+wIndex=param. Current Panda's handler calls set_safety_mode, initializes selected
+hooks, falls back to SILENT on unsupported mode, configures relay/CAN mode and
+reinitializes CAN. TX/RX/forwarding checks are model-dependent MCU rules, useful
+for classic CAN too. This is not a guarantee that selecting a mode qualifies a
+vehicle, and it is not the same as simply closing a relay.
+
+Saved old Chimera DC handler:
+
+```c
+if (value == 0 || value == 3 || value == 19) relay_req_usb = 0;
+else relay_req_usb = 1;
+```
+
+Those values match current enum silent0, elm3273 and noOutput19, but the old
+handler only classifies the numbers: it does not install those modern policies
+or process a safety parameter. Its health safety_mode=17 is a constant, not
+proof of successful policy selection. No generic enum translation is admitted.
+
+The operative saved loop sets relay_on from ignition_line OR ignition_can and
+writes PB0. The condition using relay_req_obdc OR relay_req_usb is commented
+out. Hence the handler changes a request variable, not directly the actual
+relay; heartbeat timeout clearing that variable is not a proven relay drop.
+These are source facts, not installed-image/electrical observations. Current
+native Chimera USB transport denies DC/vendor OUT and permits only D6/D2 reads
+plus CAN bulk-IN. Preserve that separation in the proposed host adapter.

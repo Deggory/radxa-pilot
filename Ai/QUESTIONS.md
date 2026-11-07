@@ -1,3 +1,13 @@
+## QA-20261107-21 — Classic CAN only and exact 0xDC behavior
+
+**Date:** November 7, 2026 UTC.
+**Owner question/direction (faithful quote):** "we dont want can fd in our project ,Command `0xDC`Changes relay-request variableSets Panda safety policy tell me about his".
+**Answer:** Owner scope is classic CAN only (0..8 payload bytes); CAN FD is not a project requirement. This records scope, not permission for unrelated source removal. 0xDC is a vendor USB command; firmware determines its meaning. Current host set_safety_model sends mode as wValue and parameter as wIndex. Panda calls set_safety_mode, installs/initializes safety hooks with fallback to SILENT on unsupported mode, configures intercept relay/CAN state and reinitializes CAN. The selected hooks check allowed TX and RX/forwarding behavior; limits are model-dependent and relevant to classic CAN. Old Chimera instead sets relay_req_usb=0 for values0,3,19 and1 for other values; it does not install a model or use wIndex in that handler. Crucially its saved main loop comments out the request-based condition and writes PB0 relay_on from ignition_line OR ignition_can. Thus changing relay_req_usb through DC is not a verified relay switch in this source. Missing-heartbeat handling clears that variable but cannot be assumed to drop an ignition-driven relay. Old health safety_mode=17 is hard-coded, not confirmation a modern safety policy was installed. Current native Chimera USB backend blocks DC and other OUT writes.
+**Evidence/source pins:** Sunnypilot ae145e4c58c9f154a46cff85b2d2d4b11742425b, Panda8a16e089, opendbc150f9371; chimera_old/firmware/chimera/main.c:335,722,1026,129; openpilot/selfdrive/pandad/panda.cc:42 and panda_usb.cc:121; panda/board/main_comms.h:225, board/main.c:31, board/drivers/can_common.h safety_tx_hook; opendbc safety/safety.h and car/car.capnp enum0/3/19. Existing report Ai/Knowledge/CHIMERA_OLD_PANDAD.md extended with scope and exact semantics.
+**Status/limits:** Source explanation and owner-scope recording only. No firmware/source implementation, relay/USB/device/CAN action, build, test-suite rerun, update or push. Notebook checks only. Exact installed-board image/source match and electrical relay behavior remain unverified. Original firmware preserved; new rewrite halted; native old-Chimera adapter still proposed. Existing unanswered items retained.
+
+---
+
 ## QA-20261107-20 — USB protocol in old Chimera versus current Sunnypilot
 
 **Date:** November 7, 2026 UTC.

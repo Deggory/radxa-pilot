@@ -1,3 +1,12 @@
+## November 7 — Classic CAN only and 0xDC semantics (QA21)
+
+Owner excludes CAN FD; retain classic CAN0..8bytes in project scope. Panda DC
+selects MCU safety hooks; old Chimera DC only changes relay_req_usb. Saved loop
+ignores that request condition (commented) and drives PB0 from ignition. No
+physical relay-switch/heartbeat-drop guarantee. Source-only at ae145e4c5;
+no implementation or hardware action. See QA21 and student CHIMERA_OLD_PANDAD.
+Old firmware retained, new rewrite halted; native host adapter remains proposed.
+
 ## November 7 — USB formats explained (QA20)
 
 Old Chimera: mailbox16/health43. Current Panda:6-byte XOR header+payload,
