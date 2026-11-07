@@ -1,4 +1,13 @@
 
+November7 QA06: owner explicitly requests a progress percentage for the complete
+new Chimera idea. Rough subjective planning estimate20–25% implemented/75–80%
+remaining overT01–T20;2offline tasks complete,5partial,13pending. Unequal tasks/no
+agreed effort weights mean no measured completion/time fraction. New implementation
+physical qualification0%. Earlier no reliable measured percentage remains true.
+No code/roadmap/route change or hardware/test rerun/update/push. Source9a7489f8c;
+next still T08b2d. C2-era host-only alternative remains unselected.
+
+
 November7 QA05: owner requests an option only, explicitly no implementation:
 retain C2-era/original Chimera firmware and adapt Sunnypilot USB/CAN/status/
 lifecycle to its exact legacy profile. Viable compatibility strategy for passive

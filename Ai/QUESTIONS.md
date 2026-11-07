@@ -1,3 +1,40 @@
+## QA-20261107-06 — New Chimera progress as a percentage
+
+**Date:** November7,2026 UTC.
+**Owner question (faithful quote):** how far we implemented new chimera idea show in %
+
+**Answer:** For the full new-firmware-plus-host T01–T20 roadmap, give a rough
+planning estimate of20–25% implemented, with75–80% remaining. This is subjective
+partial-credit estimation, not a measured effort/time fraction or a readiness
+metric. The source roadmap has2offline building-block tasks complete(T04codec,
+T06native transport),5partly implemented(T01/T02/T03/T05/T08),13pending(T07,
+T09–T20). They are unequal in difficulty and have no agreed effort weights, so
+10% of workstreams fully complete and25% partial does not itself determine an
+exact overall completion percentage. Physical qualification of this new
+implementation remains0%: no flash/physical USB/CAN/complete board proof.
+
+Completed foundations include source/board map, F413 bootstrap/build, detached
+USB libraries, CAN codec, host USB/identification and legacy status/consumer
+checks. New firmware main remains parked. Operational attachment/bulk/controller
+binding, status/reconnect, digital/pulse/analog acquisition, guarded TX, CoreConfig,
+settings/recovery, relay/OBD-C and bench/release work remain. No percentage means
+ready for use or predicts completion time. The earlier statement that there is
+no reliable measured percentage remains true; this dated estimate answers the
+owner's explicit request for a rough number, not a new factual metric.
+
+**Evidence/source pin:** Cleanradxa/q8b9a7489f8c382c922b91842f0a46d8878b5a75f1b;
+chimera/tasks/plan.md T01–T20 status table, PROGRESS_EXPLAINED.md and November6
+saved audit. No fresh code/build/hardware tests or REA provider needed. Previous
+152Python/10native audit evidence is offline and not the denominator of progress.
+
+**Implemented versus proposed:** Explanation/notebook only, no firmware/host/
+Chimera folder/roadmap changes, implementation resumption or route selection.
+C2-era retained-firmware approach from QA05 remains an unselected option. No
+flash/config/CAN TX/upstream update/push. Next technical task stays T08b2d passive
+normal-status publication and disconnect/reconnect; hardware remains untested.
+
+---
+
 ## QA-20261107-05 — Option: retain C2-era Chimera firmware, adapt Sunnypilot only
 
 **Date:** November7,2026 UTC.

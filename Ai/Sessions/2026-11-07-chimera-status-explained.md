@@ -48,3 +48,11 @@ DBC with explicit adaptation. Existing MCU/relay defects remain; minimum device-
 side safety must be qualified before real actuator commands. New bootstrap work
 preserved; no route selected/roadmap or code changed. Exact intended C2image is
 unresolved for a future choice. Sourcee8cd79f90; no hardware/tests rerun/update/push.
+
+November7 QA06: owner explicitly requests a progress percentage for the complete
+new Chimera idea. Rough subjective planning estimate20–25% implemented/75–80%
+remaining overT01–T20;2offline tasks complete,5partial,13pending. Unequal tasks/no
+agreed effort weights mean no measured completion/time fraction. New implementation
+physical qualification0%. Earlier no reliable measured percentage remains true.
+No code/roadmap/route change or hardware/test rerun/update/push. Source9a7489f8c;
+next still T08b2d. C2-era host-only alternative remains unselected.
