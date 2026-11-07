@@ -1,3 +1,34 @@
+## QA-20261107-16 — How Jetson CUDA overlay used Panda USB
+
+**Date:** November7,2026 UTC.
+**Owner question (faithful quote):** "teacher there was a project jetson cuda tell me how he used panda usb there ,".
+**Answer:** Identified feiyang2025/jetson-cuda-overlay, reviewed pin076d73bf.
+Its author specifies an H7 Panda connected to AGX Orin over USB-A. Existing Panda/
+pandad and vehicle interfaces carry CAN; CUDA/TensorRT run model computation.
+patch_panda_spi.py gates SpiDevice opening behind PANDA_SPI_ENABLE=1 and widens
+DFU SPI exception handling; default is USB-only, with an opt-in SPI escape hatch.
+The author describes spidev permission/crash/hang reasons; these are source claims,
+not reproduced hardware failures. repair_protocol.py aligns selected host/C header
+and Python decoder fields to that rig's v17/57-byte health ABI and adjusts older
+pandad fields/flashing gates only where its anchors match. sync_firmware.py copies
+one selected H7 firmware artifact across fork board/obj files (backup first);
+it does not itself flash hardware. It aims to prevent fork switching from selecting
+different firmware; a target pandad can still flash according to its own logic.
+
+**Relevance/status:** The transferable approach is explicit USB plus an exact host
+protocol adapter for retained firmware. H7 v17/57 is distinct from original Chimera
+mailbox16/health43 and Carrot F4v17/health59. Its H7 firmware/patches are not a
+Chimera implementation or proof of compatibility. Our two Chimera folders and host
+source remain unchanged; modern work stays halted. This is explanation/source
+review only; no patch execution, device access, installer, update or push.
+**Evidence:** Teacher jetson/reports/PLATFORM_INTEGRATION.md, student
+Ai/Knowledge/JETSON_HARDWARE_REFERENCE.md, and four pinned source files freshly
+read via GitHub connector: USAGE.md, patch_panda_spi.py, panda/repair_protocol.py,
+panda/sync_firmware.py. Source commit076d73bf9a2e055c83fbe9b2a3c16a8383519ba4.
+No new physical Jetson test or REA result. Existing unanswered items retained.
+
+---
+
 ## QA-20261107-15 — Copy original Chimera into chimera_old first
 
 **Date:** November7,2026 UTC.

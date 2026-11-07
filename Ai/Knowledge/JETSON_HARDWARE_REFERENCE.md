@@ -1,3 +1,12 @@
+## November7 — Jetson Panda USB explanation (read-only)
+
+QA-20261107-16 records H7 USB-A, default SPI gating, rig-specific v17/57 health
+repair and cross-fork expected firmware synchronization. Four pinned076d73bf
+files reread via GitHub connector; no scripts executed or hardware claim. Pattern
+is relevant to host adaptation, not direct Chimera compatibility. Original Chimera
+mailbox16/health43 differs. Modern Chimera remains halted; chimera_old/ preserved;
+no firmware/host implementation resumed. Baseline591683739.
+
 # Jetson hardware approaches: teacher evidence for Q8B
 
 2026-11-01 follow-up to the owner's non-camera hardware checklist. Teacher
