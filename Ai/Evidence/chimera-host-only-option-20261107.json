@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-07",
+  "source_head": "e8cd79f9008d9b566828fa0345cda2cc5a0addcc",
+  "scope": "Assess retained legacy Chimera firmware plus host-only compatibility option; no implementation/selection",
+  "checks": {
+    "notebook": {
+      "command": [
+        ".venv/bin/python",
+        "Ai/verify_memory.py",
+        "--workspace",
+        "/home/radxa/comma"
+      ],
+      "exit": 0,
+      "stdout": "{\n  \"result\": \"pass\",\n  \"memory_layout\": \"regular project directory\",\n  \"documents\": 156,\n  \"relative_links\": 580,\n  \"optional_workspace_links\": 246,\n  \"source_repositories\": 8,\n  \"indexed_entries\": 4254\n}\n"
+    },
+    "qa05_sync": "pass",
+    "whitespace": "pass"
+  },
+  "limits": "Exact intended C2/Chimera image unpinned; passive integration feasible in principle; host alone cannot establish device-side safety for real actuator control",
+  "no_application_or_chimera_folder_change": true
+}

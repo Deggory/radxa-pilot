@@ -1,3 +1,48 @@
+## QA-20261107-05 — Option: retain C2-era Chimera firmware, adapt Sunnypilot only
+
+**Date:** November7,2026 UTC.
+**Owner question/request (faithful quote):** can i ask u some thing ,wat if we keep the chimera folder same as of c2 and we work on sunnypilot only ,dont implement i want this option ,and later we can improve the safety of chimera
+
+**Answer:** If C2 means retaining the original C2-era Chimera firmware, adapting
+only Sunnypilot is a viable compatibility option. Keep the existing firmware's
+USB/CAN/input/config/relay behavior and park the new bootstrap work; build a
+pinned, separate original-Chimera protocol adapter in the host for CAN framing,
+health/unsupported fields, bus/report mapping and connection lifecycle. Preserve
+the canonical DBC via explicit translation where legacy reports differ. Existing
+Python mailbox16/health43 receive code and native original-Chimera identification
+are useful starting points; the managed native monitor currently accepts the
+different F4v17/health59 profile, so this route still requires host integration.
+It does not require making old firmware speak the current USB wire format.
+
+**Safety tradeoff:** Delaying a firmware safety redesign can fit receive-only
+integration and isolated bench work. Host checks cannot enforce output limits
+when host software crashes/disconnects, or establish independent MCU safety.
+Minimum device-side permission/limit/loss/override behavior needs qualification
+before real actuator control; missing enforcement needs firmware/device work then.
+Original Chimera reports constants/unqualified status, uses0xDC for relay request
+rather than modern safety selection, and its shown PB0 loop follows ignition;
+heartbeat-controlled actuator cutoff is not established. Existing defects remain
+with the retained image. Updating host code alone does not repair them.
+
+**Evidence/source pin:** Clean actual Sunnypilot
+e8cd79f9008d9b566828fa0345cda2cc5a0addcc; old Ocelotd87892fa plus preserveddirty
+main.c/chimera.h and the existing November5deep review. Selected actual source:
+Chimera get_health_pkt/USB endpoint3/control0xDC/relay loop; host chimera.py and
+chimera_protocol.py, LEGACY_PANDA_SUPPORT.md and FIRMWARE_SOURCE_MAP.md. C2 Panda
+CAN5/health50, original Chimera mailbox16/health43 and CarrotF4 CAN6/health59 are
+different profiles. C2 itself does not identify an exact board firmware image.
+No installed-image/previous-working-compatibility claim or hardware test.
+
+**Proposed versus implemented:** Option assessment only, as explicitly requested.
+No firmware/host code, Chimera folder, roadmap, installed config or runtime changed;
+no flash/CAN TX/upstream update/push. Exact intended C2/Chimera source/image remains
+to pin if this option is chosen. New firmware work remains preserved. No route
+selected and no safety weakening accepted. Current queued engineering remains
+T08b2d until the owner explicitly selects a direction. Source-first migration/API/
+documentation review; no REA provider or delegated analysis required.
+
+---
+
 ## QA-20261107-04 — Why the new firmware main.c is small
 
 **Date:** November7,2026 UTC.

@@ -38,3 +38,13 @@ Smallness reflects modularity plus pending operational integration, not complete
 USB/CAN firmware. Future main can stay compact as orchestration. Sourceb32b0e9b9,
 read-only explanation, no application/hardware/test rerun/update/push. Next remains
 hostT08b2d passive normal-status publication/disconnect/reconnect.
+
+November7 QA05: owner requests an option only, explicitly no implementation:
+retain C2-era/original Chimera firmware and adapt Sunnypilot USB/CAN/status/
+lifecycle to its exact legacy profile. Viable compatibility strategy for passive
+integration; original mailbox16/health43 differs from C2CAN5/health50 and currently
+managed F4CAN6/health59. Retain exact firmware/input/config behavior and canonical
+DBC with explicit adaptation. Existing MCU/relay defects remain; minimum device-
+side safety must be qualified before real actuator commands. New bootstrap work
+preserved; no route selected/roadmap or code changed. Exact intended C2image is
+unresolved for a future choice. Sourcee8cd79f90; no hardware/tests rerun/update/push.
