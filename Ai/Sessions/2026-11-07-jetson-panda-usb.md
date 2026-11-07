@@ -12,3 +12,15 @@ Sources: https://github.com/feiyang2025/jetson-cuda-overlay/blob/076d73bf9a2e055
 Source-first research only; existing pinned study reused. No firmware/tests rerun
 or runtime analysis needed. Historical source findings kept separate from proof
 of physical compatibility. No model/camera/DBC/source change.
+
+## November7 — Jetson Panda identity follow-up
+
+QA17: author says H7 USB; official red/H7 target is STM32H725, legacy black/F4
+STM32F413. Author-specific PCB/chip marking remains unconfirmed. Custom
+sunnypilot-cuda AGXOrin branch explicitly named; exact upstream base unresolved.
+Source-only follow-up on076d73bf and official Panda8a16e089, no source/hardware
+change. Modern Chimera remains halted and chimera_old preserved.
+
+Official pinned README/red.h and author USAGE/README/env/locklist freshly read
+via GitHub. Public web search added no stronger physical-board evidence. No
+source execution, REA/provider or hardware result claimed; no upstream update.

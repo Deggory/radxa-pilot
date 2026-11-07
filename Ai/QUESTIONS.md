@@ -1,3 +1,32 @@
+## QA-20261107-17 — Jetson Panda color/STM32 and Sunnypilot fork
+
+**Date:** November7,2026 UTC.
+**Owner question (faithful quote):** "can u see if he used black panda or red panda u check stm32  ic which he used ,and he used sunnypilot there rt".
+**Answer:** The pinned overlay author specifies Panda H7 over USB-A and tooling
+selects panda_h7.bin.signed. This points to the red/H7 Panda family. Official
+Panda8a16e089 README specifies STM32H725, red.h identifies Red Panda(STM32H7),
+and local official SConscript selects STM32H725xx for H7. His exact physical
+PCB revision/chip marking is not shown by the inspected overlay sources, so
+STM32H725 is the standard target identification, not a confirmed chip reading
+from his particular board. The older black/F4 target uses STM32F413; saved
+Carrot69a2d3be F4 board detection/build source corroborates that distinction.
+Our original Chimera source selects STM32F413xx as well, but is its own board.
+Yes: locklist names custom sunnypilot-cuda, AGXOrin branch. README labels its
+September24 SP vehicle validation as an author claim. Multiple fork families
+are supported; exact matched upstream Sunnypilot commit remains unresolved.
+**Evidence/source pins:** feiyang2025/jetson-cuda-overlay076d73bf9a2e055c83fbe9b2a3c16a8383519ba4
+USAGE.md:7, panda/env.py, tools/locklist/sunnypilot-cuda.txt:1, README.md:21;
+commaai/panda8a16e089b88593914823743df29e1c30b7dd3e00 README.md:3,
+board/boards/red.h:6 and SConscript H7 flags; saved Carrot SConscript/STM32F4 board.h.
+Pinned author files and official Panda README/red.h were freshly reread via GitHub.
+An inherited H735 linker comment is not stronger chip evidence than the explicit
+H725 build flag/README, and is not an author-board identification.
+**Status/limits:** Source explanation only, no implementation or hardware test;
+modern Chimera stays halted, chimera_old/ unchanged. No exact physical chip/board
+proof or fresh Jetson validation. Existing unanswered items preserved.
+
+---
+
 ## QA-20261107-16 — How Jetson CUDA overlay used Panda USB
 
 **Date:** November7,2026 UTC.
