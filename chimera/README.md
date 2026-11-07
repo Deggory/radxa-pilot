@@ -1,3 +1,11 @@
+**November7, T03c3a:** main polling checks VBUS observations before/after each
+bounded detached service poll, stopping on loss/uncertainty and requiring explicit
+cleanup/restart.33offline firmware tests pass, including16new power scenarios.
+The board has no verified physical reader/profile yet, so main stays USB_HELD.
+Current unsigned image8108bytes, unflashed. **Overall estimate:about25%; new-firmware
+hardware validation:0%.** [Supervision](docs/USB_POWER_SUPERVISION.md) and
+[percentage reporting](docs/PROGRESS_EXPLAINED.md). Prior checkpoints follow.
+
 **November7, T03c2:** main now calls a USB lifecycle coordinator with checked
 startup, UID continuity, bounded detached polling and explicit cleanup/restart.
 32firmware tests pass, including51new simulated integration scenarios. Current

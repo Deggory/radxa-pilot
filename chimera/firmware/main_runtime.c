@@ -25,6 +25,7 @@ bool chimera_main_start(chimera_main_runtime *r, volatile chimera_boot_details *
   r->details = details;
   r->error = CHIMERA_MAIN_USB_NONE;
   r->service_error = CHIMERA_USB_SERVICE_OK;
+  r->vbus = CHIMERA_VBUS_UNKNOWN;
   r->cleanup_ok = 1U;
   revoke(r);
   if (details == NULL || (config != NULL &&
@@ -53,15 +54,35 @@ bool chimera_main_start(chimera_main_runtime *r, volatile chimera_boot_details *
   return true;
 }
 
-int chimera_main_poll(chimera_main_runtime *r) {
+static bool present(chimera_main_runtime *r, const chimera_vbus_io *vbus) {
+  enum chimera_vbus_state observed = CHIMERA_VBUS_UNKNOWN;
+  if (vbus != NULL && vbus->sample != NULL) observed = vbus->sample(vbus->context);
+  r->vbus = (observed == CHIMERA_VBUS_PRESENT || observed == CHIMERA_VBUS_ABSENT) ?
+    observed : CHIMERA_VBUS_UNKNOWN;
+  return r->vbus == CHIMERA_VBUS_PRESENT;
+}
+
+int chimera_main_poll(chimera_main_runtime *r, const chimera_vbus_io *vbus) {
   if (r == NULL || r->state != CHIMERA_BOOT_USB_DETACHED) return -1;
+  if (!present(r, vbus)) {
+    (void)fail(r, CHIMERA_MAIN_USB_POWER);
+    return -1;
+  }
   int result = chimera_usb_service_poll(&r->usb, r->config.event_budget);
-  if (result < 0) (void)fail(r, CHIMERA_MAIN_USB_POLL);
+  if (result < 0) {
+    (void)fail(r, CHIMERA_MAIN_USB_POLL);
+    return -1;
+  }
+  if (!present(r, vbus)) {
+    (void)fail(r, CHIMERA_MAIN_USB_POWER);
+    return -1;
+  }
   return result;
 }
 
 bool chimera_main_stop(chimera_main_runtime *r) {
   if (r == NULL) return false;
+  r->vbus = CHIMERA_VBUS_UNKNOWN;
   revoke(r);
   if (!chimera_usb_service_stop(&r->usb)) {
     r->state = CHIMERA_BOOT_USB_FAILED;

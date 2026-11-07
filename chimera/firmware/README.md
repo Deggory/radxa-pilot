@@ -1,10 +1,12 @@
 # Chimera firmware
 
-November7 T03c2: main calls the USB lifecycle coordinator for checked start,
-bounded detached polling, identity continuity, failure cleanup and explicit
-stop/restart. The board build passes NULL profile and stays USB_HELD.32offline
-tests pass; current raw8032bytes/globals252bytes, unflashed. [Startup](../docs/MAIN_STARTUP.md)
-and [coordinator contract](../docs/MAIN_USB_RUNTIME.md).
+November7 T03c3a: main polling now checks fresh VBUS observations before/after each
+service poll and stops on lost/unknown/invalid/missing observations.33offline tests
+pass (16new power scenarios plus existing51coordinator scenarios). The board build
+still uses NULL profile/reader and stays USB_HELD; no detector or attachment is
+bound. Current unsigned raw8108bytes/globals256, unflashed.
+[Startup](../docs/MAIN_STARTUP.md), [power supervision](../docs/USB_POWER_SUPERVISION.md).
+Overall planning estimate:about25%; new-firmware physical validation:0%.
 
 This is the first application-only STM32F413 bootstrap target. It builds offline;
 it is not a modern Panda USB implementation or a flashable release yet.

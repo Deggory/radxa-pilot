@@ -8,8 +8,17 @@ November7 owner priority: continue the new firmware path, work on main.c first.
 T03c1 checked snapshot and T03c2 conditional detached USB coordinator are complete
 offline. Next: establish board power/profile/VBUS and installed recovery facts;
 specify attachment/cable-loss policy before enabling a connection. The production
-NULL profile remains held. Host T08b2d stays queued.
+NULL profile/reader remain held. Observed-power supervision is implemented; next
+requires the actual board facts, physical reader and attached-mode lifecycle.
+Host T08b2d stays queued. After each stage report overall estimate(about25%)
+and new-firmware physical validation(0%) separately; see
+[progress reporting](../docs/PROGRESS_EXPLAINED.md).
 [Main startup](../docs/MAIN_STARTUP.md), [coordinator](../docs/MAIN_USB_RUNTIME.md).
+
+T03c3a completed slice — observed VBUS supervision (offline):
+- [x] Main polling requires a fresh PRESENT observation before and after each service poll; missing/unknown/invalid/absent observations stop the detached service and revoke the snapshot.
+- [x] Failure retains cleanup ownership and initiating error, with no automatic sampling/restart after failure; explicit stop/restart requalifies observations.
+- [x] Native real-component fault tests, full firmware suite, ARM build, documentation and percentage checkpoint saved. Board profile/reader remain NULL; no attach or electrical qualification.
 
 Owner clarification, November6: Radxa-to-Chimera/selected legacy Panda is USB only.
 T08 must select pinned USB explicitly, never probe/fall back to SPI, and remain
@@ -37,6 +46,7 @@ future T02/T05/T08 fixtures; no new firmware integration or task completion.
 - [x] T03b3b Composed detached preparation/poll/release service; twenty-three tests/44integration scenarios pass. Not called by main; physical attachment unqualified.
 - [x] T03c1 Main calls checked boot snapshot preparation; explicit clock/facts/error/USB_HELD diagnostics and30offline firmware tests. No USB service/attachment or CAN/input startup.
 - [x] T03c2 Main detached USB lifecycle coordinator, UID continuity, bounded polling, cleanup/explicit restart;32offline tests/51new integration scenarios pass. Board NULL profile stays held; physical qualification remains open.
+- [x] T03c3a Observed VBUS supervision before/after bounded poll, unknown/lost cleanup and explicit restart;33offline tests/16new scenarios pass. Physical reader/profile/attachment remain unbound.
 - [x] T05a Bootstrap status/capability contract and strict pure decoder; response interoperability/rejection fixtures pass offline. No operational health/profile admission.
 - [x] T08b2c Typed field-availability metadata and normal consumer guards;124Python/10native/sanitizer/mutation checks pass offline. No ordinary USB status publication.
 - [x] T08b2b Offline source-backed legacy PandaState preview, explicit unavailable fields and strict conflict/fault/width validation; no publication/admission.
@@ -50,7 +60,7 @@ future T02/T05/T08 fixtures; no new firmware integration or task completion.
 | --- | --- | --- |
 | T01 | Board GPIO/reset behavior, flash/config partitions and recovery boundaries | T01a source contract complete; installed bootstub/recovery and electrical qualification pending |
 | T02 | Distinct identity, legacy/current protocol profiles, RPC matrix and explicit bus/input source contracts | T02a/b complete offline; operational health/capability/config ABI and new-profile host admission remain pending |
-| T03 | Minimal F413 target, reviewed support/linker and offline image budget | T03a/b1/b2/b3a/b3b and c1/c2 checked snapshot and conditional service coordinator complete offline; board profile held, attachment/power/VBUS/recovery pending |
+| T03 | Minimal F413 target, reviewed support/linker and offline image budget | T03a/b1/b2/b3a/b3b and c1/c2/c3a checked snapshot, conditional service coordinator and observed-power supervision complete offline; board profile held, attachment/power/VBUS/recovery pending |
 | T04 | Modern six-byte/XOR classical CAN USB codec with stream/vector checks | Complete offline; no endpoint/CAN-controller binding or TX permission |
 | T05 | Exact identity/version/health responses, legacy F4 status adaptation and fail-disabled state | T05a bootstrap, T05b health59 and T05c CAN-health5 decode/read helpers complete offline; publication and new Chimera operational health pending |
 | T06 | Native Sunnypilot USB transport and offline failure tests | Offline transport implemented (T06a/b); managed use remains T08 |

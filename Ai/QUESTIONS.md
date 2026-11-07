@@ -1,3 +1,44 @@
+## QA-20261107-10 — Continue and show percentages after every stage
+
+**Date:** November7,2026 UTC.
+**Owner request (faithful quote):** "proceed after each stage show in % were we reached".
+
+**Answer:** Continued main-first work with observed VBUS supervision. Main polling
+now requires fresh PRESENT before and after each bounded detached USB service
+poll. Missing, unknown, invalid or absent observations stop the service, invalidate
+the snapshot and latch a power failure. Cleanup ownership/errors are preserved;
+no automatic sampling/retry/reconnect follows failure. Explicit stop/restart
+requalifies observations. The board build still uses NULL power profile and NULL
+reader, so it stays USB_HELD; no physical cable detector or attachment is claimed.
+
+After each completed stage, report its result plus the full new-firmware-and-host
+roadmap's approximate completion/remaining percentage and physical validation
+separately. At this checkpoint: T03c3a100% implemented/tested offline; overall
+about25% complete/75% remaining; new-firmware hardware validation0%. Overall is
+subjective planning, consistent with QA06's20–25% estimate, not measured effort,
+time or readiness. The same partial T03workstream remains open, so this small
+slice does not justify an automatic percentage increase.
+
+**Evidence/source pin:** Baseline radxa/q8b1dd5a7f63920c8e5a935c0a6fe3ce9a89baedd25;
+main.c/main.h/main_runtime.c, USB_POWER_SUPERVISION.md and PROGRESS_EXPLAINED.md.
+Receipt sunnypilot/Ai/Evidence/chimera-main-power-20261107.json pins actual sources,
+33passing firmware tests (16new real-component ASan/UBSan power scenarios), ARM/
+deterministic/linker checks and two caught power-guard mutations. Current raw
+unsigned8108-byte image SHA256
+b2c62ee6d05d5b6c720633daf4d34c2aecb3ca15166926a10257d54a9a7f7bb3.
+Teacher source-first routing confirmed existing board photo/guide and separately
+named schematics do not establish this revision's USB power/VBUS circuit. No
+REA provider or physical reading fabricated. Earlier QA09 describes the T03c2
+poll API; this dated increment adds the required observation argument.
+
+**Implemented/proposed/limits:** T03c3a supervision is implemented and tested
+simulated/offline. Actual VBUS reader/profile, electrical/current/installed
+recovery qualification, attached-mode lifecycle and other operational firmware
+remain pending. No device/flash/config/CAN/input/relay/OBD-C/host admission change,
+upstream update or push. Host T08b2d stays queued. Earlier unanswered items retained.
+
+---
+
 ## QA-20261107-09 — Proceed with the next main USB startup slice
 
 **Date:** November7,2026 UTC.

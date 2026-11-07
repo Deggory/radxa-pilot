@@ -74,6 +74,7 @@ _Noreturn void chimera_fault(void) {
   quiet();
   chimera_boot_snapshot.facts_valid = 0U;
   chimera_boot_runtime.state = CHIMERA_BOOT_FAULT;
+  chimera_boot_runtime.vbus = CHIMERA_VBUS_UNKNOWN;
   chimera_boot_state = CHIMERA_BOOT_FAULT;
   park();
 }
@@ -101,7 +102,9 @@ _Noreturn void chimera_reset(void) {
   (void)chimera_main_start(&chimera_boot_runtime, &chimera_boot_snapshot, boot_io, clock_ready, NULL);
   chimera_boot_state = chimera_boot_runtime.state;
   while (chimera_boot_runtime.state == CHIMERA_BOOT_USB_DETACHED) {
-    if (chimera_main_poll(&chimera_boot_runtime) < 0) break;
+    // No verified VBUS reader exists yet. Missing observation fails closed even
+    // if a future change supplies a profile without also qualifying detection.
+    if (chimera_main_poll(&chimera_boot_runtime, NULL) < 0) break;
   }
   chimera_boot_state = chimera_boot_runtime.state;
   // PRIMASK remains set. All inputs are reserved, no acquisition/IRQ enabled.

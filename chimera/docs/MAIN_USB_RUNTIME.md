@@ -5,6 +5,12 @@ components; it does not replace the USB driver or authorize attachment. Main
 supplies a NULL profile in the current board build. Non-NULL profiles are used
 only in offline fixtures until actual board requirements are qualified.
 
+November7 T03c3a extends poll with required fresh VBUS observations before/after
+the service call. Main still supplies no reader/profile. Power loss/uncertainty
+stops the detached service, revokes the snapshot and latches USB_POWER; no actual
+cable detector or attachment is bound. [Supervision contract](USB_POWER_SUPERVISION.md).
+The original lifecycle below now uses the explicit reader argument.
+
 ## Configuration and ownership
 
 Zero-initialize the runtime before first use. Keep its address and the diagnostic
@@ -31,8 +37,11 @@ the real service, compares its checked12-byte UID with main's snapshot and only
 then enters USB_DETACHED/returns true. This is not host enumeration or readiness.
 Raw reset/option words are diagnostics, not identity or recovery attestation.
 
-Poll is valid only in USB_DETACHED, delegates the copied event budget to the real
-service, and returns0idle/1progress/2budget-exhausted/-1failure. Start and each
+Poll is valid only in USB_DETACHED and requires fresh PRESENT observations before
+and after the real service call. It delegates the copied event budget and returns
+0idle/1progress/2budget-exhausted/-1failure. Missing/unknown/absent/invalid power
+observations stop the service and latch USB_POWER. A service error is retained
+without another sample. Start/stop clear the local VBUS observation to UNKNOWN. Start and each
 poll are bounded; main's detached loop intentionally continues while healthy.
 Service invariants forbid attachment, IRQ/DMA enablement and session overrides.
 
@@ -63,7 +72,7 @@ DCTL write must retain soft-disconnect; unexpected register writes abort. It als
 checks no IO occurs after failure or rejected restart. The existing44scenario
 service fixture shares the same backend without replacing production functions.
 Two temporary guard mutations are detected. ARM call inspection, image bounds
-and deterministic builds pass in the full32-test firmware suite.
+and deterministic builds pass in the original32-test firmware suite; current supervision extends it to33tests.
 
 No device opened or flashed, no USB attach/CAN/input sampling, no Core Config/
 relay/OBD-C behavior and no electrical or host end-to-end qualification. Current

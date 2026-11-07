@@ -5,10 +5,14 @@
 #include "usb_service_fake.h"
 
 static const chimera_main_usb_config PROFILE = {1, 0, 8, 4};
+// Synthetic observation for the existing detached component scenarios only.
+static enum chimera_vbus_state present(void *context) { (void)context; return CHIMERA_VBUS_PRESENT; }
+static const chimera_vbus_io POWER = {NULL, present};
+
 
 static void no_poll_io(chimera_main_runtime *r, fake *f) {
   unsigned reads = f->reads, writes = f->writes;
-  assert(chimera_main_poll(r) == -1 && f->reads == reads && f->writes == writes);
+  assert(chimera_main_poll(r, &POWER) == -1 && f->reads == reads && f->writes == writes);
 }
 
 int main(void) {
@@ -67,7 +71,7 @@ int main(void) {
     if (ok) {
       assert(r.state == CHIMERA_BOOT_USB_DETACHED && r.usb.driver.active && details.facts_valid);
       assert(r.usb.driver.io == &r.usb.io && r.details == &details);
-      assert(chimera_main_poll(&r) == 0);
+      assert(chimera_main_poll(&r, &POWER) == 0);
       unsigned reads = f.reads, writes = f.writes;
       assert(!chimera_main_start(&r, NULL, NULL, false, NULL));
       assert(r.state == CHIMERA_BOOT_USB_DETACHED && details.facts_valid && f.reads == reads && f.writes == writes);
@@ -115,7 +119,7 @@ int main(void) {
       case 9: f.attach_during_poll = true; break;
       default: assert(false);
     }
-    assert(chimera_main_poll(&r) == -1 && r.state == CHIMERA_BOOT_USB_FAILED);
+    assert(chimera_main_poll(&r, &POWER) == -1 && r.state == CHIMERA_BOOT_USB_FAILED);
     assert(r.error == CHIMERA_MAIN_USB_POLL && r.service_error != CHIMERA_USB_SERVICE_OK);
     assert(r.cleanup_ok && !r.usb.owns_usb && !details.facts_valid);
     no_poll_io(&r, &f);
@@ -127,7 +131,7 @@ int main(void) {
     chimera_main_runtime r = {0}; chimera_boot_details details = {0};
     assert(chimera_main_start(&r, &details, &io, true, &PROFILE));
     f.cleanup_stuck = f.clock_gate_stuck = true; *cell(&f, 0x50000008) = 1;
-    assert(chimera_main_poll(&r) == -1 && !r.cleanup_ok && r.usb.owns_usb && !details.facts_valid);
+    assert(chimera_main_poll(&r, &POWER) == -1 && !r.cleanup_ok && r.usb.owns_usb && !details.facts_valid);
     unsigned reads = f.reads, writes = f.writes;
     assert(!chimera_main_start(&r, &details, &io, true, &PROFILE));
     no_poll_io(&r, &f); assert(f.reads == reads && f.writes == writes);
@@ -155,9 +159,9 @@ int main(void) {
     chimera_main_runtime r = {0}; chimera_boot_details details = {0};
     assert(chimera_main_start(&r, &details, &io, true, &profile));
     profile.event_budget = 0; io.read32 = NULL;
-    assert(r.config.event_budget == 1 && chimera_main_poll(&r) == 0);
+    assert(r.config.event_budget == 1 && chimera_main_poll(&r, &POWER) == 0);
     *cell(&f, 0x50000014) = 1U << 12;
-    assert(chimera_main_poll(&r) == 2 && r.state == CHIMERA_BOOT_USB_DETACHED);
+    assert(chimera_main_poll(&r, &POWER) == 2 && r.state == CHIMERA_BOOT_USB_DETACHED);
     assert(chimera_main_stop(&r)); ++scenarios;
   }
   // A successful explicit stop can fail; surface that result and preserve ownership.
@@ -172,6 +176,6 @@ int main(void) {
     assert(chimera_main_stop(&r)); ++scenarios;
   }
   assert(!chimera_main_start(NULL, NULL, NULL, false, NULL));
-  assert(chimera_main_poll(NULL) == -1 && !chimera_main_stop(NULL));
+  assert(chimera_main_poll(NULL, &POWER) == -1 && !chimera_main_stop(NULL));
   printf("Main USB coordinator: %u real-component gate/start/poll/cleanup/restart scenarios pass; detached only\n", scenarios);
 }

@@ -1,5 +1,10 @@
 # Power, UID and recovery requirements before USB startup
 
+November7 T03c3a implements pre/post VBUS observation supervision offline. An
+unknown/lost indication stops the detached service and latches failure. No actual
+reader/profile is selected; all electrical/recovery gaps below remain unresolved.
+[Supervision contract](USB_POWER_SUPERVISION.md).33firmware tests pass, no hardware run.
+
 November7 T03c2: the main lifecycle coordinator is implemented and tested offline,
 but the board build still supplies no profile and stays USB_HELD. None of the
 power/VBUS/installed-recovery gaps below are resolved by this software lifecycle.

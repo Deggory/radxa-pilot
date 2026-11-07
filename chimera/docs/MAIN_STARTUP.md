@@ -1,6 +1,6 @@
 # Main startup — November 7, 2026
 
-T03c2 connects main to the detached USB lifecycle coordinator. This extends
+T03c2/c3a connect main to the detached USB lifecycle coordinator. This extends
 T03c1's checked UID/reset/option snapshot; the owner keeps the new firmware path
 and main-first priority. The C2 host-only idea remains an unselected alternative.
 
@@ -9,7 +9,9 @@ board state and selects HSI/HCLK16. It binds ordered callbacks without periphera
 access, then calls `chimera_main_start`. **The board build passes NULL for the
 USB profile**, so it captures the checked snapshot and parks USB_HELD (or an
 explicit error), with USB/CAN gated and no acquisition. No board profile was
-invented. The compiled poll loop is present but is not reached on held startup.
+invented. The compiled poll loop is present but is not reached on held startup. It passes
+NULL for the VBUS reader: even a future supplied profile would fail closed until
+a physical reader is qualified and bound.
 
 A caller supplying explicit configuration can instead prepare and poll the real
 USB service while detached. This path is exercised with simulated registers,
@@ -43,7 +45,7 @@ coordinator handles ordinary bounded start/poll/stop failures. No session-valid
 override, PA9 repurposing, watchdog feed, flash/options/settings writes, CAN/input
 operation or USB attachment is added. Quiet GPIO intent is not electrical proof.
 
-Verification:32firmware tests pass with warnings as errors. New native coordinator
+Verification:33firmware tests pass with warnings as errors. New native coordinator
 fixture links actual preparation/service/clock/timing/core/EP0/driver components
 under ASan/UBSan and covers51 startup, polling, ownership, cleanup and restart
 scenarios. Shared fake registers reject unclocked USB access, unexpected register
@@ -51,21 +53,25 @@ writes and attachment. ARM inspection verifies reset calls start/poll and the
 coordinator calls the real service APIs. Existing65,536snapshot checks, USB and
 codec tests, deterministic copied-tree builds, vector/linker/ELF rejection checks
 remain passing. Temporary identity/no-profile mutations fail the new fixture.
-No board run, flash or physical measurement is claimed.
+The new power fixture adds16pre/post observation and cleanup/restart scenarios.
+Both before/after power-guard mutations fail. No board run, flash or physical
+measurement is claimed.
 
-Current unsigned raw image8032bytes, projected legacy envelope8168bytes,
-globals252bytes, reserved stack4096bytes, no undefined symbols. SHA256:
-`da43eb348399fcb05fe203a50d38aa95a9d69bf031e20695ab5ceb9a179427d7`.
-Build report pins25source/header files. Four old build inputs intentionally change
-(main.c, main.h, build.py, linker);20old inputs remain byte-identical, plus new
-main_runtime.c. Previous7592-byte image/report is preserved in ignored evidence;
-historical receipts are unchanged.
+Current unsigned raw image8108bytes, projected legacy envelope8244bytes,
+globals256bytes, reserved stack4096bytes, no undefined symbols. SHA256:
+`b2c62ee6d05d5b6c720633daf4d34c2aecb3ca15166926a10257d54a9a7f7bb3`.
+Build report still pins25source/header files. Relative to T03c2, main.c/main.h/
+main_runtime.c change;22other inputs remain byte-identical. The prior8032-byte
+image/report is preserved in ignored evidence; historical receipts are unchanged.
+The local VBUS observation is cleared on startup/stop/exception and is not USB health.
+See [observed power supervision](USB_POWER_SUPERVISION.md).
 
 Next: establish the board power/profile/VBUS and installed recovery facts, then
 specify the attachment/cable-loss policy before enabling a connection. Bulk/CAN/
 operational health, inputs, Core Config and MCU TX policy remain later slices.
 Host T08b2d passive publication/reconnect remains queued behind main-first work.
 
-[Current receipt](../../Ai/Evidence/chimera-main-runtime-20261107.json),
+[Current receipt](../../Ai/Evidence/chimera-main-power-20261107.json),
+[T03c2 receipt](../../Ai/Evidence/chimera-main-runtime-20261107.json),
 [prior T03c1 receipt](../../Ai/Evidence/chimera-main-startup-20261107.json),
 [power/recovery requirements](USB_STARTUP_REQUIREMENTS.md).

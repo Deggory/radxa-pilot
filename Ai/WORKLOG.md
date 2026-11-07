@@ -1,3 +1,24 @@
+## November7 — VBUS supervision and stage percentage reporting (T03c3a)
+
+Owner: "proceed after each stage show in % were we reached" (QA-20261107-10).
+Standing Chimera preference: after each completed stage report its actual result,
+overall rough completion/remaining percentage and new-firmware hardware validation.
+Current overall estimate about25% complete/75% remaining, consistent with QA06's
+20–25% range; no agreed effort weights and no automatic increment per tiny slice.
+Current T03c3a stage100% implemented/verified offline; new-firmware physical proof0%.
+Main poll now requires fresh PRESENT observations before/after the service call.
+Missing/invalid/unknown/absent readings stop detached USB, revoke facts and latch
+USB_POWER. Original service faults retain their cause; cleanup failure retains
+ownership, no automatic retry/sampling/restart. Explicit stop/start resets the
+observation. Main still passes NULL profile/reader; no real detector/attach exists.
+33firmware tests pass,16new real-component ASan/UBSan scenarios plus existing51;
+before/after guard mutations detected. Raw8108/globals256/stack4096, unsigned,
+unflashed. Baseline1dd5a7f63920;25build inputs,22unchanged/3intentional changes.
+Teacher source evidence still lacks exact board power/VBUS/current recovery proof.
+Next: qualify actual board power/profile/VBUS/installed recovery facts, then bind
+physical reader and implement attached-mode lifecycle; hostT08b2d stays queued.
+No hardware/update/push. Evidence: student Ai/Evidence/chimera-main-power-20261107.json.
+
 ## November7 — Main detached USB coordinator verified (T03c2)
 
 Owner said "proceed" after the main/startup explanation (QA-20261107-09).

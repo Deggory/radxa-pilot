@@ -33,8 +33,17 @@ enum chimera_main_state chimera_main_prepare(volatile chimera_boot_details *deta
 
 enum chimera_main_usb_error {
   CHIMERA_MAIN_USB_NONE, CHIMERA_MAIN_USB_ARGUMENT, CHIMERA_MAIN_USB_START,
-  CHIMERA_MAIN_USB_IDENTITY, CHIMERA_MAIN_USB_POLL, CHIMERA_MAIN_USB_STOP
+  CHIMERA_MAIN_USB_IDENTITY, CHIMERA_MAIN_USB_POLL, CHIMERA_MAIN_USB_STOP,
+  CHIMERA_MAIN_USB_POWER
 };
+// Local observations, not a wire ABI or evidence of board qualification.
+enum chimera_vbus_state {
+  CHIMERA_VBUS_UNKNOWN = 0, CHIMERA_VBUS_PRESENT = 1, CHIMERA_VBUS_ABSENT = 2
+};
+typedef struct {
+  void *context;
+  enum chimera_vbus_state (*sample)(void *context);
+} chimera_vbus_io;
 typedef struct {
   uint8_t self_powered, max_power_2ma;
   uint32_t poll_budget;
@@ -47,6 +56,7 @@ typedef struct {
   enum chimera_main_state state;
   enum chimera_main_usb_error error;
   enum chimera_usb_service_error service_error;
+  enum chimera_vbus_state vbus;
   uint8_t cleanup_ok;
 } chimera_main_runtime;
 
@@ -59,9 +69,17 @@ typedef struct {
 // before retry. This lifecycle is not flashing/DFU or proven hardware recovery.
 bool chimera_main_start(chimera_main_runtime *runtime, volatile chimera_boot_details *details,
                         const chimera_usb_io *io, bool clock_ready, const chimera_main_usb_config *config);
-// Returns service poll result (0 idle, 1 progress, 2 budget exhausted), or -1.
-// Non-detached states perform no I/O. Failure revokes the external facts snapshot.
-int chimera_main_poll(chimera_main_runtime *runtime);
+// Require fresh PRESENT observations before and after each bounded service poll.
+// NULL/missing/invalid/unknown/absent observations latch USB_POWER and release the
+// detached service. Never attach. A service failure retains its cause without a
+// further sample. Non-detached states do no IO, including no power sampling.
+// The reader/context must be trusted, bounded, non-aliasing, stable and alive during the
+// call; it must report UNKNOWN if unavailable/stale/faulted. Production requires
+// an independently qualified physical source, not a cached flag or override.
+// No debounce, calibration, elapsed response bound or detector wiring implied.
+// Return service result (0 idle, 1 progress, 2 budget exhausted), or -1. Failures
+// revoke the external snapshot; no automatic restart on later power restoration.
+int chimera_main_poll(chimera_main_runtime *runtime, const chimera_vbus_io *vbus);
 // Explicit cleanup/retry; success invalidates facts and permits a fresh start.
 // Successful stop retains prior diagnostics until next start; failed stop records
 // USB_STOP and the service release error. Already stopped is I/O-free.

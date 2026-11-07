@@ -1,3 +1,21 @@
+## November7 — Fail on unavailable VBUS; report progress after every Chimera stage
+
+T03c3a makes main polling require fresh PRESENT before/after each bounded detached
+service poll. Reader absent/invalid/unknown/lost means USB_POWER and explicit
+cleanup/restart; service failures take precedence once they occur. Clear the local
+observation at new start/explicit stop/exception. No implicit sample/retry after
+failure or automatic reconnect on restored presence. Keep real board profile and
+reader NULL; no forced session-valid or guessed pin/threshold/power facts.
+Sampling callback must be trusted, bounded and physically qualified before live
+use. This implements supervision, not attachment, measured response, recovery or
+physical cable detection. Installed recovery qualification remains required.
+Owner requests percentages after every completed Chimera stage. Use conservative
+about25% overall/75% remaining and0% new-firmware physical validation at this
+checkpoint; T03c3a itself100% complete offline. Earlier QA06's20–25% estimate was
+subjective, not a denominator of tests/LOC/equal roadmap tasks. Do not increase the
+rounded overall number merely for another small commit. Record material scope/
+estimate changes with their basis. Current receipt: student Ai/Evidence/chimera-main-power-20261107.json.
+
 ## November7 — Compose main USB lifecycle without selecting unverified power facts
 
 T03c2 extends main-first work with explicit configuration and detached-only service

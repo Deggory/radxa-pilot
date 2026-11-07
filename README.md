@@ -10,7 +10,9 @@ preserved on `master`; project development is on `radxa/q8b`.
 `openpilot/selfdrive/pandad/`. Legacy identification, passive CAN/diagnostics,
 exact status decoding and availability consumer checks are tested offline.
 The new F413 main now coordinates checked startup, detached USB polling and
-explicit failure cleanup/restart;32firmware tests pass. Its board build still
+explicit failure cleanup/restart with pre/post VBUS supervision;33firmware tests
+pass. Overall planning estimate:about25%; new-firmware hardware validation:0%.
+Its board build still
 supplies no power profile and stays held. No new firmware has been flashed.
 
 **Next:** board power/VBUS/profile and recovery qualification, then USB attachment

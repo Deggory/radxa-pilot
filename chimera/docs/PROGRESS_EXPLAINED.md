@@ -1,5 +1,28 @@
 # Chimera progress in plain language
 
+## Current percentage reporting — November7 owner instruction
+
+After every completed Chimera stage, report (1)the stage and its actual verified
+result, (2)overall rough completion/remaining percentage, and (3)new-firmware
+hardware validation separately. Keep the full new-firmware-plus-host T01–T20
+scope; do not silently narrow the denominator to main.c or software scaffolding.
+The earlier QA06 estimate was20–25%; the current conservative estimate is about
+25% complete /75% remaining. This is subjective planning, not measured effort,
+time or a readiness guarantee. Two offline component tasks are complete(T04/T06),
+five workstreams partly implemented(T01/T02/T03/T05/T08), thirteen pending. They
+are unequal; tests/lines/number of tiny commits must not set the percentage.
+A completed substage need not increase the rounded overall estimate.
+
+| Checkpoint reported this session | Stage result | Overall estimate | New-firmware hardware validation |
+| --- | --- | --- | --- |
+| Inherited T03c2 baseline | Implemented and verified offline | About25% |0% |
+| T03c3a observed VBUS supervision |100% of this slice implemented/verified offline;33tests incl16new scenarios | About25% /75% remaining |0% |
+
+The new code stops detached USB on missing/unknown/absent/invalid observations,
+checks again after a bounded poll and requires explicit cleanup/restart. Main
+still passes NULL profile/reader; no real cable detection or connection is proven.
+[Current contract](USB_POWER_SUPERVISION.md). Historical checkpoints follow.
+
 ## November7 — Main USB lifecycle increment
 
 Main now calls a coordinator for checked startup, bounded detached polling,
