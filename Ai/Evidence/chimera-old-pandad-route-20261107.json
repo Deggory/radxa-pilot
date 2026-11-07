@@ -1,0 +1,34 @@
+{
+  "date": "2026-11-07",
+  "baseline": "5722805f8aa185ab4cf19a438bdee771dca53b55",
+  "source_hashes": {
+    "openpilot/selfdrive/pandad/panda_identification.cc": "6d67f7e565cef893adbce6008f9ebed7126773f167d77fd7b98b2e14c98e7627",
+    "openpilot/selfdrive/pandad/panda_usb.cc": "e71fbc4b98826c0704882971a93f831eb7ec98bc738549b0913b1a69a1232508",
+    "openpilot/selfdrive/pandad/panda_usb_status.cc": "595df39a7a9b61f909160a549a975e938c55e2d333fd82685b21264537159306",
+    "openpilot/selfdrive/pandad/panda_usb_can.cc": "ab61224480d9df97eac17f0b0215db22e17d2bbbf6f1fac605c7de7b35b26b4e",
+    "openpilot/selfdrive/pandad/panda_usb_publish.cc": "53c4c7ce072ab39fdf1cb6b6af97fb757fe2d2899e5587dee560e9ac33ee24e8",
+    "openpilot/selfdrive/pandad/main.cc": "a17676bd3019d4ca1566214cb1fa4b0b065112280c225507b7838fa2693b00f7",
+    "openpilot/selfdrive/pandad/panda.cc": "f29e343a6e578ba781667e2a8762f0f667ef818f6696077fb417dac05ef8c22f",
+    "openpilot/selfdrive/pandad/chimera.py": "68d40878ed706c8790b1a7f1c6810a4b0838227e2789513d528c777863ca7f8b",
+    "openpilot/selfdrive/pandad/chimera_protocol.py": "a63293efd4a015b0883198fa9693f5d2b89794adb7ebdca28a5ad2db783bca88",
+    "openpilot/selfdrive/pandad/panda_state.py": "666cafef1c59aebd1195f64185e938f99c2f7e662b6d310331eb5ddbfbacf818",
+    "openpilot/selfdrive/pandad/usb_startup.py": "e91990207faa4601b9e645ec53e5dcb02452392f76270372c85eb2a557c9ba6f",
+    "openpilot/selfdrive/pandad/SConscript": "f2bdad08c7929591050783f1e8523c2e4dd98484059477e4c7e5599b78ef815e",
+    "chimera_old/firmware/chimera/main.c": "5d1dd3b0400ec80da9b477abfced51c9346674865ce5ad86d7e5a012c2d94883",
+    "chimera_old/firmware/chimera/can.h": "7aca434faa4a1c37d59f5b43f495ed0d213f0e22fc46e4db28c433472b757310",
+    "openpilot/cereal/log.capnp": "bfebca1aaac720b6e77b148c06efa95e30036099cf6caee5d70fd7812c975e7a",
+    "opendbc_repo/opendbc/car/retropilot/values.py": "3082301e39dda4bc5a5fe57e1e4f06bbf3abfc6bea9b24d6bfdeba4b98c85fae"
+  },
+  "tests": {
+    "command": ".venv/bin/python -W error -m unittest openpilot.selfdrive.pandad.tests.test_chimera_protocol openpilot.selfdrive.pandad.tests.test_chimera openpilot.selfdrive.pandad.tests.test_usb_startup",
+    "exit": 0,
+    "count": 22,
+    "result": "pass",
+    "seconds": 0.1
+  },
+  "preservation": {
+    "files": 76,
+    "size_and_sha256": "all match chimera_old/SOURCES.json"
+  },
+  "scope": "source investigation and proposed native host route only; no implementation or hardware operations"
+}

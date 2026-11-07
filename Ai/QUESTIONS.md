@@ -1,3 +1,13 @@
+## QA-20261107-19 — Keep old Chimera and connect it to Sunnypilot pandad
+
+**Date:** November 7, 2026 UTC.
+**Owner question/direction (faithful quote):** "see we will keep chimera_old and later improve it ,see how we can connect this to sunnypilot pandad ,".
+**Answer:** Keep original firmware and adapt native pandad on the host. Existing PandaUsbHandle already recognizes pinned original Chimera and permits D6/D2 plus CAN bulk-IN. Python chimera.py/chimera_protocol.py already decode its mailbox16/health43 and publish can. Native PandaUsbStatusSession currently accepts F4v17 only, and managed Panda accepts CURRENT only. Proposed next capability is a Chimera-specific native session/decoder and profile-aware raw diagnostics, followed by disconnect/reconnect and separately qualified managed status. No need to rewrite firmware for that observation path. Full control is separate: old 0xDC changes a relay request rather than installing modern safety policy; saved loop actually drives relay from ignition, and old can_send has no modern safety hook. Raw health placeholders/safety17 cannot become modern healthy status. Preserve bus numbers; local CAN1 sensor reports are not automatically a USB sensor feed or host2 data.
+**Evidence/source pin:** Sunnypilot5722805f8aa185ab4cf19a438bdee771dca53b55; student Ai/Knowledge/CHIMERA_OLD_PANDAD.md and Ai/Evidence/chimera-old-pandad-route-20261107.json pin inspected host/firmware source hashes. Canonical and packaged DBC SHA b4079670b8118fe63c6a7710ca1158afaabfec7df881ef902e43d70d70a36b67.
+**Implemented/proposed:** Existing USB/Python pieces verified; native Chimera integration is proposed, not implemented this turn. Fresh22offline tests pass; all76legacy files match manifest. No live USB, firmware build/flash, CAN TX, manager launch, REA runtime result, update or push. Exact installed-image/source match, wiring and speed units remain open. New firmware rewrite stays halted; original improvement deferred. Existing unanswered items preserved.
+
+---
+
 ## QA-20261107-18 — Older Panda, original Chimera and red Panda comparison
 
 **Date:** November 7, 2026 UTC.

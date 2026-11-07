@@ -1,3 +1,15 @@
+## November 7 — Original Chimera native pandad route (QA19)
+
+Owner keeps chimera_old and defers firmware improvements. Source audit identifies
+native host work: separate mailbox16/health43 session/decoder and raw diagnostics,
+then lifecycle and qualified managed status. Existing USB identity/backend and
+Python receiver are reusable; current native session accepts only F4v17. No
+implementation resumed.22offline tests pass;76old files still hash-match.
+Baseline5722805f8; report sunnypilot/Ai/Knowledge/CHIMERA_OLD_PANDAD.md and QA19.
+Keep bus identity, unavailable health and old relay/safety semantics explicit.
+Next implementation candidate: native passive Chimera CAN/status path, not new
+firmware or active control. Actual USB/image/wiring/units remain unqualified.
+
 ## November 7 — Panda / Chimera comparison (QA18)
 
 Compared older black/F413 Panda, original F413 Chimera and red/H725 Panda.
