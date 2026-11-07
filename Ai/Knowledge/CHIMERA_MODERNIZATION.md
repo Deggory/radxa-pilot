@@ -1,3 +1,13 @@
+## November7 — Status metadata/read-length explanation saved
+
+QA-20261107-01 explains the six unsupported legacy status fields and why a
+missing value must not become measured zero/false. Status sizes depend on the
+qualified profile: currenthealth49, legacyF4v17health59, controllerhealth64bytes;
+short/overlong replies reject. Source verified atdfd316d65, no implementation or
+hardware/test rerun/update/push. Documentation only. Next remains T08b2d passive
+normal-status publication and disconnect/reconnect; legacy stays observation-only.
+[Session](../Sessions/2026-11-07-chimera-status-explained.md).
+
 ## November6 — GitHub verified; PC shutdown unreachable
 
 **Actual publication closeout, November6:** Audit148f77d272e81eccfb7b7f9a195ce9acb8a4f783

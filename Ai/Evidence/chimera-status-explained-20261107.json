@@ -1,0 +1,20 @@
+{
+  "utc": "2026-11-07T05:28:59.771767+00:00",
+  "source_head": "dfd316d6554bbd39e221759c5637e648b8cd2cc3",
+  "scope": "Explanation/notebook only; no application/firmware change or hardware test",
+  "checks": {
+    "notebook": {
+      "command": [
+        ".venv/bin/python",
+        "Ai/verify_memory.py",
+        "--workspace",
+        "/home/radxa/comma"
+      ],
+      "exit": 0,
+      "stdout": "{\n  \"result\": \"pass\",\n  \"memory_layout\": \"regular project directory\",\n  \"documents\": 155,\n  \"relative_links\": 580,\n  \"optional_workspace_links\": 246,\n  \"source_repositories\": 8,\n  \"indexed_entries\": 4254\n}\n"
+    },
+    "qa_sync": "pass",
+    "whitespace": "pass"
+  },
+  "next": "T08b2d passive normal-status publication and disconnect/reconnect remains pending"
+}

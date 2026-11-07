@@ -1,3 +1,44 @@
+## QA-20261107-01 — Explain field metadata and exact-length USB status
+
+**Date:** November7,2026 UTC.
+
+**Owner question (faithful quote):**
+> 1. Metadata identifying the six unavailable legacy fields.
+> 2. Exact-length USB status reads. wat is this
+
+**Answer:** Both are host-side compatibility checks. Metadata is an explicit
+label listing newer Panda status fields that the selected legacy F4 profile
+cannot supply: spiErrorCount, soundOutputLevel, controlsAllowedLateral,
+controlsAllowedLongitudinal, nmiReset and hardfaultReset. Unavailable means
+unknown/unsupported, not measured zero/false. Separate lateral/longitudinal
+permission cannot be inferred from the older combined controlsAllowed flag.
+Consumers check required fields; legacy previews remain invalid/observation-only.
+The SPI-named field is a protocol label, not an SPI backend.
+
+Exact-length reads accept a board-status reply only when its size matches the
+identified protocol: current D2health49bytes, legacy F4v17 D2health59bytes and
+supported C2per-controller health64bytes. A59byte reply expected but40received
+is rejected instead of filling19missing bytes with zeros and accepting it.
+Timeouts/disconnects/unhealthy ownership also reject; status replies are distinct
+from CAN data frames. Current/legacy formats stay separate.
+
+**Evidence/source pin:** Read actual cleanradxa/q8b HEAD
+dfd316d6554bbd39e221759c5637e648b8cd2cc3; pandad/panda_state_legacy.h,
+panda_state.py, panda.cc get_state/get_can_state and panda_health.cc exact legacy
+readers; chimera/docs/PANDA_STATE_AVAILABILITY.md and QA32/33 audit. Local
+source evidence, no web/REA provider/device run needed. Existing offline test
+receipts were read, not rerun for this explanation.
+
+**Implemented/proposed/limits:** These checks are already implemented offline;
+this answer changes notebook prose only. No new runtime/firmware/startup action,
+upstream update or push. Metadata does not authenticate firmware or grant control
+permission. Normal USB PandaState publication/reconnect and physical qualification
+remain pending. Next technical task is still T08b2d passive normal-status
+publication and disconnect/reconnect handling. Existing statsd teardown issue
+and PC shutdown delivery limit remain recorded separately.
+
+---
+
 ## QA-20261106-33 — Audit, save, publish and PC shutdown
 
 **Date:** November6,2026 UTC.
