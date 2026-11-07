@@ -1,3 +1,52 @@
+## QA-20261107-08 — What main.c change adds, and why USB is held
+
+**Date:** November7,2026 UTC.
+**Owner question (faithful quote):** so wat have u done in main.c ,did u imrpove to to our new sunnypilot ,USB communication is still held pending power/VBUS/recovery qualification. Next is the qualified USB startup sequence and recovery handling.
+ wat this means
+
+**Answer:** The previous increment improves startup/diagnostics, not completed
+USB/Sunnypilot communication. Actual reset now calls checked preparation after
+the existing clock/quiet setup. That reads the UID, rejects blank/inconsistent
+values, captures raw reset/option words, sets a validity flag and records explicit
+clock/argument/facts/fault/held states. Faults revoke validity. Data is debugger-
+visible RAM only; Sunnypilot does not receive this snapshot over USB. UID is a
+future serial source, not chip-model authentication or current readiness proof.
+
+USB_HELD is a deliberate software stop after successful preparation, not a
+measurement that USB power failed. There is no runtime power-qualification
+algorithm or condition that currently turns it into operational USB. Main still
+parks without calling the USB service; the new image is offline/unflashed.
+No USB protocol/CAN endpoint integration was added by this main.c increment.
+
+Power qualification means establish whether this board is powered byUSB,
+external/IGN/battery, or both and how the supplies interact. VBUS means the USB
+cable's5V supply/presence; an externally powered board may remain alive after
+unplug, so cable-loss detection/response must be established for that design.
+Recovery means a verified bootloader/DFU/restore path with the correct image,
+bootstub and settings preserved if a new application fails. Historical recovery
+evidence exists; the new image/current installed state is not thereby qualified.
+These are board/boot facts, not Sunnypilot configuration options.
+
+Qualified USB startup means initialize/poll the existing USB components using
+verified board power/session parameters and fault cleanup before live attachment.
+Offline startup/service implementation and tests can progress while physical
+qualification is pending; the gate is not a reason to invent settings or a claim
+that no further software work is possible. Full USB/CAN communication remains
+unfinished. No implementation was resumed by this explanatory answer.
+
+**Evidence/source pin:** Cleanradxa/q8b228ed567e8eabdbb4f7c45735b9338fc1b87d842;
+main.c5–18 and79–103, MAIN_STARTUP.md and USB_STARTUP_REQUIREMENTS.md. Source/
+saved receipts only;30previous offline tests remain source-pinned, not freshly
+rerun here. No REA provider/device/flash/runtime/config/CAN TX/upstream update/push.
+
+**Status/limits:** Documentation-only clarification; no source/roadmap change.
+Continue new firmware/main-first scope; next remains qualified main USB startup
+and recovery/fault handling, with physical attachment prerequisites unresolved.
+Host T08b2d still queued. Current snapshot does not prove the watchdog is stopped,
+attest firmware or expose an operational USB capability.
+
+---
+
 ## QA-20261107-07 — Continue new Chimera and work on main.c first
 
 **Date:** November7,2026 UTC.

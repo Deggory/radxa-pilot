@@ -68,3 +68,12 @@ or physical readiness inferred from new lines/tests.
 
 [Contract](../../chimera/docs/MAIN_STARTUP.md).
 [Receipt](../Evidence/chimera-main-startup-20261107.json).
+
+November7 QA08 clarification: main.c change is checked boot diagnostics only,
+not completed Sunnypilot USB integration. Snapshot is local RAM, not USB health;
+USB_HELD is a deliberate software stop, not a detected power fault or an automatic
+hardware qualification algorithm. Explain power supplies, USB5V/VBUS detection
+and bootloader/DFU rollback/settings preservation in plain terms. Offline USB
+startup/service work can continue while live-attachment qualification is pending.
+Source228ed567e; no implementation/test rerun/hardware/update/push. Main-first
+scope and next qualified startup/recovery work remain; hostT08b2d queued.

@@ -1,3 +1,13 @@
+
+November7 QA08 clarification: main.c change is checked boot diagnostics only,
+not completed Sunnypilot USB integration. Snapshot is local RAM, not USB health;
+USB_HELD is a deliberate software stop, not a detected power fault or an automatic
+hardware qualification algorithm. Explain power supplies, USB5V/VBUS detection
+and bootloader/DFU rollback/settings preservation in plain terms. Offline USB
+startup/service work can continue while live-attachment qualification is pending.
+Source228ed567e; no implementation/test rerun/hardware/update/push. Main-first
+scope and next qualified startup/recovery work remain; hostT08b2d queued.
+
 ## November7 — New firmware selected; main startup increment verified
 
 QA07/T03c1: owner chose new Chimera path and main.c first. ARM reset now binds

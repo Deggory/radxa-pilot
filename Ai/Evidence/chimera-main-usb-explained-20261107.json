@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-07",
+  "source_head": "228ed567e8eabdbb4f7c45735b9338fc1b87d842",
+  "scope": "Clarify existing main startup diagnostics versus unfinished USB integration and board/recovery prerequisites; notebook only",
+  "checks": {
+    "notebook": {
+      "command": [
+        ".venv/bin/python",
+        "Ai/verify_memory.py",
+        "--workspace",
+        "/home/radxa/comma"
+      ],
+      "exit": 0,
+      "stdout": "{\n  \"result\": \"pass\",\n  \"memory_layout\": \"regular project directory\",\n  \"documents\": 157,\n  \"relative_links\": 589,\n  \"optional_workspace_links\": 246,\n  \"source_repositories\": 8,\n  \"indexed_entries\": 4254\n}\n"
+    },
+    "qa08_sync": "pass",
+    "whitespace": "pass"
+  },
+  "no_application_or_firmware_change": true,
+  "no_new_hardware_or_application_tests": true
+}
