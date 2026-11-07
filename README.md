@@ -15,11 +15,12 @@ pass. Overall planning estimate:about25%; new-firmware hardware validation:0%.
 Its board build still
 supplies no power profile and stays held. No new firmware has been flashed.
 
-**Next:** board power/VBUS/profile and recovery qualification, then USB attachment
-and cable-loss policy. Host passive normal-status publication/reconnect remains
-queued behind the owner's main-first priority. The [handoff](Ai/HANDOFF.md),
-[main contract](chimera/docs/MAIN_STARTUP.md) and
-[saved audit](Ai/Reports/chimera-audit-20261106/README.md) record scope and limits.
+**Next:** implement an explicit legacy no-VBUS session mode offline. The owner
+identifies Ocelot as Chimera's base circuit with added I/O; the
+[power trace](chimera/docs/OCELOT_BASE_POWER.md) shows no MCU VBUS detector.
+Actual attachment, power/recovery and bench qualification remain pending.
+Host passive status publication/reconnect stays queued behind main-first work.
+See the [handoff](Ai/HANDOFF.md) and [saved audit](Ai/Reports/chimera-audit-20261106/README.md).
 
 | Area | Earlier bench snapshot — November 4, 2026 |
 | --- | --- |

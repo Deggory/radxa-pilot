@@ -1,0 +1,214 @@
+{
+  "date": "2026-11-07",
+  "baseline": "4b6098789f86735a626c9e02c727202498cb748b",
+  "scope": "T01b owner-identified Ocelot base power schematic audit; no firmware/host behavior change",
+  "owner_clarification": {
+    "quote": "see on ovelot foldeer the sch is same onli i/o is added",
+    "meaning": "Owner identifies Ocelot schematic as Chimera base circuit with added IO; use as working design baseline, not a measured board test"
+  },
+  "sources_sha256": {
+    "Ai/DECISIONS.md": "c16a29a4fe96493a7a55614e13235002025da8bfc3c6fde85a47ba3240dba36d",
+    "Ai/HANDOFF.md": "4e2292b896b217b614705f58be76f9453ebfba03d05c8239ef3ed869e7ed3d17",
+    "Ai/Knowledge/CHIMERA_DATA_GAPS.md": "58b25da146b905114f4f9a2df22071a3a901a05e6a19e0f7fb2d3460efa851c8",
+    "Ai/Knowledge/CHIMERA_MODERNIZATION.md": "9fde52aec5c0b808f025cc6b6da4d43d7d45ec99fb0eead9d7eeaaf2252f188a",
+    "Ai/QUESTIONS.md": "5cf358212d2284d55fa5f31c165bf9c538b1287ac808d5958a3151883716bd32",
+    "Ai/ROUTER.md": "15fa4c0696e7d0342d1878e8be4813079f37f553cd12e9344e0345cb0ab1b8b1",
+    "Ai/Reports/chimera-power-schematic-20261107/README.md": "4139e38437f4563c0e2103eb94a405cf3369891e1bbebeb26e3273fd00025fb7",
+    "Ai/Reports/chimera-power-schematic-20261107/trace_power.py": "92d026a292283f262f605892954a433cfa717da04b875efd4878f7a6e56c2270",
+    "Ai/STATE.md": "93184ce5708e10f1da1b6681e035448c46cde276ef3d15012b9502bcba66383c",
+    "Ai/Sessions/2026-11-07-chimera-base-power.md": "4e1a1e038e73f68ac6d6640ce68b5944ebc988d38d7cd595d7be1f6f12dcc846",
+    "Ai/TASKS.md": "9dc39e43ba7388ac345a874dc7a1502b39a53ff12a25549c72f8a0958585acb6",
+    "Ai/WORKLOG.md": "5aacf7866f21146ed90bc8bde942686d5149bab80097aa184c70e4b0ec951fc3",
+    "README.md": "730b81d4a7d659df42d9562f4e287cfd7eee826cf23d978c7b5e183f7ff8e4ae",
+    "chimera/README.md": "d7d568c18b5f67686b2f42e50c2ed377be3cbb71736606ee541a71b0f715a7c4",
+    "chimera/docs/MAIN_STARTUP.md": "1fa764a270af75f8c5d8c25bf47519bbd27a2baf2b0f00716a4c2c3b3c9c1b6b",
+    "chimera/docs/OCELOT_BASE_POWER.md": "b5bb3eaba1872d415e097f5ad0356d7327f29c4689acf6e8c4a16758f061f96a",
+    "chimera/docs/PROGRESS_EXPLAINED.md": "8043665251d0357df20cde6cd7876ee397954f26a7882f3aa114153cf112b58c",
+    "chimera/docs/USB_POWER_SUPERVISION.md": "43df2e00c57b4b35c987ec7e58d0fccc5c8b821ee58182f347dd8dd226cb6019",
+    "chimera/docs/USB_STARTUP_REQUIREMENTS.md": "e3c4393f3e9fbb8f0921436780e0a4d351a2c1573c0377daa6477d70ec3586ff",
+    "chimera/hardware/ocelot-base-power-20261107.json": "373f3e4571390d7b2687cb7e4c2c4e1913b3c6eae2a7a2bf9ebd06e61f88c6d4",
+    "chimera/tasks/plan.md": "96b893462737db0358470b3e5f1499be12c1fc1ce0d2c9cb73112764ae36188e"
+  },
+  "power_data": {
+    "path": "chimera/hardware/ocelot-base-power-20261107.json",
+    "sha256": "373f3e4571390d7b2687cb7e4c2c4e1913b3c6eae2a7a2bf9ebd06e61f88c6d4",
+    "primary_source_hashes": {
+      "ocelot/hardware/ocelot-gateway/ocelot-gw.sch": "56ba4336a4e87670e27582f6b504ed0592036d8781d093bb9f2b476294282dcc",
+      "ocelot/hardware/ocelot-gateway/ocelot-gw.brd": "5787d0a7bb794082ddd12f9d176a144718d3873e6a43b6d257c769586ff32bd9",
+      "ocelot/hardware/ocelot-pro/ocelot-pro_schematic.schdoc": "1f263c35e6b0d7b88fbec9868e5ba60d218f8a2880e939811051c0aeb3d6b4f9",
+      "ocelot/hardware/ocelot-pro/ocelot-pro-schematic.pdf": "a2e8f7f6de446a965ffc838c2c3db1f45baffa41037a13dfa6d5f9a5380ffc0c",
+      "ocelot/firmware/chimera/usb.h": "2996676fb60447a3ea3de70882e19b0a54709a65e2f3d8c935c68e074eb0612d",
+      "ocelot/firmware/boards/common.h": "adba0922187b13c5099d72a4b435c54ae3ac8f5f3be6720975686a1c9cffa26a",
+      "ocelot/firmware/SConscript": "7f60ca0b975592c2bf633e3eb06aa1934288cd547f4a771cb58567579da88bd9"
+    }
+  },
+  "verification": {
+    "source_replay": {
+      "command": [
+        ".venv/bin/python",
+        "Ai/Reports/chimera-power-schematic-20261107/trace_power.py",
+        "--workspace",
+        "/home/radxa/comma"
+      ],
+      "exit": 0,
+      "saved_json_equal": true,
+      "checks": 36,
+      "check_names": [
+        "Gateway schematic/board pad equality: N$5",
+        "Gateway schematic/board pad equality: 5V",
+        "Gateway schematic/board pad equality: 3.3V",
+        "Gateway schematic/board pad equality: 12V",
+        "Gateway schematic/board pad equality: N$3",
+        "Gateway schematic/board pad equality: N$4",
+        "Gateway schematic/board pad equality: N$10",
+        "Gateway schematic/board pad equality: N$11",
+        "Gateway schematic/board pad equality: CAN1_RX",
+        "Gateway schematic/board pad equality: CAN1_TX",
+        "Gateway schematic/board pad equality: CAN2_RX",
+        "Gateway schematic/board pad equality: CAN2_TX",
+        "Gateway schematic/board pad equality: CAN3_RX",
+        "Gateway schematic/board pad equality: CAN3_TX",
+        "Gateway schematic/board pad equality: CAN1_EN",
+        "Gateway schematic/board pad equality: CAN2_EN",
+        "Gateway schematic/board pad equality: CAN3_EN",
+        "Gateway PA9 has no schematic net",
+        "Gateway U1 pad42 has no board signal",
+        "Gateway USB VBUS net only J1 VBUS / D1 anode",
+        "Gateway BAS40 diode",
+        "Gateway MIC5233 regulators",
+        "Pro USB VBUS only USB1/D3 anode",
+        "Pro shared5V joins diode/regulator rails",
+        "Pro PA9 only U1/header H5 pin9",
+        "Both base drawings CAN pin: CAN1_RX",
+        "Both base drawings CAN pin: CAN1_TX",
+        "Both base drawings CAN pin: CAN2_RX",
+        "Both base drawings CAN pin: CAN2_TX",
+        "Both base drawings CAN pin: CAN3_RX",
+        "Both base drawings CAN pin: CAN3_TX",
+        "Both base drawings CAN pin: CAN1_EN",
+        "Both base drawings CAN pin: CAN2_EN",
+        "Both base drawings CAN pin: CAN3_EN",
+        "Legacy F4 sets both session override bits",
+        "Legacy descriptor raw power bytes"
+      ]
+    },
+    "ruff": {
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "Ai/Reports/chimera-power-schematic-20261107/trace_power.py"
+      ],
+      "exit": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    },
+    "whitespace": {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "review": "Selected netlist/physical-pad sets, Pro endpoint orientation and coordinate normalization checked against original PDF, original F4 build/session bytes and implications reviewed. Source audit, not full EDA/ERC or a hardware test.",
+    "notebook": {
+      "command": [
+        ".venv/bin/python",
+        "Ai/verify_memory.py",
+        "--workspace",
+        "/home/radxa/comma"
+      ],
+      "exit": 0,
+      "stdout": "{\n  \"result\": \"pass\",\n  \"memory_layout\": \"regular project directory\",\n  \"documents\": 161,\n  \"relative_links\": 592,\n  \"optional_workspace_links\": 246,\n  \"source_repositories\": 8,\n  \"indexed_entries\": 4254\n}\n",
+      "stderr": ""
+    },
+    "qa11_sync": "pass; owner clarification and actual answer identical in both layers; earlier unanswered items retained"
+  },
+  "artifacts_inspected": {
+    "original_pro_pdf": {
+      "path": "ocelot/hardware/ocelot-pro/ocelot-pro-schematic.pdf",
+      "sha256": "a2e8f7f6de446a965ffc838c2c3db1f45baffa41037a13dfa6d5f9a5380ffc0c"
+    },
+    "rendering": {
+      "path": "chimera/build/power-audit-20261107/ocelot-pro-original.png",
+      "sha256": "f04ac3c06abd889e2cd20e2a3d499e8b131ef0d86702cba8570caf11aa382a88"
+    },
+    "method": "Local pdftoppm render/view_image plus selected readable Eagle/ASCII net extraction; no REA provider result claimed"
+  },
+  "preserved": {
+    "ocelot": {
+      "head": "d87892fa25ef2a2474110b97bfb5245ee818b534",
+      "dirty_entries": 39,
+      "file_hashes_verified": 19,
+      "status_equal_to_source_map": true
+    },
+    "submodules": {
+      "panda": {
+        "head": "8a16e089b88593914823743df29e1c30b7dd3e00",
+        "clean": true
+      },
+      "opendbc_repo": {
+        "head": "150f937198ceab43c43b39f94b9bdea63fcb633c",
+        "clean": true
+      }
+    },
+    "archive": {
+      "head": "224cfa645134db91103c55d8188d87e7976b0ba4",
+      "clean": true
+    },
+    "canonical_dbc": {
+      "path": "/home/radxa/comma/retropilot/dbc/ocelot_controls.dbc",
+      "sha256": "b4079670b8118fe63c6a7710ca1158afaabfec7df881ef902e43d70d70a36b67"
+    },
+    "f4_reference": {
+      "commit": "69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7",
+      "files_verified": 5
+    },
+    "host_camera_model_thneed": "No changes relative to baseline; only Chimera/notebook/README changed",
+    "new_firmware": {
+      "build_inputs_verified": 25,
+      "all_inputs_unchanged": true,
+      "raw_bytes": 8108,
+      "globals_bytes": 256,
+      "sha256": "b2c62ee6d05d5b6c720633daf4d34c2aecb3ca15166926a10257d54a9a7f7bb3",
+      "new_test_run": false,
+      "prior_test_pin": "4b6098789f86735a626c9e02c727202498cb748b",
+      "prior_firmware_tests": 33
+    },
+    "archive_status_and_ocelot_source_map": "Freshly rechecked; Ocelot39dirty entries/19hashes and archive clean are unchanged"
+  },
+  "progress": {
+    "stage": "T01b selected source-audit",
+    "stage_complete_percent": 100,
+    "overall_estimated_complete_percent": 25,
+    "overall_estimated_remaining_percent": 75,
+    "new_firmware_hardware_validation_percent": 0,
+    "basis": "Subjective unchanged full T01-T20 planning estimate; this is source research, not implemented USB connection or measured effort"
+  },
+  "workflow": {
+    "teacher_first": true,
+    "owner_answer_used": true,
+    "question_about_base_schematic_resolved": true,
+    "skills": [
+      "incremental-implementation",
+      "documentation-and-adrs",
+      "git-workflow-and-versioning",
+      "code-review-and-quality"
+    ],
+    "no_new_product_unit_tests": "Documentation/data audit and replay helper only; production source unchanged",
+    "hardware_opened": false,
+    "flashed": false,
+    "upstream_updated": false,
+    "pushed": false
+  },
+  "limits": [
+    "Owner-supplied base-circuit applicability, not independently measured Chimera revision equivalence",
+    "Pro trace uses normalized0.1unit coordinates and visual original-PDF check; not native EDA/ERC",
+    "No transceiver/regulator current, reverse-current, thermal, USB compliance or installed recovery qualification",
+    "Existing supervisor requires an actual detector; these base drawings provide none. No fabricated PRESENT callback or PA9 reassignment",
+    "No firmware/host/flash/device/config/TX/relay/OBD-C changes"
+  ],
+  "next": "Specify and implement an explicit source-backed legacy no-VBUS session mode offline, separate from sensed mode; actual attachment and bench/recovery qualification remain pending"
+}

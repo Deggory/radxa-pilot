@@ -1,3 +1,24 @@
+## November7 — Owner identifies Ocelot base; power trace changes next step (T01b)
+
+Owner correction: "see on ovelot foldeer the sch is same onli i/o is added".
+Use Ocelot drawings as Chimera's working base circuit with added I/O; do not ask
+again for a base schematic already identified. Gateway XML/board17net-pad matches
+and Pro source/original-PDF comparison yield36source checks: USB VBUS -> BAS40 ->
+shared5V, external5V regulator on same rail,3.3V downstream; no MCU VBUS sense net.
+Gateway PA9/pad42 unconnected; Pro PA9 goes H5pin9, not VBUS. Nine CAN MCU pins
+match existing map. Original F4 code forces BVALOEN/BVALOVAL; raw power descriptor
+bytes0xc0/0x32 are declarations, not measurements. Added relay/OBD-C/analog mapping
+must stay Chimera-specific (PB0 relay, PC2/PC3 analog), not copied from base IO.
+Correction to T03c3a next step: sensed guard cannot bind to an absent detector.
+Next implement/test explicit opt-in legacy no-VBUS session mode offline, separate
+from sensed mode; no dummy PRESENT callback or automatic activation. Actual
+attachment/power measurements/installed recovery remain open; main stays held.
+Firmware/host/image unchanged (25inputs,8108bytes);33tests remain pinned to4b6098789,
+not freshly rerun here. Source replay/Ruff/notebook/preservation checks recorded.
+This source-audit stage100%; overallabout25%/75% remaining; physical0%. Keep stage
+percentage reporting. QA-20261107-11 and student Ai/Evidence/chimera-base-power-20261107.json
+pin owner statement, sources/limits. No device/flash/config/TX/update/push.
+
 ## November7 — VBUS supervision and stage percentage reporting (T03c3a)
 
 Owner: "proceed after each stage show in % were we reached" (QA-20261107-10).

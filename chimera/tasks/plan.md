@@ -5,15 +5,16 @@ The existing T01–T20 task identities are retained. Each slice gets appropriate
 checks, a local commit and a notebook handoff before expanding the scope.
 
 November7 owner priority: continue the new firmware path, work on main.c first.
-T03c1 checked snapshot and T03c2 conditional detached USB coordinator are complete
-offline. Next: establish board power/profile/VBUS and installed recovery facts;
-specify attachment/cable-loss policy before enabling a connection. The production
-NULL profile/reader remain held. Observed-power supervision is implemented; next
-requires the actual board facts, physical reader and attached-mode lifecycle.
-Host T08b2d stays queued. After each stage report overall estimate(about25%)
-and new-firmware physical validation(0%) separately; see
-[progress reporting](../docs/PROGRESS_EXPLAINED.md).
-[Main startup](../docs/MAIN_STARTUP.md), [coordinator](../docs/MAIN_USB_RUNTIME.md).
+T03c1/c2/c3a checked snapshot, detached coordinator and sensed supervision are
+complete offline. Owner identifies Ocelot as the base circuit with I/O added.
+T01b traced both base drawings: shared5V supply and no MCU VBUS sensing route.
+Next is an explicit opt-in legacy no-VBUS session mode derived from the original
+initializer, with detached core/service/invariant and loss/reset tests. Do not
+fabricate a PRESENT reader or repurpose retained inputs. Actual profile/attachment,
+installed recovery and bench qualification remain pending; main remains held.
+Host T08b2d stays queued. After each stage report overall estimate(about25%) and
+new-firmware physical validation(0%) separately.
+[Base power](../docs/OCELOT_BASE_POWER.md), [progress](../docs/PROGRESS_EXPLAINED.md).
 
 T03c3a completed slice — observed VBUS supervision (offline):
 - [x] Main polling requires a fresh PRESENT observation before and after each service poll; missing/unknown/invalid/absent observations stop the detached service and revoke the snapshot.
@@ -37,6 +38,7 @@ future T02/T05/T08 fixtures; no new firmware integration or task completion.
 - [x] T02a Pinned read-only native identification and profile selection; exact versions/health lengths and negative fixtures checked offline.
 - [x] T06b Native USB factory/backend, exclusive pinned selection, bounded I/O and cleanup; fake USB and real-library link checks pass.
 - [x] T01a Source-backed board GPIO/flash/RAM contract; physical recovery and electrical qualification remain open.
+- [x] T01b Owner-identified Ocelot base power trace:17gateway schematic/board nets, Pro/source/PDF comparison and36source checks. No MCU VBUS sense net; no electrical or recovery qualification.
 - [x] T03a Original minimal F413 startup/linker/build, inactive outputs, nine offline tests and deterministic raw image.
 - [x] T02b Distinct bootstrap identity/manifest, read-only request handler/matrix and source bus/input contract; twelve offline tests pass.
 - [x] T04 Pure current six-byte/XOR classical CAN codec; fourteen-test suite, source interoperability and bounded stream/error fixtures pass offline.
@@ -58,7 +60,7 @@ future T02/T05/T08 fixtures; no new firmware integration or task completion.
 
 | Task | Next deliverable | Status |
 | --- | --- | --- |
-| T01 | Board GPIO/reset behavior, flash/config partitions and recovery boundaries | T01a source contract complete; installed bootstub/recovery and electrical qualification pending |
+| T01 | Board GPIO/reset behavior, flash/config partitions and recovery boundaries | T01a/b board/flash contract and owner-identified base power trace complete; no MCU VBUS detector in base; installed recovery/electrical qualification pending |
 | T02 | Distinct identity, legacy/current protocol profiles, RPC matrix and explicit bus/input source contracts | T02a/b complete offline; operational health/capability/config ABI and new-profile host admission remain pending |
 | T03 | Minimal F413 target, reviewed support/linker and offline image budget | T03a/b1/b2/b3a/b3b and c1/c2/c3a checked snapshot, conditional service coordinator and observed-power supervision complete offline; board profile held, attachment/power/VBUS/recovery pending |
 | T04 | Modern six-byte/XOR classical CAN USB codec with stream/vector checks | Complete offline; no endpoint/CAN-controller binding or TX permission |

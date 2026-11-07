@@ -1,5 +1,11 @@
 # Chimera progress in plain language
 
+November7 correction: owner identifies Ocelot as Chimera's base with added I/O.
+Tracing the base shows no MCU VBUS detector. Next is explicit legacy no-VBUS
+session handling; the previously planned physical-reader binding is inapplicable
+without added sensing hardware. [Power trace](OCELOT_BASE_POWER.md). Firmware is
+unchanged; do not interpret this audit as new operational USB support.
+
 ## Current percentage reporting — November7 owner instruction
 
 After every completed Chimera stage, report (1)the stage and its actual verified
@@ -17,6 +23,7 @@ A completed substage need not increase the rounded overall estimate.
 | --- | --- | --- | --- |
 | Inherited T03c2 baseline | Implemented and verified offline | About25% |0% |
 | T03c3a observed VBUS supervision |100% of this slice implemented/verified offline;33tests incl16new scenarios | About25% /75% remaining |0% |
+| T01b owner-identified base power trace |100% of source-audit slice complete;36source checks, no firmware change | About25% /75% remaining |0% |
 
 The new code stops detached USB on missing/unknown/absent/invalid observations,
 checks again after a bounded poll and requires explicit cleanup/restart. Main

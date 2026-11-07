@@ -1,5 +1,13 @@
 # Power, UID and recovery requirements before USB startup
 
+November7 owner clarification/source correction: Ocelot is the Chimera base
+circuit with added I/O. Traced gateway schematic/board and Pro source/original PDF:
+VBUS feeds shared5V through a diode; neither supplies an MCU VBUS detector. The
+previous sensed supervisor cannot be bound to a nonexistent signal. Next is an
+explicit legacy no-VBUS session mode tested offline, not a fake PRESENT reader.
+Firmware remains held and unmodified. [Base-power findings](OCELOT_BASE_POWER.md).
+Earlier missing/applicability descriptions below are historical and superseded.
+
 November7 T03c3a implements pre/post VBUS observation supervision offline. An
 unknown/lost indication stops the detached service and latches failure. No actual
 reader/profile is selected; all electrical/recovery gaps below remain unresolved.
@@ -58,9 +66,9 @@ Do not repurpose PA9 or inherit the override without board-specific evidence.
 
 | Required evidence | Why it matters | Current result |
 | --- | --- | --- |
-| Exact MCU/PCB revision and power schematic or verified tracing | Associate firmware with the actual regulator/USB/IGN/battery paths | Source/photo identity exists; exact power tree unverified |
-| USB-only, external-only and simultaneous supply paths | Establish backfeed/isolation and which source keeps MCU/PHY alive | Wiki describes multiple power sources; no qualification |
-| VBUS presence/loss detector, pin/levels and debounce | Attach only with valid host power and detach on removal while externally powered | No verified detector route |
+| Exact MCU/PCB revision and power schematic or verified tracing | Associate firmware with the actual regulator/USB/IGN/battery paths | Owner identifies Ocelot base; power paths traced; assembled-board/I/O differences and measurements remain open |
+| USB-only, external-only and simultaneous supply paths | Establish backfeed/isolation and which source keeps MCU/PHY alive | Base drawings show diode-fed USB plus external regulator on shared5V; no electrical qualification |
+| VBUS presence/loss detector, pin/levels and debounce | Attach only with valid host power and detach on removal while externally powered | Base drawings show no MCU detector route; original F4 firmware forces B-session-valid |
 | Descriptor self-power/current values and suspend behavior | Report the qualified power profile and meet its operating limits | Caller parameters exist; no measured profile approved |
 | Disconnect/reset/brownout/fault states on D+/D-, relay and OBD-C outputs | Verify actual electrical behavior beyond intended register values | Not measured for this firmware |
 

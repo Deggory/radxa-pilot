@@ -1,5 +1,13 @@
 # Main startup — November 7, 2026
 
+November7 owner clarification/source correction: Ocelot is the Chimera base
+circuit with added I/O. Traced gateway schematic/board and Pro source/original PDF:
+VBUS feeds shared5V through a diode; neither supplies an MCU VBUS detector. The
+previous sensed supervisor cannot be bound to a nonexistent signal. Next is an
+explicit legacy no-VBUS session mode tested offline, not a fake PRESENT reader.
+Firmware remains held and unmodified. [Base-power findings](OCELOT_BASE_POWER.md).
+Earlier missing/applicability descriptions below are historical and superseded.
+
 T03c2/c3a connect main to the detached USB lifecycle coordinator. This extends
 T03c1's checked UID/reset/option snapshot; the owner keeps the new firmware path
 and main-first priority. The C2 host-only idea remains an unselected alternative.

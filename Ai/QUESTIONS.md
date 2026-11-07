@@ -1,3 +1,51 @@
+## QA-20261107-11 — Continue using the Ocelot base schematic
+
+**Date:** November7,2026 UTC.
+**Owner request (faithful quote):** "proceed".
+**Owner clarification (faithful quote):** "see on ovelot foldeer the sch is same onli i/o is added".
+**Context:** In answer to our PCB/schematic question, the owner identifies the
+saved Ocelot schematic as Chimera's base circuit, with added I/O. This supplies
+the working baseline; it is not an independent physical measurement or a
+numerical PCB revision. Do not repeat the same baseline question next session.
+
+**Answer:** Traced gateway schematic and board, plus Pro source/original PDF.
+USB VBUS connects through BAS40 to the shared5V rail; external regulator output
+also joins that rail and3.3V is downstream. Neither drawing routes host VBUS to
+an MCU input. Gateway PA9 is unconnected; Pro PA9 goes to header H5pin9, not VBUS.
+All nine CAN RX/TX/enable MCU pins match. Existing original F4 firmware forces
+B-session-valid through BVALOEN/BVALOVAL, explaining its no-sense USB architecture.
+Historical raw descriptor bytes0xc0/0x32 are not measured consumption.
+
+This corrects earlier wording treating the base drawing as inapplicable/missing.
+Our new sensed-VBUS supervisor works in simulation but cannot sense an unwired
+signal. Do not hardcode PRESENT or sacrifice retained analog/direct inputs.
+Next is explicit opt-in legacy no-VBUS session handling tested offline, separate
+from a sensed mode. It has not been implemented or enabled by this source audit.
+The actual board build remains held; no firmware or host source changed.
+
+**Evidence/source pin:** Baseline radxa/q8b4b6098789f86735a626c9e02c727202498cb748b;
+Ocelotd87892fa25ef2a2474110b97bfb5245ee818b534 with unchanged39dirty entries and
+working-file hashes. Gateway sch56ba4336a4e87670e27582f6b504ed0592036d8781d093bb9f2b476294282dcc,
+board5787d0a7bb794082ddd12f9d176a144718d3873e6a43b6d257c769586ff32bd9;
+ProSchDoc1f263c35e6b0d7b88fbec9868e5ba60d218f8a2880e939811051c0aeb3d6b4f9.
+36source checks include17gateway net-pad comparisons. Pro selected-path replay
+normalizes0.1unit fractional export geometry and was visually checked against
+the original PDF; it is not full EDA/ERC. Structured data, replay and validation:
+sunnypilot/chimera/hardware/ocelot-base-power-20261107.json and
+sunnypilot/Ai/Evidence/chimera-base-power-20261107.json. No REA provider result
+claimed. All25firmware inputs/8108-byte image preserved;33firmware tests remain
+source-pinned to4b6098789, not rerun for this documentation/source-audit stage.
+
+**Status/limits/progress:** T01b source audit100% complete; overallabout25% complete/
+75% remaining, new-firmware hardware validation0%. No new physical power/current/
+reverse-current/profile/recovery/attachment qualification. Full added-I/O routes,
+operational USB/CAN/health/inputs/Core Config/MCU TX remain separate. No board,
+flash/config/CAN/relay/OBD-C action, update or push. HostT08b2d stays queued.
+Earlier unanswered items remain; QA08–10's missing-base/physical-reader next-step
+assumptions are superseded by this dated owner clarification and trace.
+
+---
+
 ## QA-20261107-10 — Continue and show percentages after every stage
 
 **Date:** November7,2026 UTC.

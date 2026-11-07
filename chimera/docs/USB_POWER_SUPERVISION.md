@@ -1,5 +1,13 @@
 # Observed VBUS supervision — T03c3a, November 7, 2026
 
+November7 owner clarification/source correction: Ocelot is the Chimera base
+circuit with added I/O. Traced gateway schematic/board and Pro source/original PDF:
+VBUS feeds shared5V through a diode; neither supplies an MCU VBUS detector. The
+previous sensed supervisor cannot be bound to a nonexistent signal. Next is an
+explicit legacy no-VBUS session mode tested offline, not a fake PRESENT reader.
+Firmware remains held and unmodified. [Base-power findings](OCELOT_BASE_POWER.md).
+Earlier missing/applicability descriptions below are historical and superseded.
+
 Main polling now checks a caller-provided VBUS observation before and after each
 bounded detached service poll. This implements the software loss/unknown response;
 it does not detect the real cable yet. The actual board build supplies NULL for

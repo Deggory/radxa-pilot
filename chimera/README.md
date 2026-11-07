@@ -1,3 +1,9 @@
+**November7, T01b:** owner identifies Ocelot as the base circuit with added I/O.
+Power trace confirms shared5V and no MCU VBUS detector;36source checks pass.
+Next: explicit legacy no-VBUS session mode, keeping actual USB attachment held.
+Firmware remains unchanged. **Overall estimate:about25%; new-firmware hardware
+validation:0%.** [Base-power report](docs/OCELOT_BASE_POWER.md). Earlier checkpoints follow.
+
 **November7, T03c3a:** main polling checks VBUS observations before/after each
 bounded detached service poll, stopping on loss/uncertainty and requiring explicit
 cleanup/restart.33offline firmware tests pass, including16new power scenarios.

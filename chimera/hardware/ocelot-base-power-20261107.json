@@ -1,0 +1,1373 @@
+{
+  "date": "2026-11-07",
+  "scope": "T01b base power schematic trace; no firmware or device change",
+  "owner_clarification": {
+    "quote": "see on ovelot foldeer the sch is same onli i/o is added",
+    "meaning": "Owner identifies Ocelot schematic as Chimera base circuit with added IO; use as working design baseline, not a measured board test"
+  },
+  "ocelot_head": "d87892fa25ef2a2474110b97bfb5245ee818b534",
+  "sources_sha256": {
+    "ocelot/hardware/ocelot-gateway/ocelot-gw.sch": "56ba4336a4e87670e27582f6b504ed0592036d8781d093bb9f2b476294282dcc",
+    "ocelot/hardware/ocelot-gateway/ocelot-gw.brd": "5787d0a7bb794082ddd12f9d176a144718d3873e6a43b6d257c769586ff32bd9",
+    "ocelot/hardware/ocelot-pro/ocelot-pro_schematic.schdoc": "1f263c35e6b0d7b88fbec9868e5ba60d218f8a2880e939811051c0aeb3d6b4f9",
+    "ocelot/hardware/ocelot-pro/ocelot-pro-schematic.pdf": "a2e8f7f6de446a965ffc838c2c3db1f45baffa41037a13dfa6d5f9a5380ffc0c",
+    "ocelot/firmware/chimera/usb.h": "2996676fb60447a3ea3de70882e19b0a54709a65e2f3d8c935c68e074eb0612d",
+    "ocelot/firmware/boards/common.h": "adba0922187b13c5099d72a4b435c54ae3ac8f5f3be6720975686a1c9cffa26a",
+    "ocelot/firmware/SConscript": "7f60ca0b975592c2bf633e3eb06aa1934288cd547f4a771cb58567579da88bd9"
+  },
+  "gateway": {
+    "parts": 82,
+    "nets": 38,
+    "selected_nets": [
+      {
+        "name": "N$5",
+        "logical_pins": [
+          {
+            "part": "J1",
+            "gate": "J1",
+            "pin": "VBUS"
+          },
+          {
+            "part": "D1",
+            "gate": "1",
+            "pin": "A"
+          }
+        ],
+        "board_pads": [
+          {
+            "part": "D1",
+            "pad": "1"
+          },
+          {
+            "part": "J1",
+            "pad": "VBUS1"
+          },
+          {
+            "part": "J1",
+            "pad": "VBUS2"
+          }
+        ]
+      },
+      {
+        "name": "5V",
+        "logical_pins": [
+          {
+            "part": "SUPPLY1",
+            "gate": "G$1",
+            "pin": "5V"
+          },
+          {
+            "part": "D1",
+            "gate": "1",
+            "pin": "C"
+          },
+          {
+            "part": "PS1",
+            "gate": "G$1",
+            "pin": "OUT"
+          },
+          {
+            "part": "IC1",
+            "gate": "G$1",
+            "pin": "IN"
+          },
+          {
+            "part": "IC1",
+            "gate": "G$1",
+            "pin": "EN"
+          },
+          {
+            "part": "SUPPLY5",
+            "gate": "G$1",
+            "pin": "5V"
+          },
+          {
+            "part": "C15",
+            "gate": "G$1",
+            "pin": "1"
+          },
+          {
+            "part": "U2",
+            "gate": "G$1",
+            "pin": "VCC"
+          },
+          {
+            "part": "C9",
+            "gate": "G$1",
+            "pin": "1"
+          },
+          {
+            "part": "SUPPLY8",
+            "gate": "G$1",
+            "pin": "5V"
+          },
+          {
+            "part": "U3",
+            "gate": "G$1",
+            "pin": "VCC"
+          },
+          {
+            "part": "C11",
+            "gate": "G$1",
+            "pin": "1"
+          },
+          {
+            "part": "SUPPLY9",
+            "gate": "G$1",
+            "pin": "5V"
+          },
+          {
+            "part": "C12",
+            "gate": "G$1",
+            "pin": "1"
+          },
+          {
+            "part": "U4",
+            "gate": "G$1",
+            "pin": "VCC"
+          },
+          {
+            "part": "SUPPLY10",
+            "gate": "G$1",
+            "pin": "5V"
+          }
+        ],
+        "board_pads": [
+          {
+            "part": "C11",
+            "pad": "1"
+          },
+          {
+            "part": "C12",
+            "pad": "1"
+          },
+          {
+            "part": "C15",
+            "pad": "1"
+          },
+          {
+            "part": "C9",
+            "pad": "1"
+          },
+          {
+            "part": "D1",
+            "pad": "3"
+          },
+          {
+            "part": "IC1",
+            "pad": "1"
+          },
+          {
+            "part": "IC1",
+            "pad": "3"
+          },
+          {
+            "part": "PS1",
+            "pad": "5"
+          },
+          {
+            "part": "U2",
+            "pad": "3"
+          },
+          {
+            "part": "U3",
+            "pad": "3"
+          },
+          {
+            "part": "U4",
+            "pad": "3"
+          }
+        ]
+      },
+      {
+        "name": "3.3V",
+        "logical_pins": [
+          {
+            "part": "S2",
+            "gate": "G$1",
+            "pin": "2"
+          },
+          {
+            "part": "SUPPLY2",
+            "gate": "G$1",
+            "pin": "3.3V"
+          },
+          {
+            "part": "U1",
+            "gate": "B",
+            "pin": "VDDA/VREF+"
+          },
+          {
+            "part": "U1",
+            "gate": "B",
+            "pin": "VDD_2"
+          },
+          {
+            "part": "U1",
+            "gate": "B",
+            "pin": "VDD_3"
+          },
+          {
+            "part": "U1",
+            "gate": "B",
+            "pin": "VDD_4"
+          },
+          {
+            "part": "U1",
+            "gate": "B",
+            "pin": "VDD"
+          },
+          {
+            "part": "C8",
+            "gate": "G$1",
+            "pin": "1"
+          },
+          {
+            "part": "C4",
+            "gate": "G$1",
+            "pin": "1"
+          },
+          {
+            "part": "C5",
+            "gate": "G$1",
+            "pin": "1"
+          },
+          {
+            "part": "C6",
+            "gate": "G$1",
+            "pin": "1"
+          },
+          {
+            "part": "C7",
+            "gate": "G$1",
+            "pin": "1"
+          },
+          {
+            "part": "SUPPLY4",
+            "gate": "G$1",
+            "pin": "3.3V"
+          },
+          {
+            "part": "IC1",
+            "gate": "G$1",
+            "pin": "OUT"
+          },
+          {
+            "part": "SUPPLY7",
+            "gate": "G$1",
+            "pin": "3.3V"
+          },
+          {
+            "part": "C16",
+            "gate": "G$1",
+            "pin": "1"
+          },
+          {
+            "part": "C14",
+            "gate": "G$1",
+            "pin": "1"
+          },
+          {
+            "part": "U4",
+            "gate": "G$1",
+            "pin": "VIO"
+          },
+          {
+            "part": "SUPPLY11",
+            "gate": "G$1",
+            "pin": "3.3V"
+          },
+          {
+            "part": "U3",
+            "gate": "G$1",
+            "pin": "VIO"
+          },
+          {
+            "part": "C13",
+            "gate": "G$1",
+            "pin": "1"
+          },
+          {
+            "part": "SUPPLY12",
+            "gate": "G$1",
+            "pin": "3.3V"
+          },
+          {
+            "part": "U2",
+            "gate": "G$1",
+            "pin": "VIO"
+          },
+          {
+            "part": "C10",
+            "gate": "G$1",
+            "pin": "1"
+          },
+          {
+            "part": "SUPPLY13",
+            "gate": "G$1",
+            "pin": "3.3V"
+          },
+          {
+            "part": "R10",
+            "gate": "G$1",
+            "pin": "2"
+          },
+          {
+            "part": "SUPPLY14",
+            "gate": "G$1",
+            "pin": "3.3V"
+          },
+          {
+            "part": "J6",
+            "gate": "G$1",
+            "pin": "5"
+          },
+          {
+            "part": "SUPPLY15",
+            "gate": "G$1",
+            "pin": "3.3V"
+          }
+        ],
+        "board_pads": [
+          {
+            "part": "C10",
+            "pad": "1"
+          },
+          {
+            "part": "C13",
+            "pad": "1"
+          },
+          {
+            "part": "C14",
+            "pad": "1"
+          },
+          {
+            "part": "C16",
+            "pad": "1"
+          },
+          {
+            "part": "C4",
+            "pad": "1"
+          },
+          {
+            "part": "C5",
+            "pad": "1"
+          },
+          {
+            "part": "C6",
+            "pad": "1"
+          },
+          {
+            "part": "C7",
+            "pad": "1"
+          },
+          {
+            "part": "C8",
+            "pad": "1"
+          },
+          {
+            "part": "IC1",
+            "pad": "5"
+          },
+          {
+            "part": "J6",
+            "pad": "5"
+          },
+          {
+            "part": "R10",
+            "pad": "2"
+          },
+          {
+            "part": "S2",
+            "pad": "2"
+          },
+          {
+            "part": "U1",
+            "pad": "13"
+          },
+          {
+            "part": "U1",
+            "pad": "19"
+          },
+          {
+            "part": "U1",
+            "pad": "32"
+          },
+          {
+            "part": "U1",
+            "pad": "48"
+          },
+          {
+            "part": "U1",
+            "pad": "64"
+          },
+          {
+            "part": "U2",
+            "pad": "5"
+          },
+          {
+            "part": "U3",
+            "pad": "5"
+          },
+          {
+            "part": "U4",
+            "pad": "5"
+          }
+        ]
+      },
+      {
+        "name": "12V",
+        "logical_pins": [
+          {
+            "part": "PS1",
+            "gate": "G$1",
+            "pin": "EN"
+          },
+          {
+            "part": "PS1",
+            "gate": "G$1",
+            "pin": "IN"
+          },
+          {
+            "part": "SUPPLY6",
+            "gate": "G$1",
+            "pin": "12V"
+          },
+          {
+            "part": "Q1",
+            "gate": "G$1",
+            "pin": "S"
+          },
+          {
+            "part": "R7",
+            "gate": "G$1",
+            "pin": "2"
+          },
+          {
+            "part": "J2",
+            "gate": "G$1",
+            "pin": "1"
+          },
+          {
+            "part": "SUPPLY3",
+            "gate": "G$1",
+            "pin": "12V"
+          }
+        ],
+        "board_pads": [
+          {
+            "part": "J2",
+            "pad": "1"
+          },
+          {
+            "part": "PS1",
+            "pad": "1"
+          },
+          {
+            "part": "PS1",
+            "pad": "3"
+          },
+          {
+            "part": "Q1",
+            "pad": "2"
+          },
+          {
+            "part": "R7",
+            "pad": "2"
+          }
+        ]
+      },
+      {
+        "name": "N$3",
+        "logical_pins": [
+          {
+            "part": "U1",
+            "gate": "A",
+            "pin": "PA11"
+          },
+          {
+            "part": "R2",
+            "gate": "G$1",
+            "pin": "2"
+          }
+        ],
+        "board_pads": [
+          {
+            "part": "R2",
+            "pad": "2"
+          },
+          {
+            "part": "U1",
+            "pad": "44"
+          }
+        ]
+      },
+      {
+        "name": "N$4",
+        "logical_pins": [
+          {
+            "part": "U1",
+            "gate": "A",
+            "pin": "PA12"
+          },
+          {
+            "part": "R1",
+            "gate": "G$1",
+            "pin": "2"
+          }
+        ],
+        "board_pads": [
+          {
+            "part": "R1",
+            "pad": "2"
+          },
+          {
+            "part": "U1",
+            "pad": "45"
+          }
+        ]
+      },
+      {
+        "name": "N$10",
+        "logical_pins": [
+          {
+            "part": "R1",
+            "gate": "G$1",
+            "pin": "1"
+          },
+          {
+            "part": "J1",
+            "gate": "J1",
+            "pin": "D+"
+          }
+        ],
+        "board_pads": [
+          {
+            "part": "J1",
+            "pad": "A6"
+          },
+          {
+            "part": "J1",
+            "pad": "B6"
+          },
+          {
+            "part": "R1",
+            "pad": "1"
+          }
+        ]
+      },
+      {
+        "name": "N$11",
+        "logical_pins": [
+          {
+            "part": "R2",
+            "gate": "G$1",
+            "pin": "1"
+          },
+          {
+            "part": "J1",
+            "gate": "J1",
+            "pin": "D-"
+          }
+        ],
+        "board_pads": [
+          {
+            "part": "J1",
+            "pad": "A7"
+          },
+          {
+            "part": "J1",
+            "pad": "B7"
+          },
+          {
+            "part": "R2",
+            "pad": "1"
+          }
+        ]
+      },
+      {
+        "name": "CAN1_RX",
+        "logical_pins": [
+          {
+            "part": "U1",
+            "gate": "A",
+            "pin": "PB8"
+          },
+          {
+            "part": "U2",
+            "gate": "G$1",
+            "pin": "RXD"
+          }
+        ],
+        "board_pads": [
+          {
+            "part": "U1",
+            "pad": "61"
+          },
+          {
+            "part": "U2",
+            "pad": "4"
+          }
+        ]
+      },
+      {
+        "name": "CAN1_TX",
+        "logical_pins": [
+          {
+            "part": "U1",
+            "gate": "A",
+            "pin": "PB9"
+          },
+          {
+            "part": "U2",
+            "gate": "G$1",
+            "pin": "TXD"
+          }
+        ],
+        "board_pads": [
+          {
+            "part": "U1",
+            "pad": "62"
+          },
+          {
+            "part": "U2",
+            "pad": "1"
+          }
+        ]
+      },
+      {
+        "name": "CAN2_RX",
+        "logical_pins": [
+          {
+            "part": "U1",
+            "gate": "A",
+            "pin": "PB5"
+          },
+          {
+            "part": "U3",
+            "gate": "G$1",
+            "pin": "RXD"
+          }
+        ],
+        "board_pads": [
+          {
+            "part": "U1",
+            "pad": "57"
+          },
+          {
+            "part": "U3",
+            "pad": "4"
+          }
+        ]
+      },
+      {
+        "name": "CAN2_TX",
+        "logical_pins": [
+          {
+            "part": "U1",
+            "gate": "A",
+            "pin": "PB6"
+          },
+          {
+            "part": "U3",
+            "gate": "G$1",
+            "pin": "TXD"
+          }
+        ],
+        "board_pads": [
+          {
+            "part": "U1",
+            "pad": "58"
+          },
+          {
+            "part": "U3",
+            "pad": "1"
+          }
+        ]
+      },
+      {
+        "name": "CAN3_RX",
+        "logical_pins": [
+          {
+            "part": "U1",
+            "gate": "A",
+            "pin": "PA8"
+          },
+          {
+            "part": "U4",
+            "gate": "G$1",
+            "pin": "RXD"
+          }
+        ],
+        "board_pads": [
+          {
+            "part": "U1",
+            "pad": "41"
+          },
+          {
+            "part": "U4",
+            "pad": "4"
+          }
+        ]
+      },
+      {
+        "name": "CAN3_TX",
+        "logical_pins": [
+          {
+            "part": "U1",
+            "gate": "A",
+            "pin": "PA15"
+          },
+          {
+            "part": "U4",
+            "gate": "G$1",
+            "pin": "TXD"
+          }
+        ],
+        "board_pads": [
+          {
+            "part": "U1",
+            "pad": "50"
+          },
+          {
+            "part": "U4",
+            "pad": "1"
+          }
+        ]
+      },
+      {
+        "name": "CAN1_EN",
+        "logical_pins": [
+          {
+            "part": "U1",
+            "gate": "A",
+            "pin": "PC1"
+          },
+          {
+            "part": "U2",
+            "gate": "G$1",
+            "pin": "EN"
+          }
+        ],
+        "board_pads": [
+          {
+            "part": "U1",
+            "pad": "9"
+          },
+          {
+            "part": "U2",
+            "pad": "8"
+          }
+        ]
+      },
+      {
+        "name": "CAN2_EN",
+        "logical_pins": [
+          {
+            "part": "U1",
+            "gate": "A",
+            "pin": "PC13"
+          },
+          {
+            "part": "U3",
+            "gate": "G$1",
+            "pin": "EN"
+          }
+        ],
+        "board_pads": [
+          {
+            "part": "U1",
+            "pad": "2"
+          },
+          {
+            "part": "U3",
+            "pad": "8"
+          }
+        ]
+      },
+      {
+        "name": "CAN3_EN",
+        "logical_pins": [
+          {
+            "part": "U1",
+            "gate": "A",
+            "pin": "PA0"
+          },
+          {
+            "part": "U4",
+            "gate": "G$1",
+            "pin": "EN"
+          }
+        ],
+        "board_pads": [
+          {
+            "part": "U1",
+            "pad": "14"
+          },
+          {
+            "part": "U4",
+            "pad": "8"
+          }
+        ]
+      }
+    ],
+    "pa9": "No net in schematic or board pad42"
+  },
+  "pro": {
+    "source": "ocelot/hardware/ocelot-pro/ocelot-pro_schematic.schdoc",
+    "records": 1418,
+    "wire_segments": 235,
+    "pins": 252,
+    "nodes": 454,
+    "selected_nets": [
+      {
+        "labels": [
+          "CAN1_TX"
+        ],
+        "pins": [
+          {
+            "part": "U2",
+            "pin": "TXD",
+            "pad": "1"
+          },
+          {
+            "part": "U1",
+            "pin": "PB9",
+            "pad": "62"
+          }
+        ]
+      },
+      {
+        "labels": [
+          "5V"
+        ],
+        "pins": [
+          {
+            "part": "U2",
+            "pin": "VCC",
+            "pad": "3"
+          },
+          {
+            "part": "U3",
+            "pin": "VCC",
+            "pad": "3"
+          },
+          {
+            "part": "U4",
+            "pin": "VCC",
+            "pad": "3"
+          },
+          {
+            "part": "D3",
+            "pin": "K",
+            "pad": "3"
+          },
+          {
+            "part": "PS1",
+            "pin": "OUT",
+            "pad": "5"
+          },
+          {
+            "part": "PS2",
+            "pin": "IN",
+            "pad": "1"
+          },
+          {
+            "part": "PS2",
+            "pin": "EN",
+            "pad": "3"
+          },
+          {
+            "part": "C16",
+            "pin": "2",
+            "pad": "2"
+          },
+          {
+            "part": "H3",
+            "pin": "5",
+            "pad": "5"
+          },
+          {
+            "part": "H3",
+            "pin": "6",
+            "pad": "6"
+          },
+          {
+            "part": "H6",
+            "pin": "1",
+            "pad": "1"
+          },
+          {
+            "part": "C11",
+            "pin": "1",
+            "pad": "1"
+          },
+          {
+            "part": "C13",
+            "pin": "1",
+            "pad": "1"
+          },
+          {
+            "part": "C15",
+            "pin": "1",
+            "pad": "1"
+          }
+        ]
+      },
+      {
+        "labels": [
+          "CAN1_RX"
+        ],
+        "pins": [
+          {
+            "part": "U2",
+            "pin": "RXD",
+            "pad": "4"
+          },
+          {
+            "part": "U1",
+            "pin": "PB8",
+            "pad": "61"
+          }
+        ]
+      },
+      {
+        "labels": [
+          "3.3V"
+        ],
+        "pins": [
+          {
+            "part": "U2",
+            "pin": "VIO",
+            "pad": "5"
+          },
+          {
+            "part": "U3",
+            "pin": "VIO",
+            "pad": "5"
+          },
+          {
+            "part": "U4",
+            "pin": "VIO",
+            "pad": "5"
+          },
+          {
+            "part": "H2",
+            "pin": "3.3V",
+            "pad": "5"
+          },
+          {
+            "part": "U1",
+            "pin": "VDDA/VREF+",
+            "pad": "13"
+          },
+          {
+            "part": "U1",
+            "pin": "VDD",
+            "pad": "19"
+          },
+          {
+            "part": "U1",
+            "pin": "VDD",
+            "pad": "32"
+          },
+          {
+            "part": "U1",
+            "pin": "VDD",
+            "pad": "48"
+          },
+          {
+            "part": "U1",
+            "pin": "VDD",
+            "pad": "64"
+          },
+          {
+            "part": "PS2",
+            "pin": "OUT",
+            "pad": "5"
+          },
+          {
+            "part": "C17",
+            "pin": "2",
+            "pad": "2"
+          },
+          {
+            "part": "H3",
+            "pin": "8",
+            "pad": "8"
+          },
+          {
+            "part": "H3",
+            "pin": "7",
+            "pad": "7"
+          },
+          {
+            "part": "H4",
+            "pin": "19",
+            "pad": "19"
+          },
+          {
+            "part": "H5",
+            "pin": "19",
+            "pad": "19"
+          },
+          {
+            "part": "C7",
+            "pin": "2",
+            "pad": "2"
+          },
+          {
+            "part": "C5",
+            "pin": "2",
+            "pad": "2"
+          },
+          {
+            "part": "C4",
+            "pin": "2",
+            "pad": "2"
+          },
+          {
+            "part": "C9",
+            "pin": "2",
+            "pad": "2"
+          },
+          {
+            "part": "C8",
+            "pin": "2",
+            "pad": "2"
+          },
+          {
+            "part": "SW1",
+            "pin": "2",
+            "pad": "2"
+          },
+          {
+            "part": "C10",
+            "pin": "2",
+            "pad": "2"
+          },
+          {
+            "part": "C12",
+            "pin": "2",
+            "pad": "2"
+          },
+          {
+            "part": "C14",
+            "pin": "2",
+            "pad": "2"
+          }
+        ]
+      },
+      {
+        "labels": [
+          "CAN1_EN"
+        ],
+        "pins": [
+          {
+            "part": "U2",
+            "pin": "STB",
+            "pad": "8"
+          },
+          {
+            "part": "U1",
+            "pin": "PC1",
+            "pad": "9"
+          }
+        ]
+      },
+      {
+        "labels": [
+          "CAN2_TX"
+        ],
+        "pins": [
+          {
+            "part": "U3",
+            "pin": "TXD",
+            "pad": "1"
+          },
+          {
+            "part": "U1",
+            "pin": "PB6",
+            "pad": "58"
+          }
+        ]
+      },
+      {
+        "labels": [
+          "CAN2_RX"
+        ],
+        "pins": [
+          {
+            "part": "U3",
+            "pin": "RXD",
+            "pad": "4"
+          },
+          {
+            "part": "U1",
+            "pin": "PB5",
+            "pad": "57"
+          }
+        ]
+      },
+      {
+        "labels": [
+          "CAN2_EN"
+        ],
+        "pins": [
+          {
+            "part": "U3",
+            "pin": "STB",
+            "pad": "8"
+          },
+          {
+            "part": "U1",
+            "pin": "PC13",
+            "pad": "2"
+          }
+        ]
+      },
+      {
+        "labels": [
+          "CAN3_TX"
+        ],
+        "pins": [
+          {
+            "part": "U4",
+            "pin": "TXD",
+            "pad": "1"
+          },
+          {
+            "part": "U1",
+            "pin": "PA15",
+            "pad": "50"
+          }
+        ]
+      },
+      {
+        "labels": [
+          "CAN3_RX"
+        ],
+        "pins": [
+          {
+            "part": "U4",
+            "pin": "RXD",
+            "pad": "4"
+          },
+          {
+            "part": "U1",
+            "pin": "PA8",
+            "pad": "41"
+          }
+        ]
+      },
+      {
+        "labels": [
+          "CAN3_EN"
+        ],
+        "pins": [
+          {
+            "part": "U4",
+            "pin": "STB",
+            "pad": "8"
+          },
+          {
+            "part": "U1",
+            "pin": "PA0",
+            "pad": "14"
+          }
+        ]
+      },
+      {
+        "labels": [
+          "IGN_SIM"
+        ],
+        "pins": [
+          {
+            "part": "R5",
+            "pin": "2",
+            "pad": "2"
+          },
+          {
+            "part": "Q2",
+            "pin": "G",
+            "pad": "1"
+          },
+          {
+            "part": "U1",
+            "pin": "PA1",
+            "pad": "15"
+          }
+        ]
+      },
+      {
+        "labels": [
+          "12V"
+        ],
+        "pins": [
+          {
+            "part": "R4",
+            "pin": "2",
+            "pad": "2"
+          },
+          {
+            "part": "Q1",
+            "pin": "S",
+            "pad": "2"
+          },
+          {
+            "part": "PS1",
+            "pin": "IN",
+            "pad": "1"
+          },
+          {
+            "part": "PS1",
+            "pin": "EN",
+            "pad": "3"
+          },
+          {
+            "part": "H3",
+            "pin": "3",
+            "pad": "3"
+          },
+          {
+            "part": "H3",
+            "pin": "4",
+            "pad": "4"
+          }
+        ]
+      },
+      {
+        "labels": [
+          "PA9"
+        ],
+        "pins": [
+          {
+            "part": "U1",
+            "pin": "PA9",
+            "pad": "42"
+          },
+          {
+            "part": "H5",
+            "pin": "9",
+            "pad": "9"
+          }
+        ]
+      },
+      {
+        "labels": [],
+        "pins": [
+          {
+            "part": "U1",
+            "pin": "PA11",
+            "pad": "44"
+          },
+          {
+            "part": "R8",
+            "pin": "2",
+            "pad": "2"
+          }
+        ]
+      },
+      {
+        "labels": [],
+        "pins": [
+          {
+            "part": "U1",
+            "pin": "PA12",
+            "pad": "45"
+          },
+          {
+            "part": "R7",
+            "pin": "2",
+            "pad": "2"
+          }
+        ]
+      },
+      {
+        "labels": [],
+        "pins": [
+          {
+            "part": "USB1",
+            "pin": "VBUS",
+            "pad": "A4B9"
+          },
+          {
+            "part": "USB1",
+            "pin": "VBUS",
+            "pad": "B4A9"
+          },
+          {
+            "part": "D3",
+            "pin": "A",
+            "pad": "1"
+          }
+        ]
+      }
+    ],
+    "coordinate_normalization": "0.1schematic-unit grid for fractional export offsets; selected paths visually checked against original PDF, not native EDA validation",
+    "limits": "Selected axis-aligned ASCII wire/label connectivity; not a full EDA/ERC or board equivalence proof. Original PDF also visually checked."
+  },
+  "can_map": {
+    "CAN1_RX": "PB8",
+    "CAN1_TX": "PB9",
+    "CAN2_RX": "PB5",
+    "CAN2_TX": "PB6",
+    "CAN3_RX": "PA8",
+    "CAN3_TX": "PA15",
+    "CAN1_EN": "PC1",
+    "CAN2_EN": "PC13",
+    "CAN3_EN": "PA0"
+  },
+  "legacy_usb": {
+    "f4_session": "BVALOEN + BVALOVAL forced; VBDEN line commented",
+    "descriptor_attributes_byte": "0xc0",
+    "descriptor_max_power_byte": "0x32",
+    "meaning": "Historical software declarations, not measurements or a selected new profile"
+  },
+  "checks": [
+    "Gateway schematic/board pad equality: N$5",
+    "Gateway schematic/board pad equality: 5V",
+    "Gateway schematic/board pad equality: 3.3V",
+    "Gateway schematic/board pad equality: 12V",
+    "Gateway schematic/board pad equality: N$3",
+    "Gateway schematic/board pad equality: N$4",
+    "Gateway schematic/board pad equality: N$10",
+    "Gateway schematic/board pad equality: N$11",
+    "Gateway schematic/board pad equality: CAN1_RX",
+    "Gateway schematic/board pad equality: CAN1_TX",
+    "Gateway schematic/board pad equality: CAN2_RX",
+    "Gateway schematic/board pad equality: CAN2_TX",
+    "Gateway schematic/board pad equality: CAN3_RX",
+    "Gateway schematic/board pad equality: CAN3_TX",
+    "Gateway schematic/board pad equality: CAN1_EN",
+    "Gateway schematic/board pad equality: CAN2_EN",
+    "Gateway schematic/board pad equality: CAN3_EN",
+    "Gateway PA9 has no schematic net",
+    "Gateway U1 pad42 has no board signal",
+    "Gateway USB VBUS net only J1 VBUS / D1 anode",
+    "Gateway BAS40 diode",
+    "Gateway MIC5233 regulators",
+    "Pro USB VBUS only USB1/D3 anode",
+    "Pro shared5V joins diode/regulator rails",
+    "Pro PA9 only U1/header H5 pin9",
+    "Both base drawings CAN pin: CAN1_RX",
+    "Both base drawings CAN pin: CAN1_TX",
+    "Both base drawings CAN pin: CAN2_RX",
+    "Both base drawings CAN pin: CAN2_TX",
+    "Both base drawings CAN pin: CAN3_RX",
+    "Both base drawings CAN pin: CAN3_TX",
+    "Both base drawings CAN pin: CAN1_EN",
+    "Both base drawings CAN pin: CAN2_EN",
+    "Both base drawings CAN pin: CAN3_EN",
+    "Legacy F4 sets both session override bits",
+    "Legacy descriptor raw power bytes"
+  ],
+  "limits": [
+    "Owner-supplied base-circuit applicability, not independently measured Chimera revision equivalence",
+    "Pro trace uses normalized0.1unit coordinates and visual original-PDF check; not native EDA/ERC",
+    "No transceiver/regulator current, reverse-current, thermal, USB compliance or installed recovery qualification",
+    "Existing supervisor requires an actual detector; these base drawings provide none. No fabricated PRESENT callback or PA9 reassignment",
+    "No firmware/host/flash/device/config/TX/relay/OBD-C changes"
+  ],
+  "next": "Specify and implement an explicit source-backed legacy no-VBUS session mode offline, separate from sensed mode; actual attachment and bench/recovery qualification remain pending"
+}

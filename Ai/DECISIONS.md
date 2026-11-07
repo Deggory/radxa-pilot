@@ -1,3 +1,19 @@
+## November7 — Apply owner-identified base circuit; plan explicit no-VBUS mode
+
+Owner says Ocelot schematic is Chimera's base with I/O added. Treat that as the
+working source baseline, correcting earlier unrelated-reference-only wording.
+Gateway/Pro selected paths both lack an MCU VBUS detector and match nine CAN pins.
+Do not impose a nonexistent physical reader or fabricate PRESENT. Preserve sensed
+supervision for a genuinely sensed path; next develop an explicit opt-in legacy
+no-VBUS session mode based on original F4 BVALOEN/BVALOVAL behavior and test it
+offline. A software session override is not a physical power observation. Keep
+main's profile/reader NULL and attachment disabled until that separate work and
+actual release qualification. No override/profile default was changed by T01b.
+Retain Chimera extra IO, PB0 relay and PC2/PC3 ADC; base output controls differ.
+Drawing topology/owner applicability are distinct from measured current/isolation,
+full I/O equivalence and current installed recovery. Stage audit100%, full rough
+roadmapabout25%, new-firmware physical0%. Receipt: student Ai/Evidence/chimera-base-power-20261107.json.
+
 ## November7 — Fail on unavailable VBUS; report progress after every Chimera stage
 
 T03c3a makes main polling require fresh PRESENT before/after each bounded detached
