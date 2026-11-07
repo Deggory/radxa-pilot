@@ -1,9 +1,10 @@
 # Chimera firmware
 
-November7 T03c1: main now calls checked boot preparation, captures UID/raw
-reset/options and records explicit clock/facts/error or USB_HELD diagnostics.
-No USB service, attachment or CAN/input acquisition starts.30offline tests pass;
-current raw7592bytes/globals32bytes. [Startup contract](../docs/MAIN_STARTUP.md).
+November7 T03c2: main calls the USB lifecycle coordinator for checked start,
+bounded detached polling, identity continuity, failure cleanup and explicit
+stop/restart. The board build passes NULL profile and stays USB_HELD.32offline
+tests pass; current raw8032bytes/globals252bytes, unflashed. [Startup](../docs/MAIN_STARTUP.md)
+and [coordinator contract](../docs/MAIN_USB_RUNTIME.md).
 
 This is the first application-only STM32F413 bootstrap target. It builds offline;
 it is not a modern Panda USB implementation or a flashable release yet.
@@ -16,16 +17,17 @@ workspace reference checkout, keys, signer or flasher is needed to build.
 | File | Purpose |
 | --- | --- |
 | [startup.S](startup.S) | Vectors, interrupt masking and explicit MSP reload before C |
-| [main.c](main.c), [header](main.h) | RAM/IRQ/clock setup, checked read-only boot snapshot and explicit held/error state |
+| [main.c](main.c), [header](main.h) | RAM/IRQ/clock setup, checked snapshot and lifecycle entry; production profile held |
+| [main_runtime.c](main_runtime.c) | Detached service coordinator, identity check, bounded polling and explicit cleanup/restart |
 | [board.c](board.c) | Inactive relay/OBD-C/transceiver levels; digital/analog input modes |
 | [protocol.c](protocol.c), [header](protocol.h) | Distinct identity/manifest and pure read-only vendor-request handler; not wired to USB yet |
 | [can_codec.c](can_codec.c), [header](can_codec.h) | Current six-byte/XOR classical CAN encoding, strict TX decoding and bounded stream assembly |
-| [usb_hw.c](usb_hw.c), [header](usb_hw.h) | Backend-driven48MHz clock and detached core preparation; no startup binding |
+| [usb_hw.c](usb_hw.c), [header](usb_hw.h) | Backend-driven48MHz clock and detached core preparation; conditionally called by main coordinator |
 | [usb_ep0.c](usb_ep0.c), [header](usb_ep0.h) | Descriptor/control-transfer state model, deferred commits and canceled-transfer generations |
 | [usb_driver.c](usb_driver.c), [header](usb_driver.h) | Polling EP0 event/FIFO driver with bounded cancellation, reset and failure handling |
-| [usb_mmio.c](usb_mmio.c), [timing](usb_time.c), [header](usb_time.h) | Ordered ARM MMIO and bounded nominal16MHz cycle-counter delays; no startup call |
+| [usb_mmio.c](usb_mmio.c), [timing](usb_time.c), [header](usb_time.h) | Ordered ARM MMIO and bounded nominal16MHz cycle-counter delays; main binds callbacks; timing runs only with explicit profile |
 | [boot_facts.c](boot_facts.c), [header](boot_facts.h) | Read-only UID/reset/option snapshot and stable-ID checks; now called by main preparation, no write |
-| [usb_service.c](usb_service.c), [header](usb_service.h) | Composed detached preparation/poll/release with fault latching; not called by main |
+| [usb_service.c](usb_service.c), [header](usb_service.h) | Composed detached preparation/poll/release with fault latching; conditionally called by main coordinator |
 | [stm32f413.ld](stm32f413.ld) | Conservative application/RAM reservations and overflow assertions |
 | [build.py](build.py) | Compile, inspect ELF/vectors and publish artifacts with hashes |
 | [tests](tests/test_firmware.py) | Native GPIO checks, real ARM builds and negative image/linker fixtures |
@@ -66,8 +68,9 @@ under ASan/UBSan; no writes/health/config/reset operation is accepted. Identity
 and handler are retained in the ARM image for offline verification/future EP0
 wiring. Operational capabilities/layout hashes are zero. See
 [the identity contract](../docs/USB_IDENTITY_CONTRACT.md). There is no live USB
-enumeration or new native host profile yet. Packet handling exists as an unbound
-library; no startup/physical device qualification is implied.
+enumeration or new native host profile yet. Main conditionally calls the detached
+service through its coordinator, but the board profile is held; no physical device
+qualification is implied.
 
 T04 adds a pure classical CAN codec with one14-byte stream buffer per connection.
 648encoded RX records and189host TX packing vectors match the current Panda

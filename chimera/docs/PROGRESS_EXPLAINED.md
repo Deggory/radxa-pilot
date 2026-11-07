@@ -1,5 +1,14 @@
 # Chimera progress in plain language
 
+## November7 — Main USB lifecycle increment
+
+Main now calls a coordinator for checked startup, bounded detached polling,
+failure cleanup and explicit stop/restart.51simulated scenarios and the complete
+32-test firmware suite pass. The board build still has no power profile selected,
+so USB stays held; no firmware has been flashed. Current image8032bytes/globals252.
+[What changed and what remains](MAIN_USB_RUNTIME.md). Earlier checkpoints below
+are historical. Next: board power/VBUS/profile/recovery facts and attachment policy.
+
 ## November7 — Main-first startup increment
 
 Owner selected the new firmware path and main.c first. Main now calls read-only

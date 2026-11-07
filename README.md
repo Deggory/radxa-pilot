@@ -5,19 +5,19 @@
 This branch contains the Radxa Sunnypilot port. Original Sunnypilot source is
 preserved on `master`; project development is on `radxa/q8b`.
 
-**Chimera checkpoint — November 6, 2026:** the implementation lives in
-[`chimera/`](chimera/README.md), with Radxa host support in
-`openpilot/selfdrive/pandad/`. Pandad is USB only. Pinned legacy F4 identification,
-passive CAN/isolated diagnostics, exact status decoding and field-availability
-consumer checks are implemented and tested offline. The independent F413
-bootstrap and detached USB components are also tested offline; its main still
-parks with USB/CAN disabled. No new firmware has been flashed or physically
-qualified, and ordinary legacy `pandaStates` publication remains pending.
+**Chimera checkpoint — November 7, 2026:** the implementation lives in
+[`chimera/`](chimera/README.md), with USB-only Radxa host support in
+`openpilot/selfdrive/pandad/`. Legacy identification, passive CAN/diagnostics,
+exact status decoding and availability consumer checks are tested offline.
+The new F413 main now coordinates checked startup, detached USB polling and
+explicit failure cleanup/restart;32firmware tests pass. Its board build still
+supplies no power profile and stays held. No new firmware has been flashed.
 
-The [saved audit](Ai/Reports/chimera-audit-20261106/README.md) records completed
-work, source pins, test evidence and remaining gaps. **Resume November 7:**
-passive normal-status publication and disconnect/reconnect handling, keeping
-legacy observations nonoperational. Start with the [handoff](Ai/HANDOFF.md).
+**Next:** board power/VBUS/profile and recovery qualification, then USB attachment
+and cable-loss policy. Host passive normal-status publication/reconnect remains
+queued behind the owner's main-first priority. The [handoff](Ai/HANDOFF.md),
+[main contract](chimera/docs/MAIN_STARTUP.md) and
+[saved audit](Ai/Reports/chimera-audit-20261106/README.md) record scope and limits.
 
 | Area | Earlier bench snapshot — November 4, 2026 |
 | --- | --- |

@@ -1,3 +1,37 @@
+## QA-20261107-09 — Proceed with the next main USB startup slice
+
+**Date:** November7,2026 UTC.
+**Owner request (faithful quote):** "proceed".
+**Context (labelled paraphrase):** Continue the new Chimera firmware/main-first
+path after the explanation of checked startup and the power/VBUS/recovery hold.
+
+**Answer:** Implemented a coordinator that main calls for checked startup,
+bounded USB polling while detached, identity consistency and explicit cleanup/
+stop/restart. It uses the existing real USB components. Failed cleanup keeps its
+ownership/error recorded and is not silently retried. A supplied configuration
+must pass argument checks; no configuration means USB stays held. The actual
+board build still supplies no profile, so this increment does not establish USB
+communication with Sunnypilot or qualify board power/recovery. Native tests use
+synthetic configuration with simulated registers only.
+
+**Evidence/source pin:** Baseline radxa/q8b6865244e73ef3a1cebb1356810b4fa4694467857;
+main.c, main.h and new main_runtime.c; source hashes, new build report and actual
+checks in sunnypilot/Ai/Evidence/chimera-main-runtime-20261107.json.32firmware tests
+pass, including51new real-component startup/poll/fault/restart scenarios under
+ASan/UBSan, ARM call checks, deterministic builds and two caught guard mutations.
+Current unsigned8032-byte image SHA256
+da43eb348399fcb05fe203a50d38aa95a9d69bf031e20695ab5ceb9a179427d7.
+Source-first/GNU ARM inspection; no fabricated REA provider or live result.
+
+**Status/limits:** T03c2 implemented/tested offline. No hardware opening, flash,
+attachment, CAN/input operation, Core Config, relay/OBD-C or host admission change.
+Board power/profile/VBUS, installed bootstub and restore path remain unqualified.
+Next is evidence-backed attachment/cable-loss policy; host T08b2d still queued.
+Updates held; no push. QA08's earlier unbound-service answer describes T03c1;
+this dated increment adds conditional service composition, while board USB stays held.
+
+---
+
 ## QA-20261107-08 — What main.c change adds, and why USB is held
 
 **Date:** November7,2026 UTC.

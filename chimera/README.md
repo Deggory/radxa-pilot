@@ -1,8 +1,11 @@
-**November7, T03c1:** owner selected the new firmware path and main.c first.
-Main now captures checked UID/reset/option facts after RAM/IRQ/clock setup and
-records an explicit held/error reason.30offline tests pass; raw7592bytes. USB
-service/attachment, CAN and input acquisition stay pending.
-[Main startup contract](docs/MAIN_STARTUP.md).
+**November7, T03c2:** main now calls a USB lifecycle coordinator with checked
+startup, UID continuity, bounded detached polling and explicit cleanup/restart.
+32firmware tests pass, including51new simulated integration scenarios. Current
+unsigned image8032bytes; no board flash/run. The board build supplies NULL power
+profile and stays USB_HELD. Physical attachment remains pending power/VBUS and
+installed recovery qualification. [Main startup](docs/MAIN_STARTUP.md) and
+[coordinator contract](docs/MAIN_USB_RUNTIME.md). Host publication/reconnect stays
+queued behind the owner's main-first priority.
 
 **November6, T08b2c:** field-availability metadata and consumer checks are
 implemented. Invalid/stale/observation-only status cannot supply normal ignition
@@ -79,7 +82,7 @@ BRAKE, both analog inputs, the onboard relay and OBD-C hardware interfaces.
 - [USB bootstrap](docs/USB_BOOTSTRAP.md): detached clock/core preparation and EP0 request model.
 - [USB packet driver](docs/USB_PACKET_DRIVER.md): polling EP0 event/FIFO library and ordered MMIO/timing backend, verified offline; startup attachment pending.
 - [Power/UID/recovery requirements](docs/USB_STARTUP_REQUIREMENTS.md): attachment prerequisites, known historical recovery evidence and read-only boot facts.
-- [Detached USB service](docs/USB_SERVICE.md): coordinated preparation/polling/release with failure latching; not called from main.
+- [Detached USB service](docs/USB_SERVICE.md): coordinated preparation/polling/release with failure latching; conditional main coordinator; current board profile held.
 - [Status/capability contract](docs/STATUS_CAPABILITY_CONTRACT.md): strict bootstrap decoder, health limits and firmware-response fixtures.
 - [USB-only startup](docs/USB_ONLY_STARTUP.md): pinned Radxa status session, failure/ownership boundaries and rejected profiles.
 - [Roadmap](tasks/plan.md): one verified increment at a time.
@@ -96,7 +99,9 @@ CAN codec with offline interoperability/stream checks. T03b1 adds detached USB
 preparation and the pure EP0 model. T03b2 adds the polling controller packet driver
 and ordered MMIO/timing backend. T03b3a establishes the power/VBUS/UID/recovery
 requirements and adds a read-only boot-facts helper. T03b3b composes these into a
-detached startup/service module, still uncalled by main. T05a adds bootstrap
+detached startup/service module. T03c1 adds main boot diagnostics; T03c2 adds
+the [main coordinator](docs/MAIN_USB_RUNTIME.md) with detached start/poll/stop and
+identity checks. The current board build still supplies NULL profile and stays held. T05a adds bootstrap
 discovery decoding and status/capability semantics. T05b adds native legacy F4
 health59 decoding/read support. T05c adds CAN-health5 decoding/read support.
 T08a routes Radxa startup into a pinned legacy F4 USB status session.

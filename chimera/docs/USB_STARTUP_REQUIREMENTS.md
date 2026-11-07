@@ -1,5 +1,10 @@
 # Power, UID and recovery requirements before USB startup
 
+November7 T03c2: the main lifecycle coordinator is implemented and tested offline,
+but the board build still supplies no profile and stays USB_HELD. None of the
+power/VBUS/installed-recovery gaps below are resolved by this software lifecycle.
+[Coordinator](MAIN_USB_RUNTIME.md). Earlier checkpoint descriptions are historical.
+
 November7 T03c1 update: main now invokes read-only boot-facts preparation and
 ends in explicit USB_HELD/error diagnostics. This binds no USB service or power
 profile and resolves none of the electrical/recovery gaps below.

@@ -21,13 +21,14 @@ SECTIONS {
     . = ALIGN(512);
   } > FLASH :flash
   .text : {
-    /* Pure protocol entry is retained for offline checks and future EP0 wiring.
-     * Nothing calls it from the parked application in this increment.
+    /* Retain offline-checked protocol/service/lifecycle APIs. The board build
+     * supplies no USB profile, so startup remains held with no attachment.
      */
     KEEP(*(.text.chimera_control_read))
     KEEP(*(.text.chimera_can_*))
     KEEP(*(.text.chimera_usb_*))
     KEEP(*(.text.chimera_boot_read_facts))
+    KEEP(*(.text.chimera_main_*))
     KEEP(*(.rodata.chimera_*))
     *(.text*) *(.rodata*)
     *(.glue_7) *(.glue_7t) *(.vfp11_veneer) *(.v4_bx)

@@ -1,5 +1,11 @@
 # Detached USB startup/service composition
 
+November7 T03c2: main now instantiates the service inside its lifecycle runtime.
+The production NULL profile keeps it unstarted/held; explicit offline profiles
+exercise detached start/poll/stop/restart and identity continuity.32firmware tests
+pass; no attachment or hardware qualification. [Coordinator](MAIN_USB_RUNTIME.md).
+The T03c1/T03b3b descriptions below are historical.
+
 November7 T03c1 update: main now calls the boot-facts reader through checked
 preparation, but still does not instantiate/call this service. MMIO binding was
 split from DWT initialization so the snapshot has no new peripheral-write side

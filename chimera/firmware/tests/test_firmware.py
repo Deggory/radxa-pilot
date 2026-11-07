@@ -109,14 +109,25 @@ class FirmwareTests(unittest.TestCase):
     result = run(PREFIX + "objdump", "-d", "--disassemble=chimera_reset", elf)
     self.assertEqual(result.returncode, 0, result.stderr)
     self.assertIn("<chimera_usb_mmio_bind>", result.stdout)
-    self.assertIn("<chimera_main_prepare>", result.stdout)
+    self.assertIn("<chimera_main_start>", result.stdout)
+    self.assertIn("<chimera_main_poll>", result.stdout)
     self.assertNotIn("chimera_usb_service", result.stdout)
     result = run(PREFIX + "objdump", "-d", "--disassemble=chimera_main_prepare", elf)
     self.assertEqual(result.returncode, 0, result.stderr)
     self.assertIn("<chimera_boot_read_facts>", result.stdout)
     self.assertNotIn("chimera_usb_service", result.stdout)
 
-  def test_detached_usb_service_retained_without_startup_call(self):
+  def test_main_coordinator_calls_real_usb_service(self):
+    elf = str(self.out / "first/chimera.elf")
+    for function, calls in (("chimera_main_start", ("chimera_main_prepare", "chimera_usb_service_start")),
+                            ("chimera_main_poll", ("chimera_usb_service_poll",)),
+                            ("chimera_main_stop", ("chimera_usb_service_stop",))):
+      result = run(PREFIX + "objdump", "-d", "--disassemble=" + function, elf)
+      self.assertEqual(result.returncode, 0, result.stderr)
+      for target in calls:
+        self.assertIn("<" + target + ">", result.stdout)
+
+  def test_detached_usb_service_retained_without_direct_reset_call(self):
     elf = str(self.out / "first/chimera.elf")
     result = run(PREFIX + "nm", "--defined-only", elf)
     self.assertEqual(result.returncode, 0, result.stderr)

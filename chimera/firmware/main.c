@@ -37,6 +37,7 @@ extern const uint32_t chimera_vectors[];
 volatile uint32_t chimera_boot_magic = 0x4348494DU;
 volatile uint32_t chimera_boot_state;
 volatile chimera_boot_details chimera_boot_snapshot;
+chimera_main_runtime chimera_boot_runtime;
 
 static void quiet(void) {
   chimera_board_quiet((chimera_gpio *)0x40020000U, (chimera_gpio *)0x40020400U,
@@ -72,6 +73,7 @@ static _Noreturn void park(void) {
 _Noreturn void chimera_fault(void) {
   quiet();
   chimera_boot_snapshot.facts_valid = 0U;
+  chimera_boot_runtime.state = CHIMERA_BOOT_FAULT;
   chimera_boot_state = CHIMERA_BOOT_FAULT;
   park();
 }
@@ -93,10 +95,15 @@ _Noreturn void chimera_reset(void) {
   const bool clock_ready = clock_hsi();
   chimera_usb_io io;
   const chimera_usb_io *boot_io = NULL;
-  // Binding callbacks has no MMIO side effects. Preparation uses read32 only:
-  // no DWT/PLL/USB initialization or descriptor power profile is selected here.
+  // Binding has no MMIO side effects. NULL profile deliberately keeps this
+  // board build held until power/VBUS/recovery qualification is complete.
   if (clock_ready && chimera_usb_mmio_bind(&io)) boot_io = &io;
-  chimera_boot_state = chimera_main_prepare(&chimera_boot_snapshot, boot_io, clock_ready);
+  (void)chimera_main_start(&chimera_boot_runtime, &chimera_boot_snapshot, boot_io, clock_ready, NULL);
+  chimera_boot_state = chimera_boot_runtime.state;
+  while (chimera_boot_runtime.state == CHIMERA_BOOT_USB_DETACHED) {
+    if (chimera_main_poll(&chimera_boot_runtime) < 0) break;
+  }
+  chimera_boot_state = chimera_boot_runtime.state;
   // PRIMASK remains set. All inputs are reserved, no acquisition/IRQ enabled.
   // USB_HELD records the unmet power/VBUS/recovery prerequisites. No attach.
   park();

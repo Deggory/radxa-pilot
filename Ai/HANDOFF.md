@@ -1,3 +1,20 @@
+## November7 — Main detached USB coordinator verified (T03c2)
+
+Owner said "proceed" after the main/startup explanation (QA-20261107-09).
+Actual ARM reset now calls main_start and retains bounded service polling. New
+main_runtime.c validates explicit configuration, preserves UID identity between
+snapshots, latches failures and supports explicit stop/restart with cleanup
+ownership retained on failure. The board build supplies NULL profile and remains
+USB_HELD: no physical attach or operational USB/CAN/input/Config work claimed.
+32firmware tests pass, including51new real-component/fake-register scenarios,
+ASan/UBSan, ARM call checks and two detected guard mutations. Raw8032bytes,
+globals252, stack4096; unsigned/unflashed. Baseline6865244e73ef;25build-input hashes,
+20old inputs unchanged/four intentionally changed plus main_runtime.c. Saved
+Ocelot39dirty entries/19hashes, archive/DBC/submodules and host/model/camera/Thneed
+preserved. No device/update/push. See student Ai/Evidence/chimera-main-runtime-20261107.json.
+Next: board power/profile/VBUS and installed recovery facts, then attachment/
+cable-loss policy; hostT08b2d remains queued. Earlier T03c1 notes are historical.
+
 
 November7 QA08 clarification: main.c change is checked boot diagnostics only,
 not completed Sunnypilot USB integration. Snapshot is local RAM, not USB health;

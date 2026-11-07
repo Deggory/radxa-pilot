@@ -1,3 +1,17 @@
+## November7 — Compose main USB lifecycle without selecting unverified power facts
+
+T03c2 extends main-first work with explicit configuration and detached-only service
+coordination. NULL always means snapshot/USB_HELD, including after a previous
+configured run. Keep it NULL in the board build until board requirements are
+qualified. Validate profile/callbacks before IO, verify checked UID continuity,
+retain service errors and incomplete ownership, and require explicit stop before
+restart; never silently retry failed cleanup. Successful stop permits full
+requalification, not automatic attachment or flash recovery. No new power values,
+VBUS override, watchdog/flash action or physical readiness is implied. Current
+32-test evidence: student Ai/Evidence/chimera-main-runtime-20261107.json.
+This supersedes T03c1's unbound-service description only for the new conditional
+coordinator path; the production board profile remains held.
+
 ## November7 — Prioritize checked main startup on the new firmware path
 
 Owner explicitly continues the new Chimera design and asks for main.c first.
