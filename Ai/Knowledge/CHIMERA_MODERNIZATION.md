@@ -1,4 +1,13 @@
 
+November7 QA04 main.c explanation:74line minimal bootstrap initializes RAM/IRQ/
+internal clock/inactive board state, records boot status and parks. USB driver,
+EP0/service and codec are separate offline modules; main calls none of them.
+Smallness reflects modularity plus pending operational integration, not completed
+USB/CAN firmware. Future main can stay compact as orchestration. Sourceb32b0e9b9,
+read-only explanation, no application/hardware/test rerun/update/push. Next remains
+hostT08b2d passive normal-status publication/disconnect/reconnect.
+
+
 November7 follow-up QA-20261107-02: owner asks about complete replacement and
 bidirectional data. Confirm intended Panda-style USB/CAN role forRadxa: CAN→
 Chimera→USB→Sunnypilot and reverse through MCU TX policy. Current implementation

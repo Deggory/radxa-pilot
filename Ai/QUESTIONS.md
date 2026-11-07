@@ -1,3 +1,33 @@
+## QA-20261107-04 — Why the new firmware main.c is small
+
+**Date:** November7,2026 UTC.
+**Owner question (faithful quote):** why our main.c is small
+
+**Answer:** chimera/firmware/main.c is74lines because it is still the minimal
+startup/bootstrap, and other logic lives in separate modules. It initializes
+RAM, clears inherited interrupts, selects the internal16MHz clock, sets source-
+defined inactive outputs/gates USB and CAN clocks, records a boot state and parks
+in WFI. It does not start USB service, CAN controllers, input sampling, CoreConfig
+or a working communications loop. USB driver/EP0/service/codec helpers exist
+separately and are tested offline, but main does not call them. The short file
+therefore reflects both modular structure and incomplete operational integration.
+A future main can remain compact while initializing services and running their
+polling/fault-handling loop; most implementation can stay in modules.
+
+**Evidence/source pin:** Cleanradxa/q8b baseline
+b32b0e9b953384349aa4696864d5b5919a23cb87; main.c20-25 quiet,47-49park,
+57-74reset; firmware/README.md module map; usb_service.h detached-only contract.
+Readable source/line counts only, no REA provider or new build/device test.
+
+**Implemented/proposed/limits:** Explanation/notebook only. Existing bootstrap
+and detached helpers implemented offline; startup attachment, bulk/controller
+binding, inputs/status/TX policy and physical qualification remain pending.
+No source edit/flash/config/CAN TX/upstream update/push. Next engineering task
+still T08b2d passive normal-status publication/disconnect/reconnect on the host;
+this question alone does not resume implementation or connect USB startup.
+
+---
+
 ## QA-20261107-03 — Shut down now; continue this evening
 
 **Date:** November7,2026 UTC.

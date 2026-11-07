@@ -1,0 +1,20 @@
+{
+  "date": "2026-11-07",
+  "source_head": "b32b0e9b953384349aa4696864d5b5919a23cb87",
+  "scope": "Explain existing74line parked bootstrap and separate unbound modules; notebook only",
+  "checks": {
+    "notebook": {
+      "command": [
+        ".venv/bin/python",
+        "Ai/verify_memory.py",
+        "--workspace",
+        "/home/radxa/comma"
+      ],
+      "exit": 0,
+      "stdout": "{\n  \"result\": \"pass\",\n  \"memory_layout\": \"regular project directory\",\n  \"documents\": 156,\n  \"relative_links\": 580,\n  \"optional_workspace_links\": 246,\n  \"source_repositories\": 8,\n  \"indexed_entries\": 4254\n}\n"
+    },
+    "qa04_sync": "pass",
+    "whitespace": "pass"
+  },
+  "next": "Host T08b2d passive normal-status publication/disconnect/reconnect remains pending"
+}

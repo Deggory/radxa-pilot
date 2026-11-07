@@ -30,3 +30,11 @@ pending. Three classical CAN buses, truthful declared capabilities; no blanket
 H7 feature/physical readiness promise. Existing board inputs/CoreConfig/relay/
 OBD-C requirements retained. Next remains T08b2d passive status/reconnect.
 Explanation only, source6f788e922; no application/hardware/test rerun/update/push.
+
+November7 QA04 main.c explanation:74line minimal bootstrap initializes RAM/IRQ/
+internal clock/inactive board state, records boot status and parks. USB driver,
+EP0/service and codec are separate offline modules; main calls none of them.
+Smallness reflects modularity plus pending operational integration, not completed
+USB/CAN firmware. Future main can stay compact as orchestration. Sourceb32b0e9b9,
+read-only explanation, no application/hardware/test rerun/update/push. Next remains
+hostT08b2d passive normal-status publication/disconnect/reconnect.
