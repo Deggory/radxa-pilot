@@ -1,3 +1,10 @@
+## November 7 — Safety-command fields explained (QA23)
+
+DC=request, model ID=wValue, model-specific parameter=wIndex; MCU rules, not
+AI model or steering demand. Panda example19/0 selects noOutput. Old Chimera
+only clears its relay-request variable for19. Source-only at6bcc5cd95; no
+commands/code/tests/hardware/update/push. Classic-only scope unchanged.
+
 ## November 7 — Relay is power switching, no proven safety disconnect (QA22)
 
 Official Chimera docs: relay switches12VR on CAN0 ports1–3, not CANH/CANL or USB.

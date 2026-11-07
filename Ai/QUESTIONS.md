@@ -1,3 +1,13 @@
+## QA-20261107-23 — Meaning of DC plus safety model and parameter
+
+**Date:** November 7, 2026 UTC.
+**Owner question (faithful quote):** "0xDC + safety-model number + model parameter wat does this means".
+**Answer:** The plus signs mean three fields of one USB control request, not arithmetic: bRequest=0xDC identifies set-safety, wValue is a16-bit safety-rule-set ID, wIndex is a16-bit model-specific configuration value. This safety model is MCU firmware rules, not the AI driving model. Parameter meanings depend on the selected rules, often option bits; it is not a universal steering/torque value. Example DC/19/0 selects noOutput with parameter0 on compatible Panda firmware; model0 is silent, model2 is Toyota, model19 is noOutput in this pinned enum. Selecting a rule set is not an engagement or steering command. Saved old Chimera interprets19 by clearing relay_req_usb, ignores the model parameter in that handler and installs no Panda safety hooks; its ignition-driven relay caveat from QA21/22 remains. No USB request was sent.
+**Evidence/source pin:** Sunnypilot6bcc5cd95484b3889bdf87399583742eda065c75; host openpilot/selfdrive/pandad/panda.cc:42, panda_usb.cc:121; Panda8a16e089 board/main_comms.h:225; opendbc150f9371 car/car.capnp SafetyModel and safety/modes/honda.h parameter flags; old chimera main.c:335. Local source reread; no REA artifact/runtime result needed.
+**Status/limits:** Explanation/notebook only; no implementation, test rerun, USB/relay/device/config/build/flash/update/push. Classic CAN only; retained old firmware and halted rewrite unchanged. Existing unanswered items preserved.
+
+---
+
 ## QA-20261107-22 — Does Chimera safety switch off a relay and disconnect?
 
 **Date:** November 7, 2026 UTC.

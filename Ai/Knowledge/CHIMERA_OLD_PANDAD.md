@@ -190,3 +190,12 @@ neither DC0/noOutput nor host heartbeat expiry is a proven automatic relay-off
 path with ignition present. No new implementation or physical action occurred.
 Source baseline c1b625eeb854d90bfd04ad082d0a36b8c4d3836a; official source:
 https://wiki.retropilot.org/index/hardware/chimera.
+
+## November 7 — USB safety command fields (QA23)
+
+DC + model + parameter means bRequestDC, wValue=model ID, wIndex=model-specific
+parameter (both16-bit), with no data payload in the host control_write call.
+This is not arithmetic, a CAN frame or an AI-model selection. ExampleDC/19/0
+selects Panda noOutput with parameter0; actual parameter meanings are selected
+firmware-rule-specific, often flags. No command was executed. Old Chimera19
+only clears relay_req_usb and ignores wIndex; previous relay caveats remain.
