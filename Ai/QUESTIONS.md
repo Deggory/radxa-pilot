@@ -1,3 +1,13 @@
+## QA-20261107-20 — USB protocol in old Chimera versus current Sunnypilot
+
+**Date:** November 7, 2026 UTC.
+**Owner question (faithful quote):** "see wat is the usb protocol old chimera and sunnypilot have now".
+**Answer:** Both use a vendor-specific USB interface, endpoint0 control requests, CAN receive bulk-IN0x81 and CAN send bulk-OUT0x03. Old Chimera uses little-endian fixed16-byte CAN mailboxes:4-byte identifier/flags,4-byte DLC/bus/timer,8-byte payload storage. It carries0..8payload bytes with no additional per-record XOR byte (USB link integrity and CAN payload CRCs are distinct). Modern Panda wire format uses a6-byte header (FD/bus/DLC byte,4identifier/flag bytes,1XOR checksum byte) plus variable payload; an8-byte CAN message occupies14bytes versus Chimera16. The current format supports CAN FD payload lengths up to64, but our passive F4 parser deliberately admits classic CAN only. Health requestD2 returns43bytes for old Chimera,49for current Panda,59for our selected Carrot F4v17 profile. Shared D6 returns firmware version; Chimera lacks C1 hardware-type and DD protocol-version handlers, while current DD returns two32-bit health/CAN header hashes. DC changes relay_req_usb in old Chimera versus installing a safety model in Panda. Same endpoint or opcode does not imply identical semantics. Sunnypilot identification recognizes all three pinned profiles; actual native --usb-status currently admits F4v17 only, and the managed Panda constructor admits CURRENT only. Old Chimera Python decoder/monitor exists, but native Chimera session remains proposed.
+**Evidence/source pins:** Sunnypilot56b073934605c7fe2e2e39b06a17ca0ee1704ec7; Panda8a16e089b88593914823743df29e1c30b7dd3e00; opendbc150f937198ceab43c43b39f94b9bdea63fcb633c. Inspected chimera_old/firmware/chimera/{usb.h,main.c}, host pandad/{chimera_protocol.py,panda_identification.cc,panda_usb.cc,panda_usb_can.cc,panda_usb_status.cc,panda.cc,panda_health.h}, panda/board/{health.h,main_comms.h}, opendbc safety/can.h. Student Ai/Knowledge/CHIMERA_OLD_PANDAD.md has the comparison.
+**Status/limits:** Source explanation only; no implementation, device access, firmware build/flash, protocol change or new hardware qualification.22passing tests from QA19 are prior evidence, not rerun this turn. Notebook/link/whitespace and Q&A synchronization checks only. Installed image/source match still unresolved; preserve old firmware and halted rewrite. Existing unanswered items retained.
+
+---
+
 ## QA-20261107-19 — Keep old Chimera and connect it to Sunnypilot pandad
 
 **Date:** November 7, 2026 UTC.

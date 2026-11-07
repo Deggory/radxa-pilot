@@ -1,3 +1,12 @@
+## November 7 — USB formats explained (QA20)
+
+Old Chimera: mailbox16/health43. Current Panda:6-byte XOR header+payload,
+health49; our native passive F4v17 session uses6+N/health59/classic-only.
+Shared EP0/control, bulk RX0x81/TX0x03 do not imply matching packet/command
+semantics. Native old-Chimera integration remains proposed. Source-only at
+56b073934; no new tests/device/implementation/update/push. Next remains the
+host Chimera session candidate; old firmware preserved and new rewrite halted.
+
 ## November 7 — Original Chimera native pandad route (QA19)
 
 Owner keeps chimera_old and defers firmware improvements. Source audit identifies

@@ -111,3 +111,36 @@ All 76 preserved file sizes and SHA256 match chimera_old/SOURCES.json.
 No native build/test rerun, physical USB claim, firmware execution, model/runtime
 or REA artifact analysis. Source-first inspection sufficed. Unresolved exact
 historical image source and installed board/image equivalence remain explicit.
+
+## November 7 follow-up — exact USB wire comparison (QA20)
+
+Source baseline56b073934605c7fe2e2e39b06a17ca0ee1704ec7; Panda8a16e089;
+opendbc150f9371. Source review only, no device access or test rerun.
+
+| Item | Original Chimera | Current Panda contract in Sunnypilot |
+| --- | --- | --- |
+| Interface | Vendor-specific USB; control EP0 | Vendor control/bulk USB |
+| CAN RX / TX | Bulk0x81 /0x03 | Bulk0x81 /0x03 |
+| CAN record | Fixed16bytes: little-endian `<II8s>` |6-byte header + DLC-selected payload |
+| Header |32-bit RIR ID/flags +32-bit RDTR DLC/bus/time |1byte FD/bus/DLC +4bytes ID/flags +1byte XOR checksum |
+|8-byte classic CAN payload |16bytes on USB |14bytes on USB |
+| Maximum CAN payload |8bytes |64bytes in current CAN FD format |
+| Additional record checksum | No Panda-style XOR byte | XOR over header/payload must be zero |
+|D2 health |43bytes, `<8I7Bh2B>` |49bytes in CURRENT; separate F4v17 adapter uses59 |
+|D6 | Firmware version string | Firmware version string |
+|C1 /DD | No matching handlers | Hardware byte / two32-bit health+CAN version hashes |
+|DC | Changes USB relay request variable | Sets MCU safety policy/model |
+
+CAN payload checksum/counter rules from the canonical DBC are separate from the
+USB record checksum. USB packet/transfer boundaries are not CAN message sizes.
+Do not describe the6-byte header as a6-byte CAN payload or an incompatible USB
+connector. The host translates transport records into standard can messages;
+CAN IDs, payload bytes and bus identity must survive.
+
+Current native --usb-status still runs the classic-only F4v17 observer, not an
+H7/FD or old-Chimera runtime. Its format is6+N/XOR and health59. CURRENT Panda
+library health is49 and its general CAN representation supports FD; that is a
+separate admitted profile. Old Chimera remains Python receive-only plus native
+identity/raw transport until its own session is implemented. No hard-coded
+CAN version number is inferred from an older CAN5/CAN6 label; current identity
+uses hashes of the actual pinned headers.
