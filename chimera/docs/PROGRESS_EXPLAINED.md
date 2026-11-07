@@ -1,5 +1,14 @@
 # Chimera progress in plain language
 
+## November7 — Main-first startup increment
+
+Owner selected the new firmware path and main.c first. Main now calls read-only
+boot preparation after memory/IRQ/clock setup, captures stable UID/reset/options
+and records an explicit held/error state. USB remains gated pending power/VBUS/
+recovery qualification.30firmware tests pass offline; unsigned7592-byte image,
+globals32bytes, unflashed. [Main startup](MAIN_STARTUP.md). Original7448-byte
+checkpoint below is historical. Host publication/reconnect remains queued.
+
 ## Current overall status — November 6
 
 The offline foundation is built; most operational integration and all new-firmware

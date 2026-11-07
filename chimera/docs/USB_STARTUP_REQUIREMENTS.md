@@ -1,5 +1,10 @@
 # Power, UID and recovery requirements before USB startup
 
+November7 T03c1 update: main now invokes read-only boot-facts preparation and
+ends in explicit USB_HELD/error diagnostics. This binds no USB service or power
+profile and resolves none of the electrical/recovery gaps below.
+[Main startup](MAIN_STARTUP.md). Historical image/helper descriptions follow.
+
 November 6, 2026 — T03b3a requirements and read-only boot-facts helper complete
 offline. T03b3 attachment/startup qualification remains partial. This contract is
 not a flashing procedure or permission to operate hardware.

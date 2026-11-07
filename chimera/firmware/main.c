@@ -1,7 +1,27 @@
 // SPDX-License-Identifier: MIT
-#include <stdbool.h>
-#include <stdint.h>
+#include <stddef.h>
+#include "main.h"
+
+enum chimera_main_state chimera_main_prepare(volatile chimera_boot_details *details,
+                                           const chimera_usb_io *io, bool clock_ready) {
+  if (details == NULL) return CHIMERA_BOOT_ARGUMENT_FAILED;
+  details->facts_valid = 0U;
+  if (!clock_ready) return CHIMERA_BOOT_CLOCK_FAILED;
+  if (io == NULL || io->read32 == NULL) return CHIMERA_BOOT_ARGUMENT_FAILED;
+  chimera_boot_facts facts;
+  if (!chimera_boot_read_facts(io, &facts)) return CHIMERA_BOOT_FACTS_FAILED;
+  for (unsigned i = 0U; i < sizeof(facts.uid); ++i) details->facts.uid[i] = facts.uid[i];
+  details->facts.reset_csr = facts.reset_csr;
+  details->facts.option_control = facts.option_control;
+  details->facts_valid = 1U;
+  return CHIMERA_BOOT_USB_HELD;
+}
+
+// Native fixtures execute the actual preparation function above. ARM reset,
+// memory/IRQ initialization and MMIO binding are checked in the real ARM image.
+#ifndef CHIMERA_MAIN_NATIVE_TEST
 #include "board.h"
+#include "usb_time.h"
 
 #define REG32(address) (*(volatile uint32_t *)(address))
 #define RCC_CR REG32(0x40023800U)
@@ -16,6 +36,7 @@ extern const uint32_t chimera_vectors[];
 // Debugger-readable only. No host protocol or operational health claim.
 volatile uint32_t chimera_boot_magic = 0x4348494DU;
 volatile uint32_t chimera_boot_state;
+volatile chimera_boot_details chimera_boot_snapshot;
 
 static void quiet(void) {
   chimera_board_quiet((chimera_gpio *)0x40020000U, (chimera_gpio *)0x40020400U,
@@ -50,7 +71,8 @@ static _Noreturn void park(void) {
 
 _Noreturn void chimera_fault(void) {
   quiet();
-  chimera_boot_state = 3U;
+  chimera_boot_snapshot.facts_valid = 0U;
+  chimera_boot_state = CHIMERA_BOOT_FAULT;
   park();
 }
 
@@ -68,7 +90,15 @@ _Noreturn void chimera_reset(void) {
   REG32(0xE000ED08U) = (uint32_t)chimera_vectors;
   __asm__ volatile ("dsb\n isb" ::: "memory");
   quiet();
-  chimera_boot_state = clock_hsi() ? 1U : 2U;
+  const bool clock_ready = clock_hsi();
+  chimera_usb_io io;
+  const chimera_usb_io *boot_io = NULL;
+  // Binding callbacks has no MMIO side effects. Preparation uses read32 only:
+  // no DWT/PLL/USB initialization or descriptor power profile is selected here.
+  if (clock_ready && chimera_usb_mmio_bind(&io)) boot_io = &io;
+  chimera_boot_state = chimera_main_prepare(&chimera_boot_snapshot, boot_io, clock_ready);
   // PRIMASK remains set. All inputs are reserved, no acquisition/IRQ enabled.
+  // USB_HELD records the unmet power/VBUS/recovery prerequisites. No attach.
   park();
 }
+#endif

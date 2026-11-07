@@ -1,5 +1,11 @@
 # Detached USB startup/service composition
 
+November7 T03c1 update: main now calls the boot-facts reader through checked
+preparation, but still does not instantiate/call this service. MMIO binding was
+split from DWT initialization so the snapshot has no new peripheral-write side
+effects. Current raw7592bytes/globals32bytes/30tests; historical service checkpoint
+below remains source-pinned. [Main startup](MAIN_STARTUP.md).
+
 November 6, 2026 — T03b3b implemented offline. The new
 [usb_service.c](../firmware/usb_service.c) composes the existing boot-facts,
 timing, USB clock/core and EP0 packet libraries. No service is instantiated or

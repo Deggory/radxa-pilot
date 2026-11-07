@@ -1,3 +1,14 @@
+## November7 — Prioritize checked main startup on the new firmware path
+
+Owner explicitly continues the new Chimera design and asks for main.c first.
+Prioritize T03c1 startup snapshot/held-state integration ahead of host T08b2d.
+Keep power/VBUS/current recovery unqualified and USB attachment/service off;
+never fill unknown descriptor power facts just to call a service. Bind ordered
+callbacks without DWT/peripheral side effects and capture only read-only boot
+facts after successful clock setup. Successful snapshot means USB_HELD, not ready.
+C2-era retained-firmware compatibility remains an unselected alternative. Source
+and test evidence: student Ai/Evidence/chimera-main-startup-20261107.json.
+
 ## November6 — Declare status support before normal publication
 
 Append PandaState ordinal42 metadata with known profiles, observationOnly and

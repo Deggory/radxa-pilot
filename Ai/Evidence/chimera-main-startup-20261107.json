@@ -1,0 +1,373 @@
+{
+  "date": "2026-11-07",
+  "baseline": "03b89175b40483f3cce7bac6d2292e7dac9f5ed5",
+  "scope": "T03c1 checked main startup snapshot and explicit USB-held/failure diagnostics; no service/attachment/hardware action",
+  "sources_sha256": {
+    "chimera/README.md": "22e412ac4d1ecf91d5784850e490a0f3a323e0f2a0f8ba294a7e14b89fbb6904",
+    "chimera/docs/MAIN_STARTUP.md": "f54e64ac62df815a9bb607998827f60708a78f461f6c44dc4ab57ac51d0c797c",
+    "chimera/docs/PROGRESS_EXPLAINED.md": "e158f06cd8330a0cd98d5558f82794c9ae223220ca3ced7140c30175635cfa9d",
+    "chimera/docs/USB_SERVICE.md": "c5e2d8f6b7857b497b51304960148ad6a71d6cef92dadb8f6d360f4c6e124c8a",
+    "chimera/docs/USB_STARTUP_REQUIREMENTS.md": "80e0aa0ae6830990cbe9d318da55925f997e1cb1bb1e8914f499a80bfd03c20a",
+    "chimera/firmware/README.md": "a07680e6496b317d1b8ad7a3e6b264cabdbc35f146bc883b7dd3097d50d9a33a",
+    "chimera/firmware/build.py": "ddfd240ce32c1e9270eaeadc638bddc71cb3de2c50dabcee9b6717046f569dfa",
+    "chimera/firmware/main.c": "4a255da458fa3a9a7570b7e806cc7bc64c109e852eec473143b79fbb73fd69fc",
+    "chimera/firmware/main.h": "8b0344834ec8266497620ae34bcfd8409599d15aac55f41984b7ba366ceb0307",
+    "chimera/firmware/tests/main_test.c": "141b98dbae5735962d3092744f81f761cebda8a7a15ceb63d7644d62fa61d262",
+    "chimera/firmware/tests/test_firmware.py": "34f52758192a678ce1b7dbc3e927b79266466f6680b0b438367812446ace23cf",
+    "chimera/firmware/tests/test_main.py": "26b9d0098676445ee99b0869c339ef610808a763372c413be9c7f24aff373810",
+    "chimera/firmware/usb_mmio.c": "a7b420b7971a8328799dff7188f78ab98ae518453e241b6d6a2a68919595dd1d",
+    "chimera/firmware/usb_time.h": "852d939a29448c5b9b54a2b4e6468777d418731fa2e7352a2c7bf03aa06d1889",
+    "chimera/tasks/plan.md": "d36a781879cf02180bac2d9c67ecba4014aa6dea5079d7111e6e8e1f6bddd8d3"
+  },
+  "build": {
+    "undefined_symbols": [],
+    "load_segments": [
+      {
+        "offset": 4096,
+        "virtual": 134234112,
+        "physical": 134234112,
+        "file_bytes": 7588,
+        "memory_bytes": 7588
+      },
+      {
+        "offset": 12288,
+        "virtual": 536870912,
+        "physical": 134241700,
+        "file_bytes": 4,
+        "memory_bytes": 32
+      }
+    ],
+    "reset_vector": 134239525,
+    "stack_top": 537001976,
+    "globals_bytes": 32,
+    "stack_reserved_bytes": 4096,
+    "target": "chimera-f413-offline-bootstrap",
+    "signed": false,
+    "raw_bytes": 7592,
+    "reserved_envelope_bytes": 136,
+    "projected_legacy_bytes": 7728,
+    "application_budget_bytes": 114688,
+    "sha256": "fbce0bfa171b2bedca369d9913f6e3b661cadfa8ccf8a69063e0b9935b1020d1",
+    "sources_sha256": {
+      "startup.S": "be9bc724c7e9a395ad12140d5a89d5e334efd074e992e1fad98aacb809cfa688",
+      "board.c": "dd4902ea9b4e048bc221ccd1548f5eb38277a860a52f89b524f78db734bceb8c",
+      "main.c": "4a255da458fa3a9a7570b7e806cc7bc64c109e852eec473143b79fbb73fd69fc",
+      "protocol.c": "47f8745bc8a774aa0674dd8a500c20769908e30efd9f6109b44e1d958abcceea",
+      "can_codec.c": "e9313054c3a628b5d3828d12ad5eeefe09c38d60b48dbc0e999fa39d59d3f94c",
+      "usb_hw.c": "d36b31b542239b5f75181fcaba3886177b1452dc2274ac7312cefd7d0f2c190c",
+      "usb_ep0.c": "0e6a5fd2c9f9011b266f873ec630ac11716e995d224dbd98e4a2fae6551f83f3",
+      "usb_time.c": "8807804da361f61363ea72c5bb251dae117442f549e124d2a719c4c510a45dd1",
+      "usb_mmio.c": "a7b420b7971a8328799dff7188f78ab98ae518453e241b6d6a2a68919595dd1d",
+      "usb_driver.c": "3307fd44768b6e8861c8ae20b005aa73846ebc7c0b965f546716cc35e9026c91",
+      "boot_facts.c": "76e9c59af5e387eb7173992a246a9b8be8c676b80a77126dc2492beb6ac2a92b",
+      "usb_service.c": "c44f6854e89e1ff5c102a22ffd2d0fdb7ef70281ce987bc8318e9ac74440e2c6",
+      "main.h": "8b0344834ec8266497620ae34bcfd8409599d15aac55f41984b7ba366ceb0307",
+      "board.h": "0c531a8bb4c7ff205812b44507b639f063085cb48f973f732f3ee5428d12284d",
+      "protocol.h": "45fb8a73d39bc6a6cf9efeb270af57472012af3af48c82d74180a48d0ee09e95",
+      "can_codec.h": "87491ae3a73cd7b267815f2532361514cb9899c9c5231045526f54d3d98c554a",
+      "usb_hw.h": "919d83e6a771b5a9e0092414ca9711809300110588396b297171dfe4b6664a5a",
+      "usb_ep0.h": "d3341a4ded5c63e3edfc7e79c5315d5bd339c6d2447445263fb5a81746a4a6e7",
+      "usb_time.h": "852d939a29448c5b9b54a2b4e6468777d418731fa2e7352a2c7bf03aa06d1889",
+      "usb_driver.h": "32b924347849f42192b5e14e051022f39e729880d0069aa2c67af0509673844f",
+      "boot_facts.h": "a5dff207500f43677af7688aedaeacb30e903c6966e533e366b6c0a7814355ae",
+      "usb_service.h": "090475efafd7a06f0cd3bcab74d554e5f155ae39dd9d925c7d44aef38da4a2ba",
+      "stm32f413.ld": "7922edf18bd50be11721d465a8e87ec3de84bcaf28819cf6bb1c8df280346ab6",
+      "build.py": "ddfd240ce32c1e9270eaeadc638bddc71cb3de2c50dabcee9b6717046f569dfa"
+    },
+    "compiler": "arm-none-eabi-gcc (15:13.2.rel1-2) 13.2.1 20231009",
+    "objcopy": "GNU objcopy (2.42-1ubuntu1+23) 2.42",
+    "flags": [
+      "-mcpu=cortex-m4",
+      "-mthumb",
+      "-mfloat-abi=soft",
+      "-mno-unaligned-access",
+      "-Os",
+      "-std=c11",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-fno-common",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-fno-unwind-tables",
+      "-fno-asynchronous-unwind-tables",
+      "-Wall",
+      "-Wextra",
+      "-Wstrict-prototypes",
+      "-Werror",
+      "-nostdlib"
+    ],
+    "limits": "Unsigned offline build; no installed bootstub, electrical or runtime qualification."
+  },
+  "checks": {
+    "arm-inspection.json": {
+      "chimera_reset": {
+        "command": [
+          "/home/radxa/.local/ocelot-build-tools/usr/bin/arm-none-eabi-objdump",
+          "-d",
+          "--disassemble=chimera_reset",
+          "chimera/build/firmware/chimera.elf"
+        ],
+        "exit": 0,
+        "stdout": "\nchimera/build/firmware/chimera.elf:     file format elf32-littlearm\n\n\nDisassembly of section .text:\n\n080056bc <chimera_reset>:\n 80056bc:\tb51f      \tpush\t{r0, r1, r2, r3, r4, lr}\n 80056be:\t4b37      \tldr\tr3, [pc, #220]\t@ (800579c <chimera_reset+0xe0>)\n 80056c0:\t4a37      \tldr\tr2, [pc, #220]\t@ (80057a0 <chimera_reset+0xe4>)\n 80056c2:\t4938      \tldr\tr1, [pc, #224]\t@ (80057a4 <chimera_reset+0xe8>)\n 80056c4:\t428b      \tcmp\tr3, r1\n 80056c6:\td33d      \tbcc.n\t8005744 <chimera_reset+0x88>\n 80056c8:\t4b37      \tldr\tr3, [pc, #220]\t@ (80057a8 <chimera_reset+0xec>)\n 80056ca:\t4938      \tldr\tr1, [pc, #224]\t@ (80057ac <chimera_reset+0xf0>)\n 80056cc:\t2200      \tmovs\tr2, #0\n 80056ce:\t428b      \tcmp\tr3, r1\n 80056d0:\td33d      \tbcc.n\t800574e <chimera_reset+0x92>\n 80056d2:\tf04f 23e0 \tmov.w\tr3, #3758153728\t@ 0xe000e000\n 80056d6:\t611a      \tstr\tr2, [r3, #16]\n 80056d8:\tf04f 32ff \tmov.w\tr2, #4294967295\t@ 0xffffffff\n 80056dc:\tf8c3 2180 \tstr.w\tr2, [r3, #384]\t@ 0x180\n 80056e0:\tf8c3 2280 \tstr.w\tr2, [r3, #640]\t@ 0x280\n 80056e4:\tf8c3 2184 \tstr.w\tr2, [r3, #388]\t@ 0x184\n 80056e8:\tf8c3 2284 \tstr.w\tr2, [r3, #644]\t@ 0x284\n 80056ec:\tf8c3 2188 \tstr.w\tr2, [r3, #392]\t@ 0x188\n 80056f0:\tf8c3 2288 \tstr.w\tr2, [r3, #648]\t@ 0x288\n 80056f4:\tf8c3 218c \tstr.w\tr2, [r3, #396]\t@ 0x18c\n 80056f8:\tf8c3 228c \tstr.w\tr2, [r3, #652]\t@ 0x28c\n 80056fc:\tf04f 6220 \tmov.w\tr2, #167772160\t@ 0xa000000\n 8005700:\tf8c3 2d04 \tstr.w\tr2, [r3, #3332]\t@ 0xd04\n 8005704:\t4a2a      \tldr\tr2, [pc, #168]\t@ (80057b0 <chimera_reset+0xf4>)\n 8005706:\tf8c3 2d08 \tstr.w\tr2, [r3, #3336]\t@ 0xd08\n 800570a:\tf3bf 8f4f \tdsb\tsy\n 800570e:\tf3bf 8f6f \tisb\tsy\n 8005712:\tf7ff ff79 \tbl\t8005608 <quiet>\n 8005716:\t4b27      \tldr\tr3, [pc, #156]\t@ (80057b4 <chimera_reset+0xf8>)\n 8005718:\tf8d3 2800 \tldr.w\tr2, [r3, #2048]\t@ 0x800\n 800571c:\tf042 0201 \torr.w\tr2, r2, #1\n 8005720:\tf8c3 2800 \tstr.w\tr2, [r3, #2048]\t@ 0x800\n 8005724:\t4a24      \tldr\tr2, [pc, #144]\t@ (80057b8 <chimera_reset+0xfc>)\n 8005726:\tf8d3 1800 \tldr.w\tr1, [r3, #2048]\t@ 0x800\n 800572a:\t0789      \tlsls\tr1, r1, #30\n 800572c:\td425      \tbmi.n\t800577a <chimera_reset+0xbe>\n 800572e:\t3a01      \tsubs\tr2, #1\n 8005730:\td1f9      \tbne.n\t8005726 <chimera_reset+0x6a>\n 8005732:\t2200      \tmovs\tr2, #0\n 8005734:\t4611      \tmov\tr1, r2\n 8005736:\t4821      \tldr\tr0, [pc, #132]\t@ (80057bc <chimera_reset+0x100>)\n 8005738:\tf7ff ff88 \tbl\t800564c <chimera_main_prepare>\n 800573c:\t4b20      \tldr\tr3, [pc, #128]\t@ (80057c0 <chimera_reset+0x104>)\n 800573e:\t6018      \tstr\tr0, [r3, #0]\n 8005740:\tbf30      \twfi\n 8005742:\te7fd      \tb.n\t8005740 <chimera_reset+0x84>\n 8005744:\tf852 0b04 \tldr.w\tr0, [r2], #4\n 8005748:\tf843 0b04 \tstr.w\tr0, [r3], #4\n 800574c:\te7ba      \tb.n\t80056c4 <chimera_reset+0x8>\n 800574e:\tf843 2b04 \tstr.w\tr2, [r3], #4\n 8005752:\te7bc      \tb.n\t80056ce <chimera_reset+0x12>\n 8005754:\t4669      \tmov\tr1, sp\n 8005756:\te7ee      \tb.n\t8005736 <chimera_reset+0x7a>\n 8005758:\tf8d2 3808 \tldr.w\tr3, [r2, #2056]\t@ 0x808\n 800575c:\tf423 437c \tbic.w\tr3, r3, #64512\t@ 0xfc00\n 8005760:\tf023 03f0 \tbic.w\tr3, r3, #240\t@ 0xf0\n 8005764:\tf8c2 3808 \tstr.w\tr3, [r2, #2056]\t@ 0x808\n 8005768:\t4668      \tmov\tr0, sp\n 800576a:\tf7ff fad9 \tbl\t8004d20 <chimera_usb_mmio_bind>\n 800576e:\t4602      \tmov\tr2, r0\n 8005770:\t4601      \tmov\tr1, r0\n 8005772:\t2800      \tcmp\tr0, #0\n 8005774:\td1ee      \tbne.n\t8005754 <chimera_reset+0x98>\n 8005776:\t2201      \tmovs\tr2, #1\n 8005778:\te7dd      \tb.n\t8005736 <chimera_reset+0x7a>\n 800577a:\tf8d3 2808 \tldr.w\tr2, [r3, #2056]\t@ 0x808\n 800577e:\tf022 0203 \tbic.w\tr2, r2, #3\n 8005782:\tf8c3 2808 \tstr.w\tr2, [r3, #2056]\t@ 0x808\n 8005786:\t4b0c      \tldr\tr3, [pc, #48]\t@ (80057b8 <chimera_reset+0xfc>)\n 8005788:\t4a0a      \tldr\tr2, [pc, #40]\t@ (80057b4 <chimera_reset+0xf8>)\n 800578a:\tf8d2 1808 \tldr.w\tr1, [r2, #2056]\t@ 0x808\n 800578e:\tf011 0f0c \ttst.w\tr1, #12\n 8005792:\td0e1      \tbeq.n\t8005758 <chimera_reset+0x9c>\n 8005794:\t3b01      \tsubs\tr3, #1\n 8005796:\td1f8      \tbne.n\t800578a <chimera_reset+0xce>\n 8005798:\te7cb      \tb.n\t8005732 <chimera_reset+0x76>\n 800579a:\tbf00      \tnop\n 800579c:\t20000000 \t.word\t0x20000000\n 80057a0:\t08005da4 \t.word\t0x08005da4\n 80057a4:\t20000004 \t.word\t0x20000004\n 80057a8:\t20000004 \t.word\t0x20000004\n 80057ac:\t20000020 \t.word\t0x20000020\n 80057b0:\t08004000 \t.word\t0x08004000\n 80057b4:\t40023000 \t.word\t0x40023000\n 80057b8:\t000f4240 \t.word\t0x000f4240\n 80057bc:\t20000004 \t.word\t0x20000004\n 80057c0:\t2000001c \t.word\t0x2000001c\n",
+        "stderr": ""
+      },
+      "chimera_main_prepare": {
+        "command": [
+          "/home/radxa/.local/ocelot-build-tools/usr/bin/arm-none-eabi-objdump",
+          "-d",
+          "--disassemble=chimera_main_prepare",
+          "chimera/build/firmware/chimera.elf"
+        ],
+        "exit": 0,
+        "stdout": "\nchimera/build/firmware/chimera.elf:     file format elf32-littlearm\n\n\nDisassembly of section .text:\n\n0800564c <chimera_main_prepare>:\n 800564c:\tb530      \tpush\t{r4, r5, lr}\n 800564e:\t4604      \tmov\tr4, r0\n 8005650:\tb087      \tsub\tsp, #28\n 8005652:\t4608      \tmov\tr0, r1\n 8005654:\tb914      \tcbnz\tr4, 800565c <chimera_main_prepare+0x10>\n 8005656:\t2006      \tmovs\tr0, #6\n 8005658:\tb007      \tadd\tsp, #28\n 800565a:\tbd30      \tpop\t{r4, r5, pc}\n 800565c:\t2500      \tmovs\tr5, #0\n 800565e:\t6165      \tstr\tr5, [r4, #20]\n 8005660:\tb1d2      \tcbz\tr2, 8005698 <chimera_main_prepare+0x4c>\n 8005662:\t2900      \tcmp\tr1, #0\n 8005664:\td0f7      \tbeq.n\t8005656 <chimera_main_prepare+0xa>\n 8005666:\t684b      \tldr\tr3, [r1, #4]\n 8005668:\t2b00      \tcmp\tr3, #0\n 800566a:\td0f4      \tbeq.n\t8005656 <chimera_main_prepare+0xa>\n 800566c:\ta901      \tadd\tr1, sp, #4\n 800566e:\tf7ff fecf \tbl\t8005410 <chimera_boot_read_facts>\n 8005672:\tb178      \tcbz\tr0, 8005694 <chimera_main_prepare+0x48>\n 8005674:\taa01      \tadd\tr2, sp, #4\n 8005676:\t462b      \tmov\tr3, r5\n 8005678:\tf812 1b01 \tldrb.w\tr1, [r2], #1\n 800567c:\t54e1      \tstrb\tr1, [r4, r3]\n 800567e:\t3301      \tadds\tr3, #1\n 8005680:\t2b0c      \tcmp\tr3, #12\n 8005682:\td1f9      \tbne.n\t8005678 <chimera_main_prepare+0x2c>\n 8005684:\t9b04      \tldr\tr3, [sp, #16]\n 8005686:\t60e3      \tstr\tr3, [r4, #12]\n 8005688:\t9b05      \tldr\tr3, [sp, #20]\n 800568a:\t6123      \tstr\tr3, [r4, #16]\n 800568c:\t2301      \tmovs\tr3, #1\n 800568e:\t6163      \tstr\tr3, [r4, #20]\n 8005690:\t2005      \tmovs\tr0, #5\n 8005692:\te7e1      \tb.n\t8005658 <chimera_main_prepare+0xc>\n 8005694:\t2004      \tmovs\tr0, #4\n 8005696:\te7df      \tb.n\t8005658 <chimera_main_prepare+0xc>\n 8005698:\t2002      \tmovs\tr0, #2\n 800569a:\te7dd      \tb.n\t8005658 <chimera_main_prepare+0xc>\n",
+        "stderr": ""
+      },
+      "chimera_usb_mmio_bind": {
+        "command": [
+          "/home/radxa/.local/ocelot-build-tools/usr/bin/arm-none-eabi-objdump",
+          "-d",
+          "--disassemble=chimera_usb_mmio_bind",
+          "chimera/build/firmware/chimera.elf"
+        ],
+        "exit": 0,
+        "stdout": "\nchimera/build/firmware/chimera.elf:     file format elf32-littlearm\n\n\nDisassembly of section .text:\n\n08004d20 <chimera_usb_mmio_bind>:\n 8004d20:\tb140      \tcbz\tr0, 8004d34 <chimera_usb_mmio_bind+0x14>\n 8004d22:\t2300      \tmovs\tr3, #0\n 8004d24:\t6003      \tstr\tr3, [r0, #0]\n 8004d26:\t4b04      \tldr\tr3, [pc, #16]\t@ (8004d38 <chimera_usb_mmio_bind+0x18>)\n 8004d28:\t6043      \tstr\tr3, [r0, #4]\n 8004d2a:\t4b04      \tldr\tr3, [pc, #16]\t@ (8004d3c <chimera_usb_mmio_bind+0x1c>)\n 8004d2c:\t6083      \tstr\tr3, [r0, #8]\n 8004d2e:\t4b04      \tldr\tr3, [pc, #16]\t@ (8004d40 <chimera_usb_mmio_bind+0x20>)\n 8004d30:\t60c3      \tstr\tr3, [r0, #12]\n 8004d32:\t2001      \tmovs\tr0, #1\n 8004d34:\t4770      \tbx\tlr\n 8004d36:\tbf00      \tnop\n 8004d38:\t0800590d \t.word\t0x0800590d\n 8004d3c:\t08005919 \t.word\t0x08005919\n 8004d40:\t08005921 \t.word\t0x08005921\n",
+        "stderr": ""
+      },
+      "chimera_fault": {
+        "command": [
+          "/home/radxa/.local/ocelot-build-tools/usr/bin/arm-none-eabi-objdump",
+          "-d",
+          "--disassemble=chimera_fault",
+          "chimera/build/firmware/chimera.elf"
+        ],
+        "exit": 0,
+        "stdout": "\nchimera/build/firmware/chimera.elf:     file format elf32-littlearm\n\n\nDisassembly of section .text:\n\n0800569c <chimera_fault>:\n 800569c:\tb508      \tpush\t{r3, lr}\n 800569e:\tf7ff ffb3 \tbl\t8005608 <quiet>\n 80056a2:\t4b04      \tldr\tr3, [pc, #16]\t@ (80056b4 <chimera_fault+0x18>)\n 80056a4:\t2200      \tmovs\tr2, #0\n 80056a6:\t615a      \tstr\tr2, [r3, #20]\n 80056a8:\t4b03      \tldr\tr3, [pc, #12]\t@ (80056b8 <chimera_fault+0x1c>)\n 80056aa:\t2203      \tmovs\tr2, #3\n 80056ac:\t601a      \tstr\tr2, [r3, #0]\n 80056ae:\tbf30      \twfi\n 80056b0:\te7fd      \tb.n\t80056ae <chimera_fault+0x12>\n 80056b2:\tbf00      \tnop\n 80056b4:\t20000004 \t.word\t0x20000004\n 80056b8:\t2000001c \t.word\t0x2000001c\n",
+        "stderr": ""
+      }
+    },
+    "build.json": {
+      "command": [
+        ".venv/bin/python",
+        "chimera/firmware/build.py",
+        "--toolchain-prefix",
+        "/home/radxa/.local/ocelot-build-tools/usr/bin/arm-none-eabi-"
+      ],
+      "exit": 0,
+      "stdout": "{\n  \"undefined_symbols\": [],\n  \"load_segments\": [\n    {\n      \"offset\": 4096,\n      \"virtual\": 134234112,\n      \"physical\": 134234112,\n      \"file_bytes\": 7588,\n      \"memory_bytes\": 7588\n    },\n    {\n      \"offset\": 12288,\n      \"virtual\": 536870912,\n      \"physical\": 134241700,\n      \"file_bytes\": 4,\n      \"memory_bytes\": 32\n    }\n  ],\n  \"reset_vector\": 134239525,\n  \"stack_top\": 537001976,\n  \"globals_bytes\": 32,\n  \"stack_reserved_bytes\": 4096,\n  \"target\": \"chimera-f413-offline-bootstrap\",\n  \"signed\": false,\n  \"raw_bytes\": 7592,\n  \"reserved_envelope_bytes\": 136,\n  \"projected_legacy_bytes\": 7728,\n  \"application_budget_bytes\": 114688,\n  \"sha256\": \"fbce0bfa171b2bedca369d9913f6e3b661cadfa8ccf8a69063e0b9935b1020d1\",\n  \"sources_sha256\": {\n    \"startup.S\": \"be9bc724c7e9a395ad12140d5a89d5e334efd074e992e1fad98aacb809cfa688\",\n    \"board.c\": \"dd4902ea9b4e048bc221ccd1548f5eb38277a860a52f89b524f78db734bceb8c\",\n    \"main.c\": \"4a255da458fa3a9a7570b7e806cc7bc64c109e852eec473143b79fbb73fd69fc\",\n    \"protocol.c\": \"47f8745bc8a774aa0674dd8a500c20769908e30efd9f6109b44e1d958abcceea\",\n    \"can_codec.c\": \"e9313054c3a628b5d3828d12ad5eeefe09c38d60b48dbc0e999fa39d59d3f94c\",\n    \"usb_hw.c\": \"d36b31b542239b5f75181fcaba3886177b1452dc2274ac7312cefd7d0f2c190c\",\n    \"usb_ep0.c\": \"0e6a5fd2c9f9011b266f873ec630ac11716e995d224dbd98e4a2fae6551f83f3\",\n    \"usb_time.c\": \"8807804da361f61363ea72c5bb251dae117442f549e124d2a719c4c510a45dd1\",\n    \"usb_mmio.c\": \"a7b420b7971a8328799dff7188f78ab98ae518453e241b6d6a2a68919595dd1d\",\n    \"usb_driver.c\": \"3307fd44768b6e8861c8ae20b005aa73846ebc7c0b965f546716cc35e9026c91\",\n    \"boot_facts.c\": \"76e9c59af5e387eb7173992a246a9b8be8c676b80a77126dc2492beb6ac2a92b\",\n    \"usb_service.c\": \"c44f6854e89e1ff5c102a22ffd2d0fdb7ef70281ce987bc8318e9ac74440e2c6\",\n    \"main.h\": \"8b0344834ec8266497620ae34bcfd8409599d15aac55f41984b7ba366ceb0307\",\n    \"board.h\": \"0c531a8bb4c7ff205812b44507b639f063085cb48f973f732f3ee5428d12284d\",\n    \"protocol.h\": \"45fb8a73d39bc6a6cf9efeb270af57472012af3af48c82d74180a48d0ee09e95\",\n    \"can_codec.h\": \"87491ae3a73cd7b267815f2532361514cb9899c9c5231045526f54d3d98c554a\",\n    \"usb_hw.h\": \"919d83e6a771b5a9e0092414ca9711809300110588396b297171dfe4b6664a5a\",\n    \"usb_ep0.h\": \"d3341a4ded5c63e3edfc7e79c5315d5bd339c6d2447445263fb5a81746a4a6e7\",\n    \"usb_time.h\": \"852d939a29448c5b9b54a2b4e6468777d418731fa2e7352a2c7bf03aa06d1889\",\n    \"usb_driver.h\": \"32b924347849f42192b5e14e051022f39e729880d0069aa2c67af0509673844f\",\n    \"boot_facts.h\": \"a5dff207500f43677af7688aedaeacb30e903c6966e533e366b6c0a7814355ae\",\n    \"usb_service.h\": \"090475efafd7a06f0cd3bcab74d554e5f155ae39dd9d925c7d44aef38da4a2ba\",\n    \"stm32f413.ld\": \"7922edf18bd50be11721d465a8e87ec3de84bcaf28819cf6bb1c8df280346ab6\",\n    \"build.py\": \"ddfd240ce32c1e9270eaeadc638bddc71cb3de2c50dabcee9b6717046f569dfa\"\n  },\n  \"compiler\": \"arm-none-eabi-gcc (15:13.2.rel1-2) 13.2.1 20231009\",\n  \"objcopy\": \"GNU objcopy (2.42-1ubuntu1+23) 2.42\",\n  \"flags\": [\n    \"-mcpu=cortex-m4\",\n    \"-mthumb\",\n    \"-mfloat-abi=soft\",\n    \"-mno-unaligned-access\",\n    \"-Os\",\n    \"-std=c11\",\n    \"-ffreestanding\",\n    \"-fno-builtin\",\n    \"-fno-common\",\n    \"-ffunction-sections\",\n    \"-fdata-sections\",\n    \"-fno-unwind-tables\",\n    \"-fno-asynchronous-unwind-tables\",\n    \"-Wall\",\n    \"-Wextra\",\n    \"-Wstrict-prototypes\",\n    \"-Werror\",\n    \"-nostdlib\"\n  ],\n  \"limits\": \"Unsigned offline build; no installed bootstub, electrical or runtime qualification.\"\n}\n",
+      "stderr": ""
+    },
+    "clock-mutation.json": {
+      "mutation": "Remove clock qualification gate in temporary copied main.c",
+      "compile_command": [
+        "cc",
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Wstrict-prototypes",
+        "-Werror",
+        "-fsanitize=address,undefined",
+        "-DCHIMERA_MAIN_NATIVE_TEST",
+        "-Ichimera/firmware",
+        "chimera/build/main-startup-20261107/main-clock-mutant.c",
+        "chimera/firmware/boot_facts.c",
+        "chimera/firmware/tests/main_test.c",
+        "-o",
+        "chimera/build/main-startup-20261107/main-clock-mutant"
+      ],
+      "compile_exit": 0,
+      "compile_output": "",
+      "exit": -6,
+      "stdout": "",
+      "stderr": "main-clock-mutant: chimera/firmware/tests/main_test.c:44: main: Assertion `chimera_main_prepare(&output.details, &io, false) == CHIMERA_BOOT_CLOCK_FAILED' failed.\n",
+      "original_source_unchanged": true
+    },
+    "firmware-suite.json": {
+      "command": [
+        ".venv/bin/python",
+        "-W",
+        "error",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "chimera/firmware/tests",
+        "-v"
+      ],
+      "environment": "PATH prepends projectvenv; CHIMERA_TOOLCHAIN_PREFIX=/home/radxa/.local/ocelot-build-tools/usr/bin/arm-none-eabi-",
+      "exit": 0,
+      "stdout": "Boot facts: 65536 read-only snapshots, three UID instability faults, blank IDs, serial order and canaries passed; no writes\nSUMMARY vectors=648 splits=4536 corruptions=17280 headers=65536 fuzz=10000 known_xor_collisions=2\nCurrent Panda source: 189 exact pack vectors, 648 unpack vectors; no hardware calls\n458920 request cases passed; no hardware calls\nMain startup: 65536 snapshots, clock/argument/UID failures, validity revocation and canaries pass; USB held, zero writes/delays\nUSB fake-register scenarios=19 SETUP cases=458797; no hardware calls\nUSB time: 51 delay durations, wrap, stalled/absent counter and clock/ownership guards passed\nUSB packet matrix: 32768 RX headers, 390 descriptor-length transfers, 15 controller faults passed\nUSB packet driver: reset/enumeration, descriptors, address/config, vendor query, STALL recovery and SETUP cancellation passed\nUSB service: 44 real-component startup scenarios passed; attachment disabled\n",
+      "stderr": "test_read_only_identity_and_reset_snapshot (test_boot_facts.BootFactsTests.test_read_only_identity_and_reset_snapshot) ... ok\ntest_actual_firmware_control_replies_decode_and_health_stays_unavailable (test_bootstrap_identity.BootstrapIdentityTests.test_actual_firmware_control_replies_decode_and_health_stays_unavailable) ... ok\ntest_decodes_topology_without_operational_status (test_bootstrap_identity.BootstrapIdentityTests.test_decodes_topology_without_operational_status) ... ok\ntest_every_single_byte_manifest_change_is_rejected (test_bootstrap_identity.BootstrapIdentityTests.test_every_single_byte_manifest_change_is_rejected) ... ok\ntest_non_wire_types_rejected (test_bootstrap_identity.BootstrapIdentityTests.test_non_wire_types_rejected) ... ok\ntest_unknown_versions_and_incomplete_or_padded_responses_rejected (test_bootstrap_identity.BootstrapIdentityTests.test_unknown_versions_and_incomplete_or_padded_responses_rejected) ... ok\ntest_sanitized_codec_and_current_panda_wire_interoperability (test_can_codec.CanCodecTests.test_sanitized_codec_and_current_panda_wire_interoperability) ... ok\ntest_boot_facts_reader_retained_in_arm_image (test_firmware.FirmwareTests.test_boot_facts_reader_retained_in_arm_image) ... ok\ntest_boot_vectors_reject_corruption (test_firmware.FirmwareTests.test_boot_vectors_reject_corruption) ... ok\ntest_build_is_independent_of_checkout_and_output_path (test_firmware.FirmwareTests.test_build_is_independent_of_checkout_and_output_path) ... ok\ntest_can_codec_entries_retained_in_arm_image (test_firmware.FirmwareTests.test_can_codec_entries_retained_in_arm_image) ... ok\ntest_control_setup_uses_byte_reads_for_unaligned_wire_buffer (test_firmware.FirmwareTests.test_control_setup_uses_byte_reads_for_unaligned_wire_buffer) ... ok\ntest_detached_usb_service_retained_without_startup_call (test_firmware.FirmwareTests.test_detached_usb_service_retained_without_startup_call) ... ok\ntest_elf_rejects_unsafe_load_segments_and_identity (test_firmware.FirmwareTests.test_elf_rejects_unsafe_load_segments_and_identity) ... ok\ntest_gpio_contract_from_reset_and_inherited_state (test_firmware.FirmwareTests.test_gpio_contract_from_reset_and_inherited_state) ... ok\ntest_linker_rejects_flash_overflow (test_firmware.FirmwareTests.test_linker_rejects_flash_overflow) ... ok\ntest_linker_rejects_ram_stack_collision (test_firmware.FirmwareTests.test_linker_rejects_ram_stack_collision) ... ok\ntest_main_calls_checked_startup_and_keeps_usb_held (test_firmware.FirmwareTests.test_main_calls_checked_startup_and_keeps_usb_held) ... ok\ntest_protocol_entry_and_identity_retained_in_arm_image (test_firmware.FirmwareTests.test_protocol_entry_and_identity_retained_in_arm_image) ... ok\ntest_read_only_control_contract (test_firmware.FirmwareTests.test_read_only_control_contract) ... ok\ntest_real_image_fits_reserved_envelope (test_firmware.FirmwareTests.test_real_image_fits_reserved_envelope) ... ok\ntest_startup_masks_interrupts_and_loads_msp_before_c (test_firmware.FirmwareTests.test_startup_masks_interrupts_and_loads_msp_before_c) ... ok\ntest_truncated_and_oversized_images_rejected (test_firmware.FirmwareTests.test_truncated_and_oversized_images_rejected) ... ok\ntest_usb_clock_core_and_ep0_entries_retained_in_arm_image (test_firmware.FirmwareTests.test_usb_clock_core_and_ep0_entries_retained_in_arm_image) ... ok\ntest_usb_driver_backend_symbols_and_mmio_barriers (test_firmware.FirmwareTests.test_usb_driver_backend_symbols_and_mmio_barriers) ... ok\ntest_actual_main_preparation_with_read_only_register_backend (test_main.MainStartupTests.test_actual_main_preparation_with_read_only_register_backend) ... ok\ntest_clock_detached_core_and_ep0_with_sanitizers (test_usb.UsbTests.test_clock_detached_core_and_ep0_with_sanitizers) ... ok\ntest_bounded_cycle_counter_backend (test_usb_driver.UsbDriverTests.test_bounded_cycle_counter_backend) ... ok\ntest_polling_ep0_packet_driver (test_usb_driver.UsbDriverTests.test_polling_ep0_packet_driver) ... ok\ntest_real_component_pipeline_with_register_faults (test_usb_service.UsbServiceTests.test_real_component_pipeline_with_register_faults) ... ok\n\n----------------------------------------------------------------------\nRan 30 tests in 17.114s\n\nOK\n"
+    },
+    "green-0.json": {
+      "command": [
+        ".venv/bin/python",
+        "-W",
+        "error",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "chimera/firmware/tests",
+        "-p",
+        "test_main.py",
+        "-v"
+      ],
+      "exit": 0,
+      "stdout": "Main startup: 65536 snapshots, clock/argument/UID failures, validity revocation and canaries pass; USB held, zero writes/delays\n",
+      "stderr": "test_actual_main_preparation_with_read_only_register_backend (test_main.MainStartupTests.test_actual_main_preparation_with_read_only_register_backend) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 1.091s\n\nOK\n"
+    },
+    "green-1.json": {
+      "command": [
+        ".venv/bin/python",
+        "-W",
+        "error",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "chimera/firmware/tests",
+        "-p",
+        "test_firmware.py",
+        "-k",
+        "main_calls_checked",
+        "-v"
+      ],
+      "exit": 5,
+      "stdout": "",
+      "stderr": "setUpClass (test_firmware.FirmwareTests) ... ERROR\n\n======================================================================\nERROR: setUpClass (test_firmware.FirmwareTests)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/home/radxa/comma/sunnypilot/chimera/firmware/tests/test_firmware.py\", line 28, in setUpClass\n    cls.report = cls.build.build(cls.out / \"first\", PREFIX)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/radxa/comma/sunnypilot/chimera/firmware/build.py\", line 94, in build\n    command(prefix + \"gcc\", *flags, \"-T\", str(ROOT / \"stm32f413.ld\"),\n  File \"/home/radxa/comma/sunnypilot/chimera/firmware/build.py\", line 24, in command\n    return subprocess.run(args, check=True, capture_output=True, text=True).stdout\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/radxa/.local/share/uv/python/cpython-3.12.13-linux-aarch64-gnu/lib/python3.12/subprocess.py\", line 571, in run\n    raise CalledProcessError(retcode, process.args,\nsubprocess.CalledProcessError: Command '('/home/radxa/.local/ocelot-build-tools/usr/bin/arm-none-eabi-gcc', '-mcpu=cortex-m4', '-mthumb', '-mfloat-abi=soft', '-mno-unaligned-access', '-Os', '-std=c11', '-ffreestanding', '-fno-builtin', '-fno-common', '-ffunction-sections', '-fdata-sections', '-fno-unwind-tables', '-fno-asynchronous-unwind-tables', '-Wall', '-Wextra', '-Wstrict-prototypes', '-Werror', '-nostdlib', '-T', '/home/radxa/comma/sunnypilot/chimera/firmware/stm32f413.ld', '-Wl,--gc-sections,--build-id=none,--orphan-handling=error', '-Wl,-Map=/tmp/chimera-build-o99z7ydr/chimera.map', '/home/radxa/comma/sunnypilot/chimera/firmware/startup.S', '/home/radxa/comma/sunnypilot/chimera/firmware/board.c', '/home/radxa/comma/sunnypilot/chimera/firmware/main.c', '/home/radxa/comma/sunnypilot/chimera/firmware/protocol.c', '/home/radxa/comma/sunnypilot/chimera/firmware/can_codec.c', '/home/radxa/comma/sunnypilot/chimera/firmware/usb_hw.c', '/home/radxa/comma/sunnypilot/chimera/firmware/usb_ep0.c', '/home/radxa/comma/sunnypilot/chimera/firmware/usb_time.c', '/home/radxa/comma/sunnypilot/chimera/firmware/usb_mmio.c', '/home/radxa/comma/sunnypilot/chimera/firmware/usb_driver.c', '/home/radxa/comma/sunnypilot/chimera/firmware/boot_facts.c', '/home/radxa/comma/sunnypilot/chimera/firmware/usb_service.c', '-o', '/tmp/chimera-build-o99z7ydr/chimera.elf')' returned non-zero exit status 1.\n\n----------------------------------------------------------------------\nRan 0 tests in 0.484s\n\nFAILED (errors=1)\n"
+    },
+    "green-arm.json": {
+      "command": [
+        ".venv/bin/python",
+        "-W",
+        "error",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "chimera/firmware/tests",
+        "-p",
+        "test_firmware.py",
+        "-k",
+        "main_calls_checked",
+        "-v"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "test_main_calls_checked_startup_and_keeps_usb_held (test_firmware.FirmwareTests.test_main_calls_checked_startup_and_keeps_usb_held) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.548s\n\nOK\n"
+    },
+    "initial-build.json": {
+      "command": [
+        ".venv/bin/python",
+        "chimera/firmware/build.py",
+        "--toolchain-prefix",
+        "/home/radxa/.local/ocelot-build-tools/usr/bin/arm-none-eabi-",
+        "--out",
+        "chimera/build/main-startup-20261107/firmware"
+      ],
+      "exit": 1,
+      "stdout": "",
+      "stderr": "build failed: Command '('/home/radxa/.local/ocelot-build-tools/usr/bin/arm-none-eabi-gcc', '-mcpu=cortex-m4', '-mthumb', '-mfloat-abi=soft', '-mno-unaligned-access', '-Os', '-std=c11', '-ffreestanding', '-fno-builtin', '-fno-common', '-ffunction-sections', '-fdata-sections', '-fno-unwind-tables', '-fno-asynchronous-unwind-tables', '-Wall', '-Wextra', '-Wstrict-prototypes', '-Werror', '-nostdlib', '-T', '/home/radxa/comma/sunnypilot/chimera/firmware/stm32f413.ld', '-Wl,--gc-sections,--build-id=none,--orphan-handling=error', '-Wl,-Map=/tmp/chimera-build-06um791j/chimera.map', '/home/radxa/comma/sunnypilot/chimera/firmware/startup.S', '/home/radxa/comma/sunnypilot/chimera/firmware/board.c', '/home/radxa/comma/sunnypilot/chimera/firmware/main.c', '/home/radxa/comma/sunnypilot/chimera/firmware/protocol.c', '/home/radxa/comma/sunnypilot/chimera/firmware/can_codec.c', '/home/radxa/comma/sunnypilot/chimera/firmware/usb_hw.c', '/home/radxa/comma/sunnypilot/chimera/firmware/usb_ep0.c', '/home/radxa/comma/sunnypilot/chimera/firmware/usb_time.c', '/home/radxa/comma/sunnypilot/chimera/firmware/usb_mmio.c', '/home/radxa/comma/sunnypilot/chimera/firmware/usb_driver.c', '/home/radxa/comma/sunnypilot/chimera/firmware/boot_facts.c', '/home/radxa/comma/sunnypilot/chimera/firmware/usb_service.c', '-o', '/tmp/chimera-build-06um791j/chimera.elf')' returned non-zero exit status 1.\n/home/radxa/.local/ocelot-build-tools/usr/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/bin/ld: /tmp/ccoTlYtu.o: in function `chimera_reset':\nmain.c:(.text.chimera_reset+0x7e): undefined reference to `memset'\ncollect2: error: ld returned 1 exit status\n"
+    },
+    "preservation.json": {
+      "result": "pass",
+      "intentional_old_source_changes": [
+        "main.c",
+        "usb_mmio.c",
+        "usb_time.h",
+        "build.py"
+      ],
+      "unchanged_old_firmware_sources": 19,
+      "new_main_header": true,
+      "baseline_image_sha256": "d5f7a3f9d0299da28fa7c78c662cefd4deb60c5e748b7e553926c77b8e9c2698",
+      "new_image_sha256": "fbce0bfa171b2bedca369d9913f6e3b661cadfa8ccf8a69063e0b9935b1020d1",
+      "ocelot_dirty_entries": 39,
+      "ocelot_source_hashes": 19,
+      "archive_clean": true,
+      "canonical_dbc_sha256": "b4079670b8118fe63c6a7710ca1158afaabfec7df881ef902e43d70d70a36b67",
+      "panda_and_opendbc_pins_clean": true,
+      "host_camera_model_thneed_untouched": true
+    },
+    "red-0.json": {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "chimera/firmware/tests",
+        "-p",
+        "test_main.py",
+        "-v"
+      ],
+      "exit": 1,
+      "stdout": "",
+      "stderr": "test_actual_main_preparation_with_read_only_register_backend (test_main.MainStartupTests.test_actual_main_preparation_with_read_only_register_backend) ... FAIL\n\n======================================================================\nFAIL: test_actual_main_preparation_with_read_only_register_backend (test_main.MainStartupTests.test_actual_main_preparation_with_read_only_register_backend)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/home/radxa/comma/sunnypilot/chimera/firmware/tests/test_main.py\", line 18, in test_actual_main_preparation_with_read_only_register_backend\n    self.assertEqual(result.returncode, 0, result.stderr)\nAssertionError: 1 != 0 : /home/radxa/comma/sunnypilot/chimera/firmware/main.c: In function \u2018chimera_reset\u2019:\n/home/radxa/comma/sunnypilot/chimera/firmware/main.c:6:26: error: cast to pointer from integer of different size [-Werror=int-to-pointer-cast]\n    6 | #define REG32(address) (*(volatile uint32_t *)(address))\n      |                          ^\n/home/radxa/comma/sunnypilot/chimera/firmware/main.c:64:5: note: in expansion of macro \u2018REG32\u2019\n   64 |     REG32(0xE000E180U + bank * 4U) = UINT32_MAX; // NVIC interrupt disable.\n      |     ^~~~~\n/home/radxa/comma/sunnypilot/chimera/firmware/main.c:6:26: error: cast to pointer from integer of different size [-Werror=int-to-pointer-cast]\n    6 | #define REG32(address) (*(volatile uint32_t *)(address))\n      |                          ^\n/home/radxa/comma/sunnypilot/chimera/firmware/main.c:65:5: note: in expansion of macro \u2018REG32\u2019\n   65 |     REG32(0xE000E280U + bank * 4U) = UINT32_MAX; // NVIC pending clear.\n      |     ^~~~~\n/home/radxa/comma/sunnypilot/chimera/firmware/main.c:68:24: error: cast from pointer to integer of different size [-Werror=pointer-to-int-cast]\n   68 |   REG32(0xE000ED08U) = (uint32_t)chimera_vectors;\n      |                        ^\ncc1: all warnings being treated as errors\n/home/radxa/comma/sunnypilot/chimera/firmware/tests/main_test.c:5:10: fatal error: main.h: No such file or directory\n    5 | #include \"main.h\"\n      |          ^~~~~~~~\ncompilation terminated.\n\n\n----------------------------------------------------------------------\nRan 1 test in 0.164s\n\nFAILED (failures=1)\n"
+    },
+    "red-1.json": {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "chimera/firmware/tests",
+        "-p",
+        "test_firmware.py",
+        "-k",
+        "main_calls_checked",
+        "-v"
+      ],
+      "exit": 1,
+      "stdout": "",
+      "stderr": "test_main_calls_checked_startup_and_keeps_usb_held (test_firmware.FirmwareTests.test_main_calls_checked_startup_and_keeps_usb_held) ... FAIL\n\n======================================================================\nFAIL: test_main_calls_checked_startup_and_keeps_usb_held (test_firmware.FirmwareTests.test_main_calls_checked_startup_and_keeps_usb_held)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/home/radxa/comma/sunnypilot/chimera/firmware/tests/test_firmware.py\", line 111, in test_main_calls_checked_startup_and_keeps_usb_held\n    self.assertIn(\"<chimera_usb_mmio_bind>\", result.stdout)\nAssertionError: '<chimera_usb_mmio_bind>' not found in '\\n/tmp/tmpqjp1g67v/first/chimera.elf:     file format elf32-littlearm\\n\\n\\nDisassembly of section .text:\\n\\n0800564c <chimera_reset>:\\n 800564c:\\tb508      \\tpush\\t{r3, lr}\\n 800564e:\\t4a30      \\tldr\\tr2, [pc, #192]\\t@ (8005710 <chimera_reset+0xc4>)\\n 8005650:\\t4b30      \\tldr\\tr3, [pc, #192]\\t@ (8005714 <chimera_reset+0xc8>)\\n 8005652:\\t4931      \\tldr\\tr1, [pc, #196]\\t@ (8005718 <chimera_reset+0xcc>)\\n 8005654:\\t428b      \\tcmp\\tr3, r1\\n 8005656:\\td339      \\tbcc.n\\t80056cc <chimera_reset+0x80>\\n 8005658:\\t4b30      \\tldr\\tr3, [pc, #192]\\t@ (800571c <chimera_reset+0xd0>)\\n 800565a:\\t4931      \\tldr\\tr1, [pc, #196]\\t@ (8005720 <chimera_reset+0xd4>)\\n 800565c:\\t2200      \\tmovs\\tr2, #0\\n 800565e:\\t428b      \\tcmp\\tr3, r1\\n 8005660:\\td339      \\tbcc.n\\t80056d6 <chimera_reset+0x8a>\\n 8005662:\\tf04f 23e0 \\tmov.w\\tr3, #3758153728\\t@ 0xe000e000\\n 8005666:\\t611a      \\tstr\\tr2, [r3, #16]\\n 8005668:\\tf04f 32ff \\tmov.w\\tr2, #4294967295\\t@ 0xffffffff\\n 800566c:\\tf8c3 2180 \\tstr.w\\tr2, [r3, #384]\\t@ 0x180\\n 8005670:\\tf8c3 2280 \\tstr.w\\tr2, [r3, #640]\\t@ 0x280\\n 8005674:\\tf8c3 2184 \\tstr.w\\tr2, [r3, #388]\\t@ 0x184\\n 8005678:\\tf8c3 2284 \\tstr.w\\tr2, [r3, #644]\\t@ 0x284\\n 800567c:\\tf8c3 2188 \\tstr.w\\tr2, [r3, #392]\\t@ 0x188\\n 8005680:\\tf8c3 2288 \\tstr.w\\tr2, [r3, #648]\\t@ 0x288\\n 8005684:\\tf8c3 218c \\tstr.w\\tr2, [r3, #396]\\t@ 0x18c\\n 8005688:\\tf8c3 228c \\tstr.w\\tr2, [r3, #652]\\t@ 0x28c\\n 800568c:\\tf04f 6220 \\tmov.w\\tr2, #167772160\\t@ 0xa000000\\n 8005690:\\tf8c3 2d04 \\tstr.w\\tr2, [r3, #3332]\\t@ 0xd04\\n 8005694:\\t4a23      \\tldr\\tr2, [pc, #140]\\t@ (8005724 <chimera_reset+0xd8>)\\n 8005696:\\tf8c3 2d08 \\tstr.w\\tr2, [r3, #3336]\\t@ 0xd08\\n 800569a:\\tf3bf 8f4f \\tdsb\\tsy\\n 800569e:\\tf3bf 8f6f \\tisb\\tsy\\n 80056a2:\\tf7ff ffa7 \\tbl\\t80055f4 <quiet>\\n 80056a6:\\t4b20      \\tldr\\tr3, [pc, #128]\\t@ (8005728 <chimera_reset+0xdc>)\\n 80056a8:\\tf8d3 2800 \\tldr.w\\tr2, [r3, #2048]\\t@ 0x800\\n 80056ac:\\tf042 0201 \\torr.w\\tr2, r2, #1\\n 80056b0:\\tf8c3 2800 \\tstr.w\\tr2, [r3, #2048]\\t@ 0x800\\n 80056b4:\\t4a1d      \\tldr\\tr2, [pc, #116]\\t@ (800572c <chimera_reset+0xe0>)\\n 80056b6:\\tf8d3 1800 \\tldr.w\\tr1, [r3, #2048]\\t@ 0x800\\n 80056ba:\\t0789      \\tlsls\\tr1, r1, #30\\n 80056bc:\\td418      \\tbmi.n\\t80056f0 <chimera_reset+0xa4>\\n 80056be:\\t3a01      \\tsubs\\tr2, #1\\n 80056c0:\\td1f9      \\tbne.n\\t80056b6 <chimera_reset+0x6a>\\n 80056c2:\\t2302      \\tmovs\\tr3, #2\\n 80056c4:\\t4a1a      \\tldr\\tr2, [pc, #104]\\t@ (8005730 <chimera_reset+0xe4>)\\n 80056c6:\\t6013      \\tstr\\tr3, [r2, #0]\\n 80056c8:\\tbf30      \\twfi\\n 80056ca:\\te7fd      \\tb.n\\t80056c8 <chimera_reset+0x7c>\\n 80056cc:\\tf852 0b04 \\tldr.w\\tr0, [r2], #4\\n 80056d0:\\tf843 0b04 \\tstr.w\\tr0, [r3], #4\\n 80056d4:\\te7be      \\tb.n\\t8005654 <chimera_reset+0x8>\\n 80056d6:\\tf843 2b04 \\tstr.w\\tr2, [r3], #4\\n 80056da:\\te7c0      \\tb.n\\t800565e <chimera_reset+0x12>\\n 80056dc:\\tf8d2 3808 \\tldr.w\\tr3, [r2, #2056]\\t@ 0x808\\n 80056e0:\\tf423 437c \\tbic.w\\tr3, r3, #64512\\t@ 0xfc00\\n 80056e4:\\tf023 03f0 \\tbic.w\\tr3, r3, #240\\t@ 0xf0\\n 80056e8:\\tf8c2 3808 \\tstr.w\\tr3, [r2, #2056]\\t@ 0x808\\n 80056ec:\\t2301      \\tmovs\\tr3, #1\\n 80056ee:\\te7e9      \\tb.n\\t80056c4 <chimera_reset+0x78>\\n 80056f0:\\tf8d3 2808 \\tldr.w\\tr2, [r3, #2056]\\t@ 0x808\\n 80056f4:\\tf022 0203 \\tbic.w\\tr2, r2, #3\\n 80056f8:\\tf8c3 2808 \\tstr.w\\tr2, [r3, #2056]\\t@ 0x808\\n 80056fc:\\t4b0b      \\tldr\\tr3, [pc, #44]\\t@ (800572c <chimera_reset+0xe0>)\\n 80056fe:\\t4a0a      \\tldr\\tr2, [pc, #40]\\t@ (8005728 <chimera_reset+0xdc>)\\n 8005700:\\tf8d2 1808 \\tldr.w\\tr1, [r2, #2056]\\t@ 0x808\\n 8005704:\\tf011 0f0c \\ttst.w\\tr1, #12\\n 8005708:\\td0e8      \\tbeq.n\\t80056dc <chimera_reset+0x90>\\n 800570a:\\t3b01      \\tsubs\\tr3, #1\\n 800570c:\\td1f8      \\tbne.n\\t8005700 <chimera_reset+0xb4>\\n 800570e:\\te7d8      \\tb.n\\t80056c2 <chimera_reset+0x76>\\n 8005710:\\t08005d14 \\t.word\\t0x08005d14\\n 8005714:\\t20000000 \\t.word\\t0x20000000\\n 8005718:\\t20000004 \\t.word\\t0x20000004\\n 800571c:\\t20000004 \\t.word\\t0x20000004\\n 8005720:\\t20000008 \\t.word\\t0x20000008\\n 8005724:\\t08004000 \\t.word\\t0x08004000\\n 8005728:\\t40023000 \\t.word\\t0x40023000\\n 800572c:\\t000f4240 \\t.word\\t0x000f4240\\n 8005730:\\t20000004 \\t.word\\t0x20000004\\n'\n\n----------------------------------------------------------------------\nRan 1 test in 0.693s\n\nFAILED (failures=1)\n"
+    },
+    "final_notebook": {
+      "command": [
+        ".venv/bin/python",
+        "Ai/verify_memory.py",
+        "--workspace",
+        "/home/radxa/comma"
+      ],
+      "exit": 0,
+      "stdout": "{\n  \"result\": \"pass\",\n  \"memory_layout\": \"regular project directory\",\n  \"documents\": 157,\n  \"relative_links\": 589,\n  \"optional_workspace_links\": 246,\n  \"source_repositories\": 8,\n  \"indexed_entries\": 4254\n}\n",
+      "stderr": ""
+    },
+    "final_ruff": {
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "chimera/firmware/build.py",
+        "chimera/firmware/tests/test_main.py",
+        "chimera/firmware/tests/test_firmware.py"
+      ],
+      "exit": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    },
+    "final_whitespace": {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "final_hashes_links_qa_sync": "pass"
+  },
+  "review": {
+    "method": "Five-axis source and selected GNU ARM artifact self-review; no delegation/REA provider",
+    "result": "pass",
+    "coverage": "Snapshot validity, no reads on failed clock, no new peripheral writes, callback lifetime/alias contract, real ARM call graph, freestanding no-undefined symbols and resource/flash limits."
+  },
+  "limits": "Native actual preparation + ARM static reset call checks, not live MCU startup. Power/VBUS/current recovery/watchdog unresolved; phase0 capabilities zero; no operationalUSB/CAN/inputs/CoreConfig/TX. Host unchanged/not rerun; no hardware/push/upstream update.",
+  "expected_nonpass_checks": {
+    "red-0.json": "Missing main API/native reset exclusion before implementation",
+    "red-1.json": "New ARM startup call absent before implementation",
+    "green-1.json": "First ARM integration link failed on compiler-generated memset",
+    "initial-build.json": "Direct build exposed same missing freestanding memset",
+    "clock-mutation.json": "Temporary removal of clock gate must abort fixture"
+  }
+}

@@ -1,3 +1,43 @@
+## QA-20261107-07 — Continue new Chimera and work on main.c first
+
+**Date:** November7,2026 UTC.
+**Owner request (faithful quote):** lets continue this path but i want u to work on main.c first
+
+**Accepted scope/answer:** Continue the new-firmware path; prioritize main ahead
+of the previously queued host status/reconnect task. T03c1 connects the read-only
+boot snapshot to actual reset startup. Main now checks clock success before UID/
+reset/option reads, exposes snapshot validity and named failure/USB_HELD states,
+and revokes validity in the fault handler. MMIO callback binding is separate
+from DWT initialization, so this new startup step adds no peripheral writes.
+USB power/VBUS/current recovery remain unqualified; main does not choose invented
+power descriptors, start USB service/attach, sample inputs or transmit CAN.
+
+**Evidence/source pin:** Baseline03b89175b40483f3cce7bac6d2292e7dac9f5ed5 onradxa/q8b;
+main.c/main.h, usb_mmio.c/usb_time.h, build source manifest and native/ARM tests.
+30firmware tests pass with warnings as errors, including ASan/UBSan on actual
+preparation/65536snapshots and existing register/codec suites. ARM ELF call graph
+confirms reset→binder/preparation→real boot reader, no USB service call. Removing
+the clock guard in a temporary copy makes the test abort. Initial RED and ARM
+memset-link failure retained; final logic passes only fully bound callback data,
+no shim/link relaxation/warning suppression. Raw7592bytes/globals32/stack4096,
+SHAfbce0bfa171b2bedca369d9913f6e3b661cadfa8ccf8a69063e0b9935b1020d1.
+Student receipt: Ai/Evidence/chimera-main-startup-20261107.json and contract
+chimera/docs/MAIN_STARTUP.md. Source/GNU/native evidence, no REA provider or
+subagent claim. Relevant incremental/TDD/API/Git/review/docs workflows used.
+
+**Implemented versus proposed/limits:** This checked startup slice is implemented
+and verified offline, not a complete operating main loop or physical board proof.
+Original7448-byte build preserved ignored; historical receipts remain tied to old
+sources.24current source/header hashes,19unchanged prior firmware sources; Ocelot
+39dirty entries/19hashes, archive/DBC and Panda/opendbc pins preserved. No flash/
+reset/config/CAN TX/managed daemon/upstream update/push. Raw reset/options do not
+prove watchdog state or readiness. Next main increment: qualified USB startup
+profile and recovery/fault handling before service initialization/attachment;
+physical prerequisites remain. Host T08b2d stays queued. QA05's C2-era host-only
+idea remains an alternative; no rollback to that firmware was selected.
+
+---
+
 ## QA-20261107-06 — New Chimera progress as a percentage
 
 **Date:** November7,2026 UTC.

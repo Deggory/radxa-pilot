@@ -4,6 +4,12 @@ November 6, 2026. Active project location: `sunnypilot/chimera/`.
 The existing T01–T20 task identities are retained. Each slice gets appropriate
 checks, a local commit and a notebook handoff before expanding the scope.
 
+November7 owner priority: continue the new firmware path, work on main.c first.
+T03c1 checked main preparation/read-only snapshot is complete offline. Next main
+slice is qualified USB startup profile and recovery/fault handling before service
+initialization/attachment; power/VBUS/recovery evidence remains outstanding.
+Host T08b2d stays queued. [Main startup](../docs/MAIN_STARTUP.md).
+
 Owner clarification, November6: Radxa-to-Chimera/selected legacy Panda is USB only.
 T08 must select pinned USB explicitly, never probe/fall back to SPI, and remain
 disconnected on USB failure. Existing generic SPI source is not a deployment
@@ -28,6 +34,7 @@ future T02/T05/T08 fixtures; no new firmware integration or task completion.
 - [x] T03b2 Ordered ARM MMIO/DWT timing backend and polling EP0 event/FIFO driver; nineteen offline tests pass. Startup/attachment and physical qualification pending.
 - [x] T03b3a Power/VBUS/UID/watchdog/recovery requirements and read-only UID/reset/option snapshot helper; twenty-one offline tests pass. No startup/attachment.
 - [x] T03b3b Composed detached preparation/poll/release service; twenty-three tests/44integration scenarios pass. Not called by main; physical attachment unqualified.
+- [x] T03c1 Main calls checked boot snapshot preparation; explicit clock/facts/error/USB_HELD diagnostics and30offline firmware tests. No USB service/attachment or CAN/input startup.
 - [x] T05a Bootstrap status/capability contract and strict pure decoder; response interoperability/rejection fixtures pass offline. No operational health/profile admission.
 - [x] T08b2c Typed field-availability metadata and normal consumer guards;124Python/10native/sanitizer/mutation checks pass offline. No ordinary USB status publication.
 - [x] T08b2b Offline source-backed legacy PandaState preview, explicit unavailable fields and strict conflict/fault/width validation; no publication/admission.
@@ -41,7 +48,7 @@ future T02/T05/T08 fixtures; no new firmware integration or task completion.
 | --- | --- | --- |
 | T01 | Board GPIO/reset behavior, flash/config partitions and recovery boundaries | T01a source contract complete; installed bootstub/recovery and electrical qualification pending |
 | T02 | Distinct identity, legacy/current protocol profiles, RPC matrix and explicit bus/input source contracts | T02a/b complete offline; operational health/capability/config ABI and new-profile host admission remain pending |
-| T03 | Minimal F413 target, reviewed support/linker and offline image budget | T03a/b1/b2/b3a/b3b complete offline; unbound detached service exists; actual startup/attachment and qualified power/VBUS/recovery remain pending |
+| T03 | Minimal F413 target, reviewed support/linker and offline image budget | T03a/b1/b2/b3a/b3b and c1 checked main snapshot complete offline; USB service remains unbound, attachment/power/VBUS/recovery pending |
 | T04 | Modern six-byte/XOR classical CAN USB codec with stream/vector checks | Complete offline; no endpoint/CAN-controller binding or TX permission |
 | T05 | Exact identity/version/health responses, legacy F4 status adaptation and fail-disabled state | T05a bootstrap, T05b health59 and T05c CAN-health5 decode/read helpers complete offline; publication and new Chimera operational health pending |
 | T06 | Native Sunnypilot USB transport and offline failure tests | Offline transport implemented (T06a/b); managed use remains T08 |
@@ -87,4 +94,4 @@ image. See [the compatibility slices](../docs/LEGACY_PANDA_SUPPORT.md). T06a/b a
 T02a/T05b/T05c are checked offline; publication, managed lifecycle and
 physical testing still follow. See the [health59 contract](../docs/LEGACY_F4_HEALTH.md).
 
-Next: T08b2d define/test passive normal-status publication and disconnect/reconnect policy; keep legacy observations nonoperational. [Availability contract](../docs/PANDA_STATE_AVAILABILITY.md). [Mapping contract](../docs/LEGACY_F4_PANDA_STATE.md). [Contract](../docs/USB_PASSIVE_RECEIVE.md).
+Next per November7 main-first priority: qualified main USB startup profile and recovery/fault handling before service initialization/attachment. Host T08b2d passive normal-status publication/disconnect/reconnect remains queued; keep legacy observations nonoperational. [Availability contract](../docs/PANDA_STATE_AVAILABILITY.md). [Mapping contract](../docs/LEGACY_F4_PANDA_STATE.md). [Contract](../docs/USB_PASSIVE_RECEIVE.md).

@@ -1,3 +1,23 @@
+## November7 — New firmware selected; main startup increment verified
+
+QA07/T03c1: owner chose new Chimera path and main.c first. ARM reset now binds
+ordered read callbacks after quiet RAM/IRQ/clock setup and calls actual checked
+boot preparation. Captures stable UID/raw reset/options in local diagnostics,
+revokes validity on failures and ends USB_HELD5; fault handler clears validity.
+USB service/attachment, DWT timing, CAN/input sampling remain unstarted; power/
+VBUS/current recovery unqualified.30firmware tests incl native actual preparation
+ASan/UBSan65536snapshots and ARM call proof pass; clock-guard mutation fails.
+Freestanding memset link issue corrected by passing only fully bound callbacks,
+no libc shim/suppression. Newraw7592bytes/globals32/SHA
+fbce0bfa171b2bedca369d9913f6e3b661cadfa8ccf8a69063e0b9935b1020d1; unflashed.
+Baseline7448-byte image preserved ignored, historical receipts unchanged. Four old
+firmware files intentionally changed;19old sources plus Ocelot39dirty entries/
+19hashes, archive/DBC/Panda/opendbc and host/camera/model/Thneed preserved.
+Next main work: qualified USB startup profile and recovery/fault handling before
+service initialization/attachment. Host T08b2d queued behind owner priority.
+C2-era host-only option remains preserved/unselected. No hardware/update/push.
+[Session](../Sessions/2026-11-07-chimera-main-startup.md).
+
 ## November6 — GitHub verified; PC shutdown unreachable
 
 **Actual publication closeout, November6:** Audit148f77d272e81eccfb7b7f9a195ce9acb8a4f783

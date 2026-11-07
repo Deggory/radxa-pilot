@@ -1,3 +1,9 @@
+**November7, T03c1:** owner selected the new firmware path and main.c first.
+Main now captures checked UID/reset/option facts after RAM/IRQ/clock setup and
+records an explicit held/error reason.30offline tests pass; raw7592bytes. USB
+service/attachment, CAN and input acquisition stay pending.
+[Main startup contract](docs/MAIN_STARTUP.md).
+
 **November6, T08b2c:** field-availability metadata and consumer checks are
 implemented. Invalid/stale/observation-only status cannot supply normal ignition
 or control checks; missing lateral support is explicit. Native build,10native

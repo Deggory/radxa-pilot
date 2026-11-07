@@ -1,5 +1,10 @@
 # Chimera firmware
 
+November7 T03c1: main now calls checked boot preparation, captures UID/raw
+reset/options and records explicit clock/facts/error or USB_HELD diagnostics.
+No USB service, attachment or CAN/input acquisition starts.30offline tests pass;
+current raw7592bytes/globals32bytes. [Startup contract](../docs/MAIN_STARTUP.md).
+
 This is the first application-only STM32F413 bootstrap target. It builds offline;
 it is not a modern Panda USB implementation or a flashable release yet.
 
@@ -11,7 +16,7 @@ workspace reference checkout, keys, signer or flasher is needed to build.
 | File | Purpose |
 | --- | --- |
 | [startup.S](startup.S) | Vectors, interrupt masking and explicit MSP reload before C |
-| [main.c](main.c) | RAM initialization, inherited IRQ cleanup, bounded HSI selection and parked state |
+| [main.c](main.c), [header](main.h) | RAM/IRQ/clock setup, checked read-only boot snapshot and explicit held/error state |
 | [board.c](board.c) | Inactive relay/OBD-C/transceiver levels; digital/analog input modes |
 | [protocol.c](protocol.c), [header](protocol.h) | Distinct identity/manifest and pure read-only vendor-request handler; not wired to USB yet |
 | [can_codec.c](can_codec.c), [header](can_codec.h) | Current six-byte/XOR classical CAN encoding, strict TX decoding and bounded stream assembly |
@@ -19,7 +24,7 @@ workspace reference checkout, keys, signer or flasher is needed to build.
 | [usb_ep0.c](usb_ep0.c), [header](usb_ep0.h) | Descriptor/control-transfer state model, deferred commits and canceled-transfer generations |
 | [usb_driver.c](usb_driver.c), [header](usb_driver.h) | Polling EP0 event/FIFO driver with bounded cancellation, reset and failure handling |
 | [usb_mmio.c](usb_mmio.c), [timing](usb_time.c), [header](usb_time.h) | Ordered ARM MMIO and bounded nominal16MHz cycle-counter delays; no startup call |
-| [boot_facts.c](boot_facts.c), [header](boot_facts.h) | Read-only UID/reset/option snapshot, stable-ID checks; no startup call or write |
+| [boot_facts.c](boot_facts.c), [header](boot_facts.h) | Read-only UID/reset/option snapshot and stable-ID checks; now called by main preparation, no write |
 | [usb_service.c](usb_service.c), [header](usb_service.h) | Composed detached preparation/poll/release with fault latching; not called by main |
 | [stm32f413.ld](stm32f413.ld) | Conservative application/RAM reservations and overflow assertions |
 | [build.py](build.py) | Compile, inspect ELF/vectors and publish artifacts with hashes |
@@ -48,7 +53,7 @@ link map and JSON receipt. The binary has a normal stack pointer in vector word
 zero; no legacy length/signature packaging is performed. Never feed this raw
 bootstrap to the legacy updater as a signed release.
 
-November 6 current validation: GCC13.2.1/binutils2.42, twenty-eight tests pass, raw7448bytes;
+Historical November6 validation: GCC13.2.1/binutils2.42, twenty-eight tests pass, raw7448bytes;
 two different source/output paths produce identical bytes. GPIO tests use fake
 registers, and disassembly verifies the MSP reload precedes C. No board execution
 or electrical state was measured. USB/CAN clocks are gated, interrupts stay masked
