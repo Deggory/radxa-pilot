@@ -178,3 +178,15 @@ relay; heartbeat timeout clearing that variable is not a proven relay drop.
 These are source facts, not installed-image/electrical observations. Current
 native Chimera USB transport denies DC/vendor OUT and permits only D6/D2 reads
 plus CAN bulk-IN. Preserve that separation in the proposed host adapter.
+
+## November 7 — Relay disconnect clarification (QA22)
+
+The official Chimera wiki, freshly opened November7, documents12VR relay-switched
+power on CAN0 ports1–3; CANH/CANL and USB are separate connections. Do not describe
+this as physically opening CAN wires or disconnecting USB. Effect on a powered
+Core depends on its wiring/other supplies and is not a tested actuator shutdown.
+Saved main.c ignores relay_req_usb in the operative ignition-driven loop, so
+neither DC0/noOutput nor host heartbeat expiry is a proven automatic relay-off
+path with ignition present. No new implementation or physical action occurred.
+Source baseline c1b625eeb854d90bfd04ad082d0a36b8c4d3836a; official source:
+https://wiki.retropilot.org/index/hardware/chimera.

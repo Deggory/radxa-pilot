@@ -1,3 +1,13 @@
+## QA-20261107-22 — Does Chimera safety switch off a relay and disconnect?
+
+**Date:** November 7, 2026 UTC.
+**Owner question (faithful quote):** "so u mean the safety in chimera u say it turns the relay off and disconnect".
+**Answer:** No automatic safety disconnect is established in the preserved source. DC and heartbeat expiry change relay_req_usb, but the operative loop ignores that request condition and sets PB0 relay_on according to ignition. Therefore DC0/noOutput or loss of host heartbeat cannot be claimed to switch this relay off while ignition remains on. Hardware documentation describes the onboard relay as switching12VR power on CAN0 ports1–3, not opening CANH/CANL or disconnecting USB; powering a connected Core off is a different effect, with device/installation-dependent behavior. Panda safety rules also gate CAN commands and are not merely relay switching. This clarifies QA21 and the owner's interpretation; no claim of tested physical disconnect.
+**Evidence/source pin:** Sunnypilot c1b625eeb854d90bfd04ad082d0a36b8c4d3836a; chimera_old/firmware/chimera/main.c:335,722,1026–1044. Ocelot hardware/chimera/README.md and official https://wiki.retropilot.org/index/hardware/chimera freshly opened November7,2026: Power & IO, CAN0 and pinout12VR/CANH/CANL.
+**Status/limits:** Source/doc explanation only; notebook validation, no test-suite rerun, hardware/relay/USB action, code change, update or push. Installed-image identity and actual wiring remain unverified. Classic CAN only; old firmware retained, new rewrite halted. Existing unanswered items preserved.
+
+---
+
 ## QA-20261107-21 — Classic CAN only and exact 0xDC behavior
 
 **Date:** November 7, 2026 UTC.

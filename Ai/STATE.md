@@ -1,3 +1,10 @@
+## November 7 — Relay is power switching, no proven safety disconnect (QA22)
+
+Official Chimera docs: relay switches12VR on CAN0 ports1–3, not CANH/CANL or USB.
+Saved loop drives PB0 from ignition and ignores USB request condition; no
+DC/heartbeat-driven disconnect claimed. Source/doc-only; classic CAN retained.
+No source/hardware action. Next remains proposed native old-Chimera host adapter.
+
 ## November 7 — Classic CAN only and 0xDC semantics (QA21)
 
 Owner excludes CAN FD; retain classic CAN0..8bytes in project scope. Panda DC
