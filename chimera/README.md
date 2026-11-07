@@ -1,3 +1,9 @@
+**November7, T03c3b:** implemented explicit legacy no-VBUS session mode through
+core/service/main coordinator, keeping physical VBUS UNKNOWN and USB detached.
+34firmware tests pass, including61new real-component scenarios. Actual main still
+has NULL profile/reader; no flash/board run. **Overall estimate:about25%; hardware
+validation:0%.** [Session contract](docs/USB_LEGACY_SESSION.md). Earlier checkpoints follow.
+
 **November7, T01b:** owner identifies Ocelot as the base circuit with added I/O.
 Power trace confirms shared5V and no MCU VBUS detector;36source checks pass.
 Next: explicit legacy no-VBUS session mode, keeping actual USB attachment held.

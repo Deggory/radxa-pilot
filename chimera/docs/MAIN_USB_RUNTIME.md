@@ -1,5 +1,12 @@
 # Main USB lifecycle coordinator — T03c2
 
+November7 T03c3b: explicit legacy no-VBUS controller/service mode is now
+implemented and tested offline. Default entry points remain unforced. Main copies
+the selected mode; legacy requires NULL reader and keeps physical VBUS UNKNOWN.
+Actual board main still selects NULL profile/reader and stays held.34firmware
+tests pass; attachment/OTG cause handling and live qualification remain pending.
+[Current session contract](USB_LEGACY_SESSION.md). Earlier checkpoints follow.
+
 The coordinator in [main_runtime.c](../firmware/main_runtime.c) composes existing
 components; it does not replace the USB driver or authorize attachment. Main
 supplies a NULL profile in the current board build. Non-NULL profiles are used

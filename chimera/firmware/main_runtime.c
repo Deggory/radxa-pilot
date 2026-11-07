@@ -32,7 +32,8 @@ bool chimera_main_start(chimera_main_runtime *r, volatile chimera_boot_details *
       (io == NULL || io->read32 == NULL || io->write32 == NULL || io->delay_us == NULL ||
        config->self_powered > 1U || config->max_power_2ma > 250U ||
        config->poll_budget == 0U || config->poll_budget > 1000000U ||
-       config->event_budget == 0U || config->event_budget > 32U))) {
+       config->event_budget == 0U || config->event_budget > 32U ||
+       !chimera_usb_session_mode_valid(config->session_mode)))) {
     r->state = CHIMERA_BOOT_ARGUMENT_FAILED;
     r->error = CHIMERA_MAIN_USB_ARGUMENT;
     return false;
@@ -43,8 +44,9 @@ bool chimera_main_start(chimera_main_runtime *r, volatile chimera_boot_details *
   r->config.max_power_2ma = config->max_power_2ma;
   r->config.poll_budget = config->poll_budget;
   r->config.event_budget = config->event_budget;
-  if (!chimera_usb_service_start(&r->usb, io, r->config.self_powered,
-                                 r->config.max_power_2ma, r->config.poll_budget)) {
+  r->config.session_mode = config->session_mode;
+  if (!chimera_usb_service_start_mode(&r->usb, io, r->config.self_powered,
+                                      r->config.max_power_2ma, r->config.poll_budget, r->config.session_mode)) {
     return fail(r, CHIMERA_MAIN_USB_START);
   }
   for (unsigned i = 0U; i < sizeof(r->usb.facts.uid); ++i) {
@@ -64,7 +66,14 @@ static bool present(chimera_main_runtime *r, const chimera_vbus_io *vbus) {
 
 int chimera_main_poll(chimera_main_runtime *r, const chimera_vbus_io *vbus) {
   if (r == NULL || r->state != CHIMERA_BOOT_USB_DETACHED) return -1;
-  if (!present(r, vbus)) {
+  const bool legacy = r->config.session_mode == CHIMERA_USB_SESSION_LEGACY_NO_VBUS;
+  if (!chimera_usb_session_mode_valid(r->config.session_mode) ||
+      r->config.session_mode != r->usb.session_mode || (legacy && vbus != NULL)) {
+    (void)fail(r, CHIMERA_MAIN_USB_ARGUMENT);
+    return -1;
+  }
+  if (legacy) r->vbus = CHIMERA_VBUS_UNKNOWN;
+  else if (!present(r, vbus)) {
     (void)fail(r, CHIMERA_MAIN_USB_POWER);
     return -1;
   }
@@ -73,7 +82,7 @@ int chimera_main_poll(chimera_main_runtime *r, const chimera_vbus_io *vbus) {
     (void)fail(r, CHIMERA_MAIN_USB_POLL);
     return -1;
   }
-  if (!present(r, vbus)) {
+  if (!legacy && !present(r, vbus)) {
     (void)fail(r, CHIMERA_MAIN_USB_POWER);
     return -1;
   }

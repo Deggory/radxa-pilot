@@ -1,0 +1,442 @@
+{
+  "date": "2026-11-07",
+  "baseline": "b3ff3d26e4d71e9d7b68dd6a7b3a94310b5cfe7e",
+  "scope": "T03c3b explicit detached legacy no-VBUS controller/session mode; no physical connection or CAN/health format change",
+  "sources_sha256": {
+    "Ai/DECISIONS.md": "1957d2dfa532823e1efeeedc3ae91d931dd283017281c3e860e9860a56f93dad",
+    "Ai/HANDOFF.md": "578aa08b26942c467ae6c25180d97abfbe671abc5bb3bf18965a30815f5088f4",
+    "Ai/Knowledge/CHIMERA_DATA_GAPS.md": "aac91f0d6806f1e4e333328c37eafdf3a19acbb6ec0136fc27d17a01545c8be9",
+    "Ai/Knowledge/CHIMERA_MODERNIZATION.md": "f54c593cf5ac2931a02591205ec039f4e280d65a6d05242f9277da95c6ef26d5",
+    "Ai/QUESTIONS.md": "c60d5fe44001347b94cac14a80084378e95719469f0f6fd1ed43b0d10e4091fb",
+    "Ai/ROUTER.md": "7a6d4ecccc8b1a931ff9c672a44f507dcf8f4b5b2003154cd254a2b9a3c7dcd1",
+    "Ai/STATE.md": "b75d1c6dd3a215876dc555caebf39c6fc71dcc6354733d54d572ac77a7cdf678",
+    "Ai/Sessions/2026-11-07-chimera-legacy-session.md": "a3aba8a29af47f6696b453b949a8fbd195f6ceae2d797891b05d79f3db2c76cd",
+    "Ai/TASKS.md": "d8132d5419e29cf487c743714c1c0cf7ea912e610c4aea99cf9d47e76f2d0ddc",
+    "Ai/WORKLOG.md": "65bde734a516e97688e59da6f6bb2d418b4f72727ab64c7473b704470f4d9820",
+    "README.md": "e6649ae88be691b69e48b5f8f1e1d947857c34a30f52e398f185185f28cad2d5",
+    "chimera/README.md": "1af6e64ab13536174cbc437457da031e5f55a24e73021b800c8908adf9fd0a9b",
+    "chimera/docs/MAIN_STARTUP.md": "c0adea9327dfd411697e5312fd26cb49a168191e3f50f7a18417a0704d88e756",
+    "chimera/docs/MAIN_USB_RUNTIME.md": "6a1952f5b2e88c3541cd60edca8ad1d946cc38331a618e91dd9c0242fb3f8aa8",
+    "chimera/docs/PROGRESS_EXPLAINED.md": "ac6fe6bdefc2301bf60188b3fdb8fcf982c7a464b18fa6096e82ba032f6435e5",
+    "chimera/docs/USB_LEGACY_SESSION.md": "406ba93a7ece28d3dad948c7956c4dac49e6eb921c3c1c3ee0bed39a9b61644a",
+    "chimera/docs/USB_POWER_SUPERVISION.md": "7003e6c0b3b8bb7cd93e3dd0c4c006f5a17606bd2c29cb15c2a187a515876d06",
+    "chimera/docs/USB_SERVICE.md": "1e9891f3176d34a8d698997cb64cf7c36e325a1e014372a7612c0fdb664b33a5",
+    "chimera/docs/USB_STARTUP_REQUIREMENTS.md": "a01ce06a9b6f4aa40024f8a3065b67d5b90c910b5d5fdb2579cdbd63cda2ec10",
+    "chimera/firmware/README.md": "9b6f711bad9e78f93a16c3810b89820192c20f529525ff3ba6974fd9264c518a",
+    "chimera/firmware/main.h": "8c04bf02bfc9fd17b6871e15cae6c2fc871134c3edb2e96eba068169f7acac3a",
+    "chimera/firmware/main_runtime.c": "022a9c76b62b16de1f7b18662d0bd44011fa57137c6375c775bbaff726f7bd70",
+    "chimera/firmware/tests/legacy_session_test.c": "a40df81007c01ab4973fb30b1e293eed182b8a9372dcf8d453f5b367ebfb7606",
+    "chimera/firmware/tests/main_power_test.c": "98e1ef4b340c7ca1c191d26d2e268041f05b1f934646ccb1962a4a10206fd420",
+    "chimera/firmware/tests/main_runtime_test.c": "ad6f9a0de61bad6c74e34bc762cf6c9a59f36372fc774696d7d37e74f5419a5a",
+    "chimera/firmware/tests/test_firmware.py": "a1dfe20cc8eba22244151bf842e9c4df3dfc2ee809772e865a7b6eb533941752",
+    "chimera/firmware/tests/test_legacy_session.py": "43e8738c3f04694d2e481fc13509625c31755bb94da46f0ee101322cdd37afea",
+    "chimera/firmware/tests/usb_service_fake.h": "15b5825600f683daf84fe6e49fe582a94c9f7263f9a778c5edc39c239b899abb",
+    "chimera/firmware/usb_driver.c": "3c0be20fb5441a0799cdacbe9328700dd919ebf0d4631db51477cf968d7c2beb",
+    "chimera/firmware/usb_hw.c": "7c5cb6670d6e0b23ebaf0c5c16ddf9ac3849504f9032cedadd26d7727f8a12ea",
+    "chimera/firmware/usb_hw.h": "4a5b2d2626ab6410564023e50eb7ea5c46541d610d3bb59087833ce2a92c66bc",
+    "chimera/firmware/usb_service.c": "ed78c6047f535edea7612ecb7b3119f11efe8ee8d0dd14b29eb5d1dd5bb8e51d",
+    "chimera/firmware/usb_service.h": "a51686a74165bc5e856f10a81c59aab3490c699432c0f03b93acfd0beadacb70",
+    "chimera/tasks/plan.md": "5889a20f38b130c36e707d23252aaba38176f573c67379ec63b42d96f0df97ea"
+  },
+  "build": {
+    "undefined_symbols": [],
+    "load_segments": [
+      {
+        "offset": 4096,
+        "virtual": 134234112,
+        "physical": 134234112,
+        "file_bytes": 8312,
+        "memory_bytes": 8312
+      },
+      {
+        "offset": 16384,
+        "virtual": 536870912,
+        "physical": 134242424,
+        "file_bytes": 4,
+        "memory_bytes": 260
+      }
+    ],
+    "reset_vector": 134240109,
+    "stack_top": 537001976,
+    "globals_bytes": 260,
+    "stack_reserved_bytes": 4096,
+    "target": "chimera-f413-offline-bootstrap",
+    "signed": false,
+    "raw_bytes": 8316,
+    "reserved_envelope_bytes": 136,
+    "projected_legacy_bytes": 8452,
+    "application_budget_bytes": 114688,
+    "sha256": "745f66c5c408a8c046c6c7ed3f3c3edc576b9743b9a0b35d860770a1f24e8826",
+    "sources_sha256": {
+      "startup.S": "be9bc724c7e9a395ad12140d5a89d5e334efd074e992e1fad98aacb809cfa688",
+      "board.c": "dd4902ea9b4e048bc221ccd1548f5eb38277a860a52f89b524f78db734bceb8c",
+      "main.c": "d12ec2fedd42989cf78aafa897b73768ecbd2f25fc7739db82b5a9649a95ad65",
+      "main_runtime.c": "022a9c76b62b16de1f7b18662d0bd44011fa57137c6375c775bbaff726f7bd70",
+      "protocol.c": "47f8745bc8a774aa0674dd8a500c20769908e30efd9f6109b44e1d958abcceea",
+      "can_codec.c": "e9313054c3a628b5d3828d12ad5eeefe09c38d60b48dbc0e999fa39d59d3f94c",
+      "usb_hw.c": "7c5cb6670d6e0b23ebaf0c5c16ddf9ac3849504f9032cedadd26d7727f8a12ea",
+      "usb_ep0.c": "0e6a5fd2c9f9011b266f873ec630ac11716e995d224dbd98e4a2fae6551f83f3",
+      "usb_time.c": "8807804da361f61363ea72c5bb251dae117442f549e124d2a719c4c510a45dd1",
+      "usb_mmio.c": "a7b420b7971a8328799dff7188f78ab98ae518453e241b6d6a2a68919595dd1d",
+      "usb_driver.c": "3c0be20fb5441a0799cdacbe9328700dd919ebf0d4631db51477cf968d7c2beb",
+      "boot_facts.c": "76e9c59af5e387eb7173992a246a9b8be8c676b80a77126dc2492beb6ac2a92b",
+      "usb_service.c": "ed78c6047f535edea7612ecb7b3119f11efe8ee8d0dd14b29eb5d1dd5bb8e51d",
+      "main.h": "8c04bf02bfc9fd17b6871e15cae6c2fc871134c3edb2e96eba068169f7acac3a",
+      "board.h": "0c531a8bb4c7ff205812b44507b639f063085cb48f973f732f3ee5428d12284d",
+      "protocol.h": "45fb8a73d39bc6a6cf9efeb270af57472012af3af48c82d74180a48d0ee09e95",
+      "can_codec.h": "87491ae3a73cd7b267815f2532361514cb9899c9c5231045526f54d3d98c554a",
+      "usb_hw.h": "4a5b2d2626ab6410564023e50eb7ea5c46541d610d3bb59087833ce2a92c66bc",
+      "usb_ep0.h": "d3341a4ded5c63e3edfc7e79c5315d5bd339c6d2447445263fb5a81746a4a6e7",
+      "usb_time.h": "852d939a29448c5b9b54a2b4e6468777d418731fa2e7352a2c7bf03aa06d1889",
+      "usb_driver.h": "32b924347849f42192b5e14e051022f39e729880d0069aa2c67af0509673844f",
+      "boot_facts.h": "a5dff207500f43677af7688aedaeacb30e903c6966e533e366b6c0a7814355ae",
+      "usb_service.h": "a51686a74165bc5e856f10a81c59aab3490c699432c0f03b93acfd0beadacb70",
+      "stm32f413.ld": "4c0f0ff00d1dc82aa9e936fe98503c3a19995720e5ca93afcc15f466695b59bc",
+      "build.py": "454176359dc34639566e00e1f36f5dbc579e64e8da68f6a0028117b14cd52789"
+    },
+    "compiler": "arm-none-eabi-gcc (15:13.2.rel1-2) 13.2.1 20231009",
+    "objcopy": "GNU objcopy (2.42-1ubuntu1+23) 2.42",
+    "flags": [
+      "-mcpu=cortex-m4",
+      "-mthumb",
+      "-mfloat-abi=soft",
+      "-mno-unaligned-access",
+      "-Os",
+      "-std=c11",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-fno-common",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-fno-unwind-tables",
+      "-fno-asynchronous-unwind-tables",
+      "-Wall",
+      "-Wextra",
+      "-Wstrict-prototypes",
+      "-Werror",
+      "-nostdlib"
+    ],
+    "limits": "Unsigned offline build; no installed bootstub, electrical or runtime qualification."
+  },
+  "baseline_artifact": {
+    "report": {
+      "undefined_symbols": [],
+      "load_segments": [
+        {
+          "offset": 4096,
+          "virtual": 134234112,
+          "physical": 134234112,
+          "file_bytes": 8104,
+          "memory_bytes": 8104
+        },
+        {
+          "offset": 12288,
+          "virtual": 536870912,
+          "physical": 134242216,
+          "file_bytes": 4,
+          "memory_bytes": 256
+        }
+      ],
+      "reset_vector": 134239969,
+      "stack_top": 537001976,
+      "globals_bytes": 256,
+      "stack_reserved_bytes": 4096,
+      "target": "chimera-f413-offline-bootstrap",
+      "signed": false,
+      "raw_bytes": 8108,
+      "reserved_envelope_bytes": 136,
+      "projected_legacy_bytes": 8244,
+      "application_budget_bytes": 114688,
+      "sha256": "b2c62ee6d05d5b6c720633daf4d34c2aecb3ca15166926a10257d54a9a7f7bb3",
+      "sources_sha256": {
+        "startup.S": "be9bc724c7e9a395ad12140d5a89d5e334efd074e992e1fad98aacb809cfa688",
+        "board.c": "dd4902ea9b4e048bc221ccd1548f5eb38277a860a52f89b524f78db734bceb8c",
+        "main.c": "d12ec2fedd42989cf78aafa897b73768ecbd2f25fc7739db82b5a9649a95ad65",
+        "main_runtime.c": "b0092e396948b755ab4e3cbbf6456e304107526a7347f6ee26cbd4ab6e989cd8",
+        "protocol.c": "47f8745bc8a774aa0674dd8a500c20769908e30efd9f6109b44e1d958abcceea",
+        "can_codec.c": "e9313054c3a628b5d3828d12ad5eeefe09c38d60b48dbc0e999fa39d59d3f94c",
+        "usb_hw.c": "d36b31b542239b5f75181fcaba3886177b1452dc2274ac7312cefd7d0f2c190c",
+        "usb_ep0.c": "0e6a5fd2c9f9011b266f873ec630ac11716e995d224dbd98e4a2fae6551f83f3",
+        "usb_time.c": "8807804da361f61363ea72c5bb251dae117442f549e124d2a719c4c510a45dd1",
+        "usb_mmio.c": "a7b420b7971a8328799dff7188f78ab98ae518453e241b6d6a2a68919595dd1d",
+        "usb_driver.c": "3307fd44768b6e8861c8ae20b005aa73846ebc7c0b965f546716cc35e9026c91",
+        "boot_facts.c": "76e9c59af5e387eb7173992a246a9b8be8c676b80a77126dc2492beb6ac2a92b",
+        "usb_service.c": "c44f6854e89e1ff5c102a22ffd2d0fdb7ef70281ce987bc8318e9ac74440e2c6",
+        "main.h": "5fb06e983c49fa7965004af458e618387937f6d779eeeb2852f45f4a0fa36948",
+        "board.h": "0c531a8bb4c7ff205812b44507b639f063085cb48f973f732f3ee5428d12284d",
+        "protocol.h": "45fb8a73d39bc6a6cf9efeb270af57472012af3af48c82d74180a48d0ee09e95",
+        "can_codec.h": "87491ae3a73cd7b267815f2532361514cb9899c9c5231045526f54d3d98c554a",
+        "usb_hw.h": "919d83e6a771b5a9e0092414ca9711809300110588396b297171dfe4b6664a5a",
+        "usb_ep0.h": "d3341a4ded5c63e3edfc7e79c5315d5bd339c6d2447445263fb5a81746a4a6e7",
+        "usb_time.h": "852d939a29448c5b9b54a2b4e6468777d418731fa2e7352a2c7bf03aa06d1889",
+        "usb_driver.h": "32b924347849f42192b5e14e051022f39e729880d0069aa2c67af0509673844f",
+        "boot_facts.h": "a5dff207500f43677af7688aedaeacb30e903c6966e533e366b6c0a7814355ae",
+        "usb_service.h": "090475efafd7a06f0cd3bcab74d554e5f155ae39dd9d925c7d44aef38da4a2ba",
+        "stm32f413.ld": "4c0f0ff00d1dc82aa9e936fe98503c3a19995720e5ca93afcc15f466695b59bc",
+        "build.py": "454176359dc34639566e00e1f36f5dbc579e64e8da68f6a0028117b14cd52789"
+      },
+      "compiler": "arm-none-eabi-gcc (15:13.2.rel1-2) 13.2.1 20231009",
+      "objcopy": "GNU objcopy (2.42-1ubuntu1+23) 2.42",
+      "flags": [
+        "-mcpu=cortex-m4",
+        "-mthumb",
+        "-mfloat-abi=soft",
+        "-mno-unaligned-access",
+        "-Os",
+        "-std=c11",
+        "-ffreestanding",
+        "-fno-builtin",
+        "-fno-common",
+        "-ffunction-sections",
+        "-fdata-sections",
+        "-fno-unwind-tables",
+        "-fno-asynchronous-unwind-tables",
+        "-Wall",
+        "-Wextra",
+        "-Wstrict-prototypes",
+        "-Werror",
+        "-nostdlib"
+      ],
+      "limits": "Unsigned offline build; no installed bootstub, electrical or runtime qualification."
+    },
+    "path": "chimera/build/legacy-session-20261107/baseline"
+  },
+  "prior_build_inputs": {
+    "unchanged": [
+      "startup.S",
+      "board.c",
+      "main.c",
+      "protocol.c",
+      "can_codec.c",
+      "usb_ep0.c",
+      "usb_time.c",
+      "usb_mmio.c",
+      "boot_facts.c",
+      "board.h",
+      "protocol.h",
+      "can_codec.h",
+      "usb_ep0.h",
+      "usb_time.h",
+      "usb_driver.h",
+      "boot_facts.h",
+      "stm32f413.ld",
+      "build.py"
+    ],
+    "intentionally_changed": [
+      "main_runtime.c",
+      "usb_hw.c",
+      "usb_driver.c",
+      "usb_service.c",
+      "main.h",
+      "usb_hw.h",
+      "usb_service.h"
+    ]
+  },
+  "artifacts": {
+    "chimera.bin": {
+      "path": "chimera/build/legacy-session-20261107/chimera.bin",
+      "bytes": 8316,
+      "sha256": "745f66c5c408a8c046c6c7ed3f3c3edc576b9743b9a0b35d860770a1f24e8826"
+    },
+    "chimera.elf": {
+      "path": "chimera/build/legacy-session-20261107/chimera.elf",
+      "bytes": 21732,
+      "sha256": "634670d28136761aa296f84d60164c91f8042ebf7be8f7a1095f3a868511743a"
+    },
+    "chimera.map": {
+      "path": "chimera/build/legacy-session-20261107/chimera.map",
+      "bytes": 15638,
+      "sha256": "aaa7890bbbf48fdf4f498ace0e6f75ca2ed0c5f309ff98f983534ef3e0d650fd"
+    },
+    "report.json": {
+      "path": "chimera/build/legacy-session-20261107/report.json",
+      "bytes": 3517,
+      "sha256": "0252574079a08045375de11ea574d2fb3d91b38f3874ee64a70d8817e678406d"
+    }
+  },
+  "primary_sources_sha256": {
+    "ocelot/firmware/chimera/usb.h": "2996676fb60447a3ea3de70882e19b0a54709a65e2f3d8c935c68e074eb0612d",
+    "ocelot/firmware/inc/stm32f413xx.h": "7c2cb1deecee360e4e8069c4215f05f652e14c70bd88f9bd072dc5502a5fd530",
+    "ocelot/firmware/SConscript": "7f60ca0b975592c2bf633e3eb06aa1934288cd547f4a771cb58567579da88bd9"
+  },
+  "verification": {
+    "red_before_implementation": {
+      "exit": 1,
+      "path": "chimera/build/legacy-session-20261107/native-red.json",
+      "sha256": "ae8c606aa9fa17cbadfa71ed3e754b5ac6042609d156ab74d0b125b65bfd89db",
+      "stderr_excerpt": "test_explicit_legacy_session_with_real_components_and_register_faults (test_legacy_session.LegacySessionTests.test_explicit_legacy_session_with_real_components_and_register_faults) ... FAIL\n\n======================================================================\nFAIL: test_explicit_legacy_session_with_real_components_and_register_faults (test_legacy_session.LegacySessionTests.test_explicit_legacy_session_with_real_components_and_register_faults)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/home/radxa/comma/sunnypilot/chimera/firmware/tests/test_legacy_session.py\", line 20, in test_explicit_legacy_session_with_real_components_and_register_faults\n    self.assertEqual(result.returncode, 0, result.stderr)\nAssertionError: 1 != 0 : /home/radxa/comma/sunnypilot/chimera/firmware/tests/legacy_session_test.c:10:60: error: \u2018CHIMERA_USB_SESSION_LEGACY_NO_VBUS\u2019 undeclared here (not in a function)\n   10 | static const chimera_main_usb_config LEGACY = {1, 0, 8, 1, CHIMERA_USB_SESSION_LEGACY_NO_VBUS};\n      |                                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n/home/radxa/comma/sunnypilot/chimera/firmware/tests/legacy_session_test.c:10:60: error: excess elements in struct initializer [-Werror]\n/home/radxa/comma/sunnypilot/chimera/firmware/tests/legacy_session_test.c:10:60: note: (near initialization for \u2018LEGACY\u2019)\n/home/radxa/comma/sunnypilot/chimera/firmware/tests/legacy_session_test.c: In function \u2018main\u2019:\n/home/radxa/comma/sunnypilot/chimera/firmware/tests/legacy_session_test.c:2"
+    },
+    "firmware_suite": {
+      "command": "CHIMERA_TOOLCHAIN_PREFIX=/home/radxa/.local/ocelot-build-tools/usr/bin/arm-none-eabi- .venv/bin/python -W error -m unittest discover -s chimera/firmware/tests -v",
+      "exit": 0,
+      "stdout_stderr": "test_read_only_identity_and_reset_snapshot (test_boot_facts.BootFactsTests.test_read_only_identity_and_reset_snapshot) ... ok\ntest_actual_firmware_control_replies_decode_and_health_stays_unavailable (test_bootstrap_identity.BootstrapIdentityTests.test_actual_firmware_control_replies_decode_and_health_stays_unavailable) ... ok\ntest_decodes_topology_without_operational_status (test_bootstrap_identity.BootstrapIdentityTests.test_decodes_topology_without_operational_status) ... ok\ntest_every_single_byte_manifest_change_is_rejected (test_bootstrap_identity.BootstrapIdentityTests.test_every_single_byte_manifest_change_is_rejected) ... ok\ntest_non_wire_types_rejected (test_bootstrap_identity.BootstrapIdentityTests.test_non_wire_types_rejected) ... ok\ntest_unknown_versions_and_incomplete_or_padded_responses_rejected (test_bootstrap_identity.BootstrapIdentityTests.test_unknown_versions_and_incomplete_or_padded_responses_rejected) ... ok\ntest_sanitized_codec_and_current_panda_wire_interoperability (test_can_codec.CanCodecTests.test_sanitized_codec_and_current_panda_wire_interoperability) ... ok\ntest_boot_facts_reader_retained_in_arm_image (test_firmware.FirmwareTests.test_boot_facts_reader_retained_in_arm_image) ... ok\ntest_boot_vectors_reject_corruption (test_firmware.FirmwareTests.test_boot_vectors_reject_corruption) ... ok\ntest_build_is_independent_of_checkout_and_output_path (test_firmware.FirmwareTests.test_build_is_independent_of_checkout_and_output_path) ... ok\ntest_can_codec_entries_retained_in_arm_image (test_firmware.FirmwareTests.test_can_codec_entries_retained_in_arm_image) ... ok\ntest_control_setup_uses_byte_reads_for_unaligned_wire_buffer (test_firmware.FirmwareTests.test_control_setup_uses_byte_reads_for_unaligned_wire_buffer) ... ok\ntest_detached_usb_service_retained_without_direct_reset_call (test_firmware.FirmwareTests.test_detached_usb_service_retained_without_direct_reset_call) ... ok\ntest_elf_rejects_unsafe_load_segments_and_identity (test_firmware.FirmwareTests.test_elf_rejects_unsafe_load_segments_and_identity) ... ok\ntest_gpio_contract_from_reset_and_inherited_state (test_firmware.FirmwareTests.test_gpio_contract_from_reset_and_inherited_state) ... ok\ntest_linker_rejects_flash_overflow (test_firmware.FirmwareTests.test_linker_rejects_flash_overflow) ... ok\ntest_linker_rejects_ram_stack_collision (test_firmware.FirmwareTests.test_linker_rejects_ram_stack_collision) ... ok\ntest_main_calls_checked_startup_and_keeps_usb_held (test_firmware.FirmwareTests.test_main_calls_checked_startup_and_keeps_usb_held) ... ok\ntest_main_coordinator_calls_real_usb_service (test_firmware.FirmwareTests.test_main_coordinator_calls_real_usb_service) ... ok\ntest_protocol_entry_and_identity_retained_in_arm_image (test_firmware.FirmwareTests.test_protocol_entry_and_identity_retained_in_arm_image) ... ok\ntest_read_only_control_contract (test_firmware.FirmwareTests.test_read_only_control_contract) ... ok\ntest_real_image_fits_reserved_envelope (test_firmware.FirmwareTests.test_real_image_fits_reserved_envelope) ... ok\ntest_startup_masks_interrupts_and_loads_msp_before_c (test_firmware.FirmwareTests.test_startup_masks_interrupts_and_loads_msp_before_c) ... ok\ntest_truncated_and_oversized_images_rejected (test_firmware.FirmwareTests.test_truncated_and_oversized_images_rejected) ... ok\ntest_usb_clock_core_and_ep0_entries_retained_in_arm_image (test_firmware.FirmwareTests.test_usb_clock_core_and_ep0_entries_retained_in_arm_image) ... ok\ntest_usb_driver_backend_symbols_and_mmio_barriers (test_firmware.FirmwareTests.test_usb_driver_backend_symbols_and_mmio_barriers) ... ok\ntest_explicit_legacy_session_with_real_components_and_register_faults (test_legacy_session.LegacySessionTests.test_explicit_legacy_session_with_real_components_and_register_faults) ... ok\ntest_actual_main_preparation_with_read_only_register_backend (test_main.MainStartupTests.test_actual_main_preparation_with_read_only_register_backend) ... ok\ntest_main_vbus_supervision_with_real_usb_components_and_register_failures (test_main_power.MainPowerTests.test_main_vbus_supervision_with_real_usb_components_and_register_failures) ... ok\ntest_main_coordinator_with_real_usb_components_and_register_failures (test_main_runtime.MainRuntimeTests.test_main_coordinator_with_real_usb_components_and_register_failures) ... ok\ntest_clock_detached_core_and_ep0_with_sanitizers (test_usb.UsbTests.test_clock_detached_core_and_ep0_with_sanitizers) ... ok\ntest_bounded_cycle_counter_backend (test_usb_driver.UsbDriverTests.test_bounded_cycle_counter_backend) ... ok\ntest_polling_ep0_packet_driver (test_usb_driver.UsbDriverTests.test_polling_ep0_packet_driver) ... ok\ntest_real_component_pipeline_with_register_faults (test_usb_service.UsbServiceTests.test_real_component_pipeline_with_register_faults) ... ok\n\n----------------------------------------------------------------------\nRan 34 tests in 19.058s\n\nOK\nBoot facts: 65536 read-only snapshots, three UID instability faults, blank IDs, serial order and canaries passed; no writes\nSUMMARY vectors=648 splits=4536 corruptions=17280 headers=65536 fuzz=10000 known_xor_collisions=2\nCurrent Panda source: 189 exact pack vectors, 648 unpack vectors; no hardware calls\n458920 request cases passed; no hardware calls\nLegacy session: 61 real-component mode/start/reset/fault/cleanup/restart scenarios pass; VBUS unknown, detached only\nMain startup: 65536 snapshots, clock/argument/UID failures, validity revocation and canaries pass; USB held, zero writes/delays\nMain VBUS supervision: 16 real-component scenarios pass; pre/post observations, fail-closed cleanup, explicit restart; no attachment\nMain USB coordinator: 51 real-component gate/start/poll/cleanup/restart scenarios pass; detached only\nUSB fake-register scenarios=19 SETUP cases=458797; no hardware calls\nUSB time: 51 delay durations, wrap, stalled/absent counter and clock/ownership guards passed\nUSB packet matrix: 32768 RX headers, 390 descriptor-length transfers, 15 controller faults passed\nUSB packet driver: reset/enumeration, descriptors, address/config, vendor query, STALL recovery and SETUP cancellation passed\nUSB service: 44 real-component startup scenarios passed; attachment disabled\n",
+      "log_sha256": "b7cb2b586a97d0a446dc77f0e049b411b55884285395d8316269be8dfb5d1d58"
+    },
+    "fresh_build": {
+      "command": ".venv/bin/python chimera/firmware/build.py --toolchain-prefix /home/radxa/.local/ocelot-build-tools/usr/bin/arm-none-eabi-",
+      "exit": 0
+    },
+    "mutations": [
+      {
+        "mutation": "legacy_vbus_is_not_measured",
+        "compile_exit": 0,
+        "run_exit": -6,
+        "stdout": "",
+        "stderr": "test: /tmp/tmpog6nqtdc/firmware/tests/legacy_session_test.c:70: main: Assertion `r.vbus == CHIMERA_VBUS_UNKNOWN && d.facts_valid && !samples' failed.\n"
+      },
+      {
+        "mutation": "exact_session_invariant",
+        "compile_exit": 0,
+        "run_exit": -6,
+        "stdout": "",
+        "stderr": "test: /tmp/tmpkb0bp1_i/firmware/tests/legacy_session_test.c:118: main: Assertion `chimera_main_poll(&r, NULL) == -1 && r.state == CHIMERA_BOOT_USB_FAILED' failed.\n"
+      },
+      {
+        "mutation": "override_release",
+        "compile_exit": 0,
+        "run_exit": -6,
+        "stdout": "",
+        "stderr": "test: /tmp/tmp33xtzi2e/firmware/tests/legacy_session_test.c:30: main: Assertion `(*cell(&f, GOTG) & OVERRIDES) == 0 && !s.owns_usb' failed.\n"
+      }
+    ],
+    "fixture_incident_reproduced": {
+      "meaning": "Reproduces initial erroneous fixture expectation: suspend condition still injected after cleanup; production correctly refaults",
+      "compile_exit": 0,
+      "run_exit": -6,
+      "stderr": "test: /tmp/tmp0vetwqd5/firmware/tests/legacy_session_test.c:146: main: Assertion `chimera_main_poll(&r, NULL) == 0 && r.vbus == CHIMERA_VBUS_UNKNOWN' failed.\n",
+      "resolution": "Final fixture asserts persistent fault reoccurs, then clears injected event before expecting successful explicit restart; no production assertion suppressed"
+    },
+    "selected_arm_disassembly": {
+      "chimera_reset": {
+        "path": "chimera/build/legacy-session-20261107/chimera_reset.disassembly.txt",
+        "sha256": "1725b1d18e8507e349741c87df5035134c9f4154b2d96e7f07053fdabcd34c73"
+      },
+      "chimera_main_start": {
+        "path": "chimera/build/legacy-session-20261107/chimera_main_start.disassembly.txt",
+        "sha256": "fa7a4bdc85deef7fb2e31380e7093f4033a772a801392d0e13316a0005bf1cbc"
+      },
+      "chimera_main_poll": {
+        "path": "chimera/build/legacy-session-20261107/chimera_main_poll.disassembly.txt",
+        "sha256": "2654551106b6c35759ac602433109074fbdb6a58f4b5cfecbba071c458d9a232"
+      },
+      "chimera_usb_service_start": {
+        "path": "chimera/build/legacy-session-20261107/chimera_usb_service_start.disassembly.txt",
+        "sha256": "4b2b56f8116844bb6cad54db8e7b587c8b7fe917761643458fa2632445283089"
+      },
+      "chimera_usb_service_start_mode": {
+        "path": "chimera/build/legacy-session-20261107/chimera_usb_service_start_mode.disassembly.txt",
+        "sha256": "bf84bd6aa49fba3b97319c163d801cc1eb2a0a925d84eef3264ba07147465397"
+      },
+      "chimera_usb_core_detached": {
+        "path": "chimera/build/legacy-session-20261107/chimera_usb_core_detached.disassembly.txt",
+        "sha256": "37207cb3a0e5799005a0dfe3e25f55b982d0b34039c40eee5f7e2087cccc2ee2"
+      },
+      "chimera_usb_core_detached_mode": {
+        "path": "chimera/build/legacy-session-20261107/chimera_usb_core_detached_mode.disassembly.txt",
+        "sha256": "fb271e660d4e4efb1efc4cc1029ba8af906027a04ebc1eff22bbd0f5c97c1838"
+      }
+    },
+    "review": "Self-review of default wrappers/explicit opt-in, validation before IO, copied immutable mode, exact invariants/readback, VBUS UNKNOWN, no mixed reader, cleanup ownership, unsupported OTG scope and physical hold. No delegated review claimed.",
+    "notebook": {
+      "command": [
+        ".venv/bin/python",
+        "Ai/verify_memory.py",
+        "--workspace",
+        "/home/radxa/comma"
+      ],
+      "exit": 0,
+      "stdout": "{\n  \"result\": \"pass\",\n  \"memory_layout\": \"regular project directory\",\n  \"documents\": 162,\n  \"relative_links\": 592,\n  \"optional_workspace_links\": 246,\n  \"source_repositories\": 8,\n  \"indexed_entries\": 4254\n}\n",
+      "stderr": ""
+    },
+    "ruff": {
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "chimera/firmware/tests/test_legacy_session.py",
+        "chimera/firmware/tests/test_firmware.py"
+      ],
+      "exit": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    },
+    "whitespace": {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "qa12_sync": "pass; identical dated question/answer in both layers; earlier unanswered entries preserved"
+  },
+  "preserved": {
+    "ocelot": {
+      "head": "d87892fa25ef2a2474110b97bfb5245ee818b534",
+      "dirty_entries": 39,
+      "files_verified": 19,
+      "status_equal_to_saved_map": true
+    },
+    "submodules": {
+      "panda": {
+        "head": "8a16e089b88593914823743df29e1c30b7dd3e00",
+        "clean": true
+      },
+      "opendbc_repo": {
+        "head": "150f937198ceab43c43b39f94b9bdea63fcb633c",
+        "clean": true
+      }
+    },
+    "archive": {
+      "head": "224cfa645134db91103c55d8188d87e7976b0ba4",
+      "clean": true
+    },
+    "canonical_dbc": {
+      "path": "/home/radxa/comma/retropilot/dbc/ocelot_controls.dbc",
+      "sha256": "b4079670b8118fe63c6a7710ca1158afaabfec7df881ef902e43d70d70a36b67"
+    },
+    "f4_reference": {
+      "commit": "69a2d3beb11ff615c7425a4908f4b8e7c8ac98e7",
+      "files_verified": 5
+    },
+    "base_power_source_hashes_verified": 7,
+    "host_camera_model_thneed": "No source changes relative to baseline; only Chimera/notebook/README changed",
+    "main.c": "Byte-identical; actual board still passes NULL profile/reader"
+  },
+  "progress": {
+    "stage_complete_percent_offline": 100,
+    "overall_estimated_complete_percent": 25,
+    "overall_estimated_remaining_percent": 75,
+    "new_firmware_hardware_validation_percent": 0,
+    "basis": "Subjective unchanged full T01-T20 planning estimate; not measured effort/readiness or proportion of tests/LOC"
+  },
+  "workflow": {
+    "teacher_first": true,
+    "skills": [
+      "incremental-implementation",
+      "test-driven-development",
+      "api-and-interface-design",
+      "git-workflow-and-versioning",
+      "code-review-and-quality",
+      "debugging-and-error-recovery",
+      "documentation-and-adrs",
+      "source-driven-development"
+    ],
+    "evidence_route": "Readable source/CMSIS definitions, native register-fake sanitizers, GNU ARM compiler/objdump; no REA provider or live result claimed",
+    "hardware_opened": false,
+    "flashed": false,
+    "upstream_updated": false,
+    "pushed": false
+  },
+  "limits": [
+    "Detached-only; actual board main has no profile/reader/pin binding; no attachment or operational USB proof",
+    "Legacy means controller session policy, not a legacy CAN/health protocol selection",
+    "VBUS/cable power remains UNKNOWN, no false PRESENT or physical power/current qualification",
+    "Any OTG summary currently faults; benign cause decoding/ACK and controlled attached lifecycle remain required",
+    "No resume or measured cable-loss/SOF/heartbeat freshness guarantee",
+    "No bulk/CAN/health/inputs/Core Config/TX/relay/OBD-C implementation; installed recovery and bench qualification open",
+    "Existing host statsd teardown issue untouched; host suites not rerun"
+  ],
+  "next": "Review OTG cause handling then controlled attached-state lifecycle offline, keeping actual board startup held; host T08b2d remains queued"
+}

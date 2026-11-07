@@ -9,6 +9,7 @@ typedef struct { uint32_t address,value; } reg;
 typedef struct {
   reg regs[48];unsigned count,reads,writes,uid_reads,failure,resets,rx_flush;
   bool cleanup_stuck,clock_gate_stuck,attach_during_poll,identity_changed_after_snapshot;
+  bool clear_session_during_poll,session_write_stuck;
 } fake;
 static uint32_t *cell(fake *f,uint32_t address) {
   for(unsigned i=0;i<f->count;++i) if(f->regs[i].address==address) return &f->regs[i].value;
@@ -37,6 +38,7 @@ static uint32_t rd(void *ctx,uint32_t address) {
   }
   if(address==0x50000014 && f->failure==15) return 1;
   if(address==0x50000014 && f->attach_during_poll) *cell(f,0x50000804)=0;
+  if(address==0x50000014 && f->clear_session_during_poll) *cell(f,0x50000000)&=~0xC0U;
   if(address==0x50000800 && f->failure==18 && f->rx_flush==1) return 0;
   return *v;
 }
@@ -49,6 +51,7 @@ static void wr(void *ctx,uint32_t address,uint32_t value) {
   bool known=false;for(unsigned i=0;i<sizeof(allowed)/sizeof(allowed[0]);++i) known|=address==allowed[i];
   assert(known); // No GPIO/CAN/watchdog/flash/config/UID writes.
   if(address>=0x50000000 && address<0x50010000) assert((*cell(f,0x40023834)&128) && !(*cell(f,0x40023814)&128));
+  if(address==0x50000000 && f->session_write_stuck) return;
   if(address==0x40023814 && ((f->failure==9 || f->cleanup_stuck) && (value&128))) return;
   if(address==0x40023814 && f->failure==11 && !(value&128)) return;
   if(address==0x40023834 && f->failure==10 && (value&128)) return;

@@ -18,6 +18,7 @@ typedef struct {
   chimera_usb_driver driver;
   enum chimera_usb_service_phase phase;
   enum chimera_usb_service_error error;
+  enum chimera_usb_session_mode session_mode;
   uint8_t owns_usb, facts_valid, cleanup_ok;
 } chimera_usb_service;
 
@@ -29,6 +30,12 @@ typedef struct {
 // No main/IRQ/GPIO/attach/watchdog call. Failure latches until explicit stop.
 bool chimera_usb_service_start(chimera_usb_service *state, const chimera_usb_io *io,
                               uint8_t self_powered, uint8_t max_power_2ma, uint32_t poll_budget);
+// Explicit policy variant; original start always selects UNFORCED. No fallback
+// for invalid mode. Legacy forces only B-session-valid while still detached,
+// never a physical VBUS claim. Mode is copied and immutable until stop/restart.
+bool chimera_usb_service_start_mode(chimera_usb_service *state, const chimera_usb_io *io,
+                                    uint8_t self_powered, uint8_t max_power_2ma, uint32_t poll_budget,
+                                    enum chimera_usb_session_mode mode);
 // Same event-budget semantics as driver; invalid budget/phase does no I/O.
 // Invariants are checked before/after polling; no connection is permitted.
 int chimera_usb_service_poll(chimera_usb_service *state, unsigned event_budget);

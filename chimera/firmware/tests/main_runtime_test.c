@@ -4,7 +4,7 @@
 #include "main.h"
 #include "usb_service_fake.h"
 
-static const chimera_main_usb_config PROFILE = {1, 0, 8, 4};
+static const chimera_main_usb_config PROFILE = {1, 0, 8, 4, CHIMERA_USB_SESSION_UNFORCED};
 // Synthetic observation for the existing detached component scenarios only.
 static enum chimera_vbus_state present(void *context) { (void)context; return CHIMERA_VBUS_PRESENT; }
 static const chimera_vbus_io POWER = {NULL, present};
@@ -155,7 +155,7 @@ int main(void) {
   // Caller config/IO are copied; progress/budget exhaustion use the real driver.
   {
     fake f; base(&f, 0); chimera_usb_io io = {&f, rd, wr, delay};
-    chimera_main_usb_config profile = {0, 50, 8, 1};
+    chimera_main_usb_config profile = {0, 50, 8, 1, CHIMERA_USB_SESSION_UNFORCED};
     chimera_main_runtime r = {0}; chimera_boot_details details = {0};
     assert(chimera_main_start(&r, &details, &io, true, &profile));
     profile.event_budget = 0; io.read32 = NULL;

@@ -72,12 +72,18 @@ static bool core_failure(const chimera_usb_io *io) {
   write_reg(io, DCTL, 2U);
   write_reg(io, GAHBCFG, 0U);
   write_reg(io, GINTMSK, 0U);
+  update(io, GOTGCTL, CHIMERA_USB_SESSION_OVERRIDE_MASK, 0U);
   update(io, GCCFG, 1U << 16, 0U);
   return false;
 }
 
 bool chimera_usb_core_detached(const chimera_usb_io *io, uint32_t poll_budget) {
-  if (!valid(io, poll_budget) || !clock_ready(io) || (read_reg(io, AHB2RSTR) & 128U) == 0U) return false;
+  return chimera_usb_core_detached_mode(io, poll_budget, CHIMERA_USB_SESSION_UNFORCED);
+}
+bool chimera_usb_core_detached_mode(const chimera_usb_io *io, uint32_t poll_budget,
+                                    enum chimera_usb_session_mode mode) {
+  if (!chimera_usb_session_mode_valid(mode) || !valid(io, poll_budget) ||
+      !clock_ready(io) || (read_reg(io, AHB2RSTR) & 128U) == 0U) return false;
   update(io, AHB2RSTR, 128U, 0U); // Reset defaults keep PHY off until SDIS is established below.
   if ((read_reg(io, AHB2RSTR) & 128U) != 0U) return false;
   write_reg(io, DCTL, 2U); // SDIS before touching/resetting the PHY.
@@ -92,7 +98,7 @@ bool chimera_usb_core_detached(const chimera_usb_io *io, uint32_t poll_budget) {
   write_reg(io, DCTL, 2U); // Reset may have cleared SDIS; PHY is still off.
   write_reg(io, GUSBCFG, (1U << 6) | (1U << 30) | (13U << 10)); // ST HCLK16MHz TRDT.
   if (!io->delay_us(io->context, 50000U) || !wait_reg(io, GINTSTS, 1U, 0U, poll_budget)) return core_failure(io);
-  update(io, GOTGCTL, (1U << 6) | (1U << 7), 0U); // No forced VBUS-valid claim.
+  update(io, GOTGCTL, CHIMERA_USB_SESSION_OVERRIDE_MASK, chimera_usb_session_override(mode));
   update(io, GCCFG, 1U << 21, 1U << 16);
   update(io, DCFG, (127U << 4) | 3U, 3U); // Address0, full-speed internal PHY.
   write_reg(io, GRXFSIZ, 128U);
@@ -103,5 +109,7 @@ bool chimera_usb_core_detached(const chimera_usb_io *io, uint32_t poll_budget) {
   if (!wait_reg(io, GRSTCTL, 1U << 31, 1U << 31, poll_budget)) return core_failure(io);
   write_reg(io, GRSTCTL, 1U << 4);
   if (!wait_reg(io, GRSTCTL, 1U << 4, 0U, poll_budget)) return core_failure(io);
+  if ((read_reg(io, GOTGCTL) & CHIMERA_USB_SESSION_OVERRIDE_MASK) != chimera_usb_session_override(mode))
+    return core_failure(io);
   return true; // Still disconnected; no interrupt, GPIO, endpoint or FIFO traffic.
 }

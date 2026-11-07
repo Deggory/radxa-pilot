@@ -119,7 +119,7 @@ class FirmwareTests(unittest.TestCase):
 
   def test_main_coordinator_calls_real_usb_service(self):
     elf = str(self.out / "first/chimera.elf")
-    for function, calls in (("chimera_main_start", ("chimera_main_prepare", "chimera_usb_service_start")),
+    for function, calls in (("chimera_main_start", ("chimera_main_prepare", "chimera_usb_service_start_mode")),
                             ("chimera_main_poll", ("chimera_usb_service_poll",)),
                             ("chimera_main_stop", ("chimera_usb_service_stop",))):
       result = run(PREFIX + "objdump", "-d", "--disassemble=" + function, elf)

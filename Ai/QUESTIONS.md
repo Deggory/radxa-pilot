@@ -1,3 +1,47 @@
+## QA-20261107-12 — Implement explicit legacy no-VBUS session mode
+
+**Date:** November7,2026 UTC.
+**Owner request (faithful quote):** "proceed".
+**Context (labelled paraphrase):** Continue from the owner-identified Ocelot base
+power trace, implementing an explicit no-sense USB policy without enabling the board.
+
+**Answer:** Implemented validated UNFORCED(default) and explicit LEGACY_NO_VBUS
+controller/service modes. Legacy sets the original B-session-valid override while
+remaining soft-disconnected; it does not measure cable voltage. Main copies the
+mode and requires no VBUS reader for legacy; physical VBUS remains UNKNOWN.
+Legacy names controller session/power policy only; no old CAN/health format is
+selected. Invalid/mixed/mismatched selections fail without choosing another mode.
+Reset cancels old EP0 address/configuration/generation, exact mode bits and PHY/
+VBDEN settings are checked around polling, faults invalidate the snapshot and
+accessible cleanup clears overrides. Failed release retains ownership for explicit
+retry. Actual main.c is unchanged and still passes NULL profile/reader, so no
+physical USB connection or descriptor power profile is enabled.
+
+**Evidence/source pin:** Baseline radxa/q8bb3ff3d26e4d71e9d7b68dd6a7b3a94310b5cfe7e;
+new mode API in usb_hw.h/c, usb_service.h/c and main.h/main_runtime.c; driver rejects
+unsupported OTG summary in addition to role/suspend faults. Original Ocelot source
+and pinned ST F413 CMSIS V2.6.0 define the used bits. Actual sources/build/tests are
+pinned in sunnypilot/Ai/Evidence/chimera-legacy-session-20261107.json.
+34firmware tests pass, including61new real-component ASan/UBSan scenarios, ARM/
+deterministic/linker checks and three caught mutations. The initial restart fixture
+incorrectly expected success while leaving its injected suspend bit set; it now
+asserts that refault, then removes the condition before healthy restart. No
+production weakening or assertions suppressed. New raw8316/globals260/stack4096,
+SHA745f66c5c408a8c046c6c7ed3f3c3edc576b9743b9a0b35d860770a1f24e8826.
+
+**Status/limits/progress:** T03c3b100% implemented/tested offline; full rough roadmap
+about25% complete/75% remaining, new-firmware hardware validation0%. No actual
+VBUS/cable-loss detection, resume or host-activity deadline is claimed. OTG summary
+causes are not yet decoded/acknowledged and even benign summary events currently
+fault; that policy must be reviewed before attached operation. Next OTG cause
+handling and controlled attached-state lifecycle offline. Actual power/profile/
+pins/installed recovery/bench, bulk/CAN/health/inputs/Core Config/MCU TX remain
+later work. HostT08b2d queued. No hardware/flash/config/actuation/update/push.
+Earlier unanswered items retained; QA11's proposed mode is now implemented only
+within the detached/offline scope above. No REA provider or live result fabricated.
+
+---
+
 ## QA-20261107-11 — Continue using the Ocelot base schematic
 
 **Date:** November7,2026 UTC.

@@ -163,7 +163,8 @@ int chimera_usb_driver_poll(chimera_usb_driver *d,unsigned event_budget) {
   bool progress=false;
   for(unsigned i=0;i<event_budget;++i) {
     uint32_t events=rd(d,0x14);
-    if((events&(1U|(1U<<11)))!=0U) return failure(d); // Wrong mode/suspend: no qualified resume policy yet.
+    // Unsupported role/OTG summary/suspend: no qualified resume or session policy yet.
+    if((events&(1U|4U|(1U<<11)))!=0U) return failure(d);
     if((events&(1U<<12))!=0U) {
       if(!reset_bus(d)) return failure(d);
       wr(d,0x14,1U<<12);

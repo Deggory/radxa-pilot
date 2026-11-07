@@ -8,13 +8,20 @@ November7 owner priority: continue the new firmware path, work on main.c first.
 T03c1/c2/c3a checked snapshot, detached coordinator and sensed supervision are
 complete offline. Owner identifies Ocelot as the base circuit with I/O added.
 T01b traced both base drawings: shared5V supply and no MCU VBUS sensing route.
-Next is an explicit opt-in legacy no-VBUS session mode derived from the original
-initializer, with detached core/service/invariant and loss/reset tests. Do not
-fabricate a PRESENT reader or repurpose retained inputs. Actual profile/attachment,
-installed recovery and bench qualification remain pending; main remains held.
+T03c3b now implements explicit legacy no-VBUS session mode through detached core,
+service and main coordinator;34firmware tests/61new scenarios pass offline.
+Next: reviewed OTG cause handling and controlled attached-state lifecycle offline.
+Do not fabricate a PRESENT reader or repurpose retained inputs. Actual board
+profile/pins, attachment, installed recovery and bench qualification remain pending;
+main remains held.
 Host T08b2d stays queued. After each stage report overall estimate(about25%) and
 new-firmware physical validation(0%) separately.
 [Base power](../docs/OCELOT_BASE_POWER.md), [progress](../docs/PROGRESS_EXPLAINED.md).
+
+T03c3b completed slice — explicit legacy no-VBUS session (offline):
+- [x] Add validated unforced(default)/legacy modes to detached core/service preparation; legacy selects only B-session override, no VBDEN/attachment, no silent fallback.
+- [x] Main config copies explicit mode; legacy polling keeps VBUS UNKNOWN and rejects a supplied reader. Preserve mode invariants, reset/suspend/OTG-fault cleanup and explicit restart without retaining overrides.
+- [x] Real-component sanitizer/fault tests, full firmware/ARM checks, docs, percentage checkpoint and local commit. Actual main profile remains NULL; no hardware/flash.
 
 T03c3a completed slice — observed VBUS supervision (offline):
 - [x] Main polling requires a fresh PRESENT observation before and after each service poll; missing/unknown/invalid/absent observations stop the detached service and revoke the snapshot.
@@ -49,6 +56,7 @@ future T02/T05/T08 fixtures; no new firmware integration or task completion.
 - [x] T03c1 Main calls checked boot snapshot preparation; explicit clock/facts/error/USB_HELD diagnostics and30offline firmware tests. No USB service/attachment or CAN/input startup.
 - [x] T03c2 Main detached USB lifecycle coordinator, UID continuity, bounded polling, cleanup/explicit restart;32offline tests/51new integration scenarios pass. Board NULL profile stays held; physical qualification remains open.
 - [x] T03c3a Observed VBUS supervision before/after bounded poll, unknown/lost cleanup and explicit restart;33offline tests/16new scenarios pass. Physical reader/profile/attachment remain unbound.
+- [x] T03c3b Explicit legacy no-VBUS session mode, exact invariants, truthful UNKNOWN status, reset/fault/cleanup/restart behavior;34offline tests/61new scenarios. No attachment or hardware qualification.
 - [x] T05a Bootstrap status/capability contract and strict pure decoder; response interoperability/rejection fixtures pass offline. No operational health/profile admission.
 - [x] T08b2c Typed field-availability metadata and normal consumer guards;124Python/10native/sanitizer/mutation checks pass offline. No ordinary USB status publication.
 - [x] T08b2b Offline source-backed legacy PandaState preview, explicit unavailable fields and strict conflict/fault/width validation; no publication/admission.
@@ -62,7 +70,7 @@ future T02/T05/T08 fixtures; no new firmware integration or task completion.
 | --- | --- | --- |
 | T01 | Board GPIO/reset behavior, flash/config partitions and recovery boundaries | T01a/b board/flash contract and owner-identified base power trace complete; no MCU VBUS detector in base; installed recovery/electrical qualification pending |
 | T02 | Distinct identity, legacy/current protocol profiles, RPC matrix and explicit bus/input source contracts | T02a/b complete offline; operational health/capability/config ABI and new-profile host admission remain pending |
-| T03 | Minimal F413 target, reviewed support/linker and offline image budget | T03a/b1/b2/b3a/b3b and c1/c2/c3a checked snapshot, conditional service coordinator and observed-power supervision complete offline; board profile held, attachment/power/VBUS/recovery pending |
+| T03 | Minimal F413 target, reviewed support/linker and offline image budget | T03a/b1/b2/b3a/b3b and c1/c2/c3a/c3b checked snapshot, coordinator, observed supervision and explicit legacy session complete offline; board profile held, attachment/power/VBUS/recovery pending |
 | T04 | Modern six-byte/XOR classical CAN USB codec with stream/vector checks | Complete offline; no endpoint/CAN-controller binding or TX permission |
 | T05 | Exact identity/version/health responses, legacy F4 status adaptation and fail-disabled state | T05a bootstrap, T05b health59 and T05c CAN-health5 decode/read helpers complete offline; publication and new Chimera operational health pending |
 | T06 | Native Sunnypilot USB transport and offline failure tests | Offline transport implemented (T06a/b); managed use remains T08 |

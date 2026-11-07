@@ -1,3 +1,9 @@
+November7 T03c3b: the explicit legacy no-VBUS session policy is implemented and
+verified offline; physical VBUS stays UNKNOWN, board main stays held.34firmware
+tests pass with61new real-component scenarios. Stage100%; full roadmapabout25%/
+75% remaining; new-firmware hardware validation0%. Next OTG/attached-state lifecycle.
+[Current details](USB_LEGACY_SESSION.md). Earlier checkpoint wording follows.
+
 # Chimera progress in plain language
 
 November7 correction: owner identifies Ocelot as Chimera's base with added I/O.
@@ -24,6 +30,7 @@ A completed substage need not increase the rounded overall estimate.
 | Inherited T03c2 baseline | Implemented and verified offline | About25% |0% |
 | T03c3a observed VBUS supervision |100% of this slice implemented/verified offline;33tests incl16new scenarios | About25% /75% remaining |0% |
 | T01b owner-identified base power trace |100% of source-audit slice complete;36source checks, no firmware change | About25% /75% remaining |0% |
+| T03c3b explicit legacy no-VBUS session |100% of detached mode slice verified offline;34tests/61new scenarios | About25% /75% remaining |0% |
 
 The new code stops detached USB on missing/unknown/absent/invalid observations,
 checks again after a bounded poll and requires explicit cleanup/restart. Main

@@ -1,5 +1,12 @@
 # Observed VBUS supervision — T03c3a, November 7, 2026
 
+November7 T03c3b: explicit legacy no-VBUS controller/service mode is now
+implemented and tested offline. Default entry points remain unforced. Main copies
+the selected mode; legacy requires NULL reader and keeps physical VBUS UNKNOWN.
+Actual board main still selects NULL profile/reader and stays held.34firmware
+tests pass; attachment/OTG cause handling and live qualification remain pending.
+[Current session contract](USB_LEGACY_SESSION.md). Earlier checkpoints follow.
+
 November7 owner clarification/source correction: Ocelot is the Chimera base
 circuit with added I/O. Traced gateway schematic/board and Pro source/original PDF:
 VBUS feeds shared5V through a diode; neither supplies an MCU VBUS detector. The

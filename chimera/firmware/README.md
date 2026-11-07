@@ -1,12 +1,12 @@
 # Chimera firmware
 
-November7 T03c3a: main polling now checks fresh VBUS observations before/after each
-service poll and stops on lost/unknown/invalid/missing observations.33offline tests
-pass (16new power scenarios plus existing51coordinator scenarios). The board build
-still uses NULL profile/reader and stays USB_HELD; no detector or attachment is
-bound. Current unsigned raw8108bytes/globals256, unflashed.
-[Startup](../docs/MAIN_STARTUP.md), [power supervision](../docs/USB_POWER_SUPERVISION.md).
-Overall planning estimate:about25%; new-firmware physical validation:0%.
+November7 T03c3b: explicit legacy no-VBUS session policy now runs through core,
+service and main coordinator offline. Default APIs stay unforced; legacy keeps
+physical VBUS UNKNOWN and still cannot attach.34firmware tests pass, including
+61new real-component mode/reset/fault/cleanup/restart scenarios under ASan/UBSan.
+Actual main.c remains unchanged with NULL profile/reader. Current unsigned raw8316,
+globals260, unflashed. [Session contract](../docs/USB_LEGACY_SESSION.md).
+Overall planning estimate:about25%; new-firmware hardware validation:0%.
 
 This is the first application-only STM32F413 bootstrap target. It builds offline;
 it is not a modern Panda USB implementation or a flashable release yet.

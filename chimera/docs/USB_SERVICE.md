@@ -1,5 +1,11 @@
 # Detached USB startup/service composition
 
+November7 T03c3b adds validated explicit UNFORCED/LEGACY_NO_VBUS policy variants.
+The old entry selects unforced; legacy forces only B-session validity while still
+soft-disconnected. Exact mode/VBDEN invariants, reset/fault cleanup and mode reset
+on stop are tested offline.34firmware tests pass; board main remains held.
+[Current contract](USB_LEGACY_SESSION.md). Prior checkpoints below are historical.
+
 November7 T03c2: main now instantiates the service inside its lifecycle runtime.
 The production NULL profile keeps it unstarted/held; explicit offline profiles
 exercise detached start/poll/stop/restart and identity continuity.32firmware tests

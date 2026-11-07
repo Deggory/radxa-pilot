@@ -1,3 +1,26 @@
+## November7 — Explicit legacy no-VBUS session implemented offline (T03c3b)
+
+Owner "proceed" continues the owner-identified Ocelot base circuit; no repeated
+schematic question. Core/service expose validated UNFORCED(default) and explicit
+LEGACY_NO_VBUS modes. Legacy sets only BVALOEN/BVALOVAL, VBDENoff, SDISstillset.
+Main copies/validates mode; legacy requires NULL reader and keeps VBUS UNKNOWN.
+Mixed/invalid/mismatched modes reject; no fallback. Exact mode/PHY/VBDEN invariants,
+core readback, reset cancellation and accessible override cleanup are tested.
+Suspend/wrong-role/OTG summary faults stop; OTG causes are not decoded yet (even
+benign summary currently unsupported). Cleanup failures retain ownership until
+explicit retry; successful stop resets mode. Actual main.c unchanged, NULL profile/
+reader, no attachment/pin/descriptor-power profile selected. No device/flash/TX.
+34firmware tests pass incl61new real-component ASan/UBSan scenarios, three caught
+mutations, ARM/copy/linker checks. Fixture initially left injected suspend set;
+now asserts refault, then clears actual condition before healthy explicit restart.
+No production weakening. Raw8316/globals260/stack4096, SHA745f66c5c408a8c046c6c7ed3f3c3edc576b9743b9a0b35d860770a1f24e8826.
+25inputs:7changed/18unchanged. Ocelot39dirty/19hashes, archive/DBC/submodules and
+host/model/camera/Thneed preserved. Baselineb3ff3d26e; evidence student Ai/Evidence/chimera-legacy-session-20261107.json.
+Stage100% offline; overallabout25%/75% remaining; new-firmware physical0%.
+Next reviewed OTG cause handling and controlled attached-state lifecycle offline;
+actual board power/pins/installed recovery/bench remain pending. HostT08b2d queued.
+Updates held; no push. QA-20261107-12/source contracts pin actual implemented scope.
+
 ## November7 — Owner identifies Ocelot base; power trace changes next step (T01b)
 
 Owner correction: "see on ovelot foldeer the sch is same onli i/o is added".

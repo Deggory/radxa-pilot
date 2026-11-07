@@ -1,5 +1,12 @@
 # Main startup — November 7, 2026
 
+November7 T03c3b: explicit legacy no-VBUS controller/service mode is now
+implemented and tested offline. Default entry points remain unforced. Main copies
+the selected mode; legacy requires NULL reader and keeps physical VBUS UNKNOWN.
+Actual board main still selects NULL profile/reader and stays held.34firmware
+tests pass; attachment/OTG cause handling and live qualification remain pending.
+[Current session contract](USB_LEGACY_SESSION.md). Earlier checkpoints follow.
+
 November7 owner clarification/source correction: Ocelot is the Chimera base
 circuit with added I/O. Traced gateway schematic/board and Pro source/original PDF:
 VBUS feeds shared5V through a diode; neither supplies an MCU VBUS detector. The
@@ -53,7 +60,7 @@ coordinator handles ordinary bounded start/poll/stop failures. No session-valid
 override, PA9 repurposing, watchdog feed, flash/options/settings writes, CAN/input
 operation or USB attachment is added. Quiet GPIO intent is not electrical proof.
 
-Verification:33firmware tests pass with warnings as errors. New native coordinator
+Verification:34firmware tests pass with warnings as errors. New native coordinator
 fixture links actual preparation/service/clock/timing/core/EP0/driver components
 under ASan/UBSan and covers51 startup, polling, ownership, cleanup and restart
 scenarios. Shared fake registers reject unclocked USB access, unexpected register
@@ -65,21 +72,21 @@ The new power fixture adds16pre/post observation and cleanup/restart scenarios.
 Both before/after power-guard mutations fail. No board run, flash or physical
 measurement is claimed.
 
-Current unsigned raw image8108bytes, projected legacy envelope8244bytes,
-globals256bytes, reserved stack4096bytes, no undefined symbols. SHA256:
-`b2c62ee6d05d5b6c720633daf4d34c2aecb3ca15166926a10257d54a9a7f7bb3`.
-Build report still pins25source/header files. Relative to T03c2, main.c/main.h/
-main_runtime.c change;22other inputs remain byte-identical. The prior8032-byte
-image/report is preserved in ignored evidence; historical receipts are unchanged.
-The local VBUS observation is cleared on startup/stop/exception and is not USB health.
-See [observed power supervision](USB_POWER_SUPERVISION.md).
+Current unsigned raw image8316bytes, projected legacy envelope8452bytes,
+globals260bytes, reserved stack4096bytes, no undefined symbols. SHA256:
+`745f66c5c408a8c046c6c7ed3f3c3edc576b9743b9a0b35d860770a1f24e8826`.
+Build report still pins25source/header files. Relative to T03c3a/T01b, seven inputs
+change (main.h, main_runtime.c, usb_hw.c/h, usb_service.c/h, usb_driver.c),18remain
+unchanged. Actual main.c remains byte-identical and selects no profile. Previous
+8108-byte artifacts are preserved; historical receipts remain unchanged.
 
 Next: establish the board power/profile/VBUS and installed recovery facts, then
 specify the attachment/cable-loss policy before enabling a connection. Bulk/CAN/
 operational health, inputs, Core Config and MCU TX policy remain later slices.
 Host T08b2d passive publication/reconnect remains queued behind main-first work.
 
-[Current receipt](../../Ai/Evidence/chimera-main-power-20261107.json),
+[Current receipt](../../Ai/Evidence/chimera-legacy-session-20261107.json),
+[T03c3a receipt](../../Ai/Evidence/chimera-main-power-20261107.json),
 [T03c2 receipt](../../Ai/Evidence/chimera-main-runtime-20261107.json),
 [prior T03c1 receipt](../../Ai/Evidence/chimera-main-startup-20261107.json),
 [power/recovery requirements](USB_STARTUP_REQUIREMENTS.md).

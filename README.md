@@ -9,18 +9,16 @@ preserved on `master`; project development is on `radxa/q8b`.
 [`chimera/`](chimera/README.md), with USB-only Radxa host support in
 `openpilot/selfdrive/pandad/`. Legacy identification, passive CAN/diagnostics,
 exact status decoding and availability consumer checks are tested offline.
-The new F413 main now coordinates checked startup, detached USB polling and
-explicit failure cleanup/restart with pre/post VBUS supervision;33firmware tests
-pass. Overall planning estimate:about25%; new-firmware hardware validation:0%.
-Its board build still
-supplies no power profile and stays held. No new firmware has been flashed.
+The new F413 startup coordinates detached USB polling, failure cleanup and
+explicit restart with selectable unforced/legacy session policy. All34firmware
+tests pass. Overall planning estimate:about25%; new-firmware hardware validation:0%.
+The board build supplies no power profile and stays held. No new firmware has been flashed.
 
-**Next:** implement an explicit legacy no-VBUS session mode offline. The owner
-identifies Ocelot as Chimera's base circuit with added I/O; the
-[power trace](chimera/docs/OCELOT_BASE_POWER.md) shows no MCU VBUS detector.
-Actual attachment, power/recovery and bench qualification remain pending.
-Host passive status publication/reconnect stays queued behind main-first work.
-See the [handoff](Ai/HANDOFF.md) and [saved audit](Ai/Reports/chimera-audit-20261106/README.md).
+**Next:** reviewed OTG cause handling and controlled attached-state lifecycle
+in offline tests. The [legacy no-VBUS mode](chimera/docs/USB_LEGACY_SESSION.md)
+is implemented; physical VBUS remains unknown and board attachment remains held.
+Actual power/pin/recovery and bench qualification are pending. Host passive status
+publication/reconnect stays queued. See the [handoff](Ai/HANDOFF.md).
 
 | Area | Earlier bench snapshot — November 4, 2026 |
 | --- | --- |

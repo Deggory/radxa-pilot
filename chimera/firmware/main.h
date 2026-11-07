@@ -48,6 +48,7 @@ typedef struct {
   uint8_t self_powered, max_power_2ma;
   uint32_t poll_budget;
   unsigned event_budget;
+  enum chimera_usb_session_mode session_mode;
 } chimera_main_usb_config;
 typedef struct {
   chimera_usb_service usb;
@@ -69,7 +70,7 @@ typedef struct {
 // before retry. This lifecycle is not flashing/DFU or proven hardware recovery.
 bool chimera_main_start(chimera_main_runtime *runtime, volatile chimera_boot_details *details,
                         const chimera_usb_io *io, bool clock_ready, const chimera_main_usb_config *config);
-// Require fresh PRESENT observations before and after each bounded service poll.
+// UNFORCED requires fresh PRESENT observations before and after each service poll.
 // NULL/missing/invalid/unknown/absent observations latch USB_POWER and release the
 // detached service. Never attach. A service failure retains its cause without a
 // further sample. Non-detached states do no IO, including no power sampling.
@@ -79,6 +80,9 @@ bool chimera_main_start(chimera_main_runtime *runtime, volatile chimera_boot_det
 // No debounce, calibration, elapsed response bound or detector wiring implied.
 // Return service result (0 idle, 1 progress, 2 budget exhausted), or -1. Failures
 // revoke the external snapshot; no automatic restart on later power restoration.
+// Explicit LEGACY_NO_VBUS requires vbus==NULL and keeps the observation UNKNOWN.
+// It polls the detached service without physical power sensing; a supplied reader
+// or invalid/mismatched mode fails with USB_ARGUMENT, never silently falls back.
 int chimera_main_poll(chimera_main_runtime *runtime, const chimera_vbus_io *vbus);
 // Explicit cleanup/retry; success invalidates facts and permits a fresh start.
 // Successful stop retains prior diagnostics until next start; failed stop records

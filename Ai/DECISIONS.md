@@ -1,3 +1,19 @@
+## November7 — Explicit detached legacy policy without physical power claims
+
+T03c3b uses owner-identified base-circuit evidence and original F413 B-session
+behavior. Keep old core/service entry points unforced; add explicit validated
+mode variants, never automatic no-sense fallback. Main owns copied mode and
+requires NULL reader in legacy, preserving UNKNOWN physical VBUS. Invariant:
+exact B-session overrides only, no A override, VBDENoff, SDISset, no IRQ/DMA.
+Clear accessible overrides on failure/release, retain failed ownership and require
+explicit stop/restart. A repeated injected fault must refault after reprepare.
+No default board activation, descriptor-power guessing, fake PRESENT or input
+repurposing. OTG summary is currently terminal; normal cause/ACK/attached lifecycle
+needs a later reviewed slice before live operation. Keep main NULL profile/reader.
+34offline tests/61new scenarios and three detected mutations support this slice,
+not board readiness. Overallabout25%, physical0%. Source receipt:
+student Ai/Evidence/chimera-legacy-session-20261107.json. Next OTG/attached-state work.
+
 ## November7 — Apply owner-identified base circuit; plan explicit no-VBUS mode
 
 Owner says Ocelot schematic is Chimera's base with I/O added. Treat that as the

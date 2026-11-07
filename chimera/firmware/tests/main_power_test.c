@@ -4,7 +4,7 @@
 #include "main.h"
 #include "usb_service_fake.h"
 
-static const chimera_main_usb_config PROFILE = {1, 0, 8, 1}; // Synthetic only.
+static const chimera_main_usb_config PROFILE = {1, 0, 8, 1, CHIMERA_USB_SESSION_UNFORCED}; // Synthetic only.
 typedef struct { enum chimera_vbus_state before, after; unsigned samples; } power;
 static enum chimera_vbus_state sample(void *ctx) {
   power *p = ctx;
