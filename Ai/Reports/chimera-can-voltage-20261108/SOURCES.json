@@ -44,5 +44,15 @@
     "parent_product": "USB2.0 Hub",
     "observed": "fresh lsusb -t and cached sysfs descriptors; no device vendor request"
   },
-  "next": "Compare 5V/3.3V with short known-good USB cable and direct Radxa port; no physical change yet"
+  "next": "Compare 5V/3.3V with short known-good USB cable and direct Radxa port; no physical change yet",
+  "ignition_input_followup": {
+    "question": "QA-20261108-35",
+    "owner_report": "IGN not showing voltage",
+    "owner_pin_identification": "Input beside VSS/CPS/BRAKE",
+    "owner_reported_voltage_V": 0,
+    "wiki_role": "external car ignition input, 12V when on; powers board without USB and connected non-relay devices",
+    "source_role": "PA3 input behind board circuitry; ignition controls relay/OBD-C; CAN startup enable independent",
+    "guidance": "No IGN connection prescribed for USB raw-CAN test; verify USB rail feed first",
+    "actual_header_net_and_installed_image_qualification": "not measured"
+  }
 }

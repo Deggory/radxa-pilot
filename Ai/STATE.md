@@ -1,3 +1,12 @@
+## November 8 — Zero-voltage IGN is the external input (QA35)
+
+Owner identifies IGN beside VSS/CPS/BRAKE, not CAN2 pin 1. Unconnected input at 0 V
+is expected, not proof USB/CAN needs ignition. Wiki documents car ignition at 12 V when on;
+MCU PA3 reads conditioned logic; ignition drives relay/OBD-C while CAN startup
+is separate. No IGN jumper/feed prescribed for current USB raw-CAN test.
+See voltage-report follow-up; source baseline 775de304. No hardware/code change.
+Next direct USB supply comparison/electrical diagnosis; holds retained.
+
 ## November8 — Reported CAN1.15V / USB5V rail4.5V (QA34)
 
 Owner measured each CANH/L~1.15VtoGND and labelled5Vrail4.5V;labelled3.3Vrail3.35V.

@@ -24,3 +24,15 @@ reported4.5V remains the lower referenceVCC boundary. Fresh lsusb -t/sysfs
 identifies Chimera3-4.1behind VIA2109:2812USB2.0hub. A short-cable/direct-port
 comparison is proposed, not performed and not a demonstrated hub defect.
 No more vendor/device/MCU/CAN action; source/report/QA updated with actual reply.
+
+## IGN input follow-up (QA35)
+
+Owner asks zero-voltage IGN and explicitly requests code/wiki review; confirms
+input beside VSS/CPS/BRAKE. Reopened official Chimera guide and read source input/
+relay/OBD-C/CAN startup ranges. Explained expected unconnected input at 0 V, nominal external
+car ignition 12 V role versus MCU-conditioned input and CAN power/initialization independence.
+No connection/relay/power change or CAN fix inferred; USB feed diagnosis remains.
+Source baseline 775de304; selected source hashes and fresh notebook/QA/whitespace/
+clean readback in central IGN_INPUT_FOLLOWUP.json. Documentation/Git/source-first
+workflow; no unrelated binary/REA, gate or fresh firmware/runtime test. No push
+or resumed held work. Measurement/board equivalence limits retained.

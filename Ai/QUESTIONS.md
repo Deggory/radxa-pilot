@@ -1,3 +1,14 @@
+## QA-20261108-35 — Zero volts at the IGN input: should anything be connected?
+
+**Date:** November 8, 2026 UTC.
+**Owner question (faithful quote):** "see the ingintion pin is not showing any voltage ,should i need to connect anyting ,see the code and wiki page of retroplot".
+**Owner clarification (faithful quote):** "Input beside VSS/CPS/BRAKE".
+**Answer:** This is the external ignition input, not an output that USB should raise. 0 V is expected when an ignition source is not connected; it does not establish a board fault or explain zero CAN. The official Chimera wiki labels it a car ignition feed, nominal 12 Vwhenon, and distinguishes the ignition-poweredCANconnector pins. Saved main.c configures/reads PA3 input (MCU side behind board conditioning), then uses line-or-CAN ignition for PB0 relay/PB1 OBD-C state. gateway_init enables CAN transceivers independently at startup, and the accepted base circuit feeds CAN 5 V from USB. Therefore no ignition bridge/feed is prescribed for our present USB/Waveshare receive test. Leave this input unconnected while checking USB supply quality and CAN electrical conditions; applying ignition can alter relay/power state and is not a proven CAN fix. The documented automotive 12 V input is not the MCU pad or permission to inject 12 V into USB/5V/3.3V/CAN pins.
+**Evidence/source pins:** Baseline 775de30459a7b2418d573f9d7f2854c1186a12c6; current preserved chimera_old main.c:1026/1030/1186, boards/gateway.h:94; student Ai/Reports/chimera-can-voltage-20261108 follow-up/SOURCES.json and accepted chimera/docs/OCELOT_BASE_POWER.md. Official https://wiki.retropilot.org/index/hardware/chimera reopened November 8sensor-input/12Vpower/CANpinout sections. Central same report IGN_INPUT_FOLLOWUP.json records actual source/readback/validation. Related QA34 readings 1.15 V CANH/L,4.5 V labelled 5 V,3.35 V labelled 3.3 V retained.
+**Status/limits:** Source/wiki answer and synchronized notes only; no new physical measurement, power/IGN connection, USB/CAN/drive/relay/config/flash action or product/firmware/DBC/model/update/push change. Exact installed source/MCU-enable/added-I/O power switching remains unmeasured; source is not board-equivalence proof. Next direct-port/short-cable supply comparison, then qualified CAN electrical diagnosis. USB-only/printed CAN2 and existing rewrite/update holds/unanswered entries preserved.
+
+---
+
 ## QA-20261108-34 — CAN wires at1.15V, USB5V rail at4.5V, and ignition requirement
 
 **Date:** November 8, 2026 UTC.

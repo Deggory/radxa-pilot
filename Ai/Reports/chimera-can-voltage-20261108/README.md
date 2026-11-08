@@ -53,3 +53,34 @@ their root cause. Debugging and documentation/Git skills plus source-first
 hardware/datasheet evidence used; no unrelated REA binary task or completion
 gates required for this factual follow-up. Actual36source/notebook/QA/whitespace
 checks and final commit/readback are retained centrally.
+
+## IGN input clarification — November 8 (QA35)
+
+Owner reports 0 V and confirms the measured terminal is the separate IGN input
+beside VSS/CPS/BRAKE, not CAN2 pin 1. An unconnected input is not expected to
+produce an ignition voltage from USB. The official Chimera wiki identifies it
+as a car ignition input, nominal 12 V when the car is on, which can power the
+board without USB and supply the non-relay ignition-powered peripherals.
+CAN connector pin 1 labelled IGN is a separate documented power-distribution role;
+this terminal identification does not trace every physical connection between
+those nets on this specific Chimera revision.
+
+Fresh source inspection: main.c:1186 configures PA3 as an input with pull-up and
+main.c:1026 reads its active-low logical state. These are MCU-side pins behind
+board conditioning, not an instruction to apply 12 V to MCU PA3. The loop uses
+line-or-CAN ignition to drive PB0 relay and PB1 OBD-C ignition. gateway_init enables
+all 3 CAN transceivers and normal mode without an ignition condition. The accepted
+base circuit routes USB through a diode to shared 5 V/CAN VCC and downstream 3.3 V.
+Actual installed de193215 source equivalence and transceiver state remain open.
+
+For the current USB/Waveshare raw-reception test, leave this IGN input
+unconnected rather than bridge it to a USB/logic rail or add an unqualified
+12V feed as a guessed CAN fix. Asserting ignition can switch relay/power state;
+this is a separate reviewed bench-power/ignition test, not performed here.
+The existing low 5 V rail/direct-USB-cable comparison and CAN electrical checks
+remain the next diagnostic step. No new hardware action or drive test.
+
+Primary [RetroPilot Chimera wiki](https://wiki.retropilot.org/index/hardware/chimera)
+reopened November 8; source hashes/owner clarification in SOURCES.json and the
+central IGN_INPUT_FOLLOWUP.json. No firmware/application/DBC change, flash,
+relay/heartbeat/config write, upstream update or push; previous holds retained.
