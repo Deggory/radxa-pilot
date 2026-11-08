@@ -1,3 +1,19 @@
+## November 8 — Owner reflash retest: same application, still zero CAN (QA66)
+
+Exact original Chimera detected USB003/024; same version/full nightly signature
+and same valid saved776-byte config. Raw4s/2047reads before and12s/6134reads
+after one guarded DE/bus2/index5000request both0bytes. Native15.114s/1420batches/
+15health0frames on all buses, exit0; readers closed. Runtime500krequest completed,
+not BTR proof; flash unchanged. No flash/reset/dataTX/product/upstream action.
+Owner confirms sensor powered from separate12V/onCAN2/common ground for retest;
+previous numeric voltages are not fresh post-reflash measurements.
+Resistance never supplied (k=ack); physical checks held by owner’s code-only
+instruction; later reflash retest authorized this run. See new reflash report.
+QA65partial code review found can_init alwaysfalse return, also in matching
+image; calls still execute, so not a proven zero-RX cause. No code fix/flash.
+Next code-side controller/filter/error-observability review; no new hardware
+measurement request. Existing implementation/upstream holds retained.
+
 ## November 8 — CAN2_TERM jumper fitted; resistance check pending (QA64)
 
 Owner reports “Jumper fitted” at Chimera CAN2_TERM. Visual position only:

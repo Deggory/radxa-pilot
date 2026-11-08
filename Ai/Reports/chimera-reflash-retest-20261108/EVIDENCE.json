@@ -1,0 +1,240 @@
+{
+  "identity": {
+    "board": {
+      "bus": 3,
+      "address": 24,
+      "pid": 56780,
+      "product": "Chimera",
+      "serial": "3a0044001651333038373636"
+    },
+    "out_requests": 0,
+    "version": "v1.0.0-DEV-de193215-DEBUG",
+    "signature_sha256": "e9a44094a2440fd3621b45fe9d30b505b3abeab29e340e42bf38542620255e5b",
+    "signature_matches_previous_nightly": true,
+    "health_hex": "3b000000000000000000000000000000000000000000000000000000000000000000000000001100000000",
+    "health_length": 43,
+    "closed": true
+  },
+  "runtime_test": {
+    "board": {
+      "bus": 3,
+      "address": 24,
+      "pid": 56780,
+      "product": "Chimera",
+      "serial": "3a0044001651333038373636"
+    },
+    "authorization": "owner reflash retest; prior temporary500k authorization persists",
+    "command_completed": true,
+    "live_BTR_register_read": false,
+    "flash_write_sent": false,
+    "reset_sent": false,
+    "CAN_data_sent": false,
+    "config_valid": true,
+    "sys_entry": {
+      "debug_level": 3,
+      "can_out": 15,
+      "watchdog": false,
+      "mode": 0,
+      "override_threshold": 0,
+      "speeds": [
+        5000,
+        5000,
+        0,
+        0
+      ]
+    },
+    "version": "v1.0.0-DEV-de193215-DEBUG",
+    "signature_match": true,
+    "config_before_sha256": "4b025b9e65b10475013ed39f8d4e66abf780a7cbe6ebf18833d952e46ffe3b22",
+    "config_after_sha256": "4b025b9e65b10475013ed39f8d4e66abf780a7cbe6ebf18833d952e46ffe3b22",
+    "flash_config_unchanged": true,
+    "usb_closed": true,
+    "error": null,
+    "OUT_count": 1
+  },
+  "captures": {
+    "before": {
+      "duration_seconds": 4.000564312998904,
+      "polls": 2047,
+      "usb_payload_bytes": 0,
+      "length_histogram": {
+        "0": 2047
+      },
+      "return_codes": {
+        "0": 2047
+      },
+      "trailing_bytes": 0,
+      "total_records": 0,
+      "per_bus_records": {
+        "0": 0,
+        "1": 0,
+        "2": 0
+      },
+      "bus_ids": {},
+      "distinct_payloads": {},
+      "health_count": 8,
+      "first_health": {
+        "uptime": 86,
+        "voltage": 0,
+        "current": 0,
+        "can_rx_errs": 0,
+        "can_send_errs": 0,
+        "can_fwd_errs": 0,
+        "gmlan_send_errs": 0,
+        "faults": 0,
+        "ignition_line": 0,
+        "ignition_can": 0,
+        "controls_allowed": 0,
+        "gas_interceptor_detected": 0,
+        "car_harness_status": 0,
+        "usb_power_mode": 0,
+        "safety_model_raw": 17,
+        "safety_param_raw": 0,
+        "fault_status": 0,
+        "power_save_enabled": 0
+      },
+      "last_health": {
+        "uptime": 89,
+        "voltage": 0,
+        "current": 0,
+        "can_rx_errs": 0,
+        "can_send_errs": 0,
+        "can_fwd_errs": 0,
+        "gmlan_send_errs": 0,
+        "faults": 0,
+        "ignition_line": 0,
+        "ignition_can": 0,
+        "controls_allowed": 0,
+        "gas_interceptor_detected": 0,
+        "car_harness_status": 0,
+        "usb_power_mode": 0,
+        "safety_model_raw": 17,
+        "safety_param_raw": 0,
+        "fault_status": 0,
+        "power_save_enabled": 0
+      }
+    },
+    "after": {
+      "duration_seconds": 12.000882619002368,
+      "polls": 6134,
+      "usb_payload_bytes": 0,
+      "length_histogram": {
+        "0": 6134
+      },
+      "return_codes": {
+        "0": 6134
+      },
+      "trailing_bytes": 0,
+      "total_records": 0,
+      "per_bus_records": {
+        "0": 0,
+        "1": 0,
+        "2": 0
+      },
+      "bus_ids": {},
+      "distinct_payloads": {},
+      "health_count": 24,
+      "first_health": {
+        "uptime": 90,
+        "voltage": 0,
+        "current": 0,
+        "can_rx_errs": 0,
+        "can_send_errs": 0,
+        "can_fwd_errs": 0,
+        "gmlan_send_errs": 0,
+        "faults": 0,
+        "ignition_line": 0,
+        "ignition_can": 0,
+        "controls_allowed": 0,
+        "gas_interceptor_detected": 0,
+        "car_harness_status": 0,
+        "usb_power_mode": 0,
+        "safety_model_raw": 17,
+        "safety_param_raw": 0,
+        "fault_status": 0,
+        "power_save_enabled": 0
+      },
+      "last_health": {
+        "uptime": 101,
+        "voltage": 0,
+        "current": 0,
+        "can_rx_errs": 0,
+        "can_send_errs": 0,
+        "can_fwd_errs": 0,
+        "gmlan_send_errs": 0,
+        "faults": 0,
+        "ignition_line": 0,
+        "ignition_can": 0,
+        "controls_allowed": 0,
+        "gas_interceptor_detected": 0,
+        "car_harness_status": 0,
+        "usb_power_mode": 0,
+        "safety_model_raw": 17,
+        "safety_param_raw": 0,
+        "fault_status": 0,
+        "power_save_enabled": 0
+      }
+    }
+  },
+  "native": {
+    "duration": 15.113864017002925,
+    "native_exit": 0,
+    "can_batches": 1420,
+    "can_frames": 0,
+    "per_bus_frames": {
+      "0": 0,
+      "1": 0,
+      "2": 0
+    },
+    "bus_ids": {},
+    "valid_samples": 0,
+    "actuator_commands": 0,
+    "native_profile": "chimeraOldMailbox16",
+    "error": null,
+    "native_process_stopped": true
+  },
+  "native_health_count": 15,
+  "baseline": {
+    "sunnypilot": {
+      "head": "03dfd0c7fc7017e3fb0060d34a8e706f5009c558",
+      "dirty": ""
+    },
+    "sunnypilot/panda": {
+      "head": "8a16e089b88593914823743df29e1c30b7dd3e00",
+      "dirty": ""
+    },
+    "sunnypilot/opendbc_repo": {
+      "head": "150f937198ceab43c43b39f94b9bdea63fcb633c",
+      "dirty": ""
+    },
+    "ocelot": {
+      "head": "d87892fa25ef2a2474110b97bfb5245ee818b534",
+      "dirty": " M README.md\n M firmware/README.md\n M firmware/RetroPilot_Cores/interceptor_core/json_rpc_handlers.h\n M firmware/RetroPilot_Cores/interceptor_core/main.c\n M firmware/RetroPilot_Cores/interceptor_core/modes/differential.h\n M firmware/chimera/chimera.h\n M firmware/chimera/main.c\n M firmware/retropilot_cores/reports/VW_NEUTRAL_30S_PREPARATION_20261027.md\n M hardware/ocelot-pro/README.MD\n?? \"Core Config/\"\n?? \"Interceptor Config/\"\n?? RYLEYMCC_OVERKILL_INTERCEPTOR_REVIEW_20261014.md\n?? RYLEYMCC_TI_RECOVERY_SEARCH_20261014.md\n?? Retropilot_Core_Config\n?? Retropilot_Core_Config.desktop\n?? Retropilot_Interceptor_Config\n?? Retropilot_Interceptor_Config.desktop\n?? USB_DFU\n?? USB_DFU.desktop\n?? \"WebUSB DFU/\"\n?? cabana/\n?? firmware/BUILDING.md\n?? firmware/BUILD_COMPARISON.md\n?? firmware/INSPECTING_SIGNED_BIN.md\n?? firmware/RetroPilot_Cores/interceptor_core/ADC_TRACE_PROTOCOL.md\n?? firmware/RetroPilot_Cores/interceptor_core/STEERING_SENSOR_FIRMWARE_REVIEW.md\n?? firmware/RetroPilot_Cores/interceptor_core/adc_trace.h\n?? firmware/RetroPilot_Cores/interceptor_core/modes/differential_command.h\n?? firmware/build_interceptor_gcc9.sh\n?? firmware/build_local.sh\n?? firmware/inspect_signed.py\n?? firmware/inspection/\n?? hardware/Actuator-Core/\n?? hardware/chimera/\n?? hardware/interceptor-core/\n?? hardware/ocelot-pro/convert_schdoc.py\n?? hardware/ocelot-pro/ocelot-pro-schematic.pdf\n?? hardware/ocelot-pro/ocelot-pro_schematic.pdf\n?? hardware/relay-core/\n"
+    },
+    "steering": {
+      "head": "de0aa25a330bc408640b7ff79c10b35e81f72390",
+      "dirty": " M AI/CHANGELOG.md\n M AI/DECISIONS.md\n M AI/ELM327_DATA.md\n M AI/HARDWARE.md\n M AI/NEXT_STEPS.md\n M AI/PROJECT_STATE.md\n M AI/README.md\n M AI/REFERENCES.md\n M AI/SESSION_HANDOFF.md\n M AI/SIGNAL_MAP.md\n M AI/TEST_LOG.md\n?? AI/DTC_UTILS_REVIEW.md\n?? AI/KIA_UDS_OBD_RESEARCH.md\n?? AI/POLO_3D0_LENKHILFE_RESEARCH_20261007.md\n?? AI/POLO_EPS_CAN_CAPTURE_20261007.md\n?? AI/POLO_PQ_DBC_MORE_DATA_20261007.md\n?? AI/WAVESHARE_USB_CAN_A.md\n?? AI/captures/\n"
+    },
+    "sunnypilot/openpilot/selfdrive/pandad/pandad": {
+      "sha256": "e9e692b6bfaf67d4c9061f4645a89d8337fc938bd857cf03e03f6a3454f81a84"
+    },
+    "retropilot/dbc/ocelot_controls.dbc": {
+      "sha256": "b4079670b8118fe63c6a7710ca1158afaabfec7df881ef902e43d70d70a36b67"
+    }
+  },
+  "sensor_power_current": "Owner confirmed during this retest: Yes, powered and on CAN2, in response to separate12V supply/common-ground question. Not a fresh voltage/waveform measurement.",
+  "termination_resistance": "No numeric result supplied; owner k was acknowledgement only; later code-only request halted physical checks",
+  "last_requested_CAN2_kbps": 500,
+  "live_BTR_read": false,
+  "physical_CAN_success": false,
+  "owner_setup_question": "For this retest, is the steering-angle sensor powered from its separate 12 V supply and still connected to Chimera CAN2 with a common ground?",
+  "owner_setup_answer_verbatim": "Yes, powered and on CAN2",
+  "verification": {
+    "gates_met": 3,
+    "gates_unmet": 0,
+    "gates_abandoned": 0,
+    "lint": "LINT OK",
+    "hardware_acceptance": "failed: zero received frames",
+    "scope": "observation, provenance, preservation and synchronized handoff, not a working CAN link"
+  }
+}

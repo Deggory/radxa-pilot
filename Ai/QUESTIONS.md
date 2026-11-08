@@ -1,3 +1,50 @@
+## QA-20261108-66 — Test Chimera after owner reflash
+
+Date: 2026-11-08. Owner: “i reflasehed chimera see if this works njpw”.
+Answer: originalChimera USB works, but fresh raw/native CAN remains0. Original
+serial3a0044001651333038373636now003/024; versionv1.0.0-DEV-de193215-DEBUGand
+full128-byte application signature stillmatchpreviousnightly; not whole-flash
+readback. Saved776-byte configCRCvalid/sameSHA4b025b9e65b10475013ed39f8d4e66abf780a7cbe6ebf18833d952e46ffe3b22,
+savedrates500/500/0/0. Raw4.000564313s/2047reads before and12.000882619s/6134reads
+afteroneguarded DE/bus2/index5000request both0bytes/0framesallbuses. USBstatus
+completed but BTR/initnotread. Native15.113864017s/1420batches/15health0frames
+all0/1/2, exit0. Readers stopped/USBreleased. Last requested500kretained;
+flash unchanged; Interceptoruntouched. Reflashitself wasowneraction, not agent.
+
+Asked: “For this retest, is the steering-angle sensor powered from its separate
+12 V supply and still connected to Chimera CAN2 with a common ground?” Actual
+owner answer: “Yes, powered and on CAN2”. This confirms the stated setup for
+this retest, not freshly measured voltage/waveform or valid sensor traffic. No newphysicalmeter
+request, flash/reset/configSave/Format/heartbeat/relay/dataTX/code/update/push.
+Evidence: baseline03dfd0c7fc7017e3fb0060d34a8e706f5009c558;
+Ai/Reports/chimera-reflash-retest-20261108/README.md/EVIDENCE.json(student),
+central IDENTITY/RUNTIME_TEST/raw/nativeandverification. Implementationstatus:
+bounded retest complete, failed CAN reception; powered sensor/CAN2 setup owner-
+confirmed, physical/controller cause unresolved.
+All76preservedfirmware/native/DBCandotherdirtyworkchecked. Protocoltests
+historical, notrerun. Threeobservation/preservationgates, notsuccessacceptance.
+Next continue code-side controller/filter/error review, retaining implementation/
+upstream holds and without a new hardware measurement request. Reflashingmatchingimageandretaining
+saved0doesnotremove250kbootdefault; temporary500krequestaloneagainfailedRX.
+
+## QA-20261108-65 — Inspect only the code side (interrupted review)
+
+Date: 2026-11-08. Owner: “see only the code side”. Read active source and saved
+matching-image disassembly; no hardware action or source edit for this request.
+Active chimera/main.c includes chimera/can.h, not power_saving.h. Raw receive
+queues frames without requiring angle mapping/ignition. Concrete new finding:
+chimera/can.h:358can_init startsret=false and &=calls; returnsfalse invariably,
+but &=still executes calls. Matching image0x08007960..7984does likewise and ends
+movsr0,#0. This is a status bug, not proof it prevents RX. Generic filterbank0/14
+handling remains a lead, not establishedCAN3failure. Preserved readable source
+is not identical to installednightly: DEbus0-only vs0..2 and500kfixed vs250kdefault
+plus nonzero saved-rate overrides. Review interrupted by owner reflash/retest
+request; no full audit, fix/build or flashed correction completed. Physical
+resistance request held, no numeric result supplied; prior “k” was only an ack.
+Evidence: source chimera/main.c:25/520/560/1134, chimera/can.h:302/358,
+drivers/llcan.h:76, power_saving.h; retained deep-auditnightly-thumb.txt and
+init-standbyIMAGE_PATHS.json. Partial result retained in QA66reportREADME.
+
 ## QA-20261108-64 — Is CAN2_TERM jumper fitted?
 
 Date: 2026-11-08. Asked: “On Chimera, is a jumper currently fitted across the
