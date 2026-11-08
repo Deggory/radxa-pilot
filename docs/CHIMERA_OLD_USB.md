@@ -128,3 +128,30 @@ this increment. They provide USB ownership/transfer guards and exact identity
 selection. The existing launcher remains the entry; the new codec is compiled
 into pandad, not run as a separate daemon. Test files are verification tools,
 not services needed to receive CAN.
+
+## Safety boundary — clarification November 8 (QA28)
+
+The current adapter protects the host observation path. Exact identity/profile
+checks constrain selection; panda_usb.cc permits only D6/D2 observation requests
+and bulk-IN for Chimera and rejects control/bulk writes. The session exposes no
+TX API, and main starts no transmit, heartbeat or normal control/status threads.
+Decoder bounds/metadata/partial-time checks reject malformed input; failure
+releases the connection and clears state. These are host guards, not firmware
+policy enforcement or proof that a physical installation is safe.
+
+The unchanged legacy MCU code has no modern safety hook in can_send. Its DC
+handler changes relay_req_usb; heartbeat expiry clears that variable. The
+operative main.c loop sets PB0 from ignition and comments out relay-request
+gating. Therefore stopping/unplugging Radxa is not a proven relay or actuator
+cutoff. Old firmware can still produce configured CAN messages autonomously.
+Reported safety_mode=17 is a preserved-source constant, not a verified policy.
+The local dashcamOnly/noOutput car configuration and unqualified RetroPilot
+active initializer do not install or enforce a safety policy in old Chimera.
+
+Active control remains a separate task requiring qualified MCU command and
+feedback checks, calibrated actuator limits, driver override, freshness/watchdog
+and fault behavior plus physical validation. These follow the general override
+and bounded-actuation principles in the [official safety documentation](https://docs.comma.ai/concepts/safety/).
+No active work or hardware qualification was performed by this explanation.
+Mailbox records have no checksum, host receipt time is not measured ECU age,
+and abrupt process death can prevent final invalidation messages.

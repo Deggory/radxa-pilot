@@ -1,3 +1,13 @@
+## November8 — Safety boundary clarification (QA28)
+
+Read-only host guards prevent commands through this adapter; they do not add
+MCU driving safety. Old firmware TX lacks modern hooks and PB0 follows ignition,
+so host loss is not a proven relay/actuator cutoff. Raw safety fields and host
+noOutput settings do not install a policy. Current source checked at9940a21f;
+prior offline tests reused. See implemented USB contract safety section/QA28.
+No code/hardware changes; next remains scoped passive-board qualification,
+with active safety/profile/electrical validation unresolved and holds retained.
+
 ## November8 — C2-era Chimera compatibility and file map (QA27)
 
 Original protocol now has a native receive-only path, subject to exact identity

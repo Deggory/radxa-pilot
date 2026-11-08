@@ -1,3 +1,13 @@
+## QA-20261108-28 — How is safety handled in the new Chimera path?
+
+**Date:** November 8, 2026 UTC.
+**Owner question (faithful quote):** "how is safety handle here".
+**Answer:** Current protection is host-side receive-only isolation: exact identity/profile checks; only D6 version, D2 health and CAN bulk-IN; blocked vendor/bulk writes; no transmit/control threads or normal pandaStates; bounded/validated decoding; failure releases USB and clears decoder state, with best-effort invalid/failed publications. Raw diagnostics are labelled nonoperational and placeholder safety values are not interpreted as an installed policy. These guards do not add independent MCU driving-safety enforcement. Preserved old Chimera can_send lacks modern safety hooks, DC only changes a relay request, and heartbeat expiry clears that request while the operative PB0 loop follows ignition and ignores request gating. Thus host failure/unplug does not establish relay/actuator shutdown, and autonomous firmware CAN/sensor activity can continue. The local car interface is dashcamOnly/noOutput and RetroPilot's production active initializer has no qualified profile; those host/source settings do not install modern safety into old Chimera. Future active control requires separately qualified MCU TX/RX checks, command/override/freshness limits, watchdog/fault behavior, measured actuator profile and physical validation. This explanation authorizes none of that implementation.
+**Evidence/source pins:** Clean baseline9940a21fce070a756a0d5451f1d57f20b5008415, implementation008a7e81; Panda8a16e089/opendbc150f9371. Current panda_usb.cc lines106–152, chimera_usb.cc lines21–45, panda_usb_status.h/.cc, main.cc passive entry/publication builder; preserved chimera_old main.c health129/DC335/heartbeat725/relay1030, can.h334; opendbc retropilot.h60 and car/retropilot/interface.py15. Existing QA01/02 and topic source trail reused. Official https://docs.comma.ai/concepts/safety/ reopened November8 for driver override/bounded actuation requirements; source explanation is not a runtime safety qualification.
+**Status/limits:** Documentation and synchronized Q&A only; prior QA25 offline tests reused, fresh notebook/QA/whitespace/source checks only. No physical board/relay/CAN/vehicle run or firmware change, build/flash, update or push. No record checksum in old mailbox format; valid-looking corruption is undetectable, host receive time is not ECU sample age, abrupt process death cannot guarantee final publication. Exact installed-source equivalence and electrical cutoff remain unqualified; rewrite/update holds and unanswered entries preserved.
+
+---
+
 ## QA-20261108-27 — Can our C2 Chimera work, and what files were added?
 
 **Date:** November 8, 2026 UTC.

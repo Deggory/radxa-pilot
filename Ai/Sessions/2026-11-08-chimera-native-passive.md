@@ -102,3 +102,18 @@ claim or refresh was needed for the focused source answer. No new runtime test,
 REA artifact task, hardware action, update or push; original firmware and DBC
 untouched, rewrite/update holds retained. Actual notebook/QA/whitespace checks,
 commit and clean readback are in the central FILE_MAP_FOLLOWUP.json receipt.
+
+## Safety-boundary follow-up (QA28)
+
+Owner asked how safety is handled. Read current USB allowlist/write blocks,
+codec bounds, passive main/session/publications and saved old firmware DC,
+heartbeat, relay loop and can_send. Checked local noOutput/dashcamOnly interface
+and unqualified active-profile initializer; reused QA01/02 evidence. Reopened
+https://docs.comma.ai/concepts/safety/ for override/bounded-actuation principles.
+Security-and-hardening used narrowly for external-input/write boundaries;
+documentation/Git skills guide closeout. Explained protection of the host RX
+path versus missing MCU driving-safety enforcement and unqualified electrical
+cutoff. No changes to code, firmware, DBC or submodules; no tests rerun beyond
+notebook/QA/whitespace/source preservation checks. No REA runtime/binary task,
+hardware, update or push. Next step/holds unchanged. Actual source hashes,
+validation, commit and clean readback: central SAFETY_FOLLOWUP.json receipt.
