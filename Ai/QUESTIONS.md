@@ -1,3 +1,13 @@
+## QA-20261108-55 — Should any CAN device show data on any of the three Chimera buses?
+
+**Date:** November 8, 2026 UTC.
+**Owner question (faithful quote):** "see if i connect and can device ,to any of 3 can terminal of chiera it should show the ouptut right".
+**Answer:** Intended raw-receive behavior is yes for a correctly powered, actively transmitting supported classic CAN device with matching bitrate, correct H/L/common ground/termination/ACK and functioning Chimera transceiver/controller/filter/USB reader. PrintedCAN0/1/2map to MCUCAN1/2/3and USBbus0/1/2. All three selected-source RX handlers call can_rx(0/1/2), which queues raw frames for EP1USB; sensor mappings/SYSgenerated-output flags are not prerequisites for this raw path. Some devices need a wake/request rather than broadcast automatically. Seeing raw IDs/payloads is distinct from getting decoded angle/vehicle signals. Actual latest sensor-on-CAN2tests still0; monitoring all software buses is not a tested cable comparison of every physical connector. Source llcan_init contains a comment about CAN2/CAN3filter-register programming difficulty; this adds a software/controller lead alongside electrical checks, not a proven installed-image defect. Owner keepsCAN2; no further port move/test performed.
+**Evidence/source pins:** Baseline518ddfb1048c383454e59b4135c1e3c288cc8e26; main.c479/500/519 RXhandlers, can.h302rawqueue, main.c172USBEP1, drivers/llcan.h76initialization/filter comment. Ai/Knowledge/CHIMERA_SYS_CFG.md and Ai/Reports/chimera-syscfg-study-20261108/THREE_BUS_FOLLOWUP.json pin mappings, conditions and exact source hashes. Previous QA52native/Pythonzero-frame evidence retained; no fresh receive result claimed.
+**Status/limits:** Source explanation and synchronized documentation only. No new device/USB/CAN/config/flash/reset/power/wiring/port move or product/firmware/DBC/model/update/push action; no automatic diagnostic CAN request. All-three-port operation and installed-source equivalence remain unqualified. Next current CAN2electrical/enable/timing plus controller/filter qualification as appropriate; preserve prior holds and unanswered items.
+
+---
+
 ## QA-20261108-54 — What do Debug3 and the output mask mean? How to choose values?
 
 **Date:** November 8, 2026 UTC.

@@ -173,3 +173,21 @@ future application needs the compatible guarded write path, a backup, preserving
 other SYS fields and exact full-block readback. No Save/Format/reset/firmware or
 settings change was performed. Historical write incident/quarantine stays.
 [Truth table/source pins](../Reports/chimera-syscfg-study-20261108/BIT_FLAGS_FOLLOWUP.json).
+
+## A transmitting device on any physical CAN bus — November 8 (QA55)
+
+The selected source routes all three RX handlers through can_rx(0/1/2), the raw
+queue and USB EP1. PrintedCAN0/1/2map MCUCAN1/2/3and hostUSB0/1/2respectively.
+A correctly powered, actively transmitting classic CAN device should provide
+raw IDs/data when bitrate, H/L/sharedground/termination/ACK, controller/filter
+setup, transceiver supply/enable and USB reader are all functioning. Devices
+that only answer requests can remain quiet; no active requests were sent here.
+
+No sensor mapping or SYS output flag is required for this raw path in preserved
+source. Angle degrees/translated reports require a compatible decoder/mapping.
+This intended capability is not proof every connector works: actual latestCAN2
+sensor tests still0, physical CAN0/CAN1comparison unperformed, owner keepsCAN2.
+The llcan_init source also notes difficulties programming CAN2/CAN3filter
+registers. Retain it as a controller/software lead, not diagnosed hardware or
+installed firmware failure. No firmware change is authorized by this finding.
+[Mapping and source pins](../Reports/chimera-syscfg-study-20261108/THREE_BUS_FOLLOWUP.json).

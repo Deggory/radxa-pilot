@@ -1,0 +1,44 @@
+{
+  "date": "2026-11-08",
+  "question": "QA-20261108-55",
+  "baseline": "518ddfb1048c383454e59b4135c1e3c288cc8e26",
+  "expected_mapping": [
+    {
+      "printed_label": "CAN0",
+      "mcu": "CAN1",
+      "usb_bus": 0
+    },
+    {
+      "printed_label": "CAN1",
+      "mcu": "CAN2",
+      "usb_bus": 1
+    },
+    {
+      "printed_label": "CAN2",
+      "mcu": "CAN3",
+      "usb_bus": 2
+    }
+  ],
+  "source_path": "RX0 handler -> can_rx(0/1/2) -> can_rx_q -> USB EP1 -> host raw CAN publication",
+  "conditions": [
+    "Device correctly powered and actually transmitting supported classic CAN frames",
+    "Matching controller bitrate; preserved startup500k",
+    "Correct CANH/CANL and shared ground, suitable termination and ACK participation",
+    "Healthy/enabled transceiver and successful controller/filter initialization",
+    "Connected working USB reader with exclusive ownership"
+  ],
+  "raw_vs_translation": "Raw IDs/data need no sensor mapping or generated-report output mask in selected source. Degrees/vehicle signals need a matching decoder and qualified mapping/calibration.",
+  "device_silence": "Some devices need a request or wake condition and do not broadcast merely on connection; no such request authorized/performed here.",
+  "observed_not_proven": "Latest CAN2sensor test returned0on every monitored source bus; no physical CAN0/CAN1comparison performed and owner keepsCAN2.",
+  "filter_lead": {
+    "source_comment": "// For some weird reason some of these registers do not want to set properly on CAN2 and CAN3. Probably something to do with the single/dual mode and their different filters.",
+    "status": "Source initialization concern, not a verified defect or installed-image diagnosis; exact nightly source equivalence remains unproven."
+  },
+  "source_pins": {
+    "sunnypilot/chimera_old/firmware/chimera/main.c": "5d1dd3b0400ec80da9b477abfced51c9346674865ce5ad86d7e5a012c2d94883",
+    "sunnypilot/chimera_old/firmware/chimera/can.h": "7aca434faa4a1c37d59f5b43f495ed0d213f0e22fc46e4db28c433472b757310",
+    "sunnypilot/chimera_old/firmware/drivers/llcan.h": "2794b5478c7fbbb8ece22eedda0a3f925262c7d7f6d9e9e221c8448d63a13d40"
+  },
+  "new_hardware_actions": false,
+  "physical_ports_qualified": false
+}

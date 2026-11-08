@@ -1,3 +1,12 @@
+## November 8 — Three-bus raw receive expectation clarified (QA55)
+
+All3source RX handlers queue raw frames toUSB; printedCAN0/1/2 -> USB0/1/2.
+Powered/transmitting/matching-rate/electrically healthy setup required; decoded
+signals separate. CurrentCAN2still0and no physical all-port qualification.
+Driver notes CAN2/CAN3filter-register difficulty: an unproven software lead,
+not a diagnosis. See SYS_CFG topic/THREE_BUS_FOLLOWUP.json. No hardware/code
+change or port move; owner keepsCAN2and existing holds remain.
+
 ## November 8 — Debug and output bit values clarified (QA54)
 
 Debug tests only value1in preserved source:1and3log,0/2/4do not; historical
