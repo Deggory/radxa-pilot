@@ -1,3 +1,14 @@
+## QA-20261108-33 — Monitor every Chimera CAN bus while BeamNG moves
+
+**Date:** November 8, 2026 UTC.
+**Owner request (labelled paraphrase):** Refers to the502submitted/0received result; asks to check all Chimera CAN ports and run the BeamNG car at some speed.
+**Owner clarification (faithful quote):** "CAN2", identifying the printed bus group connected to Waveshare.
+**Answer:** Confirmed source mapping CAN0/USB0/MCUCAN1, CAN1/USB1/MCUCAN2, CAN2/USB2/MCUCAN3; official guide documents6/3/3parallel connectors across those three buses. The existing receiver already accepted all3; this capture explicitly counted each before simulator filtering. Ran the existing game car with BeamNG AI targeting20km/h: actual body maximum21.071km/h during wire TX, wheel maximum21.178km/h. Genuine replay401/401samples decoded,392above1km/h. Waveshare gateway submitted602samples over12s; native32.116s/3009CAN batches contained0frames on every bus, with32health reads/no errors/exit0. Thus movement did not restore CAN delivery. ConfirmedCAN2is the intendedUSB2group; the earlierCAN3wording is resolved as a naming ambiguity, not an electrically measured route. Individual unused connectors were not cable-swapped or electrically qualified. AI disabled, game stop inputs and pause acknowledged, gateway/native reader stopped; game left open.
+**Evidence/source pins:** Baseline d05a820b7d417d9a8a1c8129a38c60c849c35cb4; native e9e692b6bfaf67d4c9061f4645a89d8337fc938bd857cf03e03f6a3454f81a84; Panda8a16e089/opendbc150f9371. Student Ai/Reports/beamng-moving-can-20261108/{README.md,RESULTS.json}; teacher same-named raw report/helpers/GATES.md. Source can.h bus lookup and main.c RX handlers/native stream/publication inspected. Official https://wiki.retropilot.org/index/hardware/chimera reopened November8for connector groups/pinout/termination headers.76legacy manifest entries and selected code/binary/DBC hashes verified unchanged.
+**Status/limits:** Live moving-game/all-source-bus observation completed; CAN acceptance remains0frames (3gatesmet/0unmet/1abandonedG3with electrical-measurement handoff). Game-only AI/control was explicitly authorized by this request; no physical actuator CAN commands, Chimera OUT/relay/heartbeat/config/flash, firmware/DBC/product change, model/camera/dependency work, upstream update or push. Serial submission does not prove adapter CAN transmission/ACK; actual current pins/rails/termination/bitrate/firmware ingress remain unresolved. Independent Python cross-check belongs to prior QA32, not rerun now. USB-only/resistor-removed setup retained; new rewrite/update holds and unanswered entries preserved.
+
+---
+
 ## QA-20261108-32 — Test BeamNG through Waveshare and Chimera; recover teacher setup
 
 **Date:** November 8, 2026 UTC.

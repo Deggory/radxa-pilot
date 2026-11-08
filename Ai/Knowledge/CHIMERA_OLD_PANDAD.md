@@ -1,3 +1,13 @@
+## November8 — All CAN buses with moving BeamNG; CAN2confirmed (QA33)
+
+Owner confirms printed connected groupCAN2 -> sourceMCUCAN3/USB2, resolving
+prior CAN3name ambiguity. Game AI target20km/h, actual21.071km/h during wire;
+401/401source samples decode.602submitted samples yielded0raw frames on each
+USBbus0/1/2 over32.116s. All buses counted before parser filtering, so this is
+not bus2-only observation. See student moving-can report. AI/readers/gateway
+stopped and game paused;76legacy/DBC/binary preserved.3gatesmet/1CAN handoff.
+Next measured CAN2electrical/transport checks; firmware/new rewrite/updates held.
+
 ## November8 — Live BeamNG/Waveshare/Chimera test (QA32)
 
 Genuine source501/501decoded. Native real USB/version/health43 now verified;

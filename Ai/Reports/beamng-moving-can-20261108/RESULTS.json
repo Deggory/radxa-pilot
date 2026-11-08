@@ -1,0 +1,1150 @@
+{
+  "date": "2026-11-08",
+  "owner_request": "Waveshare \u2192 Chimera \u2192 native pandad 502 samples submitted; 0 frames received, see all the CAN ports on Chimera, and let the car run at some speed in BeamNG (labelled paraphrase)",
+  "baseline": {
+    "project_head": "d05a820b7d417d9a8a1c8129a38c60c849c35cb4",
+    "source_hashes": {
+      "/home/radxa/comma/sunnypilot/openpilot/selfdrive/pandad/pandad": "e9e692b6bfaf67d4c9061f4645a89d8337fc938bd857cf03e03f6a3454f81a84",
+      "/home/radxa/comma/sunnypilot/openpilot/selfdrive/pandad/chimera_usb.cc": "51e6faa4067087b014ae9b8dbf43e4ef749094748d614518b9174f49437dad11",
+      "/home/radxa/comma/sunnypilot/openpilot/selfdrive/pandad/panda_usb_publish.cc": "135c09505c0ba5d7de9404ed78c5e3f4086c7ed565d87d545f54bca89aee5d00",
+      "/home/radxa/comma/sunnypilot/openpilot/tools/sim/beamng/pc/gateway.py": "609d127a25817d4b7b12e23ef3b46f2513083427fceb318374311556d4c88acb",
+      "/home/radxa/comma/sunnypilot/chimera_old/firmware/chimera/can.h": "7aca434faa4a1c37d59f5b43f495ed0d213f0e22fc46e4db28c433472b757310",
+      "/home/radxa/comma/sunnypilot/chimera_old/firmware/chimera/main.c": "5d1dd3b0400ec80da9b477abfced51c9346674865ce5ad86d7e5a012c2d94883",
+      "/home/radxa/comma/sunnypilot/chimera_old/SOURCES.json": "7a7400411ad8cad0c8b3441fa3ee8081e4a477d9627b90e59a588e51fa615fd3",
+      "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/dbc/ocelot_controls.dbc": "b4079670b8118fe63c6a7710ca1158afaabfec7df881ef902e43d70d70a36b67"
+    },
+    "ports": {
+      "0": {
+        "label": "CAN0",
+        "mcu": "CAN1",
+        "connectors": 6
+      },
+      "1": {
+        "label": "CAN1",
+        "mcu": "CAN2",
+        "connectors": 3
+      },
+      "2": {
+        "label": "CAN2",
+        "mcu": "CAN3",
+        "connectors": 3
+      }
+    },
+    "official_reference": "https://wiki.retropilot.org/index/hardware/chimera",
+    "physical_scope": "All three USB source buses monitored at once; no cable moved, per-connector electrical qualification not implied",
+    "game_target_kph": 20
+  },
+  "source": {
+    "samples": 401,
+    "valid_decoded": 401,
+    "genuine_game": true,
+    "speed_kph_min": 0.14,
+    "speed_kph_max": 20.31,
+    "moving_samples": 392,
+    "ids": {
+      "2:0x700": 401,
+      "2:0x701": 401,
+      "2:0x50": 401,
+      "2:0x76": 401,
+      "2:0x75": 401,
+      "2:0x100": 401,
+      "2:0x702": 401,
+      "2:0x703": 401,
+      "2:0x704": 401,
+      "2:0x705": 401,
+      "2:0x706": 401,
+      "2:0x707": 401
+    },
+    "example_samples": [
+      {
+        "session": 10419,
+        "sequence": 6431,
+        "sim_time_ms": 128482.0,
+        "speed_mps": 0.06388888888888888,
+        "steering_angle_deg": 14.5,
+        "steering_rate_magnitude_dps": 16.0,
+        "ignition": true,
+        "brake_pressed": false,
+        "rpm": 725.0,
+        "throttle_input": 0.0196078431372549,
+        "brake_input": 0.0,
+        "brake_applied": 0.0,
+        "engaged_gear_index": 1.0,
+        "acceleration_mps2": [
+          -0.1,
+          0.21,
+          -0.52
+        ],
+        "angular_velocity_rps": [
+          -0.002,
+          0.003,
+          -0.001
+        ],
+        "motion_frame": "BeamNG motionSim component convention; not device-frame qualified",
+        "wheel_speeds_mps": [
+          0.05,
+          0.05,
+          0.15000000000000002,
+          0.15000000000000002
+        ],
+        "cruise": {
+          "available": true,
+          "enabled": false,
+          "set_speed_mps": 27.78
+        },
+        "cruise_buttons": null
+      },
+      {
+        "session": 10419,
+        "sequence": 6432,
+        "sim_time_ms": 128515.0,
+        "speed_mps": 0.03888888888888889,
+        "steering_angle_deg": 14.4,
+        "steering_rate_magnitude_dps": 1.0,
+        "ignition": true,
+        "brake_pressed": false,
+        "rpm": 723.0,
+        "throttle_input": 0.023529411764705882,
+        "brake_input": 0.0,
+        "brake_applied": 0.0,
+        "engaged_gear_index": 1.0,
+        "acceleration_mps2": [
+          -0.07,
+          0.47,
+          -0.47
+        ],
+        "angular_velocity_rps": [
+          0.0,
+          0.021,
+          0.003
+        ],
+        "motion_frame": "BeamNG motionSim component convention; not device-frame qualified",
+        "wheel_speeds_mps": [
+          0.1,
+          0.0,
+          0.05,
+          0.05
+        ],
+        "cruise": {
+          "available": true,
+          "enabled": false,
+          "set_speed_mps": 27.78
+        },
+        "cruise_buttons": null
+      }
+    ]
+  },
+  "native": {
+    "duration": 32.11561226699996,
+    "native_exit": 0,
+    "can_batches": 3009,
+    "can_frames": 0,
+    "per_bus_frames": {
+      "0": 0,
+      "1": 0,
+      "2": 0
+    },
+    "bus_ids": {},
+    "valid_samples": 0,
+    "example_samples": [],
+    "actuator_commands": 0,
+    "native_profile": "chimeraOldMailbox16",
+    "error": null,
+    "native_process_stopped": true
+  },
+  "health_samples": 32,
+  "health_first": {
+    "availability": {
+      "heartbeatLost": false,
+      "observationOnly": true,
+      "pandaStates": false,
+      "perBusHealth": false,
+      "preservedSourcePlaceholders": [
+        "voltage_raw",
+        "current_raw",
+        "gas_interceptor_detected_raw",
+        "gmlan_send_errs",
+        "safety_model_raw",
+        "safety_param_raw",
+        "power_save_enabled_raw"
+      ]
+    },
+    "controllers": [],
+    "endNanos": "9992534519187",
+    "kind": "panda-usb-status",
+    "operational": false,
+    "profile": "chimeraOldMailbox16",
+    "rawHealth": {
+      "can_fwd_errs": 0,
+      "can_rx_errs": 0,
+      "can_send_errs": 0,
+      "car_harness_status_raw": 0,
+      "controls_allowed_raw": 0,
+      "current_raw": 0,
+      "fault_status_raw": 0,
+      "faults": 0,
+      "gas_interceptor_detected_raw": 0,
+      "gmlan_send_errs": 0,
+      "ignition_can_raw": 0,
+      "ignition_line_raw": 0,
+      "power_save_enabled_raw": 0,
+      "safety_model_raw": 17,
+      "safety_param_raw": 0,
+      "uptime": 10014,
+      "usb_power_mode_raw": 0,
+      "voltage_raw": 0
+    },
+    "schema": 1,
+    "serial": "3a0044001651333038373636",
+    "startNanos": "9992534290653",
+    "state": "observing",
+    "version": "v1.0.0-DEV-de193215-DEBUG"
+  },
+  "health_last": {
+    "availability": {
+      "heartbeatLost": false,
+      "observationOnly": true,
+      "pandaStates": false,
+      "perBusHealth": false,
+      "preservedSourcePlaceholders": [
+        "voltage_raw",
+        "current_raw",
+        "gas_interceptor_detected_raw",
+        "gmlan_send_errs",
+        "safety_model_raw",
+        "safety_param_raw",
+        "power_save_enabled_raw"
+      ]
+    },
+    "controllers": [],
+    "endNanos": "10023728940385",
+    "kind": "panda-usb-status",
+    "operational": false,
+    "profile": "chimeraOldMailbox16",
+    "rawHealth": {
+      "can_fwd_errs": 0,
+      "can_rx_errs": 0,
+      "can_send_errs": 0,
+      "car_harness_status_raw": 0,
+      "controls_allowed_raw": 0,
+      "current_raw": 0,
+      "fault_status_raw": 0,
+      "faults": 0,
+      "gas_interceptor_detected_raw": 0,
+      "gmlan_send_errs": 0,
+      "ignition_can_raw": 0,
+      "ignition_line_raw": 0,
+      "power_save_enabled_raw": 0,
+      "safety_model_raw": 17,
+      "safety_param_raw": 0,
+      "uptime": 10045,
+      "usb_power_mode_raw": 0,
+      "voltage_raw": 0
+    },
+    "schema": 1,
+    "serial": "3a0044001651333038373636",
+    "startNanos": "10023728776641",
+    "state": "observing",
+    "version": "v1.0.0-DEV-de193215-DEBUG"
+  },
+  "game_motion": {
+    "events": [
+      {
+        "event": "game_ai_started",
+        "target_kph": 20,
+        "vehicle": "q8b_ego",
+        "model": "bastion"
+      },
+      {
+        "event": "source_completed",
+        "exit": 0,
+        "command": [
+          "/home/pc/beamng-q8b/retropilot-can/.venv/bin/python",
+          "pc/gateway.py",
+          "--duration",
+          "8"
+        ]
+      },
+      {
+        "event": "wire_completed",
+        "exit": 0,
+        "command": [
+          "/home/pc/beamng-q8b/retropilot-can/.venv/bin/python",
+          "pc/gateway.py",
+          "--duration",
+          "12",
+          "--serial",
+          "/dev/serial/by-id/usb-1a86_USB_Serial-if00-port0",
+          "--transmit",
+          "--bitrate",
+          "500000"
+        ]
+      }
+    ],
+    "polls": [
+      {
+        "phase": "source",
+        "monotonic_ns": 2167912403441,
+        "body_speed_kph": 0.04018772646275564,
+        "wheelspeed_kph": 0.5054433828998182,
+        "rpm": 728.1745523111633,
+        "gear": 0.0,
+        "throttle": 0.0,
+        "brake": 0.0
+      },
+      {
+        "phase": "source",
+        "monotonic_ns": 2168170244727,
+        "body_speed_kph": 1.4410668268117193,
+        "wheelspeed_kph": 1.4832643419287292,
+        "rpm": 818.9526956476471,
+        "gear": 1.0,
+        "throttle": 0.06830000393092632,
+        "brake": 0.0
+      },
+      {
+        "phase": "source",
+        "monotonic_ns": 2168425430624,
+        "body_speed_kph": 4.338204529801022,
+        "wheelspeed_kph": 4.3492341467325595,
+        "rpm": 1154.0967030502864,
+        "gear": 1.0,
+        "throttle": 0.0959657331974487,
+        "brake": 0.0
+      },
+      {
+        "phase": "source",
+        "monotonic_ns": 2168676679395,
+        "body_speed_kph": 7.23547894134384,
+        "wheelspeed_kph": 6.985372617713687,
+        "rpm": 1244.849172748542,
+        "gear": 1.0,
+        "throttle": 0.09318525548976296,
+        "brake": 0.0
+      },
+      {
+        "phase": "source",
+        "monotonic_ns": 2168948582164,
+        "body_speed_kph": 9.638781719475517,
+        "wheelspeed_kph": 9.498728983366092,
+        "rpm": 1280.2606261211379,
+        "gear": 1.0,
+        "throttle": 0.09386454601120311,
+        "brake": 0.0
+      },
+      {
+        "phase": "source",
+        "monotonic_ns": 2169217857538,
+        "body_speed_kph": 11.643046555402753,
+        "wheelspeed_kph": 11.717906929363949,
+        "rpm": 1339.902905821142,
+        "gear": 1.0,
+        "throttle": 0.09592417597048718,
+        "brake": 0.0
+      },
+      {
+        "phase": "source",
+        "monotonic_ns": 2169487965329,
+        "body_speed_kph": 13.328501472307494,
+        "wheelspeed_kph": 13.341005702987621,
+        "rpm": 1433.543316169464,
+        "gear": 1.0,
+        "throttle": 0.09965783383561315,
+        "brake": 0.0
+      },
+      {
+        "phase": "source",
+        "monotonic_ns": 2169754267241,
+        "body_speed_kph": 14.8545134107982,
+        "wheelspeed_kph": 14.979395483907826,
+        "rpm": 1549.7792822820152,
+        "gear": 1.0,
+        "throttle": 0.10501841873852331,
+        "brake": 0.0
+      },
+      {
+        "phase": "source",
+        "monotonic_ns": 2170020333167,
+        "body_speed_kph": 16.322798326893857,
+        "wheelspeed_kph": 16.379583513830173,
+        "rpm": 1675.6242614412945,
+        "gear": 1.0,
+        "throttle": 0.10947778435116595,
+        "brake": 0.0
+      },
+      {
+        "phase": "source",
+        "monotonic_ns": 2170285343357,
+        "body_speed_kph": 17.506424343137127,
+        "wheelspeed_kph": 17.33028677427203,
+        "rpm": 1770.285402370915,
+        "gear": 1.0,
+        "throttle": 0.08578645800910943,
+        "brake": 0.0
+      },
+      {
+        "phase": "source",
+        "monotonic_ns": 2170552375467,
+        "body_speed_kph": 18.076916425448417,
+        "wheelspeed_kph": 18.239920104736463,
+        "rpm": 1814.0707965033541,
+        "gear": 1.0,
+        "throttle": 0.06833081079317165,
+        "brake": 0.0
+      },
+      {
+        "phase": "source",
+        "monotonic_ns": 2170817677878,
+        "body_speed_kph": 18.500199971189478,
+        "wheelspeed_kph": 18.413870830556835,
+        "rpm": 1852.1185275243236,
+        "gear": 1.0,
+        "throttle": 0.06876328443621267,
+        "brake": 0.0
+      },
+      {
+        "phase": "source",
+        "monotonic_ns": 2171083282446,
+        "body_speed_kph": 18.90052092884892,
+        "wheelspeed_kph": 18.759653734378748,
+        "rpm": 1889.1370410566183,
+        "gear": 1.0,
+        "throttle": 0.06722358395947135,
+        "brake": 0.0
+      },
+      {
+        "phase": "source",
+        "monotonic_ns": 2171350208810,
+        "body_speed_kph": 19.20931280104419,
+        "wheelspeed_kph": 19.118381460865677,
+        "rpm": 1916.6338043154956,
+        "gear": 1.0,
+        "throttle": 0.06374572208765907,
+        "brake": 0.0
+      },
+      {
+        "phase": "source",
+        "monotonic_ns": 2171614287807,
+        "body_speed_kph": 19.454269897912894,
+        "wheelspeed_kph": 19.414687405511376,
+        "rpm": 1936.519359630548,
+        "gear": 1.0,
+        "throttle": 0.060796664021970225,
+        "brake": 0.0
+      },
+      {
+        "phase": "source",
+        "monotonic_ns": 2171875179661,
+        "body_speed_kph": 19.646899518036335,
+        "wheelspeed_kph": 19.711178963224455,
+        "rpm": 1950.5780599414888,
+        "gear": 1.0,
+        "throttle": 0.05850016729671214,
+        "brake": 0.0
+      },
+      {
+        "phase": "source",
+        "monotonic_ns": 2172145250342,
+        "body_speed_kph": 19.764770370569355,
+        "wheelspeed_kph": 19.799769755950983,
+        "rpm": 1959.4510469943707,
+        "gear": 1.0,
+        "throttle": 0.056758427070617165,
+        "brake": 0.0
+      },
+      {
+        "phase": "source",
+        "monotonic_ns": 2172410614620,
+        "body_speed_kph": 19.84001053650014,
+        "wheelspeed_kph": 19.75251363814554,
+        "rpm": 1965.8692324973567,
+        "gear": 1.0,
+        "throttle": 0.055752920401158666,
+        "brake": 0.0
+      },
+      {
+        "phase": "source",
+        "monotonic_ns": 2172676559744,
+        "body_speed_kph": 19.89120245556523,
+        "wheelspeed_kph": 19.769068200780648,
+        "rpm": 1970.8287341595324,
+        "gear": 1.0,
+        "throttle": 0.05500651806180398,
+        "brake": 0.0
+      },
+      {
+        "phase": "source",
+        "monotonic_ns": 2172942768836,
+        "body_speed_kph": 19.926174767120408,
+        "wheelspeed_kph": 19.93032182696242,
+        "rpm": 1974.4600689376045,
+        "gear": 1.0,
+        "throttle": 0.05479431582506023,
+        "brake": 0.0
+      },
+      {
+        "phase": "source",
+        "monotonic_ns": 2173212658055,
+        "body_speed_kph": 19.962423763107065,
+        "wheelspeed_kph": 20.008806550509284,
+        "rpm": 1979.1846105006064,
+        "gear": 1.0,
+        "throttle": 0.05466663844785047,
+        "brake": 0.0
+      },
+      {
+        "phase": "source",
+        "monotonic_ns": 2173478109417,
+        "body_speed_kph": 19.975546468232867,
+        "wheelspeed_kph": 19.849622504760198,
+        "rpm": 1982.2833162688892,
+        "gear": 1.0,
+        "throttle": 0.054425042375289716,
+        "brake": 0.0
+      },
+      {
+        "phase": "source",
+        "monotonic_ns": 2173742476333,
+        "body_speed_kph": 19.99558041251879,
+        "wheelspeed_kph": 20.182633123849232,
+        "rpm": 1985.6983758492297,
+        "gear": 1.0,
+        "throttle": 0.054292949249217244,
+        "brake": 0.0
+      },
+      {
+        "phase": "source",
+        "monotonic_ns": 2174008176333,
+        "body_speed_kph": 20.010575242651985,
+        "wheelspeed_kph": 20.081801416544998,
+        "rpm": 1988.8991757197186,
+        "gear": 1.0,
+        "throttle": 0.054214774667867095,
+        "brake": 0.0
+      },
+      {
+        "phase": "source",
+        "monotonic_ns": 2174271028155,
+        "body_speed_kph": 20.009548521144815,
+        "wheelspeed_kph": 20.050865267512417,
+        "rpm": 1991.5145634845694,
+        "gear": 1.0,
+        "throttle": 0.054188613230704404,
+        "brake": 0.0
+      },
+      {
+        "phase": "source",
+        "monotonic_ns": 2174535600176,
+        "body_speed_kph": 20.026672986404403,
+        "wheelspeed_kph": 20.076507545064032,
+        "rpm": 1993.7866006053493,
+        "gear": 1.0,
+        "throttle": 0.054163610943595376,
+        "brake": 0.0
+      },
+      {
+        "phase": "source",
+        "monotonic_ns": 2174799395041,
+        "body_speed_kph": 20.00525614359106,
+        "wheelspeed_kph": 20.246726098213323,
+        "rpm": 1995.7633684173954,
+        "gear": 1.0,
+        "throttle": 0.05407320042924214,
+        "brake": 0.0
+      },
+      {
+        "phase": "source",
+        "monotonic_ns": 2175061245870,
+        "body_speed_kph": 20.02674222317274,
+        "wheelspeed_kph": 19.97824683215789,
+        "rpm": 1997.4366900904784,
+        "gear": 1.0,
+        "throttle": 0.05408777162992863,
+        "brake": 0.0
+      },
+      {
+        "phase": "source",
+        "monotonic_ns": 2175322780970,
+        "body_speed_kph": 20.00144476072594,
+        "wheelspeed_kph": 20.256543115457212,
+        "rpm": 1998.7227687022548,
+        "gear": 1.0,
+        "throttle": 0.054088601552481214,
+        "brake": 0.0
+      },
+      {
+        "phase": "source",
+        "monotonic_ns": 2175585113810,
+        "body_speed_kph": 20.036543830667828,
+        "wheelspeed_kph": 20.212413041690233,
+        "rpm": 2000.124021814634,
+        "gear": 1.0,
+        "throttle": 0.05408115911325632,
+        "brake": 0.0
+      },
+      {
+        "phase": "source",
+        "monotonic_ns": 2175841945884,
+        "body_speed_kph": 20.028691159780724,
+        "wheelspeed_kph": 20.168252374395138,
+        "rpm": 2001.482841928436,
+        "gear": 1.0,
+        "throttle": 0.05397969124688546,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2176105280236,
+        "body_speed_kph": 19.997035100124613,
+        "wheelspeed_kph": 20.239027885980942,
+        "rpm": 2001.2733637678107,
+        "gear": 1.0,
+        "throttle": 0.05365402557156801,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2176373057531,
+        "body_speed_kph": 20.025789380934828,
+        "wheelspeed_kph": 20.013235227935166,
+        "rpm": 2000.7855943729182,
+        "gear": 1.0,
+        "throttle": 0.053671747535108866,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2176636701559,
+        "body_speed_kph": 19.98732388030201,
+        "wheelspeed_kph": 20.246861352216516,
+        "rpm": 2001.4906076002128,
+        "gear": 1.0,
+        "throttle": 0.053527657492762046,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2176900831184,
+        "body_speed_kph": 19.9950024420247,
+        "wheelspeed_kph": 20.161857216286624,
+        "rpm": 2000.2322477806065,
+        "gear": 1.0,
+        "throttle": 0.05341020232067756,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2177164842342,
+        "body_speed_kph": 19.998660037301153,
+        "wheelspeed_kph": 20.187895098722688,
+        "rpm": 2000.305948723727,
+        "gear": 1.0,
+        "throttle": 0.05325695048708411,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2177428822558,
+        "body_speed_kph": 19.945465143859536,
+        "wheelspeed_kph": 20.171753415302963,
+        "rpm": 1998.351740458395,
+        "gear": 1.0,
+        "throttle": 0.052884532205653464,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2177694532724,
+        "body_speed_kph": 19.926263113518566,
+        "wheelspeed_kph": 20.091225444178896,
+        "rpm": 1996.5259586224747,
+        "gear": 1.0,
+        "throttle": 0.052562293839577105,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2177958886738,
+        "body_speed_kph": 19.883394758953767,
+        "wheelspeed_kph": 20.04034720957356,
+        "rpm": 1992.5032316253019,
+        "gear": 1.0,
+        "throttle": 0.05225192128546819,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2178220555819,
+        "body_speed_kph": 19.81434716439841,
+        "wheelspeed_kph": 20.09382522899372,
+        "rpm": 1987.2824015113965,
+        "gear": 1.0,
+        "throttle": 0.05176905312774619,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2178481129546,
+        "body_speed_kph": 19.551625512496052,
+        "wheelspeed_kph": 20.076321387921972,
+        "rpm": 1968.4475474681747,
+        "gear": 1.0,
+        "throttle": 0.045742505168972734,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2178734253037,
+        "body_speed_kph": 19.298526064922537,
+        "wheelspeed_kph": 19.874503250966285,
+        "rpm": 1940.8002666921682,
+        "gear": 1.0,
+        "throttle": 0.04756267158952555,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2178993598205,
+        "body_speed_kph": 19.21066228906735,
+        "wheelspeed_kph": 19.105138753998418,
+        "rpm": 1930.3447541354913,
+        "gear": 1.0,
+        "throttle": 0.05031892760523109,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2179250891082,
+        "body_speed_kph": 18.884871601411746,
+        "wheelspeed_kph": 19.8881954389934,
+        "rpm": 1917.0213088482744,
+        "gear": 1.0,
+        "throttle": 0.05009536839431969,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2179505922723,
+        "body_speed_kph": 18.459209985873457,
+        "wheelspeed_kph": 19.415828684859843,
+        "rpm": 1883.8567058564947,
+        "gear": 1.0,
+        "throttle": 0.049007451649560566,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2179757128696,
+        "body_speed_kph": 17.754948071947908,
+        "wheelspeed_kph": 19.01277648596991,
+        "rpm": 1827.3272275612571,
+        "gear": 1.0,
+        "throttle": 0.047479038501181965,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2180025075243,
+        "body_speed_kph": 17.13080691669831,
+        "wheelspeed_kph": 18.33005396982579,
+        "rpm": 1726.5036267644884,
+        "gear": 1.0,
+        "throttle": 0.04690581155824639,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2180278177706,
+        "body_speed_kph": 16.841579791561852,
+        "wheelspeed_kph": 18.10460986814819,
+        "rpm": 1689.4913800483635,
+        "gear": 1.0,
+        "throttle": 0.04846699633614283,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2180531613807,
+        "body_speed_kph": 16.624460111729928,
+        "wheelspeed_kph": 18.215804451391378,
+        "rpm": 1667.3702845092432,
+        "gear": 1.0,
+        "throttle": 0.05024392141313572,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2180787588715,
+        "body_speed_kph": 16.469346793393974,
+        "wheelspeed_kph": 17.700302002997958,
+        "rpm": 1649.2563926667863,
+        "gear": 1.0,
+        "throttle": 0.05171441404334011,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2181048308698,
+        "body_speed_kph": 16.311760010501214,
+        "wheelspeed_kph": 16.904511388715882,
+        "rpm": 1635.62537405921,
+        "gear": 1.0,
+        "throttle": 0.053244594800056236,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2181310907869,
+        "body_speed_kph": 16.387782316612455,
+        "wheelspeed_kph": 17.725264241335083,
+        "rpm": 1629.6588685088561,
+        "gear": 1.0,
+        "throttle": 0.055576731405028536,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2181567675184,
+        "body_speed_kph": 16.676159166880744,
+        "wheelspeed_kph": 17.214434072581547,
+        "rpm": 1679.5065755663707,
+        "gear": 1.0,
+        "throttle": 0.06007482458298359,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2181826370837,
+        "body_speed_kph": 17.029923316837355,
+        "wheelspeed_kph": 17.443587542938722,
+        "rpm": 1731.3804859380136,
+        "gear": 1.0,
+        "throttle": 0.06350025888654758,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2182084145396,
+        "body_speed_kph": 17.461626151976017,
+        "wheelspeed_kph": 18.007269367550627,
+        "rpm": 1770.0317260570162,
+        "gear": 1.0,
+        "throttle": 0.06613868822745526,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2182344934031,
+        "body_speed_kph": 17.923644141811128,
+        "wheelspeed_kph": 18.22749490722422,
+        "rpm": 1809.9227901791821,
+        "gear": 1.0,
+        "throttle": 0.06790225042745196,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2182603035623,
+        "body_speed_kph": 18.370397605920882,
+        "wheelspeed_kph": 18.678860922002876,
+        "rpm": 1850.189259136446,
+        "gear": 1.0,
+        "throttle": 0.06862322441655984,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2182860014005,
+        "body_speed_kph": 18.795063056222656,
+        "wheelspeed_kph": 19.126775127776963,
+        "rpm": 1889.3211812818179,
+        "gear": 1.0,
+        "throttle": 0.06873653866874516,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2183113801756,
+        "body_speed_kph": 19.15845303500669,
+        "wheelspeed_kph": 19.363452943890334,
+        "rpm": 1922.1294507817506,
+        "gear": 1.0,
+        "throttle": 0.06699521201377691,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2183367529206,
+        "body_speed_kph": 19.47241821779456,
+        "wheelspeed_kph": 19.63283126140125,
+        "rpm": 1948.466037055121,
+        "gear": 1.0,
+        "throttle": 0.0647621873908743,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2183622552394,
+        "body_speed_kph": 19.70793315765671,
+        "wheelspeed_kph": 19.809027189874403,
+        "rpm": 1969.5709192627314,
+        "gear": 1.0,
+        "throttle": 0.06287418427693217,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2183878372690,
+        "body_speed_kph": 19.88490600376135,
+        "wheelspeed_kph": 20.058299838441204,
+        "rpm": 1986.689882542484,
+        "gear": 1.0,
+        "throttle": 0.061309597873873745,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2184132183087,
+        "body_speed_kph": 20.045308616514333,
+        "wheelspeed_kph": 20.123737562090692,
+        "rpm": 2000.5789563383692,
+        "gear": 1.0,
+        "throttle": 0.06013412354993664,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2184387249638,
+        "body_speed_kph": 20.17746321591521,
+        "wheelspeed_kph": 20.04541073279952,
+        "rpm": 2012.5632163430544,
+        "gear": 1.0,
+        "throttle": 0.05973397068129917,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2184640412785,
+        "body_speed_kph": 20.28250969907769,
+        "wheelspeed_kph": 20.408162439339023,
+        "rpm": 2023.397314540195,
+        "gear": 1.0,
+        "throttle": 0.05937758179395924,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2184895194956,
+        "body_speed_kph": 20.376699234358775,
+        "wheelspeed_kph": 20.546209843608878,
+        "rpm": 2033.1811718710626,
+        "gear": 1.0,
+        "throttle": 0.05904602895208618,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2185147324021,
+        "body_speed_kph": 20.478167310400266,
+        "wheelspeed_kph": 20.436233015020846,
+        "rpm": 2041.9179235710358,
+        "gear": 1.0,
+        "throttle": 0.058741603799128184,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2185403231241,
+        "body_speed_kph": 20.553101164190018,
+        "wheelspeed_kph": 20.676388257962376,
+        "rpm": 2049.969392454215,
+        "gear": 1.0,
+        "throttle": 0.058475299533243104,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2185656645012,
+        "body_speed_kph": 20.631144937585987,
+        "wheelspeed_kph": 20.68857437351176,
+        "rpm": 2057.21870661288,
+        "gear": 1.0,
+        "throttle": 0.05821802891738011,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2185910328309,
+        "body_speed_kph": 20.692554640674704,
+        "wheelspeed_kph": 20.820873188785676,
+        "rpm": 2063.621136949241,
+        "gear": 1.0,
+        "throttle": 0.057992821614513,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2186165792967,
+        "body_speed_kph": 20.748378551771296,
+        "wheelspeed_kph": 20.805061728142046,
+        "rpm": 2069.4018706798993,
+        "gear": 1.0,
+        "throttle": 0.057770440431485014,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2186421813794,
+        "body_speed_kph": 20.79238176192941,
+        "wheelspeed_kph": 20.997828283683855,
+        "rpm": 2074.637535754241,
+        "gear": 1.0,
+        "throttle": 0.05756439725029506,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2186676843605,
+        "body_speed_kph": 20.86678215021543,
+        "wheelspeed_kph": 20.862272463733856,
+        "rpm": 2079.5462276202798,
+        "gear": 1.0,
+        "throttle": 0.057370879676845475,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2186933051852,
+        "body_speed_kph": 20.90127633573214,
+        "wheelspeed_kph": 20.98440335897568,
+        "rpm": 2083.9943687493746,
+        "gear": 1.0,
+        "throttle": 0.057195365837578865,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2187191906543,
+        "body_speed_kph": 20.948105624994035,
+        "wheelspeed_kph": 21.06397056700071,
+        "rpm": 2087.9957474333232,
+        "gear": 1.0,
+        "throttle": 0.057031417910086785,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2187445559488,
+        "body_speed_kph": 20.984315864464108,
+        "wheelspeed_kph": 21.107745734850663,
+        "rpm": 2091.5133644366247,
+        "gear": 1.0,
+        "throttle": 0.05687350537793064,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2187706915828,
+        "body_speed_kph": 21.02365011524602,
+        "wheelspeed_kph": 21.090859435624612,
+        "rpm": 2094.61178938731,
+        "gear": 1.0,
+        "throttle": 0.056723991939797234,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2187962535709,
+        "body_speed_kph": 21.047539356413214,
+        "wheelspeed_kph": 21.051964373427673,
+        "rpm": 2097.416040608821,
+        "gear": 1.0,
+        "throttle": 0.05658549467172797,
+        "brake": 0.0
+      },
+      {
+        "phase": "wire",
+        "monotonic_ns": 2188214526707,
+        "body_speed_kph": 21.071385342531197,
+        "wheelspeed_kph": 21.178194063514564,
+        "rpm": 2099.979885814242,
+        "gear": 1.0,
+        "throttle": 0.05645321917535063,
+        "brake": 0.0
+      }
+    ],
+    "cleanup": {
+      "ai_disabled": true,
+      "game_stop_inputs_acknowledged": true,
+      "pause_acknowledged": true,
+      "gateway_processes": []
+    },
+    "body_speed_kph_max": 21.071385342531197,
+    "wheel_speed_kph_max": 21.178194063514564,
+    "wire_speed_kph_max": 21.071385342531197
+  },
+  "wire_submission": {
+    "samples": 602,
+    "physical_tx": true
+  },
+  "cleanup": {
+    "ai_disabled": true,
+    "game_stop_inputs_acknowledged": true,
+    "pause_acknowledged": true,
+    "gateway_processes": [],
+    "native_process_stopped": true
+  },
+  "raw_artifacts": {
+    "source.jsonl": {
+      "bytes": 163207,
+      "sha256": "2d206f761bba932c8052888865587febfe630ea8b17000b132f9e62a40e144c9"
+    },
+    "motion.json": {
+      "bytes": 22414,
+      "sha256": "34be62172ef9ee3df812525d5ad4b3cc27e1b31f669829c09993e695bcf8f465"
+    },
+    "native/summary.json": {
+      "bytes": 43743,
+      "sha256": "8b96ff6a25ba457da7a85ec24656c746d6762d33b08cedc0a084cdbe41e0bdc2"
+    },
+    "native/pandad.log": {
+      "bytes": 177,
+      "sha256": "200d447974b9cbdbf4ff0e3642f00694592656f08445d6746f274321540b025f"
+    },
+    "wire.stderr": {
+      "bytes": 118,
+      "sha256": "ea4286c309541ec082e5efe7c969a93a0af6efd62ac2778341f366e86c38f6ca"
+    },
+    "pc-execution.json": {
+      "bytes": 871,
+      "sha256": "cfeb50838b5f1c4160e799f07bc307cde2d4b3f73764eea83ae1dc0bfdc53832"
+    },
+    "capture_native.py": {
+      "bytes": 2638,
+      "sha256": "a1de91bdded8df9a27dc06cd95232912831edad2ddf125d202fb1ed612f12f79"
+    },
+    "pc_moving.py": {
+      "bytes": 3088,
+      "sha256": "b2f1b7b48cce1104cd400b322839a54a86d257caf33876b48014274941e7036a"
+    }
+  },
+  "limits": [
+    "zero CAN on all monitored USB source buses; not proof each physical connector was electrically tested",
+    "CAN0 has 6 parallel connectors; CAN1 and CAN2 each 3, per official wiki; current occupied connector unmeasured",
+    "no cable moved or bus enabled/reconfigured by host",
+    "game-only built-in AI movement, not Sunnypilot control or physical actuator control",
+    "serial submission does not prove adapter CAN transmission or ACK",
+    "USB-only power and removed Waveshare termination remain owner-confirmed, actual rails/termination/bitrate unmeasured"
+  ],
+  "gates": {
+    "met": 3,
+    "unmet": 0,
+    "abandoned": 1,
+    "handoff": "G3 physical moving-CAN acceptance not met; electrical/firmware-side diagnosis needed"
+  },
+  "owner_connector_confirmation": "CAN2 (printed board bus group), confirmed after this run; no cable move reported",
+  "preservation": {
+    "legacy_manifest_files_verified": 76,
+    "selected_sources_binary_and_dbc_unchanged": true
+  }
+}
