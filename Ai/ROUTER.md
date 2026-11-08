@@ -1,3 +1,11 @@
+## November 8 — Debug and output bit values clarified (QA54)
+
+Debug tests only value1in preserved source:1and3log,0/2/4do not; historical
+choice3unknown. Output values1/2/4/8select angle/engine/speed/cruise reports;
+15=0x0Fallfour. See CHIMERA_SYS_CFG topic/BIT_FLAGS_FOLLOWUP.json. Current
+native Core Config bridge is read-only; examples were not applied. No device/
+source change or invented Debug2/4categories; installed image/receive holds stay.
+
 ## November 8 — SYS_CFG deep study saved (QA53)
 
 SYS_CFG already exists (last flash read), output0x0F/watchdogoff. Read student

@@ -1,3 +1,13 @@
+## QA-20261108-54 — What do Debug3 and the output mask mean? How to choose values?
+
+**Date:** November 8, 2026 UTC.
+**Owner question (faithful quote):** "how to confiq this  ,wat bebug 3 means ,why not 1 or 2 or 4 ,wt this value means ,then output mask wat it measn".
+**Answer:** Values select binary flags, not increasing verbosity levels. Both preserved Chimera Debug consumers test only debug_lvl&1:0off,1on,2off,3on(same observed logging as1),4off.3=1|2sets two bits, but no value2or4Debug consumer was found; why3was historically chosen is unknown. Output flags are1angle0x50,2engine0x75,4speed0x76,8cruise/buttons0x100; combine desired flags once using OR (distinct powers-of-two addition is equivalent).15decimal=0x0Fhex=00001111binary enables allfour; examples1angle only,3angle+engine,5angle+speed,0none of these generated reports. These are generated message-family flags, not physical CAN-bus/voltage/receive enable switches. Choose numbers from the desired flags; an illustrative Debug1/output1means logging+angle-only, not an applied board profile. Last saved3/15already selects observed logging/allfour in this source. Current native Core Config desktop bridge is read-only and cannot apply SYS changes; a future write needs compatible reviewed guarded tooling, preserved other fields and complete backup/readback. No board configuration was changed.
+**Evidence/source pins:** Baselineea9c8b2d04a2668821da4bbb07497a26b64a239f; chimera_old/firmware/chimera/main.c777/789(Debug),624/647/671/693(output mask),569(CAN1sender); packed field declaration chimera.h25/26; Core Config/native-usb.js131/148write controls. Ai/Knowledge/CHIMERA_SYS_CFG.md and Ai/Reports/chimera-syscfg-study-20261108/BIT_FLAGS_FOLLOWUP.json retain exact source hashes/truth tables/examples. The open power_saving.h is a separate control path, not the consumer of these SYS bits.
+**Status/limits:** Source explanation and synchronized memory only, not a request to apply settings. No hardware/USB/CAN/config/Save/Format/reset/flash/product/firmware/DBC/model/update/push action. Installedde193215equivalence/debug bit extensions remain unproven. No new logging categories or historical intent invented; no zero-frame fix claimed. Existing owner-selectedCAN2, write quarantine and other holds/unanswered entries retained.
+
+---
+
 ## QA-20261108-53 — Do we need Chimera SYS configuration? Deep study
 
 **Date:** November 8, 2026 UTC.

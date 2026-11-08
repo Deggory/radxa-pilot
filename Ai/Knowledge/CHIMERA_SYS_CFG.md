@@ -134,3 +134,42 @@ Chimera support; it is not a SYS_CFGsource graph or current runtime evidence.
 Actual source review/byte decoding and compact Unlazy checks back this study.
 REA source-first routing was read; no binary decompilation or exact-nightly
 analysis was performed or claimed. No product/hardware/firmware/config change.
+
+## Decimal bit flags and how to choose values — November 8 (QA54)
+
+These fields hold bit flags. Each power of two selects one switch; combine
+distinct selections with bitwiseOR (`|`). Adding distinct powers of two gives
+the same result. They are not automatic verbosity levels or CAN voltages/speeds.
+
+For Debug, both preserved Chimera consumers test only `debug_lvl & 1`:
+
+| Decimal | Binary | Effect on these debug branches |
+| --- | --- | --- |
+| 0 | 00000000 | Off |
+| 1 | 00000001 | On |
+| 2 | 00000010 | Off; no value2consumer found |
+| 3 | 00000011 | On, same observed logging as1 |
+| 4 | 00000100 | Off; no value4consumer found |
+
+Why the historical saved value was3is not recorded. Do not invent extra UART,
+CAN or verbosity categories for bits2/4. This is preserved-source behavior, not
+proof of the exact installed nightly's complete debug semantics.
+
+Output mask uses value1for angle0x50,2for engine0x75,4for speed0x76and8for
+cruise/buttons0x100. Thus1is angle only,3=1|2is angle+engine,5=1|4is
+angle+speed,15=1|2|4|8=0x0Fis allfour.0disables these generated reports, not
+raw CAN receiving or physical transceivers. Generated reports use MCUCAN1/
+printedCAN0in this source; the mask does not select four physical CAN buses.
+
+To express a desired setting, choose the Debug logging flag and combine the
+wanted output flags. For example Debug1/output1describes logging and only the
+angle-report family, subject to compatible sensor mappings and firmware. This
+is an explanation, not an applied profile or calibrated sensor setup. Current
+last-saved Debug3/output15already selects observed logging and allfourfamilies.
+
+The current native Core Config desktop bridge is read-only and disables SYS
+Write/Save; editing a displayed value cannot make it program the board. Any
+future application needs the compatible guarded write path, a backup, preserving
+other SYS fields and exact full-block readback. No Save/Format/reset/firmware or
+settings change was performed. Historical write incident/quarantine stays.
+[Truth table/source pins](../Reports/chimera-syscfg-study-20261108/BIT_FLAGS_FOLLOWUP.json).

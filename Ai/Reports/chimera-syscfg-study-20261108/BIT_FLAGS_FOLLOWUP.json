@@ -1,0 +1,89 @@
+{
+  "date": "2026-11-08",
+  "question": "QA-20261108-54",
+  "baseline": "ea9c8b2d04a2668821da4bbb07497a26b64a239f",
+  "debug_consumers": [
+    "if (cfg && (cfg->sys.debug_lvl & 1)){",
+    "if (syscfg && (syscfg->sys.debug_lvl & 1)){"
+  ],
+  "debug_truth_table": [
+    {
+      "value": 0,
+      "binary": "00000000",
+      "observed_debug_branch_enabled": false
+    },
+    {
+      "value": 1,
+      "binary": "00000001",
+      "observed_debug_branch_enabled": true
+    },
+    {
+      "value": 2,
+      "binary": "00000010",
+      "observed_debug_branch_enabled": false
+    },
+    {
+      "value": 3,
+      "binary": "00000011",
+      "observed_debug_branch_enabled": true
+    },
+    {
+      "value": 4,
+      "binary": "00000100",
+      "observed_debug_branch_enabled": false
+    }
+  ],
+  "debug3_reason": "Why3was originally chosen is not recorded; in preserved source it has the same observed debug effect as1. No bit2/bit4logging category invented.",
+  "output_flags": {
+    "1": {
+      "id": "0x50",
+      "name": "steering angle"
+    },
+    "2": {
+      "id": "0x75",
+      "name": "engine"
+    },
+    "4": {
+      "id": "0x76",
+      "name": "vehicle speed"
+    },
+    "8": {
+      "id": "0x100",
+      "name": "cruise/buttons"
+    }
+  },
+  "examples": {
+    "0": [],
+    "1": [
+      "steering angle"
+    ],
+    "3": [
+      "steering angle",
+      "engine"
+    ],
+    "5": [
+      "steering angle",
+      "vehicle speed"
+    ],
+    "15": [
+      "steering angle",
+      "engine",
+      "vehicle speed",
+      "cruise/buttons"
+    ]
+  },
+  "configuration_semantics": "Choose each desired flag once and combine with bitwiseOR; addition of distinct powers of2is equivalent. Both fields are bytes, not voltage/speed or automatic severity levels.",
+  "current_last_saved_values": {
+    "debug": 3,
+    "output_mask": 15
+  },
+  "application_limit": "Current Core Config native desktop bridge disables SYS writes and all control OUT operations. Future hardware writes need a compatible reviewed guarded writer, preservation of unrelated fields, backup and complete block readback; none authorized/performed here.",
+  "source_pins": {
+    "sunnypilot/chimera_old/firmware/chimera/main.c": "5d1dd3b0400ec80da9b477abfced51c9346674865ce5ad86d7e5a012c2d94883",
+    "sunnypilot/chimera_old/firmware/chimera/chimera.h": "bccfd705363d223d86c9a0e62ccc817ba13a95e068315c22f97a40fdbf9aa413",
+    "ocelot/Core Config/native-usb.js": "dd868d2700f0ffc8199b107e3b0b0b3494cb691878ff7bdf06d64b53dd5a278c"
+  },
+  "installed_image_equivalence": "unproven",
+  "new_hardware_actions": false,
+  "configured_board": false
+}
