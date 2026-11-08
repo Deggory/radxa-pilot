@@ -1,0 +1,125 @@
+{
+  "date": "2026-11-08",
+  "baseline": "009ec3899c8cec85aefdd5cc094104be74022868",
+  "opendbc": "150f937198ceab43c43b39f94b9bdea63fcb633c",
+  "panda": "8a16e089b88593914823743df29e1c30b7dd3e00",
+  "source_hashes": {
+    "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/safety/modes/retropilot.h": "a7e8c9cb5a6cd8ce51ac911ec3ed896b98dc8c4af1df84d3b6c287196d268596",
+    "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/safety/modes/retropilot_active.h": "facbb340af64667a29f8eaa75ea363b3873365c7b8e0a401125ba71f2acefd58",
+    "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/safety/tests/test_retropilot.py": "8a1a753de06e4b951363f62206051e71204abd08b164b58263b3ace6c51ca046",
+    "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/safety/tests/test_retropilot_active.py": "34125199c4ca363f90710d116bb5ed8ad51d816eaac3291285f1ff5cbb31a3a0",
+    "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/retropilot/retropilotcan.py": "e5c6688333be147f9a610704904fc6619c0d5f37ad81b8896a281011fa0cf965",
+    "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/retropilot/interface.py": "f142bcc3a54f0cae01db4af3da5cc375a484e3ea4c664719643505f5c23e9be8",
+    "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/car/retropilot/carcontroller.py": "4ac812483238035524618b7e9c212d4f5ce7ba587b3439bc5f3c2e5e37a6123c",
+    "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/dbc/ocelot_controls.dbc": "b4079670b8118fe63c6a7710ca1158afaabfec7df881ef902e43d70d70a36b67",
+    "/home/radxa/comma/sunnypilot/chimera_old/firmware/chimera/can.h": "7aca434faa4a1c37d59f5b43f495ed0d213f0e22fc46e4db28c433472b757310",
+    "/home/radxa/comma/sunnypilot/chimera_old/firmware/chimera/main.c": "5d1dd3b0400ec80da9b477abfced51c9346674865ce5ad86d7e5a012c2d94883",
+    "/home/radxa/comma/retropilot/dbc/ocelot_controls.dbc": "b4079670b8118fe63c6a7710ca1158afaabfec7df881ef902e43d70d70a36b67",
+    "/home/radxa/comma/retropilot/dbc/VERSION.json": "87f11cb7b1d7598da1fa8ee49744a8c83ad5d4090a55fc6ede0d2cf0536b61b0",
+    "/home/radxa/comma/retropilot/safety/safety_retropilot.h": "fe50de5a366d990023058cb89621ca1abadb131dc6fccb8d804f78f519837513",
+    "/home/radxa/comma/ocelot/firmware/RetroPilot_Cores/interceptor_core/modes/differential.h": "3d6c5d0a9f7c17ffe9cb494d99c09a7374647cf1321827a7c1553f0e9d6128ee",
+    "/home/radxa/comma/ocelot/firmware/crc.h": "dd21e9aff24cc24fcb42f0b0fb3674248a8e84fe8303926c7fbd3f081be894d6"
+  },
+  "checks": {
+    "canonical_packaged_equal": true,
+    "dbc_sha256": "b4079670b8118fe63c6a7710ca1158afaabfec7df881ef902e43d70d70a36b67",
+    "legacy_prefix_equal": true,
+    "dbc_messages": 28,
+    "TX_ID_bus_DLC_matches": [
+      [
+        "0x10E",
+        "2",
+        "6"
+      ],
+      [
+        "0x12E",
+        "2",
+        "6"
+      ],
+      [
+        "0x200",
+        "2",
+        "6"
+      ],
+      [
+        "0x20E",
+        "2",
+        "6"
+      ],
+      [
+        "0x22E",
+        "2",
+        "5"
+      ],
+      [
+        "0x300",
+        "2",
+        "6"
+      ],
+      [
+        "0x400",
+        "2",
+        "6"
+      ]
+    ],
+    "RX_ID_bus_DLC_matches": [
+      [
+        "0x50",
+        "2",
+        "6"
+      ],
+      [
+        "0x75",
+        "2",
+        "8"
+      ],
+      [
+        "0x76",
+        "2",
+        "8"
+      ],
+      [
+        "0x100",
+        "2",
+        "8"
+      ],
+      [
+        "0x301",
+        "2",
+        "8"
+      ],
+      [
+        "0x201",
+        "2",
+        "6"
+      ],
+      [
+        "0x20F",
+        "2",
+        "5"
+      ]
+    ],
+    "crc_scope_example": {
+      "payload": "00e803e803010012",
+      "full_8_byte_checksum": 202,
+      "legacy_6_byte_checksum": 245,
+      "equal": false
+    }
+  },
+  "focused_safety_tests": {
+    "command": "PYTHONPATH=/home/radxa/comma/sunnypilot/opendbc_repo:/home/radxa/comma/sunnypilot .venv/bin/python -m unittest opendbc.safety.tests.test_retropilot opendbc.safety.tests.test_retropilot_active",
+    "exit_code": 0,
+    "tests_run": 50,
+    "duration_seconds": 2.605,
+    "result": "OK",
+    "scope": "fresh native compiled C hooks with UBSan; artificial active profile only; offline"
+  },
+  "limits": [
+    "normal production init has NULL active profile",
+    "no active hooks installed/enforced in chimera_old",
+    "DBC checks cover declared IDs/bus/DLC and focused test vectors, not all possible producers or every bit layout",
+    "legacy partial CRC and ADC placement/bus/unit gaps remain",
+    "local Ocelot source is dirty historical evidence, not installed-board proof",
+    "no device/CAN/firmware/config/update/push action"
+  ]
+}

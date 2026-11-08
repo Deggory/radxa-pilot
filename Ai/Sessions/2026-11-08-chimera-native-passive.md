@@ -142,3 +142,19 @@ skills guide closeout, source-first read avoids unrelated REA/runtime work.
 Prior QA25tests reused; notebook/QA/whitespace checks only, no code/DBC/firmware,
 USB/CAN/config/flash/update/push. Process snapshot/source hashes and actual
 validation/commit/clean readback are in central DATA_FOLLOWUP.json.
+
+## Focused RetroPilot safety/DBC review (QA31)
+
+Owner asked to inspect retropilot.h and DBC. Read modern restricted/active hooks,
+registration/host isolation, canonical/package/version/original prefix, selected
+historical C2 WIP and local producer source. Fresh focused native safety suites:
+50passed/2.605s; DBC hashes/28messages and7TX/7RX IDs/DLCs pass. Explicit partial
+versus full0x301CRCvector differs245/202. Existing ADC/units/bus/source-image gaps
+retained, not silently adapted. Focused review report/results and source pins in
+student Ai/Reports/retropilot-safety-dbc-20261108. No production code, DBC,
+firmware, hardware, daemon or upstream changes; no new coverage/full-suite claim.
+No agent delegation or unrelated binary/REA work. Code-review/documentation/Git
+skills used. Next remains scoped passive work, with active profile/deployment/
+physical safety qualification separate; new rewrite/update holds retained.
+Notebook/QA/whitespace/preservation and actual clean commit are recorded centrally
+in SAFETY_DBC_REVIEW.json; no push.

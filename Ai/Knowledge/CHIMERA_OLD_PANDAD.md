@@ -1,3 +1,12 @@
+## November8 — RetroPilot safety/DBC focused review (QA31)
+
+Modern restricted hooks and synthetic-profile active engine exist; normal init
+has no qualified profile and old Chimera does not enforce them. Fresh50compiled
+tests pass. Canonical/package DBC match28messages and7TX/7RX IDs/DLCs. Historical
+WIP is separate; partial0x301CRC, ADC layout, units/bus qualification gaps remain.
+See student Reports/retropilot-safety-dbc-20261108; baseline009ec389/opendbc150f9371.
+No product/firmware/DBC/device work; next passive scope and saved holds unchanged.
+
 ## November8 — Chimera data availability explained (QA30)
 
 USB detection is confirmed; no local pandad process found and no live telemetry

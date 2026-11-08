@@ -1,3 +1,13 @@
+## QA-20261108-31 — Inspect our retropilot.h safety and DBC
+
+**Date:** November 8, 2026 UTC.
+**Owner request (faithful quote):** "see our retropilot.h safety and dbc".
+**Answer:** Our modern RetroPilot safety code already exists: retropilot.h registers hooks and restricts seven bus2command families to disabled packets under normal unprofiled initialization; retropilot_active.h implements parameterized checks for steering interceptor0x300, gas0x200 and iBooster0x20E, requiring seven feedback messages, full CRC8J1850/counters/freshness/quality, driver override and engagement gates, calibrated command limits/timing and gas/brake exclusion. Production init passes NULLprofile, unknown parameters allow no TX, forwarding is disabled and RelayCore commands are excluded. Car interface remains noOutput/dashcamOnly and runtime controller returns no CAN. These headers are not installed/enforced in old Chimera's can_send. The canonical and packaged DBC match exactly:28messages (20legacy+8simulation), with all7TX/7RX IDs/DLCs matching safety definitions and the old7363-byte prefix preserved. A matching DBC is not physical protocol/calibration proof. Historical C2 safety_retropilot.h is a distinct WIP reference with weak RX/engagement checks. Existing local producer gaps include partial CRC on8-byte0x301, CRUISEADC layout, speed units/source and CAN0vsbus2routing; no checks were weakened.
+**Evidence/source pins:** Parent baseline009ec3899c8cec85aefdd5cc094104be74022868; opendbc150f937198ceab43c43b39f94b9bdea63fcb633c/Panda8a16e089. Student Ai/Reports/retropilot-safety-dbc-20261108/{README.md,RESULTS.json} records selected current source hashes, fresh50compiled safety tests and explicit DBC/CRC comparison. Canonical/packaged SHA256b4079670b8118fe63c6a7710ca1158afaabfec7df881ef902e43d70d70a36b67. Related QA01/02/28 and November3active-safety evidence reused as routes, not fresh full-suite results.
+**Status/limits:** Focused source review plus50fresh offline tests passed (2.605s) and DBC structural/hash checks passed. No full-suite/coverage claim, product/DBC/firmware change, native pandad startup, USB/CAN/device/vehicle/relay/config/flash/update or push. Active fixture limits are synthetic; no production profile or installed-source/electrical compatibility qualification. Local Ocelot is pre-existing dirty evidence; this review did not modify it. New rewrite/upstream holds and unanswered entries retained.
+
+---
+
 ## QA-20261108-30 — What data does Sunnypilot get from Chimera?
 
 **Date:** November 8, 2026 UTC.
