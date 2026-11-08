@@ -1,3 +1,13 @@
+## QA-20261108-20 — Understand Anything and Unlazy fit
+
+**Date:** November 8, 2026 UTC.
+**Owner question (faithful quote):** "can understand-anythiing and unlazy skill help our project".
+**Answer:** Yes, selectively. Understand Anything could give us a browsable source architecture map for the camera/model/messages/UI path or a selected CAN subsystem. Unlazy could attach explicit observable acceptance checks to a substantial deliverable and expose unfinished work. They complement existing skills, Ai memory and source/REA evidence. Full workspace indexing and deep task trees could add cost and repeat our earlier fragmentation problem; prefer a small pilot and compact gates. Unlazy's Stop hook is Claude Code specific, and its checker proves only declared checks, not that the checks capture the intended outcome. Neither establishes working hardware or vehicle integration.
+**Evidence/source pins:** Understand Anything `a6ea4024767df85ce4f99140d4f12ecfc5a81eb6`, pinned README and understand/SKILL.md; Unlazy `16671491f6679ad9378f52604d3bc2415b4120c7`, pinned README and SKILL.md. Teacher receipt: Ai/Reports/skills-fit-20261108/SOURCES.json; student topic: Ai/Knowledge/SKILLS.md. Compared with existing module maps, validation workflow and saved November 7 halt/delay explanation. Project baseline `b2bc9c24030454a3cd313a31928dc7ea9717f044`.
+**Status/limits:** Source assessment and recommendation completed; adoption remains proposed. Neither candidate installed or executed; no hook, graph, gates, dependencies, application code, model, firmware, hardware, update or push changes. No Radxa/ARM64 runtime qualification or measured benefit. Notebook/QA/whitespace checks recorded in session. Existing unanswered entries preserved separately.
+
+---
+
 ## QA-20261108-03 — See all the things Panda does
 
 **Date:** November 8, 2026 UTC.

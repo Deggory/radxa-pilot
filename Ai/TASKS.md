@@ -1,3 +1,11 @@
+## November 8 — Understand Anything / Unlazy assessment (QA20)
+
+Source-only recommendation: optional focused architecture graph and compact
+acceptance gates for substantial work; adoption remains proposed. Neither tool
+installed/executed and no code/hardware/update changes. See the skills topic
+and November 8 skills-fit session for source pins and limits. Chimera rewrite
+remains halted; next step is owner-selected scope, no automatic implementation.
+
 ## November 7 — Original Chimera native pandad route (QA19)
 
 Owner keeps chimera_old and defers firmware improvements. Source audit identifies

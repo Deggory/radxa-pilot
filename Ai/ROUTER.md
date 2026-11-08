@@ -1,3 +1,11 @@
+## November 8 — Understand Anything / Unlazy assessment (QA20)
+
+Source-only recommendation: optional focused architecture graph and compact
+acceptance gates for substantial work; adoption remains proposed. Neither tool
+installed/executed and no code/hardware/update changes. See the skills topic
+and November 8 skills-fit session for source pins and limits. Chimera rewrite
+remains halted; next step is owner-selected scope, no automatic implementation.
+
 ## November 8 — Panda function inventory (QA-20261108-03)
 
 Student Ai/Knowledge/PANDA_FUNCTIONS.md maps firmware/host/board functions;

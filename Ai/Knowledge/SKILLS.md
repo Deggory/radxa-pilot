@@ -1,3 +1,33 @@
+## 2026-11-08 — Understand Anything and Unlazy suitability (proposed only)
+
+Owner asked: "can understand-anythiing and unlazy skill help our project".
+Assessed Egonex-AI/Understand-Anything at `a6ea4024767df85ce4f99140d4f12ecfc5a81eb6` and
+Leonxlnx/unlazy at `16671491f6679ad9378f52604d3bc2415b4120c7`, using their pinned README and
+SKILL.md sources. Understand Anything combines deterministic source parsing
+with LLM summaries and an interactive architecture graph; incremental updates
+and exclusions are supported. A focused camera/model/messages/UI map could help
+explain relationships alongside our existing module maps. Initial whole-repo
+analysis can consume substantial tokens. The analyzed source graph does not
+establish runtime behavior, complete C/C++/macro/generated-code coverage or
+hardware compatibility. Its build instructions request Node >=22/pnpm >=10;
+the separate already-generated dashboard reader documents Node >=18.
+
+Unlazy adds command-backed CHECK/EXPECT gates, evidence binding and re-verification.
+A compact solo ledger could make unfinished capability visible, but overlaps
+existing plans, tests, validation ledger and handoffs. Its Stop hook is specific
+to Claude Code. Passing checks only proves declared command oracles; it cannot
+judge whether they cover the real requirement. The README calls current source
+2.1.0 unreleased; checker requires Node >=16. No local compatibility/performance
+or reliability benefit was measured.
+
+Recommendation: optional focused graph and acceptance gates for substantial work;
+keep existing Ai authoritative, avoid deep decomposition/duplicate ledgers and
+whole-workspace scanning. This is an assessment, not adoption or authorization
+to install, run candidate scripts, enable hooks, resume halted Chimera work or
+change upstream updates. Source-first/REA remains the standing workflow; no
+binary/runtime question required REA here. Candidate files were read as evidence,
+not invoked as installed skills. Existing unanswered questions remain open.
+
 # Agent skills for Sunnypilot work
 
 Owner requires relevant installed `addyosmani/agent-skills` alongside the
