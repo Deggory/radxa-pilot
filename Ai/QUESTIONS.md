@@ -1,3 +1,43 @@
+## QA-20261108-56 — Audit all buses, correct detection and receive path; deep diagnosis
+
+Date: 2026-11-08. Owner question (faithful quote): “see all the bus ,see if chimera is detected correct ,if the code is woking ,tell me how u are reading the can bus data ,deep search wat would have gone wrong”.
+
+Answer: Exact original Chimera detected, serial3a0044001651333038373636/version
+v1.0.0-DEV-de193215-DEBUG; its128-byte application signature matches saved signed
+nightly. Native20.114390901s/1909batches/20health gives0frames on all0/1/2;
+independent10.001553321s/43665reads/20health gives0USB bytes before decoding.
+Thus empty native batches are not received frames and host decoding/DBC cannot
+explain these missing bytes.23Python cases and5native executables pass,
+including432mailbox/5health parity vectors and nonempty all-bus cases.
+Read path: printedCAN0/1/2 -> MCUCAN1/2/3 -> raw queue -> USBbulkIN0x81 ->
+panda_usb.cc /panda_usb_status.cc -> chimera_usb.cc mailbox16 -> cereal can.
+
+Dated correction to QA49/50/53/55 operational interpretation: fresh SYS flash is
+still500/500/0/0kbit/s, CRC-valid and unchanged. ARM disassembly of the matching
+nightly proves250kdefaults with nonzero saved-rate overrides; zero retains250k,
+not Disabled. Predicted physical-bus boot rates are500/500/250k. Preserved
+source's fixed500kstartup/ignored saved fields does not describe this signed
+image. A500ksensor on printedCAN2 therefore has a strong boot bitrate mismatch
+lead. Current BTR/active RAM was not read, so this is not measured live timing
+or a completed repair. Generic filter setup, power/STB/termination and actual
+sensor transmission remain residual unknowns. No mapping is needed for raw RX;
+debug ring reports absent mappings but that concerns decoded angle variables.
+
+Evidence: project baseline1d5b9cc77c0b07518c35586eae6bd0296de11dc4;
+Ai/Reports/chimera-can-deep-audit-20261108/README.md, EVIDENCE.json and focused
+Thumb ranges (student); central report has raw captures/probes/full disassembly.
+Signed image SHAe35df778ad0d865d6eab5b7763b9a9081b3923bea11fbb8c2949a40d37796a9b;
+boot0x08009d02..1a/0x08009f44..6a. REA opened artifact but deep provider unavailable;
+existing ARM objdump used, no fabricated decompilation. ST official HAL supports
+filter-bank distinction; exact nightly source fetch422/unrecovered.
+
+Status: read-only audit and durable correction implemented. Proposed only:
+separately authorized temporary DE bus2/index5000rate setting and recapture;
+nightly handler supports0..2without flash. No OUT/reset/Save/Format/flash/port
+move/host product change. All76legacy/native/DBC hashes preserved, USB released,
+GUI kept disconnected. Physical CAN acceptance and electrical measurements
+unresolved; existing write/new-firmware/upstream holds remain.
+
 ## QA-20261108-55 — Should any CAN device show data on any of the three Chimera buses?
 
 **Date:** November 8, 2026 UTC.

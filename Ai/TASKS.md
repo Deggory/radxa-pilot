@@ -1,3 +1,17 @@
+## November 8 — Deep CAN audit: matching nightly predicts CAN2 at250k (QA56)
+
+Read student Reports/chimera-can-deep-audit-20261108/README.md and EVIDENCE.json.
+Fresh exact USB/signature match; native20.114s/1909batches and independent10s/
+43665reads both0frames; raw USB payload0before parser.23Python/5native suites
+pass. Important dated correction: preserved source's fixed500kdoes not describe
+matching nightly. Binary boot defaults250kand applies nonzero saved speeds;
+current500/500/0therefore predicts500/500/250k, a strong mismatch for500ksensor.
+Zero retains default in that image; active BTR/current RAM not read.76legacy/
+native/DBC hashes preserved; readers/REA closed, GUI kept disconnected, CAN2kept.
+Next separately authorized temporary DE/bus2/index5000and receive recapture,
+not flash/Save/reset; no OUT sent. Physical RX/electrical causes still unqualified.
+Existing write/new-firmware/upstream holds stay; exact nightly source unrecovered.
+
 ## November 8 — SYS_CFG deep study saved (QA53)
 
 SYS_CFG already exists (last flash read), output0x0F/watchdogoff. Read student

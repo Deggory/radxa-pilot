@@ -1,3 +1,14 @@
+## 2026-11-08 correction — installed-image boot differs (QA56)
+
+The matching signed nightly was now disassembled, with a fresh128-byte USB
+signature match. It defaults all3rates to250kand reads nonzero SYS saved speeds;
+zero retains250k. Current saved500/500/0predicts500/500/250k at boot. This changes
+the installed-image interpretation of the preserved-source discussion below;
+its fixed500k/ignored-fields findings are still source-only. Active registers/
+RAM remain unread. See ../Reports/chimera-can-deep-audit-20261108/README.md and
+focused-thumb.txt for exactaddresses, tests and proposed temporary rate test.
+No writes applied; CAN2receive remains0and existing holds remain.
+
 ## November 8 — SYS_CFG deep study saved (QA53)
 
 SYS_CFG already exists (last flash read), output0x0F/watchdogoff. Read student

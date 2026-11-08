@@ -1,0 +1,379 @@
+{
+  "date": "2026-11-08",
+  "baseline": {
+    "sunnypilot": {
+      "head": "1d5b9cc77c0b07518c35586eae6bd0296de11dc4\n",
+      "branch": "radxa/q8b\n",
+      "dirty": ""
+    },
+    "sunnypilot/panda": {
+      "head": "8a16e089b88593914823743df29e1c30b7dd3e00\n",
+      "branch": "",
+      "dirty": ""
+    },
+    "sunnypilot/opendbc_repo": {
+      "head": "150f937198ceab43c43b39f94b9bdea63fcb633c\n",
+      "branch": "radxa/retropilot\n",
+      "dirty": ""
+    },
+    "ocelot": {
+      "head": "d87892fa25ef2a2474110b97bfb5245ee818b534\n",
+      "branch": "feature/vw-differential-core\n",
+      "dirty": " M README.md\n M firmware/README.md\n M firmware/RetroPilot_Cores/interceptor_core/json_rpc_handlers.h\n M firmware/RetroPilot_Cores/interceptor_core/main.c\n M firmware/RetroPilot_Cores/interceptor_core/modes/differential.h\n M firmware/chimera/chimera.h\n M firmware/chimera/main.c\n M firmware/retropilot_cores/reports/VW_NEUTRAL_30S_PREPARATION_20261027.md\n M hardware/ocelot-pro/README.MD\n?? \"Core Config/\"\n?? \"Interceptor Config/\"\n?? RYLEYMCC_OVERKILL_INTERCEPTOR_REVIEW_20261014.md\n?? RYLEYMCC_TI_RECOVERY_SEARCH_20261014.md\n?? Retropilot_Core_Config\n?? Retropilot_Core_Config.desktop\n?? Retropilot_Interceptor_Config\n?? Retropilot_Interceptor_Config.desktop\n?? USB_DFU\n?? USB_DFU.desktop\n?? \"WebUSB DFU/\"\n?? cabana/\n?? firmware/BUILDING.md\n?? firmware/BUILD_COMPARISON.md\n?? firmware/INSPECTING_SIGNED_BIN.md\n?? firmware/RetroPilot_Cores/interceptor_core/ADC_TRACE_PROTOCOL.md\n?? firmware/RetroPilot_Cores/interceptor_core/STEERING_SENSOR_FIRMWARE_REVIEW.md\n?? firmware/RetroPilot_Cores/interceptor_core/adc_trace.h\n?? firmware/RetroPilot_Cores/interceptor_core/modes/differential_command.h\n?? firmware/build_interceptor_gcc9.sh\n?? firmware/build_local.sh\n?? firmware/inspect_signed.py\n?? firmware/inspection/\n?? hardware/Actuator-Core/\n?? hardware/chimera/\n?? hardware/interceptor-core/\n?? hardware/ocelot-pro/convert_schdoc.py\n?? hardware/ocelot-pro/ocelot-pro-schematic.pdf\n?? hardware/ocelot-pro/ocelot-pro_schematic.pdf\n?? hardware/relay-core/\n"
+    },
+    "steering": {
+      "head": "de0aa25a330bc408640b7ff79c10b35e81f72390\n",
+      "branch": "master\n",
+      "dirty": " M AI/CHANGELOG.md\n M AI/DECISIONS.md\n M AI/ELM327_DATA.md\n M AI/HARDWARE.md\n M AI/NEXT_STEPS.md\n M AI/PROJECT_STATE.md\n M AI/README.md\n M AI/REFERENCES.md\n M AI/SESSION_HANDOFF.md\n M AI/SIGNAL_MAP.md\n M AI/TEST_LOG.md\n?? AI/DTC_UTILS_REVIEW.md\n?? AI/KIA_UDS_OBD_RESEARCH.md\n?? AI/POLO_3D0_LENKHILFE_RESEARCH_20261007.md\n?? AI/POLO_EPS_CAN_CAPTURE_20261007.md\n?? AI/POLO_PQ_DBC_MORE_DATA_20261007.md\n?? AI/WAVESHARE_USB_CAN_A.md\n?? AI/captures/\n"
+    },
+    "sunnypilot/openpilot/selfdrive/pandad/pandad": {
+      "sha256": "e9e692b6bfaf67d4c9061f4645a89d8337fc938bd857cf03e03f6a3454f81a84",
+      "bytes": 12785520
+    },
+    "sunnypilot/chimera_old/recovery/chimera.bin.signed": {
+      "sha256": "e35df778ad0d865d6eab5b7763b9a9081b3923bea11fbb8c2949a40d37796a9b",
+      "bytes": 27976
+    },
+    "retropilot/dbc/ocelot_controls.dbc": {
+      "sha256": "b4079670b8118fe63c6a7710ca1158afaabfec7df881ef902e43d70d70a36b67",
+      "bytes": 10406,
+      "basis": "expected pinned canonical hash independently rechecked after reads"
+    }
+  },
+  "usb": {
+    "board": {
+      "bus": 3,
+      "address": 21,
+      "pid": 56780,
+      "product": "Chimera",
+      "serial": "3a0044001651333038373636"
+    },
+    "version": "v1.0.0-DEV-de193215-DEBUG",
+    "signature_matches_saved_nightly": true,
+    "duration_seconds": 10.001553321002575,
+    "polls": 43665,
+    "bulk_bytes_before_decoder": 0,
+    "usb_return_codes": {
+      "0": 43665
+    },
+    "actual_length_histogram": {
+      "0": 43665
+    },
+    "per_bus_frames": {
+      "0": 0,
+      "1": 0,
+      "2": 0
+    },
+    "bus_ids": {},
+    "out_requests": 0,
+    "closed": true,
+    "error": null,
+    "health_count": 20,
+    "health_first": {
+      "uptime": 21675,
+      "voltage": 0,
+      "current": 0,
+      "can_rx_errs": 0,
+      "can_send_errs": 0,
+      "can_fwd_errs": 0,
+      "gmlan_send_errs": 0,
+      "faults": 0,
+      "ignition_line": 0,
+      "ignition_can": 0,
+      "controls_allowed": 0,
+      "gas_interceptor_detected": 0,
+      "car_harness_status": 0,
+      "usb_power_mode": 0,
+      "safety_model_raw": 17,
+      "safety_param_raw": 0,
+      "fault_status": 0,
+      "power_save_enabled": 0
+    },
+    "health_last": {
+      "uptime": 21684,
+      "voltage": 0,
+      "current": 0,
+      "can_rx_errs": 0,
+      "can_send_errs": 0,
+      "can_fwd_errs": 0,
+      "gmlan_send_errs": 0,
+      "faults": 0,
+      "ignition_line": 0,
+      "ignition_can": 0,
+      "controls_allowed": 0,
+      "gas_interceptor_detected": 0,
+      "car_harness_status": 0,
+      "usb_power_mode": 0,
+      "safety_model_raw": 17,
+      "safety_param_raw": 0,
+      "fault_status": 0,
+      "power_save_enabled": 0
+    },
+    "control_request_count": 23,
+    "control_request_codes": [
+      "0xd2",
+      "0xd3",
+      "0xd4",
+      "0xd6"
+    ],
+    "complete_request_ledger": "central report USB_AUDIT.json"
+  },
+  "native": {
+    "duration": 20.114390900998842,
+    "native_exit": 0,
+    "can_batches": 1909,
+    "can_frames": 0,
+    "per_bus_frames": {
+      "0": 0,
+      "1": 0,
+      "2": 0
+    },
+    "bus_ids": {},
+    "valid_samples": 0,
+    "example_samples": [],
+    "actuator_commands": 0,
+    "native_profile": "chimeraOldMailbox16",
+    "error": null,
+    "native_process_stopped": true,
+    "diagnostics_count": 20,
+    "diagnostics_first": {
+      "availability": {
+        "heartbeatLost": false,
+        "observationOnly": true,
+        "pandaStates": false,
+        "perBusHealth": false,
+        "preservedSourcePlaceholders": [
+          "voltage_raw",
+          "current_raw",
+          "gas_interceptor_detected_raw",
+          "gmlan_send_errs",
+          "safety_model_raw",
+          "safety_param_raw",
+          "power_save_enabled_raw"
+        ]
+      },
+      "controllers": [],
+      "endNanos": "34569781151328",
+      "kind": "panda-usb-status",
+      "operational": false,
+      "profile": "chimeraOldMailbox16",
+      "rawHealth": {
+        "can_fwd_errs": 0,
+        "can_rx_errs": 0,
+        "can_send_errs": 0,
+        "car_harness_status_raw": 0,
+        "controls_allowed_raw": 0,
+        "current_raw": 0,
+        "fault_status_raw": 0,
+        "faults": 0,
+        "gas_interceptor_detected_raw": 0,
+        "gmlan_send_errs": 0,
+        "ignition_can_raw": 0,
+        "ignition_line_raw": 0,
+        "power_save_enabled_raw": 0,
+        "safety_model_raw": 17,
+        "safety_param_raw": 0,
+        "uptime": 21643,
+        "usb_power_mode_raw": 0,
+        "voltage_raw": 0
+      },
+      "schema": 1,
+      "serial": "3a0044001651333038373636",
+      "startNanos": "34569780967333",
+      "state": "observing",
+      "version": "v1.0.0-DEV-de193215-DEBUG"
+    },
+    "diagnostics_last": {
+      "availability": {
+        "heartbeatLost": false,
+        "observationOnly": true,
+        "pandaStates": false,
+        "perBusHealth": false,
+        "preservedSourcePlaceholders": [
+          "voltage_raw",
+          "current_raw",
+          "gas_interceptor_detected_raw",
+          "gmlan_send_errs",
+          "safety_model_raw",
+          "safety_param_raw",
+          "power_save_enabled_raw"
+        ]
+      },
+      "controllers": [],
+      "endNanos": "34588882709668",
+      "kind": "panda-usb-status",
+      "operational": false,
+      "profile": "chimeraOldMailbox16",
+      "rawHealth": {
+        "can_fwd_errs": 0,
+        "can_rx_errs": 0,
+        "can_send_errs": 0,
+        "car_harness_status_raw": 0,
+        "controls_allowed_raw": 0,
+        "current_raw": 0,
+        "fault_status_raw": 0,
+        "faults": 0,
+        "gas_interceptor_detected_raw": 0,
+        "gmlan_send_errs": 0,
+        "ignition_can_raw": 0,
+        "ignition_line_raw": 0,
+        "power_save_enabled_raw": 0,
+        "safety_model_raw": 17,
+        "safety_param_raw": 0,
+        "uptime": 21663,
+        "usb_power_mode_raw": 0,
+        "voltage_raw": 0
+      },
+      "schema": 1,
+      "serial": "3a0044001651333038373636",
+      "startNanos": "34588882306452",
+      "state": "observing",
+      "version": "v1.0.0-DEV-de193215-DEBUG"
+    }
+  },
+  "configuration": {
+    "version": "v1.0.0-DEV-de193215-DEBUG",
+    "config_bytes": 776,
+    "config_valid": true,
+    "repeat_equal": true,
+    "sha256": "4b025b9e65b10475013ed39f8d4e66abf780a7cbe6ebf18833d952e46ffe3b22",
+    "sys_hex": "030f00000000000000000000000000f401f4010000000001",
+    "sys": {
+      "debug_level": 3,
+      "can_out": 15,
+      "watchdog": false,
+      "mode": 0,
+      "override_threshold": 0,
+      "speeds": [
+        5000,
+        5000,
+        0,
+        0
+      ]
+    },
+    "saved_kbps": [
+      500,
+      500,
+      0,
+      0
+    ],
+    "debug_bytes": 1023,
+    "debug_ring_drained": true,
+    "debug_text": "Configured signal type 00000001 at index: 00000000\r\nINIT\r\nWATCHDOG DISABLED\r\nReset cause: 1e000000\r\n**** INTERRUPTS ON ****\r\nESUSP detected\r\nSTEER_ANGLE_MAJ: confgured: false STEER_ANGLE_MIN: false steer angle: 00000000\r\nADC0 RAW: 00000000 ADC1 RAW: 00000002\r\nIGN: 00000000\r\nVSS config type: 00000000vss: 00000000 vss_pulse: 00000000\r\nengine rpm: 00000000\r\nSTEER_ANGLE_MAJ: confgured: false STEER_ANGLE_MIN: false steer angle: 00000000\r\nADC0 RAW: 00000000 ADC1 RAW: 00000000\r\nIGN: 00000000\r\nVSS config type: 00000000vss: 00000000 vss_pulse: 00000000\r\nengine rpm: 00000000\r\nSTEER_ANGLE_MAJ: confgured: false STEER_ANGLE_MIN: false steer angle: 00000000\r\nADC0 RAW: 00000003 ADC1 RAW: 00000001\r\nIGN: 00000000\r\nVSS config type: 00000000vss: 00000000 vss_pulse: 00000000\r\nengine rpm: 00000000\r\nSTEER_ANGLE_MAJ: confgured: false STEER_ANGLE_MIN: false steer angle: 00000000\r\nADC0 RAW: 00000000 ADC1 RAW: 00000002\r\nIGN: 00000000\r\nVSS config type: 00000000vss: 00000000 vss_pulse: 00000000\r\nengine rpm: 00000000\r\nSTEER_ANGLE_MAJ: c",
+    "out_requests": 0,
+    "closed": true,
+    "control_request_count": 44,
+    "control_request_codes": [
+      "0xd6",
+      "0xe0",
+      "0xff"
+    ],
+    "complete_request_ledger": "central report CONFIG_DEBUG.json"
+  },
+  "tests": [
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "unittest",
+        "-v",
+        "openpilot.selfdrive.pandad.tests.test_chimera_protocol",
+        "openpilot.selfdrive.pandad.tests.test_chimera",
+        "openpilot.selfdrive.pandad.tests.test_chimera_native",
+        "openpilot.selfdrive.pandad.tests.test_usb_startup"
+      ],
+      "exit": 0,
+      "log": "test-0.txt"
+    },
+    {
+      "command": [
+        "openpilot/selfdrive/pandad/tests/test_chimera_usb"
+      ],
+      "exit": 0,
+      "log": "test-1.txt"
+    },
+    {
+      "command": [
+        "openpilot/selfdrive/pandad/tests/test_panda_usb"
+      ],
+      "exit": 0,
+      "log": "test-2.txt"
+    },
+    {
+      "command": [
+        "openpilot/selfdrive/pandad/tests/test_panda_usb_can"
+      ],
+      "exit": 0,
+      "log": "test-3.txt"
+    },
+    {
+      "command": [
+        "openpilot/selfdrive/pandad/tests/test_panda_usb_publish"
+      ],
+      "exit": 0,
+      "log": "test-4.txt"
+    },
+    {
+      "command": [
+        "openpilot/selfdrive/pandad/tests/test_panda_usb_link"
+      ],
+      "exit": 0,
+      "log": "test-5.txt"
+    }
+  ],
+  "physical_can_repair_tested": false,
+  "predicted_boot_kbps": [
+    500,
+    500,
+    250
+  ],
+  "current_controller_registers_read": false,
+  "legacy": {
+    "entries": 76,
+    "mismatches": []
+  },
+  "rea": {
+    "opened_raw_artifact": true,
+    "overview": "provider_unavailable",
+    "no_decompilation": true,
+    "fallback": "existing ARM objdump",
+    "closed": true
+  },
+  "primary_http": [
+    {
+      "url": "https://raw.githubusercontent.com/STMicroelectronics/stm32f4xx-hal-driver/master/Src/stm32f4xx_hal_can.c",
+      "status": 200,
+      "bytes": 81255,
+      "sha256": "306376efc392862121c3f656948c308b3e98cf0ec6df8f5b8194fcdd487c0a2c"
+    },
+    {
+      "url": "https://api.github.com/repos/RetroPilot/ocelot/commits/de193215490b4906aa74aae6aa426b8f4740f3fa",
+      "status": 422,
+      "bytes": 174,
+      "sha256": "17362e2cff9b6becef76d74ef22676d7aa82e5bab945cebadd277e320b04d131"
+    }
+  ],
+  "temporary_bitrate_test": "proposed only; hold retained; no application OUT sent",
+  "literal_readback": {
+    "ram_data_start": "0x20000000",
+    "ram_data_end": "0x2000034c",
+    "flash_data_load": "0x800a974",
+    "controller_pointer_table": [
+      "0x40006400",
+      "0x40006800",
+      "0x40006c00"
+    ],
+    "bus_lookup": [
+      0,
+      1,
+      2
+    ],
+    "usb_de_jump_target": "0x8008413"
+  },
+  "audit_gates": {
+    "met": 4,
+    "unmet": 0,
+    "abandoned": 0,
+    "physical_repair_not_tested": true
+  }
+}
