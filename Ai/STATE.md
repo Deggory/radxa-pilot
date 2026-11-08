@@ -1,3 +1,10 @@
+## November 8 — Partial voltage reply awaits pin confirmation (QA60)
+
+Owner supplied “3.3 and 1.8” for a four-reading request. Values saved unassigned;
+asked if CANH3.3/CANL1.8toChimeraGND and requested labelled5V/sensor supply output.
+No new hardware action or diagnosis. See init-standby report follow-up/EVIDENCE;
+G3physical readings still unmet, other holds/next measurement step retained.
+
 ## November 8 — CAN2 init/standby software check; meter readings pending (QA59)
 
 Same-rate DE/bus2/index5000repeat after debug drain completed1.37ms; no immediate

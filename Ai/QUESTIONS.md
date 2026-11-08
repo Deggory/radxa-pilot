@@ -1,3 +1,20 @@
+## QA-20261108-60 — Partial voltage response; measurement points need confirmation
+
+Date: 2026-11-08. Owner answer (verbatim): “3.3 and 1.8”, in response to the
+request for labelled5V,CAN2CANH,CAN2CANL and separate sensor-supply output voltages.
+Actual assistant response: recorded the two values without assigning them to
+pins; asked whether they are CANH3.3V/CANL1.8V to ChimeraGND, and requested the
+other two readings. The four-field question and two-number response do not
+establish which measurement points were used. No electrical diagnosis or fresh
+CAN reception success follows from this answer alone.
+
+Evidence/status: OWNER_READING_FOLLOWUP.json in central chimera-can2-init-standby-
+20261108report; student same report EVIDENCE.json/README.md. Baseline project
+b2d19f36848d5e37b5135e31679859ec9ccc6c1e, no runtime test this follow-up. Reply
+saved in both notebooks; measurement-point confirmation/remaining voltages still
+pending. G3remains unmet; historical measurements and unanswered items retained.
+No USB/config/firmware/wiring/host product/upstream change or new authorization.
+
 ## QA-20261108-59 — Proceed with CAN2 initialization and standby investigation
 
 Date: 2026-11-08. Owner instruction (faithful quote): “proceed”, after the

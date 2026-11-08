@@ -1,3 +1,11 @@
+## November 8 follow-up — partial voltage reply (QA60)
+
+Owner replied “3.3 and 1.8” to the four-reading question. Measurement points
+are not yet confirmed. Asked whether these mean CANH3.3V/CANL1.8V to ChimeraGND,
+and for the labelled5V/sensor-supply output readings. No new hardware action;
+physical gate remains unmet. Do not overwrite historical rail values or treat
+this partial reply as a confirmed healthy CAN supply/standby measurement.
+
 # CAN2 initialization and standby — 2026-11-08
 
 ## Current finding and outstanding physical check

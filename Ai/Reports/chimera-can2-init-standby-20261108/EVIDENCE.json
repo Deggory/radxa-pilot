@@ -174,8 +174,9 @@
     "B7_constant": "56494e31"
   },
   "physical_readings": {
-    "status": "pending owner",
-    "new_values": null
+    "status": "partial unassigned response; clarification pending",
+    "owner_reply_verbatim": "3.3 and 1.8",
+    "new_values_by_measurement_point": null
   },
   "preservation": {
     "legacy_file_count": 76,
