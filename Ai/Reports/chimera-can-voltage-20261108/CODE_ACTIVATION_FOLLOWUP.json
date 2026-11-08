@@ -1,0 +1,20 @@
+{
+  "date": "2026-11-08",
+  "question": "QA-20261108-36",
+  "baseline": "03738248e61f8423de093b550640760d807adec7",
+  "source_hashes": {
+    "/home/radxa/comma/sunnypilot/chimera_old/firmware/SConscript": "7f60ca0b975592c2bf633e3eb06aa1934288cd547f4a771cb58567579da88bd9",
+    "/home/radxa/comma/sunnypilot/chimera_old/firmware/board.h": "aaf93aeaa7dd57dc665db4589fc8e3fc4e2375b37e3d5186cf8cefd4be688fb8",
+    "/home/radxa/comma/sunnypilot/chimera_old/firmware/boards/gateway.h": "26425d76947291d4711f36330b7e700e91d803622b42fe6e79c88f687f29451f",
+    "/home/radxa/comma/sunnypilot/chimera_old/firmware/chimera/main.c": "5d1dd3b0400ec80da9b477abfced51c9346674865ce5ad86d7e5a012c2d94883",
+    "/home/radxa/comma/sunnypilot/chimera_old/firmware/chimera/can.h": "7aca434faa4a1c37d59f5b43f495ed0d213f0e22fc46e4db28c433472b757310",
+    "/home/radxa/comma/sunnypilot/Ai/Reports/beamng-moving-can-20261108/RESULTS.json": "2358a7ff76d4b0ecd7f3fd4cdbb651bd746f13b90d0e90ca92365b2a7064a505"
+  },
+  "conclusion": "Startup/USB/raw CAN path has no ignition gate; relay/OBD-C branch uses line OR configured CAN ignition",
+  "verification": "Focused source trace and previously saved runtime health only; no fresh hardware test",
+  "limits": [
+    "Installed image/source equivalence unqualified",
+    "Actual CAN supply/enable/termination unmeasured",
+    "Zero received CAN remains unresolved"
+  ]
+}

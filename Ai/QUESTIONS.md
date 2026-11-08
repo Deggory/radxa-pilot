@@ -1,3 +1,13 @@
+## QA-20261108-36 — Does Chimera activate only with 12 V on IGN?
+
+**Date:** November 8, 2026 UTC.
+**Owner question (faithful quote):** "see in the code if chimera will activate only when ign is given 12 volt".
+**Answer:** No such whole-board or raw-CAN activation gate appears in the preserved gateway application. SConscript selects GATEWAY and chimera/main.c; board detection selects board_gateway. main() initializes the board, USB and CAN1/2/3 before entering loop(), without testing ignition. gateway_init enables all three CAN transceivers. The active included chimera/can.h receives frames into can_rx_q without an ignition condition, and usb_cb_ep1_in drains that queue without one. Ignition does gate the logical relay/OBD-C state: loop() reads active-low PA3 through the board input circuitry, and sets ignition_on/relay_on when ignition_line OR ignition_can is true; otherwise it clears both. CAN3 reception can populate ignition_can from a configured signal, so the external IGN terminal is not the only software ignition source. Firmware reads logic, not a literal 12 V measurement. Earlier saved real-device health/version replies with both ignition flags zero independently show the application was running with ignition off. This does not qualify CAN reception or prove installed transceiver power/enable state.
+**Evidence/source pins:** Baseline 03738248e61f8423de093b550640760d807adec7; chimera_old/firmware/SConscript:22,78; board.h:44; boards/gateway.h:94; chimera/main.c:172,477,521,545,1026,1124,1147,1231; active chimera/can.h:302 (not the separate drivers/can.h). Previous Ai/Reports/beamng-moving-can-20261108/RESULTS.json health_first/health_last carry ignition_line_raw=0 and ignition_can_raw=0 with version v1.0.0-DEV-de193215-DEBUG. Source hashes and focused trace recorded in voltage report CODE_ACTIVATION_FOLLOWUP.json (central actual commit/validation receipt).
+**Status/limits:** Source trace and previously saved runtime evidence only; no new USB/CAN/power/IGN/relay/config/flash action, product/firmware/DBC/model change, update or push. Saved source is not proven identical to installed de193215. Existing zero-frame CAN result and measured-rail/enable/termination unknowns remain. No new IGN feed prescribed; direct USB supply comparison remains the next electrical diagnostic. Rewrite/update holds and unanswered questions preserved.
+
+---
+
 ## QA-20261108-35 — Zero volts at the IGN input: should anything be connected?
 
 **Date:** November 8, 2026 UTC.

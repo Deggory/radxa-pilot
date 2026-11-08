@@ -1,3 +1,12 @@
+## November 8 — Startup versus ignition-controlled relay (QA36)
+
+Fresh source trace finds no IGN gate on gateway startup, USB, CAN1/2/3 init,
+CAN RX queue or USB bulk readout. Ignition line OR configured CAN ignition
+controls logical relay/OBD-C state. Saved real-device health/version already
+worked with both ignition flags zero; this does not qualify CAN hardware.
+See QA36 and voltage report. No hardware/source change; installed-source
+identity and electrical diagnosis remain unresolved. Existing holds retained.
+
 ## November 8 — Zero-voltage IGN is the external input (QA35)
 
 Owner identifies IGN beside VSS/CPS/BRAKE, not CAN2 pin 1. Unconnected input at 0 V

@@ -36,3 +36,20 @@ Source baseline 775de304; selected source hashes and fresh notebook/QA/whitespac
 clean readback in central IGN_INPUT_FOLLOWUP.json. Documentation/Git/source-first
 workflow; no unrelated binary/REA, gate or fresh firmware/runtime test. No push
 or resumed held work. Measurement/board equivalence limits retained.
+
+## Code activation trace — November 8 (QA36)
+
+The selected GATEWAY application calls board init, usb_init and llcan_init for
+all three CAN controllers unconditionally before its main loop. The active
+include is chimera/can.h: can_rx queues raw frames without an ignition gate,
+and main.c usb_cb_ep1_in drains the queue without one. The relay/OBD-C branch
+alone uses ignition_line OR ignition_can. CAN3 can extract a configured CAN
+ignition signal before calling can_rx(2); a physical IGN input is therefore
+not the only software source for ignition state. PA3 is a conditioned logic
+input; code does not measure a literal external 12 V threshold.
+Saved moving-test health_first/health_last show both ignition flags zero while
+version/health replies work. Exact installed-source identity and actual CAN
+rails/enable/termination remain open; no fresh runtime or hardware action.
+Baseline 03738248e61f8423de093b550640760d807adec7. Source-first debugging and
+documentation verification only; no binary analysis or unrelated graph build.
+Central CODE_ACTIVATION_FOLLOWUP.json retains source pins and validation.
