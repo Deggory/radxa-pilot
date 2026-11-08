@@ -1,3 +1,23 @@
+## QA-20261108-22 — Audit the teacher, then shut down Radxa
+
+**Date:** November 8, 2026 UTC.
+**Owner request (faithful quote):** "audit the teacher wiht this skill if it learn this skill after that shutdown the rdxa".
+**Answer:** Audit the adopted teacher instructions, installed source/supporting files, retrieval of representative saved facts, and actual Understand Anything knowledge parser/merge plus Unlazy completion checks. The native Ai notebook is routed Markdown rather than the parser's Karpathy wiki; a clearly labelled 11-source audit view preserves original notes and pins raw copies and excerpt ranges. Review covers known IMU, actual versus reference repositories, original Chimera protocol and halted rewrite, canonical DBC/classic CAN, upstream hold and reference/training limits. This checks durable adoption and a bounded tool exercise; it cannot prove all future agent behavior or exhaustively review the archive. Save an actionable handoff and actual checks before the authorized shutdown.
+**Evidence/source pins:** Teacher Ai/Reports/teacher-skills-audit-20261108 (BASELINE.json, VIEW_SOURCES.json, derived teacher-view graph, independent BEHAVIOR_REVIEW.md, GATES.md and final AUDIT.json); student Ai/Reports/teacher-skills-audit-20261108/README.md. Same immutable tool pins as QA21. Actual outcomes and shutdown reply belong in the final receipt, not an invented physical power-off claim.
+**Status/limits:** Owner authorized audit followed by host shutdown. Completion is established by the final receipt and handoff; no automatic firmware, model, CAN, hardware-control, upstream-update or push work is authorized. Shutdown submission/readback is recorded only after the OS response; physical power-off cannot be independently observed by this session. Existing unanswered entries preserved separately.
+
+---
+
+## QA-20261108-21 — Adopt skills and strengthen the teacher
+
+**Date:** November 8, 2026 UTC.
+**Owner requests (faithful quotes):** "okay use these skills ,teach our teacher to do this ,it have all the data about this project ,i"; "r teacher should act like a god ,".
+**Answer:** Adopted Understand Anything and Unlazy as task-relevant workspace tools. Installed pinned packages with all supporting files and made the nine Understand Anything skills and Unlazy discoverable. Added a teacher operating guide and student copy: recover routed evidence before asking again, use focused maps and compact observable gates, complete authorized capabilities autonomously, keep scope and verification honest, and save durable handoffs. This is persisted instruction and tested tool use, not background model training or omniscience. The existing archive contains substantial evidence but does not prove every fact is current or that every conversation was saved.
+**Evidence/source pins:** Understand Anything a6ea4024767df85ce4f99140d4f12ecfc5a81eb6 (plugin2.9.8); Unlazy16671491f6679ad9378f52604d3bc2415b4120c7 (source2.1.0). Teacher manifest Ai/Tools/teacher-skills-installation.json; both Ai/Knowledge/TEACHER_WORKFLOW.md copies, policy topics and AGENTS pointers. Baseline Sunnypilot c83e113b921dc8d000d02d312f54e5c2934e9a08.
+**Status/limits:** Installation and instructions adopted; supersedes QA20 proposed-only status from earlier today. Actual knowledge/gate audit and results recorded separately in QA22. Full TypeScript code graph/dashboard runtime not built (pnpm missing); Python knowledge analysis and Node gate checker are the exercised paths. No automatic Stop/commit hooks, update changes, resumed Chimera implementation, firmware/model/vehicle work or push. Existing unanswered items retained.
+
+---
+
 ## QA-20261108-20 — Understand Anything and Unlazy fit
 
 **Date:** November 8, 2026 UTC.

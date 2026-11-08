@@ -1,3 +1,14 @@
+## November 8 — Owner adopted Understand Anything and Unlazy
+
+This dated adoption supersedes the earlier proposed-only assessment below.
+Both pinned tool packages are installed for this workspace. Follow
+[Teacher operating workflow](TEACHER_WORKFLOW.md) for evidence recovery,
+focused architecture/knowledge analysis, compact runnable completion gates,
+autonomous completion and honest verification. Installation does not make
+all historical notes current or prove hardware compatibility. Knowledge and
+gate audit results are recorded in the November 8 teacher-skills-audit session.
+No automatic hooks/updates or resumed Chimera implementation are authorized.
+
 ## 2026-11-08 — Understand Anything and Unlazy suitability (proposed only)
 
 Owner asked: "can understand-anythiing and unlazy skill help our project".

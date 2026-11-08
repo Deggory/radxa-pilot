@@ -1,3 +1,13 @@
+## November 8 — Skills adopted; teacher audit and shutdown (QA21–22)
+
+Understand Anything and Unlazy are installed; the earlier proposed-only status
+is superseded. Read [teacher workflow](Knowledge/TEACHER_WORKFLOW.md) and
+[skills audit handoff](Sessions/2026-11-08-teacher-skills-audit.md).
+Focused knowledge analysis and completion gates audit the saved teacher workflow;
+coverage and actual results are recorded there. Owner requested power-off after
+closeout. On restart inspect live Git and the audit receipt; keep Chimera halted
+and upstream changes held. Do not infer missing hardware/runtime qualification.
+
 ## November 8 — Understand Anything / Unlazy assessment (QA20)
 
 Source-only recommendation: optional focused architecture graph and compact
