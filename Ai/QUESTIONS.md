@@ -1,3 +1,29 @@
+## QA-20261108-57 — What does the bitrate mismatch and temporary CAN2 test mean?
+
+Date: 2026-11-08. Owner question (labelled paraphrase): What does “strong bitrate-mismatch lead in its matching nightly firmware” mean, and what does temporarily setting CAN2 to500kbit/s and capturing again mean?
+
+Answer: Bitrate is the speed of the bits on the CAN wires; the sensor and receiver
+must use matching timing. The sensor previously worked at500kbit/s. The compiled
+nightly whose signature matches Chimera predicts CAN2boot timing250kbit/s because
+its saved speed is0and this image retains a250kdefault. This is a firmware-derived
+boot prediction, not a fresh measurement of the running controller. “Nightly”
+means the compiled development firmware image; the preserved source folder has
+different startup behavior. The proposed test sends a temporary USB command to
+set the running CAN2controller to500kbit/s, keeping the same connector/wiring,
+then watches for raw sensor frames such as0x25. It does not rewrite firmware or
+saved flash configuration; a reboot would reapply the saved boot configuration.
+If frames appear, that supports the mismatch diagnosis; if none appear, power,
+standby, termination and controller state still require investigation.
+
+Evidence/source pin: student report Ai/Reports/chimera-can-deep-audit-20261108/
+README.md and focused-thumb.txt at project54168ce502e649e1c57012404baf601bf4c573a5;
+SYS snapshot SHA4b025b9e65b10475013ed39f8d4e66abf780a7cbe6ebf18833d952e46ffe3b22.
+Status: explanation and synchronized memory implemented; temporary test remains
+proposed. Owner's quoted question is not treated as authorization to lift the
+existing write hold. No new device scan, capture, OUT command, config/firmware/
+product change or physical movement. Actual live timing and CAN reception remain
+unresolved; previous QA56tests are historical, not rerun for this explanation.
+
 ## QA-20261108-56 — Audit all buses, correct detection and receive path; deep diagnosis
 
 Date: 2026-11-08. Owner question (faithful quote): “see all the bus ,see if chimera is detected correct ,if the code is woking ,tell me how u are reading the can bus data ,deep search wat would have gone wrong”.

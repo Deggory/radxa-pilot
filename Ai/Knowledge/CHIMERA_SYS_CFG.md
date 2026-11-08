@@ -1,3 +1,11 @@
+## November 8 — Temporary bitrate test explained (QA57)
+
+Bitrate must match: sensor previously500k; matching nightly plus saved CAN2zero
+predicts250k at boot, not measured current timing. Proposed temporary USB change
+sets running CAN2to500k, then captures raw0x25; flash/firmware stay unchanged,
+reboot reuses saved configuration. Explanation only; no new hardware action or
+write authorization. QA56report remains source; existing holds and next step stay.
+
 ## 2026-11-08 correction — installed-image boot differs (QA56)
 
 The matching signed nightly was now disassembled, with a fresh128-byte USB
