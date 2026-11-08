@@ -37,3 +37,18 @@ hardware action or push is included. Next after restart: read this handoff,
 teacher workflow, audit receipts and actual Git; use installed skills for the
 owner-selected task. Do not automatically resume halted implementation or
 rebuild/scan the whole workspace. This notebook persistence is not model learning.
+
+## Completed verification
+
+Unlazy strict lint passed. All five gates passed and all five were actually
+re-executed successfully: 5 met, 0 unmet, 0 abandoned. Source files and eight
+evidence-route cases passed; changed-byte, missing-IMU and dangling-edge controls
+were rejected. Independent review confirms the corrected source/range metadata.
+Student notebook: 180 documents,608 relative links,251 optional workspace links.
+Reference HEAD/dirty states match the baseline. The existing maintenance hook
+continues journaling; actual validation is attached to the local commit.
+
+Adoption commit b9d7e0bc68f5f40fe957aa5beb3c302776f40e55 was clean and
+validated. This final record captures observed results; final commit/readback
+and the OS shutdown reply are saved in the coordinating audit receipt.
+No uncommitted application work, firmware/device action, update or push.

@@ -1,0 +1,43 @@
+{
+  "date": "2026-11-08",
+  "source_assessment": "complete",
+  "scope": "Pinned skill adoption and bounded teacher instruction/retrieval/knowledge audit",
+  "installed_files_verified": 565,
+  "understand_anything_skills": 9,
+  "unlazy_skills": 1,
+  "retrieval_cases": 8,
+  "knowledge_graph": {
+    "source_articles": 11,
+    "raw_sources": 11,
+    "topics": 4,
+    "nodes": 41,
+    "edges": 45,
+    "unresolved_wikilinks": 0
+  },
+  "resolved_findings": [
+    "Native Ai is not Karpathy wiki: labelled source-pinned subset adapter",
+    "Ambiguous hook wording corrected to new candidate hooks only",
+    "Current project instructions now preserve the reference update hold",
+    "Current project instructions distinguish working preview from broader unqualified integration"
+  ],
+  "gate_status": "pass",
+  "shutdown": {
+    "requested_by_owner": true,
+    "status": "not yet submitted; final action after checks"
+  },
+  "limits": [
+    "Not exhaustive archive audit or model learning",
+    "Future agent compliance not proven",
+    "Full TypeScript code graph/dashboard build not qualified; pnpm absent",
+    "No firmware/model/CAN/vehicle/hardware-control action"
+  ],
+  "reference_preservation": "Compared against BASELINE.json; unrelated HEAD and dirty state unchanged",
+  "gates": {
+    "met": 5,
+    "unmet": 0,
+    "abandoned": 0,
+    "reverified": true
+  },
+  "project_commit": "b9d7e0bc68f5f40fe957aa5beb3c302776f40e55",
+  "project_clean": true
+}
