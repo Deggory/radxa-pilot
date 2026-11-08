@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-08",
+  "project_baseline": "71a48a22f103c709bb55e75fde12d5ed820b8d6e",
+  "sha256": {
+    "ocelot/Core Config/usb_transport.py": "700fe76295a71ab1b3a34f063410fbf4bd1ec597e5c8ea1d58a3c06697fd9f3f",
+    "ocelot/Core Config/protocol.py": "25b5c7e28cc2f6cca7766b3520b6729dba36d6d07fc52c4e66561b730bfb6010",
+    "ocelot/Core Config/README.md": "b912f95d8ddf603e19bcf3e9b2f39bcb1549633135c14920ea8e0280a376caf7",
+    "ocelot/Core Config/site_snapshot/src/main.js": "3e43534bc148df27ea135442d33097d80c518da9957a4232cf4aeaf355bb7320",
+    "ocelot/Core Config/site_snapshot/src/webusb-chimera.js": "00007e934a1d5904e898513058a09dc462af9e8eefe2d6d85c6431afa3114ff8",
+    "ocelot/Core Config/site_snapshot/src/chimera-config.js": "678582bed06fac188e32e4e907600b826e27bc49c4c56bca99cc5ffea03414c2",
+    "sunnypilot/chimera_old/firmware/chimera/main.c": "5d1dd3b0400ec80da9b477abfced51c9346674865ce5ad86d7e5a012c2d94883",
+    "sunnypilot/chimera_old/firmware/chimera/chimera.h": "bccfd705363d223d86c9a0e62ccc817ba13a95e068315c22f97a40fdbf9aa413",
+    "sunnypilot/chimera_old/firmware/chimera/can.h": "7aca434faa4a1c37d59f5b43f495ed0d213f0e22fc46e4db28c433472b757310"
+  },
+  "ocelot_head": "d87892fa25ef2a2474110b97bfb5245ee818b534",
+  "ocelot_dirty_sources": "Exact worktree hashes above, not assumed equal to Git HEAD",
+  "source_locations": {
+    "runtime_startup": "sunnypilot/chimera_old/firmware/chimera/main.c:1134",
+    "runtime_apply": "sunnypilot/chimera_old/firmware/chimera/main.c:343",
+    "config_read": "sunnypilot/chimera_old/firmware/chimera/main.c:404",
+    "output_mask": "sunnypilot/chimera_old/firmware/chimera/main.c:624",
+    "raw_receive": "sunnypilot/chimera_old/firmware/chimera/can.h:303",
+    "usb_receive": "sunnypilot/chimera_old/firmware/chimera/main.c:172",
+    "saved_field_decode": "ocelot/Core Config/protocol.py:159",
+    "website_apply_save": "ocelot/Core Config/site_snapshot/src/main.js:3383"
+  }
+}

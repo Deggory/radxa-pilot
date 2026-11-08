@@ -1,3 +1,13 @@
+## QA-20261108-50 — Inspect RetroPilot Core Config for a CAN clue
+
+**Date:** November 8, 2026 UTC.
+**Owner request (faithful quote):** "see retropilot config  maybe it give some idea".
+**Answer:** Reviewed pinned Core Config and read the original attached Chimera flash block twice with a version/config-IN-only guard. Both776-byte reads matched, magic/CRC valid. Stored speed fields are CAN0=500kbit/s, CAN1=500kbit/s, CAN2=0, CAN3=0; the guarded desktop labels0Disabled. Owner's cable is on printedCAN2/USB2/MCUCAN3, so savedCAN2zero is a concrete discrepancy, but not yet the cause: preserved firmware ignores those flash speed fields, starts all controllers500k, and runtime0xDEonly changes bus0. Installedde193215source equivalence/field usage remains unknown; stored fields are not active timing readback. SYS_CFG has debug3, generated-report mask0x0F, watchdogoff, mode0/override0; no saved mappings in entries1..31. Output mask enables generated angle/engine/speed/cruise, not raw CAN receiving. Source raw receive queues frames and EP1 returns them independently of mappings, so missing mappings do not by themselves explain zero raw external BeamNG frames. ArchivedOctober14saved speeds were all0; change time/actor unknown.
+**Evidence/source pins:** Baseline71a48a22f103c709bb55e75fde12d5ed820b8d6e. Ai/Reports/chimera-coreconfig-review-20261108/{README.md,SOURCES.json,CONFIG_READ.json,ANALYSIS.json,config-first.bin}; teacher same-named report also retains repeat bytes/read helper. Live original serial3a0044001651333038373636/versionv1.0.0-DEV-de193215-DEBUG. Block SHA4b025b9e65b10475013ed39f8d4e66abf780a7cbe6ebf18833d952e46ffe3b22/CRC78aa1591. main.c172/343/404/624/1134, can.h303, Core Config protocol.py159 and site main.js3383. Source hashes and historical config comparison pinned in report;76legacy hashes/sizes verified at closeout.
+**Status/limits:** Actual read-only USB config observation and source review completed.27vendor-IN requests (D6/FF),0vendorOUT/heartbeat/flash/format/reset/bitrate/CAN data; handle closed, other Interceptor untouched, desktop app not launched. Product/firmware/DBC and Ocelot dirty sources preserved; no updates/push. No verified active controller bitrate, CAN recovery or vehicle/safety qualification. Historical config-write quarantine/erase incident retained; no automatic Save/Format/restore. Next qualify installed-image handling of savedCAN2speed and actual electrical TX/ACK/reception. Earlier unanswered items and holds preserved.
+
+---
+
 ## QA-20261108-49 — Did we verify Chimera itself at 500 kbit/s?
 
 **Date:** November 8, 2026 UTC.

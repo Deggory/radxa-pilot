@@ -1,0 +1,72 @@
+{
+  "date": "2026-11-08",
+  "question": "QA-20261108-50",
+  "baseline": "71a48a22f103c709bb55e75fde12d5ed820b8d6e",
+  "config_sha256": "4b025b9e65b10475013ed39f8d4e66abf780a7cbe6ebf18833d952e46ffe3b22",
+  "config_bytes": 776,
+  "magic_crc_valid": true,
+  "two_reads_identical": true,
+  "saved_bus_fields": {
+    "CAN0": {
+      "kbps": 500,
+      "desktop_label": "500 kbit/s"
+    },
+    "CAN1": {
+      "kbps": 500,
+      "desktop_label": "500 kbit/s"
+    },
+    "CAN2": {
+      "kbps": 0,
+      "desktop_label": "Disabled"
+    },
+    "CAN3": {
+      "kbps": 0,
+      "desktop_label": "Disabled"
+    }
+  },
+  "sys": {
+    "debug_level": 3,
+    "generated_telemetry_output_mask": 15,
+    "watchdog_enabled": false,
+    "mode": 0,
+    "override_threshold": 0
+  },
+  "configured_signal_entries": 0,
+  "source_findings": {
+    "saved_speed_storage": "SYS_CFG bytes15..22, four little-endian uint16 values in kbit/s; UI/API values are10times that",
+    "saved_speed_usage": "Preserved source ignores cfg_extra speed fields and initializes all three controllers500k",
+    "runtime_apply": "Preserved0xDE handler accepts bus0only; website UI success means USB request succeeded, not physical speed readback",
+    "can_output_mask": "0x0F enables generated angle/engine/speed/cruise messages; it is not a raw-CAN receive enable mask",
+    "raw_receive": "can_rx queues received frames independently of SYS_CFG/mappings; USB EP1 drains queue",
+    "signal_mapping": "Entries1..31 currently allzero; no saved mappings. Relevant to translated sensor outputs, not a source-backed explanation for zero raw external BeamNG frames",
+    "bus_names": "Saved CAN2/USB2 maps printedCAN2 toMCUCAN3; signal editor labels1/2/3 correspond values0/1/2, so keep labels distinct"
+  },
+  "historical_comparison": {
+    "path": "chimera/recovery/legacy-core-config-20261106/backups/chimera-3a0044001651333038373636-20261014T105405399969Z.bin",
+    "sha256": "e6f56ed8898af80c0ba8ebed49fb96009d02310968a6b109978b48d3e7bfee4e",
+    "same_as_current": false,
+    "saved_kbps": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "change_time_or_actor": "unknown; no assistant write performed in this task"
+  },
+  "runtime_limits": [
+    "Stored zero CAN2 is a concrete configuration discrepancy, not proof of disabled controller or root cause.",
+    "Installed de193215 source equivalence and whether it consumes stored speeds remain unknown.",
+    "No controller bitrate register readback, USB/CAN traffic test, configuration repair or flash/reset performed.",
+    "Historical config erase/watchdog incident and write quarantine retained; no automatic restore/Save/Format/Apply."
+  ],
+  "request_trace": {
+    "allowed_in_requests": [
+      "0xD6",
+      "0xFF"
+    ],
+    "count": 27,
+    "out_requests": 0,
+    "heartbeat": false,
+    "closed": true
+  }
+}

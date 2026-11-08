@@ -1,3 +1,16 @@
+## November 8 — Live Core Config read found saved CAN2 zero (QA50)
+
+New read-only original Chimera snapshot:776bytes, twice identical, valid magic/
+CRC78aa1591. Saved CAN0/1=500k; CAN2/3=0(Disabled in desktop). Cable is printed
+CAN2/USB2/MCUCAN3. This is a lead, not diagnosed cause: preserved startup ignores
+saved speeds and starts all3at500k; installed image equivalence unknown. SYS_CFG
+output0x0F/watchdogoff, mappings1..31empty; raw RX source independent of mappings.
+27D6/FFINonly,0OUT/heartbeat/reset/config/CAN writes; USB closed. See report
+chimera-coreconfig-review-20261108 and dated session/QA50. HistoricalOctober14
+speedsall0superseded for current flash only; actual controller timing unmeasured.
+Next qualify saved-field usage in installed image and electrical TX/ACK/CAN2;
+write quarantine/new firmware/upstream holds remain, no automatic config repair.
+
 ## November 8 — Chimera 500 kbit/s evidence clarified (QA49)
 
 Preserved main.c explicitly starts all3controllers at500k; printedCAN2 is

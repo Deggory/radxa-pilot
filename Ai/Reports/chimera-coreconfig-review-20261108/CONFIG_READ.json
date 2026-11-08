@@ -1,0 +1,422 @@
+{
+  "date": "2026-11-08",
+  "board": {
+    "bus": 3,
+    "address": 21,
+    "pid": 56780,
+    "product": "Chimera",
+    "serial": "3a0044001651333038373636"
+  },
+  "version": "v1.0.0-DEV-de193215-DEBUG",
+  "bytes": 776,
+  "repeat_matches": true,
+  "sha256": "4b025b9e65b10475013ed39f8d4e66abf780a7cbe6ebf18833d952e46ffe3b22",
+  "magic_hex": "efbeadde",
+  "stored_crc32": "0x78aa1591",
+  "computed_crc32": "0x78aa1591",
+  "valid_magic_crc": true,
+  "problem": "Config block is valid.",
+  "sys_entry_hex": "030f00000000000000000000000000f401f4010000000001",
+  "sys_decoded": {
+    "debug_level": 3,
+    "can_out": 15,
+    "watchdog": false,
+    "mode": 0,
+    "override_threshold": 0,
+    "speeds": [
+      5000,
+      5000,
+      0,
+      0
+    ]
+  },
+  "entries": [
+    {
+      "index": 0,
+      "name": "SYS_CFG",
+      "type": 1,
+      "raw_hex": "030f00000000000000000000000000f401f4010000000001"
+    },
+    {
+      "index": 1,
+      "name": "Steer angle",
+      "type": 0,
+      "raw_hex": "000000000000000000000000000000000000000000000000"
+    },
+    {
+      "index": 2,
+      "name": "Steer angle fraction",
+      "type": 0,
+      "raw_hex": "000000000000000000000000000000000000000000000000"
+    },
+    {
+      "index": 3,
+      "name": "Steer angle rate",
+      "type": 0,
+      "raw_hex": "000000000000000000000000000000000000000000000000"
+    },
+    {
+      "index": 4,
+      "name": "Vehicle speed",
+      "type": 0,
+      "raw_hex": "000000000000000000000000000000000000000000000000"
+    },
+    {
+      "index": 5,
+      "name": "Ignition CAN",
+      "type": 0,
+      "raw_hex": "000000000000000000000000000000000000000000000000"
+    },
+    {
+      "index": 6,
+      "name": "Engine RPM",
+      "type": 0,
+      "raw_hex": "000000000000000000000000000000000000000000000000"
+    },
+    {
+      "index": 7,
+      "name": "Brake pressed",
+      "type": 0,
+      "raw_hex": "000000000000000000000000000000000000000000000000"
+    },
+    {
+      "index": 8,
+      "name": "Entry 8",
+      "type": 0,
+      "raw_hex": "000000000000000000000000000000000000000000000000"
+    },
+    {
+      "index": 9,
+      "name": "Entry 9",
+      "type": 0,
+      "raw_hex": "000000000000000000000000000000000000000000000000"
+    },
+    {
+      "index": 10,
+      "name": "Entry 10",
+      "type": 0,
+      "raw_hex": "000000000000000000000000000000000000000000000000"
+    },
+    {
+      "index": 11,
+      "name": "Cruise button 1",
+      "type": 0,
+      "raw_hex": "000000000000000000000000000000000000000000000000"
+    },
+    {
+      "index": 12,
+      "name": "Cruise button 2",
+      "type": 0,
+      "raw_hex": "000000000000000000000000000000000000000000000000"
+    },
+    {
+      "index": 13,
+      "name": "Cruise button 3",
+      "type": 0,
+      "raw_hex": "000000000000000000000000000000000000000000000000"
+    },
+    {
+      "index": 14,
+      "name": "Cruise button 4",
+      "type": 0,
+      "raw_hex": "000000000000000000000000000000000000000000000000"
+    },
+    {
+      "index": 15,
+      "name": "Entry 15",
+      "type": 0,
+      "raw_hex": "000000000000000000000000000000000000000000000000"
+    },
+    {
+      "index": 16,
+      "name": "Entry 16",
+      "type": 0,
+      "raw_hex": "000000000000000000000000000000000000000000000000"
+    },
+    {
+      "index": 17,
+      "name": "Entry 17",
+      "type": 0,
+      "raw_hex": "000000000000000000000000000000000000000000000000"
+    },
+    {
+      "index": 18,
+      "name": "Entry 18",
+      "type": 0,
+      "raw_hex": "000000000000000000000000000000000000000000000000"
+    },
+    {
+      "index": 19,
+      "name": "Entry 19",
+      "type": 0,
+      "raw_hex": "000000000000000000000000000000000000000000000000"
+    },
+    {
+      "index": 20,
+      "name": "Entry 20",
+      "type": 0,
+      "raw_hex": "000000000000000000000000000000000000000000000000"
+    },
+    {
+      "index": 21,
+      "name": "Entry 21",
+      "type": 0,
+      "raw_hex": "000000000000000000000000000000000000000000000000"
+    },
+    {
+      "index": 22,
+      "name": "Entry 22",
+      "type": 0,
+      "raw_hex": "000000000000000000000000000000000000000000000000"
+    },
+    {
+      "index": 23,
+      "name": "Entry 23",
+      "type": 0,
+      "raw_hex": "000000000000000000000000000000000000000000000000"
+    },
+    {
+      "index": 24,
+      "name": "Entry 24",
+      "type": 0,
+      "raw_hex": "000000000000000000000000000000000000000000000000"
+    },
+    {
+      "index": 25,
+      "name": "Entry 25",
+      "type": 0,
+      "raw_hex": "000000000000000000000000000000000000000000000000"
+    },
+    {
+      "index": 26,
+      "name": "Entry 26",
+      "type": 0,
+      "raw_hex": "000000000000000000000000000000000000000000000000"
+    },
+    {
+      "index": 27,
+      "name": "Entry 27",
+      "type": 0,
+      "raw_hex": "000000000000000000000000000000000000000000000000"
+    },
+    {
+      "index": 28,
+      "name": "Entry 28",
+      "type": 0,
+      "raw_hex": "000000000000000000000000000000000000000000000000"
+    },
+    {
+      "index": 29,
+      "name": "Entry 29",
+      "type": 0,
+      "raw_hex": "000000000000000000000000000000000000000000000000"
+    },
+    {
+      "index": 30,
+      "name": "Entry 30",
+      "type": 0,
+      "raw_hex": "000000000000000000000000000000000000000000000000"
+    },
+    {
+      "index": 31,
+      "name": "Entry 31",
+      "type": 0,
+      "raw_hex": "000000000000000000000000000000000000000000000000"
+    }
+  ],
+  "requests": [
+    {
+      "direction": "IN",
+      "request": "0xd6",
+      "value": 0,
+      "index": 0,
+      "length": 64
+    },
+    {
+      "direction": "IN",
+      "request": "0xff",
+      "value": 0,
+      "index": 0,
+      "length": 64
+    },
+    {
+      "direction": "IN",
+      "request": "0xff",
+      "value": 64,
+      "index": 0,
+      "length": 64
+    },
+    {
+      "direction": "IN",
+      "request": "0xff",
+      "value": 128,
+      "index": 0,
+      "length": 64
+    },
+    {
+      "direction": "IN",
+      "request": "0xff",
+      "value": 192,
+      "index": 0,
+      "length": 64
+    },
+    {
+      "direction": "IN",
+      "request": "0xff",
+      "value": 256,
+      "index": 0,
+      "length": 64
+    },
+    {
+      "direction": "IN",
+      "request": "0xff",
+      "value": 320,
+      "index": 0,
+      "length": 64
+    },
+    {
+      "direction": "IN",
+      "request": "0xff",
+      "value": 384,
+      "index": 0,
+      "length": 64
+    },
+    {
+      "direction": "IN",
+      "request": "0xff",
+      "value": 448,
+      "index": 0,
+      "length": 64
+    },
+    {
+      "direction": "IN",
+      "request": "0xff",
+      "value": 512,
+      "index": 0,
+      "length": 64
+    },
+    {
+      "direction": "IN",
+      "request": "0xff",
+      "value": 576,
+      "index": 0,
+      "length": 64
+    },
+    {
+      "direction": "IN",
+      "request": "0xff",
+      "value": 640,
+      "index": 0,
+      "length": 64
+    },
+    {
+      "direction": "IN",
+      "request": "0xff",
+      "value": 704,
+      "index": 0,
+      "length": 64
+    },
+    {
+      "direction": "IN",
+      "request": "0xff",
+      "value": 768,
+      "index": 0,
+      "length": 8
+    },
+    {
+      "direction": "IN",
+      "request": "0xff",
+      "value": 0,
+      "index": 0,
+      "length": 64
+    },
+    {
+      "direction": "IN",
+      "request": "0xff",
+      "value": 64,
+      "index": 0,
+      "length": 64
+    },
+    {
+      "direction": "IN",
+      "request": "0xff",
+      "value": 128,
+      "index": 0,
+      "length": 64
+    },
+    {
+      "direction": "IN",
+      "request": "0xff",
+      "value": 192,
+      "index": 0,
+      "length": 64
+    },
+    {
+      "direction": "IN",
+      "request": "0xff",
+      "value": 256,
+      "index": 0,
+      "length": 64
+    },
+    {
+      "direction": "IN",
+      "request": "0xff",
+      "value": 320,
+      "index": 0,
+      "length": 64
+    },
+    {
+      "direction": "IN",
+      "request": "0xff",
+      "value": 384,
+      "index": 0,
+      "length": 64
+    },
+    {
+      "direction": "IN",
+      "request": "0xff",
+      "value": 448,
+      "index": 0,
+      "length": 64
+    },
+    {
+      "direction": "IN",
+      "request": "0xff",
+      "value": 512,
+      "index": 0,
+      "length": 64
+    },
+    {
+      "direction": "IN",
+      "request": "0xff",
+      "value": 576,
+      "index": 0,
+      "length": 64
+    },
+    {
+      "direction": "IN",
+      "request": "0xff",
+      "value": 640,
+      "index": 0,
+      "length": 64
+    },
+    {
+      "direction": "IN",
+      "request": "0xff",
+      "value": 704,
+      "index": 0,
+      "length": 64
+    },
+    {
+      "direction": "IN",
+      "request": "0xff",
+      "value": 768,
+      "index": 0,
+      "length": 8
+    }
+  ],
+  "usb_closed": true,
+  "out_requests_sent": 0,
+  "heartbeat_sent": false,
+  "active_bitrate_read_back": false
+}
