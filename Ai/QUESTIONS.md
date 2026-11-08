@@ -1,3 +1,13 @@
+## QA-20261108-27 — Can our C2 Chimera work, and what files were added?
+
+**Date:** November 8, 2026 UTC.
+**Owner question (faithful quote):** "u mean to say our c2 chimera can work in our new sunnypilot ,wat are the extra files we made and wat does it do".
+**Answer:** The new host adapter understands the original C2-era Chimera USB/CAN format and provides a receive-only path into this Radxa Sunnypilot, conditional on the exact supported identity/firmware profile. It does not establish full C2 feature parity, installed-image equivalence, physical-board compatibility or driving engagement. Latest implementation added two runtime files: chimera_usb.h declares raw-health/frame-decoder types; chimera_usb.cc decodes old 16-byte CAN records and 43-byte health reports with structural/time/bounds checks. Existing panda_usb_status.h/.cc now admit and manage the distinct Chimera session; panda_usb_publish.h/.cc publish standard can and labelled raw health; main.cc dispatches the receive/status loop and failure/close events; SConscript compiles the additions. Existing panda_usb.cc and panda_identification.cc were reused unchanged in this increment. New test_chimera_usb.cc and test_chimera_native.py plus extensions to existing USB/publication tests provide offline checks, not runtime dependencies. docs/CHIMERA_OLD_USB.md and Ai reports preserve the contract and evidence. No MCU firmware rewrite is required for this matched-profile receive path.
+**Evidence/source pins:** Actual A/M file list from implementation commit 008a7e81a8aad2d3c91f31de5463953f56d587bb, source reread at clean documentation baseline dd5ac056d2374a21b6eedf8bd9b10ca9581431ea; docs/CHIMERA_OLD_USB.md file map and Ai/Evidence/chimera-native-passive-20261108.json. No graph result or binary/REA runtime claim used; focused readable-source/Git evidence is sufficient.
+**Status/limits:** Explanation and synchronized documentation only; offline validation from QA25 reused. Matching serial/version/health profile and actual USB/CAN/bus wiring remain to be qualified on the physical board. No sendcan/control threads, normal pandaStates/engagement, flash/config change, upstream update or push. Legacy autonomous relay behavior remains unchanged; new firmware rewrite stays halted. Existing unanswered entries preserved.
+
+---
+
 ## QA-20261108-26 — What can the new original-Chimera support do?
 
 **Date:** November 8, 2026 UTC.

@@ -1,3 +1,12 @@
+## November8 — C2-era Chimera compatibility and file map (QA27)
+
+Original protocol now has a native receive-only path, subject to exact identity
+and physical qualification. Two new runtime files are chimera_usb.h/.cc; six
+existing runtime/build files integrate session, publication, main and build.
+The implemented contract contains the file map. Source008a7e81; explanation
+baseline dd5ac056. Prior offline checks reused; no new runtime/hardware action.
+Next remains separately scoped matching-board passive qualification; holds remain.
+
 ## November8 — Native Chimera capability clarification (QA26)
 
 Explained implemented USB reception, three-bus classic CAN publication and raw

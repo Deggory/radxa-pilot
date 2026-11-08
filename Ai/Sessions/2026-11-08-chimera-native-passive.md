@@ -87,3 +87,18 @@ implemented contract reread, prior validation reused. Documentation and Git
 skills applied to synchronized closeout; no new code/runtime/hardware action.
 Follow-up validation: notebook verifier, QA26 equality and git diff --check;
 actual result/commit recorded in the central follow-up receipt.
+
+## C2-era Chimera compatibility and file-map follow-up (QA27)
+
+Clarified that original-protocol support is implemented for matched-profile
+receive-only use, while actual board/vehicle compatibility and full engagement
+remain unqualified. Read the actual 008a7e81 A/M list and current codec/session/
+publication/main/build/test source at baseline dd5ac056. Documented two new
+runtime files, six modified runtime/build files, two new tests and two extended
+tests; existing USB/identity source reused unchanged. Added the practical file
+map to docs/CHIMERA_OLD_USB.md. Documentation/Git skills guide this closeout;
+no current project Understand Anything graph was available, so no graph-derived
+claim or refresh was needed for the focused source answer. No new runtime test,
+REA artifact task, hardware action, update or push; original firmware and DBC
+untouched, rewrite/update holds retained. Actual notebook/QA/whitespace checks,
+commit and clean readback are in the central FILE_MAP_FOLLOWUP.json receipt.

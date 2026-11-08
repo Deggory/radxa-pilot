@@ -99,3 +99,32 @@ sanitizers and preservation modes. Local repeated output goes into ignored run/;
 the coordinating teacher owns the single active Unlazy gate ledger. No real
 USB/device/CAN/relay/vehicle session or firmware build/flash was performed.
 Physical qualification and later managed/active integration remain separate.
+
+## Files in the November 8 native adaptation
+
+This gives the original C2-era Chimera protocol a receive-only path into the
+Radxa project. Actual board compatibility still requires the exact identity
+profile above and physical qualification; it does not establish full C2 feature
+parity or normal driving engagement. No MCU firmware rewrite is required for
+this matched-profile reception path.
+
+Paths below are relative to openpilot/selfdrive/pandad/ unless specified.
+
+| File | Change | Purpose |
+| --- | --- | --- |
+| chimera_usb.h | New runtime header | Declares raw Chimera health fields and the old-format CAN stream decoder. |
+| chimera_usb.cc | New runtime source | Decodes 16-byte CAN records and 43-byte health, validates metadata/bounds/timing and filters remote frames/TX receipts. |
+| panda_usb_status.h/.cc | Existing pair modified | Admits the distinct Chimera profile, reads CAN/health, dispatches the correct decoder and clears/releases failed sessions. |
+| panda_usb_publish.h/.cc | Existing pair modified | Publishes standard internal can messages and labelled raw Chimera diagnostics. |
+| main.cc | Existing source modified | Runs profile-specific passive reception/status and publishes failure/close events. |
+| SConscript | Existing build modified | Compiles the decoder and its native test. |
+| tests/test_chimera_usb.cc | New offline test | Checks native decoding, malformed input, fragments/timeouts and reference vectors. |
+| tests/test_chimera_native.py | New offline test | Compares native CAN/health vectors with the existing Python reference. |
+| tests/test_panda_usb.cc, tests/test_panda_usb_publish.cc | Existing tests extended | Verify fake USB lifecycle/write restrictions and published data/availability. |
+| docs/CHIMERA_OLD_USB.md, Ai reports/notebook | Documentation/evidence | Preserve the usage contract, source pins, validation and remaining limits. |
+
+panda_usb.cc and panda_identification.cc already existed and were unchanged in
+this increment. They provide USB ownership/transfer guards and exact identity
+selection. The existing launcher remains the entry; the new codec is compiled
+into pandad, not run as a separate daemon. Test files are verification tools,
+not services needed to receive CAN.
