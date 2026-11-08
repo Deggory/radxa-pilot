@@ -1,3 +1,14 @@
+## QA-20261108-41 — Steering-angle sensor connected: anything on CAN3?
+
+**Date:** November 8, 2026 UTC.
+**Owner question (faithful quote):** "see i have connected steering aangle sensor to chimera see if any out come on can3".
+**Owner replies (faithful quotes):** "Connected to Radxa"; "Chimera reconnected directly"; "Chimera IGN pin" (sensor power source).
+**Answer:** Initial USB scan showed only a different Interceptor DAC Bench, not original Chimera. After the owner reconnected USB, the pinned Chimera serial/version reappeared. Ran native receive-only20.114s:1,886CAN batches/20health replies, zero raw frames on USB buses0/1/2 including MCUCAN3=printedCAN2=USB2; native exit0 and reader stopped. No ID filter and no angle data could be decoded. Owner says sensor is powered from Chimera IGN, whose previous measurement was0V. If still0V, the sensor has no intended supply; no new connected-sensor voltage reading exists, so this does not isolate sensor versus CAN hardware. Verify supply at the sensor first. Owner's direct-reconnect report is preserved, but actual sysfs still shows3-4.1behind VIAhub3-4; bypassing the hub is unproven.
+**Evidence/source pins:** Baseline4d689db69985326b44e5402a7c586efd37bd40ad; Ai/Reports/steering-sensor-can-20261108/{README.md,RESULTS.json}; central raw native capture/USB scans/watch/helper and FINAL_READBACK.json. Exact serial3a0044001651333038373636/versionv1.0.0-DEV-de193215-DEBUG; native SHAe9e692b6bfaf67d4c9061f4645a89d8337fc938bd857cf03e03f6a3454f81a84 preserved,76old-source manifest hashes match. Teacher D-179Toyota0x25reference retained, not fresh installed-model proof.
+**Status/limits:** Requested bounded observation completed, sensor/CAN acceptance remains blocked at zero frames; USB works. No actuator/Interceptor write, Chimera OUT/config/relay/heartbeat/reset/flash, external power/IGN feed, simulator/Waveshare transmission, product/firmware/DBC/model/update/push change. Actual sensor power/current/termination/enable and installed source equivalence remain unqualified; next verify sensor supply then repeat qualified raw capture. Existing holds and unanswered questions retained.
+
+---
+
 ## QA-20261108-40 — Does the code have CAN standby mode?
 
 **Date:** November 8, 2026 UTC.

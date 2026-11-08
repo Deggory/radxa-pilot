@@ -1,3 +1,13 @@
+## November 8 — Steering-sensor raw CAN capture (QA41)
+
+Owner connected angle sensor, powered from Chimera IGN. USB initially absent;
+owner reconnected and original serial/version returned. Native20.114s/1886CAN
+batches/20health yielded0frames on each bus0/1/2; reader stopped cleanly.
+Prior IGN0V means sensor supply must be measured before a powered-test claim.
+See steering-sensor-can report; no output/config/flash/drive/source change.
+Owner says direct; sysfs still3-4.1behind VIAhub. CAN acceptance unresolved.
+Next sensor supply verification, then qualified capture; existing holds retained.
+
 ## November 8 — CAN standby code traced (QA40)
 
 PC1/PC13/PA0 control printed CAN0/1/2 transceivers, active low. Gateway startup

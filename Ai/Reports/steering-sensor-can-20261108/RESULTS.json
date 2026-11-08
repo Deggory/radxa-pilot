@@ -1,0 +1,164 @@
+{
+  "date": "2026-11-08",
+  "question": "QA-20261108-41",
+  "baseline": "4d689db69985326b44e5402a7c586efd37bd40ad",
+  "owner_request": "see i have connected steering aangle sensor to chimera see if any out come on can3",
+  "owner_replies": [
+    "Connected to Radxa",
+    "Chimera reconnected directly",
+    "Chimera IGN pin"
+  ],
+  "initial_USB": "only Interceptor DAC Bench, original Chimera absent; no reader attached to Interceptor",
+  "recovery": "owner reconnected USB; exact original Chimera appeared and version pin matched",
+  "fresh_USB": [
+    {
+      "sysfs": "/sys/bus/usb/devices/3-4.1",
+      "idVendor": "bbaa",
+      "idProduct": "ddcc",
+      "manufacturer": "RetroPilot",
+      "product": "Chimera",
+      "serial": "3a0044001651333038373636",
+      "busnum": "3",
+      "devnum": "17",
+      "speed": "12"
+    },
+    {
+      "sysfs": "/sys/bus/usb/devices/3-4.3",
+      "idVendor": "bbaa",
+      "idProduct": "ddcc",
+      "manufacturer": "RetroPilot",
+      "product": "Interceptor DAC Bench",
+      "serial": "440048001251333133333633",
+      "busnum": "3",
+      "devnum": "16",
+      "speed": "12"
+    },
+    {
+      "sysfs": "/sys/bus/usb/devices/3-4",
+      "idVendor": "2109",
+      "idProduct": "2812",
+      "manufacturer": null,
+      "product": "USB2.0 Hub",
+      "serial": null,
+      "busnum": "3",
+      "devnum": "4",
+      "speed": "480"
+    }
+  ],
+  "topology_limit": "Owner says direct reconnect; sysfs still shows Chimera3-4.1behind VIA2109:2812hub3-4, so hub bypass is not established",
+  "duration_s": 20.11384639300013,
+  "native_exit": 0,
+  "can_batches": 1886,
+  "can_frames": 0,
+  "per_bus_frames": {
+    "0": 0,
+    "1": 0,
+    "2": 0
+  },
+  "health_samples": 20,
+  "health_first": {
+    "availability": {
+      "heartbeatLost": false,
+      "observationOnly": true,
+      "pandaStates": false,
+      "perBusHealth": false,
+      "preservedSourcePlaceholders": [
+        "voltage_raw",
+        "current_raw",
+        "gas_interceptor_detected_raw",
+        "gmlan_send_errs",
+        "safety_model_raw",
+        "safety_param_raw",
+        "power_save_enabled_raw"
+      ]
+    },
+    "controllers": [],
+    "endNanos": "14425920809171",
+    "kind": "panda-usb-status",
+    "operational": false,
+    "profile": "chimeraOldMailbox16",
+    "rawHealth": {
+      "can_fwd_errs": 0,
+      "can_rx_errs": 0,
+      "can_send_errs": 0,
+      "car_harness_status_raw": 0,
+      "controls_allowed_raw": 0,
+      "current_raw": 0,
+      "fault_status_raw": 0,
+      "faults": 0,
+      "gas_interceptor_detected_raw": 0,
+      "gmlan_send_errs": 0,
+      "ignition_can_raw": 0,
+      "ignition_line_raw": 0,
+      "power_save_enabled_raw": 0,
+      "safety_model_raw": 17,
+      "safety_param_raw": 0,
+      "uptime": 1488,
+      "usb_power_mode_raw": 0,
+      "voltage_raw": 0
+    },
+    "schema": 1,
+    "serial": "3a0044001651333038373636",
+    "startNanos": "14425920601805",
+    "state": "observing",
+    "version": "v1.0.0-DEV-de193215-DEBUG"
+  },
+  "health_last": {
+    "availability": {
+      "heartbeatLost": false,
+      "observationOnly": true,
+      "pandaStates": false,
+      "perBusHealth": false,
+      "preservedSourcePlaceholders": [
+        "voltage_raw",
+        "current_raw",
+        "gas_interceptor_detected_raw",
+        "gmlan_send_errs",
+        "safety_model_raw",
+        "safety_param_raw",
+        "power_save_enabled_raw"
+      ]
+    },
+    "controllers": [],
+    "endNanos": "14445025422852",
+    "kind": "panda-usb-status",
+    "operational": false,
+    "profile": "chimeraOldMailbox16",
+    "rawHealth": {
+      "can_fwd_errs": 0,
+      "can_rx_errs": 0,
+      "can_send_errs": 0,
+      "car_harness_status_raw": 0,
+      "controls_allowed_raw": 0,
+      "current_raw": 0,
+      "fault_status_raw": 0,
+      "faults": 0,
+      "gas_interceptor_detected_raw": 0,
+      "gmlan_send_errs": 0,
+      "ignition_can_raw": 0,
+      "ignition_line_raw": 0,
+      "power_save_enabled_raw": 0,
+      "safety_model_raw": 17,
+      "safety_param_raw": 0,
+      "uptime": 1507,
+      "usb_power_mode_raw": 0,
+      "voltage_raw": 0
+    },
+    "schema": 1,
+    "serial": "3a0044001651333038373636",
+    "startNanos": "14445024877768",
+    "state": "observing",
+    "version": "v1.0.0-DEV-de193215-DEBUG"
+  },
+  "reader_stopped": true,
+  "bus_mapping": "MCU CAN3 = printed CAN2 = USB2; all source buses monitored before decoding",
+  "sensor_reference": "Teacher D-179 Toyota89245-0K020/0x25DLC8, not a fresh installed-model confirmation; no ID filter used",
+  "sensor_power": "Owner says sensor powered from Chimera IGN; previously measured zero; no fresh connected-sensor voltage measurement",
+  "conclusion": "No CAN traffic observed. Missing sensor power is an immediate lead if IGN remains zero; sensor/CAN fault not isolated",
+  "preservation": {
+    "legacy_files_sha256_verified": 76,
+    "native_sha256": "e9e692b6bfaf67d4c9061f4645a89d8337fc938bd857cf03e03f6a3454f81a84",
+    "no_product_diff": true
+  },
+  "scope": "20s receive-only native version/health/bulk IN; no heartbeat/relay/config/flash/actuator/PC/Waveshare/drive actions"
+}
