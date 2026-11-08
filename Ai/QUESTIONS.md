@@ -1,3 +1,14 @@
+## QA-20261108-32 — Test BeamNG through Waveshare and Chimera; recover teacher setup
+
+**Date:** November 8, 2026 UTC.
+**Owner request (faithful quote):** "i have switch on pc ,letss teat beamng through waveshare and see if chimers is working ask teacher wat we did".
+**Owner follow-up (faithful quote):** "Same setup as before", confirming the saved USB-only Chimera power, removed Waveshare termination and unchanged wiring.
+**Answer:** Recovered the teacher's November4path and previous492/492replay versus117submitted/0received result. PC now reachable with Waveshare and working GTX1650; started saved temporary Bastion/West Coast scene and confirmed501/501genuine telemetry samples decode independently. New native pandad actually connected to the exact original-Chimera serial/version/health43 and read health successfully, but received0CANframes while the PC submitted502samples through Waveshare. Independent Python receiver also saw0frames while another302samples were submitted. Thus USB/health works and game telemetry works; CAN delivery to Radxa still fails acceptance and is not isolated to the native decoder. The actual wire root cause is unresolved. All gateways/readers stopped; game pause RPC acknowledged and game left open. No actuator commands or Chimera writes/config/flash/heartbeat were sent.
+**Evidence/source pins:** Parent5c46788e636792905260b883ca2c670f07ccde60; Panda8a16e089/opendbc150f9371; canonical DBCb4079670. Student Ai/Reports/beamng-chimera-live-20261108/{README.md,RESULTS.json}; central same-named report holds raw source/captures/commands,BASELINE.json,GATES.md and HANDOFF.md. Native binary SHAe9e692b6bfaf67d4c9061f4645a89d8337fc938bd857cf03e03f6a3454f81a84. Live native14.114s/1332empty batches/14health samples during wire test; Python979polls/19health samples.76legacy manifest entries and selected runtime/DBC hashes preserved.
+**Status/limits:** Live source/USB/health test completed; physical CAN acceptance failed (0frames in both receivers),2gatesmet/0unmet/1abandoned with explicit electrical-measurement handoff. Serial writes do not prove CAN transmission/ACK. No measured rail/termination/connector/bitrate/installed-source equivalence, full managed drive/safety qualification, model/camera launch, product/firmware/DBC change, upstream update or push. Teacher's current setup facts retained; new rewrite/update holds and existing unanswered items preserved. Next measure the bus/transceiver conditions rather than weaken validation or guess a firmware/relay/power fix.
+
+---
+
 ## QA-20261108-31 — Inspect our retropilot.h safety and DBC
 
 **Date:** November 8, 2026 UTC.

@@ -187,3 +187,15 @@ Seven preserved-source placeholders are explicitly labelled: voltage_raw,
 current_raw, gas_interceptor_detected_raw, gmlan_send_errs, safety_model_raw,
 safety_param_raw and power_save_enabled_raw. They are not valid measurements
 or evidence of an installed safety policy. No normal pandaStates is published.
+
+## Live follow-up — November 8 (QA32)
+
+The earlier offline-only USB limit is superseded by a bounded real-board test:
+native pandad matched the pinned identity/version/health43 and published raw
+health successfully. PC BeamNG produced501/501independently decoded samples,
+but502samples submitted through Waveshare yielded0CANframes in native pandad.
+An independent Python reader likewise received0while302samples were submitted.
+This qualifies the observed USB/health path only; CAN reception, electrical
+conditions, full lifecycle and driving safety remain unqualified. All test
+readers/gateways stopped; no Chimera command write or firmware change occurred.
+See [live report](../Ai/Reports/beamng-chimera-live-20261108/README.md).

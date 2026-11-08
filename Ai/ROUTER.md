@@ -1,3 +1,14 @@
+## November8 — Live BeamNG/Waveshare/Chimera test (QA32)
+
+Genuine source501/501decoded. Native real USB/version/health43 now verified;
+502samples submitted via Waveshare yielded0CANframes. Independent Python also
+0frames during302submitted samples. Thus earlier offline-only USB limit is
+superseded, but CAN/managed/vehicle/safety qualification remains unresolved.
+Owner confirmed same USB-only/resistor-removed wiring. All readers/gateways
+stopped; game open with pause acknowledged. See student live-test report;
+2gatesmet/1physical-acceptance handoff.76legacy hashes/DBC/runtime preserved.
+Next electrical/bus measurements; no firmware/config/update/actuator work.
+
 ## November8 — Native original-Chimera passive acceptance (QA25)
 
 Owner authorized host adaptation. pandad now dispatches pinned old Chimera

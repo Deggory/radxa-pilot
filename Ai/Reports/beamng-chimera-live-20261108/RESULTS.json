@@ -1,0 +1,325 @@
+{
+  "date": "2026-11-08",
+  "owner_request": "i have switch on pc ,letss teat beamng through waveshare and see if chimers is working ask teacher wat we did",
+  "owner_setup_confirmation": "Same setup as before: USB-only Chimera power, Waveshare termination removed; wiring unchanged",
+  "baseline": {
+    "project_head": "5c46788e636792905260b883ca2c670f07ccde60",
+    "source_hashes": {
+      "/home/radxa/comma/sunnypilot/openpilot/selfdrive/pandad/pandad": "e9e692b6bfaf67d4c9061f4645a89d8337fc938bd857cf03e03f6a3454f81a84",
+      "/home/radxa/comma/sunnypilot/openpilot/selfdrive/pandad/panda_usb.cc": "e71fbc4b98826c0704882971a93f831eb7ec98bc738549b0913b1a69a1232508",
+      "/home/radxa/comma/sunnypilot/openpilot/selfdrive/pandad/chimera_usb.cc": "51e6faa4067087b014ae9b8dbf43e4ef749094748d614518b9174f49437dad11",
+      "/home/radxa/comma/sunnypilot/openpilot/selfdrive/pandad/main.cc": "737d160740e604e48977a318f77f1e985e973d58b572c461abb2ef22cbc66ee8",
+      "/home/radxa/comma/sunnypilot/openpilot/tools/sim/beamng/pc/gateway.py": "609d127a25817d4b7b12e23ef3b46f2513083427fceb318374311556d4c88acb",
+      "/home/radxa/comma/sunnypilot/openpilot/tools/sim/beamng/pc/mod/lua/vehicle/protocols/radxaRetropilot.lua": "08c3810c2febd65154d8a89f7cd29f40357de2696ff3b47ad5429a89a893311f",
+      "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/dbc/ocelot_controls.dbc": "b4079670b8118fe63c6a7710ca1158afaabfec7df881ef902e43d70d70a36b67",
+      "/home/radxa/comma/sunnypilot/chimera_old/SOURCES.json": "7a7400411ad8cad0c8b3441fa3ee8081e4a477d9627b90e59a588e51fa615fd3"
+    },
+    "canonical_dbc": "b4079670b8118fe63c6a7710ca1158afaabfec7df881ef902e43d70d70a36b67",
+    "scope": "owner-authorized bounded simulator telemetry; host receive-only; no MCU/actuator/config/flash change"
+  },
+  "source": {
+    "samples": 501,
+    "valid_decoded": 501,
+    "genuine_game": true,
+    "ids": {
+      "2:0x700": 501,
+      "2:0x701": 501,
+      "2:0x50": 501,
+      "2:0x76": 501,
+      "2:0x75": 501,
+      "2:0x100": 501,
+      "2:0x702": 501,
+      "2:0x703": 501,
+      "2:0x704": 501,
+      "2:0x705": 501,
+      "2:0x706": 501,
+      "2:0x707": 501
+    },
+    "example_samples": [
+      {
+        "session": 15393,
+        "sequence": 78,
+        "sim_time_ms": 1588.0,
+        "speed_mps": 0.008333333333333333,
+        "steering_angle_deg": 0.0,
+        "steering_rate_magnitude_dps": 0.0,
+        "ignition": true,
+        "brake_pressed": false,
+        "rpm": 728.0,
+        "throttle_input": 0.0,
+        "brake_input": 0.0,
+        "brake_applied": 0.30196078431372547,
+        "engaged_gear_index": 0.0,
+        "acceleration_mps2": [
+          -0.03,
+          0.62,
+          0.11
+        ],
+        "angular_velocity_rps": [
+          0.001,
+          0.008,
+          0.001
+        ],
+        "motion_frame": "BeamNG motionSim component convention; not device-frame qualified",
+        "wheel_speeds_mps": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cruise": {
+          "available": true,
+          "enabled": false,
+          "set_speed_mps": 27.78
+        },
+        "cruise_buttons": null
+      },
+      {
+        "session": 15393,
+        "sequence": 79,
+        "sim_time_ms": 1605.0,
+        "speed_mps": 0.011111111111111112,
+        "steering_angle_deg": 0.0,
+        "steering_rate_magnitude_dps": 0.0,
+        "ignition": true,
+        "brake_pressed": false,
+        "rpm": 729.0,
+        "throttle_input": 0.0,
+        "brake_input": 0.0,
+        "brake_applied": 0.30196078431372547,
+        "engaged_gear_index": 0.0,
+        "acceleration_mps2": [
+          -0.03,
+          0.51,
+          0.1
+        ],
+        "angular_velocity_rps": [
+          0.002,
+          0.008,
+          0.001
+        ],
+        "motion_frame": "BeamNG motionSim component convention; not device-frame qualified",
+        "wheel_speeds_mps": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cruise": {
+          "available": true,
+          "enabled": false,
+          "set_speed_mps": 27.78
+        },
+        "cruise_buttons": null
+      }
+    ]
+  },
+  "wire": {
+    "duration": 14.114259099000265,
+    "native_exit": 0,
+    "can_batches": 1332,
+    "can_frames": 0,
+    "bus_ids": {},
+    "valid_samples": 0,
+    "example_samples": [],
+    "actuator_commands": 0,
+    "native_profile": "chimeraOldMailbox16",
+    "error": null,
+    "native_process_stopped": true
+  },
+  "native_health_samples": 14,
+  "native_health_first": {
+    "availability": {
+      "heartbeatLost": false,
+      "observationOnly": true,
+      "pandaStates": false,
+      "perBusHealth": false,
+      "preservedSourcePlaceholders": [
+        "voltage_raw",
+        "current_raw",
+        "gas_interceptor_detected_raw",
+        "gmlan_send_errs",
+        "safety_model_raw",
+        "safety_param_raw",
+        "power_save_enabled_raw"
+      ]
+    },
+    "controllers": [],
+    "endNanos": "9505265177202",
+    "kind": "panda-usb-status",
+    "operational": false,
+    "profile": "chimeraOldMailbox16",
+    "rawHealth": {
+      "can_fwd_errs": 0,
+      "can_rx_errs": 0,
+      "can_send_errs": 0,
+      "car_harness_status_raw": 0,
+      "controls_allowed_raw": 0,
+      "current_raw": 0,
+      "fault_status_raw": 0,
+      "faults": 0,
+      "gas_interceptor_detected_raw": 0,
+      "gmlan_send_errs": 0,
+      "ignition_can_raw": 0,
+      "ignition_line_raw": 0,
+      "power_save_enabled_raw": 0,
+      "safety_model_raw": 17,
+      "safety_param_raw": 0,
+      "uptime": 9526,
+      "usb_power_mode_raw": 0,
+      "voltage_raw": 0
+    },
+    "schema": 1,
+    "serial": "3a0044001651333038373636",
+    "startNanos": "9505264958407",
+    "state": "observing",
+    "version": "v1.0.0-DEV-de193215-DEBUG"
+  },
+  "native_health_last": {
+    "availability": {
+      "heartbeatLost": false,
+      "observationOnly": true,
+      "pandaStates": false,
+      "perBusHealth": false,
+      "preservedSourcePlaceholders": [
+        "voltage_raw",
+        "current_raw",
+        "gas_interceptor_detected_raw",
+        "gmlan_send_errs",
+        "safety_model_raw",
+        "safety_param_raw",
+        "power_save_enabled_raw"
+      ]
+    },
+    "controllers": [],
+    "endNanos": "9518344497615",
+    "kind": "panda-usb-status",
+    "operational": false,
+    "profile": "chimeraOldMailbox16",
+    "rawHealth": {
+      "can_fwd_errs": 0,
+      "can_rx_errs": 0,
+      "can_send_errs": 0,
+      "car_harness_status_raw": 0,
+      "controls_allowed_raw": 0,
+      "current_raw": 0,
+      "fault_status_raw": 0,
+      "faults": 0,
+      "gas_interceptor_detected_raw": 0,
+      "gmlan_send_errs": 0,
+      "ignition_can_raw": 0,
+      "ignition_line_raw": 0,
+      "power_save_enabled_raw": 0,
+      "safety_model_raw": 17,
+      "safety_param_raw": 0,
+      "uptime": 9539,
+      "usb_power_mode_raw": 0,
+      "voltage_raw": 0
+    },
+    "schema": 1,
+    "serial": "3a0044001651333038373636",
+    "startNanos": "9518344278821",
+    "state": "observing",
+    "version": "v1.0.0-DEV-de193215-DEBUG"
+  },
+  "pc_native_attempt": {
+    "samples": 502,
+    "physical_tx": true
+  },
+  "python_crosscheck": {
+    "reader_exit": 0,
+    "pc_ssh_exit": 0,
+    "records": 999,
+    "can_polls": 979,
+    "can_frames": 0,
+    "connected": {
+      "event": "connected",
+      "version": "v1.0.0-DEV-de193215-DEBUG",
+      "serial": "3a0044001651333038373636",
+      "health_raw": {
+        "uptime": 9564,
+        "voltage": 0,
+        "current": 0,
+        "can_rx_errs": 0,
+        "can_send_errs": 0,
+        "can_fwd_errs": 0,
+        "gmlan_send_errs": 0,
+        "faults": 0,
+        "ignition_line": 0,
+        "ignition_can": 0,
+        "controls_allowed": 0,
+        "gas_interceptor_detected": 0,
+        "car_harness_status": 0,
+        "usb_power_mode": 0,
+        "safety_model_raw": 17,
+        "safety_param_raw": 0,
+        "fault_status": 0,
+        "power_save_enabled": 0
+      },
+      "live_output": false
+    },
+    "health_samples": 19,
+    "reader_stopped": true
+  },
+  "pc_crosscheck_attempt": {
+    "samples": 302,
+    "physical_tx": true
+  },
+  "cleanup": {
+    "pause_acknowledged": true,
+    "protocols_others_after": "true",
+    "gateway_processes": [],
+    "game_left_open": true,
+    "test_processes_stopped": true,
+    "local_pandad_processes": ""
+  },
+  "raw_artifacts": {
+    "source.jsonl": {
+      "sha256": "fbdee0d9867aaadb23a2e74aae1510d9c06e0073727a838a8bb2bb71a87c9b4c",
+      "bytes": 203907
+    },
+    "wire-native/summary.json": {
+      "sha256": "93c4f772da5ccd5084bcbe39fce08db938fd1ecb1da37ebd7654b2d197be469f",
+      "bytes": 19248
+    },
+    "wire-native/pandad.log": {
+      "sha256": "200d447974b9cbdbf4ff0e3642f00694592656f08445d6746f274321540b025f",
+      "bytes": 177
+    },
+    "python-crosscheck.jsonl": {
+      "sha256": "d12380b72fb097cc6ef7eff556d5f5ebe8beeacf29950425c7d87365cb063acf",
+      "bytes": 74715
+    },
+    "source.stderr": {
+      "sha256": "b76f6fc35efea7118a3b1ce6ab1a11668cc09f844fd73e04fee5fa09723dfd77",
+      "bytes": 120
+    },
+    "wire.stderr": {
+      "sha256": "52fdec12e66eebaf4020a7eb6de9bebe2348bb3d9a0103b3f36bb06b62b2b8ab",
+      "bytes": 118
+    },
+    "crosscheck.stderr": {
+      "sha256": "f6044864382eda85fe6d0645940360f8af1b2ff336ac4664663f2902c6b09011",
+      "bytes": 118
+    }
+  },
+  "findings": [
+    "501 genuine samples decode independently; this is replay not CAN delivery",
+    "native real USB version/health accepted and 1332 CAN publications contained no frames during wire attempt",
+    "502 samples submitted to Waveshare; serial completion does not prove physical CAN transmission/ACK",
+    "independent Python reader also received zero frames while 302 genuine samples were submitted",
+    "USB/health function; CAN path not qualified and root cause not isolated",
+    "no Chimera write, firmware/config/flash/heartbeat/safety setup, actuator commands, model/camera launch or upstream/push action"
+  ],
+  "preservation": {
+    "legacy_manifest_files_verified": 76,
+    "canonical_dbc_unchanged": true,
+    "selected_runtime_sources_unchanged": true
+  },
+  "gates": {
+    "met": 2,
+    "unmet": 0,
+    "abandoned": 1,
+    "handoff": "G2: no CAN received, physical measurements required"
+  }
+}
