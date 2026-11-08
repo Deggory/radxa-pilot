@@ -108,5 +108,7 @@ SKILL.md
 !.run/*
 
 openpilot/selfdrive/pandad/tests/test_panda_usb_can
+openpilot/selfdrive/pandad/tests/test_chimera_usb
+Ai/Reports/chimera-native-passive-20261108/run/
 openpilot/selfdrive/pandad/tests/test_panda_usb_publish
 openpilot/selfdrive/pandad/tests/test_panda_state_legacy

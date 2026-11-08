@@ -112,3 +112,43 @@ void build_usb_status_message(MessageBuilder &message, const PandaIdentification
   event.setCustomReservedRawData1(kj::ArrayPtr<const capnp::byte>(
     reinterpret_cast<const capnp::byte *>(payload.data()), payload.size()));
 }
+
+void build_chimera_usb_status_message(MessageBuilder &message, const PandaIdentificationPin &pin,
+                                      const ChimeraHealth *sample, uint64_t start, uint64_t end,
+                                      UsbObservationState state) {
+  const bool observing = state == UsbObservationState::OBSERVING;
+  if (start == 0 || end < start || (sample != nullptr) != observing) {
+    throw std::invalid_argument("invalid Chimera diagnostic observation");
+  }
+  Json raw;
+  if (sample) {
+    const auto &h = *sample;
+    raw = Json::object{
+      {"uptime", number(h.uptime)}, {"voltage_raw", number(h.voltage_raw)}, {"current_raw", number(h.current_raw)},
+      {"can_rx_errs", number(h.can_rx_errs)}, {"can_send_errs", number(h.can_send_errs)},
+      {"can_fwd_errs", number(h.can_fwd_errs)}, {"gmlan_send_errs", number(h.gmlan_send_errs)},
+      {"faults", number(h.faults)}, {"ignition_line_raw", number(h.ignition_line_raw)},
+      {"ignition_can_raw", number(h.ignition_can_raw)}, {"controls_allowed_raw", number(h.controls_allowed_raw)},
+      {"gas_interceptor_detected_raw", number(h.gas_interceptor_detected_raw)},
+      {"car_harness_status_raw", number(h.car_harness_status_raw)}, {"usb_power_mode_raw", number(h.usb_power_mode_raw)},
+      {"safety_model_raw", number(h.safety_model_raw)}, {"safety_param_raw", number(h.safety_param_raw)},
+      {"fault_status_raw", number(h.fault_status_raw)}, {"power_save_enabled_raw", number(h.power_save_enabled_raw)},
+    };
+  }
+  const auto payload = Json(Json::object{
+    {"kind", "panda-usb-status"}, {"schema", 1}, {"profile", "chimeraOldMailbox16"},
+    {"serial", pin.serial}, {"version", pin.firmware_version}, {"operational", false},
+    {"availability", Json::object{
+      {"observationOnly", true}, {"pandaStates", false}, {"perBusHealth", false}, {"heartbeatLost", false},
+      {"preservedSourcePlaceholders", Json::array{"voltage_raw", "current_raw", "gas_interceptor_detected_raw",
+        "gmlan_send_errs", "safety_model_raw", "safety_param_raw", "power_save_enabled_raw"}},
+    }},
+    {"state", observing ? "observing" : state == UsbObservationState::FAILED ? "failed" : "closed"},
+    {"startNanos", std::to_string(start)}, {"endNanos", std::to_string(end)},
+    {"rawHealth", raw}, {"controllers", Json::array{}},
+  }).dump();
+  auto event = message.initEvent(observing);
+  event.setLogMonoTime(end);
+  event.setCustomReservedRawData1(kj::ArrayPtr<const capnp::byte>(
+    reinterpret_cast<const capnp::byte *>(payload.data()), payload.size()));
+}

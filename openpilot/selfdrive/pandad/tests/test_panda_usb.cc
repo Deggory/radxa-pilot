@@ -426,19 +426,14 @@ void test_usb_status() {
   bool rejected = false;
   try { PandaUsbStatusSession::open(PIN); } catch (const std::runtime_error &) { rejected = true; }
   CHECK(rejected && usb.contexts == 0);
-  for (bool current : {false, true}) {
-    reset();
-    auto &d = usb.devices[0];
-    if (current) {
-      d.hardware = 7; d.versions = {0xaf, 0x9e, 0x8f, 0xca, 0x76, 0xf2, 0xab, 0x75}; d.health_size = 49;
-    } else {
-      d.vendor = 0xbbaa; d.product = "Chimera"; d.version = "v1.0.0-DEV-de193215-DEBUG"; d.health_size = 43;
-    }
-    bool failed = false;
-    try { PandaUsbStatusSession::open({"selected", d.version}); } catch (const std::runtime_error &) { failed = true; }
-    CHECK(failed && usb.contexts == 0 && usb.claims == usb.releases);
-    CHECK(usb.control_out == 0 && usb.bulk_calls == 0);
-  }
+  reset();
+  usb.devices[0].hardware = 7;
+  usb.devices[0].versions = {0xaf, 0x9e, 0x8f, 0xca, 0x76, 0xf2, 0xab, 0x75};
+  usb.devices[0].health_size = 49;
+  bool current_failed = false;
+  try { PandaUsbStatusSession::open(PIN); } catch (const std::runtime_error &) { current_failed = true; }
+  CHECK(current_failed && usb.contexts == 0 && usb.claims == usb.releases);
+  CHECK(usb.control_out == 0 && usb.bulk_calls == 0);
   reset();
   usb.devices[0].product = "Chimera F413";
   usb.devices[0].version = "chimera-f413-bootstrap-v1";
@@ -475,6 +470,106 @@ void test_usb_status() {
   }
   reset();
   std::cout << "USB status session: full samples, failure latching/release, profile rejection and explicit reopen pass; no real USB calls\n";
+}
+
+void test_chimera_session() {
+  const PandaIdentificationPin pin{"selected", "v1.0.0-DEV-de193215-DEBUG"};
+  auto prepare = [&] {
+    reset();
+    usb.devices[0].vendor = 0xbbaa;
+    usb.devices[0].product = "Chimera";
+    usb.devices[0].version = pin.firmware_version;
+    usb.devices[0].health_size = 43;
+  };
+  const std::vector<uint8_t> mailbox{0, 0, 0x20, 0x60, 0x26, 0, 0, 0, 1, 2, 3, 4, 5, 6, 0, 0};
+  auto no_writes = [&] {
+    CHECK(usb.control_out == 0);
+    CHECK(std::all_of(usb.requests.begin(), usb.requests.end(), [](const auto &q) {
+      return q.second == 0 && (q.first == 0xd6 || q.first == 0xd2);
+    }));
+  };
+  prepare();
+  {
+    auto session = PandaUsbStatusSession::open(pin);
+    CHECK(session->active() && usb.control_in == 2 && session->protocol() == PandaProtocol::CHIMERA_MAILBOX);
+    const int before = usb.control_in;
+    CHECK(!session->sample() && usb.control_in == before && session->active());
+    CHECK(session->sample_chimera() && usb.control_in == before + 1); // D2 only, never C2.
+    usb.bulk_data.assign(mailbox.begin(), mailbox.begin() + 7);
+    CHECK(session->receive()->empty());
+    usb.bulk_data.assign(mailbox.begin() + 7, mailbox.end());
+    usb.bulk_result = LIBUSB_ERROR_TIMEOUT;
+    const auto frames = session->receive();
+    CHECK(frames && frames->size() == 1 && frames->at(0).address == 0x301 && frames->at(0).bus == 2);
+    CHECK(frames->at(0).length == 6 && frames->at(0).data[5] == 6 && usb.last_timeout == 10);
+    session->close(); session->close();
+    CHECK(session->protocol() == PandaProtocol::CHIMERA_MAILBOX && !session->active());
+    const int calls = usb.control_in + usb.bulk_calls;
+    CHECK(!session->sample_chimera() && !session->receive() && !session->sample());
+    CHECK(usb.control_in + usb.bulk_calls == calls);
+    no_writes();
+  }
+  for (int bad : std::initializer_list<int>{0, 42, 44, 49, 59, 65, LIBUSB_ERROR_TIMEOUT, LIBUSB_ERROR_PIPE, LIBUSB_ERROR_NO_DEVICE}) {
+    prepare();
+    auto session = PandaUsbStatusSession::open(pin);
+    CHECK(session->sample_chimera());
+    usb.bulk_data.assign(mailbox.begin(), mailbox.begin() + 7);
+    CHECK(session->receive()->empty());
+    usb.fail_request = 0xd2; usb.sample_failure = bad;
+    CHECK(!session->sample_chimera() && !session->active());
+    CHECK(session->protocol() == PandaProtocol::CHIMERA_MAILBOX && usb.contexts == 0);
+    const int calls = usb.control_in + usb.bulk_calls;
+    CHECK(!session->sample_chimera() && !session->receive());
+    CHECK(usb.control_in + usb.bulk_calls == calls);
+    usb.fail_request.reset(); usb.bulk_data = mailbox;
+    session = PandaUsbStatusSession::open(pin); // Explicit reopen performs fresh D6/D2.
+    CHECK(session->receive()->size() == 1 && session->sample_chimera());
+    no_writes();
+  }
+  for (int error : {LIBUSB_ERROR_NO_DEVICE, LIBUSB_ERROR_PIPE, LIBUSB_ERROR_OVERFLOW}) {
+    prepare();
+    auto session = PandaUsbStatusSession::open(pin);
+    usb.bulk_data.assign(mailbox.begin(), mailbox.begin() + 7);
+    CHECK(session->receive()->empty());
+    usb.bulk_result = error;
+    CHECK(!session->receive() && !session->active() && usb.contexts == 0);
+    usb.bulk_result = 0; usb.bulk_data = mailbox;
+    session = PandaUsbStatusSession::open(pin);
+    CHECK(session->receive()->size() == 1);
+    no_writes();
+  }
+  prepare();
+  {
+    auto session = PandaUsbStatusSession::open(pin);
+    usb.bulk_data = mailbox; usb.bulk_data.insert(usb.bulk_data.end(), mailbox.begin(), mailbox.end());
+    usb.bulk_data[20] = 0x39; // Invalid DLC in second record rejects entire read.
+    CHECK(!session->receive() && !session->active() && usb.contexts == 0);
+    no_writes();
+  }
+  prepare();
+  {
+    auto session = PandaUsbStatusSession::open(pin);
+    usb.throw_transfer = true;
+    bool threw = false;
+    try { session->sample_chimera(); } catch (const std::runtime_error &) { threw = true; }
+    CHECK(threw && !session->active() && usb.contexts == 0);
+    no_writes();
+  }
+  for (size_t size : {0U, 42U, 44U, 49U, 59U}) {
+    prepare(); usb.devices[0].health_size = size;
+    bool rejected = false;
+    try { PandaUsbStatusSession::open(pin); } catch (const std::runtime_error &) { rejected = true; }
+    CHECK(rejected && usb.contexts == 0 && usb.bulk_calls == 0); no_writes();
+  }
+  reset();
+  {
+    auto f4 = PandaUsbStatusSession::open(PIN);
+    const int calls = usb.control_in;
+    CHECK(!f4->sample_chimera() && f4->active() && usb.control_in == calls);
+    CHECK(f4->sample());
+  }
+  reset();
+  std::cout << "Original Chimera: D6/D2-only identity/status, mailbox RX, no writes/C2, failure release and fresh reopen pass\n";
 }
 
 void test_current_panda_usb_constructor() {
@@ -538,6 +633,7 @@ int main() {
     try {
       test_usb();
       test_usb_status();
+      test_chimera_session();
       test_current_panda_usb_constructor();
       test_short_current_can_headers();
       test_current_exact_status_reads();

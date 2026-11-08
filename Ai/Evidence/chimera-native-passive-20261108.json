@@ -1,0 +1,402 @@
+{
+  "date": "2026-11-08",
+  "baseline": "249726e133e6e83241faae4699cca6eecb6a9c32",
+  "scope": "Pinned passive native original-Chimera mailbox16/health43 acceptance in existing pandad",
+  "sources_sha256": {
+    ".gitignore": "b0d95008f0d27e377ee5b4cb5dec057dc88065afb02556dc5d97ec6b64eb41cc",
+    "openpilot/selfdrive/pandad/SConscript": "8e0736253f36664285b739687567df0dd298c7063ccf8d6d90b9b2249745de01",
+    "openpilot/selfdrive/pandad/main.cc": "737d160740e604e48977a318f77f1e985e973d58b572c461abb2ef22cbc66ee8",
+    "openpilot/selfdrive/pandad/chimera_usb.h": "4c8e129536ff2bea023512fce2fd21d3be0143c9fbb131bf62f963d5e668722a",
+    "openpilot/selfdrive/pandad/chimera_usb.cc": "51e6faa4067087b014ae9b8dbf43e4ef749094748d614518b9174f49437dad11",
+    "openpilot/selfdrive/pandad/panda_usb_status.h": "114311d95823125ac333b7e5eb315d19ed169206abdff5bced18f38cb31d68fc",
+    "openpilot/selfdrive/pandad/panda_usb_status.cc": "8935c9e9b69ba378a0eaab06d4dec3fd885a8d1fc737ea0e6ff0c06237a134b2",
+    "openpilot/selfdrive/pandad/panda_usb_publish.h": "bf13d8619341befa29a98f81bf977408ec5210c8cf77fc7d73afae52124371f0",
+    "openpilot/selfdrive/pandad/panda_usb_publish.cc": "135c09505c0ba5d7de9404ed78c5e3f4086c7ed565d87d545f54bca89aee5d00",
+    "openpilot/selfdrive/pandad/tests/test_chimera_usb.cc": "8c19b974c4dc407e80a3de7c24dedafa843a02f442e7496e60fb6de09579bfed",
+    "openpilot/selfdrive/pandad/tests/test_chimera_native.py": "2c7ba39f32be81c54122c3a46fef4baa18c7c454d9233192bb8b9e55294f8d27",
+    "openpilot/selfdrive/pandad/tests/test_panda_usb.cc": "6d81280ff90e687a8ec93a9bdc0399f12e94053e468595eaa92038635d854750",
+    "openpilot/selfdrive/pandad/tests/test_panda_usb_publish.cc": "01f8a2d59d195e17f062696ff9306a57a9d9b6d61e37c5cd84bcbdd3140c3c7d",
+    "docs/CHIMERA_OLD_USB.md": "5299337e35ef55deea53e02461d53839862c98735f8ca17f489f869a89746c71"
+  },
+  "validation": {
+    "native_target": "pass",
+    "native_programs_passed": 11,
+    "python_tests_passed": 45,
+    "native_python_mailbox_vectors": 432,
+    "native_python_health_vectors": 5,
+    "sanitizers": "codec and changed USB/session/parser units pass ASan+UBSan with halt_on_error; fake IO only",
+    "copied_source_mutations_caught": 2,
+    "ruff": "pass",
+    "old_chimera_files_preserved": 76,
+    "canonical_dbc_preserved": true,
+    "notebook_qa_whitespace": "pass",
+    "independent_production_review": "approved; no Critical/Required findings"
+  },
+  "actual_test_commands_and_outputs": {
+    "native": {
+      "result": "pass",
+      "checks": [
+        {
+          "command": [
+            ".venv/bin/scons",
+            "-j2",
+            "openpilot/selfdrive/pandad/pandad",
+            "openpilot/selfdrive/pandad/tests/test_pandad_canprotocol",
+            "openpilot/selfdrive/pandad/tests/test_panda_comms",
+            "openpilot/selfdrive/pandad/tests/test_panda_identification",
+            "openpilot/selfdrive/pandad/tests/test_panda_health",
+            "openpilot/selfdrive/pandad/tests/test_panda_can_health",
+            "openpilot/selfdrive/pandad/tests/test_panda_usb",
+            "openpilot/selfdrive/pandad/tests/test_panda_usb_link",
+            "openpilot/selfdrive/pandad/tests/test_panda_usb_can",
+            "openpilot/selfdrive/pandad/tests/test_chimera_usb",
+            "openpilot/selfdrive/pandad/tests/test_panda_usb_publish",
+            "openpilot/selfdrive/pandad/tests/test_panda_state_legacy"
+          ],
+          "exit": 0,
+          "stdout": "scons: Reading SConscript files ...\nscons: done reading SConscript files.\nscons: Building targets ...\nscons: `openpilot/selfdrive/pandad/pandad' is up to date.\n  [LINK] openpilot/selfdrive/pandad/tests/test_pandad_canprotocol\nscons: `openpilot/selfdrive/pandad/tests/test_panda_comms' is up to date.\n  [LINK] openpilot/selfdrive/pandad/tests/test_panda_identification\nprune_cache_dir([\"openpilot/selfdrive/pandad/tests/test_panda_identification\"], [\"openpilot/selfdrive/pandad/tests/test_panda_identification.o\"])\n  [LINK] openpilot/selfdrive/pandad/tests/test_panda_health\nprune_cache_dir([\"openpilot/selfdrive/pandad/tests/test_panda_health\"], [\"openpilot/selfdrive/pandad/tests/test_panda_health.o\"])\n  [LINK] openpilot/selfdrive/pandad/tests/test_panda_can_health\nprune_cache_dir([\"openpilot/selfdrive/pandad/tests/test_pandad_canprotocol\"], [\"openpilot/selfdrive/pandad/tests/test_pandad_canprotocol.o\"])\nscons: `openpilot/selfdrive/pandad/tests/test_panda_usb' is up to date.\n  [LINK] openpilot/selfdrive/pandad/tests/test_panda_usb_link\nprune_cache_dir([\"openpilot/selfdrive/pandad/tests/test_panda_can_health\"], [\"openpilot/selfdrive/pandad/tests/test_panda_can_health.o\"])\n  [LINK] openpilot/selfdrive/pandad/tests/test_panda_usb_can\nprune_cache_dir([\"openpilot/selfdrive/pandad/tests/test_panda_usb_link\"], [\"openpilot/selfdrive/pandad/tests/test_panda_usb_link.o\"])\nprune_cache_dir([\"openpilot/selfdrive/pandad/tests/test_panda_usb_can\"], [\"openpilot/selfdrive/pandad/tests/test_panda_usb_can.o\"])\nscons: `openpilot/selfdrive/pandad/tests/test_chimera_usb' is up to date.\nscons: `openpilot/selfdrive/pandad/tests/test_panda_usb_publish' is up to date.\n  [CXX] openpilot/selfdrive/pandad/tests/test_panda_state_legacy.o\n  [LINK] openpilot/selfdrive/pandad/tests/test_panda_state_legacy\nprune_cache_dir([\"openpilot/selfdrive/pandad/tests/test_panda_state_legacy\"], [\"openpilot/selfdrive/pandad/tests/test_panda_state_legacy.o\"])\nscons: done building targets.\n",
+          "stderr": "kj/filesystem-disk-unix.c++:1734: warning: PWD environment variable doesn't match current directory; pwd = /home/radxa/comma/sunnypilot\nprogress: 2.9\nprogress: 5.7\nprogress: 8.6\nprogress: 11.5\nprogress: 14.4\nprogress: 17.2\nprogress: 20.1\nprogress: 23.0\nprogress: 25.9\nprogress: 28.7\nprogress: 31.6\nprogress: 34.5\nprogress: 37.4\nprogress: 40.2\nprogress: 43.1\nprogress: 46.0\nprogress: 48.9\nprogress: 51.7\nprogress: 54.6\nprogress: 57.5\nprogress: 60.3\nprogress: 63.2\nprogress: 66.1\nprogress: 69.0\nprogress: 71.8\nprogress: 74.7\nprogress: 77.6\nprogress: 80.5\nprogress: 83.3\nprogress: 86.2\nprogress: 89.1\nprogress: 92.0\nprogress: 94.8\nprogress: 97.7\nprogress: 100.0\n"
+        },
+        {
+          "command": [
+            "openpilot/selfdrive/pandad/tests/test_pandad_canprotocol"
+          ],
+          "exit": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "openpilot/selfdrive/pandad/tests/test_panda_comms"
+          ],
+          "exit": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "openpilot/selfdrive/pandad/tests/test_panda_identification"
+          ],
+          "exit": 0,
+          "stdout": "19 supported fixtures; 421 rejected fixtures; 3 invalid transports; zero writes\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "openpilot/selfdrive/pandad/tests/test_panda_health"
+          ],
+          "exit": 0,
+          "stdout": "Legacy F4 health59: exact source/golden layout, 256 flag combinations, 2032 invalid booleans, integer/float/unaligned cases and bounded single-read failures passed; no hardware calls\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "openpilot/selfdrive/pandad/tests/test_panda_can_health"
+          ],
+          "exit": 0,
+          "stdout": "Legacy F4 CAN-health5: 26 fields/64 bytes, 3 selectors x 64 flag combinations, 1524 invalid booleans, 1024 LEC cases, 65533 invalid selectors and bounded reads pass; no hardware calls\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "openpilot/selfdrive/pandad/tests/test_panda_usb"
+          ],
+          "exit": 0,
+          "stdout": "33 USB scenario groups passed; no real USB calls\nUSB status session: full samples, failure latching/release, profile rejection and explicit reopen pass; no real USB calls\nOriginal Chimera: D6/D2-only identity/status, mailbox RX, no writes/C2, failure release and fresh reopen pass\nopenpilot/selfdrive/pandad/panda.cc: connected to pinned selected over USB\nopenpilot/selfdrive/pandad/panda.cc: connected to pinned selected over USB\nopenpilot/selfdrive/pandad/panda.cc: connected to pinned selected over USB\nopenpilot/selfdrive/pandad/panda.cc: connected to pinned selected over USB\nopenpilot/selfdrive/pandad/panda.cc: connected to pinned selected over USB\nopenpilot/selfdrive/pandad/panda.cc: connected to pinned selected over USB\nopenpilot/selfdrive/pandad/panda.cc: connected to pinned selected over USB\nopenpilot/selfdrive/pandad/panda.cc: connected to pinned selected over USB\nopenpilot/selfdrive/pandad/panda.cc: connected to pinned selected over USB\nopenpilot/selfdrive/pandad/panda.cc: connected to pinned selected over USB\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "openpilot/selfdrive/pandad/tests/test_panda_usb_link"
+          ],
+          "exit": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "openpilot/selfdrive/pandad/tests/test_panda_usb_can"
+          ],
+          "exit": 0,
+          "stdout": "USB classical RX: 324 records/all split positions, receipt filtering, corruption/bounds/time latching pass\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "openpilot/selfdrive/pandad/tests/test_chimera_usb"
+          ],
+          "exit": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "openpilot/selfdrive/pandad/tests/test_panda_usb_publish"
+          ],
+          "exit": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "openpilot/selfdrive/pandad/tests/test_panda_state_legacy"
+          ],
+          "exit": 0,
+          "stdout": "Legacy F4 state preview: full-width/fractional values, all65536 alternative masks, 32fault bits, 256safety/hardware codes and invalid enums/selectors pass; always invalid, no device IO\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "openpilot/selfdrive/pandad/pandad"
+          ],
+          "exit": 2,
+          "stdout": "openpilot/selfdrive/pandad/main.cc: starting pandad\nopenpilot/selfdrive/pandad/main.cc: USB startup requires --usb-status SERIAL VERSION\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "openpilot/selfdrive/pandad/pandad",
+            "--usb-status",
+            "",
+            ""
+          ],
+          "exit": 2,
+          "stdout": "openpilot/selfdrive/pandad/main.cc: starting pandad\nopenpilot/selfdrive/pandad/main.cc: USB observation: USB startup requires bounded printable serial and exact firmware version pins\n",
+          "stderr": ""
+        }
+      ]
+    },
+    "python": {
+      "result": "pass",
+      "checks": [
+        {
+          "command": [
+            ".venv/bin/python",
+            "-m",
+            "unittest",
+            "openpilot.selfdrive.pandad.tests.test_usb_startup",
+            "openpilot.selfdrive.pandad.tests.test_chimera",
+            "openpilot.selfdrive.pandad.tests.test_chimera_protocol",
+            "openpilot.selfdrive.pandad.tests.test_chimera_native",
+            "openpilot.selfdrive.pandad.tests.test_legacy_state_sources",
+            "openpilot.selfdrive.pandad.tests.test_panda_state_availability",
+            "openpilot.selfdrive.pandad.tests.test_panda_consumers",
+            "openpilot.selfdrive.modeld.thneed_q8b.test_telemetry",
+            "-v"
+          ],
+          "exit": 0,
+          "stdout": "",
+          "stderr": "test_exact_arguments_without_shell_or_historical_defaults (openpilot.selfdrive.pandad.tests.test_usb_startup.UsbStartupTests.test_exact_arguments_without_shell_or_historical_defaults) ... ok\ntest_exec_failure_and_return_never_start_another_backend (openpilot.selfdrive.pandad.tests.test_usb_startup.UsbStartupTests.test_exec_failure_and_return_never_start_another_backend) ... ok\ntest_no_spi_backend_source_class_or_build_target (openpilot.selfdrive.pandad.tests.test_usb_startup.UsbStartupTests.test_no_spi_backend_source_class_or_build_target) ... ok\ntest_requires_both_pins_on_every_platform (openpilot.selfdrive.pandad.tests.test_usb_startup.UsbStartupTests.test_requires_both_pins_on_every_platform) ... ok\ntest_wrapper_cannot_import_legacy_device_or_recovery_clients (openpilot.selfdrive.pandad.tests.test_usb_startup.UsbStartupTests.test_wrapper_cannot_import_legacy_device_or_recovery_clients) ... ok\ntest_wrapper_executes_only_explicit_usb_command (openpilot.selfdrive.pandad.tests.test_usb_startup.UsbStartupTests.test_wrapper_executes_only_explicit_usb_command) ... ok\ntest_wrapper_rejects_missing_pins_without_exec (openpilot.selfdrive.pandad.tests.test_usb_startup.UsbStartupTests.test_wrapper_rejects_missing_pins_without_exec) ... ok\ntest_discovery_pins_serial_ignores_bootstub_and_releases_on_error (openpilot.selfdrive.pandad.tests.test_chimera.TestChimeraReceiver.test_discovery_pins_serial_ignores_bootstub_and_releases_on_error) ... ok\ntest_main_default_monitor_serializes_trace_without_publisher (openpilot.selfdrive.pandad.tests.test_chimera.TestChimeraReceiver.test_main_default_monitor_serializes_trace_without_publisher) ... ok\ntest_main_publishes_only_can_and_ends_session_on_unplug (openpilot.selfdrive.pandad.tests.test_chimera.TestChimeraReceiver.test_main_publishes_only_can_and_ends_session_on_unplug) ... ok\ntest_only_version_health_and_bulk_in_are_used (openpilot.selfdrive.pandad.tests.test_chimera.TestChimeraReceiver.test_only_version_health_and_bulk_in_are_used) ... ok\ntest_shared_vid_pid_does_not_select_interceptor_bench (openpilot.selfdrive.pandad.tests.test_chimera.TestChimeraReceiver.test_shared_vid_pid_does_not_select_interceptor_bench) ... ok\ntest_timeout_preserves_transferred_bytes_and_disconnect_propagates (openpilot.selfdrive.pandad.tests.test_chimera.TestChimeraReceiver.test_timeout_preserves_transferred_bytes_and_disconnect_propagates) ... ok\ntest_usb_to_cereal_to_modern_controller_candidates_without_live_output (openpilot.selfdrive.pandad.tests.test_chimera.TestChimeraReceiver.test_usb_to_cereal_to_modern_controller_candidates_without_live_output) ... ok\ntest_wrong_serial_never_claims_or_reads_control (openpilot.selfdrive.pandad.tests.test_chimera.TestChimeraReceiver.test_wrong_serial_never_claims_or_reads_control) ... ok\ntest_wrong_version_and_health_shape_fail_before_can_read (openpilot.selfdrive.pandad.tests.test_chimera.TestChimeraReceiver.test_wrong_version_and_health_shape_fail_before_can_read) ... ok\ntest_health_is_exact_legacy_layout_and_raw_safety (openpilot.selfdrive.pandad.tests.test_chimera_protocol.TestChimeraProtocol.test_health_is_exact_legacy_layout_and_raw_safety) ... ok\ntest_literal_mailbox_and_historical_board_health_vectors (openpilot.selfdrive.pandad.tests.test_chimera_protocol.TestChimeraProtocol.test_literal_mailbox_and_historical_board_health_vectors) ... ok\ntest_malformed_batch_is_rejected_as_a_whole (openpilot.selfdrive.pandad.tests.test_chimera_protocol.TestChimeraProtocol.test_malformed_batch_is_rejected_as_a_whole) ... ok\ntest_real_cereal_to_carstate_keeps_bus_and_enabled_angle (openpilot.selfdrive.pandad.tests.test_chimera_protocol.TestChimeraProtocol.test_real_cereal_to_carstate_keeps_bus_and_enabled_angle) ... ok\ntest_returned_and_remote_records_cannot_be_vehicle_reception (openpilot.selfdrive.pandad.tests.test_chimera_protocol.TestChimeraProtocol.test_returned_and_remote_records_cannot_be_vehicle_reception) ... ok\ntest_standard_extended_zero_length_and_metadata (openpilot.selfdrive.pandad.tests.test_chimera_protocol.TestChimeraProtocol.test_standard_extended_zero_length_and_metadata) ... ok\ntest_native_vectors_match_python (openpilot.selfdrive.pandad.tests.test_chimera_native.TestNativeChimeraParity.test_native_vectors_match_python) ... ok\ntest_fault_bit_names_and_unrepresentable_sound_dma (openpilot.selfdrive.pandad.tests.test_legacy_state_sources.TestLegacyStateSources.test_fault_bit_names_and_unrepresentable_sound_dma) ... ok\ntest_frozen_reference_hashes_and_git_blobs (openpilot.selfdrive.pandad.tests.test_legacy_state_sources.TestLegacyStateSources.test_frozen_reference_hashes_and_git_blobs) ... ok\ntest_name_matched_safety_ids_and_conflicts (openpilot.selfdrive.pandad.tests.test_legacy_state_sources.TestLegacyStateSources.test_name_matched_safety_ids_and_conflicts) ... ok\ntest_schema_coverage_requires_explicit_unavailable_fields (openpilot.selfdrive.pandad.tests.test_legacy_state_sources.TestLegacyStateSources.test_schema_coverage_requires_explicit_unavailable_fields) ... ok\ntest_bad_board_does_not_shift_other_board_indices (openpilot.selfdrive.pandad.tests.test_panda_state_availability.PandaAvailabilityTests.test_bad_board_does_not_shift_other_board_indices) ... ok\ntest_current_metadata_can_withhold_a_field (openpilot.selfdrive.pandad.tests.test_panda_state_availability.PandaAvailabilityTests.test_current_metadata_can_withhold_a_field) ... ok\ntest_field_requirements_are_explicit (openpilot.selfdrive.pandad.tests.test_panda_state_availability.PandaAvailabilityTests.test_field_requirements_are_explicit) ... ok\ntest_invalid_event_never_reads_fields (openpilot.selfdrive.pandad.tests.test_panda_state_availability.PandaAvailabilityTests.test_invalid_event_never_reads_fields) ... ok\ntest_legacy_metadata_must_report_all_six_missing_fields (openpilot.selfdrive.pandad.tests.test_panda_state_availability.PandaAvailabilityTests.test_legacy_metadata_must_report_all_six_missing_fields) ... ok\ntest_observation_cannot_be_promoted_by_changing_event_valid (openpilot.selfdrive.pandad.tests.test_panda_state_availability.PandaAvailabilityTests.test_observation_cannot_be_promoted_by_changing_event_valid) ... ok\ntest_old_current_messages_remain_compatible (openpilot.selfdrive.pandad.tests.test_panda_state_availability.PandaAvailabilityTests.test_old_current_messages_remain_compatible) ... ok\ntest_required_field_typo_is_an_error (openpilot.selfdrive.pandad.tests.test_panda_state_availability.PandaAvailabilityTests.test_required_field_typo_is_an_error) ... ok\ntest_serialized_metadata_and_empty_batch (openpilot.selfdrive.pandad.tests.test_panda_state_availability.PandaAvailabilityTests.test_serialized_metadata_and_empty_batch) ... ok\ntest_unknown_profile_or_field_rejected (openpilot.selfdrive.pandad.tests.test_panda_state_availability.PandaAvailabilityTests.test_unknown_profile_or_field_rejected) ... ok\ntest_core_and_mads_mismatch_on_unavailable_or_stale_data (openpilot.selfdrive.pandad.tests.test_panda_consumers.PandaConsumerTests.test_core_and_mads_mismatch_on_unavailable_or_stale_data) ... ok\ntest_core_event_branch_blocks_unusable_batch (openpilot.selfdrive.pandad.tests.test_panda_consumers.PandaConsumerTests.test_core_event_branch_blocks_unusable_batch) ... ok\ntest_manager_ignition_assignment_uses_valid_live_metadata (openpilot.selfdrive.pandad.tests.test_panda_consumers.PandaConsumerTests.test_manager_ignition_assignment_uses_valid_live_metadata) ... ok\ntest_ui_clears_observation_invalid_and_stale_ignition (openpilot.selfdrive.pandad.tests.test_panda_consumers.PandaConsumerTests.test_ui_clears_observation_invalid_and_stale_ignition) ... ok\ntest_bad_packets_and_restart_do_not_leave_false_live_values (openpilot.selfdrive.modeld.thneed_q8b.test_telemetry.TestTimingTelemetry.test_bad_packets_and_restart_do_not_leave_false_live_values) ... ok\ntest_first_draw_ignores_redraws_and_matches_frame_metadata (openpilot.selfdrive.modeld.thneed_q8b.test_telemetry.TestTimingTelemetry.test_first_draw_ignores_redraws_and_matches_frame_metadata) ... ok\ntest_publisher_counts_actual_inferences_and_diagnostic_failure_is_isolated (openpilot.selfdrive.modeld.thneed_q8b.test_telemetry.TestTimingTelemetry.test_publisher_counts_actual_inferences_and_diagnostic_failure_is_isolated) ... ok\ntest_source_endpoints_sequence_rate_and_staleness (openpilot.selfdrive.modeld.thneed_q8b.test_telemetry.TestTimingTelemetry.test_source_endpoints_sequence_rate_and_staleness) ... ok\n\n----------------------------------------------------------------------\nRan 45 tests in 0.133s\n\nOK\n"
+        },
+        {
+          "command": [
+            ".venv/bin/ruff",
+            "check",
+            "openpilot/selfdrive/pandad/tests/test_chimera_native.py",
+            "Ai/Reports/chimera-native-passive-20261108/verify.py"
+          ],
+          "exit": 0,
+          "stdout": "All checks passed!\n",
+          "stderr": ""
+        }
+      ]
+    },
+    "sanitizers": {
+      "result": "pass",
+      "checks": [
+        {
+          "command": [
+            "c++",
+            "-std=c++17",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-fsanitize=address,undefined",
+            "-fno-omit-frame-pointer",
+            "-g",
+            "-Iopenpilot",
+            "-I.",
+            "-Iopendbc_repo",
+            "-Imsgq_repo",
+            "-Iopenpilot/cereal/gen/cpp",
+            "openpilot/selfdrive/pandad/chimera_usb.cc",
+            "openpilot/selfdrive/pandad/tests/test_chimera_usb.cc",
+            "-o",
+            "/tmp/chimera-native-verify-qk3osh_0/codec"
+          ],
+          "exit": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "/tmp/chimera-native-verify-qk3osh_0/codec"
+          ],
+          "exit": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "c++",
+            "-std=c++17",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-fsanitize=address,undefined",
+            "-fno-omit-frame-pointer",
+            "-g",
+            "-Iopenpilot",
+            "-I.",
+            "-Iopendbc_repo",
+            "-Imsgq_repo",
+            "-Iopenpilot/cereal/gen/cpp",
+            "-I/home/radxa/comma/sunnypilot/.venv/lib/python3.12/site-packages/capnproto/install/include",
+            "-I/home/radxa/comma/sunnypilot/.venv/lib/python3.12/site-packages/json11/install/include",
+            "-I/home/radxa/comma/sunnypilot/.venv/lib/python3.12/site-packages/zeromq/install/include",
+            "-I/home/radxa/comma/sunnypilot/.venv/lib/python3.12/site-packages/libusb/install/include",
+            "-DPANDA_HEALTH_VERSION_HASH=0xca8f9eafU",
+            "-DPANDA_CAN_VERSION_HASH=0x75abf276U",
+            "openpilot/selfdrive/pandad/panda_usb.cc",
+            "openpilot/selfdrive/pandad/panda_identification.cc",
+            "openpilot/selfdrive/pandad/panda_health.cc",
+            "openpilot/selfdrive/pandad/panda_usb_can.cc",
+            "openpilot/selfdrive/pandad/chimera_usb.cc",
+            "openpilot/selfdrive/pandad/panda_usb_status.cc",
+            "openpilot/selfdrive/pandad/tests/test_panda_usb.cc",
+            "openpilot/selfdrive/pandad/libpanda.a",
+            "openpilot/common/libcommon.a",
+            "openpilot/cereal/libcereal.a",
+            "-L/home/radxa/comma/sunnypilot/.venv/lib/python3.12/site-packages/capnproto/install/lib",
+            "-Wl,-rpath,/home/radxa/comma/sunnypilot/.venv/lib/python3.12/site-packages/capnproto/install/lib",
+            "-L/home/radxa/comma/sunnypilot/.venv/lib/python3.12/site-packages/json11/install/lib",
+            "-Wl,-rpath,/home/radxa/comma/sunnypilot/.venv/lib/python3.12/site-packages/json11/install/lib",
+            "-L/home/radxa/comma/sunnypilot/.venv/lib/python3.12/site-packages/zeromq/install/lib",
+            "-Wl,-rpath,/home/radxa/comma/sunnypilot/.venv/lib/python3.12/site-packages/zeromq/install/lib",
+            "-L/home/radxa/comma/sunnypilot/.venv/lib/python3.12/site-packages/libusb/install/lib",
+            "-Wl,-rpath,/home/radxa/comma/sunnypilot/.venv/lib/python3.12/site-packages/libusb/install/lib",
+            "-ljson11",
+            "-lzmq",
+            "-lcapnp",
+            "-lkj",
+            "-pthread",
+            "-o",
+            "/tmp/chimera-native-verify-qk3osh_0/session"
+          ],
+          "exit": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "/tmp/chimera-native-verify-qk3osh_0/session"
+          ],
+          "exit": 0,
+          "stdout": "33 USB scenario groups passed; no real USB calls\nUSB status session: full samples, failure latching/release, profile rejection and explicit reopen pass; no real USB calls\nOriginal Chimera: D6/D2-only identity/status, mailbox RX, no writes/C2, failure release and fresh reopen pass\nopenpilot/selfdrive/pandad/panda.cc: connected to pinned selected over USB\nopenpilot/selfdrive/pandad/panda.cc: connected to pinned selected over USB\nopenpilot/selfdrive/pandad/panda.cc: connected to pinned selected over USB\nopenpilot/selfdrive/pandad/panda.cc: connected to pinned selected over USB\nopenpilot/selfdrive/pandad/panda.cc: connected to pinned selected over USB\nopenpilot/selfdrive/pandad/panda.cc: connected to pinned selected over USB\nopenpilot/selfdrive/pandad/panda.cc: connected to pinned selected over USB\nopenpilot/selfdrive/pandad/panda.cc: connected to pinned selected over USB\nopenpilot/selfdrive/pandad/panda.cc: connected to pinned selected over USB\nopenpilot/selfdrive/pandad/panda.cc: connected to pinned selected over USB\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "c++",
+            "-std=c++17",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-fsanitize=address,undefined",
+            "-fno-omit-frame-pointer",
+            "-g",
+            "-Iopenpilot",
+            "-I.",
+            "-Iopendbc_repo",
+            "-Imsgq_repo",
+            "-Iopenpilot/cereal/gen/cpp",
+            "/tmp/chimera-native-verify-qk3osh_0/bus.cc",
+            "openpilot/selfdrive/pandad/tests/test_chimera_usb.cc",
+            "-o",
+            "/tmp/chimera-native-verify-qk3osh_0/bus"
+          ],
+          "exit": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "/tmp/chimera-native-verify-qk3osh_0/bus"
+          ],
+          "exit": 1,
+          "stdout": "",
+          "stderr": "openpilot/selfdrive/pandad/tests/test_chimera_usb.cc:61: check failed: !stream.feed(batch.data(), batch.size(), 1)\n"
+        },
+        {
+          "command": [
+            "c++",
+            "-std=c++17",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-fsanitize=address,undefined",
+            "-fno-omit-frame-pointer",
+            "-g",
+            "-Iopenpilot",
+            "-I.",
+            "-Iopendbc_repo",
+            "-Imsgq_repo",
+            "-Iopenpilot/cereal/gen/cpp",
+            "/tmp/chimera-native-verify-qk3osh_0/receipts.cc",
+            "openpilot/selfdrive/pandad/tests/test_chimera_usb.cc",
+            "-o",
+            "/tmp/chimera-native-verify-qk3osh_0/receipts"
+          ],
+          "exit": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "/tmp/chimera-native-verify-qk3osh_0/receipts"
+          ],
+          "exit": 1,
+          "stdout": "",
+          "stderr": "openpilot/selfdrive/pandad/tests/test_chimera_usb.cc:37: check failed: first->size() == (flags ? 0 : 1)\n"
+        }
+      ]
+    },
+    "preservation": {
+      "result": "pass",
+      "checks": [
+        {
+          "command": [
+            ".venv/bin/python",
+            "Ai/verify_memory.py"
+          ],
+          "exit": 0,
+          "stdout": "{\n  \"result\": \"pass\",\n  \"memory_layout\": \"regular project directory\",\n  \"documents\": 186,\n  \"relative_links\": 617,\n  \"optional_workspace_links\": 251\n}\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "git",
+            "diff",
+            "--check"
+          ],
+          "exit": 0,
+          "stdout": "",
+          "stderr": ""
+        }
+      ]
+    }
+  },
+  "limits": [
+    "No physical USB/CAN/relay/vehicle session or new firmware build/flash",
+    "No TX/control/normal pandaStates admission; old relay semantics unchanged",
+    "Exact installed firmware/source match unresolved",
+    "No mailbox record checksum or ECU freshness guarantee",
+    "Only reviewed bus0..2; bus3 and non-receipt TXRQ deliberately stricter than Python",
+    "No in-session reconnect; explicit reopen tested"
+  ],
+  "source_models": {
+    "panda": "8a16e089b88593914823743df29e1c30b7dd3e00",
+    "opendbc": "150f937198ceab43c43b39f94b9bdea63fcb633c"
+  },
+  "rea": "No binary/runtime artifact question; source-first evidence used"
+}

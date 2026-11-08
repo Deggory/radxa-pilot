@@ -1,3 +1,13 @@
+## November8 — Native original-Chimera passive path implemented
+
+The prior proposed-only/F4-only status below is historical. Native pandad now
+admits the pinned original Chimera profile, decodes mailbox16/health43, publishes
+can plus labelled raw diagnostics, and releases/clears state on errors or close.
+See [implemented contract](../../docs/CHIMERA_OLD_USB.md) and the November8native
+passive session/evidence for exact offline verification and limits. No normal
+pandaStates/control admission, firmware changes or physical qualification.
+The new rewrite remains halted; original firmware bytes are preserved.
+
 # Panda, original Chimera and the new rewrite — November 8, 2026
 
 Panda is the CAN interface and firmware policy layer between the host computer

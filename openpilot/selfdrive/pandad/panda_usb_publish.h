@@ -11,3 +11,8 @@ void build_usb_can_message(MessageBuilder &message, const std::vector<PandaUsbCa
 void build_usb_status_message(MessageBuilder &message, const PandaIdentificationPin &pin,
                               const LegacyF4StatusSample *sample, uint64_t start, uint64_t end,
                               UsbObservationState state);
+// Original Chimera raw reports stay in a separate diagnostic namespace. No
+// modern safety mapping, calibrated power measurements or per-controller health.
+void build_chimera_usb_status_message(MessageBuilder &message, const PandaIdentificationPin &pin,
+                                      const ChimeraHealth *sample, uint64_t start, uint64_t end,
+                                      UsbObservationState state);

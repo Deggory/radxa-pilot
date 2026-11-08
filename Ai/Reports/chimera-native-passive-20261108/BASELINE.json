@@ -1,0 +1,9 @@
+{
+  "head": "249726e133e6e83241faae4699cca6eecb6a9c32",
+  "old_files": 76,
+  "preserve": {
+    "ocelot": " M README.md\n M firmware/README.md\n M firmware/RetroPilot_Cores/interceptor_core/json_rpc_handlers.h\n M firmware/RetroPilot_Cores/interceptor_core/main.c\n M firmware/RetroPilot_Cores/interceptor_core/modes/differential.h\n M firmware/chimera/chimera.h\n M firmware/chimera/main.c\n M firmware/retropilot_cores/reports/VW_NEUTRAL_30S_PREPARATION_20261027.md\n M hardware/ocelot-pro/README.MD\n?? \"Core Config/\"\n?? \"Interceptor Config/\"\n?? RYLEYMCC_OVERKILL_INTERCEPTOR_REVIEW_20261014.md\n?? RYLEYMCC_TI_RECOVERY_SEARCH_20261014.md\n?? Retropilot_Core_Config\n?? Retropilot_Core_Config.desktop\n?? Retropilot_Interceptor_Config\n?? Retropilot_Interceptor_Config.desktop\n?? USB_DFU\n?? USB_DFU.desktop\n?? \"WebUSB DFU/\"\n?? cabana/\n?? firmware/BUILDING.md\n?? firmware/BUILD_COMPARISON.md\n?? firmware/INSPECTING_SIGNED_BIN.md\n?? firmware/RetroPilot_Cores/interceptor_core/ADC_TRACE_PROTOCOL.md\n?? firmware/RetroPilot_Cores/interceptor_core/STEERING_SENSOR_FIRMWARE_REVIEW.md\n?? firmware/RetroPilot_Cores/interceptor_core/adc_trace.h\n?? firmware/RetroPilot_Cores/interceptor_core/modes/differential_command.h\n?? firmware/build_interceptor_gcc9.sh\n?? firmware/build_local.sh\n?? firmware/inspect_signed.py\n?? firmware/inspection/\n?? hardware/Actuator-Core/\n?? hardware/chimera/\n?? hardware/interceptor-core/\n?? hardware/ocelot-pro/convert_schdoc.py\n?? hardware/ocelot-pro/ocelot-pro-schematic.pdf\n?? hardware/ocelot-pro/ocelot-pro_schematic.pdf\n?? hardware/relay-core/\n",
+    "q8b/sunnypilot-upstream": ""
+  },
+  "dbc_sha256": "b4079670b8118fe63c6a7710ca1158afaabfec7df881ef902e43d70d70a36b67"
+}

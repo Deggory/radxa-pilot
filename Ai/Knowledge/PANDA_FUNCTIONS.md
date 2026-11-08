@@ -1,3 +1,13 @@
+## November8 — Native original-Chimera passive path implemented
+
+The prior proposed-only/F4-only status below is historical. Native pandad now
+admits the pinned original Chimera profile, decodes mailbox16/health43, publishes
+can plus labelled raw diagnostics, and releases/clears state on errors or close.
+See [implemented contract](../../docs/CHIMERA_OLD_USB.md) and the November8native
+passive session/evidence for exact offline verification and limits. No normal
+pandaStates/control admission, firmware changes or physical qualification.
+The new rewrite remains halted; original firmware bytes are preserved.
+
 ## November8comparison follow-up
 
 See [four identities and capability differences](PANDA_CHIMERA_COMPARISON.md).

@@ -76,4 +76,50 @@ void test_messages() {
   CHECK(!invalid_can.getRoot<cereal::Event>().asReader().getValid());
 }
 
-int main() { return run_native_test(test_messages); }
+void test_chimera_messages() {
+  const PandaIdentificationPin pin{"selected", "v1.0.0-DEV-de193215-DEBUG"};
+  ChimeraHealth sample{};
+  sample.uptime = 0xffffffffU;
+  sample.ignition_line_raw = 255;
+  sample.safety_model_raw = 17;
+  sample.safety_param_raw = -32768;
+  for (auto state : {UsbObservationState::OBSERVING, UsbObservationState::FAILED, UsbObservationState::CLOSED}) {
+    MessageBuilder message;
+    build_chimera_usb_status_message(message, pin, state == UsbObservationState::OBSERVING ? &sample : nullptr,
+                                    1, 2, state);
+    const auto event = message.getRoot<cereal::Event>().asReader();
+    CHECK(event.which() == cereal::Event::CUSTOM_RESERVED_RAW_DATA1);
+    CHECK(event.getValid() == (state == UsbObservationState::OBSERVING));
+    auto raw = event.getCustomReservedRawData1();
+    std::string error;
+    auto json = json11::Json::parse(std::string(reinterpret_cast<const char *>(raw.begin()), raw.size()), error);
+    CHECK(error.empty() && json["profile"].string_value() == "chimeraOldMailbox16");
+    CHECK(!json["operational"].bool_value() && json["availability"]["observationOnly"].bool_value());
+    CHECK(!json["availability"]["pandaStates"].bool_value());
+    CHECK(json["availability"]["preservedSourcePlaceholders"].array_items().size() == 7);
+    CHECK(json["controllers"].array_items().empty() && json["health"].is_null());
+    if (state == UsbObservationState::OBSERVING) {
+      CHECK(json["rawHealth"].object_items().size() == 18);
+      CHECK(json["rawHealth"]["uptime"].number_value() == 4294967295.0);
+      CHECK(json["rawHealth"]["ignition_line_raw"].int_value() == 255);
+      CHECK(json["rawHealth"]["safety_model_raw"].int_value() == 17);
+      CHECK(json["rawHealth"]["safety_param_raw"].int_value() == -32768);
+      CHECK(json["rawHealth"]["voltage_mV"].is_null());
+    } else {
+      CHECK(json["rawHealth"].is_null());
+      CHECK(json["state"].string_value() == (state == UsbObservationState::FAILED ? "failed" : "closed"));
+    }
+  }
+  for (unsigned scenario = 0; scenario < 3; ++scenario) {
+    bool rejected = false;
+    try {
+      MessageBuilder invalid;
+      if (scenario == 0) build_chimera_usb_status_message(invalid, pin, nullptr, 1, 2, UsbObservationState::OBSERVING);
+      if (scenario == 1) build_chimera_usb_status_message(invalid, pin, &sample, 1, 2, UsbObservationState::FAILED);
+      if (scenario == 2) build_chimera_usb_status_message(invalid, pin, &sample, 2, 1, UsbObservationState::OBSERVING);
+    } catch (const std::invalid_argument &) { rejected = true; }
+    CHECK(rejected);
+  }
+}
+
+int main() { return run_native_test([] { test_messages(); test_chimera_messages(); }); }

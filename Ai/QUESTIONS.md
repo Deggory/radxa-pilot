@@ -1,3 +1,13 @@
+## QA-20261108-25 — Make pandad accept original Chimera
+
+**Date:** November 8, 2026 UTC.
+**Owner request (faithful quote):** "lets mdify pandad to accept the chimera_old  ,use all the skill of teacher awat it learnd".
+**Answer:** Implemented a pinned native passive original-Chimera route in existing pandad. Identification retains exact product/serial/version/health43; the session now dispatches mailbox16 to its own bounded native decoder and health43 to a separate raw type. Main publishes standard can and profile-labelled isolated raw diagnostics, including correctly labelled failure/close events. Original Chimera uses D6/D2 and bulk-IN only; unsupported metadata, malformed records and session errors close/clear state. F4 behavior remains separate. No generic Panda setup, C2, OUT, heartbeat, reset/flash/config, normal pandaStates or control threads are added. Native bus0..2/TXRQ rules intentionally restrict the broader Python reference. Raw health placeholders are explicitly labelled. This changes the earlier QA23–24 source status: native old-Chimera RX is now implemented offline rather than merely proposed; hardware/onroad support is still unqualified.
+**Evidence/source pins:** Baseline249726e133e6e83241faae4699cca6eecb6a9c32; Panda8a16e089/opendbc150f9371. Student docs/CHIMERA_OLD_USB.md and Ai/Reports/chimera-native-passive-20261108 (contract, red/green evidence, verify.py and independent review). Source-derived literal/historical vectors and existing Python decoder used, with no required binary/REA artifact question. Final actual test/commit readback is in the receipt and session, not a hardware claim.
+**Status/limits:** Native target and11native programs,45Python regressions,432mailbox/5health parity vectors, ASan/UBSan, two caught copied-source mutations, Ruff and notebook/QA/whitespace checks passed; independent production review approved. Final full-gate/commit result is recorded at closeout. Original76firmware files and canonical DBC must remain unchanged. No physical USB/board/CAN/relay/vehicle run, firmware build/flash, update or push; new rewrite remains halted. Installed image/source equivalence, real bus/sensor routing, no-checksum integrity limits, timing and later managed/control qualification remain unresolved. No in-session automatic reconnect; explicit reopen is tested. Existing unanswered entries retained.
+
+---
+
 ## QA-20261108-24 — Which host file talks to a connected Panda?
 
 **Date:** November 8, 2026 UTC.

@@ -1,0 +1,7 @@
+{
+  "codec_before_header": "compiler rejected missing chimera_usb.h",
+  "baseline_session_test_exit": 1,
+  "baseline_session_output": "33 USB scenario groups passed; no real USB calls\nUSB status session: full samples, failure latching/release, profile rejection and explicit reopen pass; no real USB calls\nUSB scenario group 73\nUSB status startup currently requires qualified legacy F4 health17\n",
+  "initial_build_setup": "capnpc absent from PATH; corrected by using project venv PATH",
+  "expected_feature_failure": "original session refuses Chimera identity before new implementation"
+}

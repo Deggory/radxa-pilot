@@ -1,3 +1,14 @@
+## November8 — Native original-Chimera passive acceptance (QA25)
+
+Owner authorized host adaptation. pandad now dispatches pinned old Chimera
+mailbox16/health43 alongside F4, publishes CAN and labelled raw diagnostics,
+and closes/clears state on failure. See CHIMERA_OLD_USB contract and the
+November8chimera-native-passive session for actual tests/commit/limits. No
+managed/control admission or physical qualification. Old firmware preserved,
+new rewrite halted, update hold retained. Next: review saved offline evidence
+and plan a separately qualified matching-board receive-only check; do not
+start hardware or active-control work automatically from this handoff.
+
 ## November8 — Panda host connection path explained (QA24)
 
 USB is owned by panda_usb.cc inside pandad. Launcher/main/session, normal
