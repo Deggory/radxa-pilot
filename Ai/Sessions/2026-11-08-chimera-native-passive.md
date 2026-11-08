@@ -74,3 +74,16 @@ artifact hash. No real board/session qualification is implied.
 
 This documentation-only closeout saves the measured final result. The next
 step and remaining hardware/managed/control limits above remain in force.
+
+## Capability follow-up (QA26)
+
+Owner asked "can u tell wat it can do". Explained passive USB/CAN reception,
+three preserved bus numbers, internal CAN publication and labelled raw health.
+Actual vehicle signals require producers and matching parser/DBC configuration.
+No driving transmission, normal engagement, firmware programming or new safety
+policy is provided. Physical-board qualification remains pending and autonomous
+legacy relay behavior remains unchanged. Source008a7e81/docs baseline0d8c8cfe;
+implemented contract reread, prior validation reused. Documentation and Git
+skills applied to synchronized closeout; no new code/runtime/hardware action.
+Follow-up validation: notebook verifier, QA26 equality and git diff --check;
+actual result/commit recorded in the central follow-up receipt.

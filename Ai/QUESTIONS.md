@@ -1,3 +1,13 @@
+## QA-20261108-26 — What can the new original-Chimera support do?
+
+**Date:** November 8, 2026 UTC.
+**Owner question (faithful quote):** "can u tell wat it can do".
+**Answer:** The new native pandad support lets Radxa listen to the pinned original Chimera over USB, receive classic CAN from buses 0/1/2, preserve message IDs/bus/payload, and publish those frames for internal CAN readers/loggers. It also publishes labelled raw health diagnostics and closes/clears the session on malformed input or USB failure. Vehicle speed, steering angle, brake or ignition information is available only if the connected firmware/devices actually produce the right messages and the parser/DBC configuration matches; this host adapter does not create or calibrate those readings. It does not send driving commands, enable normal engagement, flash firmware or add modern MCU safety enforcement.
+**Evidence/source pins:** Implemented source commit 008a7e81a8aad2d3c91f31de5463953f56d587bb; current documentation baseline 0d8c8cfe788e10b41929fc785dc726f66dc49131. Student docs/CHIMERA_OLD_USB.md and Ai/Evidence/chimera-native-passive-20261108.json; prior actual validation is recorded in QA25 and the native-passive session.
+**Status/limits:** Capability explanation only. Implementation passed offline checks; physical USB/CAN/board/vehicle qualification remains pending. No new runtime test, hardware action, application code change, upstream update or push. Existing original-firmware relay behavior is unchanged; passive host reception does not disable autonomous board behavior. Teacher/student Q&A synchronized; existing unanswered items retained separately.
+
+---
+
 ## QA-20261108-25 — Make pandad accept original Chimera
 
 **Date:** November 8, 2026 UTC.

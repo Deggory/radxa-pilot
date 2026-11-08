@@ -1,3 +1,13 @@
+## November8 — Native Chimera capability clarification (QA26)
+
+Explained implemented USB reception, three-bus classic CAN publication and raw
+health diagnostics. Vehicle signal meanings require actual producers and matching
+parsers/DBC; no automatic sensor/calibration or driving-command capability.
+Source checkpoint008a7e81, documentation baseline0d8c8cfe. Prior offline validation
+stands; no new runtime/hardware work. Physical qualification remains pending;
+next step unchanged: separately scoped matching-board receive-only qualification.
+See QA26 and docs/CHIMERA_OLD_USB.md. Rewrite/update holds remain unchanged.
+
 ## November8 — Native original-Chimera passive acceptance (QA25)
 
 Owner authorized host adaptation. pandad now dispatches pinned old Chimera
