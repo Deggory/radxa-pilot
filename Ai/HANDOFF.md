@@ -1,3 +1,10 @@
+## November 8 — Black/red safety requirements clarified (QA-20261108-02)
+
+Both need firmware/model-appropriate safety for active control; classic CAN is
+sufficient. Existing qualified CAN/direct inputs can supply feedback, not
+necessarily new sensors. Receive-only monitoring is separate. No implementation
+or tests/hardware/update/push; next remains proposed native Chimera RX adapter.
+
 ## November 8 — Panda safety inputs explained (QA-20261108-01)
 
 Safety uses live feedback, requested CAN, model/parameter, timing and heartbeat;

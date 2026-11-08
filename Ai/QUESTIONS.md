@@ -1,3 +1,13 @@
+## QA-20261108-02 — Do black/red Panda and our project need these safety inputs?
+
+**Date:** November 8, 2026 UTC.
+**Owner question (labelled paraphrase):** Asks whether the preceding safety-input/check table applies to black or red Panda and whether these are the inputs we need; repeats the full table.
+**Answer:** Yes, the general safety requirements apply to both black/F4 and red/H7 Panda when using compatible vehicle-specific safety firmware. Actual supported models, signals and checks depend on the firmware/model, not board color. For our project, active steering/gas/brake control requires verified feedback/driver override, message integrity/freshness, command limits and timing, heartbeat and MCU enforcement. This is classic-CAN work; CAN FD is not required. These are information/behavior requirements, not necessarily separate new sensors: existing CAN or qualified Chimera inputs can supply relevant facts, but absent signals must not be invented or supplied as healthy zero. Exact torque-versus-angle inputs depend on selected actuator/safety design. Receive-only monitoring needs valid identification/decoding/bus/freshness/error handling, but does not require an active actuator-control profile just to receive/display data. Old Chimera has no modern safety hook enforcement and local RetroPilot has no qualified active production profile; a USB adapter alone does not fill that gap. No active implementation or hardware action authorized/inferred from this explanation.
+**Evidence/source pins:** Sunnypilot a9c6a3a45c4392b1af63483e3997534df36a929b; Panda8a16e089/opendbc150f9371 safety.h TX checks, retropilot.h NULL active-profile initializer, car/retropilot/interface.py noOutput/dashcamOnly, and original chimera_old can_send. Reviewed legacy F4 reference ajouatom/openpilot69a2d3be, student Ai/Reports/carrot-wip-panda-20261106/README.md; prior QA-20261108-01 safety input evidence. All are source/reference evidence, not installed-board tests.
+**Status/limits:** Source explanation/notebook only; no code/build/device/vehicle/test-suite rerun/update/push. Notebook/QA/whitespace checks only. Vehicle feedback availability, actuator calibration and exact installed firmware remain unqualified. Preserve classic-only scope, old firmware and halted new rewrite. Existing unanswered items preserved.
+
+---
+
 ## QA-20261108-01 — What Panda safety rules take as inputs and require
 
 **Date:** November 8, 2026 UTC.

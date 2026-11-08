@@ -217,3 +217,15 @@ measured endpoint limits/feedback calibration, override/timeout contract, MCU
 hook integration and tests. No such implementation was resumed here.
 Source baseline8fde793454f5908e88f6210d9c56b3cd41858212; official concept reference
 https://docs.comma.ai/SAFETY/ opened November8. No physical qualification claimed.
+
+## November 8 — Black/red Panda versus project requirements (QA-20261108-02)
+
+Same general MCU-safety principle on supported black/F4 and red/H7 firmware;
+actual model/check support is firmware-dependent. Classic CAN is sufficient.
+Active control needs verified feedback, driver override, integrity/freshness,
+limits/timing and heartbeat/MCU enforcement. Not every input requires a new
+sensor; use existing qualified CAN/direct-input facts. Torque/angle requirements
+are profile-dependent; never fill missing safety feedback with assumed zeros.
+Receive-only decoding/display is separate and needs no active-control profile.
+Our old-Chimera native RX adapter remains the next proposed host capability;
+old TX enforcement and qualified active profile remain absent. No code changed.
