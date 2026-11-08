@@ -130,3 +130,13 @@ Same labelled 5 V/3.3 V points with short/direct USB is the next comparison;
 no diode bypass, output injection or physical/runtime action performed.
 Fresh primary datasheet checks, saved circuit/measurement review and notebook
 validation only. Actual closeout centrally in VOLTAGE_DROP_FOLLOWUP.json.
+
+## CAN voltage range follow-up — November 8 (QA39)
+
+Owner now reports 1.0..1.15 V per wire. Reopened NXP Table 7: normal idle
+~0.5VCC (nominal 2.5 V), dominant CANH/L typical 3.5/1.5 V. A DC meter averages
+traffic; neither two fixed 3 V wires nor applying 3 V externally is required.
+At actual VCC 4.5 V, half-VCC is 2.25 V, so 1.15 V is not explained merely by
+that arithmetic rail decrease. Supply/standby/ground/loading/waveform diagnosis
+remains unresolved; no new physical test or code change. QA39 and central
+CAN_LEVELS_FOLLOWUP.json pin source/closeout; holds preserved.

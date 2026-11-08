@@ -1,3 +1,10 @@
+## November 8 — CAN levels clarified (QA39)
+
+Owner reports each CAN wire about 1.0..1.15 V to GND. Normal reference idle
+is ~2.5 V at 5 V VCC; dominant CANH/L ~3.5/1.5 V. Both wires are not 3 V.
+Even conditional VCC 4.5 V gives half-VCC ~2.25 V; actual chip supply/STB
+and bus fault remain unknown. See QA39; no hardware action; holds retained.
+
 ## November 8 — Voltage-drop interpretation (QA38)
 
 4.5 V labelled rail warrants checking, but the accepted USB-to-5 V path also

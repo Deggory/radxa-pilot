@@ -1,3 +1,13 @@
+## QA-20261108-39 — Should CAN-H/CAN-L be around 3 V instead of 1 V?
+
+**Date:** November 8, 2026 UTC.
+**Owner question (faithful quote):** "CAN-H/L:i am  getting 1.15 volt or 1 volt only ,shouldnt we need 3 volt range".
+**Answer:** For this reference high-speed CAN transceiver in normal mode at nominal 5 V, both wires idle around 2.5 V relative to the common signal ground; during dominant bits CAN-H is typically 3.5 V and CAN-L 1.5 V. Both wires are not supposed to remain at 3 V. A DC multimeter averages traffic and cannot show the waveform. Owner now reports about 1.0..1.15 V on each wire, retaining the earlier each-wire-to-GND reference: this is below the usual normal-mode idle level, so the physical bus remains suspect but no specific failed part is proven. If actual chip VCC were 4.5 V, half-VCC idle bias would be about 2.25 V; a 4.5 V supply alone does not arithmetically explain both at 1.15 V, although undervoltage/standby behavior could change bias. Actual chip VCC/STB, ground/loading and waveform remain unknown. Do not inject 3 V into CAN wires; the transceivers generate signaling. First complete short/direct USB labelled rail comparison and then qualify chip supply/standby/wiring/waveform.
+**Evidence/source pins:** Baseline 4659be1fc902c10e256ec88d6c78b3054684abed; NXP TJA1042 Rev11 https://www.nxp.com/docs/en/data-sheet/TJA1042.pdf reopened November 8, Table 7 page 10: dominant CANH typical 3.5 V, CANL 1.5 V, normal recessive typical 0.5VCC (2..3 V range under stated conditions), standby no-load near ground. Prior accepted circuit and owner readings in voltage report/QA34,38. 2.25 V is conditional arithmetic, not an actual chip measurement.
+**Status/limits:** Source/datasheet explanation and new owner voltage range recorded; no independently verified meter/USB/CAN/power/IGN/config/relay/flash test, product/firmware/DBC/model/update/push action. CAN root cause unresolved; previous holds and unanswered entries preserved. Central voltage report CAN_LEVELS_FOLLOWUP.json retains actual closeout.
+
+---
+
 ## QA-20261108-38 — What about the voltage drop?
 
 **Date:** November 8, 2026 UTC.
