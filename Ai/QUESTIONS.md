@@ -1,3 +1,36 @@
+## QA-20261108-67 — Audit our work; update official master and our Radxa copy
+
+Date: 2026-11-08. Owner request (faithful quote): “audit wat we hvae done ,update
+the master with real sunny ,update teh rdxa our sunny ,”. Initial clarification
+asked which target was meant; recovered explicit November5QA-20261105-01:
+GitHub master mirrors official Sunnypilot, radxa/q8b contains our Radxa work.
+The present request is applied to those separate branches; no silent upstream
+merge into the protected port or automatic update restart is inferred.
+
+Audit answer at preparation: local project clean at4ab2ab81;68commits beyond
+GitHub dfd316d65,276changed paths inventoried. Fresh45host Python/36firmware
+unittest cases,11native programs, sanitizers and2copied-source negative checks
+pass. Retained hardware evidence still0CAN frames after matching-image reflash
+and a temporary500krequest; no fresh device action during this audit. Corrected
+stale READMEs to reflect native original-Chimera support and halted rewrite.
+Legacy can_init false-return and generic filter handling remain code findings,
+not a proven receive fix. Manifest76files/native/sharedDBC/submodule pins and
+existing dirty work preserved. Historical copied whitespace is recorded, not
+normalized away. Teacher/student current handoffs synchronized.
+
+Official master observed3d8f211d4b2d7c4a981633783232c8ff8dbe402b is3commits ahead
+of GitHub932ff06d (model conversion/CI and opendbc pin). These are mirrored as
+official source only; not applied/tested as Radxa Thneed/RetroPilot adaptation.
+Current fetch affects origin/master metadata only, no checkout/submodule update;
+separate daily reference and update hold retained. Existing opendbc/retropilot
+remote already150f9371. Implementation: audited status/documentation prepared.
+Publication/readback remains pending here; actual receipt to be appended after
+normal pushes. No flash/reset/CAN/relay/control/camera/model/vehicle run.
+Evidence: Ai/Reports/sunnypilot-audit-publish-20261108/README.md/TEST_SUMMARY.json
+in student; coordinating BASELINE/TEST_RESULTS/logs/REVIEW and later publication.
+Next complete branch publication/readbacks and record actual result; physical
+CAN and protected upstream integration remain unresolved/held respectively.
+
 ## QA-20261108-66 — Test Chimera after owner reflash
 
 Date: 2026-11-08. Owner: “i reflasehed chimera see if this works njpw”.

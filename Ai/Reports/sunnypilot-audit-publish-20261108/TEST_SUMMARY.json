@@ -1,0 +1,296 @@
+{
+  "source_head": "4ab2ab81fe7af8eb8731c7d16c9e9f343027c903",
+  "suites": {
+    "native": {
+      "result": "pass",
+      "checks": [
+        {
+          "command": [
+            ".venv/bin/scons",
+            "-j2",
+            "openpilot/selfdrive/pandad/pandad",
+            "openpilot/selfdrive/pandad/tests/test_pandad_canprotocol",
+            "openpilot/selfdrive/pandad/tests/test_panda_comms",
+            "openpilot/selfdrive/pandad/tests/test_panda_identification",
+            "openpilot/selfdrive/pandad/tests/test_panda_health",
+            "openpilot/selfdrive/pandad/tests/test_panda_can_health",
+            "openpilot/selfdrive/pandad/tests/test_panda_usb",
+            "openpilot/selfdrive/pandad/tests/test_panda_usb_link",
+            "openpilot/selfdrive/pandad/tests/test_panda_usb_can",
+            "openpilot/selfdrive/pandad/tests/test_chimera_usb",
+            "openpilot/selfdrive/pandad/tests/test_panda_usb_publish",
+            "openpilot/selfdrive/pandad/tests/test_panda_state_legacy"
+          ],
+          "exit": 0
+        },
+        {
+          "command": [
+            "openpilot/selfdrive/pandad/tests/test_pandad_canprotocol"
+          ],
+          "exit": 0
+        },
+        {
+          "command": [
+            "openpilot/selfdrive/pandad/tests/test_panda_comms"
+          ],
+          "exit": 0
+        },
+        {
+          "command": [
+            "openpilot/selfdrive/pandad/tests/test_panda_identification"
+          ],
+          "exit": 0
+        },
+        {
+          "command": [
+            "openpilot/selfdrive/pandad/tests/test_panda_health"
+          ],
+          "exit": 0
+        },
+        {
+          "command": [
+            "openpilot/selfdrive/pandad/tests/test_panda_can_health"
+          ],
+          "exit": 0
+        },
+        {
+          "command": [
+            "openpilot/selfdrive/pandad/tests/test_panda_usb"
+          ],
+          "exit": 0
+        },
+        {
+          "command": [
+            "openpilot/selfdrive/pandad/tests/test_panda_usb_link"
+          ],
+          "exit": 0
+        },
+        {
+          "command": [
+            "openpilot/selfdrive/pandad/tests/test_panda_usb_can"
+          ],
+          "exit": 0
+        },
+        {
+          "command": [
+            "openpilot/selfdrive/pandad/tests/test_chimera_usb"
+          ],
+          "exit": 0
+        },
+        {
+          "command": [
+            "openpilot/selfdrive/pandad/tests/test_panda_usb_publish"
+          ],
+          "exit": 0
+        },
+        {
+          "command": [
+            "openpilot/selfdrive/pandad/tests/test_panda_state_legacy"
+          ],
+          "exit": 0
+        },
+        {
+          "command": [
+            "openpilot/selfdrive/pandad/pandad"
+          ],
+          "exit": 2
+        },
+        {
+          "command": [
+            "openpilot/selfdrive/pandad/pandad",
+            "--usb-status",
+            "",
+            ""
+          ],
+          "exit": 2
+        }
+      ],
+      "programs": 11
+    },
+    "python": {
+      "result": "pass",
+      "checks": [
+        {
+          "command": [
+            ".venv/bin/python",
+            "-m",
+            "unittest",
+            "openpilot.selfdrive.pandad.tests.test_usb_startup",
+            "openpilot.selfdrive.pandad.tests.test_chimera",
+            "openpilot.selfdrive.pandad.tests.test_chimera_protocol",
+            "openpilot.selfdrive.pandad.tests.test_chimera_native",
+            "openpilot.selfdrive.pandad.tests.test_legacy_state_sources",
+            "openpilot.selfdrive.pandad.tests.test_panda_state_availability",
+            "openpilot.selfdrive.pandad.tests.test_panda_consumers",
+            "openpilot.selfdrive.modeld.thneed_q8b.test_telemetry",
+            "-v"
+          ],
+          "exit": 0
+        },
+        {
+          "command": [
+            ".venv/bin/ruff",
+            "check",
+            "openpilot/selfdrive/pandad/tests/test_chimera_native.py",
+            "Ai/Reports/chimera-native-passive-20261108/verify.py"
+          ],
+          "exit": 0
+        }
+      ],
+      "tests": 45
+    },
+    "sanitizers": {
+      "result": "pass",
+      "checks": [
+        {
+          "command": [
+            "c++",
+            "-std=c++17",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-fsanitize=address,undefined",
+            "-fno-omit-frame-pointer",
+            "-g",
+            "-Iopenpilot",
+            "-I.",
+            "-Iopendbc_repo",
+            "-Imsgq_repo",
+            "-Iopenpilot/cereal/gen/cpp",
+            "openpilot/selfdrive/pandad/chimera_usb.cc",
+            "openpilot/selfdrive/pandad/tests/test_chimera_usb.cc",
+            "-o",
+            "/tmp/chimera-native-verify-1scdnai6/codec"
+          ],
+          "exit": 0
+        },
+        {
+          "command": [
+            "/tmp/chimera-native-verify-1scdnai6/codec"
+          ],
+          "exit": 0
+        },
+        {
+          "command": [
+            "c++",
+            "-std=c++17",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-fsanitize=address,undefined",
+            "-fno-omit-frame-pointer",
+            "-g",
+            "-Iopenpilot",
+            "-I.",
+            "-Iopendbc_repo",
+            "-Imsgq_repo",
+            "-Iopenpilot/cereal/gen/cpp",
+            "-I/home/radxa/comma/sunnypilot/.venv/lib/python3.12/site-packages/capnproto/install/include",
+            "-I/home/radxa/comma/sunnypilot/.venv/lib/python3.12/site-packages/json11/install/include",
+            "-I/home/radxa/comma/sunnypilot/.venv/lib/python3.12/site-packages/zeromq/install/include",
+            "-I/home/radxa/comma/sunnypilot/.venv/lib/python3.12/site-packages/libusb/install/include",
+            "-DPANDA_HEALTH_VERSION_HASH=0xca8f9eafU",
+            "-DPANDA_CAN_VERSION_HASH=0x75abf276U",
+            "openpilot/selfdrive/pandad/panda_usb.cc",
+            "openpilot/selfdrive/pandad/panda_identification.cc",
+            "openpilot/selfdrive/pandad/panda_health.cc",
+            "openpilot/selfdrive/pandad/panda_usb_can.cc",
+            "openpilot/selfdrive/pandad/chimera_usb.cc",
+            "openpilot/selfdrive/pandad/panda_usb_status.cc",
+            "openpilot/selfdrive/pandad/tests/test_panda_usb.cc",
+            "openpilot/selfdrive/pandad/libpanda.a",
+            "openpilot/common/libcommon.a",
+            "openpilot/cereal/libcereal.a",
+            "-L/home/radxa/comma/sunnypilot/.venv/lib/python3.12/site-packages/capnproto/install/lib",
+            "-Wl,-rpath,/home/radxa/comma/sunnypilot/.venv/lib/python3.12/site-packages/capnproto/install/lib",
+            "-L/home/radxa/comma/sunnypilot/.venv/lib/python3.12/site-packages/json11/install/lib",
+            "-Wl,-rpath,/home/radxa/comma/sunnypilot/.venv/lib/python3.12/site-packages/json11/install/lib",
+            "-L/home/radxa/comma/sunnypilot/.venv/lib/python3.12/site-packages/zeromq/install/lib",
+            "-Wl,-rpath,/home/radxa/comma/sunnypilot/.venv/lib/python3.12/site-packages/zeromq/install/lib",
+            "-L/home/radxa/comma/sunnypilot/.venv/lib/python3.12/site-packages/libusb/install/lib",
+            "-Wl,-rpath,/home/radxa/comma/sunnypilot/.venv/lib/python3.12/site-packages/libusb/install/lib",
+            "-ljson11",
+            "-lzmq",
+            "-lcapnp",
+            "-lkj",
+            "-pthread",
+            "-o",
+            "/tmp/chimera-native-verify-1scdnai6/session"
+          ],
+          "exit": 0
+        },
+        {
+          "command": [
+            "/tmp/chimera-native-verify-1scdnai6/session"
+          ],
+          "exit": 0
+        },
+        {
+          "command": [
+            "c++",
+            "-std=c++17",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-fsanitize=address,undefined",
+            "-fno-omit-frame-pointer",
+            "-g",
+            "-Iopenpilot",
+            "-I.",
+            "-Iopendbc_repo",
+            "-Imsgq_repo",
+            "-Iopenpilot/cereal/gen/cpp",
+            "/tmp/chimera-native-verify-1scdnai6/bus.cc",
+            "openpilot/selfdrive/pandad/tests/test_chimera_usb.cc",
+            "-o",
+            "/tmp/chimera-native-verify-1scdnai6/bus"
+          ],
+          "exit": 0
+        },
+        {
+          "command": [
+            "/tmp/chimera-native-verify-1scdnai6/bus"
+          ],
+          "exit": 1
+        },
+        {
+          "command": [
+            "c++",
+            "-std=c++17",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-fsanitize=address,undefined",
+            "-fno-omit-frame-pointer",
+            "-g",
+            "-Iopenpilot",
+            "-I.",
+            "-Iopendbc_repo",
+            "-Imsgq_repo",
+            "-Iopenpilot/cereal/gen/cpp",
+            "/tmp/chimera-native-verify-1scdnai6/receipts.cc",
+            "openpilot/selfdrive/pandad/tests/test_chimera_usb.cc",
+            "-o",
+            "/tmp/chimera-native-verify-1scdnai6/receipts"
+          ],
+          "exit": 0
+        },
+        {
+          "command": [
+            "/tmp/chimera-native-verify-1scdnai6/receipts"
+          ],
+          "exit": 1
+        }
+      ],
+      "copied_source_negative_controls": 2
+    },
+    "firmware": {
+      "command": "CHIMERA_TOOLCHAIN_PREFIX=/home/radxa/.local/ocelot-build-tools/usr/bin/arm-none-eabi- .venv/bin/python -m unittest discover -s chimera/firmware/tests -v",
+      "exit": 0,
+      "tests": 36,
+      "log_sha256": "ec8c67d03c5025559ab208242b775a1fddbdb03df19f92da3c931d4bcf5857cf"
+    }
+  },
+  "source_hash_count": 103,
+  "physical_CAN_status": "latest measured raw/native zero, not rerun in this audit"
+}

@@ -2,41 +2,39 @@
 
 ## Radxa Pilot — Dragon Q8B
 
-This branch contains the Radxa Sunnypilot port. Original Sunnypilot source is
-preserved on `master`; project development is on `radxa/q8b`.
+Our Radxa project is on `radxa/q8b`. The separate `master` branch mirrors
+unmodified official Sunnypilot; updating it does not merge upstream into this port.
 
-**November7 owner direction:** modern Chimera implementation is halted.
-The separate [chimera_old/](chimera_old/README.md) now preserves the original
-legacy/C2-era source and historical image. This step copies files only.
+**Audited November 8, 2026:** original Chimera USB support is implemented in
+native `pandad`. Its mailbox16 CAN decoder, health43 diagnostics and pinned
+USB selection pass offline tests. The actual Chimera enumerates correctly,
+but raw USB and native captures still receive **zero CAN frames**, including
+after the owner reflash and a temporary CAN2 500 kbit/s request.
 
-**Chimera checkpoint — November 7, 2026:** the implementation lives in
-[`chimera/`](chimera/README.md), with USB-only Radxa host support in
-`openpilot/selfdrive/pandad/`. Legacy identification, passive CAN/diagnostics,
-exact status decoding and availability consumer checks are tested offline.
-The new F413 main/service/driver path implements explicit USB attachment,
-OTG events, suspend/resume, reset cancellation and fresh reconnect offline.
-All36firmware tests pass, including92new composed scenarios/40reconnect cycles.
-Overall rough planning estimate: **30% complete /70% remaining**; new-firmware
-hardware validation: **0%**. Default board startup stays held; no image was flashed.
-
-**Next:** opt-in board USB startup binding, then bulk/CAN RX and operational
-status. Physical power/current/recovery and bench qualification remain pending.
-Host passive normal-status publication/reconnect stays queued.
-See [the lifecycle contract](chimera/docs/USB_LIFECYCLE.md) and [handoff](Ai/HANDOFF.md).
-
-| Area | Earlier bench snapshot — November 4, 2026 |
+| Area | Current evidence |
 | --- | --- |
-| Camera / Thneed | Existing Radxa camera/model bench work retained; BeamNG optical alignment remains to be qualified. |
-| BeamNG telemetry | Read-only PC Lua/Waveshare gateway, RP-SIM-1 DBC and Radxa decoder implemented. Real game capture:492/492valid passive car-state samples. |
-| Shared CAN definitions |28messages:20original+8simulator additions; canonical/Sunnypilot/PC copies match. |
-| Chimera hardware link | Last genuine117sample serial attempt received0CAN frames. Physical reception remains unresolved. |
-| Control | Receive-only/noOutput. Vehicle tuning, simulator IMU integration, managed bridge and command return are pending. |
+| Original Chimera host support | Implemented for passive observation; [USB contract](docs/CHIMERA_OLD_USB.md). |
+| CAN hardware reception | Unresolved. Latest native capture: 15 seconds, 1,420 batches, zero frames on all three buses. |
+| New Chimera firmware | Owner halted implementation. Existing bootstrap/lifecycle work is offline and unflashed; default startup remains held. |
+| Camera / Thneed | Existing Radxa work retained. This audit changes no camera, model or Thneed source. |
+| BeamNG | Genuine game telemetry/replay was demonstrated earlier; physical Waveshare → Chimera delivery remains unresolved. |
+| Control | Passive observation; no managed driving admission or command-return integration demonstrated. |
 
-The November 4 shutdown audit recorded **165tests passed**.
-See that [earlier audit](Ai/Reports/beamng-shutdown-audit-20261104/README.md),
-[BeamNG files](openpilot/tools/sim/beamng/README.md), [setup](install.md),
-[GitHub clone guide](docs/GITHUB_RADXA.md) and [current handoff](Ai/HANDOFF.md).
+Fresh audit checks: **45 host Python tests, 36 offline firmware tests and 11
+native test programs passed**, plus sanitizer and copied-source negative checks.
+These checks do not establish a working physical CAN link.
 
+The original source and matching historical signed image are preserved in
+[chimera_old](chimera_old/README.md). The readable source differs from that
+image: the matching nightly uses nonzero saved CAN rates over 250 kbit/s
+defaults. Saved CAN2 zero therefore predicts 250 kbit/s after a restart;
+the temporary 500 kbit/s request does not persist. Current BTR is not read back.
+
+Next: code-side CAN3 initialization, receive-filter and error-observability
+review. No new firmware implementation, flash or hardware measurement is
+scheduled by this audit. See the [audit](Ai/Reports/sunnypilot-audit-publish-20261108/README.md),
+[handoff](Ai/HANDOFF.md), [BeamNG files](openpilot/tools/sim/beamng/README.md),
+[setup](install.md) and [GitHub guide](docs/GITHUB_RADXA.md).
 
 ## 🌞 What is sunnypilot?
 [sunnypilot](https://github.com/sunnyhaibin/sunnypilot) is a fork of comma.ai's openpilot, an open source driver assistance system. sunnypilot offers the user a unique driving experience for over 300+ supported car makes and models with modified behaviors of driving assist engagements. sunnypilot complies with comma.ai's safety rules as accurately as possible.

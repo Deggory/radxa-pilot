@@ -1,3 +1,11 @@
+**Current status — November 8, 2026:** the owner halted this firmware rewrite.
+The November 7 checkpoints below describe offline work, not the active next task.
+Original Chimera support now runs in native `pandad`; the actual board answers
+USB but still delivers zero CAN frames in the latest controlled tests.
+Continue with [the current audit](../Ai/Reports/sunnypilot-audit-publish-20261108/README.md)
+and [original-Chimera contract](../docs/CHIMERA_OLD_USB.md). No board firmware
+from this rewrite has been flashed or physically validated.
+
 **November7, T03c4:** explicit USB attachment, OTG acknowledgment, suspend/resume,
 reset cancellation, session-end release and fresh reconnect are implemented offline.
 36firmware tests pass, including92new composed scenarios and40reconnect cycles.

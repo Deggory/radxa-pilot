@@ -1,5 +1,13 @@
 # Original Chimera: native passive USB support
 
+**November 8 physical follow-up:** USB identity and the full signed-application
+fingerprint match the preserved nightly, but raw endpoint0x81 and native `can`
+captures still contain zero frames, including after the owner reflash and a
+temporary CAN2 500 kbit/s request. The sensor-powered CAN2 setup was owner-confirmed.
+See [the current audit](../Ai/Reports/sunnypilot-audit-publish-20261108/README.md).
+Source support is implemented; physical reception remains unresolved. The earlier
+implementation-only validation below is historical.
+
 Implemented November 8, 2026 in existing pandad. The retained chimera_old
 firmware and halted chimera rewrite are unchanged. This capability receives
 classic CAN and publishes labelled raw diagnostics; normal managed Panda status,
