@@ -1,3 +1,13 @@
+## QA-20261108-38 — What about the voltage drop?
+
+**Date:** November 8, 2026 UTC.
+**Owner question (faithful quote):** "wat about the drop in voltage".
+**Answer:** Treat the measured labelled 5 V rail at 4.5 V separately from CANH/CANL each at about 1.15 V and connector IGN at zero. The accepted base circuit places a BAS40 diode between USB VBUS and the shared internal 5 V rail; diode forward drop, cable/contact resistance, USB hub/port supply and load can contribute. A diode drop is expected but its actual share is unmeasured, so do not call the full nominal 0.5 V difference a cable fault or acceptable operation. USB input itself was not measured at 5.0 V. The reference TJA1042 VCC specification starts at 4.5 V; a 4.5 V labelled output leaves little margin for lower chip voltage or dips, without proving undervoltage at the chip. The reported 3.35 V is consistent with the nominal 3.3 V rail and does not certify CAN VCC. Both CAN wires at 1.15 V are lower than usual normal-mode idle bias; a DC meter alone cannot isolate supply, standby, loading/ground or traffic. IGN zero with no external ignition supply is a separate absent 12 V peripheral feed. Next compare the same labelled 5 V/3.3 V points and ground with a short known-good USB cable directly to Radxa, bypassing the known hub. If 4.5 V remains, internal diode/loaded supply and CAN chip rail/standby checks remain for qualified electrical diagnosis; do not bridge the diode or inject output rails.
+**Evidence/source pins:** Baseline 239ecea4227d84b1e3c3bcf841e9012478b0e62d; owner measurements retained in QA34/SOURCES.json; chimera/docs/OCELOT_BASE_POWER.md and accepted circuit extraction. NXP TJA1042 Rev11 https://www.nxp.com/docs/en/data-sheet/TJA1042.pdf reopened November 8, VCC 4.5..5.5 V; Nexperia https://assets.nexperia.com/documents/data-sheet/BAS40.pdf primary datasheet/search evidence confirms forward voltage depends on operating conditions. No actual input/current/diode drop/ripple/chip voltage measured. Central VOLTAGE_DROP_FOLLOWUP.json records actual closeout.
+**Status/limits:** Explanation and proposed controlled cable/port comparison only; no fresh hardware/runtime test, power change, IGN feed, firmware/product/DBC/model/update/push action. CAN root cause remains unresolved; existing holds and unanswered entries retained.
+
+---
+
 ## QA-20261108-37 — IGN beside CANH/CANL/GND measures zero
 
 **Date:** November 8, 2026 UTC.

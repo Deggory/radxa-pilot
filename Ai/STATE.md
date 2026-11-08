@@ -1,3 +1,12 @@
+## November 8 — Voltage-drop interpretation (QA38)
+
+4.5 V labelled rail warrants checking, but the accepted USB-to-5 V path also
+contains BAS40 forward drop; cable/hub loss is not proven. USB input and actual
+CAN chip supply/dips are unmeasured. 3.35 V logic rail does not qualify CAN VCC;
+CAN 1.15 V common-mode and IGN zero remain distinct observations. See QA38.
+Next compare same labelled rails via short/direct USB; no physical action here.
+CAN failure and existing holds remain; source/datasheet explanation only.
+
 ## November 8 — CAN connector IGN power is zero (QA37)
 
 Latest owner description is IGN beside CANH/CANL/GND. Saved board photo viewed;

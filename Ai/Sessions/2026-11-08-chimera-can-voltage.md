@@ -68,3 +68,17 @@ Direct wiki hosted image could not be retrieved (HTTP403/tool error); the local
 board photo was viewed instead. Source-first photo/wiki/documentation checks;
 no unrelated binary/REA or new graph/runtime test. Source/photo pins and actual
 validation receipt: central CONNECTOR_IGN_FOLLOWUP.json. Existing holds remain.
+
+## Voltage-drop follow-up — November 8 (QA38)
+
+Do not interpret 4.5 V as proof that the USB cable alone lost 0.5 V: actual
+USB input is unmeasured and the accepted circuit includes a BAS40 series diode.
+Forward drop varies with current/temperature (Nexperia BAS40 primary datasheet).
+Cable, hub/port supply, contacts and load remain other possible contributors.
+The NXP TJA1042 reference range starts at 4.5 V, leaving little margin for chip
+voltage below the labelled rail or transient dips; no chip undervoltage is proven.
+3.35 V on the logic rail and zero on connector IGN do not qualify CAN power.
+Same labelled 5 V/3.3 V points with short/direct USB is the next comparison;
+no diode bypass, output injection or physical/runtime action performed.
+Fresh primary datasheet checks, saved circuit/measurement review and notebook
+validation only. Actual closeout centrally in VOLTAGE_DROP_FOLLOWUP.json.
