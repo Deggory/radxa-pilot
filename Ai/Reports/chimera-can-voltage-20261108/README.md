@@ -140,3 +140,21 @@ At actual VCC 4.5 V, half-VCC is 2.25 V, so 1.15 V is not explained merely by
 that arithmetic rail decrease. Supply/standby/ground/loading/waveform diagnosis
 remains unresolved; no new physical test or code change. QA39 and central
 CAN_LEVELS_FOLLOWUP.json pin source/closeout; holds preserved.
+
+## Standby code follow-up — November 8 (QA40)
+
+Selected gateway startup drives transceiver enable pins PC1/PC13/PA0 low
+through gateway_enable_can_transceivers(true). set_gpio_output also selects
+GPIO output mode. Printed CAN2 maps to MCU CAN3 and PA0. A false group call
+would hold transceivers 2/3 in standby, leaving 1 enabled by design, but no
+such path is used by the Chimera app. power_saving.h contains the generic
+routine but is not included/called. Heartbeat's power-save comment is stale:
+its executable branch clears relay_req_usb only. health power-save field is
+hardcoded zero and cannot qualify physical STB. CAN controller silent support
+is separate: startup passes false, whereas DE/E5 reinit helpers consume the
+all-silent mask. No command/reconfiguration performed; no state inferred.
+NXP STB low selects normal, high selects standby; floating STB has pull-up,
+and VCC undervoltage can force standby despite low STB. Source proves intent,
+not installed GPIO/STB/VCC state or exact de193215 image equality. Read-only
+source/datasheet debugging, no binary/REA task or fresh runtime measurement.
+STANDBY_CODE_FOLLOWUP.json retains hashes; central copy holds actual closeout.

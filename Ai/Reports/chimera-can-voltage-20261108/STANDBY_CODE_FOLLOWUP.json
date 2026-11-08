@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-08",
+  "question": "QA-20261108-40",
+  "baseline": "704debcdba9f8c02e971287a2aa3070191869df1",
+  "source_hashes": {
+    "/home/radxa/comma/sunnypilot/chimera_old/firmware/boards/gateway.h": "26425d76947291d4711f36330b7e700e91d803622b42fe6e79c88f687f29451f",
+    "/home/radxa/comma/sunnypilot/chimera_old/firmware/drivers/llgpio.h": "57ab103f7a35112d0663253b3c29488340f5f5fa6ecdd88cf079d75397e5b42f",
+    "/home/radxa/comma/sunnypilot/chimera_old/firmware/power_saving.h": "16eff6d065b791f256f6d03df5796f826939bfaac31197d943fd2e0d4c38ae61",
+    "/home/radxa/comma/sunnypilot/chimera_old/firmware/chimera/main.c": "5d1dd3b0400ec80da9b477abfced51c9346674865ce5ad86d7e5a012c2d94883",
+    "/home/radxa/comma/sunnypilot/chimera_old/firmware/chimera/can.h": "7aca434faa4a1c37d59f5b43f495ed0d213f0e22fc46e4db28c433472b757310",
+    "/home/radxa/comma/sunnypilot/chimera_old/firmware/drivers/llcan.h": "2794b5478c7fbbb8ece22eedda0a3f925262c7d7f6d9e9e221c8448d63a13d40",
+    "/home/radxa/comma/sunnypilot/chimera_old/firmware/SConscript": "7f60ca0b975592c2bf633e3eb06aa1934288cd547f4a771cb58567579da88bd9",
+    "/home/radxa/comma/sunnypilot/chimera/hardware/ocelot-base-power-20261107.json": "373f3e4571390d7b2687cb7e4c2c4e1913b3c6eae2a7a2bf9ebd06e61f88c6d4"
+  },
+  "datasheet": "https://www.nxp.com/docs/en/data-sheet/TJA1042.pdf",
+  "printed_bus_to_enable_pin": {
+    "CAN0": "PC1",
+    "CAN1": "PC13",
+    "CAN2": "PA0"
+  },
+  "startup": "all enabled low; no active app standby disable call found",
+  "shared_power_save": "present but not included/called by Chimera application",
+  "health_power_save": "hardcoded zero; not a measurement",
+  "controller_silent": "separate; direct startup false, DE/E5 reinit uses global all-silent mask",
+  "hardware_actions": "none",
+  "unresolved": [
+    "installed-source equivalence",
+    "actual GPIO/STB/VCC/VIO state",
+    "undervoltage or other cause of low bus voltages/zero frames"
+  ]
+}

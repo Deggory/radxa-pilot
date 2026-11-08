@@ -1,3 +1,13 @@
+## November 8 — CAN standby code traced (QA40)
+
+PC1/PC13/PA0 control printed CAN0/1/2 transceivers, active low. Gateway startup
+drives all low/enabled; no Chimera ignition/heartbeat disable path found.
+Shared power_saving.h exists but is not used by this application. Health power
+save is hardcoded zero, not a hardware readback. Controller silent mode is
+separate; direct startup passes false. Chip undervoltage can force standby.
+See QA40/report; no hardware action, physical state and CAN failure unresolved.
+Existing direct USB comparison/electrical diagnosis and holds remain.
+
 ## November 8 — CAN levels clarified (QA39)
 
 Owner reports each CAN wire about 1.0..1.15 V to GND. Normal reference idle
