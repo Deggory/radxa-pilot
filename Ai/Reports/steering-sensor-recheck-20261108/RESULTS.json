@@ -1,0 +1,111 @@
+{
+  "date": "2026-11-08",
+  "question": "QA-20261108-52",
+  "baseline": {
+    "date": "2026-11-08",
+    "baseline_head": "e886a564588ed4a425f9bf7e6936f51cd79e4500",
+    "project_status": "",
+    "hashes": {
+      "openpilot/selfdrive/pandad/pandad": "e9e692b6bfaf67d4c9061f4645a89d8337fc938bd857cf03e03f6a3454f81a84",
+      "chimera_old/SOURCES.json": "7a7400411ad8cad0c8b3441fa3ee8081e4a477d9627b90e59a588e51fa615fd3",
+      "opendbc_repo/opendbc/dbc/ocelot_controls.dbc": "b4079670b8118fe63c6a7710ca1158afaabfec7df881ef902e43d70d70a36b67"
+    },
+    "usb_scan": "Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub\nBus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub\nBus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub\nBus 003 Device 002: ID 2bcf:1258 SunplusIT Inc AK-Camera\nBus 003 Device 003: ID 1a86:8091 QinHeng Electronics USB HUB\nBus 003 Device 004: ID 2109:2812 VIA Labs, Inc. VL812 Hub\nBus 003 Device 005: ID 3554:fc03  2.4G Receiver\nBus 003 Device 007: ID 13d3:3570 IMC Networks Bluetooth Radio\nBus 003 Device 008: ID 1a2c:6004 China Resource Semico Co., Ltd USB Keyboard\nBus 003 Device 018: ID bbaa:ddcc RetroPilot Interceptor DAC Bench\nBus 003 Device 021: ID bbaa:ddcc RetroPilot Chimera\nBus 004 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub\n",
+    "socketcan_scan": "",
+    "owner_report": "Same previously Waveshare-working steering-angle sensor now connected to CAN of Radxa; exact physical path clarification pending",
+    "scope": "Bounded passive read of currently enumerated original Chimera all buses; no configuration/ACK-mode/output/flash action"
+  },
+  "owner_confirmed": {
+    "connection": "Chimera CAN2, with Chimera USB connected to Radxa",
+    "sensor_power_and_ground": "Separate supply, with supply negative joined to Chimera GND",
+    "port_comparison": "Owner chose Keep the sensor on CAN2; no CAN0 test or cable move performed"
+  },
+  "initial_attempt": {
+    "duration": 0.11196084100083681,
+    "native_exit": 2,
+    "error": "Cannot exclusively claim selected USB interface0",
+    "usb_owner": "Core Config web_app.py PID23504 confirmed owning /dev/bus/usb/003/021",
+    "interpretation": "Startup blocked, not a valid zero-CAN observation"
+  },
+  "after_owner_disconnected_core_config": {
+    "owner_confirmed_connection": "Chimera CAN2, with Chimera USB connected to Radxa",
+    "disconnect_reply": "yes",
+    "usb_owners_after_reply": []
+  },
+  "native": {
+    "duration": 20.114252891999058,
+    "native_exit": 0,
+    "can_batches": 1892,
+    "can_frames": 0,
+    "per_bus_frames": {
+      "0": 0,
+      "1": 0,
+      "2": 0
+    },
+    "bus_ids": {},
+    "valid_samples": 0,
+    "actuator_commands": 0,
+    "native_profile": "chimeraOldMailbox16",
+    "error": null,
+    "native_process_stopped": true,
+    "health_samples": 20,
+    "valid_samples_note": "SimulationReceiver counts coherent RP-SIM-1 samples, not OEM sensor angle decoding; raw CAN counts are the relevant observation."
+  },
+  "python_crosscheck": {
+    "records": 800,
+    "can_polls": 784,
+    "can_frames": 0,
+    "health_samples": 15,
+    "connected": {
+      "event": "connected",
+      "version": "v1.0.0-DEV-de193215-DEBUG",
+      "serial": "3a0044001651333038373636",
+      "health_raw": {
+        "uptime": 19770,
+        "voltage": 0,
+        "current": 0,
+        "can_rx_errs": 0,
+        "can_send_errs": 0,
+        "can_fwd_errs": 0,
+        "gmlan_send_errs": 0,
+        "faults": 0,
+        "ignition_line": 0,
+        "ignition_can": 0,
+        "controls_allowed": 0,
+        "gas_interceptor_detected": 0,
+        "car_harness_status": 0,
+        "usb_power_mode": 0,
+        "safety_model_raw": 17,
+        "safety_param_raw": 0,
+        "fault_status": 0,
+        "power_save_enabled": 0
+      },
+      "live_output": false
+    },
+    "stderr": ""
+  },
+  "expected_sensor": {
+    "id": "0x25",
+    "dlc": 8,
+    "bitrate": 500000,
+    "earlier_reference": "steering/angle_sensor/captures/2026-11-08-after-reset",
+    "earlier_checksums": "4159/4159 valid, motion-responsive payloads",
+    "current_sensor_can_frames": 0,
+    "current_angle_decode": "unavailable; no raw frames received"
+  },
+  "cleanup": {
+    "readers_running": [],
+    "usb_owners": [],
+    "legacy_files_verified": 76,
+    "host_config_out_or_heartbeat_sent": false,
+    "no_can0_move": true
+  },
+  "status": "Receive tests completed; sensor-to-Chimera-to-Radxa CAN acceptance remains blocked",
+  "limits": [
+    "Previously working sensor does not prove the new physical receive path or present voltage/waveform.",
+    "Sensor supply/common ground are owner-confirmed, not measured in this session.",
+    "Chimera CAN2 active bitrate/enable/VCC/STB, actual termination and differential waveform remain unmeasured.",
+    "Stored CAN2speed0 remains a clue; preserved source ignores saved rates, installed-image equivalence unproven.",
+    "No product/firmware/DBC/model update, CAN transmission, USB OUT/config/reset/flash or vehicle action."
+  ]
+}

@@ -1,3 +1,14 @@
+## November 8 — Known-working sensor on Chimera CAN2 still gives no frames (QA52)
+
+Owner confirms separate supply/common ground and keeps printedCAN2. Resolved
+Core Config exclusive USB claim first; that exit2was not a valid CAN capture.
+Then native20.114s/1892batches/20health and independent8s/784polls/15health
+both0raw frames on all buses. Readers stopped; Core Config open/disconnected.
+See steering-sensor-recheck-20261108 report/session and QA52.76legacy/native/
+DBC hashes preserved; no OUT/config/flash/source change or CAN0move. Next
+qualified CAN2electrical/enable/timing checks; sensor calibration/receive still
+unqualified, earlier Waveshare success distinct. Existing holds retained.
+
 ## November 8 — Live Core Config read found saved CAN2 zero (QA50)
 
 New read-only original Chimera snapshot:776bytes, twice identical, valid magic/

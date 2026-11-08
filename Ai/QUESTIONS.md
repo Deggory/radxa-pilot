@@ -1,3 +1,14 @@
+## QA-20261108-52 — Known-working angle sensor moved to Radxa CAN
+
+**Date:** November 8, 2026 UTC.
+**Owner question (faithful quote):** "see steering angle worked on waveshare ,i have connected same steering angle to can of radxa now it should give readiing rt".
+**Owner replies (faithful quotes):** "Chimera CAN2, with Chimera USB connected to Radxa"; "yes" after the Core Config Disconnect request; "Separate supply, with supply negative joined to Chimera GND"; "Keep the sensor on CAN2" when offered a CAN0comparison.
+**Answer:** Yes, raw OEM0x25/DLC8frames are expected at the previously working500kbit/s if the new electrical/receiver setup is functioning; it is not guaranteed merely by moving the sensor. Initial native startup was blocked by Core Config's exclusive USB claim (exit2), not a valid zero-CAN test. After owner Disconnect and an empty owner scan, native20.114s/1892CAN batches/20health returned0frames on each USBbus0/1/2. Independent8sPython784polls/15health also0frames. USB/health works but no angle data reaches Radxa through Chimera. Missing angle mapping/calibration cannot explain zero raw frames in the preserved receive path. Prior successful Waveshare sensor evidence remains valid; present supply/ground are confirmed by owner but not measured. CAN2active bitrate/VCC/STB/wiring/termination/waveform and installed-source equivalence remain open. No CAN0test was performed; owner explicitly keeps CAN2.
+**Evidence/source pins:** Baselinee886a564588ed4a425f9bf7e6936f51cd79e4500. Ai/Reports/steering-sensor-recheck-20261108/{README.md,RESULTS.json}; teacher same-named initial startup log, native/Python raw captures, exact helper, USB owner scan and FINAL_READBACK.json. Original serial3a0044001651333038373636/versionv1.0.0-DEV-de193215-DEBUG; native SHAe9e692b6bfaf67d4c9061f4645a89d8337fc938bd857cf03e03f6a3454f81a84.76legacy hashes/sizes and runtime/DBC pins verified; earlier Waveshare0x25sensor capture/QA46and focused teacher sensor topic retained.
+**Status/limits:** Bounded two-reader test completed; physical CAN reception remains blocked. Both readers exit0/stopped; Core Config left open/disconnected, final USB-owner scan empty. No product/firmware/DBC/model/upstream change, host CAN/USB OUT/config/heartbeat/relay/reset/flash, vehicle action or push. No sensor/chip fault diagnosis or calibrated angle. OEM0x25is not silently renamed to canonical0x50. Next qualified checks of the current CAN2electrical/timing/enable path; no automatic CAN0move or config repair. Existing holds and unanswered questions retained.
+
+---
+
 ## QA-20261108-51 — Why the low voltage on the CAN side?
 
 **Date:** November 8, 2026 UTC.
