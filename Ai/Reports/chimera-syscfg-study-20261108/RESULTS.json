@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-08",
+  "question": "QA-20261108-53",
+  "schema": "Independent CRC/byte parse plus actual website decode/encode same-byte roundtrip passed",
+  "source_coverage_sections": 14,
+  "source_files": 6,
+  "negative_controls": "Changed config byte fails CRC; added hot-reload/extra-field consumer fails selected-source absence check",
+  "gates": {
+    "met": 3,
+    "unmet": 0,
+    "abandoned": 0
+  },
+  "runtime": "Node v24.21.0 / Python3 source/read-only saved-byte checks",
+  "new_hardware_actions": false,
+  "installed_image_equivalence": "unproven",
+  "can_reception_fix_claimed": false
+}

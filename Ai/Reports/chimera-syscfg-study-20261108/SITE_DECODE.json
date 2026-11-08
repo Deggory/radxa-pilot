@@ -1,0 +1,30 @@
+{
+  "decoded": {
+    "debugLevel": 3,
+    "canOut": 15,
+    "watchdog": false,
+    "mode": 0,
+    "overrideThreshold": 0,
+    "cfgExtra": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "canSpeeds": [
+      5000,
+      5000,
+      0,
+      0
+    ]
+  },
+  "same_byte_roundtrip": true
+}

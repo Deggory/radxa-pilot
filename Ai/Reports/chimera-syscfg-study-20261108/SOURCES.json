@@ -1,0 +1,233 @@
+{
+  "date": "2026-11-08",
+  "project_baseline": "2eff97d5c1c2badf068c84b90cfe172711b2a6fd",
+  "source_records": {
+    "layout": {
+      "file": "sunnypilot/chimera_old/firmware/chimera/chimera.h",
+      "start": 20,
+      "end": 89,
+      "sha256": "bccfd705363d223d86c9a0e62ccc817ba13a95e068315c22f97a40fdbf9aa413",
+      "anchors": {
+        "uint8_t debug_lvl;": [
+          25
+        ],
+        "uint8_t can_out_en;": [
+          26
+        ],
+        "uint8_t iwdg_en;": [
+          27
+        ],
+        "uint8_t cfg_extra[20];": [
+          28
+        ]
+      }
+    },
+    "loading": {
+      "file": "sunnypilot/chimera_old/firmware/chimera/main.c",
+      "start": 1064,
+      "end": 1085,
+      "sha256": "5d1dd3b0400ec80da9b477abfced51c9346674865ce5ad86d7e5a012c2d94883",
+      "anchors": {
+        "config_block_t current_cfg_in_ram;": [
+          1066
+        ],
+        "init_config_pointers(&current_cfg_in_ram);": [
+          1076
+        ]
+      }
+    },
+    "validation": {
+      "file": "sunnypilot/chimera_old/firmware/chimera/chimera.h",
+      "start": 302,
+      "end": 358,
+      "sha256": "bccfd705363d223d86c9a0e62ccc817ba13a95e068315c22f97a40fdbf9aa413",
+      "anchors": {
+        "cfg->crc32 != crc32": [
+          304
+        ],
+        "if (e->cfg_type == 0) continue;": [
+          339
+        ]
+      }
+    },
+    "outputs": {
+      "file": "sunnypilot/chimera_old/firmware/chimera/main.c",
+      "start": 600,
+      "end": 700,
+      "sha256": "5d1dd3b0400ec80da9b477abfced51c9346674865ce5ad86d7e5a012c2d94883",
+      "anchors": {
+        "sys_cfg->sys.can_out_en & 1": [
+          624
+        ],
+        "sys_cfg->sys.can_out_en & 2": [
+          647
+        ],
+        "sys_cfg->sys.can_out_en & 4": [
+          671
+        ],
+        "sys_cfg->sys.can_out_en & 8": [
+          693
+        ]
+      }
+    },
+    "sensor_entries": {
+      "file": "sunnypilot/chimera_old/firmware/chimera/main.c",
+      "start": 519,
+      "end": 790,
+      "sha256": "5d1dd3b0400ec80da9b477abfced51c9346674865ce5ad86d7e5a012c2d94883",
+      "anchors": {
+        "cfg = signal_configs[1];": [
+          525,
+          611,
+          790
+        ],
+        "cfg = signal_configs[2];": [
+          530
+        ],
+        "cfg = signal_configs[3];": [
+          535,
+          656
+        ],
+        "can_rx(2);": [
+          560
+        ]
+      }
+    },
+    "raw_receive": {
+      "file": "sunnypilot/chimera_old/firmware/chimera/can.h",
+      "start": 234,
+      "end": 324,
+      "sha256": "7aca434faa4a1c37d59f5b43f495ed0d213f0e22fc46e4db28c433472b757310",
+      "anchors": {
+        "void can_rx(uint8_t can_number)": [
+          302
+        ],
+        "can_push(&can_rx_q, &to_push)": [
+          234,
+          320
+        ]
+      }
+    },
+    "usb_receive": {
+      "file": "sunnypilot/chimera_old/firmware/chimera/main.c",
+      "start": 172,
+      "end": 180,
+      "sha256": "5d1dd3b0400ec80da9b477abfced51c9346674865ce5ad86d7e5a012c2d94883",
+      "anchors": {
+        "can_pop(&can_rx_q, &reply[ilen])": [
+          176
+        ]
+      }
+    },
+    "persistence": {
+      "file": "sunnypilot/chimera_old/firmware/chimera/chimera.h",
+      "start": 232,
+      "end": 300,
+      "sha256": "bccfd705363d223d86c9a0e62ccc817ba13a95e068315c22f97a40fdbf9aa413",
+      "anchors": {
+        "current.entries[write_setup.b.wValue.w] = new_entry;": [
+          276
+        ],
+        "flash_erase_sector(CONFIG_FLASH_SECTOR);": [
+          232,
+          285
+        ]
+      }
+    },
+    "runtime_speed": {
+      "file": "sunnypilot/chimera_old/firmware/chimera/main.c",
+      "start": 343,
+      "end": 350,
+      "sha256": "5d1dd3b0400ec80da9b477abfced51c9346674865ce5ad86d7e5a012c2d94883",
+      "anchors": {
+        "if (setup->b.wValue.w == 0)": [
+          345
+        ],
+        "can_speed[0] = setup->b.wIndex.w;": [
+          346
+        ]
+      }
+    },
+    "startup_speed": {
+      "file": "sunnypilot/chimera_old/firmware/chimera/main.c",
+      "start": 1133,
+      "end": 1146,
+      "sha256": "5d1dd3b0400ec80da9b477abfced51c9346674865ce5ad86d7e5a012c2d94883",
+      "anchors": {
+        "llcan_set_speed(CAN1, 5000, false, false)": [
+          1134
+        ],
+        "llcan_set_speed(CAN2, 5000, false, false)": [
+          1138
+        ],
+        "llcan_set_speed(CAN3, 5000, false, false)": [
+          1142
+        ]
+      }
+    },
+    "watchdog": {
+      "file": "sunnypilot/chimera_old/firmware/chimera/main.c",
+      "start": 1213,
+      "end": 1220,
+      "sha256": "5d1dd3b0400ec80da9b477abfced51c9346674865ce5ad86d7e5a012c2d94883",
+      "anchors": {
+        "signal_configs[0]->sys.iwdg_en & 1": [
+          1213
+        ]
+      }
+    },
+    "ui_layout": {
+      "file": "ocelot/Core Config/site_snapshot/src/chimera-config.js",
+      "start": 179,
+      "end": 242,
+      "sha256": "678582bed06fac188e32e4e907600b826e27bc49c4c56bca99cc5ffea03414c2",
+      "anchors": {
+        "view.setUint16(15 + (bus * 2)": [
+          202
+        ],
+        "view.getUint16(15 + (bus * 2)": [
+          229
+        ]
+      }
+    },
+    "python_layout": {
+      "file": "ocelot/Core Config/protocol.py",
+      "start": 159,
+      "end": 201,
+      "sha256": "25b5c7e28cc2f6cca7766b3520b6729dba36d6d07fc52c4e66561b730bfb6010",
+      "anchors": {
+        "'debug_level': entry[0]": [
+          165
+        ],
+        "15 + bus * 2": [
+          168,
+          197
+        ]
+      }
+    },
+    "cli_writer": {
+      "file": "ocelot/firmware/python/__init__.py",
+      "start": 676,
+      "end": 700,
+      "sha256": "685ad65b056a266979eacf49159678ca5881902cc10315e2526f60bd42034de4",
+      "anchors": {
+        "def flash_config_write_SYS": [
+          676
+        ],
+        "cfg_extra = bytearray(20)": [
+          677
+        ]
+      }
+    }
+  },
+  "saved_snapshot": {
+    "path": "Ai/Reports/chimera-coreconfig-review-20261108/config-first.bin",
+    "sha256": "4b025b9e65b10475013ed39f8d4e66abf780a7cbe6ebf18833d952e46ffe3b22",
+    "bytes": 776
+  },
+  "native_sha256": "e9e692b6bfaf67d4c9061f4645a89d8337fc938bd857cf03e03f6a3454f81a84",
+  "dbc_sha256": "b4079670b8118fe63c6a7710ca1158afaabfec7df881ef902e43d70d70a36b67",
+  "installed_image_equivalence": "unknown; source study is not decompilation of de193215",
+  "new_hardware_actions": false,
+  "graph_used": "Existing teacher audit .ua graph is a November8topic-level graph with no commit pin/SYS_CFG component; not used as current source proof."
+}

@@ -1,3 +1,13 @@
+## November 8 — SYS_CFG deep study saved (QA53)
+
+SYS_CFG already exists (last flash read), output0x0F/watchdogoff. Read student
+Knowledge/CHIMERA_SYS_CFG.md and chimera-syscfg-study-20261108 report. Source
+traces distinguish boot RAM snapshot, saved fields, raw USB RX and separate
+sensor mappings/generatedCAN0reports. Website/legacy CAN layouts differ; CLI
+zeros SYSextras. No SYSwrite shown to fix raw0frames, no installed-layout/RAM
+proof. Offline byte/site-decoder checks only, no device/config/firmware change.
+Owner keepsCAN2; write/new-firmware/upstream holds and physical unknowns remain.
+
 ## November 8 — Known-working sensor on Chimera CAN2 still gives no frames (QA52)
 
 Owner confirms separate supply/common ground and keeps printedCAN2. Resolved

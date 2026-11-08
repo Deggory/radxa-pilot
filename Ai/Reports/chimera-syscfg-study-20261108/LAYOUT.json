@@ -1,0 +1,77 @@
+{
+  "date": "2026-11-08",
+  "snapshot_sha256": "4b025b9e65b10475013ed39f8d4e66abf780a7cbe6ebf18833d952e46ffe3b22",
+  "flash_base": "0x08020000",
+  "total_block_bytes": 776,
+  "header_bytes": 4,
+  "entry_bytes": 24,
+  "entries": 32,
+  "crc_offset": 772,
+  "crc_valid": true,
+  "layout": [
+    {
+      "entry_offset": 0,
+      "size": 1,
+      "field": "debug_lvl",
+      "observed": 3,
+      "consumer": "main.c777/789 uses bit0 for debug logging"
+    },
+    {
+      "entry_offset": 1,
+      "size": 1,
+      "field": "can_out_en",
+      "observed": 15,
+      "consumer": "main.c624/647/671/693 generated-report bits1/2/4/8"
+    },
+    {
+      "entry_offset": 2,
+      "size": 1,
+      "field": "iwdg_en",
+      "observed": 0,
+      "consumer": "main.c1213 startup watchdog bit0"
+    },
+    {
+      "entry_offset": 3,
+      "size": 1,
+      "field": "mode in cfg_extra",
+      "observed": 0,
+      "consumer": "UI/CLI store; no application reader found in selected Chimera source"
+    },
+    {
+      "entry_offset": 4,
+      "size": 2,
+      "field": "override_threshold in cfg_extra big-endian",
+      "observed": 0,
+      "consumer": "UI/CLI store; no application reader found in selected Chimera source"
+    },
+    {
+      "entry_offset": 6,
+      "size": 9,
+      "field": "other extra/reserved",
+      "observed_hex": "000000000000000000",
+      "consumer": "Preserve unknown/reserved bytes"
+    },
+    {
+      "entry_offset": 15,
+      "size": 8,
+      "field": "four saved CAN rates uint16 little-endian kbit/s",
+      "observed": [
+        500,
+        500,
+        0,
+        0
+      ],
+      "consumer": "UI/desktop; preserved MCU source has no reader and fixed500kstartup"
+    },
+    {
+      "entry_offset": 23,
+      "size": 1,
+      "field": "cfg_type",
+      "observed": 1,
+      "consumer": "SYS=1; loader skips type0"
+    }
+  ],
+  "installed_image_equivalence": "unproven",
+  "active_RAM_configuration_observed": false,
+  "new_hardware_actions": false
+}
