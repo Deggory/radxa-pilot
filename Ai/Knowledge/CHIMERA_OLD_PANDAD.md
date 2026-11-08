@@ -1,3 +1,12 @@
+## November8 — Chimera data availability explained (QA30)
+
+USB detection is confirmed; no local pandad process found and no live telemetry
+read performed. Adapter supports raw CAN plus18raw health fields. Vehicle
+speed/angle/engine/brake/buttons/module readings depend on actual frames,
+hostbus2/config/DBC/freshness; speed scale remains unqualified. Data/placeholder
+inventory added to implemented USB contract. Baseline26d97d7b, prior tests reused;
+no device/code/runtime changes. Next owner-selected live scope; holds unchanged.
+
 ## November8 — Live USB Chimera detected (QA29)
 
 Linux enumerates RetroPilot Chimera bbaa:ddcc, serial3a0044001651333038373636,

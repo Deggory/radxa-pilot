@@ -1,3 +1,13 @@
+## QA-20261108-30 — What data does Sunnypilot get from Chimera?
+
+**Date:** November 8, 2026 UTC.
+**Owner question (faithful quote):** "wat all data does sunnypilot get from this".
+**Answer:** Current live evidence is USB identity only; no local pandad process was found, and no live CAN/health read has been performed. When the qualified passive adapter runs it publishes classic CAN ID/bus/payload on buses0/1/2 plus host receipt timestamps, and separate labelled diagnostics with identity, observation/failure state and18raw health fields. Vehicle interpretation is conditional: base RetroPilot messages can carry steering angle/state (0x50), engine RPM/ignition/brake (0x75), speed (0x76) and cruise buttons plus raw ADC1/ADC2 (0x100), with raw crank/speed pulse intervals/counts in ENGINE/SPEED; connected matching Cores can supply module status, steering override/torque or brake feedback. The physical parser expects hostbus2; reception on another bus is not automatically remapped. RPM is in the ENGINE/parser data, not claimed mapped to standard CarState. Speed needs qualified units/configuration (wheelSpeedFactor defaults0), angle needs valid state/freshness and endpoints need matching DBC/flags. No automatic gear, separate wheel speeds, signed steering rate, calibrated pedal/torque, IMU/GPS/camera or engaged-cruise data is supplied by this base adapter. Health includes uptime/errors/faults/raw ignition/controls/harness/USB states; seven source placeholders remain labelled, including voltage/current and safety values. No normal pandaStates or driving engagement is published.
+**Evidence/source pins:** Baseline26d97d7b9f517c10550640c5df8ec3d82b1532d7; native implementation008a7e81/opendbc150f9371. Current chimera_usb.h, panda_usb_publish.cc, main.cc and opendbc car/retropilot/{carstate.py,interface.py,values.py}; canonical retropilot/dbc/ocelot_controls.dbc; student USB enumeration receipt and docs/CHIMERA_OLD_USB.md. Fresh local pgrep -a -x pandad returned no match; process snapshot saved centrally with source hashes. No vendor read or live CAN fixture was invented.
+**Status/limits:** Source/process explanation and synchronized documentation only. No device interface claim, firmware/health/CAN query, daemon startup, code/DBC/firmware change, runtime test rerun, update or push. Actual producers, wiring/bus route, firmware/source match, speed units/calibration and physical safety remain unqualified. Prior QA25offline tests reused; rewrite/update holds and unanswered entries retained.
+
+---
+
 ## QA-20261108-29 — Does Radxa detect USB Chimera?
 
 **Date:** November 8, 2026 UTC.

@@ -128,3 +128,17 @@ timestamped raw receipt in student Ai/Evidence/chimera-usb-enumeration-20261108.
 Documentation/Git skills used for closeout; no binary/REA task or application
 change. Notebook/QA/whitespace checks and clean commit readback are recorded
 in central USB_DETECTION_FOLLOWUP.json. No push/update; holds unchanged.
+
+## Data availability follow-up (QA30)
+
+Explained USB detection versus supported adapter publications and conditional
+vehicle decoding. Fresh local pgrep -a -x pandad returned no matching process;
+no daemon/device traffic was started. Read health/publication source and physical
+RetroPilot parser/interface/flags plus canonical DBC; no BeamNG-only signals
+claimed for this board. Base speed scale0remains unqualified; RPM raw ENGINE
+field distinguished from standard CarState. Added data/placeholder inventory
+to existing USB contract. Baseline26d97d7b/opendbc150f9371; documentation/Git
+skills guide closeout, source-first read avoids unrelated REA/runtime work.
+Prior QA25tests reused; notebook/QA/whitespace checks only, no code/DBC/firmware,
+USB/CAN/config/flash/update/push. Process snapshot/source hashes and actual
+validation/commit/clean readback are in central DATA_FOLLOWUP.json.

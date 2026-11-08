@@ -155,3 +155,35 @@ and bounded-actuation principles in the [official safety documentation](https://
 No active work or hardware qualification was performed by this explanation.
 Mailbox records have no checksum, host receipt time is not measured ECU age,
 and abrupt process death can prevent final invalidation messages.
+
+## Data inventory — clarification November 8 (QA30)
+
+The latest physical check establishes USB identity only. A subsequent local
+process check found no pandad; no live CAN or health sample has been read.
+The implemented adapter can publish the following when a qualified session runs:
+
+| Data | Interpretation and limits |
+| --- | --- |
+| CAN address, bus0/1/2, payload0..8bytes, host receipt timestamp | Standard internal can publication; unknown IDs remain raw and host time is not ECU sample age. |
+| Steering angle/state (0x50) | Conditional on actual matching CAN, valid state and freshness. No signed steering-rate mapping is invented. |
+| ENGINE (0x75): RPM, ignition, brake switch, crank pulse interval/count | Conditional on producer/route/DBC. Physical CarState uses ignition/brake; RPM remains available in parser data. |
+| SPEED (0x76), VSS pulse interval/count | Conditional on producer and qualified units. wheelSpeedFactor defaults0; decoded bytes alone do not qualify speed. |
+| CRUISE (0x100): buttons, raw ADC1/ADC2 | Observed buttons and raw analog values, not proof of engagement or calibrated pedal measurements. |
+| Core feedback | Only actual connected matching modules provide status, override, torque or braking feedback. No calibration/authority is inferred. |
+| Identity and observation state | Serial/version/profile, host times and observing/failed/closed, with operational:false. |
+
+The physical RetroPilot parser selects hostbus2; the adapter does not remap
+other buses or guarantee that Chimera's locally generated sensor frames reach
+that bus. Signals require matching configuration, DBC integrity and freshness.
+Base gear, separate wheel speeds, calibrated pedal/torque and cruise-engaged
+status are unavailable; GPS/IMU/camera feeds are not added by this adapter.
+
+All18raw health fields are retained: uptime; voltage_raw; current_raw;
+can_rx_errs; can_send_errs; can_fwd_errs; gmlan_send_errs; faults;
+ignition_line_raw; ignition_can_raw; controls_allowed_raw;
+gas_interceptor_detected_raw; car_harness_status_raw; usb_power_mode_raw;
+safety_model_raw; safety_param_raw; fault_status_raw; power_save_enabled_raw.
+Seven preserved-source placeholders are explicitly labelled: voltage_raw,
+current_raw, gas_interceptor_detected_raw, gmlan_send_errs, safety_model_raw,
+safety_param_raw and power_save_enabled_raw. They are not valid measurements
+or evidence of an installed safety policy. No normal pandaStates is published.
