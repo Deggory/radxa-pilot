@@ -17,3 +17,10 @@ Debugging/documentation/Git workflow and source-first evidence; no unrelated
 binary/REA or Unlazy gate needed for this factual explanation. Next complete
 3.3Vreading and supply/ground/termination checks; prior zeroCAN root cause open.
 Actual notebook/QA/whitespace/preservation/commit readback saved centrally.
+
+Owner subsequently answered "3.35" for the labelled3.3V output. This resolves
+the pending reading above; it is reasonable for the nominal3.3V rail, while
+reported4.5V remains the lower referenceVCC boundary. Fresh lsusb -t/sysfs
+identifies Chimera3-4.1behind VIA2109:2812USB2.0hub. A short-cable/direct-port
+comparison is proposed, not performed and not a demonstrated hub defect.
+No more vendor/device/MCU/CAN action; source/report/QA updated with actual reply.

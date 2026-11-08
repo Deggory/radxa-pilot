@@ -6,7 +6,7 @@
     "CANL_to_GND_V": 1.15,
     "source": "owner reported approximately; meter accuracy/ground point and traffic state not independently verified",
     "labelled_5V_to_GND_V": 4.5,
-    "labelled_3V3_to_GND_V": null
+    "labelled_3V3_to_GND_V": 3.35
   },
   "power": "owner USB-only; printed connected CAN2",
   "official_sources": {
@@ -28,13 +28,21 @@
   ],
   "base_power_checks_passed": 36,
   "unresolved": [
-    "actual labelled5Vand3.3V readings requested",
     "actual transceiver VCC/VIO/STB/current/ground remain unmeasured",
     "installed-image/source equivalence unqualified",
     "resistance/termination not measured"
   ],
   "measurement_quotes": [
     "Each wire to GND",
-    "5v showed 4.5 volt t gnd"
-  ]
+    "5v showed 4.5 volt t gnd",
+    "3.35"
+  ],
+  "usb_topology": {
+    "sysfs_device": "3-4.1",
+    "parent_hub": "3-4",
+    "parent_vid_pid": "2109:2812",
+    "parent_product": "USB2.0 Hub",
+    "observed": "fresh lsusb -t and cached sysfs descriptors; no device vendor request"
+  },
+  "next": "Compare 5V/3.3V with short known-good USB cable and direct Radxa port; no physical change yet"
 }

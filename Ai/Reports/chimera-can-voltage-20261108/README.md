@@ -2,7 +2,7 @@
 
 Owner reports approximately1.15V on CANH and1.15V on CANL, each relative to
 GND, using USB-only Chimera power. Follow-up: labelled5V output measures4.5V
-to GND. Labelled3.3V reading was requested and remains pending at this checkpoint.
+to GND. Follow-up labelled3.3V output reading is3.35Vto the same GND.
 These are owner measurements; probe point, meter accuracy, load/waveform and
 actual transceiver-chip supply have not been independently verified.
 [Source/measurement receipt](SOURCES.json).
@@ -37,10 +37,10 @@ base drawing as unavailable/inapplicable; current owner baseline is retained.
 
 ## Next measurement and limits
 
-First complete labelled3.3V-to-GND reading using the same board ground. A
+The labelled3.3V output reading3.35V is consistent with a nominal3.3V rail. A
 controlled check with a short known-good USB cable/direct suitable USB port
 and the same5V/3.3V measurements can separate USB feed loss from other causes;
-no cable/power change was performed by this source answer. Avoid probing small
+no cable/power change was performed by this source answer. Fresh lsusb/sysfs shows Chimera at3-4.1behind a VIA2109:2812USB2.0hub, making a direct-port comparison useful; this does not prove the hub caused the drop. Avoid probing small
 IC pins or supplying power through output rails. Any later termination resistance
 measurement must be made with all supplies/USB removed; no resistance value is
 currently measured. Shared signal-ground, termination, actual VCC/VIO/STB,
