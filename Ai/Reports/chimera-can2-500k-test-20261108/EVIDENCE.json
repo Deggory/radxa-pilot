@@ -1,0 +1,201 @@
+{
+  "runtime_test": {
+    "board": {
+      "bus": 3,
+      "address": 21,
+      "pid": 56780,
+      "product": "Chimera",
+      "serial": "3a0044001651333038373636"
+    },
+    "authorization": "owner: lets test it",
+    "command_completed": true,
+    "live_BTR_register_read": false,
+    "flash_write_sent": false,
+    "reset_sent": false,
+    "CAN_data_sent": false,
+    "version": "v1.0.0-DEV-de193215-DEBUG",
+    "signature_match": true,
+    "config_before_sha256": "4b025b9e65b10475013ed39f8d4e66abf780a7cbe6ebf18833d952e46ffe3b22",
+    "config_after_sha256": "4b025b9e65b10475013ed39f8d4e66abf780a7cbe6ebf18833d952e46ffe3b22",
+    "flash_config_unchanged": true,
+    "usb_closed": true,
+    "error": null,
+    "OUT_count": 1,
+    "OUT_requests": [
+      {
+        "direction": "OUT",
+        "request": "0xde",
+        "value": 2,
+        "index": 5000,
+        "length": 0,
+        "completed": true
+      }
+    ],
+    "control_request_count": 62,
+    "before": {
+      "duration_seconds": 4.000403058002121,
+      "polls": 2000,
+      "usb_payload_bytes": 0,
+      "length_histogram": {
+        "0": 2000
+      },
+      "return_codes": {
+        "0": 2000
+      },
+      "trailing_bytes": 0,
+      "total_records": 0,
+      "per_bus_records": {
+        "0": 0,
+        "1": 0,
+        "2": 0
+      },
+      "bus_ids": {},
+      "distinct_payloads": {},
+      "health_count": 8,
+      "first_health": {
+        "uptime": 23287,
+        "voltage": 0,
+        "current": 0,
+        "can_rx_errs": 0,
+        "can_send_errs": 0,
+        "can_fwd_errs": 0,
+        "gmlan_send_errs": 0,
+        "faults": 0,
+        "ignition_line": 0,
+        "ignition_can": 0,
+        "controls_allowed": 0,
+        "gas_interceptor_detected": 0,
+        "car_harness_status": 0,
+        "usb_power_mode": 0,
+        "safety_model_raw": 17,
+        "safety_param_raw": 0,
+        "fault_status": 0,
+        "power_save_enabled": 0
+      },
+      "last_health": {
+        "uptime": 23291,
+        "voltage": 0,
+        "current": 0,
+        "can_rx_errs": 0,
+        "can_send_errs": 0,
+        "can_fwd_errs": 0,
+        "gmlan_send_errs": 0,
+        "faults": 0,
+        "ignition_line": 0,
+        "ignition_can": 0,
+        "controls_allowed": 0,
+        "gas_interceptor_detected": 0,
+        "car_harness_status": 0,
+        "usb_power_mode": 0,
+        "safety_model_raw": 17,
+        "safety_param_raw": 0,
+        "fault_status": 0,
+        "power_save_enabled": 0
+      }
+    },
+    "after": {
+      "duration_seconds": 12.001264852995519,
+      "polls": 5883,
+      "usb_payload_bytes": 0,
+      "length_histogram": {
+        "0": 5883
+      },
+      "return_codes": {
+        "0": 5883
+      },
+      "trailing_bytes": 0,
+      "total_records": 0,
+      "per_bus_records": {
+        "0": 0,
+        "1": 0,
+        "2": 0
+      },
+      "bus_ids": {},
+      "distinct_payloads": {},
+      "health_count": 24,
+      "first_health": {
+        "uptime": 23291,
+        "voltage": 0,
+        "current": 0,
+        "can_rx_errs": 0,
+        "can_send_errs": 0,
+        "can_fwd_errs": 0,
+        "gmlan_send_errs": 0,
+        "faults": 0,
+        "ignition_line": 0,
+        "ignition_can": 0,
+        "controls_allowed": 0,
+        "gas_interceptor_detected": 0,
+        "car_harness_status": 0,
+        "usb_power_mode": 0,
+        "safety_model_raw": 17,
+        "safety_param_raw": 0,
+        "fault_status": 0,
+        "power_save_enabled": 0
+      },
+      "last_health": {
+        "uptime": 23303,
+        "voltage": 0,
+        "current": 0,
+        "can_rx_errs": 0,
+        "can_send_errs": 0,
+        "can_fwd_errs": 0,
+        "gmlan_send_errs": 0,
+        "faults": 0,
+        "ignition_line": 0,
+        "ignition_can": 0,
+        "controls_allowed": 0,
+        "gas_interceptor_detected": 0,
+        "car_harness_status": 0,
+        "usb_power_mode": 0,
+        "safety_model_raw": 17,
+        "safety_param_raw": 0,
+        "fault_status": 0,
+        "power_save_enabled": 0
+      }
+    }
+  },
+  "native": {
+    "duration": 20.115466715004004,
+    "native_exit": 0,
+    "can_batches": 1895,
+    "can_frames": 0,
+    "per_bus_frames": {
+      "0": 0,
+      "1": 0,
+      "2": 0
+    },
+    "bus_ids": {},
+    "valid_samples": 0,
+    "actuator_commands": 0,
+    "native_profile": "chimeraOldMailbox16",
+    "error": null,
+    "native_process_stopped": true,
+    "health_count": 20,
+    "uptime_first": 23321,
+    "uptime_last": 23340
+  },
+  "preservation": {
+    "legacy_files_verified": 76,
+    "native_and_DBC_hashes_preserved": true,
+    "existing_dirty_sets_preserved": true,
+    "original_USB_owners_after": [],
+    "reader_processes_stopped": true,
+    "runtime_CAN2_requested_kbps": 500,
+    "runtime_CAN2_register_verified": false,
+    "saved_CAN2_kbps": 0,
+    "saved_config_sha256_before": "4b025b9e65b10475013ed39f8d4e66abf780a7cbe6ebf18833d952e46ffe3b22",
+    "saved_config_sha256_after": "4b025b9e65b10475013ed39f8d4e66abf780a7cbe6ebf18833d952e46ffe3b22",
+    "total_application_OUT_commands": 1,
+    "physical_CAN_reception": "no frames observed",
+    "new_host_or_firmware_changes": false
+  },
+  "baseline_project": "ab38419b89ab3725ba6cb0af39e0e5f33a19ea5a",
+  "physical_CAN_pass": false,
+  "execution_gates": {
+    "met": 3,
+    "unmet": 0,
+    "abandoned": 0,
+    "scope": "authorized test executed, not successful CAN reception"
+  }
+}

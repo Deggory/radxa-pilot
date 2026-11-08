@@ -1,3 +1,15 @@
+## November 8 — Temporary CAN2 500k test completed, still zero RX (QA58)
+
+Owner authorized the proposed runtime test. Exact identity/signature/config
+verified; one OUTDE/bus2/index5000completed. Raw4sbefore and12safter both0bytes;
+native20.115s/1895batches/20health0frames on all0/1/2, exit0. Flash unchanged,
+76legacy/native/DBC preserved; readers closed, USB free, CAN2wiring retained.
+Read Reports/chimera-can2-500k-test-20261108/README.md/EVIDENCE.json(student).
+Last requested runtime500kleft in place; no reboot/restore or permanent change.
+Acknowledgement is not currentBTR/init proof; timing-only command did not fixRX.
+Next controller timing/init and transceiver VCC/STB/RXD/waveform/termination
+qualification. Existing other config/new-firmware/upstream holds stay.
+
 ## 2026-11-08 correction — installed-image boot differs (QA56)
 
 The matching signed nightly was now disassembled, with a fresh128-byte USB

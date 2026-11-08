@@ -1,3 +1,35 @@
+## QA-20261108-58 — Execute the temporary CAN2 500kbit/s test
+
+Date: 2026-11-08. Owner instruction (faithful quote): “lets test it”, referring
+to the explained temporary running-CAN2=500kbit/s command and receive capture.
+This specifically authorizes that runtime test; other write/new-firmware and
+upstream holds remain. No repeat permission requested.
+
+Actual answer/result: correct original Chimera serial3a0044001651333038373636,
+versionv1.0.0-DEV-de193215-DEBUG and matching128-byte nightly signature verified.
+Before command, raw4.000403058s/2000reads:0USB bytes. Exactly one vendorOUT
+0x40/DE,wValue2,wIndex5000,no data completed. After command raw12.001264853s/
+5883reads:0USB bytes; native20.115466715s/1895batches/20health:0frames on all
+USB0/1/2, exit0. Both readers closed/released. Flash776bytes valid and unchanged,
+SHA4b025b9e65b10475013ed39f8d4e66abf780a7cbe6ebf18833d952e46ffe3b22;
+saved500/500/0/0.76legacy/native/DBC hashes and existing dirty sets preserved.
+
+Interpretation: the requested timing change alone did not restore reception.
+USB acknowledgement does not prove internal can_init success/currentBTR; live
+registers/wire timing remain unmeasured. Do not claim bitrate definitively
+eliminated or CAN fixed. Board left running with last requestedCAN2=500k,
+no restore/reboot. Reboot is expected to reapply savedCAN2zero/default250k.
+Next qualify controller initialization/timing and transceiver VCC/STB/RXD/
+waveform plus sensor transmission/termination. No new electrical measurement,
+flash/Save/Format/reset/heartbeat/CAN dataTX/port move/product source change.
+
+Evidence/status: baselineab38419b89ab3725ba6cb0af39e0e5f33a19ea5a;
+Ai/Reports/chimera-can2-500k-test-20261108/README.md/EVIDENCE.json(student),
+central same report name has guarded helper/full raw evidence. QA56artifact
+pins reused; prior23Python/5native tests historical, not rerun. Authorized test
+implemented and completed; physical CAN acceptance failed/unresolved. Teacher/
+student synchronized; further configuration/firmware actions not authorized.
+
 ## QA-20261108-57 — What does the bitrate mismatch and temporary CAN2 test mean?
 
 Date: 2026-11-08. Owner question (labelled paraphrase): What does “strong bitrate-mismatch lead in its matching nightly firmware” mean, and what does temporarily setting CAN2 to500kbit/s and capturing again mean?
