@@ -1,3 +1,11 @@
+## November8 — Panda host connection path explained (QA24)
+
+USB is owned by panda_usb.cc inside pandad. Launcher/main/session, normal
+can/sendcan/card path and our passive F4v17-only entry are distinguished in the
+comparison topic and November8panda-host-path session. Source explanation only;
+no runtime/device work. Next await selected task; original Chimera RX remains
+proposed, rewrite halted and saved upstream hold unchanged.
+
 ## November 8 — Panda / original Chimera / rewrite explained (QA23)
 
 Compared black/F413 Panda, original Chimera, red/H725 Panda and the halted

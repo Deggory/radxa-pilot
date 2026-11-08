@@ -1,3 +1,13 @@
+## QA-20261108-24 — Which host file talks to a connected Panda?
+
+**Date:** November 8, 2026 UTC.
+**Owner question (faithful quote):** "when we connect panda to comma or rdxa which file does it tallk to ,is it pandad or any other file it connect".
+**Answer:** Yes: pandad is the running host service responsible for communication. For a USB connection, compiled PandaUsbHandle code in panda_usb.cc uses libusb/the OS USB stack to open/claim and transfer data. The manager starts pandad.py, which starts native pandad; main.cc is its entry and session/protocol code handles the selected firmware. Normal pandad.cc coordinates CAN receive/sendcan, health, heartbeat and safety, and panda.cc implements device operations. card.py/car interfaces exchange internal can/sendcan messages, rather than owning the USB connection; model/UI do not talk directly to Panda. In our current Radxa branch the launcher enters --usb-status, accepts F4v17 only and publishes passive can/isolated diagnostics; normal transmit/pandaStates/control threads are not started. Original Chimera's native session remains proposed. Internal comma transport depends on hardware; diagnostic Python tools are an alternative client, not an extra stage required in native traffic.
+**Evidence/source pins:** Sunnypilot baseline b9bbcbb096a30d6d7c05343b68d14235f541cb51; upstream reference8cf6ff9a33c94bdf2fcb02e228a9aef1a7e6dc7f. Eight current source hashes in student Ai/Evidence/panda-host-path-20261108.json; process_config.py, pandad.py, main.cc, panda_usb_status.cc, panda_usb.cc, panda.cc, pandad.cc and card.py traced. Existing comparison topic extended; normal reference launcher/main/thread entry read separately from local modifications.
+**Status/limits:** Explanation and notebook update only; source/notebook/QA/whitespace checks. No runtime USB ownership test, hardware/device/flash/config/CAN action, build/test suite, upstream update or push. No active-control support or completed original-Chimera integration claimed. Rewrite remains halted; unanswered entries retained.
+
+---
+
 ## QA-20261108-23 — Original Chimera, new rewrite and Panda capabilities
 
 **Date:** November 8, 2026 UTC.

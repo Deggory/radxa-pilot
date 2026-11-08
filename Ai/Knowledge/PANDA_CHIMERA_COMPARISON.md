@@ -74,3 +74,39 @@ applied relevant explanation/review skills and Unlazy's final claim reconciliati
 No gate ledger is needed for this factual reply. No REA binary/runtime question,
 new test suite/build, USB/relay/CAN/device/flash, upstream update or push. The
 upstream inbox remains stale at November4 with its saved update hold unchanged.
+
+## November8follow-up — Which file talks to the connected Panda?
+
+The USB-connected device communicates with the running pandad process. A source
+file does not own a physical connection by itself: its compiled code runs inside
+that process. The Linux USB stack handles the bus; PandaUsbHandle in panda_usb.cc
+uses libusb to discover/open/claim the device and perform control/bulk transfers.
+
+- system/manager/process_config.py starts the Python pandad launcher.
+- selfdrive/pandad/pandad.py launches/replaces itself with native pandad. Our
+  local launcher uses usb_startup.py to require exact serial/version pins.
+- selfdrive/pandad/main.cc is the native entry. Our local main dispatches only
+  --usb-status to PandaUsbStatusSession.
+- panda_usb_status.cc manages that pinned passive F4v17 session; panda_usb.cc
+  owns actual USB access, while packet/status helpers decode/publish records.
+- In normal full operation, pandad.cc handles receive/sendcan, status, heartbeat
+  and safety coordination, while panda.cc implements Panda operations over its
+  transport. Those normal threads exist in our tree but current main does not
+  start them.
+- selfdrive/car/card.py consumes can, uses the vehicle interface to derive
+  carState, and publishes sendcan for the normal transmit path. controlsd/UI
+  exchange internal messages; they do not directly own this USB connection.
+
+Normal conceptual path: vehicle CAN <-> Panda firmware <-> USB <-> pandad
+(USB/protocol code) <-> can/sendcan messaging <-> card/car interface.
+Internal comma board transport is hardware-dependent; this answer's concrete
+USB trace concerns an external USB connection and our USB-only deployment.
+Standalone Python tools may separately use panda/python for diagnostics, but
+they are not an extra mandatory stage in the native pandad traffic path.
+
+Current Radxa code publishes can and isolated customReservedRawData1 diagnostics
+for F4v17, with no normal pandaStates or transmit/control threads. A native
+original-Chimera mailbox16/health43 session remains proposed. Connecting a board
+does not mean its profile is already accepted by this entry. Source-only trace;
+no device connected, initialized, reset, flashed or tested for this answer.
+[Source pins](../Evidence/panda-host-path-20261108.json).

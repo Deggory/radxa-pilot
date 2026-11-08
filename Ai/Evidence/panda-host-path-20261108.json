@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-08",
+  "baseline": "b9bbcbb096a30d6d7c05343b68d14235f541cb51",
+  "upstream_reference": "8cf6ff9a33c94bdf2fcb02e228a9aef1a7e6dc7f",
+  "source_sha256": {
+    "openpilot/system/manager/process_config.py": "2cf97193f3dc425ba8c66568ed1501ca6489763e5a37e75dfa7fdc332f566f62",
+    "openpilot/selfdrive/pandad/pandad.py": "68cfe791c40e46b7b0495eb1e447aeaa5fcccf93563255107ce5213138645274",
+    "openpilot/selfdrive/pandad/main.cc": "a17676bd3019d4ca1566214cb1fa4b0b065112280c225507b7838fa2693b00f7",
+    "openpilot/selfdrive/pandad/pandad.cc": "84346f905b752754b7d5afd75fd1a25e184bc7c2514994bede4e0fb798b41d76",
+    "openpilot/selfdrive/pandad/panda_usb.cc": "e71fbc4b98826c0704882971a93f831eb7ec98bc738549b0913b1a69a1232508",
+    "openpilot/selfdrive/pandad/panda_usb_status.cc": "595df39a7a9b61f909160a549a975e938c55e2d333fd82685b21264537159306",
+    "openpilot/selfdrive/pandad/panda.cc": "f29e343a6e578ba781667e2a8762f0f667ef818f6696077fb417dac05ef8c22f",
+    "openpilot/selfdrive/car/card.py": "5548ca164923dd6f05c89afb6200dbcba8c8b8e9088044ac57fd30590849bba4"
+  },
+  "findings": {
+    "service": "pandad",
+    "launcher": "pandad.py -> usb_startup.py -> native pandad --usb-status",
+    "usb_owner": "PandaUsbHandle in panda_usb.cc using libusb",
+    "current_profile": "LEGACY_F4_V17 only in PandaUsbStatusSession::open",
+    "published_topics": [
+      "can",
+      "customReservedRawData1"
+    ],
+    "normal_unstarted_threads": "pandad.cc can_send, CAN RX, health/heartbeat/safety management",
+    "downstream": "card.py subscribes can and publishes sendcan/carState in normal operation"
+  },
+  "validation": "source tracing and notebook/QA/whitespace only; no runtime connection or test suite"
+}
