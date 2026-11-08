@@ -52,3 +52,11 @@ Used debugging, Git/documentation skills and compact Unlazy gates, with teacher
 source-first recovery and direct runtime/USB observations. No new REA parser or
 binary analysis was required or claimed. No product/firmware/DBC/model update,
 managed stack, vehicle qualification or push.
+
+## Follow-up: was Chimera itself verified at 500 kbit/s?
+
+Source review (QA49) confirms all three controllers start with5000, which the
+driver defines as500kbit/s. PrintedCAN2 maps toMCUCAN3. The live test set
+Waveshare500k; it did not read actual installed Chimera timing and yielded0frames.
+Working500kChimera reception is unproven; installed de193215/source equivalence
+is also unproven. No new device/config action. [Source pins](BITRATE_FOLLOWUP.json).

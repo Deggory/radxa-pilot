@@ -1,3 +1,13 @@
+## QA-20261108-49 — Did we verify Chimera itself at 500 kbit/s?
+
+**Date:** November 8, 2026 UTC.
+**Owner question (faithful quote):** "see if u see  checked if chimera worked in 500 kbits".
+**Answer:** Checked the preserved firmware: main.c starts MCU CAN1/CAN2/CAN3 with llcan_set_speed(...,5000,false,false); llcan.h explicitly defines5000as500kbit/s. Thus printed CAN2/MCUCAN3 is intended to start at500k. The previous live test explicitly configured Waveshare500000bit/s, but did not read back the installed Chimera CAN timing registers/actual bitrate and received0frames. We therefore tested against a500k sender configuration; we have not proved that the attached historical Chimera image is currently configured correctly or works at500k. Saved source and installed de193215 image equivalence remain unproven. The source 0xDE handler only changes bus0, so a generic Panda-style bus2 bitrate write is not a justified verification method.
+**Evidence/source pins:** Baseline b9775e001310a051d965ff4819ec2d8ef07ade0b; chimera_old/firmware/chimera/main.c:1134,1138,1142,343; drivers/llcan.h:8; chimera/can.h:147. Ai/Reports/beamng-chimera-postreset-20261108/BITRATE_FOLLOWUP.json pins selected hashes and the earlier raw test. All76legacy manifest entries hash/size verified.
+**Status/limits:** Source/log review and synchronized documentation only; no fresh USB/CAN/config/bitrate/flash/game action or product/DBC/model/update/push change. Actual installed timing and500kphysical reception remain unqualified. Next independent electrical TX/ACK and Chimera CAN2 qualification as QA48; do not infer success from code defaults or serial submission. Prior unanswered items and holds retained.
+
+---
+
 ## QA-20261108-48 — Retest Waveshare and BeamNG after RESET
 
 **Date:** November 8, 2026 UTC.

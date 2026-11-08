@@ -1,3 +1,12 @@
+## November 8 — Chimera 500 kbit/s evidence clarified (QA49)
+
+Preserved main.c explicitly starts all3controllers at500k; printedCAN2 is
+MCUCAN3/USB2. Prior live test configured Waveshare500k but did not read actual
+installed Chimera bitrate and received0frames. Source default is not measured
+working reception or proof of installed-image equivalence. See postreset report
+BITRATE_FOLLOWUP.json and QA49. Source/log review only;76legacy hashes match,
+no fresh hardware/config change. Existing physical TX/ACK handoff and holds stay.
+
 ## November 8 — BeamNG / Waveshare after RESET (QA48)
 
 Owner confirms isolated printed CAN2. Game body max21.034km/h;400/400source

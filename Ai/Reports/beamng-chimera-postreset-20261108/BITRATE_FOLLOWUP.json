@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-08",
+  "question": "QA-20261108-49",
+  "baseline": "b9775e001310a051d965ff4819ec2d8ef07ade0b",
+  "source_pins": {
+    "chimera_old/firmware/chimera/main.c": "5d1dd3b0400ec80da9b477abfced51c9346674865ce5ad86d7e5a012c2d94883",
+    "chimera_old/firmware/chimera/can.h": "7aca434faa4a1c37d59f5b43f495ed0d213f0e22fc46e4db28c433472b757310",
+    "chimera_old/firmware/drivers/llcan.h": "2794b5478c7fbbb8ece22eedda0a3f925262c7d7f6d9e9e221c8448d63a13d40",
+    "openpilot/selfdrive/pandad/chimera.py": "68d40878ed706c8790b1a7f1c6810a4b0838227e2789513d528c777863ca7f8b"
+  },
+  "source_findings": {
+    "main.c:1134,1138,1142": "All three MCU controllers startup llcan_set_speed(CANx,5000,false,false)",
+    "llcan.h:8": "5000 = 500 kbps; driver argument uses tenths of kbit/s",
+    "can.h:147": "Default can_speed array:5000,5000,5000,333",
+    "main.c:343": "Saved 0xDE handler only updates bus0; generic bus2 speed-write assumptions are unsupported",
+    "mapping": "Printed CAN2 -> MCU CAN3 -> USB bus2"
+  },
+  "runtime_findings": {
+    "waveshare_requested_bitrate": 500000,
+    "chimera_controller_bitrate_read_back": false,
+    "successful_chimera_500k_frames_observed": 0,
+    "installed_version": "v1.0.0-DEV-de193215-DEBUG",
+    "saved_source_equals_installed_image": "unproven"
+  },
+  "legacy_files_verified": 76,
+  "new_hardware_actions": false,
+  "answer": "Saved source is configured for500k on all three channels; prior live test was attempted against500k Waveshare but did not establish installed Chimera bitrate or working500k reception."
+}
