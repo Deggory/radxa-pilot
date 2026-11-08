@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-08",
+  "qa": "QA-20261108-63",
+  "baseline": "22d11b2f872775e337e9f185f5fde7ff4618f128",
+  "question_verbatim": "What voltage does the steering-angle sensor’s separate power supply measure between its positive (+) and negative (−) outputs?",
+  "owner_answer_verbatim": "12v",
+  "provenance": "Owner-reported readings across QA61/QA62/QA63; not independently measured",
+  "current_owner_readings_V": {
+    "Chimera_labelled_5V_to_GND": 5.05,
+    "CAN2_CANH_to_Chimera_GND": 3.3,
+    "CAN2_CANL_to_Chimera_GND": 1.8,
+    "separate_sensor_supply_positive_to_negative": 12.0
+  },
+  "G3": "manual measurement-collection gate met; CAN reception remains unresolved",
+  "latest_capture": "QA61: 8.001084505 s, 4091 reads, zero USB payload bytes; not rerun",
+  "hardware_actions_this_turn": [],
+  "next_question": "On Chimera, is a jumper currently fitted across the two pins labelled CAN2_TERM? Visual inspection only; wiring and power unchanged.",
+  "next_question_status": "awaiting owner; current jumper state not established by saved reference photo",
+  "limits": [
+    "Sensor actual model/rated supply not identified",
+    "Labelled output is not actual CAN transceiver VCC under load",
+    "STB/RXD/current BTR/termination/waveform unqualified"
+  ],
+  "checks": "Q&A/JSON synchronization, manual G3 evidence, historical capture preservation, git diff --check; no runtime tests"
+}

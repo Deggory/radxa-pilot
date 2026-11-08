@@ -174,14 +174,18 @@
     "B7_constant": "56494e31"
   },
   "physical_readings": {
-    "status": "CAN2H/L confirmed; supply-point clarification pending",
+    "status": "Four requested owner measurements complete at QA63; no hardware health conclusion",
     "initial_reply_verbatim": "3.3 and 1.8",
     "confirmation_verbatim": "Yes, CAN-H 3.3 V and CAN-L 1.8 V",
     "new_values_by_measurement_point": {
       "CAN2_CANH_to_Chimera_GND_V": 3.3,
-      "CAN2_CANL_to_Chimera_GND_V": 1.8
+      "CAN2_CANL_to_Chimera_GND_V": 1.8,
+      "Chimera_labelled_5V_to_GND_V": 5.05,
+      "sensor_supply_positive_to_negative_V": 12.0
     },
-    "unassigned_supply_reply_verbatim": "5.05"
+    "supply_confirmation_QA62": "Chimera’s labelled 5V output to GND",
+    "sensor_supply_confirmation_QA63": "12v",
+    "previously_unassigned_supply_reply_verbatim": "5.05"
   },
   "preservation": {
     "legacy_file_count": 76,
@@ -192,13 +196,13 @@
     "last_requested_CAN2_kbps": 500,
     "live_BTR_STB_VCC_read": false,
     "new_initialization_errors_printed": [],
-    "physical_measurements": "awaiting owner; no fresh numeric values supplied yet"
+    "physical_measurements": "QA63 owner readings now complete; no fresh runtime or physical chip measurements"
   },
   "gates": {
-    "met": 3,
-    "unmet": 1,
+    "met": 4,
+    "unmet": 0,
     "abandoned": 0,
-    "pending_gate": "G3: current owner meter readings",
-    "status": "software increment verified; physical investigation pending"
+    "pending_gate": null,
+    "status": "Original bounded investigation gates recorded; G3 owner readings completed QA63. G1/G2/G4 historical evidence, not rerun. CAN diagnosis unresolved."
   }
 }

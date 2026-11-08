@@ -1,3 +1,26 @@
+## QA-20261108-63 — Separate sensor supply voltage
+
+Date: 2026-11-08. Asked: “What voltage does the steering-angle sensor’s separate
+power supply measure between its positive (+) and negative (−) outputs?”
+Actual owner answer: “12v”. Recorded as owner-reported sensor supply output
+12 V, alongside labelled Chimera 5V-to-GND 5.05 V and CAN2 H/L-to-GND 3.3/1.8 V.
+This completes the four requested readings (manual G3). It does not establish
+the unidentified sensor’s rated voltage, actual transceiver VCC/STB/RXD, proper
+termination, current controller registers or successful CAN reception.
+
+Answer/action: saved completed readings; next requested a visual observation
+of the jumper at Chimera CAN2_TERM, with wiring and power left unchanged.
+Latest capture is still QA61: 8.001 s / 4091 reads / zero payload bytes before
+parsing. No new USB capture, controller command, power cycle or wiring change.
+Evidence: baseline 22d11b2f872775e337e9f185f5fde7ff4618f128;
+Ai/Reports/chimera-can-levels-recheck-20261108/PHYSICAL_READINGS_COMPLETE.json
+in both notebooks; original init-standby GATES.md G3 updated with these manual
+measurements. G1/G2/G4 are retained historical evidence, not fresh revalidation.
+Implemented: measurement collection and synchronized documentation. Proposed/
+pending: termination inspection, then qualified electrical/controller diagnosis.
+CAN fault remains unresolved. Existing firmware/new-implementation/upstream
+holds retained; no sensor label identification or tested vehicle integration.
+
 ## QA-20261108-62 — Which measurement was 5.05 V?
 
 Date: 2026-11-08. Asked: “Which measurement was 5.05 V?” Actual owner answer:
