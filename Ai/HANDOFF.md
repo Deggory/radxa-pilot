@@ -1,3 +1,11 @@
+## November 8 — Panda safety inputs explained (QA-20261108-01)
+
+Safety uses live feedback, requested CAN, model/parameter, timing and heartbeat;
+compiled rules enforce model-dependent integrity/override/command limits.
+Local RetroPilot active engine has no qualified production profile; old Chimera
+TX does not enforce it. Source/doc-only at8fde79345, no implementation/tests or
+hardware actions. Classic-only scope retained. Next remains proposed host adapter.
+
 ## November 7 — Safety-command fields explained (QA23)
 
 DC=request, model ID=wValue, model-specific parameter=wIndex; MCU rules, not

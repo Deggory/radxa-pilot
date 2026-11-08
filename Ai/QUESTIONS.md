@@ -1,3 +1,13 @@
+## QA-20261108-01 — What Panda safety rules take as inputs and require
+
+**Date:** November 8, 2026 UTC.
+**Owner question (faithful quote):** "Panda safety rules wat doe it take".
+**Answer:** Panda MCU rules take the selected model/parameter, live CAN-derived vehicle state (model-dependent speed, brake/gas, driver torque/angle, engagement/cancel), requested outgoing CAN frames, timestamps/history and host heartbeat. They check required received-message identity/integrity/counters/freshness and allowed outgoing ID/bus/DLC plus applicable command magnitude/rate/driver-override rules. Limits and signal definitions are generally compiled into the chosen firmware model; the USB parameter only selects model-defined options. The result permits or blocks a frame and updates control/fault state, not merely a relay switch; no camera/AI model input goes directly to these safety hooks. For our classic-CAN Chimera project, implementing this requires canonical DBC/bus mapping, measured/calibrated actuator and feedback limits, defined override/timeout behavior, and hooks actually enforced in MCU RX/TX paths with verification. Current local RetroPilot safety has a parameterized active engine, but its production initializer passes no qualified profile; the car interface remains noOutput/dashcam-only. It is not installed/enforced by old Chimera's current can_send path. USB adaptation alone cannot supply that enforcement.
+**Evidence/source pins:** Sunnypilot8fde793454f5908e88f6210d9c56b3cd41858212; Panda8a16e089b88593914823743df29e1c30b7dd3e00 main.c heartbeat and drivers/can_common.h safety_tx_hook; opendbc150f937198ceab43c43b39f94b9bdea63fcb633c safety/{safety.h,declarations.h,modes/retropilot.h,modes/retropilot_active.h}, car/retropilot/interface.py. Official https://docs.comma.ai/SAFETY/ and commaai/opendbc README opened/searched November8 support driver override and bounded actuation concepts. Student CHIMERA_OLD_PANDAD topic extended.
+**Status/limits:** Source/doc explanation only; no implementation, test rerun, native/firmware build, device/vehicle/relay/CAN action, update or push. Notebook/QA/whitespace checks only. No calibrated physical profile or installed-board safety qualification. Classic CAN only; old retained/new halted. Existing unanswered items preserved.
+
+---
+
 ## QA-20261107-23 — Meaning of DC plus safety model and parameter
 
 **Date:** November 7, 2026 UTC.

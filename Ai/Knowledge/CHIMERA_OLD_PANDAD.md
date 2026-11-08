@@ -199,3 +199,21 @@ This is not arithmetic, a CAN frame or an AI-model selection. ExampleDC/19/0
 selects Panda noOutput with parameter0; actual parameter meanings are selected
 firmware-rule-specific, often flags. No command was executed. Old Chimera19
 only clears relay_req_usb and ignores wIndex; previous relay caveats remain.
+
+## November 8 — Safety-rule inputs and remaining requirements (QA-20261108-01)
+
+Rules consume model/parameter, CAN feedback, requested frames, time/history and
+heartbeat. Model-dependent checks cover RX validity/freshness, driver override,
+TX ID/bus/DLC and command magnitude/rate. Limits are compiled/model-defined;
+wIndex is not a generic upload of all safety limits. Camera/model inference is
+not a direct input to these MCU hooks. Output includes allow/block decisions
+and control/fault state, rather than only relay behavior.
+
+Local opendbc150f9371 includes retropilot_active.h's parameterized engine, but
+retropilot_init supplies NULL and no qualified active production profile. The
+car interface remains noOutput/dashcam-only. Old Chimera does not enforce this
+engine in its TX path. Classic-only future work needs canonical DBC/bus routing,
+measured endpoint limits/feedback calibration, override/timeout contract, MCU
+hook integration and tests. No such implementation was resumed here.
+Source baseline8fde793454f5908e88f6210d9c56b3cd41858212; official concept reference
+https://docs.comma.ai/SAFETY/ opened November8. No physical qualification claimed.
