@@ -1,3 +1,17 @@
+## November 8 — BeamNG / Waveshare after RESET (QA48)
+
+Owner confirms isolated printed CAN2. Game body max21.034km/h;400/400source
+samples decoded.602submitted/12s still0native frames on every USBbus0/1/2;
+independent978polls/19health also0during301submitted/6s. Sensor RX recovery
+therefore does not establish Waveshare TX or Chimera CAN. Both readers/gateway
+stopped; game AI disabled/pause acknowledged and time/position frozen (zero
+speed/parkingbrake application not verified).500kstandard/silent config written,
+port closed.76legacy hashes/native/DBC and existing steering dirt preserved.
+See Reports/beamng-chimera-postreset-20261108 and dated session.2gatespass,
+physical CAN handoff. Next independently qualify Waveshare electrical TX/ACK,
+then Chimera CAN2 supply/enable/termination; no automatic hardware/config/firmware
+or upstream work. New rewrite/update holds unchanged.
+
 2026-11-04 live observation: Radxa USB now enumerates actual Chimera/bbaa:ddcc, with pinned de193215 version and43-byte health. A1second read-only probe succeeded;0CAN frames observed. No board writes/flash or proof of CAN wiring/safety. PC CH340Waveshare is ttyUSB0. See dated BeamNG CAN session/evidence.
 
 2026-11-04 active BeamNG CAN increment: PC Lua producer/Waveshare gateway, RP-SIM-1 additive DBC, independent Radxa decoder/monitor and explicit receive-only RETROPILOT_BEAMNG profile implemented. 16 focused checks pass plus existing regressions. PC CH340 confirmed and files installed. Live game test blocked by missing NVIDIA modules for running kernel7.0.0-38; owner authorized repair, reviewed package script is waiting for local sudo authentication in PC terminal. No repair success, physical CAN delivery, localization fusion or control is claimed. No reboot or upstream update authorized.

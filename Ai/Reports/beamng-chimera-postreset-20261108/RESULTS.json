@@ -1,0 +1,229 @@
+{
+  "date": "2026-11-08T13:45:43.578100+00:00",
+  "question": "QA-20261108-48",
+  "baseline": {
+    "timestamp": "2026-11-08T13:43:00.002866+00:00",
+    "owner_confirmation": "Yes, Chimera CAN2 only; Waveshare USB on PC, isolated CAN pair with no actuators",
+    "head": "bcfc0ca7007e49978a001f84c21c01956070a8be",
+    "status": "",
+    "steering_status": " M AI/CHANGELOG.md\n M AI/DECISIONS.md\n M AI/ELM327_DATA.md\n M AI/HARDWARE.md\n M AI/NEXT_STEPS.md\n M AI/PROJECT_STATE.md\n M AI/README.md\n M AI/REFERENCES.md\n M AI/SESSION_HANDOFF.md\n M AI/SIGNAL_MAP.md\n M AI/TEST_LOG.md\n?? AI/DTC_UTILS_REVIEW.md\n?? AI/KIA_UDS_OBD_RESEARCH.md\n?? AI/POLO_3D0_LENKHILFE_RESEARCH_20261007.md\n?? AI/POLO_EPS_CAN_CAPTURE_20261007.md\n?? AI/POLO_PQ_DBC_MORE_DATA_20261007.md\n?? AI/WAVESHARE_USB_CAN_A.md\n?? AI/captures/\n",
+    "hashes": {
+      "sunnypilot/openpilot/selfdrive/pandad/pandad": "e9e692b6bfaf67d4c9061f4645a89d8337fc938bd857cf03e03f6a3454f81a84",
+      "retropilot/dbc/ocelot_controls.dbc": "b4079670b8118fe63c6a7710ca1158afaabfec7df881ef902e43d70d70a36b67",
+      "sunnypilot/openpilot/tools/sim/beamng/pc/gateway.py": "609d127a25817d4b7b12e23ef3b46f2513083427fceb318374311556d4c88acb",
+      "sunnypilot/chimera_old/SOURCES.json": "7a7400411ad8cad0c8b3441fa3ee8081e4a477d9627b90e59a588e51fa615fd3"
+    },
+    "source_hashes": {
+      "/home/radxa/comma/sunnypilot/openpilot/selfdrive/pandad/pandad": "e9e692b6bfaf67d4c9061f4645a89d8337fc938bd857cf03e03f6a3454f81a84",
+      "/home/radxa/comma/sunnypilot/openpilot/selfdrive/pandad/chimera_usb.cc": "51e6faa4067087b014ae9b8dbf43e4ef749094748d614518b9174f49437dad11",
+      "/home/radxa/comma/sunnypilot/openpilot/selfdrive/pandad/panda_usb_publish.cc": "135c09505c0ba5d7de9404ed78c5e3f4086c7ed565d87d545f54bca89aee5d00",
+      "/home/radxa/comma/sunnypilot/openpilot/tools/sim/beamng/pc/gateway.py": "609d127a25817d4b7b12e23ef3b46f2513083427fceb318374311556d4c88acb",
+      "/home/radxa/comma/sunnypilot/chimera_old/firmware/chimera/can.h": "7aca434faa4a1c37d59f5b43f495ed0d213f0e22fc46e4db28c433472b757310",
+      "/home/radxa/comma/sunnypilot/chimera_old/firmware/chimera/main.c": "5d1dd3b0400ec80da9b477abfced51c9346674865ce5ad86d7e5a012c2d94883",
+      "/home/radxa/comma/sunnypilot/chimera_old/SOURCES.json": "7a7400411ad8cad0c8b3441fa3ee8081e4a477d9627b90e59a588e51fa615fd3",
+      "/home/radxa/comma/sunnypilot/opendbc_repo/opendbc/dbc/ocelot_controls.dbc": "b4079670b8118fe63c6a7710ca1158afaabfec7df881ef902e43d70d70a36b67"
+    },
+    "ports": {
+      "0": {
+        "label": "CAN0",
+        "mcu": "CAN1",
+        "connectors": 6
+      },
+      "1": {
+        "label": "CAN1",
+        "mcu": "CAN2",
+        "connectors": 3
+      },
+      "2": {
+        "label": "CAN2",
+        "mcu": "CAN3",
+        "connectors": 3
+      }
+    },
+    "game_target_kph": 20,
+    "panda_head": "8a16e089b88593914823743df29e1c30b7dd3e00",
+    "opendbc_head": "150f937198ceab43c43b39f94b9bdea63fcb633c"
+  },
+  "pc_execution": {
+    "exit": 0,
+    "stdout": "{\"events\": [{\"event\": \"game_ai_started\", \"target_kph\": 20, \"vehicle\": \"q8b_ego\", \"model\": \"bastion\"}, {\"event\": \"source_completed\", \"exit\": 0, \"command\": [\"/home/pc/beamng-q8b/retropilot-can/.venv/bin/python\", \"pc/gateway.py\", \"--duration\", \"8\"]}, {\"event\": \"wire_completed\", \"exit\": 0, \"command\": [\"/home/pc/beamng-q8b/retropilot-can/.venv/bin/python\", \"pc/gateway.py\", \"--duration\", \"12\", \"--serial\", \"/dev/serial/by-id/usb-1a86_USB_Serial-if00-port0\", \"--transmit\", \"--bitrate\", \"500000\"]}], \"cleanup\": {\"ai_disabled\": true, \"game_stop_inputs_acknowledged\": true, \"pause_acknowledged\": true, \"gateway_processes\": []}, \"body_speed_kph_max\": 21.033806920806068, \"wheel_speed_kph_max\": 21.18280109437233, \"wire_speed_kph_max\": 21.033806920806068}\n",
+    "stderr": ""
+  },
+  "source": {
+    "samples": 400,
+    "valid_decoded": 400,
+    "genuine_game": true,
+    "speed_kph_min": 0.18000000000000002,
+    "speed_kph_max": 20.29,
+    "moving_samples": 391,
+    "ids": {
+      "2:0x700": 400,
+      "2:0x701": 400,
+      "2:0x50": 400,
+      "2:0x76": 400,
+      "2:0x75": 400,
+      "2:0x100": 400,
+      "2:0x702": 400,
+      "2:0x703": 400,
+      "2:0x704": 400,
+      "2:0x705": 400,
+      "2:0x706": 400,
+      "2:0x707": 400
+    }
+  },
+  "motion": {
+    "events": [
+      {
+        "event": "game_ai_started",
+        "target_kph": 20,
+        "vehicle": "q8b_ego",
+        "model": "bastion"
+      },
+      {
+        "event": "source_completed",
+        "exit": 0,
+        "command": [
+          "/home/pc/beamng-q8b/retropilot-can/.venv/bin/python",
+          "pc/gateway.py",
+          "--duration",
+          "8"
+        ]
+      },
+      {
+        "event": "wire_completed",
+        "exit": 0,
+        "command": [
+          "/home/pc/beamng-q8b/retropilot-can/.venv/bin/python",
+          "pc/gateway.py",
+          "--duration",
+          "12",
+          "--serial",
+          "/dev/serial/by-id/usb-1a86_USB_Serial-if00-port0",
+          "--transmit",
+          "--bitrate",
+          "500000"
+        ]
+      }
+    ],
+    "cleanup": {
+      "ai_disabled": true,
+      "game_stop_inputs_acknowledged": true,
+      "pause_acknowledged": true,
+      "gateway_processes": []
+    },
+    "body_speed_kph_max": 21.033806920806068,
+    "wheel_speed_kph_max": 21.18280109437233,
+    "wire_speed_kph_max": 21.033806920806068
+  },
+  "native": {
+    "duration": 32.115108727000916,
+    "native_exit": 0,
+    "can_batches": 3032,
+    "can_frames": 0,
+    "per_bus_frames": {
+      "0": 0,
+      "1": 0,
+      "2": 0
+    },
+    "bus_ids": {},
+    "valid_samples": 0,
+    "example_samples": [],
+    "actuator_commands": 0,
+    "native_profile": "chimeraOldMailbox16",
+    "error": null,
+    "native_process_stopped": true,
+    "health_samples": 32
+  },
+  "wire_submission": {
+    "samples": 602,
+    "physical_tx": true
+  },
+  "python_crosscheck": {
+    "reader_exit": 0,
+    "pc_ssh_exit": 0,
+    "records": 998,
+    "can_polls": 978,
+    "can_frames": 0,
+    "connected": {
+      "event": "connected",
+      "version": "v1.0.0-DEV-de193215-DEBUG",
+      "serial": "3a0044001651333038373636",
+      "health_raw": {
+        "uptime": 5487,
+        "voltage": 0,
+        "current": 0,
+        "can_rx_errs": 0,
+        "can_send_errs": 0,
+        "can_fwd_errs": 0,
+        "gmlan_send_errs": 0,
+        "faults": 0,
+        "ignition_line": 0,
+        "ignition_can": 0,
+        "controls_allowed": 0,
+        "gas_interceptor_detected": 0,
+        "car_harness_status": 0,
+        "usb_power_mode": 0,
+        "safety_model_raw": 17,
+        "safety_param_raw": 0,
+        "fault_status": 0,
+        "power_save_enabled": 0
+      },
+      "live_output": false
+    },
+    "health_samples": 19,
+    "reader_stopped": true
+  },
+  "crosscheck_submission": {
+    "samples": 301,
+    "physical_tx": true
+  },
+  "cleanup": {
+    "ai_disabled": true,
+    "game_stop_inputs_acknowledged": true,
+    "pause_acknowledged": true,
+    "paused_states": [
+      {
+        "sim_time": 34.71250164875528,
+        "pos": [
+          -673.2063452899456,
+          -333.68383234739304,
+          106.24922159739072
+        ],
+        "wheelspeed": 24.564037856257624,
+        "parkingbrake": 0.0
+      },
+      {
+        "sim_time": 34.71250164875528,
+        "pos": [
+          -673.2063452899456,
+          -333.68383234739304,
+          106.24922159739072
+        ],
+        "wheelspeed": 24.564037856257624,
+        "parkingbrake": 0.0
+      }
+    ],
+    "protocol_enabled": "true",
+    "gateway_processes": [],
+    "adapter_silent_config_written": true,
+    "adapter_config_hex": "aa55120301000000000000000001010000000018",
+    "adapter_port_closed": true,
+    "adapter_mode_readback": "not available; configuration write is not hardware mode confirmation",
+    "hashes": {
+      "/home/pc/beamng-q8b/retropilot-can/pc/gateway.py": "609d127a25817d4b7b12e23ef3b46f2513083427fceb318374311556d4c88acb",
+      "/home/pc/beamng-q8b/retropilot-can/pc/ocelot_controls.dbc": "b4079670b8118fe63c6a7710ca1158afaabfec7df881ef902e43d70d70a36b67",
+      "/home/pc/beamng-q8b/retropilot-can/shared/dbc-version.json": "87f11cb7b1d7598da1fa8ee49744a8c83ad5d4090a55fc6ede0d2cf0536b61b0",
+      "/home/pc/.local/share/BeamNG/BeamNG.drive/current/mods/unpacked/radxa_retropilot/lua/vehicle/protocols/radxaRetropilot.lua": "08c3810c2febd65154d8a89f7cd29f40357de2696ff3b47ad5429a89a893311f"
+    }
+  },
+  "legacy_files_verified": 76,
+  "status": "blocked: no physical CAN reception in either reader",
+  "scope": "Existing genuine-game telemetry only on owner-confirmed isolated printed CAN2; no physical actuator or Chimera output/config/firmware action",
+  "limits": [
+    "Serial submission does not verify electrical CAN TX or ACK.",
+    "Waveshare sensor RX recovery does not qualify TX or Chimera CAN.",
+    "No current rail/STB/termination measurements or installed-source equivalence.",
+    "Game pause independently verified by frozen simulation time/position; stop-input and AI requests acknowledged, but applied parkingbrake remains 0 and sampled wheelspeed remains nonzero while paused. Rest at zero speed not claimed.",
+    "Source game uses span AI, not Sunnypilot model/control output."
+  ]
+}

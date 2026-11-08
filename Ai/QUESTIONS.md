@@ -1,3 +1,14 @@
+## QA-20261108-48 — Retest Waveshare and BeamNG after RESET
+
+**Date:** November 8, 2026 UTC.
+**Owner request (faithful quote):** "now lets test wavwaahsre and beabng again".
+**Owner clarification (faithful quote):** "Yes, Chimera CAN2 only", confirming PC Waveshare CAN wires on the isolated printed CAN2 bus, without actuators.
+**Answer:** Launched the saved game/mod and Bastion scene; game AI target20km/h, measured body maximum21.034km/h. All400genuine source samples decoded,391moving. PC gateway submitted602samples over12s at500kCAN/2Mserial, but native32.115s/3032CAN batches/32health returned0raw frames on each USBbus0/1/2. Independent Python978polls/19health also0frames during another301submitted samples/6s. RESET recovery proved earlier Waveshare sensor reception, but did not restore or establish this physical telemetry path. Serial writes are not proof of electrical CAN TX/ACK. Both readers/gateways stopped; AI-disable and stop-input requests acknowledged, game paused with frozen simulation time/position. Applied parkingbrake remained0 and wheel speed nonzero while paused, so a stationary parked state is not claimed. Waveshare500kstandard/silent configuration written, serial closed; mode readback unavailable.
+**Evidence/source pins:** Baseline bcfc0ca7007e49978a001f84c21c01956070a8be; Panda8a16e089/opendbc150f9371. Ai/Reports/beamng-chimera-postreset-20261108/{README.md,RESULTS.json}; teacher same-named raw report includes native/Python captures, source decoder, motion polls, PC cleanup, GATES.md and FINAL_READBACK.json. Native SHAe9e692b6bfaf67d4c9061f4645a89d8337fc938bd857cf03e03f6a3454f81a84; canonical DBCb4079670;76legacy source files verified unchanged. Exact serial3a0044001651333038373636/versionv1.0.0-DEV-de193215-DEBUG.
+**Status/limits:** Bounded retest completed; physical CAN acceptance blocked,2gatesmet/1handoff. No source/firmware/DBC/model change, Chimera USB OUT/config/relay/heartbeat/reset/flash, actuator command, upstream update or push. Waveshare TX/ACK, current wiring/termination/rails/STB/controller state and installed-source equivalence remain unqualified. Next isolate real Waveshare TX with an independent known-good receiver/qualified measurement, then Chimera CAN2 reception/electrical conditions. Existing holds and unanswered questions retained.
+
+---
+
 ## QA-20261108-41 — Steering-angle sensor connected: anything on CAN3?
 
 **Date:** November 8, 2026 UTC.

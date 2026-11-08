@@ -1,3 +1,17 @@
+## November 8 — BeamNG / Waveshare after RESET (QA48)
+
+Owner confirms isolated printed CAN2. Game body max21.034km/h;400/400source
+samples decoded.602submitted/12s still0native frames on every USBbus0/1/2;
+independent978polls/19health also0during301submitted/6s. Sensor RX recovery
+therefore does not establish Waveshare TX or Chimera CAN. Both readers/gateway
+stopped; game AI disabled/pause acknowledged and time/position frozen (zero
+speed/parkingbrake application not verified).500kstandard/silent config written,
+port closed.76legacy hashes/native/DBC and existing steering dirt preserved.
+See Reports/beamng-chimera-postreset-20261108 and dated session.2gatespass,
+physical CAN handoff. Next independently qualify Waveshare electrical TX/ACK,
+then Chimera CAN2 supply/enable/termination; no automatic hardware/config/firmware
+or upstream work. New rewrite/update holds unchanged.
+
 ## November8 — All CAN buses with moving BeamNG; CAN2confirmed (QA33)
 
 Owner confirms printed connected groupCAN2 -> sourceMCUCAN3/USB2, resolving
