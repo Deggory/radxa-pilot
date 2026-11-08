@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-08",
+  "qa": "QA-20261108-62",
+  "baseline": "cb581195a1c86ef4016a22dde7d669d5fe6b3916",
+  "question_verbatim": "Which measurement was 5.05 V?",
+  "owner_answer_verbatim": "Chimera’s labelled 5V output to GND",
+  "preceding_numeric_reply_verbatim": "5.05",
+  "provenance": "Owner-reported; not independently measured",
+  "current_owner_readings_V": {
+    "Chimera_labelled_5V_to_GND": 5.05,
+    "CAN2_CANH_to_Chimera_GND": 3.3,
+    "CAN2_CANL_to_Chimera_GND": 1.8,
+    "separate_sensor_supply_positive_to_negative": null
+  },
+  "next_question": "What voltage does the steering-angle sensor’s separate power supply measure between its positive (+) and negative (−) outputs?",
+  "physical_gate": "G3 unmet: separate sensor supply voltage pending",
+  "hardware_actions_this_turn": [],
+  "latest_capture": "QA61: 8.001084505 s, 4091 reads, zero USB payload bytes; not rerun",
+  "limits": [
+    "Labelled 5V output is not measured CAN transceiver VCC under load",
+    "STB/RXD/current BTR/termination remain unqualified",
+    "Sensor rated supply not identified"
+  ],
+  "checks": "Q&A synchronization, JSON round-trip, historical evidence preservation and git diff --check; no runtime tests"
+}

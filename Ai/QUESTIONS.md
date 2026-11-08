@@ -1,3 +1,23 @@
+## QA-20261108-62 — Which measurement was 5.05 V?
+
+Date: 2026-11-08. Asked: “Which measurement was 5.05 V?” Actual owner answer:
+“Chimera’s labelled 5V output to GND”. This explicitly assigns the preceding
+“5.05” numeric reply to that measurement point. Recorded owner readings now:
+labelled 5V-to-Chimera-GND 5.05 V, CAN2 H-to-GND 3.3 V, L-to-GND 1.8 V.
+Separate sensor supply output is still unknown; asked its + to − voltage as
+one question. No assumption about sensor voltage/rating or transceiver VCC.
+The earlier 4.5 V is historical; no proof of actual chip supply, standby level,
+waveform, termination or received frames follows from the labelled output.
+
+Evidence/status: baseline cb581195a1c86ef4016a22dde7d669d5fe6b3916;
+Ai/Reports/chimera-can-levels-recheck-20261108/SUPPLY_CONFIRMATION_FOLLOWUP.json
+in both notebooks. Documentation clarification implemented, not a new hardware
+capture or successful CAN test. QA61’s 8.001 s / 4091 reads / zero bytes remains
+the latest result. Historical capture files retained as-of their own dates.
+G3 physical readings remains unmet pending sensor supply voltage; then continue
+qualified electrical/termination/controller diagnosis. No USB, configuration,
+firmware, wiring, upstream or product change this turn. Existing holds retained.
+
 ## QA-20261108-61 — Confirmed CAN2 H/L readings; one supply value still unassigned
 
 Date: 2026-11-08. Actual owner answers: “Yes, CAN-H 3.3 V and CAN-L 1.8 V”,

@@ -1,3 +1,16 @@
+## November 8 — Labelled 5V output confirmed at 5.05 V (QA62)
+
+Owner explicitly assigns the earlier “5.05” reply to Chimera’s labelled 5V
+output measured to GND. Current owner readings: labelled 5V = 5.05 V;
+CAN2 H = 3.3 V and L = 1.8 V to Chimera GND. Separate sensor supply output
+remains unknown; asked one numeric question, measured supply + to −.
+This resolves QA61’s supply-point ambiguity, not the missing sensor reading.
+The earlier 4.5 V is historical. Labelled output does not establish actual
+transceiver VCC/STB/RXD or valid frames. Latest capture remains QA61: zero
+USB bytes, with no new capture or device action for this clarification.
+G3 remains unmet. Last requested CAN2 500 kbit/s and all existing holds remain.
+Evidence: chimera-can-levels-recheck-20261108/SUPPLY_CONFIRMATION_FOLLOWUP.json.
+
 ## November 8 — CAN2 H/L confirmed3.3/1.8V; fresh raw RX still0 (QA61)
 
 Owner confirms both toChimeraGND. Reply5.05to two supply questions remains
