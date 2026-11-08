@@ -1,0 +1,40 @@
+{
+  "date": "2026-11-08",
+  "project_baseline": "a4dbb1997dedcba92b967b289c45c0fbd0331081",
+  "reported_measurement": {
+    "CANH_to_GND_V": 1.15,
+    "CANL_to_GND_V": 1.15,
+    "source": "owner reported approximately; meter accuracy/ground point and traffic state not independently verified",
+    "labelled_5V_to_GND_V": 4.5,
+    "labelled_3V3_to_GND_V": null
+  },
+  "power": "owner USB-only; printed connected CAN2",
+  "official_sources": {
+    "TJA1042_datasheet": "https://www.nxp.com/docs/en/data-sheet/TJA1042.pdf",
+    "Chimera_hardware": "https://wiki.retropilot.org/index/hardware/chimera",
+    "Waveshare_USB_CAN_A": "https://www.waveshare.com/wiki/USB-CAN-A"
+  },
+  "source_hashes": {
+    "/home/radxa/comma/sunnypilot/chimera/docs/OCELOT_BASE_POWER.md": "b5bb3eaba1872d415e097f5ad0356d7327f29c4689acf6e8c4a16758f061f96a",
+    "/home/radxa/comma/sunnypilot/chimera/hardware/ocelot-base-power-20261107.json": "373f3e4571390d7b2687cb7e4c2c4e1913b3c6eae2a7a2bf9ebd06e61f88c6d4",
+    "/home/radxa/comma/sunnypilot/chimera_old/firmware/boards/gateway.h": "26425d76947291d4711f36330b7e700e91d803622b42fe6e79c88f687f29451f",
+    "/home/radxa/comma/sunnypilot/chimera_old/firmware/chimera/main.c": "5d1dd3b0400ec80da9b477abfced51c9346674865ce5ad86d7e5a012c2d94883"
+  },
+  "base_power_replay_command": [
+    "python3",
+    "Ai/Reports/chimera-power-schematic-20261107/trace_power.py",
+    "--workspace",
+    "/home/radxa/comma"
+  ],
+  "base_power_checks_passed": 36,
+  "unresolved": [
+    "actual labelled5Vand3.3V readings requested",
+    "actual transceiver VCC/VIO/STB/current/ground remain unmeasured",
+    "installed-image/source equivalence unqualified",
+    "resistance/termination not measured"
+  ],
+  "measurement_quotes": [
+    "Each wire to GND",
+    "5v showed 4.5 volt t gnd"
+  ]
+}

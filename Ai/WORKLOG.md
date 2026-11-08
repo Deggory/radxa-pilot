@@ -1,3 +1,13 @@
+## November8 — Reported CAN1.15V / USB5V rail4.5V (QA34)
+
+Owner measured each CANH/L~1.15VtoGND and labelled5Vrail4.5V;3.3V reading pending.
+Reference TJA1042 minimumVCC4.5V makes supply drop a lead, not a proven cause.
+Recovered accepted Ocelot base USB->diode->shared5V->CANVCC/3.3V and startup
+CAN enables independent of ignition;36source checks pass. No blanket IGN/12V
+prerequisite or measured healthy CAN power claimed. See student voltage report.
+Next3.3V/supply/ground/termination measurements; no new hardware/code action.
+PrintedCAN2, USB-only setup and rewrite/update holds retained.
+
 ## November8 — All CAN buses with moving BeamNG; CAN2confirmed (QA33)
 
 Owner confirms printed connected groupCAN2 -> sourceMCUCAN3/USB2, resolving
