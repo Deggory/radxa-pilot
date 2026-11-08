@@ -1,0 +1,424 @@
+{
+  "date": "2026-11-08",
+  "project_baseline": "560e3ea87c0961bb9da2cf550b154011ae985184",
+  "panda": "8a16e089b88593914823743df29e1c30b7dd3e00",
+  "opendbc": "150f937198ceab43c43b39f94b9bdea63fcb633c",
+  "source_sha256": {
+    "panda/board/main.c": "5ad930c0334a132b0dfd16c880e6f7853d73d74dea1274fea5166700d6a2ebd5",
+    "panda/board/main_comms.h": "3b56277606e3db25b410b2554689318e1283f82bffbec4fdbf56a33423d99469",
+    "panda/board/can_comms.h": "5806c9bda986d0044b6cb83ed0b79ae95b715b75f0f6fb33cbfc6e2e660841b3",
+    "panda/board/health.h": "af9e8fca563ced23bc3c478a4bc8907e519b938b83eb023b02d982a66acc83f8",
+    "panda/board/bootstub.c": "c363f70286b1591805de82f830c7f3b0a6b9cd9ba53eb0be4bf023535f0582ef",
+    "panda/board/flasher.h": "fdf8cde57d3d6f1489dddef1deebaf0578e9ba36bd29ce2d263c8a5d998478bc",
+    "panda/board/boards/board_declarations.h": "536032eee2fac73314af7dfb105df81fca33bf05f87094f11ee30af8de778241",
+    "panda/board/boards/red.h": "71d7bb48348b30c0bbfd8a86bc4aa923852115e36a9cd706b5a6511ef6b01e1b",
+    "panda/board/boards/tres.h": "a731277437841622eafcef0ef9a2b889035094d445002ed711ac95ab45ba4d77",
+    "panda/board/boards/cuatro.h": "0619c71d2b0805032a76812e8e1601bb0e8539460e4c7db6e9a1d44cc24006c9",
+    "panda/board/boards/unused_funcs.h": "6cb6ea84be48a78f777e23246d6adafec9875d985f029da5072c6996a0ee21ba",
+    "panda/board/drivers/harness.h": "4cc912296f1dd6b3fd025312afeebe43cf7ed6ec023acb9d5db41c19e33588b0",
+    "panda/board/drivers/can_common.h": "1509297d8ce4f8a527c3bf941dae3f82a26db82a4c3397fd324bd32b81ec9ec1",
+    "panda/board/drivers/fdcan.h": "c2dc76a42e039414b1f8b384cec8e3eae47f8f4eeea68d92150b843598f6f150",
+    "panda/board/drivers/bootkick.h": "5e1252781593a5383bf2b27ab12810a2ff5b296b745ecdd65b2e7f65f12f8f3c",
+    "panda/board/drivers/registers.h": "935acf031629850c6e31c528fe6724d8d8a6f3539b7aa867e167fd2dcd7bc9cf",
+    "panda/board/drivers/simple_watchdog.h": "38cd9992ac95ec35dd22a24a2896ec453407d33b98ddb9ff06b5b1a1a85d20d3",
+    "panda/board/sys/faults.h": "c4df5dbedf40c7f30231b99a095dd4950152aafaa8dfcc7c056598f57916bb3b",
+    "panda/board/sys/power_saving.h": "bd980fbb81982459983fd0b48b28ffeed562879cdb1f2be2c4e644dbce7879b9",
+    "panda/python/__init__.py": "bbf41b79240225bbf9a2f296761cf42ec90ce8d050831221e0d51141148795dc",
+    "panda/README.md": "a6fd754578a6bffd94fe3be122bf9b4fb029e383c760fba5b59bce69e023dbec",
+    "openpilot/selfdrive/pandad/panda.h": "f8b5711a1248e88043c8476dd3cebe65a5b30b6f4999ac85e83e23fe360aff54",
+    "openpilot/selfdrive/pandad/panda.cc": "f29e343a6e578ba781667e2a8762f0f667ef818f6696077fb417dac05ef8c22f",
+    "openpilot/selfdrive/pandad/pandad.cc": "84346f905b752754b7d5afd75fd1a25e184bc7c2514994bede4e0fb798b41d76",
+    "openpilot/selfdrive/pandad/panda_safety.cc": "3ee06151027e3be3f1e0cf285dd77ef6e55bb8e8ef91178941b564cb18ec97fc",
+    "openpilot/selfdrive/pandad/main.cc": "a17676bd3019d4ca1566214cb1fa4b0b065112280c225507b7838fa2693b00f7",
+    "openpilot/selfdrive/pandad/pandad.py": "68cfe791c40e46b7b0495eb1e447aeaa5fcccf93563255107ce5213138645274",
+    "chimera_old/firmware/chimera/main.c": "5d1dd3b0400ec80da9b477abfced51c9346674865ce5ad86d7e5a012c2d94883",
+    "chimera_old/firmware/chimera/can.h": "7aca434faa4a1c37d59f5b43f495ed0d213f0e22fc46e4db28c433472b757310",
+    "chimera_old/firmware/boards/black.h": "0740625cf31008ef7e22a477df98d8ecd52ded29dc64f54af72ea4e3a1c0f26c",
+    "opendbc_repo/opendbc/safety/safety.h": "5989c80595dfadcb3b9c9023831f5ba91769212302c98eff14130ae133cca4d6"
+  },
+  "application_commands": [
+    {
+      "command": "0xa8",
+      "line": 71,
+      "description": "get microsecond timer"
+    },
+    {
+      "command": "0xb0",
+      "line": 80,
+      "description": "set IR power"
+    },
+    {
+      "command": "0xb1",
+      "line": 84,
+      "description": "set fan power"
+    },
+    {
+      "command": "0xb2",
+      "line": 88,
+      "description": "get fan rpm"
+    },
+    {
+      "command": "0xb5",
+      "line": 95,
+      "description": "request deep sleep, wakes on CAN or SBU"
+    },
+    {
+      "command": "0xb6",
+      "line": 102,
+      "description": "read debug logs"
+    },
+    {
+      "command": "0xc0",
+      "line": 108,
+      "description": "reset communications state"
+    },
+    {
+      "command": "0xc1",
+      "line": 112,
+      "description": "get hardware type"
+    },
+    {
+      "command": "0xc2",
+      "line": 117,
+      "description": "CAN health stats"
+    },
+    {
+      "command": "0xc3",
+      "line": 131,
+      "description": "fetch MCU UID"
+    },
+    {
+      "command": "0xc4",
+      "line": 136,
+      "description": "get interrupt call rate"
+    },
+    {
+      "command": "0xc5",
+      "line": 147,
+      "description": "DEBUG: drive relay"
+    },
+    {
+      "command": "0xc6",
+      "line": 151,
+      "description": "DEBUG: read SOM GPIO"
+    },
+    {
+      "command": "0xd0",
+      "line": 156,
+      "description": "fetch serial (aka the provisioned dongle ID)"
+    },
+    {
+      "command": "0xd1",
+      "line": 167,
+      "description": "enter bootloader mode"
+    },
+    {
+      "command": "0xd2",
+      "line": 189,
+      "description": "get health packet"
+    },
+    {
+      "command": "0xd3",
+      "line": 193,
+      "description": "get first 64 bytes of signature"
+    },
+    {
+      "command": "0xd4",
+      "line": 202,
+      "description": "get second 64 bytes of signature"
+    },
+    {
+      "command": "0xd6",
+      "line": 211,
+      "description": "get version"
+    },
+    {
+      "command": "0xd8",
+      "line": 217,
+      "description": "reset ST"
+    },
+    {
+      "command": "0xdb",
+      "line": 221,
+      "description": "set OBD CAN multiplexing mode"
+    },
+    {
+      "command": "0xdc",
+      "line": 225,
+      "description": "set safety mode"
+    },
+    {
+      "command": "0xdd",
+      "line": 229,
+      "description": "get health and CAN packet versions"
+    },
+    {
+      "command": "0xde",
+      "line": 236,
+      "description": "set can bitrate"
+    },
+    {
+      "command": "0xdf",
+      "line": 244,
+      "description": "set alternative experience"
+    },
+    {
+      "command": "0xe5",
+      "line": 253,
+      "description": "set CAN loopback (for testing)"
+    },
+    {
+      "command": "0xe6",
+      "line": 258,
+      "description": "set custom clock source period and pulse length"
+    },
+    {
+      "command": "0xe7",
+      "line": 262,
+      "description": "set power save state"
+    },
+    {
+      "command": "0xe8",
+      "line": 266,
+      "description": "set can-fd auto swithing mode"
+    },
+    {
+      "command": "0xf1",
+      "line": 270,
+      "description": "Clear CAN ring buffer."
+    },
+    {
+      "command": "0xf3",
+      "line": 282,
+      "description": "Heartbeat. Resets heartbeat counter."
+    },
+    {
+      "command": "0xf6",
+      "line": 293,
+      "description": "set siren enabled"
+    },
+    {
+      "command": "0xf8",
+      "line": 297,
+      "description": "disable heartbeat checks"
+    },
+    {
+      "command": "0xf9",
+      "line": 303,
+      "description": "set CAN FD data bitrate"
+    },
+    {
+      "command": "0xfc",
+      "line": 314,
+      "description": "set CAN FD non-ISO mode"
+    }
+  ],
+  "bootloader_commands": [
+    {
+      "command": "0xb0",
+      "line": 25,
+      "description": "flasher echo"
+    },
+    {
+      "command": "0xb1",
+      "line": 29,
+      "description": "unlock flash"
+    },
+    {
+      "command": "0xb2",
+      "line": 39,
+      "description": "erase sector"
+    },
+    {
+      "command": "0xc1",
+      "line": 46,
+      "description": "get hardware type"
+    },
+    {
+      "command": "0xc3",
+      "line": 51,
+      "description": "fetch MCU UID"
+    },
+    {
+      "command": "0xd0",
+      "line": 56,
+      "description": "fetch serial number"
+    },
+    {
+      "command": "0xd1",
+      "line": 67,
+      "description": "enter bootloader mode"
+    },
+    {
+      "command": "0xd6",
+      "line": 83,
+      "description": "get version"
+    },
+    {
+      "command": "0xd8",
+      "line": 89,
+      "description": "reset ST"
+    }
+  ],
+  "old_chimera_active_command_numbers": [
+    {
+      "command": "0xd1",
+      "line": 271,
+      "description": "enter bootloader mode"
+    },
+    {
+      "command": "0xd2",
+      "line": 296,
+      "description": ""
+    },
+    {
+      "command": "0xd3",
+      "line": 300,
+      "description": "get first 64 bytes of signature"
+    },
+    {
+      "command": "0xd4",
+      "line": 309,
+      "description": "get second 64 bytes of signature"
+    },
+    {
+      "command": "0xd6",
+      "line": 318,
+      "description": "get version"
+    },
+    {
+      "command": "0xd7",
+      "line": 325,
+      "description": ""
+    },
+    {
+      "command": "0xd8",
+      "line": 332,
+      "description": "reset ST"
+    },
+    {
+      "command": "0xdc",
+      "line": 335,
+      "description": ""
+    },
+    {
+      "command": "0xde",
+      "line": 344,
+      "description": ""
+    },
+    {
+      "command": "0xe0",
+      "line": 351,
+      "description": "uart read"
+    },
+    {
+      "command": "0xe5",
+      "line": 363,
+      "description": ""
+    },
+    {
+      "command": "0xf1",
+      "line": 369,
+      "description": ""
+    },
+    {
+      "command": "0xf3",
+      "line": 374,
+      "description": ""
+    },
+    {
+      "command": "0xfb",
+      "line": 378,
+      "description": ""
+    },
+    {
+      "command": "0xfc",
+      "line": 381,
+      "description": ""
+    },
+    {
+      "command": "0xfd",
+      "line": 384,
+      "description": ""
+    },
+    {
+      "command": "0xfe",
+      "line": 388,
+      "description": ""
+    },
+    {
+      "command": "0xff",
+      "line": 404,
+      "description": ""
+    }
+  ],
+  "panda_python_methods": [
+    "__init__",
+    "_cli_select_panda",
+    "__enter__",
+    "__exit__",
+    "close",
+    "connect",
+    "spi",
+    "spi_connect",
+    "usb_connect",
+    "is_connected_spi",
+    "is_connected_usb",
+    "list",
+    "usb_list",
+    "spi_list",
+    "reset",
+    "connected",
+    "reconnect",
+    "flasher_present",
+    "flash_static",
+    "flash",
+    "recover",
+    "wait_for_dfu",
+    "wait_for_panda",
+    "up_to_date",
+    "call_control_api",
+    "health",
+    "can_health",
+    "get_version",
+    "get_signature_from_firmware",
+    "get_signature",
+    "get_type",
+    "get_packets_versions",
+    "is_internal",
+    "get_serial",
+    "get_usb_serial",
+    "get_dfu_serial",
+    "get_uid",
+    "get_secret",
+    "get_interrupt_call_rate",
+    "set_alternative_experience",
+    "set_power_save",
+    "enter_stop_mode",
+    "set_safety_mode",
+    "set_obd",
+    "set_can_loopback",
+    "set_can_enable",
+    "set_can_speed_kbps",
+    "set_can_data_speed_kbps",
+    "set_canfd_non_iso",
+    "set_canfd_auto",
+    "can_reset_communications",
+    "can_send_many",
+    "can_send",
+    "can_recv",
+    "can_clear",
+    "debug_read",
+    "send_heartbeat",
+    "set_heartbeat_disabled",
+    "get_microsecond_timer",
+    "set_ir_power",
+    "set_fan_power",
+    "get_fan_rpm",
+    "set_siren",
+    "set_clock_source_timer_params",
+    "force_relay_drive",
+    "read_som_gpio"
+  ],
+  "verification": "static inventory only; no imported device clients, tests, build or hardware access"
+}

@@ -1,3 +1,13 @@
+## November 8 — Panda function inventory (QA-20261108-03)
+
+Student Ai/Knowledge/PANDA_FUNCTIONS.md maps firmware/host/board functions;
+receipt has31hashes,35normal/9flasher commands and API inventory. Distinguish
+standalone red from internal peripherals, historical black and current passive
+F4v17 runtime. Stale host E0/E4/FB/PythonF4 APIs and dormant FD-auto setup noted,
+not fixed. Source-only at560e3ea87; no code/test/build/hardware/update/push.
+Classic-only scope, preserved old firmware, halted rewrite and proposed native
+Chimera RX next step retained. Full installed compatibility remains untested.
+
 ## November 8 — Panda safety inputs explained (QA-20261108-01)
 
 Safety uses live feedback, requested CAN, model/parameter, timing and heartbeat;

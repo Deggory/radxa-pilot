@@ -1,3 +1,13 @@
+## QA-20261108-03 — See all the things Panda does
+
+**Date:** November 8, 2026 UTC.
+**Owner request (faithful quote):** "see all the thing panda does".
+**Answer:** Inspected current Panda normal firmware, bootstub/flasher, board callbacks, Python API and local pandad, with historical black-board context. Functions include multi-bus CAN RX/TX, framing/queues/checksums/receipts, routing/multiplexing/bitrate/loopback, MCU safety and driver override, heartbeat/liveness, harness/ignition, health/per-bus statistics, watchdog/register/interrupt/fault diagnostics, identity/version/signatures, signed boot and flash/DFU recovery, power saving and board-specific peripherals. Host pandad translates CAN/cereal and manages status/config/heartbeat; MCU does not run driving AI. Red lacks several internal-board peripherals; historical GPS/serial functions are version-specific. Complete local source command inventory:35normal vendor cases,9flasher cases, plus ordinary USB/CAN bulk streams. Current local launcher still runs passive F4v17 observation only, not dormant normal send/control threads; old Chimera native session remains proposed. Found stale host command methods E0/E4/FB and Python F4 absent in the pinned normal firmware handler; existing dormant connect also requests FD-auto, which must stay out of our classic-only route. No compatibility fix was made. Old Chimera's own sensor/config/relay behavior and missing modern safety/status contract remain distinct.
+**Evidence/source pins:** Sunnypilot560e3ea87c0961bb9da2cf550b154011ae985184; Panda8a16e089, opendbc150f9371; student Ai/Knowledge/PANDA_FUNCTIONS.md and Ai/Evidence/panda-functions-20261108.json retain31source hashes, command/method inventories and board/runtime limits. Fresh official pinned Panda README and comma safety docs read. Prior F4 study69a2d3be is reference, not an installed firmware claim.
+**Status/limits:** Source inventory only, not exhaustive proof of every car mode/historical board/body target. Static command-count/comment-exclusion and notebook/QA/whitespace checks; no test-suite rerun, firmware/native build, hardware/USB/CAN/flash/config/update/push. Classic CAN only, old firmware preserved, new rewrite halted; native RX remains next proposed capability. Existing unanswered items preserved.
+
+---
+
 ## QA-20261108-02 — Do black/red Panda and our project need these safety inputs?
 
 **Date:** November 8, 2026 UTC.
