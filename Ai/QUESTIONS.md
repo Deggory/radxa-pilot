@@ -1,3 +1,43 @@
+## QA-20261108-59 — Proceed with CAN2 initialization and standby investigation
+
+Date: 2026-11-08. Owner instruction (faithful quote): “proceed”, after the
+reported failed temporary500kreceive test and proposed controller/standby check.
+
+Answer so far: selected original Chimera serial3a0044001651333038373636/version
+v1.0.0-DEV-de193215-DEBUG and application signature again matched. Cleared debug
+ring to empty before one diagnostic repeat of DE/bus2/index5000. Command took
+0.001370793994s; immediate debug was empty; later ordinary debug logs contained
+no new initialization timeout. Raw5.001342342s/2540reads still0bytes/frames.
+This argues against a printed long init timeout, not proof of BTR/filter/RXD.
+Flash776bytes unchanged, CRC-valid SHA4b025b9e65b10475013ed39f8d4e66abf780a7cbe6ebf18833d952e46ffe3b22.
+All76legacy/native/DBC and dirty sets preserved; probe stopped/USB released.
+Last requested runtimeCAN2rate500kretained; no reset/restore/CAN dataTX.
+
+New artifact trace: matching image's0x0800520c enablesCAN3clock; board init at
+0x080067cc enables PC1/PC13/PA0low via a helper that also sets output mode;
+0x0800501c selects CAN3PA8/15AF11. Thus expected printedCAN2STB=PA0low in boot
+code, not a measured current voltage. D2/E0/FFcannot read BTR/ESR/PA0/VCC; FB/FC
+are default/unsupported in this image despite later source JSON RPC. B6has
+input-capture/configuration effects and only selectedPA3..6inputs, not PA0;
+B7is a fixedVIN1marker. No unsupported/request sweeps or JSON query sent.
+The application includes chimera/can.h; shared drivers/can.h/power_saving.h
+must not be mistaken for its active implementation.
+
+Physical verification remains pending: requested current labelled5V-to-GND,
+CAN2H-to-GND,CAN2L-to-GND,and separate sensor supply output via async question;
+no fresh numeric answer yet. Earlier4.5V/1..1.15Vremain historical. TJA1042normal
+mode needs STBlow and healthy supply; VCCundervoltage overrides STB (NXPRev11).
+USB/software cannot measure these physical states. Sensor transmission and
+termination also remain unqualified; no new wiring/power action or flash.
+
+Evidence/source pin: baselineabe2d2ae1edf0a60b1b71f92bbc294317c997849;
+Ai/Reports/chimera-can2-init-standby-20261108/README.md/EVIDENCE.json(student),
+central same report INIT_DIAGNOSTIC.json/IMAGE_PATHS.json and focused disassembly.
+Reused QA56objdump/REA-unavailable evidence; no fabricated decompilation.
+Status: software investigation increment implemented; physical check awaiting
+owner measurements. Existing flash/new-firmware/upstream holds remain. Next
+triage actual readings, then qualified VCC/STB/RXD/controller-state/termination.
+
 ## QA-20261108-58 — Execute the temporary CAN2 500kbit/s test
 
 Date: 2026-11-08. Owner instruction (faithful quote): “lets test it”, referring

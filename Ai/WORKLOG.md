@@ -1,3 +1,16 @@
+## November 8 — CAN2 init/standby software check; meter readings pending (QA59)
+
+Same-rate DE/bus2/index5000repeat after debug drain completed1.37ms; no immediate
+init timeout; later debug works. Raw5.001s/2540reads still0bytes. Matching image
+boot enablesCAN3clock and drives PA0outputlow; CAN pins configured. These are
+code/log observations, not current BTR/STB/VCC measurements. B6is selectedPA3..6
+input capture, not standby telemetry; no arbitrary register API/FB-FCJSON route.
+Read student Reports/chimera-can2-init-standby-20261108/README.md/EVIDENCE.json.
+Physical gate still pending owner5V/CANH/CANL/sensor-supply readings (async asked).
+Flash/76legacy/native/DBC preserved; USB released; last requested500kretained.
+No reset/restore/flash/CAN dataTX/product change. Other holds remain; next triage
+actual readings, then qualified controller/electrical/termination investigation.
+
 ## November 8 — Temporary CAN2 500k test completed, still zero RX (QA58)
 
 Owner authorized the proposed runtime test. Exact identity/signature/config

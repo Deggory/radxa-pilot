@@ -1,0 +1,198 @@
+{
+  "diagnostic": {
+    "board": {
+      "bus": 3,
+      "address": 21,
+      "pid": 56780,
+      "product": "Chimera",
+      "serial": "3a0044001651333038373636"
+    },
+    "command_completed": true,
+    "live_registers_read": false,
+    "authorization": "owner proceed; diagnostic repeat of same temporary CAN2 500k initialization",
+    "version": "v1.0.0-DEV-de193215-DEBUG",
+    "signature_match": true,
+    "health_before": {
+      "uptime": 23897,
+      "voltage": 0,
+      "current": 0,
+      "can_rx_errs": 0,
+      "can_send_errs": 0,
+      "can_fwd_errs": 0,
+      "gmlan_send_errs": 0,
+      "faults": 0,
+      "ignition_line": 0,
+      "ignition_can": 0,
+      "controls_allowed": 0,
+      "gas_interceptor_detected": 0,
+      "car_harness_status": 0,
+      "usb_power_mode": 0,
+      "safety_model_raw": 17,
+      "safety_param_raw": 0,
+      "fault_status": 0,
+      "power_save_enabled": 0
+    },
+    "command_seconds": 0.0013707939942833036,
+    "debug_immediate": {
+      "bytes": 0,
+      "drained_until_empty": true,
+      "text": ""
+    },
+    "health_immediate": {
+      "uptime": 23897,
+      "voltage": 0,
+      "current": 0,
+      "can_rx_errs": 0,
+      "can_send_errs": 0,
+      "can_fwd_errs": 0,
+      "gmlan_send_errs": 0,
+      "faults": 0,
+      "ignition_line": 0,
+      "ignition_can": 0,
+      "controls_allowed": 0,
+      "gas_interceptor_detected": 0,
+      "car_harness_status": 0,
+      "usb_power_mode": 0,
+      "safety_model_raw": 17,
+      "safety_param_raw": 0,
+      "fault_status": 0,
+      "power_save_enabled": 0
+    },
+    "flash_unchanged": true,
+    "config_sha256": "4b025b9e65b10475013ed39f8d4e66abf780a7cbe6ebf18833d952e46ffe3b22",
+    "new_init_error_lines": [],
+    "usb_closed": true,
+    "error": null,
+    "OUT_count": 1,
+    "debug_before_bytes": 1023,
+    "debug_before_drained": true,
+    "debug_later_bytes": 1151,
+    "debug_later_text_retained_centrally": true,
+    "raw_capture": {
+      "duration_seconds": 5.001342342002317,
+      "polls": 2540,
+      "usb_payload_bytes": 0,
+      "length_histogram": {
+        "0": 2540
+      },
+      "return_codes": {
+        "0": 2540
+      },
+      "trailing_bytes": 0,
+      "total_records": 0,
+      "per_bus_records": {
+        "0": 0,
+        "1": 0,
+        "2": 0
+      },
+      "bus_ids": {},
+      "distinct_payloads": {},
+      "health_reports": 10
+    },
+    "OUT_requests": [
+      {
+        "direction": "OUT",
+        "request": "0xde",
+        "value": 2,
+        "index": 5000,
+        "length": 0,
+        "completed": true
+      }
+    ],
+    "request_count": 79
+  },
+  "image_paths": {
+    "artifact_sha256": "a615f53776c056be4f1214373815abafb5791cffe1a910213497a93494e3d1bb",
+    "board_table": "0x800a080",
+    "board_init": "0x80067cd",
+    "enable_transceiver": "0x8006757",
+    "enable_transceivers": "0x80067b1",
+    "GPIOA_literal": "0x40020000",
+    "GPIOC_literal": "0x40020800",
+    "CAN3_clock_enable_instruction": "0x0800520c ORR 0x08000000 to RCC APB1ENR",
+    "CAN_pin_mux_function": "0x0800501c",
+    "CAN2_STB_expected": "PA0 driven output low in startup; not live readback",
+    "vendor_D1_E5": {
+      "0xd1": "0x80082ad",
+      "0xd2": "0x80083c5",
+      "0xd3": "0x80083cf",
+      "0xd4": "0x80083e1",
+      "0xd5": "0x80081b5",
+      "0xd6": "0x80083e9",
+      "0xd7": "0x80081b5",
+      "0xd8": "0x80082cf",
+      "0xd9": "0x80081b5",
+      "0xda": "0x80081b5",
+      "0xdb": "0x80081b5",
+      "0xdc": "0x80083f7",
+      "0xdd": "0x80081b5",
+      "0xde": "0x8008413",
+      "0xdf": "0x80081b5",
+      "0xe0": "0x800842f",
+      "0xe1": "0x80081b5",
+      "0xe2": "0x80081b5",
+      "0xe3": "0x80081b5",
+      "0xe4": "0x80081b5",
+      "0xe5": "0x8008467"
+    },
+    "vendor_F1_FF": {
+      "0xf1": "0x8008479",
+      "0xf2": "0x80081b5",
+      "0xf3": "0x8008491",
+      "0xf4": "0x80081b5",
+      "0xf5": "0x80081b5",
+      "0xf6": "0x80081b5",
+      "0xf7": "0x80081b5",
+      "0xf8": "0x80081b5",
+      "0xf9": "0x80081b5",
+      "0xfa": "0x80081b5",
+      "0xfb": "0x80081b5",
+      "0xfc": "0x80081b5",
+      "0xfd": "0x8008499",
+      "0xfe": "0x80084f1",
+      "0xff": "0x8008533"
+    },
+    "selected_strings": [
+      {
+        "address": "0x800a143",
+        "string": " set_speed timed out (1)!"
+      },
+      {
+        "address": "0x800a15e",
+        "string": " set_speed timed out (2)!"
+      },
+      {
+        "address": "0x800a179",
+        "string": " initialization timed out!"
+      },
+      {
+        "address": "0x800a195",
+        "string": "Invalid CAN: initialization failed"
+      }
+    ],
+    "B6": "0x080082ee: input-capture selector0..4, GPIOA bits3..6 for nonzero selectors; configuration effects, not CAN/STB register read",
+    "B7_constant": "56494e31"
+  },
+  "physical_readings": {
+    "status": "pending owner",
+    "new_values": null
+  },
+  "preservation": {
+    "legacy_file_count": 76,
+    "hashes_preserved": true,
+    "dirty_sets_preserved": true,
+    "USB_owners": [],
+    "saved_config_sha256": "4b025b9e65b10475013ed39f8d4e66abf780a7cbe6ebf18833d952e46ffe3b22",
+    "last_requested_CAN2_kbps": 500,
+    "live_BTR_STB_VCC_read": false,
+    "new_initialization_errors_printed": [],
+    "physical_measurements": "awaiting owner; no fresh numeric values supplied yet"
+  },
+  "gates": {
+    "met": 3,
+    "unmet": 1,
+    "abandoned": 0,
+    "pending_gate": "G3: current owner meter readings",
+    "status": "software increment verified; physical investigation pending"
+  }
+}
