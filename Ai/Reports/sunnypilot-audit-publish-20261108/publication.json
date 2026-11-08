@@ -1,0 +1,38 @@
+{
+  "official_master_sha": "3d8f211d4b2d7c4a981633783232c8ff8dbe402b",
+  "published_radxa_sha": "3eb53c9a293b0b960d2c4a800f65ed7c693da728",
+  "push_exit": 0,
+  "force": false,
+  "atomic": true,
+  "command": [
+    "git",
+    "-C",
+    "/home/radxa/comma/sunnypilot",
+    "push",
+    "--atomic",
+    "radxa-pilot",
+    "3d8f211d4b2d7c4a981633783232c8ff8dbe402b:refs/heads/master",
+    "3eb53c9a293b0b960d2c4a800f65ed7c693da728:refs/heads/radxa/q8b"
+  ],
+  "before_refs": {
+    "refs/heads/master": "932ff06d9316e4351d6b6b9f1dd422d5b639badf",
+    "refs/heads/opendbc/retropilot": "150f937198ceab43c43b39f94b9bdea63fcb633c",
+    "refs/heads/radxa/q8b": "dfd316d6554bbd39e221759c5637e648b8cd2cc3"
+  },
+  "publication_stage": "audit source commit; closeout receipt follows",
+  "after_refs": {
+    "refs/heads/master": "3d8f211d4b2d7c4a981633783232c8ff8dbe402b",
+    "refs/heads/opendbc/retropilot": "150f937198ceab43c43b39f94b9bdea63fcb633c",
+    "refs/heads/radxa/q8b": "3eb53c9a293b0b960d2c4a800f65ed7c693da728"
+  },
+  "local_master_before": "6f7a2c94c10dffcf9a83b120ab1e6985e4496868",
+  "local_master_after": "3d8f211d4b2d7c4a981633783232c8ff8dbe402b",
+  "radxa_worktree_branch": "radxa/q8b",
+  "working_tree_clean": true,
+  "github_connector_readme_blob": "b49bb9a80f26f7c3b63afd5bae76ac085ae05d55",
+  "local_readme_blob": "b49bb9a80f26f7c3b63afd5bae76ac085ae05d55",
+  "github_connector_master": "3d8f211d4b2d7c4a981633783232c8ff8dbe402b",
+  "default_branch": "master",
+  "readback_matches": true,
+  "owner_target_confirmation_verbatim": "Update GitHub radxa-pilot with our audited Radxa work"
+}

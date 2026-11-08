@@ -31,6 +31,20 @@ in student; coordinating BASELINE/TEST_RESULTS/logs/REVIEW and later publication
 Next complete branch publication/readbacks and record actual result; physical
 CAN and protected upstream integration remain unresolved/held respectively.
 
+### Publication completed — November 8, 2026
+
+Actual owner clarification (verbatim): “Update GitHub radxa-pilot with our audited
+Radxa work”. Completed normal atomic fast-forward push: radxa/q8b3eb53c9a2 and
+master3d8f211d4. Master equals the freshly observed official commit; our Radxa
+branch contains all prior68unpublished increments plus the audit. Local master
+also fast-forwarded without checking out or merging into Radxa. Child branch
+opendbc/retropilot remains150f9371. GitHub connector confirms masterSHA and README
+blobb49bb9a80f26f7c3b63afd5bae76ac085ae05d55equals local Git; default staysmaster.
+Three audit/publication gates pass. Publication receipt is saved in both layers;
+the following closeout commit carries it and receives a final normal push and
+remote-ref readback. Physical CAN remains0, modern implementation and protected
+upstream integration held, no hardware action/force push/automatic-update resume.
+
 ## QA-20261108-66 — Test Chimera after owner reflash
 
 Date: 2026-11-08. Owner: “i reflasehed chimera see if this works njpw”.

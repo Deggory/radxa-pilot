@@ -1,0 +1,35 @@
+[
+  {
+    "sha": "a1a28e467ede7240d444326c1dc04ce7f1fda378",
+    "parents": "932ff06d9316e4351d6b6b9f1dd422d5b639badf",
+    "date": "2026-11-05T15:35:07-05:00",
+    "author": "Nayan",
+    "subject": "[models] Support major.minor versioning (#2092)",
+    "paths": [
+      "release/ci/model_generator.py"
+    ]
+  },
+  {
+    "sha": "02ef6e4ce0a6e22f6209c17cc6a59f0684241008",
+    "parents": "a1a28e467ede7240d444326c1dc04ce7f1fda378",
+    "date": "2026-11-05T13:11:27-08:00",
+    "author": "James Vecellio-Grant",
+    "subject": "modeld_v2: artifact parity with upstream tg (#2093)",
+    "paths": [
+      ".github/workflows/test_models.yml",
+      "openpilot/sunnypilot/modeld_v2/convert_upstream_pkl.py",
+      "openpilot/sunnypilot/modeld_v2/helpers.py",
+      "openpilot/sunnypilot/modeld_v2/tests/test_convert_upstream_pkl.py"
+    ]
+  },
+  {
+    "sha": "3d8f211d4b2d7c4a981633783232c8ff8dbe402b",
+    "parents": "02ef6e4ce0a6e22f6209c17cc6a59f0684241008",
+    "date": "2026-11-06T16:03:02-05:00",
+    "author": "Jason Wen",
+    "subject": "bump opendbc",
+    "paths": [
+      "opendbc_repo"
+    ]
+  }
+]

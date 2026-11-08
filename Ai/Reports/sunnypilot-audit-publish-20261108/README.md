@@ -1,3 +1,11 @@
+**Actual publication — November 8:** normal atomic push published the audited
+Radxa source at3eb53c9a2 and official master at3d8f211d4. Independent GitHub
+README blob and masterSHA match; default branch remains master. See
+[publication receipt](publication.json). Owner explicitly clarified the GitHub
+Radxa update target. The following closeout commit saves this receipt and is
+published normally; source/tests are unchanged. Three gates met; CAN remains0.
+The preparation-stage wording below is historical.
+
 # Audit of Radxa Sunnypilot work — November 8, 2026
 
 The live project is /home/radxa/comma/sunnypilot on radxa/q8b. Baseline
