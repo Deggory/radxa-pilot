@@ -1,0 +1,41 @@
+{
+  "date": "2026-11-08",
+  "baseline": "efe4e9c951ebd1a994cc04a31ef36533bda65e4d",
+  "panda": "8a16e089b88593914823743df29e1c30b7dd3e00",
+  "opendbc": "150f937198ceab43c43b39f94b9bdea63fcb633c",
+  "reused_inventory": "Ai/Evidence/panda-functions-20261108.json",
+  "inventory_source_hashes_checked": 31,
+  "inventory_mismatches": [],
+  "old_chimera_files_checked": 76,
+  "old_chimera_mismatches": [],
+  "selected_rewrite_source_sha256": {
+    "chimera/firmware/main.c": "23b8fccf0d66ac0b7b023f9b11faa626ad5f3d54cca6fab3a3938cf7bea19e8a",
+    "chimera/firmware/can_codec.c": "e9313054c3a628b5d3828d12ad5eeefe09c38d60b48dbc0e999fa39d59d3f94c",
+    "chimera/firmware/usb_service.c": "ee83fa57abb97e380ee7d2ee036b65cde3d48108b26b2733835142562ae6bb2b",
+    "chimera/firmware/usb_driver.c": "8ae4e33f5bf45dcbdc7384d7892478a279a28199ce8feafef2df3c7c75b88a84"
+  },
+  "evidence_used": [
+    "Existing teacher knowledge graph Chimera node/neighborhood, followed into current source",
+    "Panda main.c/main_comms.h/can_common.h and red board capability definitions",
+    "Old Chimera DC handler, relay loop and can_send",
+    "New Chimera main with NULL profile/USB_HELD plus saved lifecycle/source contracts",
+    "Fresh official pinned Panda README, comma safety docs and Chimera hardware wiki"
+  ],
+  "skills": [
+    "understand-explain",
+    "source-driven-development",
+    "code-review-and-quality",
+    "unlazy final request/claim reconciliation (factual reply: no new gate ledger)",
+    "documentation-and-adrs",
+    "git-workflow-and-versioning"
+  ],
+  "rea": "Not applicable to this source explanation; no binary/runtime claim",
+  "verification": "source hashes, notebook links, QA equality and whitespace only; no test-suite/build/device action",
+  "limits": [
+    "Installed old firmware exact source/image match unresolved",
+    "Current project passive native entry accepts F4v17; native old-Chimera session remains proposed",
+    "Rewrite halted, no production attachment/bulk CAN/input/config/active vehicle integration",
+    "No fresh firmware/native/USB/CAN/physical tests",
+    "CAN FD mentioned only as red hardware capability, outside project scope"
+  ]
+}

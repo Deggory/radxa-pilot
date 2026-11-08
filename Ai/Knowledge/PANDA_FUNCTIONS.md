@@ -1,3 +1,8 @@
+## November8comparison follow-up
+
+See [four identities and capability differences](PANDA_CHIMERA_COMPARISON.md).
+The31source pins still match; this is a source follow-up, not a new hardware test.
+
 # Panda functions and Chimera relevance
 
 November 8, 2026. Project baseline `560e3ea87c0961bb9da2cf550b154011ae985184`, Panda `8a16e089`,

@@ -1,3 +1,12 @@
+## November 8 — Panda / original Chimera / rewrite explained (QA23)
+
+Compared black/F413 Panda, original Chimera, red/H725 Panda and the halted
+F413 rewrite. See PANDA_CHIMERA_COMPARISON and the November8comparison session.
+31prior inventory hashes and76legacy files match; no new runtime/build/device
+test. Modern safety/diagnostics differ; old retrofit I/O stays distinct. Native
+old-Chimera RX remains proposed; classic-only scope and update hold unchanged.
+Next: await owner-selected task; this explanation resumes no implementation.
+
 ## November 8 — Skills adopted; teacher audit and shutdown (QA21–22)
 
 Understand Anything and Unlazy are installed; the earlier proposed-only status

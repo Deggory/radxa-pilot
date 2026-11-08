@@ -1,3 +1,13 @@
+## QA-20261108-23 — Original Chimera, new rewrite and Panda capabilities
+
+**Date:** November 8, 2026 UTC.
+**Owner question (faithful quote):** "now use all the skill u learn ,tell me about chimera old and new panda ,wat new have that old dont have ,teacher tell wat u knw about panda".
+**Answer:** Distinguished older black/F413 Panda, original F413 Chimera, modern red/H725 Panda and our unfinished halted F413 rewrite. Panda bridges host USB and CAN, enforces the configured firmware safety policy and reports hardware/bus state; the host runs driving AI. Current Panda adds a model-aware safety dispatcher, richer fault/per-bus diagnostics, layout identity and modern checksummed variable CAN framing relative to the preserved original Chimera. H725 adds hardware CAN FD, outside our project scope. Stock older Panda also had safety rules, so safety is not red-only. Original Chimera retains retrofit direct/analog/pulse inputs, config/JSON, relay and OBD-C; its TX path lacks modern safety hooks. Its DC handler only changes a request variable, while saved relay GPIO follows ignition; no heartbeat-driven physical cutoff is proven. The new rewrite has tested offline USB/codec/state foundations but actual startup stays held and full operational CAN/input/config/safety/board validation remains incomplete. Current native Radxa entry is passive F4v17; native old-Chimera session remains proposed. No implementation resumed.
+**Evidence/source pins:** Baseline efe4e9c951ebd1a994cc04a31ef36533bda65e4d; Panda8a16e089b88593914823743df29e1c30b7dd3e00, opendbc150f937198ceab43c43b39f94b9bdea63fcb633c; student Ai/Knowledge/PANDA_CHIMERA_COMPARISON.md and Ai/Evidence/panda-chimera-comparison-20261108.json. Fresh current-source comparison,31inventory hashes and76preserved legacy files match; four rewrite hashes pinned. Official pinned Panda README, comma safety and Chimera hardware wiki reopened. Existing teacher graph node/neighborhood used only as a source route.
+**Status/limits:** Explanation and synchronized notebook update only. Source/notebook/QA/whitespace verification; no fresh firmware/native tests/build, REA artifact/runtime claim, hardware/USB/CAN/relay/flash, model, upstream update or push. Installed legacy image/source equivalence remains unresolved; rewrite remains halted; classic CAN scope retained. Skill selection is task-relevant, not blanket activation of unrelated skills. Existing unanswered entries preserved.
+
+---
+
 ## QA-20261108-22 — Audit the teacher, then shut down Radxa
 
 **Date:** November 8, 2026 UTC.
