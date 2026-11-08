@@ -1,0 +1,27 @@
+{
+  "observed_at_utc": "2026-11-08T10:20:04.197877+00:00",
+  "baseline": "c17d6b6f3be7ced9c8f3c3722d6e08cef11be914",
+  "sysfs_path": "/sys/bus/usb/devices/3-4.1",
+  "usb_descriptors": {
+    "idVendor": "bbaa",
+    "idProduct": "ddcc",
+    "manufacturer": "RetroPilot",
+    "product": "Chimera",
+    "serial": "3a0044001651333038373636",
+    "busnum": "3",
+    "devnum": "6",
+    "bcdDevice": "2300",
+    "speed": "12",
+    "authorized": "1"
+  },
+  "lsusb": "Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub\nBus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub\nBus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub\nBus 003 Device 002: ID 2bcf:1258 SunplusIT Inc AK-Camera\nBus 003 Device 003: ID 1a86:8091 QinHeng Electronics USB HUB\nBus 003 Device 004: ID 2109:2812 VIA Labs, Inc. VL812 Hub\nBus 003 Device 005: ID 3554:fc03  2.4G Receiver\nBus 003 Device 006: ID bbaa:ddcc RetroPilot Chimera\nBus 003 Device 007: ID 13d3:3570 IMC Networks Bluetooth Radio\nBus 003 Device 008: ID 1a2c:6004 China Resource Semico Co., Ltd USB Keyboard\nBus 004 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub\n",
+  "scope": "Linux USB enumeration and cached sysfs descriptors only",
+  "not_performed": [
+    "vendor firmware/health queries",
+    "USB interface claim",
+    "CAN read or write",
+    "pandad startup",
+    "reset/config/flash"
+  ],
+  "limits": "USB detection does not establish firmware version, native session compatibility, CAN availability or vehicle safety"
+}

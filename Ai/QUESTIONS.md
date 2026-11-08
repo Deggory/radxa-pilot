@@ -1,3 +1,13 @@
+## QA-20261108-29 — Does Radxa detect USB Chimera?
+
+**Date:** November 8, 2026 UTC.
+**Owner request (faithful quote):** "see if radxa detect the usb chimera".
+**Answer:** Yes. Live lsusb and cached Linux sysfs descriptors show one RetroPilot Chimera, VID/PID bbaa:ddcc, serial3a0044001651333038373636, bus003/device006, sysfs3-4.1, authorized1 and USB speed12Mb/s. It enumerates as Chimera rather than STM32 DFU.
+**Evidence/source pins:** Clean project baseline c17d6b6f3be7ced9c8f3c3722d6e08cef11be914; timestamped student Ai/Evidence/chimera-usb-enumeration-20261108.json contains actual lsusb output and sysfs identity fields. Existing October14same-serial evidence is historical; this entry is a fresh November8enumeration check.
+**Status/limits:** Requested read-only USB detection completed. No vendor firmware/version/health request, interface claim, CAN read/write, pandad startup, reset/config/flash, upstream update or push. This does not qualify the installed image, native reception, vehicle signals or safety; earlier physical CAN/relay limits remain. Holds/unanswered entries preserved.
+
+---
+
 ## QA-20261108-28 — How is safety handled in the new Chimera path?
 
 **Date:** November 8, 2026 UTC.

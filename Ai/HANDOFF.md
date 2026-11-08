@@ -1,3 +1,12 @@
+## November8 — Live USB Chimera detected (QA29)
+
+Linux enumerates RetroPilot Chimera bbaa:ddcc, serial3a0044001651333038373636,
+bus003/device006 atsysfs3-4.1. Fresh lsusb/sysfs-only receipt is in student
+Ai/Evidence/chimera-usb-enumeration-20261108.json. No firmware/health/CAN query
+or pandad startup; actual native/vehicle/relay qualification remains pending.
+No source/hardware configuration changes; rewrite/update holds unchanged.
+Next: owner-selected scope beyond completed USB detection.
+
 ## November8 — Safety boundary clarification (QA28)
 
 Read-only host guards prevent commands through this adapter; they do not add

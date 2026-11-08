@@ -117,3 +117,14 @@ cutoff. No changes to code, firmware, DBC or submodules; no tests rerun beyond
 notebook/QA/whitespace/source preservation checks. No REA runtime/binary task,
 hardware, update or push. Next step/holds unchanged. Actual source hashes,
 validation, commit and clean readback: central SAFETY_FOLLOWUP.json receipt.
+
+## Requested live USB detection (QA29)
+
+Fresh lsusb/sysfs check detects RetroPilot Chimera bbaa:ddcc, exact saved serial
+3a0044001651333038373636, bus003/device006, sysfs3-4.1, authorized1,12Mb/s.
+USB enumeration only; no vendor request/interface claim, CAN traffic, daemon,
+reset/flash/config action or physical safety qualification. Baselinec17d6b6f;
+timestamped raw receipt in student Ai/Evidence/chimera-usb-enumeration-20261108.json.
+Documentation/Git skills used for closeout; no binary/REA task or application
+change. Notebook/QA/whitespace checks and clean commit readback are recorded
+in central USB_DETECTION_FOLLOWUP.json. No push/update; holds unchanged.
