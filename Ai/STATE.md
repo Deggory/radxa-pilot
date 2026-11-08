@@ -1,3 +1,12 @@
+## November 8 — CAN connector IGN power is zero (QA37)
+
+Latest owner description is IGN beside CANH/CANL/GND. Saved board photo viewed;
+wiki identifies connector IGN as ignition-controlled 12 V peripheral power.
+USB-only/no external ignition supply explains absent connector 12 V; this does
+not prove internal CAN transceivers are unpowered. Prior sensor-input answer
+is preserved and distinguished. See QA37/voltage report; no hardware change.
+Next electrical diagnosis remains; CAN acceptance and existing holds unchanged.
+
 ## November 8 — Startup versus ignition-controlled relay (QA36)
 
 Fresh source trace finds no IGN gate on gateway startup, USB, CAN1/2/3 init,

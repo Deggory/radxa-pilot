@@ -53,3 +53,18 @@ rails/enable/termination remain open; no fresh runtime or hardware action.
 Baseline 03738248e61f8423de093b550640760d807adec7. Source-first debugging and
 documentation verification only; no binary analysis or unrelated graph build.
 Central CODE_ACTIVATION_FOLLOWUP.json retains source pins and validation.
+
+## CAN connector IGN clarification — November 8 (QA37)
+
+Latest owner description is the IGN/CANH/CANL/GND connector. Inspected retained
+ocelot/hardware/chimera/chimera-board.jpg; its CAN connector labels and separate
+IGN/VSS/CPS/BRAKE input are visible. Official wiki identifies CAN connector IGN
+as ignition-controlled 12 V peripheral power. With current USB-only power and
+no external ignition feed, zero there is expected, not proof of lost internal
+CAN transceiver supply. Peripheral power and raw CAN data path remain distinct.
+Prior QA35 input identification is historical owner evidence, not overwritten;
+this dated clarification records the latest description. No hardware change.
+Direct wiki hosted image could not be retrieved (HTTP403/tool error); the local
+board photo was viewed instead. Source-first photo/wiki/documentation checks;
+no unrelated binary/REA or new graph/runtime test. Source/photo pins and actual
+validation receipt: central CONNECTOR_IGN_FOLLOWUP.json. Existing holds remain.

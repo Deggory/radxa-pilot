@@ -1,3 +1,13 @@
+## QA-20261108-37 — IGN beside CANH/CANL/GND measures zero
+
+**Date:** November 8, 2026 UTC.
+**Owner question (faithful quote):** "if u see the picture of chimera u will see gnd ,can l ,can h ,and ign ,but ignition voltage is 0".
+**Answer:** The latest description refers to the four-terminal CAN connector, whose IGN pin is documented as ignition-controlled 12 V power for connected devices. In the known USB-only setup without an external ignition supply, 0 V at that connector power terminal is expected; USB does not provide this documented 12 V feed. This is distinct from the sensor-header IGN input beside VSS/CPS/BRAKE discussed in QA35. Dated clarification: preserve the actual earlier owner answer identifying the input, but use the CAN-connector identification for this latest question; no physical probing or routing change is inferred. Zero on the connector IGN power pin does not establish missing internal CAN transceiver power or the cause of zero received frames. Devices relying on this connector power would lack their intended supply. No new power/IGN connection is prescribed.
+**Evidence/source pins:** Official https://wiki.retropilot.org/index/hardware/chimera reopened November 8: CAN power descriptions and pinout distinguish IGN connector power from the sensor IGN input. Locally saved ocelot/hardware/chimera/chimera-board.jpg visually inspected: IGN/CANH/CANL/GND on CAN connectors and separate IGN/VSS/CPS/BRAKE header. Accepted chimera/docs/OCELOT_BASE_POWER.md documents USB-to-internal-5 V path. Source baseline 857d6c0ed986a92246ddd7618da2bc9aa9385d60; report CONNECTOR_IGN_FOLLOWUP.json pins photo/source hashes. Wiki hosted detail image retrieval failed with HTTP403/tool error; the retained local board photo was actually viewed.
+**Status/limits:** Explanation and synchronized memory only; no fresh meter/USB/CAN/IGN/relay/config/flash action, code/firmware/DBC/model change, upstream update or push. Owner reports zero at the described connector; actual power-net routing, chip rails/enable and installed-source equality remain unqualified. Existing CAN acceptance remains zero received frames. Next direct USB supply comparison and electrical diagnosis; existing holds/unanswered entries preserved.
+
+---
+
 ## QA-20261108-36 — Does Chimera activate only with 12 V on IGN?
 
 **Date:** November 8, 2026 UTC.

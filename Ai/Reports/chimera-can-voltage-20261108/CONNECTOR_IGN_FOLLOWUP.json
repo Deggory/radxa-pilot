@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-08",
+  "question": "QA-20261108-37",
+  "baseline": "857d6c0ed986a92246ddd7618da2bc9aa9385d60",
+  "wiki": "https://wiki.retropilot.org/index/hardware/chimera",
+  "photo_inspection": "Local board photo viewed; labels and separate input header visible",
+  "wiki_hosted_detail_image": "unavailable HTTP403/tool error; not visually inspected",
+  "source_hashes": {
+    "/home/radxa/comma/ocelot/hardware/chimera/chimera-board.jpg": "ad019e5ed6aa1365ed5d4a3f5dde462b0e84c9f65b353f567532221056af9fac",
+    "/home/radxa/comma/sunnypilot/chimera/docs/OCELOT_BASE_POWER.md": "b5bb3eaba1872d415e097f5ad0356d7327f29c4689acf6e8c4a16758f061f96a"
+  },
+  "hardware_actions": "none",
+  "CAN_acceptance": "unresolved; no new runtime test"
+}
