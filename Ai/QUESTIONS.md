@@ -1,3 +1,33 @@
+## QA-20261108-64 — Is CAN2_TERM jumper fitted?
+
+Date: 2026-11-08. Asked: “On Chimera, is a jumper currently fitted across the
+two pins labelled CAN2_TERM? Please only inspect it; leave the wiring and power
+unchanged.” Actual owner answer: “Jumper fitted”. This records the owner’s
+visual observation, not measured termination resistance or proof of contact.
+Sensor internal termination is unknown. Current four voltage readings remain
+sensor supply 12 V, Chimera labelled 5V 5.05 V, CAN2 H/L 3.3/1.8 V to GND.
+
+Answer/next action requested: power off both Chimera USB and sensor supply,
+keep CAN pair and jumper connected, check zero H–L voltage before Ω mode,
+measure H–L resistance and leave both off. Result/power-off not yet confirmed.
+Two passive 120 Ω terminations in parallel predict about60 Ω; about120 Ω
+suggests one effective terminator, not which endpoint. Electronics, contacts
+and topology can affect the measurement; no resistor addition/removal ordered.
+Sources read 2026-11-08: Kvaser “How to test if your CAN termination works
+correctly” (https://kvaser.com/developer-blog/how-to-test-your-can-termination-works-correctly/),
+Enovation Controls troubleshooting guide (https://support.enovationcontrols.com/hc/en-us/articles/360038856494-CAN-BUS-Troubleshooting-Guide-with-Video).
+These general CAN references do not establish this sensor’s internal circuit.
+
+Evidence/status: baseline 7b07eff239bd4769d31336e53341f6dfdd1f5c3a;
+Ai/Reports/chimera-can-levels-recheck-20261108/TERMINATION_FOLLOWUP.json in both
+notebooks. Implemented: synchronized jumper observation and next-test handoff.
+Pending: owner powered-off resistance result. No new hardware/runtime test or
+USB/config/flash/wiring/product/upstream action. Latest QA61 capture stays0.
+Power cycling loses temporary CAN2=500k; matching nightly saved zero predicts
+250k boot. Reapply already authorized temporary500k before a later receive test;
+do not interpret post-reboot250k failure as a fresh500k test. No reset occurred
+by tool here. Prior manual G3 reading collection remains met; CAN fault unresolved.
+
 ## QA-20261108-63 — Separate sensor supply voltage
 
 Date: 2026-11-08. Asked: “What voltage does the steering-angle sensor’s separate

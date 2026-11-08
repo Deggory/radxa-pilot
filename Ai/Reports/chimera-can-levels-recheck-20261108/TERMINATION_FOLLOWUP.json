@@ -1,0 +1,30 @@
+{
+  "date": "2026-11-08",
+  "qa": "QA-20261108-64",
+  "baseline": "7b07eff239bd4769d31336e53341f6dfdd1f5c3a",
+  "question_verbatim": "On Chimera, is a jumper currently fitted across the two pins labelled CAN2_TERM? Please only inspect it; leave the wiring and power unchanged.",
+  "owner_answer_verbatim": "Jumper fitted",
+  "observation": "Owner visual confirmation only; contact/resistance not measured",
+  "termination_resistance_ohms": null,
+  "sensor_internal_termination": "unknown",
+  "power_off_status": "requested; not yet owner-confirmed",
+  "requested_procedure": [
+    "Disconnect Chimera USB power and sensor supply; no other power source connected",
+    "Keep CAN pair and CAN2_TERM jumper connected",
+    "Verify no H-L voltage before meter resistance mode",
+    "Measure H-L resistance, leave devices off, report numeric result"
+  ],
+  "interpretation_reference": {
+    "two_passive_120_ohm_terminators_in_parallel": "approximately60 ohms",
+    "one_effective_120_ohm_terminator": "approximately120 ohms; does not identify endpoint"
+  },
+  "sources": [
+    "https://kvaser.com/developer-blog/how-to-test-your-can-termination-works-correctly/",
+    "https://support.enovationcontrols.com/hc/en-us/articles/360038856494-CAN-BUS-Troubleshooting-Guide-with-Video"
+  ],
+  "restart_handoff": "Any power cycle loses prior temporary CAN2 500k setting; saved CAN2 zero in matching nightly predicts250k at boot. Reapply authorized temporary500k and select exact original Chimera identity before next capture. No command sent this turn.",
+  "latest_capture": "QA61 zero bytes; historical, not rerun",
+  "hardware_actions_this_turn": [],
+  "unresolved": "CAN fault; actual termination, sensor traffic, transceiver VCC/STB/RXD, active controller timing",
+  "checks": "Teacher/student Q&A and JSON equality; historical capture preservation; git diff --check. No fresh hardware test."
+}
