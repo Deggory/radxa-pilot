@@ -1,0 +1,58 @@
+{
+  "date": "2026-11-08",
+  "question": "QA-20261108-51",
+  "baseline": "481dc7e80ddd9e7acf661097ddd71aa9d088cad4",
+  "owner_question": "why we cannot get low voltage on can side",
+  "clarification_reply": "yes",
+  "interpretation": "Conditional explanation of earlier low CAN-to-ground readings; yes did not provide fresh numeric readings or resolve both alternatives of clarification.",
+  "readings_distinct": {
+    "earlier_chimera_each_wire_to_ground_V": "1.0..1.15",
+    "earlier_labelled_5V_to_ground_V": 4.5,
+    "earlier_labelled_3V3_to_ground_V": 3.35,
+    "later_separate_waveshare_sensor_bench_V": {
+      "CANH": 3.33,
+      "CANL": 1.88
+    },
+    "current_chimera_numeric_measurements": "not supplied"
+  },
+  "primary_source": {
+    "url": "https://www.nxp.com/docs/en/data-sheet/TJA1042.pdf",
+    "version": "Rev11,16January2023",
+    "accessed": "2026-11-08",
+    "sections": "7.1,7.2.4,Table7pages9..11"
+  },
+  "reference_facts": {
+    "normal_idle_nominal5V_each_wire_V": 2.5,
+    "dominant_typical_CANH_CANL_V": [
+      3.5,
+      1.5
+    ],
+    "specified_VCC_range_V": [
+      4.5,
+      5.5
+    ],
+    "VCC_undervoltage": "can force standby regardless of STB",
+    "standby_bias": "toward ground",
+    "signaling": "differential; meter averages cannot establish waveform/bitrate/ACK"
+  },
+  "local_evidence": {
+    "power": "USBVBUS -> BAS40 -> shared5V/CANVCC; downstream3.3V MCU rail",
+    "health": "main.c115/116hardcode voltage/current0; no measured CAN-pin voltages in this health packet",
+    "startup": "gateway_init enables transceivers, but actual installedSTB/VCCnot read",
+    "core_config": "savedCAN2zero is not measured low voltage or proof of standby"
+  },
+  "hypotheses_not_diagnoses": [
+    "CAN chip supply low/dipping or poor local supply path",
+    "standby/enable or transceiver fault",
+    "ground-reference/wiring/loading issue"
+  ],
+  "next_check": "Compare labelled5V/3.3V to same Chimera GND on short direct USB; if needed qualified accessible supply/STB and differential waveform checks. No small-pin probe or power-injection procedure prescribed.",
+  "new_hardware_actions": false,
+  "product_changes": false,
+  "source_sha256": {
+    "sunnypilot/chimera/docs/OCELOT_BASE_POWER.md": "b5bb3eaba1872d415e097f5ad0356d7327f29c4689acf6e8c4a16758f061f96a",
+    "sunnypilot/chimera_old/firmware/boards/gateway.h": "26425d76947291d4711f36330b7e700e91d803622b42fe6e79c88f687f29451f",
+    "sunnypilot/chimera_old/firmware/chimera/main.c": "5d1dd3b0400ec80da9b477abfced51c9346674865ce5ad86d7e5a012c2d94883"
+  },
+  "limits": "No current numeric rail/CAN readings, waveform, VCC/STB or cause established; USB enumeration alone does not qualify transceiver. Existing holds unchanged."
+}

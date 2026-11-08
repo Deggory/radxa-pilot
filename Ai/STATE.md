@@ -1,3 +1,13 @@
+## November 8 — Low CAN voltage explained conditionally (QA51)
+
+Owner answered yes but supplied no fresh numeric readings. Earlier Chimera
+1..1.15Vperwire/5Vrail4.5V remains distinct from direct-sensor3.33/1.88V.
+USB/3.3Vhealth does not prove CAN5V/STB; undervoltage/standby/ground/loading
+are leads, not diagnoses. Healthvoltage/current0are placeholders; savedCAN2zero
+is not voltage readback. See voltage report LOW_VOLTAGE_FOLLOWUP.json/QA51.
+No hardware/config action. Next directUSBrail comparison and qualified VCC/STB/
+waveform if needed; no measured cause or current values, existing holds retained.
+
 ## November 8 — Live Core Config read found saved CAN2 zero (QA50)
 
 New read-only original Chimera snapshot:776bytes, twice identical, valid magic/

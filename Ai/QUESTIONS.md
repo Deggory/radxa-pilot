@@ -1,3 +1,14 @@
+## QA-20261108-51 — Why the low voltage on the CAN side?
+
+**Date:** November 8, 2026 UTC.
+**Owner question (faithful quote):** "why we cannot get low voltage on can side".
+**Owner clarification:** Replied "yes" to an either/or question about earlier1..1.15Veach-wire readings versus CAN-L never going low; no fresh numeric readings supplied. Interpretation remains conditional, not a newly measured voltage.
+**Answer:** If referring to the earlier low CAN readings, USB can work while CAN does not: the MCU uses the3.3Vrail, while the reference CAN transceiver needs its5Vsupply and normal-mode enable. Previously measured labelled3.3V=3.35Vdoes not qualify CANVCC; labelled5V=4.5Vis at the reference specified minimum, not a measured undervoltage at the chip. The accepted base includes a BAS40USB feed diode; its drop, wiring/supply losses, standby/enable, grounding/loading or a chip fault are possible leads, not diagnosed causes. Reference normal idle is about2.5Veach wire at5V; dominant CANH/L typically3.5/1.5V. A DC meter averages traffic; low common-mode alone cannot establish loss of valid differential signaling. NXP states VCCundervoltage can force standby and standby biases lines toward ground. pandad cannot measure or correct these analog rails; the preserved Chimera health voltage/current fields are hardcoded0. Saved CAN2speed0is not a voltage measurement. Next short/direct USB labelled-rail comparison, then qualified CANVCC/STB/waveform checks if needed. Later3.33/1.88Vreports were a different direct sensor setup and are not current Chimera readings.
+**Evidence/source pins:** Baseline481dc7e80ddd9e7acf661097ddd71aa9d088cad4; Ai/Reports/chimera-can-voltage-20261108/LOW_VOLTAGE_FOLLOWUP.json. NXP TJA1042Rev11 https://www.nxp.com/docs/en/data-sheet/TJA1042.pdf reopenedNovember8,sections7.1/7.2.4/Table7. chimera/docs/OCELOT_BASE_POWER.md, chimera_old/firmware/chimera/main.c115, boards/gateway.h5/98; selected hashes in report. Prior QA34/38/39/40/45retained.
+**Status/limits:** Source/datasheet explanation and synchronized memory only; no new USB/CAN/config/standby/reset/flash/ignition/power/wiring/game/vehicle action or product/DBC/model/update/push change. Cause and current numeric measurements remain unresolved; yes does not close that measurement gap. Existing source/image equivalence, physical CAN and write/update holds remain.
+
+---
+
 ## QA-20261108-50 — Inspect RetroPilot Core Config for a CAN clue
 
 **Date:** November 8, 2026 UTC.

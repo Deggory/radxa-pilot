@@ -158,3 +158,13 @@ and VCC undervoltage can force standby despite low STB. Source proves intent,
 not installed GPIO/STB/VCC state or exact de193215 image equality. Read-only
 source/datasheet debugging, no binary/REA task or fresh runtime measurement.
 STANDBY_CODE_FOLLOWUP.json retains hashes; central copy holds actual closeout.
+
+## November 8 — Low-voltage follow-up (QA51)
+
+Owner's yes did not supply fresh numeric readings. The earlier Chimera1..1.15V
+perwire and labelled5V4.5V/3.3V3.35V remain historical; later3.33/1.88Vwere the
+separate direct sensor bench. MCUUSB operation does not qualify CANVCC/STB.
+[Updated source/datasheet explanation](LOW_VOLTAGE_FOLLOWUP.json) preserves
+undervoltage/standby/ground/loading hypotheses, differential-meter limitations
+and hardcoded healthvoltage/current0. StoredCAN2zero is not analog readback.
+No new electrical test or source/config action; exact cause unresolved.
