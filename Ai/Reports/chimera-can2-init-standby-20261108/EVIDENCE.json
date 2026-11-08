@@ -174,9 +174,14 @@
     "B7_constant": "56494e31"
   },
   "physical_readings": {
-    "status": "partial unassigned response; clarification pending",
-    "owner_reply_verbatim": "3.3 and 1.8",
-    "new_values_by_measurement_point": null
+    "status": "CAN2H/L confirmed; supply-point clarification pending",
+    "initial_reply_verbatim": "3.3 and 1.8",
+    "confirmation_verbatim": "Yes, CAN-H 3.3 V and CAN-L 1.8 V",
+    "new_values_by_measurement_point": {
+      "CAN2_CANH_to_Chimera_GND_V": 3.3,
+      "CAN2_CANL_to_Chimera_GND_V": 1.8
+    },
+    "unassigned_supply_reply_verbatim": "5.05"
   },
   "preservation": {
     "legacy_file_count": 76,

@@ -1,3 +1,28 @@
+## QA-20261108-61 — Confirmed CAN2 H/L readings; one supply value still unassigned
+
+Date: 2026-11-08. Actual owner answers: “Yes, CAN-H 3.3 V and CAN-L 1.8 V”,
+confirming each is measured to ChimeraGND; “5.05” in response to a question
+requesting both labelled5Vand separate sensor-supply output readings.
+Answer/action: CAN2H/Lare now recorded as3.3/1.8V(owner-reported), resolving
+QA60pin ambiguity for those values only. Asked which supply5.05Vbelongs to;
+do not silently assign it to one/both. Current supply/standby/RXD and valid
+frame reception remain unqualified. DC voltage alone does not prove CAN traffic.
+
+Fresh read-only capture after current levels confirmed: exact original serial/
+version/signature match,8.001084505s/4091reads/16health,0payload bytes before
+parsing and0frames all0/1/2. Uptime25360..25367is consistent with continued
+power since previous23897; active BTRstillunread. No OUT/rate/config/reset/
+flash/heartbeat/CAN dataTX/port movement. USB released. Native/DBC preserved;
+no unnecessary new native/unit test run. This is not a successful CAN test.
+
+Evidence/status: baseline89ab3037ad7c7ea1cfdfc44a842120c7423a878d;
+Ai/Reports/chimera-can-levels-recheck-20261108/README.md/EVIDENCE.json(student),
+central same report raw USB evidence. Init-standby report receives dated status
+update without deleting prior evidence. Both notebooks synchronized. G3physical
+readings remains unmet until supplies are named/completed; existing holds stay.
+Next assign5.05Vand obtain remaining supply value, then electrical/termination/
+controller diagnosis. No new hardware-power or firmware action authorized here.
+
 ## QA-20261108-60 — Partial voltage response; measurement points need confirmation
 
 Date: 2026-11-08. Owner answer (verbatim): “3.3 and 1.8”, in response to the

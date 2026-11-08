@@ -1,0 +1,88 @@
+{
+  "owner_readings": {
+    "CAN2_CANH_to_Chimera_GND_V": 3.3,
+    "CAN2_CANL_to_Chimera_GND_V": 1.8,
+    "provenance": "owner explicitly confirmed measurement points",
+    "unassigned_supply_reply": "5.05",
+    "supply_point_clarification": "pending",
+    "prior_baseline": "89ab3037ad7c7ea1cfdfc44a842120c7423a878d",
+    "read_only_recheck_reason": "current bus levels now explicitly confirmed after earlier low readings and negative runtime test"
+  },
+  "capture": {
+    "board": {
+      "bus": 3,
+      "address": 21,
+      "pid": 56780,
+      "product": "Chimera",
+      "serial": "3a0044001651333038373636"
+    },
+    "version": "v1.0.0-DEV-de193215-DEBUG",
+    "signature_matches_saved_nightly": true,
+    "duration_seconds": 8.001084504998289,
+    "polls": 4091,
+    "bulk_bytes_before_decoder": 0,
+    "usb_return_codes": {
+      "0": 4091
+    },
+    "actual_length_histogram": {
+      "0": 4091
+    },
+    "per_bus_frames": {
+      "0": 0,
+      "1": 0,
+      "2": 0
+    },
+    "bus_ids": {},
+    "out_requests": 0,
+    "closed": true,
+    "error": null,
+    "health_count": 16,
+    "first_health": {
+      "uptime": 25360,
+      "voltage": 0,
+      "current": 0,
+      "can_rx_errs": 0,
+      "can_send_errs": 0,
+      "can_fwd_errs": 0,
+      "gmlan_send_errs": 0,
+      "faults": 0,
+      "ignition_line": 0,
+      "ignition_can": 0,
+      "controls_allowed": 0,
+      "gas_interceptor_detected": 0,
+      "car_harness_status": 0,
+      "usb_power_mode": 0,
+      "safety_model_raw": 17,
+      "safety_param_raw": 0,
+      "fault_status": 0,
+      "power_save_enabled": 0
+    },
+    "last_health": {
+      "uptime": 25367,
+      "voltage": 0,
+      "current": 0,
+      "can_rx_errs": 0,
+      "can_send_errs": 0,
+      "can_fwd_errs": 0,
+      "gmlan_send_errs": 0,
+      "faults": 0,
+      "ignition_line": 0,
+      "ignition_can": 0,
+      "controls_allowed": 0,
+      "gas_interceptor_detected": 0,
+      "car_harness_status": 0,
+      "usb_power_mode": 0,
+      "safety_model_raw": 17,
+      "safety_param_raw": 0,
+      "fault_status": 0,
+      "power_save_enabled": 0
+    }
+  },
+  "baseline": {
+    "head": "89ab3037ad7c7ea1cfdfc44a842120c7423a878d",
+    "native_sha256": "e9e692b6bfaf67d4c9061f4645a89d8337fc938bd857cf03e03f6a3454f81a84",
+    "canonical_DBC_sha256": "b4079670b8118fe63c6a7710ca1158afaabfec7df881ef902e43d70d70a36b67"
+  },
+  "USB_owners_after": [],
+  "physical_gate": "G3 unmet; supply assignment/remaining voltage pending"
+}

@@ -1,3 +1,12 @@
+## November 8 — CAN2 H/L confirmed3.3/1.8V; fresh raw RX still0 (QA61)
+
+Owner confirms both toChimeraGND. Reply5.05to two supply questions remains
+unassigned; single clarification asks which supply. Fresh IN-only8.001s/4091reads/
+16health0USB bytes; exact identity/signature, USB closed, no OUT/rate change.
+See Reports/chimera-can-levels-recheck-20261108(student). H/Lstatus supersedes
+QA60ambiguity; G3stillneedsnamed supply readings. No supply/standby health proof;
+other holds and remaining controller/electrical/termination work retained.
+
 ## November 8 — Partial voltage reply awaits pin confirmation (QA60)
 
 Owner supplied “3.3 and 1.8” for a four-reading request. Values saved unassigned;

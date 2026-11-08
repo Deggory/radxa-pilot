@@ -1,3 +1,12 @@
+## November 8 follow-up — CAN2 H/L now confirmed (QA61)
+
+Owner confirms CANH3.3V/CANL1.8V to ChimeraGND. Separate reply5.05has not yet
+been assigned to Chimera5Vrail or sensor supply; clarification asked. Fresh
+IN-only8.001s/4091reads/16health remains0USB bytes/frames; readerclosed. See
+../chimera-can-levels-recheck-20261108/README.md. G3stillneedsnamed supply readings;
+no healthy-supply diagnosis, new OUT or product change. This supersedes QA60's
+unassigned H/L status only; old measurements/captures remain historical.
+
 ## November 8 follow-up — partial voltage reply (QA60)
 
 Owner replied “3.3 and 1.8” to the four-reading question. Measurement points
