@@ -61,3 +61,16 @@ source/result receipt: Ai/Evidence/chimera-native-passive-20261108.json.
 
 Final Unlazy gate execution and clean commit readback follow this verified source
 checkpoint, with the actual active ledger and final receipt in teacher Ai.
+
+## Completed code checkpoint
+
+Committed 008a7e81a8aad2d3c91f31de5463953f56d587bb locally onradxa/q8b, clean, no push.
+All five Unlazy gates were executed after that code commit and passed:
+5met,0unmet,0abandoned.11native programs/45Python tests,432mailbox/5health
+parity vectors, ASan/UBSan and two caught mutations pass. All14source/result
+receipt hashes match current files;76original files and canonical DBC preserved.
+The portable FINAL_READBACK.json records the actual code checkpoint and native
+artifact hash. No real board/session qualification is implied.
+
+This documentation-only closeout saves the measured final result. The next
+step and remaining hardware/managed/control limits above remain in force.

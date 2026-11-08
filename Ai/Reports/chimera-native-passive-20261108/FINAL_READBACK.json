@@ -1,0 +1,34 @@
+{
+  "date": "2026-11-08",
+  "code_commit": "008a7e81a8aad2d3c91f31de5463953f56d587bb",
+  "branch": "radxa/q8b",
+  "checkpoint_clean": true,
+  "gates": {
+    "met": 5,
+    "unmet": 0,
+    "abandoned": 0,
+    "executed_after_code_commit": true
+  },
+  "native_programs_passed": 11,
+  "python_tests_passed": 45,
+  "native_python_vectors": {
+    "mailbox": 432,
+    "health": 5
+  },
+  "sanitizers": "pass with halt_on_error",
+  "copied_source_mutations_caught": 2,
+  "review": "independent production source review approved",
+  "source_receipt_hashes_match": 14,
+  "native_pandad_sha256": "e9e692b6bfaf67d4c9061f4645a89d8337fc938bd857cf03e03f6a3454f81a84",
+  "old_firmware_files_preserved": 76,
+  "canonical_dbc_preserved": true,
+  "runtime_hardware_qualification": false,
+  "push": false,
+  "unresolved": [
+    "Installed identity/source equivalence and physical bus/input qualification",
+    "Managed pandaStates, TX and MCU active safety are separate future scope",
+    "No record checksum or ECU freshness proof",
+    "New firmware rewrite remains halted"
+  ],
+  "exact_next_step": "Plan a separately qualified matching-board receive-only check; do not run hardware automatically"
+}

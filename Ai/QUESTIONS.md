@@ -6,6 +6,8 @@
 **Evidence/source pins:** Baseline249726e133e6e83241faae4699cca6eecb6a9c32; Panda8a16e089/opendbc150f9371. Student docs/CHIMERA_OLD_USB.md and Ai/Reports/chimera-native-passive-20261108 (contract, red/green evidence, verify.py and independent review). Source-derived literal/historical vectors and existing Python decoder used, with no required binary/REA artifact question. Final actual test/commit readback is in the receipt and session, not a hardware claim.
 **Status/limits:** Native target and11native programs,45Python regressions,432mailbox/5health parity vectors, ASan/UBSan, two caught copied-source mutations, Ruff and notebook/QA/whitespace checks passed; independent production review approved. Final full-gate/commit result is recorded at closeout. Original76firmware files and canonical DBC must remain unchanged. No physical USB/board/CAN/relay/vehicle run, firmware build/flash, update or push; new rewrite remains halted. Installed image/source equivalence, real bus/sensor routing, no-checksum integrity limits, timing and later managed/control qualification remain unresolved. No in-session automatic reconnect; explicit reopen is tested. Existing unanswered entries retained.
 
+**Completed checkpoint:** Code commit 008a7e81a8aad2d3c91f31de5463953f56d587bb; all five completion gates executed after commit:5met,0unmet,0abandoned; clean readback, no push. Portable FINAL_READBACK.json retains the actual source/runtime artifact checkpoint and limits.
+
 ---
 
 ## QA-20261108-24 — Which host file talks to a connected Panda?
